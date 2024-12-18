@@ -75,28 +75,18 @@ bool ScreenSaverInterfaceImpl::Lock(TQT_DBusError& dbuserror) {
     return true;
 }
 
-bool ScreenSaverInterfaceImpl::SimulateUserActivity(TQT_DBusError& dbuserror) {
-    tqDebug("SimulateUserActivity not implemented");
-    return true;
-}
-
-bool ScreenSaverInterfaceImpl::GetActive(bool& arg0, TQT_DBusError& dbuserror) {
-    tqDebug("GetActive not implemented");
-    return true;
-}
-
-bool ScreenSaverInterfaceImpl::GetActiveTime(TQ_UINT32& seconds, TQT_DBusError& dbuserror) {
-    tqDebug("GetActiveTime not implemented");
-    return true;
-}
-
-bool ScreenSaverInterfaceImpl::GetSessionIdleTime(TQ_UINT32& seconds, TQT_DBusError& dbuserror) {
-    tqDebug("GetSessionIdleTime not implemented");
-    return true;
-}
-
 bool ScreenSaverInterfaceImpl::SetActive(bool& arg0, bool e, TQT_DBusError& dbuserror) {
-    tqDebug("SetActive not implemented");
+
+    DCOPReply reply = m_kdesktopdcoprefobj.call("setBlankOnly",e);
+    if (!reply.isValid())
+    {
+        arg0 = false;
+        TQString err("ScreenSaverInterfaceImpl::Lock: there was some error using DCOP.");
+        tqDebug(err);
+        dbuserror = TQT_DBusError::stdFailed(err);
+        return false;
+    }
+    arg0 = true;
     return true;
 }
 
@@ -141,16 +131,6 @@ bool ScreenSaverInterfaceImpl::UnInhibit(TQ_UINT32 cookie, TQT_DBusError& dbuser
                     (isScreenSaverEnabled) ? "on" : "off"));
         }
     }
-    return true;
-}
-
-bool ScreenSaverInterfaceImpl::Throttle(const TQString& application_name, const TQString& reason_for_inhibit, TQ_UINT32& cookie, TQT_DBusError& dbuserror) {
-    tqDebug("Throttle not implemented");
-    return true;
-}
-
-bool ScreenSaverInterfaceImpl::UnThrottle(TQ_UINT32 cookie, TQT_DBusError& dbuserror) {
-    tqDebug("UnThrottle not implemented");
     return true;
 }
 

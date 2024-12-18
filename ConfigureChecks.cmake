@@ -445,6 +445,8 @@ if( BUILD_KDESKTOP )
   if( NOT DBUS_1_TQT_FOUND )
     tde_message_fatal( "dbus-1-tqt is required, but was not found on your system" )
   endif( )
+  
+  tde_setup_dbus( dbus-1-tqt )
 
 endif( )
 

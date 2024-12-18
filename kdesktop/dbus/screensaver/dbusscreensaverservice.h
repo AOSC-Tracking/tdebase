@@ -22,27 +22,28 @@
 #ifndef KDESKTOP_LOCK_DBUS_SCREENSAVER_DBUSSCREENSAVERSERVICE_H_
 #define KDESKTOP_LOCK_DBUS_SCREENSAVER_DBUSSCREENSAVERSERVICE_H_
 
-#include <tqdbusconnection.h>
 #include <tqmap.h>
+#include <tqdbusconnection.h>
 
-#include "dbus/screensaver/screensaverNode.h"
-#include "dbus/screensaver/dbusbaseNode.h"
+#include "dbus/interfaces/screensaverNode.h"
+#include "dbus/interfaces/dbusbaseNode.h"
 #include "screensaverInterfaceImpl.h"
 
 class ScreenSaverService: public org::freedesktop::screensaverNode
 {
+    friend class TDEDbusScreenSaver;
+
 public:
     ScreenSaverService(TQT_DBusConnection&);
     virtual ~ScreenSaverService();
-    void stopService();
 
 protected:
     virtual TQT_DBusObjectBase* createInterface(const TQString&);
+    ScreenSaverInterfaceImpl *screenSaverInterface;
 
 private:
     TQMap<TQString, TQT_DBusObjectBase*> m_interfaces;
     TQT_DBusConnection m_connection;
-    ScreenSaverInterfaceImpl *screenSaverInterface;
 };
 
 class RootNodeService: public DBusBaseNode
@@ -69,11 +70,11 @@ private:
     TQT_DBusConnection m_connection;
 };
 
-class FreeDekstopNodeService: public DBusBaseNode
+class FreeDesktopNodeService: public DBusBaseNode
 {
 public:
-    FreeDekstopNodeService(TQT_DBusConnection&);
-    virtual ~FreeDekstopNodeService();
+    FreeDesktopNodeService(TQT_DBusConnection&);
+    virtual ~FreeDesktopNodeService();
 protected:
     virtual TQT_DBusObjectBase* createInterface(const TQString&);
 private:
@@ -118,7 +119,7 @@ private:
 
     RootNodeService *rootService;
     OrgNodeService   *orgService;
-    FreeDekstopNodeService *freeDekstopNodeService;
+    FreeDesktopNodeService *freeDesktopNodeService;
     ScreenSaverService *screenSaverService;
 
 };

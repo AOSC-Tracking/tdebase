@@ -6,6 +6,7 @@
     </signal>
     <method name="Lock">
     </method>
+<!-- keep for future use
     <method name="SimulateUserActivity">
     </method>
     <method name="GetActive">
@@ -17,6 +18,7 @@
     <method name="GetSessionIdleTime">
       <arg name="seconds" type="u" direction="out"/>
     </method>
+ -->
     <method name="SetActive">
       <arg type="b" direction="out"/>
       <arg name="e" type="b" direction="in"/>
@@ -29,6 +31,7 @@
     <method name="UnInhibit">
       <arg name="cookie" type="u" direction="in"/>
     </method>
+<!-- keep for future use
     <method name="Throttle">
       <arg name="application_name" type="s" direction="in"/>
       <arg name="reason_for_inhibit" type="s" direction="in"/>
@@ -37,5 +40,6 @@
     <method name="UnThrottle">
       <arg name="cookie" type="u" direction="in"/>
     </method>
+ -->
   </interface>
 </node>

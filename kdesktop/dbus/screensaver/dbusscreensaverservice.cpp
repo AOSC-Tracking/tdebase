@@ -57,18 +57,18 @@ TQT_DBusObjectBase* OrgNodeService::createInterface(const TQString& interfaceNam
     return (TQT_DBusObjectBase*) m_interfaces[interfaceName];
 }
 
-FreeDekstopNodeService::FreeDekstopNodeService(TQT_DBusConnection &connection) :
+FreeDesktopNodeService::FreeDesktopNodeService(TQT_DBusConnection &connection) :
         DBusBaseNode(), m_connection(connection)
 {
     addChildNode("ScreenSaver");
     registerObject(m_connection, "/org/freedesktop");
 }
 
-FreeDekstopNodeService::~FreeDekstopNodeService()
+FreeDesktopNodeService::~FreeDesktopNodeService()
 {
 }
 
-TQT_DBusObjectBase* FreeDekstopNodeService::createInterface(const TQString& interfaceName)
+TQT_DBusObjectBase* FreeDesktopNodeService::createInterface(const TQString& interfaceName)
 {
     return (TQT_DBusObjectBase*) m_interfaces[interfaceName];
 }
@@ -85,14 +85,11 @@ ScreenSaverService::ScreenSaverService(TQT_DBusConnection &conn) :
 
 ScreenSaverService::~ScreenSaverService()
 {
-    stopService();
     if(screenSaverInterface)
+    {
+        screenSaverInterface->restoreState();
         delete screenSaverInterface;
-}
-
-void ScreenSaverService::stopService()
-{
-    screenSaverInterface->restoreState();
+    }
 }
 
 TQT_DBusObjectBase* ScreenSaverService::createInterface(const TQString& interfaceName)
@@ -120,7 +117,7 @@ TDEDbusScreenSaver::~TDEDbusScreenSaver()
     }
 
     delete screenSaverService;
-    delete freeDekstopNodeService;
+    delete freeDesktopNodeService;
     delete orgService;
     delete rootService;
 }
@@ -151,19 +148,19 @@ bool TDEDbusScreenSaver::configureService()
 
         rootService = new RootNodeService(m_connection);
         orgService = new OrgNodeService(m_connection);
-        freeDekstopNodeService = new FreeDekstopNodeService(m_connection);
+        freeDesktopNodeService = new FreeDesktopNodeService(m_connection);
         screenSaverService = new ScreenSaverService(m_connection);
     return true;
 }
 
 bool TDEDbusScreenSaver::unconfigureService()
 {
-    screenSaverService->stopService(); // will restore the original state
+    screenSaverService->screenSaverInterface->restoreState(); // will restore the original state
 
-    screenSaverService=0;
-    freeDekstopNodeService=0;
-    orgService=0;
-    rootService=0;
+    screenSaverService=nullptr;
+    freeDesktopNodeService=nullptr;
+    orgService=nullptr;
+    rootService=nullptr;
     // close D-Bus connection
     m_connection.closeConnection(DBUS_SCREENSAVER_SERVICE);
 

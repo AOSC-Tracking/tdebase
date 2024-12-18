@@ -12,23 +12,21 @@
 include_directories(
   ${CMAKE_CURRENT_BINARY_DIR}
   ${TQT_INCLUDE_DIRS}
+  ${TDE_INCLUDE_DIR}
   ${DBUS_TQT_INCLUDE_DIRS}
 )
-
-set( INTROSPECTIONPATH ${CMAKE_SOURCE_DIR}/kdesktop/dbus/screensaver )
 
 set( ScreenSaver_HDRS dbusbaseNode.h introspectableInterface.h screensaverInterface.h screensaverNode.h screensaverProxy.h)
 set( ScreenSaver_SRCS dbusbaseNode.cpp introspectableInterface.cpp screensaverInterface.cpp screensaverNode.cpp screensaverProxy.cpp )
 
-##### ScreenSaver #########################
+##### DbusScreenSaver #########################
 add_custom_command( 
     OUTPUT  ${ScreenSaver_HDRS} ${ScreenSaver_SRCS}
-    COMMAND ${DBUSXML2QT3_EXECUTABLE} ${INTROSPECTIONPATH}/org.freedesktop.ScreenSaver.xml 2>/dev/null
-    DEPENDS ${INTROSPECTIONPATH}/org.freedesktop.ScreenSaver.xml
+    COMMAND ${DBUSXML2QT3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/org.freedesktop.ScreenSaver.xml 2>/dev/null
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} 
 )
 
-tde_add_library( screensaverinterfaces STATIC_PIC AUTOMOC
+tde_add_library( dbusscreensaveriface STATIC_PIC AUTOMOC
   SOURCES ${ScreenSaver_SRCS}
   LINK ${DBUS_TQT_LIBRARIES} 
 )
@@ -37,7 +35,7 @@ tde_add_library( screensaverinterfaces STATIC_PIC AUTOMOC
 
 install(
     DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-    DESTINATION ${INCLUDE_INSTALL_DIR}
+    DESTINATION ${INCLUDE_INSTALL_DIR}/kdesktop/dbus/interfaces/
     USE_SOURCE_PERMISSIONS
     FILES_MATCHING PATTERN PATTERN "*.h"
     PATTERN "CMakeFiles" EXCLUDE

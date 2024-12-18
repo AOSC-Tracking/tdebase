@@ -27,7 +27,7 @@
 #include <tqmap.h>
 #include <tqdbusconnection.h>
 
-#include "dbus/screensaver/screensaverInterface.h"
+#include "dbus/interfaces/screensaverInterface.h"
 
 #define DBUS_SCREENSAVER_SERVICE      "TDEDbusScreenSaver"
 #define DBUS_SCREENSAVER_SERVICE_NAME "org.freedesktop.ScreenSaver"
@@ -54,57 +54,13 @@ public:
     void restoreState();
 
 protected:
+
     /**
      * void Lock()
      *       This method gets called when the service daemon
      *       locks the screen
      */
     virtual bool Lock(TQT_DBusError& error);
-
-    /**
-     *  Name:           SimulateUserActivity
-     *  Args:           (none)
-     *  Returns:        (nothing)
-     *  Description:    Simulate use activity to prevent screen saver being spawned
-     *
-     *  Not implemented
-     */
-    virtual bool SimulateUserActivity(TQT_DBusError& error);
-
-    /**
-     *  Name:           GetActive
-     *  Args:           (none)
-     *  Returns:        DBUS_TYPE_BOOLEAN
-     *  Descriptions:   Returns the value of the current state of activity.
-     *                  See setActive().
-     *
-     * Not implemented
-     */
-    virtual bool GetActive(bool& arg0, TQT_DBusError& error);
-
-    /**
-     * Name:           GetActiveTime
-     * Args:           (none)
-     * Returns:        DBUS_TYPE_UINT32
-     * Descriptions:   Returns the number of seconds that the screensaver has
-     *                 been active.  Returns zero if the screensaver is not
-     *                 active.
-     *
-     * Not implemented
-     */
-    virtual bool GetActiveTime(TQ_UINT32& seconds, TQT_DBusError& error);
-
-    /**
-     *
-     * Name:           GetSessionIdleTime
-     * Args:           (none)
-     * Returns:        DBUS_TYPE_UINT32
-     * Descriptions:   Returns the number of seconds that the session has
-     *                 been idle.  Returns zero if the session is not idle.
-     *
-     * Not implemented
-     */
-    virtual bool GetSessionIdleTime(TQ_UINT32& seconds, TQT_DBusError& error);
 
     /**
      * Name:           SetActive
@@ -155,30 +111,6 @@ protected:
      * Description:    Cancel a previous call to Inhibit() identified by the cookie.
      */
     virtual bool UnInhibit(TQ_UINT32 cookie, TQT_DBusError& error);
-
-    /**
-     *
-     * Name:           Throttle
-     * Args:           DBUS_TYPE_STRING "application-name"
-     *                 DBUS_TYPE_STRING "reason for throttle"
-     *                 INT cookie
-     *                 This is a random number used to identify the request.
-     * Description:    Request that running themes while the screensaver is
-     *                 active be blocked until UnThrottle is called or the
-     *                 calling process exits.
-     *
-     * Not implemented
-     */
-    virtual bool Throttle(const TQString& application_name, const TQString& reason_for_inhibit, TQ_UINT32& cookie, TQT_DBusError& error);
-
-    /**
-     * Name:           UnThrottle
-     * Args:           DBUS_TYPE_UINT32 cookie
-     * Returns:        (nothing)
-     * Description:    Cancel a previous call to Throttle() identified by the cookie.
-     * Not implemented
-     */
-    virtual bool UnThrottle(TQ_UINT32 cookie, TQT_DBusError& error);
 
     virtual void handleMethodReply(const TQT_DBusMessage& reply);
     virtual bool handleSignalSend(const TQT_DBusMessage& reply);

@@ -12,6 +12,3 @@
 if( WITH_PAM )
   set( TDESCREENSAVER_PAM_SERVICE "kde" CACHE INTERNAL "" )
 endif( )
-
-# check for dbus
-tde_setup_dbus( dbus-1-tqt )

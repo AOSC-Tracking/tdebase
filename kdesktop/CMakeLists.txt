@@ -17,6 +17,7 @@ add_subdirectory( patterns )
 add_subdirectory( programs )
 add_subdirectory( init )
 add_subdirectory( kwebdesktop )
+add_subdirectory( dbus/interfaces )
 add_subdirectory( dbus/screensaver )
 
 
@@ -46,9 +47,10 @@ link_directories(
 
 ##### headers ###################################
 
-install( FILES
-    KDesktopIface.h KScreensaverIface.h KBackgroundIface.h
-  DESTINATION ${INCLUDE_INSTALL_DIR} )
+install(
+  FILES KDesktopIface.h KScreensaverIface.h KBackgroundIface.h 
+  DESTINATION ${INCLUDE_INSTALL_DIR} 
+)
 
 
 ##### other data ################################
@@ -91,7 +93,6 @@ set( ${target}_SRCS
   pixmapserver.cpp kcustommenu.cpp startupid.cpp minicli_ui.ui
   xautolock_diy.c xautolock_engine.c kshadowengine.cpp
   kshadowsettings.cpp kdesktopshadowsettings.cpp
-  dbusscreensaverservice.cpp screensaverInterfaceImpl.cpp
   tdefileividesktop.cpp kdesktopapp.cpp
 )
 
@@ -99,7 +100,7 @@ tde_add_tdeinit_executable( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
   LINK
     pthread kdesktopsettings-static bgnd-static dmctl-static
-    screensaverinterfaces-static
+    dbusscreensaverservice-static dbusscreensaveriface-static
     konq-shared tdeutils-shared tdesu-shared ${TDEHW_LIBRARIES}
     ${XRENDER_LIBRARIES} ${XCURSOR_LIBRARIES} Xext ${CMAKE_DL_LIBS}
     ${XSS_LIBRARIES} ${DBUS_1_TQT_LIBRARIES}
