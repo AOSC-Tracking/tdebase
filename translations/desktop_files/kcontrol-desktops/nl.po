@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2024-11-18 13:11+0000\n"
+"PO-Revision-Date: 2024-12-22 23:32+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kcontrol-desktop-files/nl/>\n"
@@ -1333,9 +1333,9 @@ msgid ""
 "fonts;font size;styles;charsets;character sets;panel;kicker;control panel;"
 "desktops;FileManager;Toolbars;Menu;Window Title;Title;"
 msgstr ""
-"fonts;font;letters;lettertypen;lettertypes;tekenset;tekenverzamelingen;"
-"paneel;kicker;configuratiecentrum;stijl;bestandsbeheerder;werkbalk;menu;"
-"venster;titel;venstertitel;desktops;bureaubladen;"
+"fonts;font;letters;lettertypen;lettertypes;tekenset;tekenverzamelingen;paneel"
+";kicker;configuratiecentrum;stijl;bestandsbeheerder;werkbalk;menu;venster;tit"
+"el;venstertitel;desktops;bureaubladen;systeeminstellingen;"
 
 #. Name
 #: hwmanager/hwdevicetray-autostart.desktop:2
@@ -1671,7 +1671,7 @@ msgstr "joystick;gamepad;"
 #: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
 #: kcontrol/tde-kcontrol.desktop:8
 msgid "Trinity Control Center"
-msgstr "Configuratiecentrum"
+msgstr "TDE-systeeminstellingen"
 
 #. Name
 #: kded/kcmkded.desktop:11
