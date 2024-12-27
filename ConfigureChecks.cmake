@@ -50,19 +50,6 @@ if( WITH_USBIDS )
 endif( WITH_USBIDS )
 
 
-##### check for libdl ###########################
-
-set( DL_LIBRARIES dl )
-check_library_exists( ${DL_LIBRARIES} dlopen /lib HAVE_LIBDL )
-if( NOT HAVE_LIBDL )
-  unset( DL_LIBRARIES )
-  check_function_exists( dlopen HAVE_DLOPEN )
-  if( HAVE_DLOPEN )
-    set( HAVE_LIBDL 1 )
-  endif( HAVE_DLOPEN )
-endif( NOT HAVE_LIBDL )
-
-
 # stdint.h (drkonqi)
 if( BUILD_DRKONQI )
   check_include_file( stdint.h HAVE_STDINT_H )
@@ -117,7 +104,7 @@ if( BUILD_KCHECKPASS OR BUILD_TDM )
       check_include_file( "security/pam_appl.h" SECURITY_PAM_APPL_H )
     endif( )
     if( HAVE_PAM AND SECURITY_PAM_APPL_H )
-      set( PAM_LIBRARY pam ${DL_LIBRARIES} )
+      set( PAM_LIBRARY pam ${CMAKE_DL_LIBS} )
     else( )
       tde_message_fatal( "pam are requested, but not found on your system" )
     endif( )

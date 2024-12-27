@@ -28,6 +28,7 @@ set( PACKAGE tdebase )
 ##### include essential cmake modules ###########
 
 include( FindPkgConfig )
+include( FindThreads )
 include( CheckIncludeFile )
 include( CheckIncludeFiles )
 include( CheckCSourceRuns )

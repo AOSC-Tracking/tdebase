@@ -31,6 +31,6 @@ tde_add_executable( nspluginviewer AUTOMOC
     ../NSPluginCallbackIface.stub NSPluginClassIface.skel
     nsplugin.cpp viewer.cpp qxteventloop.cpp
     glibevents.cpp
-  LINK tdeparts-shared tdeio-shared ${GLIB2_LIBRARIES} Xt ${DL_LIBRARIES}
+  LINK tdeparts-shared tdeio-shared ${GLIB2_LIBRARIES} Xt ${CMAKE_DL_LIBS}
   DESTINATION ${BIN_INSTALL_DIR}
 )
