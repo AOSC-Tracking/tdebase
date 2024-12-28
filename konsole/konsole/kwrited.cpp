@@ -39,7 +39,7 @@
 #include <tdelocale.h>
 #include <tdeglobalsettings.h>
 #include <kdebug.h>
-#include <kcrash.h>
+#include <tdecrash.h>
 #include <kpty.h>
 #include <kuser.h>
 #include <tdeglobal.h>

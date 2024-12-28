@@ -37,7 +37,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <kuser.h>
 #include <tdeprocess.h>
 #include <tdecmdlineargs.h>
-#include <kcrash.h>
+#include <tdecrash.h>
 #include <kstandarddirs.h>
 #include <ksimpleconfig.h>
 #include <tdelocale.h>

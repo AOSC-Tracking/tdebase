@@ -24,7 +24,7 @@
 #include <tdeaboutdata.h>
 #include <tdecmdlineargs.h>
 #include <kopenwith.h>
-#include <kcrash.h>
+#include <tdecrash.h>
 #include <kdebug.h>
 #include <tdeglobalsettings.h>
 #include <tdeglobal.h>

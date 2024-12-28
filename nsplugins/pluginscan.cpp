@@ -46,7 +46,7 @@
 #include <kstandarddirs.h>
 #include <klibloader.h>
 #include <tdeconfig.h>
-#include <kcrash.h>
+#include <tdecrash.h>
 #include <kdesktopfile.h>
 #include <kservicetype.h>
 #include <kmimetype.h>

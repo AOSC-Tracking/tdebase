@@ -1,5 +1,5 @@
 /*****************************************************************
- * drkonqi - The KDE Crash Handler
+ * drkonqi - The TDE Crash Handler
  *
  * Copyright (C) 2000-2003 Hans Petter Bieker <bieker@kde.org>
  *
@@ -65,8 +65,8 @@ public:
   TQString invalidStackFrameRegExp() const { return m_invalidStackFrameRegExp; }
   TQString frameRegExp() const { return m_frameRegExp; }
   TQString neededInValidBacktraceRegExp() const { return m_neededInValidBacktraceRegExp; }
-  TQString kcrashRegExp() const { return m_kcrashRegExp; }
-  TQString kcrashRegExpSingle() const { return m_kcrashRegExpSingle; }
+  TQString tdecrashRegExp() const { return m_tdecrashRegExp; }
+  TQString tdecrashRegExpSingle() const { return m_tdecrashRegExpSingle; }
   TQString threadRegExp() const { return m_threadRegExp; }
   TQString infoSharedLibraryHeader() const { return m_infoSharedLibraryHeader; }
   bool showBacktrace() const { return m_showbacktrace; };
@@ -110,8 +110,8 @@ private:
   TQString m_invalidStackFrameRegExp;
   TQString m_frameRegExp;
   TQString m_neededInValidBacktraceRegExp;
-  TQString m_kcrashRegExp;
-  TQString m_kcrashRegExpSingle;
+  TQString m_tdecrashRegExp;
+  TQString m_tdecrashRegExpSingle;
   TQString m_threadRegExp;
   TQString m_infoSharedLibraryHeader;
 };

@@ -32,7 +32,7 @@
 #include <tdeconfig.h>
 #include <tdecmdlineargs.h>
 #include <kcmultidialog.h>
-#include <kcrash.h>
+#include <tdecrash.h>
 #include <kdebug.h>
 #include <kdirwatch.h>
 #include <tdeglobal.h>

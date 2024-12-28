@@ -110,8 +110,8 @@ void KrashConfig :: readConfig()
   m_invalidStackFrameRegExp = debuggers.readEntry("InvalidStackFrameRegExp");
   m_frameRegExp = debuggers.readEntry("FrameRegExp");
   m_neededInValidBacktraceRegExp = debuggers.readEntry("NeededInValidBacktraceRegExp");
-  m_kcrashRegExp = debuggers.readEntry("TDECrashRegExp");
-  m_kcrashRegExpSingle = debuggers.readEntry("TDECrashRegExpSingle");
+  m_tdecrashRegExp = debuggers.readEntry("TDECrashRegExp");
+  m_tdecrashRegExpSingle = debuggers.readEntry("TDECrashRegExpSingle");
   m_threadRegExp = debuggers.readEntry("ThreadRegExp");
   m_infoSharedLibraryHeader = debuggers.readEntry("InfoSharedLibraryHeader");
 

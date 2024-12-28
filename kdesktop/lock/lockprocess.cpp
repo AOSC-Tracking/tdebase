@@ -85,7 +85,7 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
-#include <kcrash.h>
+#include <tdecrash.h>
 
 #include <pthread.h>
 

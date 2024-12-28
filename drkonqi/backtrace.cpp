@@ -238,12 +238,12 @@ bool BackTrace::usefulBacktrace()
 // remove stack frames added because of TDECrash
 void BackTrace::processBacktrace()
 {
-	if( !m_krashconf->kcrashRegExp().isEmpty()) {
-		TQRegExp kcrashregexp( m_krashconf->kcrashRegExp());
-		kcrashregexp.setMinimal(true);
+	if( !m_krashconf->tdecrashRegExp().isEmpty()) {
+		TQRegExp tdecrashregexp( m_krashconf->tdecrashRegExp());
+		tdecrashregexp.setMinimal(true);
 		int pos = 0;
 		int prevpos = 0;
-		while ((pos = kcrashregexp.search( m_strBt, pos )) >= 0) {
+		while ((pos = tdecrashregexp.search( m_strBt, pos )) >= 0) {
 			if (prevpos == pos) {
 				// Avoid infinite loop
 				// Shouldn't ever get here, but given that this is a crash handler, better safe than sorry!
@@ -251,15 +251,15 @@ void BackTrace::processBacktrace()
 			}
 			prevpos = pos;
 			if( pos >= 0 ) {
-				int len = kcrashregexp.matchedLength();
+				int len = tdecrashregexp.matchedLength();
 				int nextinfochunkpos = m_strBt.find("====", pos);
 				if (nextinfochunkpos >= 0) {
 					// Trying to delete too much!
 					int limitedlen = nextinfochunkpos - pos;
 					TQString limitedstrBt = m_strBt.mid(pos, limitedlen);
-					int limitedpos = kcrashregexp.search( limitedstrBt );
+					int limitedpos = tdecrashregexp.search( limitedstrBt );
 					if (limitedpos >= 0) {
-						len = kcrashregexp.matchedLength();
+						len = tdecrashregexp.matchedLength();
 					}
 					else {
 						len = 0;
@@ -287,11 +287,11 @@ void BackTrace::processBacktrace()
 			}
 		}
 	}
-	if( !m_krashconf->kcrashRegExpSingle().isEmpty()) {
-		TQRegExp kcrashregexp( m_krashconf->kcrashRegExpSingle());
-		int pos = kcrashregexp.search( m_strBt );
+	if( !m_krashconf->tdecrashRegExpSingle().isEmpty()) {
+		TQRegExp tdecrashregexp( m_krashconf->tdecrashRegExpSingle());
+		int pos = tdecrashregexp.search( m_strBt );
 		if( pos >= 0 ) {
-			int len = kcrashregexp.matchedLength();
+			int len = tdecrashregexp.matchedLength();
 			if( m_strBt[ pos ] == '\n' ) {
 				++pos;
 				--len;
@@ -381,10 +381,10 @@ void BackTrace::processBacktrace()
 
 	{
 		// Clean up hard to read debug blocks
-		TQRegExp kcrashregexp( "[^\n]\n==== ");
-		kcrashregexp.setMinimal(true);
+		TQRegExp tdecrashregexp( "[^\n]\n==== ");
+		tdecrashregexp.setMinimal(true);
 		int pos = 0;
-		while ((pos = kcrashregexp.search( m_strBt, pos )) >= 0) {
+		while ((pos = tdecrashregexp.search( m_strBt, pos )) >= 0) {
 			m_strBt.insert(pos+1, "\n");
 		}
 	}

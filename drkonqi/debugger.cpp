@@ -95,7 +95,7 @@ void KrashDebugger :: slotSave()
 {
   if (m_krashconf->safeMode())
   {
-    KTempFile tf(TQString::fromAscii("/tmp/"), TQString::fromAscii(".kcrash"), 0600);
+    KTempFile tf(TQString::fromAscii("/tmp/"), TQString::fromAscii(".tdecrash"), 0600);
     if (!tf.status())
     {
       *tf.textStream() << m_backtrace->text();
@@ -109,7 +109,7 @@ void KrashDebugger :: slotSave()
   }
   else
   {
-    TQString defname = m_krashconf->execName() + TQString::fromLatin1( ".kcrash" );
+    TQString defname = m_krashconf->execName() + TQString::fromLatin1( ".tdecrash" );
     if( defname.contains( '/' ))
         defname = defname.mid( defname.findRev( '/' ) + 1 );
     TQString filename = KFileDialog::getSaveFileName(defname, TQString::null, this, i18n("Select Filename"));
