@@ -92,21 +92,6 @@
 #	endif /* XP_WIN */
 #endif /* _WINDOWS */
 
-#ifdef __MWERKS__
-#	define _declspec __declspec
-#	ifdef macintosh
-#		ifndef XP_MAC
-#			define XP_MAC 1
-#		endif /* XP_MAC */
-#	endif /* macintosh */
-#	ifdef __INTEL__
-#		undef NULL
-#		ifndef XP_WIN
-#			define XP_WIN 1
-#		endif /* XP_WIN */
-#	endif /* __INTEL__ */
-#endif /* __MWERKS__ */
-
 #if defined(XP_MAC) || defined(XP_MACOSX)
 	#include <Quickdraw.h>
 	#include <Events.h>
