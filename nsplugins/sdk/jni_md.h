@@ -65,7 +65,7 @@
  * This is where we define the mystical JNI_PUBLIC_API macro that works on all
  * platforms. If you're running with Visual C++ or Symantec C
  * development environment on the PC, you're all set. Or if you're on the Mac
- * with Metrowerks, Symantec or MPW with SC you're ok too. For UNIX it shouldn't
+ * with Symantec or MPW with SC you're ok too. For UNIX it shouldn't
  * matter.
 
  * Changes by sailesh on 9/26 
@@ -144,19 +144,7 @@
 
 /* Mac */
 #elif defined(macintosh) || defined(Macintosh) || defined(THINK_C)
-#	if defined(__MWERKS__)				/* Metrowerks */
-#		if !__option(enumsalwaysint)
-#			error You need to define 'Enums Always Int' for your project.
-#		endif
-#		if defined(TARGET_CPU_68K) && !TARGET_RT_MAC_CFM 
-#			if !__option(fourbyteints) 
-#				error You need to define 'Struct Alignment: 68k' for your project.
-#			endif
-#		endif /* !GENERATINGCFM */
-#		define JNI_PUBLIC_API(ResultType)	__declspec(export) ResultType 
-#		define JNI_PUBLIC_VAR(VarType)		JNI_PUBLIC_API(VarType)
-#		define JNI_NATIVE_STUB(ResultType)	JNI_PUBLIC_API(ResultType)
-#	elif defined(__SC__)				/* Symantec */
+#	if defined(__SC__)				/* Symantec */
 #		error What are the Symantec defines? (warren@netscape.com)
 #	elif macintosh && applec			/* MPW */
 #		error Please upgrade to the latest MPW compiler (SC).
