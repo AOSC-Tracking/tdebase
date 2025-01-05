@@ -62,12 +62,6 @@ if( BUILD_TDM OR BUILD_TDEIOSLAVES )
 endif( )
 
 
-# sys/bitypes.h (drkonqi)
-if( BUILD_DRKONQI )
-  check_include_file( sys/bitypes.h HAVE_SYS_BITYPES_H )
-endif( )
-
-
 # sys/ioctl.h (tdeioslave/fish, kcontrol/info)
 if( BUILD_TDEIOSLAVES OR BUILD_KCONTROL )
   check_include_file( sys/ioctl.h HAVE_SYS_IOCTL_H )

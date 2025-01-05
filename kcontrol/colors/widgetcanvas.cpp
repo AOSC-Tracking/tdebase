@@ -324,9 +324,7 @@ void WidgetCanvas::drawSampleWidgets()
 
     TQPixmap pm( vertScrollBar->width(), vertScrollBar->height() );
     pm.fill( back );
-#ifndef __osf__
     TQPainter::redirect( vertScrollBar, &pm );
-#endif
     vertScrollBar->repaint();
     TQPainter::redirect( vertScrollBar, 0 );
     vertScrollBar->hide();

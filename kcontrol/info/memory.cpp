@@ -459,8 +459,6 @@ void KMemoryWidget::update_Values()
 #include "memory_hpux.cpp"
 #elif defined(__NetBSD__) || defined(__OpenBSD__)
 #include "memory_netbsd.cpp"
-#elif __osf__
-#include "memory_tru64.cpp"
 #else
 
 /* Default for unsupported systems */

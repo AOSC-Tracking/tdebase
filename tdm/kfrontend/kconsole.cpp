@@ -39,11 +39,9 @@ extern "C" {
 #include <termios.h>
 }
 #endif
-#if !defined(__osf__)
 #ifdef HAVE_TERMIO_H
 /* needed at least on AIX */
 #include <termio.h>
-#endif
 #endif
 
 #if defined (_HPUX_SOURCE)

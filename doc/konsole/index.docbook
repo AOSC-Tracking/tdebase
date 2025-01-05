@@ -1437,7 +1437,7 @@ echo $*</programlisting>
 <para>Information on building &konsole; on platforms other than &Linux;
 is available in the <filename>README.ports</filename> file in the
 &konsole; source package. It provides a list of experts for certain
-platforms (Tru64, &Solaris;, OpenBSD) and requests volunteers from other
+platforms (&Solaris;, OpenBSD) and requests volunteers from other
 &UNIX; platforms.</para>
 
 <para>For more infomation please visit these websites:</para>
