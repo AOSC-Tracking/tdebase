@@ -218,14 +218,8 @@ dnl itself) is taking more that nine minutes (!).  For tdebase only we take
 dnl out that test.  (matz@kde.org)
 m4_define([_AC_CONFIG_UNIQUE], [])dnl
 
-AH_VERBATIM(_osf_stuff, [
-#if !defined(HAVE_SETEUID)
-#define seteuid(_eu) setresuid(-1, _eu, -1)
-#endif
-])
-
 AH_VERBATIM(_broken_xkb, [
-#if defined(__osf__) || defined(__APPLE__)
+#if defined(__APPLE__)
 #define AVOID_XKB                 /* for konsole to avoid XKB and XTEST */
 #endif
 ])

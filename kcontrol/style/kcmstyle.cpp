@@ -92,7 +92,6 @@ extern "C"
         runRdb( flags );
 
         // Write some Qt root property.
-#ifndef __osf__      // this crashes under Tru64 randomly -- will fix later
         TQByteArray properties;
         TQDataStream d(properties, IO_WriteOnly);
         d.setVersion( 3 );      // Qt2 apps need this.
@@ -105,7 +104,6 @@ extern "C"
             XChangeProperty(tqt_xdisplay(),  RootWindow(tqt_xdisplay(), i),
                             a, a, 8, PropModeReplace,
                             (unsigned char*) properties.data(), properties.size());
-#endif
     }
 }
 
