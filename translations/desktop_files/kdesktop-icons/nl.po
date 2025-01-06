@@ -1,76 +1,76 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Heimen Stoffels <vistausss@fastmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-01-07 19:11+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/kdesktop-icons/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Home.desktop:2
 msgid "Home"
-msgstr ""
+msgstr "Persoonlijke map"
 
 #. GenericName
 #: Home.desktop:4
 msgid "Personal Files"
-msgstr "Persoonlijke map"
+msgstr "Persoonlijke bestanden"
 
 #. Comment
 #: Home.desktop:6
-#, fuzzy
 msgid "Contains personal files"
-msgstr "Persoonlijke map"
+msgstr "Bevat uw persoonlijke bestanden"
 
 #. Name
 #: My_Computer:5
 msgid "My Computer"
-msgstr ""
+msgstr "Mijn computer"
 
 #. Comment
 #: My_Computer:7
 msgid "Access to storage media"
-msgstr ""
+msgstr "Toegang tot opslagapparaten"
 
 #. Name
 #: My_Documents:5
 msgid "My Documents"
-msgstr "Documenten"
+msgstr "Mijn documenten"
 
 #. Comment
 #: My_Documents:7
 msgid "Contains personal documents"
-msgstr ""
+msgstr "Bevat uw persoonlijke documenten"
 
 #. Name
 #: My_Network_Places:5
 msgid "My Network Places"
-msgstr "Externe plekken"
+msgstr "Mijn externe locaties"
 
 #. Comment
 #: My_Network_Places:7
 msgid "Access to network places and remote hosts"
-msgstr ""
+msgstr "Toegang tot netwerklocaties en externe hosts"
 
 #. Name
 #: Printers:5
 msgid "Printers"
-msgstr ""
+msgstr "Printers"
 
 #. Comment
 #: Printers:7
 msgid "Manage print jobs"
-msgstr ""
+msgstr "Beheer afdruktaken"
 
 #. Name
 #: System.desktop:2
@@ -85,7 +85,7 @@ msgstr "Systeemlocaties"
 #. Comment
 #: System.desktop:6
 msgid "Access to system places"
-msgstr ""
+msgstr "Toegang tot systeemlocaties"
 
 #. Name
 #: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
@@ -96,12 +96,12 @@ msgstr "Uitwerpen"
 #. Name
 #: Templates/Directory.desktop:2
 msgid "Folder..."
-msgstr "Map..."
+msgstr "Map…"
 
 #. Comment
 #: Templates/Directory.desktop:3
 msgid "Enter folder name:"
-msgstr "Mapnaam invoeren:"
+msgstr "Geef de map een naam:"
 
 #. Name
 #: Templates/Floppy.desktop:3
@@ -111,27 +111,27 @@ msgstr "Formatteren"
 #. Name
 #: Templates/HTMLFile.desktop:2
 msgid "HTML File..."
-msgstr "HTML-bestand..."
+msgstr "Html-bestand…"
 
 #. Comment
 #: Templates/HTMLFile.desktop:3
 msgid "Enter HTML filename:"
-msgstr "Naam van HTML-bestand invoeren:"
+msgstr "Geef het html-bestand een naam:"
 
 #. Name
 #: Templates/TextFile.desktop:2
 msgid "Text File..."
-msgstr "Tekstbestand..."
+msgstr "Tekstbestand…"
 
 #. Comment
 #: Templates/TextFile.desktop:3
 msgid "Enter text filename:"
-msgstr "Naam van tekstbestand invoeren:"
+msgstr "Geef het tekstbestand een naam:"
 
 #. Name
 #: Templates/linkCAMERA.desktop:2
 msgid "Camera Device..."
-msgstr "Camera..."
+msgstr "Camera…"
 
 #. Comment
 #: Templates/linkCAMERA.desktop:3
@@ -141,7 +141,7 @@ msgstr "Nieuwe camera"
 #. Name
 #: Templates/linkCDROM.desktop:2
 msgid "CD-ROM Device..."
-msgstr "CD-romspeler..."
+msgstr "Cd-romspeler…"
 
 #. Comment
 #: Templates/linkCDROM.desktop:3
@@ -151,27 +151,27 @@ msgstr "Nieuwe cd-romspeler"
 #. Name
 #: Templates/linkCDWRITER.desktop:2
 msgid "CDWRITER Device..."
-msgstr "CD-writer..."
+msgstr "Cd-brander…"
 
 #. Comment
 #: Templates/linkCDWRITER.desktop:3
 msgid "New CDWRITER Device"
-msgstr "Nieuwe CD-writer"
+msgstr "Nieuwe cd-brander"
 
 #. Name
 #: Templates/linkDVDROM.desktop:2
 msgid "DVD-ROM Device..."
-msgstr "DVD-romspeler..."
+msgstr "Dvd-romspeler…"
 
 #. Comment
 #: Templates/linkDVDROM.desktop:3
 msgid "New DVD-ROM Device"
-msgstr "Nieuwe DVD-romspeler"
+msgstr "Nieuwe dvd-romspeler"
 
 #. Name
 #: Templates/linkFloppy.desktop:2
 msgid "Floppy Device..."
-msgstr "Diskettestation..."
+msgstr "Diskettestation…"
 
 #. Comment
 #: Templates/linkFloppy.desktop:3
@@ -181,7 +181,7 @@ msgstr "Nieuw diskettestation"
 #. Name
 #: Templates/linkHD.desktop:2
 msgid "Hard Disc Device..."
-msgstr "Harde Schijf..."
+msgstr "Harde schijf…"
 
 #. Comment
 #: Templates/linkHD.desktop:3
@@ -191,52 +191,52 @@ msgstr "Nieuwe harde schijf"
 #. Name
 #: Templates/linkMO.desktop:2
 msgid "MO Device..."
-msgstr "MO-apparaat..."
+msgstr "MO-apparaat…"
 
 #. Comment
 #: Templates/linkMO.desktop:3
 msgid "New MO Device"
-msgstr "Nieuw MO-aparaat"
+msgstr "Nieuw MO-apparaat"
 
 #. Name
 #: Templates/linkNFS.desktop:2
 msgid "NFS..."
-msgstr ""
+msgstr "Nfs…"
 
 #. Comment
 #: Templates/linkNFS.desktop:3
 msgid "New NFS Link"
-msgstr "Nieuwe NFS-koppeling"
+msgstr "Nieuwe nfs-koppeling"
 
 #. Name
 #: Templates/linkProgram.desktop:2
 msgid "Link to Application..."
-msgstr "Koppeling naar toepassing..."
+msgstr "Programmakoppeling…"
 
 #. Comment
 #: Templates/linkProgram.desktop:3
 msgid "New Link to Application"
-msgstr "Nieuwe koppeling naar toepassing"
+msgstr "Nieuwe koppeling naar programma"
 
 #. Name
 #: Templates/linkURL.desktop:2
 msgid "Link to Location (URL)..."
-msgstr "Koppeling naar locatie (URL-adres)..."
+msgstr "Locatiekoppeling (url)…"
 
 #. Comment
 #: Templates/linkURL.desktop:3
 msgid "Enter link to location (URL):"
-msgstr "Koppeling naar locatie invoeren (URL-adres):"
+msgstr "Voer een locatie (url) in:"
 
 #. Name
 #: Templates/linkZIP.desktop:2
 msgid "ZIP Device..."
-msgstr "ZIP-apparaat..."
+msgstr "Zip-apparaat…"
 
 #. Comment
 #: Templates/linkZIP.desktop:3
 msgid "New ZIP Device"
-msgstr "Nieuw ZIP-apparaat"
+msgstr "Nieuw zip-apparaat"
 
 #. Name
 #: Trash:8
@@ -246,23 +246,23 @@ msgstr "Prullenbak"
 #. Comment
 #: Trash:10
 msgid "Contains removed files"
-msgstr ""
+msgstr "Bevat verwijderde bestanden"
 
 #. Name
 #. GenericName
 #: Web_Browser:6 Web_Browser:8
 msgid "Web Browser"
-msgstr "webbrowser"
+msgstr "Webbrowser"
 
 #. Comment
 #: Web_Browser:10
 msgid "Browse the World Wide Web"
-msgstr ""
+msgstr "Surf op het wereldwijde web"
 
 #. Name
 #: directory.autostart:3
 msgid "Autostart"
-msgstr ""
+msgstr "Automatisch opstarten"
 
 #. Name
 #: directory.desktop:5
