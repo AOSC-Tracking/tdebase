@@ -1,43 +1,43 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Heimen Stoffels <vistausss@fastmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 20:10+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-01-08 21:12+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/ksysguard-events/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Comment
 #: eventsrc:3
 msgid "System Guard"
-msgstr "systeembewaking"
+msgstr "Systeemmonitor"
 
 #. Name
 #: eventsrc:6
-#, fuzzy
 msgid "pattern_match"
-msgstr "Zoekpatroon komt overeen"
+msgstr "pattern_match"
 
 #. Comment
 #: eventsrc:7
 msgid "Search pattern matched"
-msgstr "Zoekpatroon komt overeen"
+msgstr "Het zoekpatroon komt overeen"
 
 #. Name
 #: eventsrc:10
 msgid "sensor_alarm"
-msgstr "sensormelding"
+msgstr "sensor_alarm"
 
 #. Comment
 #: eventsrc:11
 msgid "Sensor exceeded critical limit"
-msgstr "Sensor overschreed kritieke limiet"
+msgstr "De sensor overschreed de kritieke limiet"
