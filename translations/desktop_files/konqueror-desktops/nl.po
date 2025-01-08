@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Heimen Stoffels <vistausss@fastmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-01-08 21:12+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/konqueror-desktop-files/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Home.desktop:7
 msgid "Home"
-msgstr ""
+msgstr "Startpagina"
 
 #. GenericName
 #: Home.desktop:9
@@ -29,7 +30,7 @@ msgstr "Persoonlijke map"
 #. Name
 #: about/konq_aboutpage.desktop:3
 msgid "About-Page for Konqueror"
-msgstr "Informatiepagina voor Konqueror"
+msgstr "Konqueror-informatiepagina"
 
 #. Name
 #: iconview/konq_iconview.desktop:3
@@ -46,7 +47,7 @@ msgstr "Multikolomweergave"
 #: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
 #: konquerorsu.desktop:8
 msgid "Konqueror"
-msgstr ""
+msgstr "Konqueror"
 
 #. GenericName
 #: konqbrowser.desktop:9
@@ -66,18 +67,17 @@ msgstr "TDE's bestandsbeheerder en webbrowser"
 #. GenericName
 #: konquerorsu.desktop:10
 msgid "File Manager - Super User Mode"
-msgstr "Bestandsbeheerder (in systeembeheermodus)"
+msgstr "Bestandsbeheerder (systeembeheermodus)"
 
 #. Name
 #: kttsplugin/tdehtmlkttsd.desktop:12
 msgid "Text-to-Speech"
-msgstr "Tekst-tot-spraak-plugin"
+msgstr "Tekst-naar-spraak-plug-in"
 
 #. Comment
 #: kttsplugin/tdehtmlkttsd.desktop:14
-#, fuzzy
 msgid "A plugin which enables texts to be read aloud on the web with KTTS"
-msgstr "Een shellcommando-plugin voor Konqueror"
+msgstr "Een plug-in die teksten op websites kan voorlezen met behulp van KTTS"
 
 #. Name
 #: listview/konq_detailedlistview.desktop:3
@@ -97,12 +97,12 @@ msgstr "Tekstweergave"
 #. Name
 #: listview/konq_treeview.desktop:3
 msgid "Tree View"
-msgstr "Boomstructuurweergave"
+msgstr "Boomweergave"
 
 #. Name
 #: preloader/konqy_preload.desktop:4
 msgid "Konqueror Preloading During TDE startup"
-msgstr "Konqueror voorladen tijdens TDE-start"
+msgstr "Konqueror-venster in geheugen laden tijdens opstarten van TDE"
 
 #. Name
 #: preloader/konqy_preloader.desktop:4
@@ -112,7 +112,7 @@ msgstr "KDED Konqueror Preloader-module"
 #. Comment
 #: preloader/konqy_preloader.desktop:6
 msgid "Reduces Konqueror startup time"
-msgstr "Reduceert de opstarttijd van Konqueror"
+msgstr "Vermindert de opstarttijd van Konqueror"
 
 #. Name
 #: profile_filemanagement.desktop:5
@@ -122,7 +122,7 @@ msgstr "Bestandsbeheer"
 #. Name
 #: profile_filepreview.desktop:9
 msgid "File Preview"
-msgstr "Bestandsvoorbeeld"
+msgstr "Voorvertoning"
 
 #. Name
 #: profile_kde_devel.desktop:3
@@ -131,19 +131,18 @@ msgstr "TDE-ontwikkeling"
 
 #. Name
 #: profile_midnightcommander.desktop:9
-#, fuzzy
 msgid "Midnight Commander"
-msgstr "Schellcommando-plugin"
+msgstr "Midnight Commander"
 
 #. Name
 #: profile_simplebrowser.desktop:2
 msgid "Simple Browser"
-msgstr "Eenvoudige browser"
+msgstr "Eenvoudige webbrowser"
 
 #. Name
 #: profile_tabbedbrowsing.desktop:3
 msgid "Tabbed Browsing"
-msgstr "Browser met tabbladen"
+msgstr "Webbrowser met tabbladen"
 
 #. Name
 #: profile_webbrowsing.desktop:2
@@ -162,27 +161,29 @@ msgstr "Webbrowsen"
 #: quickprint/text-tex-print.desktop:6 quickprint/text-xml-print.desktop:6
 #: quickprint/text-xslt-print.desktop:6
 msgid "Print..."
-msgstr "Afdrukken..."
+msgstr "Afdrukken…"
 
 #. Name
 #: remoteencodingplugin/kremoteencodingplugin.desktop:13
 msgid "Remote Encoding"
-msgstr "Externe-coderingsplugin"
+msgstr "Externe-coderingsplug-in"
 
 #. Comment
 #: remoteencodingplugin/kremoteencodingplugin.desktop:15
 msgid "A Plugin for setting the encoding of remote hosts (FTP, SSH, etc.)"
-msgstr "Externe-coderingsplugin voor Konqueror"
+msgstr "Een externe-coderingsplugin voor Konqueror (ftp, ssh, etc.)"
 
 #. Name
 #: shellcmdplugin/kshellcmdplugin.desktop:15
 msgid "Run Command"
-msgstr "Schellcommando-plugin"
+msgstr "Shellopdrachtplug-in"
 
 #. Comment
 #: shellcmdplugin/kshellcmdplugin.desktop:17
 msgid "A plugin which enables commands to be executed within folders"
-msgstr "Een shellcommando-plugin voor Konqueror"
+msgstr ""
+"Een plug-in voor Konqueror waarmee opdrachten in mappen kunnen worden "
+"uitgevoerd"
 
 #. Name
 #: sidebar/konq_sidebartng.desktop:4
@@ -192,22 +193,22 @@ msgstr "Navigatiepaneel"
 #. Name
 #: sidebar/test/test.desktop:5
 msgid "Test"
-msgstr ""
+msgstr "Uitproberen"
 
 #. Name
 #: sidebar/trees/history_module/kcmhistory.desktop:10
 msgid "History Sidebar"
-msgstr "Geschiedenis"
+msgstr "Geschiedeniszijbalk"
 
 #. Comment
 #: sidebar/trees/history_module/kcmhistory.desktop:12
 msgid "Configure the history sidebar"
-msgstr "Hier kunt u de geschiedenis instellen"
+msgstr "Stel de geschiedeniszijbalk in"
 
 #. Keywords
 #: sidebar/trees/history_module/kcmhistory.desktop:14
 msgid "history;expire;"
-msgstr "geschiedenis;verloop;"
+msgstr "geschiedenis;verlopen;"
 
 #. Name
 #: sidebar/trees/init/bookmarks.desktop:6
@@ -219,7 +220,7 @@ msgstr "Bladwijzers"
 #: sidebar/trees/init/bookmarks.desktop:8
 #: sidebar/trees/init/bookmarks_module.desktop:8
 msgid "This is the list of your bookmarks, for a faster access"
-msgstr "Dit is de lijst met uw bladwijzers, voor snellere toegang"
+msgstr "Dit is de lijst met bladwijzers, voor snellere toegang"
 
 #. Name
 #: sidebar/trees/init/dirtree_module.desktop:5
@@ -240,8 +241,8 @@ msgid ""
 "This is the history of the URLs you have recently visited. You can sort them "
 "in many ways."
 msgstr ""
-"Dit is de geschiedenis van de URL-adressen waar u recentelijk bent geweest. "
-"U kunt ze op meerdere manieren sorteren."
+"Dit is de geschiedenis met websites die u onlangs hebt bezocht. U kunt de "
+"sites op meerdere manieren sorteren."
 
 #. Name
 #: sidebar/trees/init/home.desktop:6
@@ -261,38 +262,38 @@ msgstr "Netwerk"
 #. Name
 #: sidebar/trees/init/remote/ftp/tde_ftp.desktop:5
 msgid "TDE Official FTP"
-msgstr "TDE's Officiële FTP"
+msgstr "TDE's officiële ftp"
 
 #. Name
 #: sidebar/trees/init/remote/web/apps_web.desktop:4
 msgid "TDE Applications"
-msgstr "TDE Programma's"
+msgstr "TDE-programma's"
 
 #. Name
 #: sidebar/trees/init/remote/web/dot_web.desktop:4
 msgid "TDE News"
-msgstr "TDE Nieuws"
+msgstr "TDE-nieuws"
 
 #. Name
 #: sidebar/trees/init/remote/web/tde_web.desktop:4
 msgid "TDE Home Page"
-msgstr "TDE's startpagina"
+msgstr "TDE-startpagina"
 
 #. Name
 #: sidebar/trees/init/root.desktop:6
 msgid "Root Folder"
-msgstr "Hoofdmap"
+msgstr "Systeemmap"
 
 #. Comment
 #: sidebar/trees/init/root.desktop:8
 msgid "This is the root of the filesystem"
-msgstr "Dit is de root van het bestandssysteem"
+msgstr "Deze map bevat de systeembestanden"
 
 #. Name
 #: sidebar/trees/init/services.desktop:4
 #: sidebar/trees/init/services/.directory:3
 msgid "Services"
-msgstr ""
+msgstr "Diensten"
 
 #. Name
 #: sidebar/trees/init/services/applications.desktop:5
@@ -302,7 +303,7 @@ msgstr "Programma's"
 #. Name
 #: sidebar/trees/init/services/audiocd.desktop:6
 msgid "Audio CD Browser"
-msgstr "Audio-cd Browser"
+msgstr "Audio-cd-verkenner"
 
 #. Name
 #: sidebar/trees/init/services/media.desktop:5
@@ -312,7 +313,7 @@ msgstr "Opslagapparaten"
 #. Name
 #: sidebar/trees/init/services/printsystem.desktop:6
 msgid "Print System Browser"
-msgstr "Afdruksysteembrowser"
+msgstr "Afdruksysteemverkenner"
 
 #. Name
 #: sidebar/trees/init/services/settings.desktop:5
@@ -327,19 +328,17 @@ msgstr "Systeem"
 #. Comment
 #: sidebar/trees/init/system.desktop:8
 msgid "This folder allows you to access common places on your computer"
-msgstr "Deze map geeft toegang tot algemene plekken van uw desktop"
+msgstr "Deze map geeft toegang tot veelgebruikte locaties op uw computer"
 
 #. Name
 #: sidebar/trees/init/trash.desktop:9
-#, fuzzy
 msgid "Trash Folder"
-msgstr "Map"
+msgstr "Prullenbak"
 
 #. Comment
 #: sidebar/trees/init/trash.desktop:11
-#, fuzzy
 msgid "This folder displays the contents of your Trash Bin"
-msgstr "Deze map bevat al uw persoonlijke bestanden"
+msgstr "Deze map bevat al uw verwijderde bestanden"
 
 #. Name
 #: sidebar/web_module/webmodule_add.desktop:5
@@ -350,7 +349,7 @@ msgstr "Webzijbalkmodule"
 #. Name
 #: sidebar/trees/init/remote/ftp/.directory:2
 msgid "FTP Archives"
-msgstr "FTP-archieven"
+msgstr "Ftp-archieven"
 
 #. Name
 #: sidebar/trees/init/remote/web/.directory:2
