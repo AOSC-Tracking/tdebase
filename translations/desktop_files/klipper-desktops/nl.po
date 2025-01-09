@@ -1,30 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Heimen Stoffels <vistausss@fastmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-21 18:11+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-01-08 21:12+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/klipper-desktop-files/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: copy-full-path.desktop:6
 msgid "Copy full path"
-msgstr ""
+msgstr "Volledige locatie kopiëren"
 
 #. Name
 #: klipper.desktop:2
 msgid "Klipper"
-msgstr ""
+msgstr "Klipper"
 
 #. GenericName
 #: klipper.desktop:4
@@ -49,7 +50,7 @@ msgstr "K&View opstarten"
 #. Description
 #: klipperrc.desktop:19
 msgid "Web-URL"
-msgstr "Web-URL-adres"
+msgstr "Url"
 
 #. Description
 #: klipperrc.desktop:24 klipperrc.desktop:116
@@ -65,7 +66,7 @@ msgstr "Openen met &Mozilla"
 #: klipperrc.desktop:35 klipperrc.desktop:86 klipperrc.desktop:101
 #: klipperrc.desktop:131
 msgid "Send &URL"
-msgstr "&URL-adres verzenden"
+msgstr "&Url versturen"
 
 #. Description
 #: klipperrc.desktop:40
@@ -75,22 +76,22 @@ msgstr "Openen met &Firefox"
 #. Description
 #: klipperrc.desktop:46
 msgid "Send &Page"
-msgstr "&Pagina verzenden"
+msgstr "&Pagina versturen"
 
 #. Description
 #: klipperrc.desktop:51
 msgid "Mail-URL"
-msgstr "URL-adres e-mailen"
+msgstr "Url per e-mail vesturen"
 
 #. Description
 #: klipperrc.desktop:56
 msgid "Launch &Kmail"
-msgstr "&Kmail opstarten"
+msgstr "&Kmail starten"
 
 #. Description
 #: klipperrc.desktop:61
 msgid "Launch &mutt"
-msgstr "&Mutt opstarten"
+msgstr "&Mutt starten"
 
 #. Description
 #: klipperrc.desktop:66
@@ -100,32 +101,32 @@ msgstr "Tekstbestand"
 #. Description
 #: klipperrc.desktop:71
 msgid "Launch K&Edit"
-msgstr "K&Edit opstarten"
+msgstr "K&Edit starten"
 
 #. Description
 #: klipperrc.desktop:76
 msgid "Launch K&Write"
-msgstr "K&Write opstarten"
+msgstr "K&Write starten"
 
 #. Description
 #: klipperrc.desktop:81
 msgid "Local file URL"
-msgstr "Lokaal bestands-URL-adres"
+msgstr "Lokale bestandsurl"
 
 #. Description
 #: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
 msgid "Send &File"
-msgstr "&Bestand verzenden"
+msgstr "&Bestand versturen"
 
 #. Description
 #: klipperrc.desktop:96
 msgid "Gopher URL"
-msgstr "Gopher URL-adres"
+msgstr "Gopher-url"
 
 #. Description
 #: klipperrc.desktop:111
 msgid "ftp URL"
-msgstr "FTP URL-adres"
+msgstr "Ftp-url"
 
 #. Description
 #: klipperrc.desktop:121

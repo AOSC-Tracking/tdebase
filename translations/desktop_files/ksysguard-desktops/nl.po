@@ -1,26 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Heimen Stoffels <vistausss@fastmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 20:10+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-01-08 21:12+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/ksysguard-desktop-files/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: gui/ksysguard.desktop:2
-#, fuzzy
 msgid "KSysGuard"
-msgstr "Systeembewaking"
+msgstr "Systeemmonitor"
 
 #. GenericName
 #: gui/ksysguard.desktop:4
@@ -35,9 +35,9 @@ msgstr "Systeembewaking"
 #. Comment
 #: gui/ksysguardapplet.desktop:6
 msgid "An advanced system monitor which allows TDE system guard displays"
-msgstr "Een geavanceerde systeemmonitor met systeembewakingsdisplays"
+msgstr "Een geavanceerde systeemmonitor met systeembewakingsoverzichten"
 
 #. Comment
 #: gui/x-ksysguard.desktop:5
 msgid "TDE System Guard"
-msgstr "TDE systeembewaking"
+msgstr "TDE-systeemmonitor"
