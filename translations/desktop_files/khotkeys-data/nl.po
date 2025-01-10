@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Heimen Stoffels <vistausss@fastmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-01-10 22:11+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/khotkeys-data/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:5
@@ -35,9 +36,8 @@ msgstr "Konqueror-venster"
 #: konqueror_gestures_trinity21.khotkeys:20
 #: konqueror_gestures_trinity21.khotkeys:26 trinity2b1.khotkeys:226
 #: trinity2b1.khotkeys:232
-#, fuzzy
 msgid "Konqueror"
-msgstr "Konqueror-venster"
+msgstr "Konqueror"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:35
@@ -56,7 +56,7 @@ msgid ""
 "NOTE: Conflicts with 'New Tab', and as such is disabled by default."
 msgstr ""
 "Opera-stijl: indrukken, omhoog bewegen, loslaten.\n"
-"Opmerking: Botst met 'Nieuw tabblad', en is standaard uitgeschakeld."
+"Let op: botst met ‘Nieuw tabblad’ en is standaard uitgeschakeld."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:43
@@ -88,8 +88,8 @@ msgid ""
 "Going up in URL/directory structure.\n"
 "Mozilla-style: Press, move up, move left, move up, release."
 msgstr ""
-"Omhoog gaan in de URL- of mappenstructuur.\n"
-"Mozilla-stijl: Indrukken, omhoog bewegen, naar links bewegen, omhoog "
+"Ga omhoog in de url- of mappenstructuur.\n"
+"Mozilla-stijl: indrukken, omhoog bewegen, naar links bewegen, omhoog "
 "bewegen, loslaten."
 
 #. Name
@@ -105,11 +105,10 @@ msgid ""
 "NOTE: Conflicts with  \"Activate Previous Tab\", and as such is disabled by "
 "default."
 msgstr ""
-"Omhoog gaan in de URL- of mappenstructuur.\n"
-"Opera-stijl: Indrukken, omhoog bewegen, naar links bewegen, omhoog bewegen,"
+"Ga omhoog gaan in de url- of mappenstructuur.\n"
+"Opera-stijl: indrukken, omhoog bewegen, naar links bewegen, omhoog bewegen, "
 "loslaten.\n"
-"Opmerking: Botst met \"Vorige tabblad activeren\", en is daarom standaard "
-"uitgeschakeld."
+"Let op: botst met ‘Vorig tabblad activeren’ en is standaard uitgeschakeld."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:93
@@ -146,7 +145,7 @@ msgstr ""
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:187
 msgid "Duplicate Tab"
-msgstr "Tabblad dupliceren"
+msgstr "Tabblad klonen"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:210
@@ -156,7 +155,7 @@ msgstr "Indrukken, naar beneden bewegen, naar boven bewegen, loslaten."
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:212
 msgid "Duplicate Window"
-msgstr "Venster dupliceren"
+msgstr "Venster klonen"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:235
@@ -176,12 +175,12 @@ msgid ""
 msgstr ""
 "Indrukken, naar beneden bewegen, half naar boven bewegen, naar rechts "
 "bewegen, naar beneden bewegen, loslaten.\n"
-"(het tekenen van een kleine 'h'.)"
+"(oftewel: het tekenen van een kleine letter ‘h’.)"
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:262
 msgid "Home"
-msgstr ""
+msgstr "Startpagina"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:289
@@ -191,7 +190,7 @@ msgid ""
 msgstr ""
 "Indrukken, naar rechts bewegen, naar beneden bewegen, naar rechts bewegen, "
 "loslaten.\n"
-"Als in Mozilla: Indrukken, naar beneden bewegen, naar rechts bewegen, "
+"Mozilla-stijl: indrukken, naar beneden bewegen, naar rechts bewegen, "
 "loslaten."
 
 #. Name
@@ -206,8 +205,8 @@ msgid ""
 "Conflicts with Opera-style 'Up #2', which is disabled by default."
 msgstr ""
 "Indrukken, naar boven bewegen, loslaten.\n"
-"Botst met de tweede handeling omhoog gaan in Opera, staat daarom standaard "
-"uit."
+"Let op: botst met de tweede handeling omhoog gaan in Opera en is standaard "
+"uitgeschakeld."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:320
@@ -242,36 +241,36 @@ msgstr "Deze groep bevat handelingen die standaard zijn ingesteld."
 #. Name
 #: printscreen.khotkeys:8
 msgid "Preset Actions"
-msgstr "Voorgedefinieerde acties"
+msgstr "Voorgeprogrammeerde acties"
 
 #. Comment
 #: printscreen.khotkeys:17
 msgid "Launches KSnapShot when PrintScrn is pressed."
-msgstr "KSnapShot starten wanneer PrintScreen wordt ingedrukt."
+msgstr "Start KSnapShot als PrintScreen wordt ingedrukt."
 
 #. Name
 #: printscreen.khotkeys:19
 msgid "PrintScreen"
-msgstr ""
+msgstr "PrintScreen"
 
 #. Comment
 #: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
 #: trinity2b1.khotkeys:71 trinity2b1.khotkeys:95 trinity2b1.khotkeys:163
 #: trinity2b1.khotkeys:203 trinity2b1.khotkeys:385
 msgid "Simple_action"
-msgstr "Eenvoudige_handeling"
+msgstr "Eenvoudige handeling"
 
 #. Comment
 #: printscreen.khotkeys:41
-#, fuzzy
 msgid ""
 "Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
-msgstr "KSnapShot starten wanneer PrintScreen wordt ingedrukt."
+msgstr ""
+"Start KSnapShot in vensteropnamemodus als Alt+PrintScreen wordt ingedrukt.\n"
 
 #. Name
 #: printscreen.khotkeys:43
 msgid "PrintWindow"
-msgstr ""
+msgstr "PrintWindow"
 
 #. Comment
 #: trinity2b1.khotkeys:5
@@ -279,9 +278,9 @@ msgid ""
 "This group contains various examples demonstrating most of the features of "
 "KHotkeys. (Note that this group and all its actions are disabled by default.)"
 msgstr ""
-"Deze groep bevat verschillende voorbeelden die de mogelijkheden van KHotkeys "
-"tonen. (Opmerking: deze groep en alle bijbehorende handelingen zijn "
-"standaard uitgeschakeld.)"
+"Deze groep bevat diverse voorbeelden die de mogelijkheden van KHotkeys laten "
+"zien. (Let op: deze groep en alle bijbehorende acties zijn standaard "
+"uitgeschakeld.)"
 
 #. Name
 #: trinity2b1.khotkeys:8
@@ -294,8 +293,8 @@ msgid ""
 "After pressing Ctrl+Alt+I, the KSIRC window will be activated, if it exists. "
 "Simple."
 msgstr ""
-"Wanneer u op Ctrl+Alt+I drukt zal het KSIRC-venster geactiveerd worden, "
-"indien aanwezig."
+"Als u op Ctrl+Alt+I drukt, zal het KSIRC-venster geactiveerd worden (indien "
+"aanwezig)."
 
 #. Name
 #: trinity2b1.khotkeys:18
@@ -310,7 +309,7 @@ msgstr "KSIRC-venster"
 #. Comment
 #: trinity2b1.khotkeys:34
 msgid "KSIRC"
-msgstr ""
+msgstr "KSIRC"
 
 #. Comment
 #: trinity2b1.khotkeys:54
@@ -328,34 +327,33 @@ msgid ""
 ": (colon)                                  Shift+;\n"
 "' '  (space)                              Space"
 msgstr ""
-"Wanneer u op Ctrl+Alt+H drukt zal de invoer \"Hallo\" gesimuleerd worden "
-"alsof u het getypt hebt. Handig wanneer u te lui bent om dingen als "
-"'unsigned' te typen. Iedere toetsaanslag bij de invoer dient gescheiden te "
-"worden met een dubbele punt ';'. Merk op dat een toetsaanslag letterlijk "
-"genomen dient te worden, dus iedere toets die u indrukt dient opgeschreven "
-"te worden. In de onderstaande tabel bevat de linkerkolom de invoer en rechts "
-"wat u dient in te typen.\n"
+"Als u op Ctrl+Alt+H drukt, zal de invoer ‘Hallo’ verschijnen alsof u deze "
+"getypt hebt. Handig als u te lui bent om dingen als ‘unsigned’ te typen. "
+"Iedere toetsaanslag bij de invoer dient gescheiden te worden met een dubbele "
+"punt ‘:’. Let op: een toetsaanslag dient letterlijk genomen te worden, dus "
+"iedere toets die u indrukt dient opgeschreven te worden. In de onderstaande "
+"tabel bevat de linkerkolom de invoer en rechts wat u dient in te typen.\n"
 "\n"
-"\" Enter\" (nieuwe regel)         Enter of Return\n"
+"Enter (nieuwe regel)         Enter of Return\n"
 "a (kleine a)                             A\n"
 "A (hoofdletter a)                   Shift+A\n"
 ": (dubbele punt)                    Shift+;\n"
-"' ' (spatie)                               Space"
+"' ' (spatie)                               Spatiebalk"
 
 #. Name
 #: trinity2b1.khotkeys:56
 msgid "Type 'Hello'"
-msgstr "'Hallo' typen"
+msgstr "‘Hallo’ typen"
 
 #. Comment
 #: trinity2b1.khotkeys:79
 msgid "This action runs Konsole, after pressing Ctrl+Alt+T."
-msgstr "Deze handeling voert Konsole uit, nadat op Ctrl+Alt+T is gedrukt."
+msgstr "Deze actie opent Konsole nadat op Ctrl+Alt+T is gedrukt."
 
 #. Name
 #: trinity2b1.khotkeys:81
 msgid "Run Konsole"
-msgstr "Konsole uitvoeren"
+msgstr "Konsole openen"
 
 #. Comment
 #: trinity2b1.khotkeys:103
@@ -378,22 +376,23 @@ msgid ""
 "Qt Designer seems to always have title 'Qt Designer by Trolltech', so the "
 "condition will check for the active window having that title."
 msgstr ""
-"Lees de opmerking over de actie \"Hallo typen\" eerst.\n"
+"Lees eerst de opmerking omtrent de actie ‘Hallo typen’.\n"
 "\n"
-"Qt Designer gebruikt Ctrl+F4 om vensters te sluiten (misschien omdat "
-"Microsoft Windows dat ook doet). Maar in TDE betekent Ctrl+4 het gaan naar "
-"het virtuele bureaublad 4. Daardoor werkt de sneltoets niet in Qt Designer "
-"en wordt Ctrl+W, de standaard sluittoets binnen TDE, niet gebruikt.\n"
+"Qt Designer maakt gebruik van Ctrl+F4 om vensters te sluiten (misschien "
+"omdat Microsoft Windows dat ook doet). Maar in TDE betekent Ctrl+4 het gaan "
+"naar het virtuele werkblad 4. Daardoor werkt de sneltoets niet in Qt "
+"Designer en wordt Ctrl+W, de standaard sluittoets binnen TDE, niet gebruikt."
+"\n"
 "\n"
 "U kunt dit probleem oplossen door Ctrl+W naar Ctrl+F4 te laten verwijzen "
-"wanneer het actieve venster Qt Designer is. Wanneer Qt Designer actief is, "
-"zal iedere keer dat Ctrl+W wordt ingedrukt het signaal Ctrl+F4 naar Qt "
-"Designer gestuurd worden. Ctrl+W blijft in andere programma's gewoon "
-"dezelfde betekenis houden.\n"
+"indien het actieve venster Qt Designer is. Als Qt Designer actief is, zal "
+"iedere keer dat Ctrl+W wordt ingedrukt het signaal Ctrl+F4 naar Qt Designer "
+"worden gestuurd. Ctrl+W blijft in andere programma's gewoon dezelfde "
+"betekenis houden.\n"
 "\n"
 "Er dienen drie gegevens ingevuld te worden: de sneltoets zelf, de verzonden "
 "sneltoets en de voorwaarde dat het actieve venster Qt Designer moet zijn.\n"
-"Qt Designer heeft altijd de titel 'Qt Designer by Trolltech', dus de "
+"Qt Designer heeft altijd de titel ‘Qt Designer by Trolltech’, dus de "
 "voorwaarde zal eerst controleren of het venster die titel heeft."
 
 #. Name
@@ -404,7 +403,7 @@ msgstr "Ctrl+W omzetten naar Ctrl+F4 in Qt Designer"
 #. Comment
 #: trinity2b1.khotkeys:123
 msgid "Qt Designer"
-msgstr ""
+msgstr "Qt Designer"
 
 #. Comment
 #: trinity2b1.khotkeys:144
@@ -414,13 +413,13 @@ msgid ""
 "'dcop' tool."
 msgstr ""
 "Door Alt+Ctrl+W in te drukken zal er een DCOP-aanroep uitgevoerd worden dat "
-"venster \"Commando uitvoeren\" laat zien. U kunt iedere andere DCOP-aanroep "
-"gebruiken, net zoals met de commandoregelvariant 'dcop'."
+"het venster ‘Opdracht uitvoeren’ opent. U kunt iedere andere DCOP-aanroep "
+"gebruiken, net zoals met de opdrachtregelvariant ‘dcop’."
 
 #. Name
 #: trinity2b1.khotkeys:146
 msgid "Perform DCOP call 'kdesktop KDesktopIface popupExecuteCommand()'"
-msgstr "DCOP-aanroep uitvoeren: 'kdesktop KDesktopIface popupExecuteCommand()'"
+msgstr "DCOP-aanroep uitvoeren: ‘kdesktop KDesktopIface popupExecuteCommand()’"
 
 #. Comment
 #: trinity2b1.khotkeys:171
@@ -437,18 +436,18 @@ msgid ""
 "(Run 'xprop' and click on the XMMS window and search for WM_CLASS to see "
 "'XMMS_Player')."
 msgstr ""
-"Lees eerst de toelichting bij handeling \"Hallo typen\".\n"
+"Lees eerst de toelichting bij de actie ‘Hallo typen’.\n"
 "\n"
-"Net als \"Type hallo\" simuleert deze een toetsenbordinvoer. In dit geval "
-"wordt na het indrukken van de toetsencombinatie Ctrl+Alt+B,  de 'B' gestuurt "
-"naar XMMS (B in XMMS gaat naar de volgende track). Als het keuzevakje 'Naar "
-"specifiek venster sturen' is geselecteerd en een venster met de klasse "
-"'XMMS_Player' isopgegeven zal deze toetsenbordinvoer altijd naar het XMMS-"
-"venster worden gestuurd. Op die manier kunt u XMMS ook bedienen terwijl u "
-"bijv. op een ander virtueel bureaublad aan het werk bent. \n"
+"Net als de actie ‘Hallo typen’, simuleert deze een toetsenbordinvoer. In dit "
+"geval wordt na het indrukken van de toetsencombinatie Ctrl+Alt+B, de ‘B’ "
+"gestuurt naar XMMS (B in XMMS gaat naar het volgende spoor). Als het "
+"keuzevakje ‘Naar specifiek venster sturen’ is aangekruist en een venster met "
+"de klasse ‘XMMS_Player’ is opgegeven, zal deze toetsenbordinvoer altijd naar "
+"het XMMS-venster worden gestuurd. Op die manier kunt u XMMS ook bedienen "
+"terwijl u bijv. op een ander virtueel werkblad aan het werk bent.\n"
 "\n"
-" (Voer 'xprop' uit en klik op het XMMS-venster en zoek naar WM-CLASS om "
-"'XMMS_Player' te zien)."
+"(Voer ‘xprop’ uit en klik op het XMMS-venster, en zoek naar WM-CLASS om "
+"‘XMMS_Player’ te zien.)"
 
 #. Name
 #: trinity2b1.khotkeys:173
