@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Heimen Stoffels <vistausss@fastmail.com>, 2024.
+# Heimen Stoffels <vistausss@fastmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-04 20:14+0000\n"
-"PO-Revision-Date: 2024-11-18 13:11+0000\n"
+"POT-Creation-Date: 2023-07-04 18:14+0000\n"
+"PO-Revision-Date: 2025-01-10 22:11+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/twin-desktop-files/nl/>\n"
@@ -35,7 +35,7 @@ msgstr "Vensterdecoraties"
 #. Comment
 #: kcmtwin/twindecoration/twindecoration.desktop:13
 msgid "Configure the look and feel of window titles"
-msgstr "Hier kunt u het uiterlijk en gedrag van venstertitels instellen"
+msgstr "Stel het uiterlijk en gedrag van venstertitels in"
 
 #. Keywords
 #: kcmtwin/twindecoration/twindecoration.desktop:15
@@ -55,7 +55,7 @@ msgstr "Acties"
 #. Comment
 #: kcmtwin/twinoptions/twinactions.desktop:13
 msgid "Configure keyboard and mouse settings"
-msgstr "Hier kunt u de instellingen van toetsenbord en muis instellen"
+msgstr "Stel de instellingen van toetsenbord en muis in"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinactions.desktop:15
@@ -69,13 +69,12 @@ msgstr ""
 #. Name
 #: kcmtwin/twinoptions/twinactiveborders.desktop:11
 msgid "Active Borders"
-msgstr ""
+msgstr "Actieve randen"
 
 #. Comment
 #: kcmtwin/twinoptions/twinactiveborders.desktop:13
-#, fuzzy
 msgid "Configure active borders/corners feature"
-msgstr "Hier kunt u de geavanceerde vensterbeheermogelijkheden instellen"
+msgstr "Stel de actieve randen en hoeken in"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinactiveborders.desktop:15
@@ -83,6 +82,7 @@ msgid ""
 "window behavior;windows;frame;titlebar;borders;corners;active borders;"
 "aerosnap;"
 msgstr ""
+"venstergedrag;vensters;frame;kader;rand;titelbalk;hoek;actief;aerosnap;"
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
@@ -92,24 +92,23 @@ msgstr "Geavanceerd"
 #. Comment
 #: kcmtwin/twinoptions/twinadvanced.desktop:13
 msgid "Configure advanced window management features"
-msgstr "Hier kunt u de geavanceerde vensterbeheermogelijkheden instellen"
+msgstr "Stel de geavanceerde vensterbeheermogelijkheden in"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinadvanced.desktop:15
 msgid "shading;border;hover;active borders;"
 msgstr ""
-"oprollen;afrollen;rand;hoover;actieve randen;randen magnetisch;magnetische "
-"randen;"
+"oprollen;afrollen;rand;hoover;actieve randen;magnetisch;magnetische randen;"
 
 #. Name
 #: kcmtwin/twinoptions/twinfocus.desktop:11
 msgid "Focus"
-msgstr ""
+msgstr "Vensterfocus"
 
 #. Comment
 #: kcmtwin/twinoptions/twinfocus.desktop:13
 msgid "Configure the window focus policy"
-msgstr "Hier kunt u het vensterfocusbeleid instellen"
+msgstr "Stel het vensterfocusbeleid in"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinfocus.desktop:15
@@ -128,14 +127,14 @@ msgstr "Verplaatsing"
 #. Comment
 #: kcmtwin/twinoptions/twinmoving.desktop:13
 msgid "Configure the way that windows are moved"
-msgstr "Hier kunt u de wijze waarop vensters worden verplaatst instellen"
+msgstr "Stel de wijze waarop vensters worden verplaatst in"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinmoving.desktop:15
 msgid "moving;smart;cascade;maximize;maximise;snap zone;snap;border;"
 msgstr ""
-"verplaatsing;intelligent;plaatsing;trapsgewijs;maximaliseren;randen "
-"magnetisch;magnetisch veld;rand;magnetische randen;"
+"verplaatsing;intelligent;plaatsing;trapsgewijs;maximaliseren;randen;"
+"magnetisch veld;rand;magnetische randen;"
 
 #. Name
 #: kcmtwin/twinoptions/twinoptions.desktop:11
@@ -159,12 +158,12 @@ msgstr ""
 #. Name
 #: kcmtwin/twinoptions/twintranslucency.desktop:11
 msgid "Translucency"
-msgstr "Transparantie"
+msgstr "Doorzichtigheid"
 
 #. Comment
 #: kcmtwin/twinoptions/twintranslucency.desktop:13
 msgid "Configure window translucency and shadow management"
-msgstr "Vensterdoorzichtigheid- en -schaduwbeheer instellen"
+msgstr "Stel de vensterdoorzichtigheid- en -schaduwen in"
 
 #. Keywords
 #: kcmtwin/twinoptions/twintranslucency.desktop:15
@@ -179,7 +178,7 @@ msgstr "Vensterspecifieke instellingen"
 #. Comment
 #: kcmtwin/twinrules/twinrules.desktop:13
 msgid "Configure settings specifically for a window"
-msgstr "Hier kunt u instellingen kiezen specifiek voor één venster"
+msgstr "Stel de instellingen van één specifiek venster in"
 
 #. Keywords
 #: kcmtwin/twinrules/twinrules.desktop:15
@@ -197,23 +196,20 @@ msgstr "(Standaard) Voorkomen van afpakken toetsenbordfocus voor XV"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:10
-#, fuzzy
 msgid "(Default) Allow focus stealing by the screen locker"
-msgstr "(Standaard) Voorkomen van afpakken toetsenbordfocus voor XV"
+msgstr "(Standaard) Focus afpakken door de schermvergrendeling voorkomen"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:21
-#, fuzzy
 msgid "(Default) Allow focus stealing by the kdesktop run dialog"
-msgstr "(Standaard) Voorkomen van afpakken toetsenbordfocus voor XV"
+msgstr "(Standaard) Focus afpakken door kdesktop-uitvoervenster voorkomen"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:32
-#, fuzzy
 msgid "(Default) Allow focus stealing by the settings test dialog"
-msgstr "(Standaard) Voorkomen van afpakken toetsenbordfocus voor XV"
+msgstr "(Standaard) Focus afpakken door instellingen-testvenster voorkomen"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:45
 msgid "(Default) Hide system modal dialog class from taskbar"
-msgstr ""
+msgstr "(Standaard) Modale dialoogvensterklassen niet tonen op taakbalk"
