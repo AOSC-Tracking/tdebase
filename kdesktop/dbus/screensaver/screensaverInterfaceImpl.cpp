@@ -93,7 +93,9 @@ bool ScreenSaverInterfaceImpl::SetActive(bool& arg0, bool e, TQT_DBusError& dbus
 bool ScreenSaverInterfaceImpl::Inhibit(const TQString& application_name, const TQString& reason_for_inhibit, TQ_UINT32& cookie, TQT_DBusError& dbuserror) {
 
     //this is to make sure we have the actual state - it could have been changed meanwhile
-    isScreenSaverEnabled = screenSaverIsEnabled();
+    //however some other application like kplayer may have disabled the screensaver
+    //when we call this function
+    //isScreenSaverEnabled = screenSaverIsEnabled();
     if (isScreenSaverEnabled && m_cookies.isEmpty()) // disable only once
     {
         if (!forceScreenSaver(false))

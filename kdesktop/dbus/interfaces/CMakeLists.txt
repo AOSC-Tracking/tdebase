@@ -30,13 +30,3 @@ tde_add_library( dbusscreensaveriface STATIC_PIC AUTOMOC
   SOURCES ${ScreenSaver_SRCS}
   LINK ${DBUS_TQT_LIBRARIES} 
 )
-
-##### install headers ###################################
-
-install(
-    DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-    DESTINATION ${INCLUDE_INSTALL_DIR}/kdesktop/dbus/interfaces/
-    USE_SOURCE_PERMISSIONS
-    FILES_MATCHING PATTERN PATTERN "*.h"
-    PATTERN "CMakeFiles" EXCLUDE
-)

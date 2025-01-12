@@ -440,14 +440,7 @@ endif( )
 
 # dbus-1-tqt (kdesktop)
 if( BUILD_KDESKTOP )
-
-  pkg_search_module( DBUS_1_TQT dbus-1-tqt )
-  if( NOT DBUS_1_TQT_FOUND )
-    tde_message_fatal( "dbus-1-tqt is required, but was not found on your system" )
-  endif( )
-  
   tde_setup_dbus( dbus-1-tqt )
-
 endif( )
 
 
