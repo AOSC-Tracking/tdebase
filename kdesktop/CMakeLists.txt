@@ -35,13 +35,13 @@ include_directories(
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
   ${DBUS_INCLUDE_DIRS}
-  ${DBUS_1_TQT_INCLUDE_DIRS}
+  ${DBUS_TQT_INCLUDE_DIRS}
 )
 
 link_directories(
   ${TQT_LIBRARY_DIRS}
   ${LIBART_LIBRARY_DIRS}
-  ${DBUS_1_TQT_LIBRARY_DIRS}
+  ${DBUS_TQT_LIBRARY_DIRS}
 )
 
 
@@ -105,6 +105,8 @@ tde_add_tdeinit_executable( ${target} AUTOMOC
     ${XRENDER_LIBRARIES} ${XCURSOR_LIBRARIES} Xext ${CMAKE_DL_LIBS}
     ${XSS_LIBRARIES} ${DBUS_1_TQT_LIBRARIES}
 )
+
+add_dependencies(${target} dbusscreensaveriface-static dbusscreensaverservice-static )
 
 
 ##### kdesktopsettings (static) #################
