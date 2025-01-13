@@ -14,7 +14,7 @@ include_directories(
   ${CMAKE_BINARY_DIR}/kdesktop
   ${TQT_INCLUDE_DIRS}
   ${TDE_INCLUDE_DIR}
-  ${DBUS_TQT_INCLUDE_DIRS}
+  ${DBUS_1_TQT_INCLUDE_DIRS}
 )
 
 
