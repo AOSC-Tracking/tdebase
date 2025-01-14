@@ -29,6 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqpainter.h>
 #include <tqpopupmenu.h>
 #include <tqstylesheet.h>
+#include <tqinputdialog.h>
 
 #include <netwm.h>
 #include <dcopclient.h>
@@ -397,47 +398,39 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
         }
     }
 
-    if (!liveBkgnd)
+    // frame
+    if (liveBkgnd || transparent)
     {
-        if (transparent)
+        if (m_pager->border3D())
         {
-            // transparent windows get an 1 pixel frame...
-            if (on)
-            {
-                bp->setPen(colorGroup().midlight());
-            }
-            else if (down)
-            {
-                bp->setPen(KickerLib::blendColors(colorGroup().mid(),
-                                                 colorGroup().midlight()));
-            }
-            else
-            {
-                bp->setPen(colorGroup().dark());
-            }
-
-            bp->drawRect(0, 0, w, h);
+            qDrawShadeRect(bp, 0, 0, w, h, on ? palette().active() : palette().inactive());
         }
         else
         {
-            TQBrush background;
-
-            if (on)
-            {
-                background = colorGroup().brush(TQColorGroup::Midlight);
-            }
-            else if (down)
-            {
-                background = TQBrush(KickerLib::blendColors(colorGroup().mid(),
-                                                    colorGroup().midlight()));
-            }
-            else
-            {
-                background = colorGroup().brush(TQColorGroup::Mid);
-            }
-
-            bp->fillRect(0, 0, w, h, background);
+            bp->setPen(on ? colorGroup().midlight()
+                          : KickerLib::blendColors(colorGroup().mid(), colorGroup().midlight()));
+            bp->drawRect(0, 0, w, h);
         }
+    }
+    else
+    {
+        TQBrush background;
+
+        if (on)
+        {
+            background = colorGroup().brush(TQColorGroup::Midlight);
+        }
+        else if (down)
+        {
+            background = TQBrush(KickerLib::blendColors(colorGroup().mid(),
+                                                colorGroup().midlight()));
+        }
+        else
+        {
+            background = colorGroup().brush(TQColorGroup::Mid);
+        }
+
+        bp->fillRect(0, 0, w, h, background);
     }
 
     // window preview...
@@ -490,22 +483,6 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
                 }
             }
         }
-    }
-
-    if (liveBkgnd)
-    {
-        // draw a little border around the individual buttons
-        // makes it look a bit more finished.
-        if (on)
-        {
-            bp->setPen(colorGroup().midlight());
-        }
-        else
-        {
-            bp->setPen(colorGroup().mid());
-        }
-
-        bp->drawRect(0, 0, w, h);
     }
 
     if (m_pager->labelType() != PagerSettings::EnumLabelType::LabelNone)
@@ -724,17 +701,30 @@ void KMiniPagerButton::slotClicked()
 
 void KMiniPagerButton::rename()
 {
-  if ( !m_lineEdit ) {
-    m_lineEdit = new TQLineEdit( this );
-    connect( m_lineEdit, TQ_SIGNAL( returnPressed() ), m_lineEdit, TQ_SLOT( hide() ) );
-    m_lineEdit->installEventFilter( this );
-  }
-  m_lineEdit->setGeometry( rect() );
-  m_lineEdit->setText(m_desktopName);
-  m_lineEdit->show();
-  m_lineEdit->setFocus();
-  m_lineEdit->selectAll();
-  m_pager->emitRequestFocus();
+    if (m_pager->labelType() == PagerSettings::EnumLabelType::LabelName)
+    {
+        if ( !m_lineEdit ) {
+            m_lineEdit = new TQLineEdit(this);
+            connect(m_lineEdit, TQ_SIGNAL(returnPressed()), m_lineEdit, TQ_SLOT(hide()));
+            m_lineEdit->installEventFilter(this);
+        }
+        m_lineEdit->setGeometry(rect());
+        m_lineEdit->setText(m_desktopName);
+        m_lineEdit->show();
+        m_lineEdit->setFocus();
+        m_lineEdit->selectAll();
+        m_pager->emitRequestFocus();
+    }
+    else
+    {
+        m_pager->twin()->setDesktopName(
+            m_desktop,
+            TQInputDialog::getText(
+                i18n("Renaming desktop %1").arg(m_desktopName),
+                i18n("Enter a new name for desktop %1 (%2):").arg(m_desktop).arg(m_desktopName)
+            )
+        );
+    }
 }
 
 void KMiniPagerButton::slotToggled( bool b )

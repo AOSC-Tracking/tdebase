@@ -27,8 +27,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqvaluevector.h>
 #include <tqstringlist.h>
 #include <tqevent.h>
-#include <tqlayout.h>
-#include <tqcheckbox.h>
 #include <qxembed.h>
 
 #include <dcopobject.h>
@@ -40,6 +38,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "simplebutton.h"
 
 class TQGridLayout;
+class TQSpinBox;
+class TQCheckBox;
 class TQTimer;
 class KWinModule;
 class TrayEmbed;
@@ -120,6 +120,8 @@ private:
     int m_iconSize;
     bool m_showClockInTray;
     TQCheckBox *m_showClockSettingCB;
+    uint m_iconMargin;
+    TQSpinBox *m_iconMarginSB;
     TQGridLayout* m_layout;
 };
 

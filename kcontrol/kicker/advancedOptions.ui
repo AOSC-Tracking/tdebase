@@ -8,20 +8,29 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>324</width>
-            <height>235</height>
+            <width>425</width>
+            <height>360</height>
         </rect>
+    </property>
+    <property name="caption">
+        <string>advancedKickerOptions</string>
     </property>
     <vbox>
         <property name="name">
             <cstring>unnamed</cstring>
         </property>
         <property name="margin">
-            <number>0</number>
+            <number>5</number>
         </property>
         <widget class="TQGroupBox">
             <property name="name">
                 <cstring>groupBox3</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>StyledPanel</enum>
+            </property>
+            <property name="margin">
+                <number>2</number>
             </property>
             <property name="title">
                 <string>Panel Dimensions</string>
@@ -83,6 +92,12 @@
         <widget class="TQButtonGroup">
             <property name="name">
                 <cstring>handles</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>StyledPanel</enum>
+            </property>
+            <property name="margin">
+                <number>2</number>
             </property>
             <property name="title">
                 <string>Applet Handles</string>
@@ -158,6 +173,20 @@
             <property name="name">
                 <cstring>groupBox2</cstring>
             </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>5</hsizetype>
+                    <vsizetype>4</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="frameShape">
+                <enum>StyledPanel</enum>
+            </property>
+            <property name="margin">
+                <number>2</number>
+            </property>
             <property name="title">
                 <string>Transparency</string>
             </property>
@@ -165,13 +194,193 @@
                 <property name="name">
                     <cstring>unnamed</cstring>
                 </property>
+                <widget class="TQLabel" row="2" column="0">
+                    <property name="name">
+                        <cstring>textLabel1_2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>4</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>Ti&amp;nt amount:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>tintSlider</cstring>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Use this slider to set how much transparent panels should be tinted using the tint color.</string>
+                    </property>
+                </widget>
+                <widget class="TQLabel" row="4" column="3">
+                    <property name="name">
+                        <cstring>textLabel2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>4</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>Max</string>
+                    </property>
+                    <property name="alignment">
+                        <set>AlignVCenter|AlignRight</set>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Use this slider to set how much transparent panels should be tinted using the tint color.</string>
+                    </property>
+                </widget>
+                <widget class="TQLabel" row="6" column="3">
+                    <property name="name">
+                        <cstring>textLabel2_2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>4</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>Max blur</string>
+                    </property>
+                    <property name="alignment">
+                        <set>AlignVCenter|AlignRight</set>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Use this slider to set how much transparent panels should be blurred.</string>
+                    </property>
+                </widget>
+                <spacer row="7" column="2">
+                    <property name="name">
+                        <cstring>spacer2_2_2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Maximum</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>16</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="TQLabel" row="5" column="0">
+                    <property name="name">
+                        <cstring>textLabel1_2_2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>4</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Blur amount:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>blurSlider</cstring>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Use this slider to set how much transparent panels should be blurred.</string>
+                    </property>
+                </widget>
+                <widget class="TQLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>4</hsizetype>
+                            <vsizetype>5</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>Tint c&amp;olor:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>tintColorB</cstring>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Click on this button to set the color to use when tinting transparent panels.</string>
+                    </property>
+                </widget>
+                <spacer row="6" column="0">
+                    <property name="name">
+                        <cstring>spacer2_2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Maximum</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>16</height>
+                        </size>
+                    </property>
+                </spacer>
+                <spacer row="4" column="0">
+                    <property name="name">
+                        <cstring>spacer2_2_2_2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>MinimumExpanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="TQSlider" row="2" column="1" rowspan="2" colspan="3">
+                    <property name="name">
+                        <cstring>tintSlider</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>7</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Use this slider to set how much transparent panels should be tinted using the tint color.</string>
+                    </property>
+                </widget>
                 <widget class="KColorButton" row="0" column="1">
                     <property name="name">
                         <cstring>tintColorB</cstring>
                     </property>
                     <property name="sizePolicy">
                         <sizepolicy>
-                            <hsizetype>7</hsizetype>
+                            <hsizetype>4</hsizetype>
                             <vsizetype>0</vsizetype>
                             <horstretch>0</horstretch>
                             <verstretch>0</verstretch>
@@ -184,26 +393,17 @@
                         <string>Click on this button to set the color to use when tinting transparent panels.</string>
                     </property>
                 </widget>
-                <spacer row="2" column="0">
-                    <property name="name">
-                        <cstring>spacer2</cstring>
-                    </property>
-                    <property name="orientation">
-                        <enum>Vertical</enum>
-                    </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>20</width>
-                            <height>21</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="TQLabel" row="2" column="1">
+                <widget class="TQLabel" row="4" column="1" rowspan="1" colspan="2">
                     <property name="name">
                         <cstring>textLabel3</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>4</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
                     </property>
                     <property name="text">
                         <string>Min</string>
@@ -215,77 +415,46 @@
                         <string>Use this slider to set how much transparent panels should be tinted using the tint color.</string>
                     </property>
                 </widget>
-                <spacer row="0" column="2">
+                <widget class="TQSlider" row="5" column="1" rowspan="1" colspan="3">
                     <property name="name">
-                        <cstring>spacer3</cstring>
+                        <cstring>blurSlider</cstring>
                     </property>
-                    <property name="orientation">
-                        <enum>Horizontal</enum>
+                    <property name="minValue">
+                        <number>0</number>
                     </property>
-                    <property name="sizeType">
-                        <enum>Expanding</enum>
-                    </property>
-                    <property name="sizeHint">
-                        <size>
-                            <width>81</width>
-                            <height>20</height>
-                        </size>
-                    </property>
-                </spacer>
-                <widget class="TQSlider" row="1" column="1" rowspan="1" colspan="2">
-                    <property name="name">
-                        <cstring>tintSlider</cstring>
+                    <property name="maxValue">
+                        <number>10</number>
                     </property>
                     <property name="orientation">
                         <enum>Horizontal</enum>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Use this slider to set how much transparent panels should be tinted using the tint color.</string>
+                        <string>Use this slider to set how much transparent panels should be blurred.</string>
                     </property>
                 </widget>
-                <widget class="TQLabel" row="2" column="2">
+                <widget class="TQLabel" row="6" column="1">
                     <property name="name">
-                        <cstring>textLabel2</cstring>
+                        <cstring>textLabel3_2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>4</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
                     </property>
                     <property name="text">
-                        <string>Max</string>
+                        <string>No blur</string>
                     </property>
                     <property name="alignment">
-                        <set>AlignVCenter|AlignRight</set>
+                        <set>AlignVCenter|AlignLeft</set>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>Use this slider to set how much transparent panels should be tinted using the tint color.</string>
+                        <string>Use this slider to set how much transparent panels should be blurred.</string>
                     </property>
                 </widget>
-                <widget class="TQLabel" row="1" column="0">
-                    <property name="name">
-                        <cstring>textLabel1_2</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Ti&amp;nt amount:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>tintSlider</cstring>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Use this slider to set how much transparent panels should be tinted using the tint color.</string>
-                    </property>
-                </widget>
-                <widget class="TQLabel" row="0" column="0">
-                    <property name="name">
-                        <cstring>textLabel1</cstring>
-                    </property>
-                    <property name="text">
-                        <string>Tint c&amp;olor:</string>
-                    </property>
-                    <property name="buddy" stdset="0">
-                        <cstring>tintColorB</cstring>
-                    </property>
-                    <property name="whatsThis" stdset="0">
-                        <string>Click on this button to set the color to use when tinting transparent panels.</string>
-                    </property>
-                </widget>
-                <widget class="TQCheckBox" row="3" column="0" rowspan="1" colspan="2">
+                <widget class="TQCheckBox" row="8" column="0" rowspan="1" colspan="4">
                     <property name="name">
                         <cstring>menubarPanelTransparent</cstring>
                     </property>
@@ -296,53 +465,48 @@
                         <string>Normally if you have the desktop's or current application's menu bar displayed in a panel at the top of the screen (MacOS-style), transparency is disabled for this panel to avoid the desktop background clashing with the menu bar. Set this option to make it transparent anyways.</string>
                     </property>
                 </widget>
-                <widget class="TQCheckBox" row="4" column="0" rowspan="1" colspan="2">
+            </grid>
+        </widget>
+        <widget class="TQGroupBox">
+            <property name="name">
+                <cstring>groupBox3</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>StyledPanel</enum>
+            </property>
+            <property name="margin">
+                <number>2</number>
+            </property>
+            <property name="title">
+                <string>Texture</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="TQCheckBox" row="0" column="0">
                     <property name="name">
-                        <cstring>menubarPanelBlurred</cstring>
+                        <cstring>kickerResizeHandle</cstring>
                     </property>
                     <property name="text">
-                        <string>Blur the background when transparency is enabled</string>
+                        <string>Show resize handle on panels</string>
                     </property>
                     <property name="whatsThis" stdset="0">
-                        <string>When checked, the displayed semi-transparent background image will be blurred to reduce eyestrain.</string>
+                        <string>Enabling this option will show a resize handle on the resizable end of each panel.</string>
+                    </property>
+                </widget>
+                <widget class="TQCheckBox" row="0" column="1">
+                    <property name="name">
+                        <cstring>kickerDeepButtons</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Use deep buttons</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>Enabling this option will yield more highly textured panels.</string>
                     </property>
                 </widget>
             </grid>
-        </widget>
-	<widget class="TQGroupBox">
-		<property name="name">
-			<cstring>groupBox3</cstring>
-		</property>
-		<property name="title">
-			<string>Texture</string>
-		</property>
-		<grid>
-			<property name="name">
-				<cstring>unnamed</cstring>
-			</property>
-			<widget class="TQCheckBox" row="0" column="0" rowspan="0" colspan="2">
-				<property name="name">
-					<cstring>kickerResizeHandle</cstring>
-				</property>
-				<property name="text">
-					<string>Show resize handle on panels</string>
-				</property>
-				<property name="whatsThis" stdset="0">
-					<string>Enabling this option will show a resize handle on the resizable end of each panel.</string>
-				</property>
-			</widget>
-			<widget class="TQCheckBox" row="0" column="2" rowspan="0" colspan="2">
-				<property name="name">
-					<cstring>kickerDeepButtons</cstring>
-				</property>
-				<property name="text">
-					<string>Use deep buttons</string>
-				</property>
-				<property name="whatsThis" stdset="0">
-					<string>Enabling this option will yield more highly textured panels.</string>
-				</property>
-			</widget>
-		</grid>
         </widget>
     </vbox>
 </widget>
@@ -358,6 +522,7 @@
     <include location="global" impldecl="in implementation">kdialog.h</include>
     <include location="global" impldecl="in implementation">kcolorbutton.h</include>
     <include location="global" impldecl="in declaration">knuminput.h</include>
+    <include location="global" impldecl="in implementation">knuminput.h</include>
 </includes>
 <layoutdefaults spacing="3" margin="6"/>
 <layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>

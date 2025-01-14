@@ -28,6 +28,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <tqcursor.h>
 #include <tqpopupmenu.h>
+#include <tqspinbox.h>
+#include <tqcheckbox.h>
 #include <tqtimer.h>
 #include <tqpixmap.h>
 #include <tqevent.h>
@@ -35,6 +37,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqgrid.h>
 #include <tqpainter.h>
 #include <tqimage.h>
+#include <tqlayout.h>
 
 #include <dcopclient.h>
 #include <tdeapplication.h>
@@ -58,7 +61,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <X11/Xlib.h>
 
-#define ICON_MARGIN 1
 #define ICON_END_MARGIN KickerSettings::showDeepButtons()?4:0
 
 extern "C"
@@ -74,20 +76,22 @@ extern "C"
 SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int actions,
                                    TQWidget *parent, const char *name)
   : KPanelApplet(configFile, type, actions, parent, name),
-    m_showFrame(KickerSettings::showDeepButtons()?true:false),
+    m_showFrame(KickerSettings::showDeepButtons()),
     m_showHidden(false),
-    m_expandButton(0),
-    m_leftSpacer(0),
-    m_rightSpacer(0),
-    m_clockApplet(0),
-    m_settingsDialog(0),
+    m_expandButton(nullptr),
+    m_leftSpacer(nullptr),
+    m_rightSpacer(nullptr),
+    m_clockApplet(nullptr),
+    m_settingsDialog(nullptr),
     m_iconSelector(0),
-    m_autoRetractTimer(0),
+    m_autoRetractTimer(nullptr),
     m_autoRetract(false),
     m_iconSize(24),
     m_showClockInTray(false),
-    m_showClockSettingCB(0),
-    m_layout(0)
+    m_showClockSettingCB(nullptr),
+    m_iconMargin(1),
+    m_iconMarginSB(nullptr),
+    m_layout(nullptr)
 {
     DCOPObject::setObjId("SystemTrayApplet");
     loadSettings();
@@ -119,14 +123,14 @@ void SystemTrayApplet::updateClockGeometry()
     if (m_clockApplet)
     {
         m_clockApplet->setPosition(position());
-			  if (orientation() == TQt::Horizontal)
-			  {
-	          m_clockApplet->setFixedSize(m_clockApplet->widthForHeight(height()),height());
-   			}
-			  else
-			  {
-	          m_clockApplet->setFixedSize(width(),m_clockApplet->heightForWidth(width()));
- 			  }
+        if (orientation() == TQt::Horizontal)
+        {
+            m_clockApplet->setFixedSize(m_clockApplet->widthForHeight(height()),height());
+        }
+        else
+        {
+            m_clockApplet->setFixedSize(width(),m_clockApplet->heightForWidth(width()));
+        }
     }
 }
 
@@ -190,7 +194,7 @@ void SystemTrayApplet::initialize()
 
         XSendEvent (display, root, False, StructureNotifyMask, (XEvent *)&xev);
     }
-    
+
     setBackground();
 }
 
@@ -253,7 +257,7 @@ void SystemTrayApplet::preferences()
     connect(m_settingsDialog, TQ_SIGNAL(okClicked()), this, TQ_SLOT(applySettings()));
     connect(m_settingsDialog, TQ_SIGNAL(finished()), this, TQ_SLOT(settingsDialogFinished()));
 
-    TQGrid *settingsGrid = m_settingsDialog->makeGridMainWidget( 2, TQt::Vertical);
+    TQGrid *settingsGrid = m_settingsDialog->makeGridMainWidget( 3, TQt::Vertical);
 
     m_showClockSettingCB = new TQCheckBox(i18n("Show Clock in Tray"), settingsGrid);
     m_showClockSettingCB->setChecked(m_showClockInTray);
@@ -289,6 +293,13 @@ void SystemTrayApplet::preferences()
         }
     }
 
+    TQHBox *hbox = new TQHBox(settingsGrid);
+    hbox->setSizePolicy(TQSizePolicy::Maximum, TQSizePolicy::Maximum);
+    TQLabel *iconMarginL = new TQLabel(i18n("Icon margin: "), hbox);
+    m_iconMarginSB = new TQSpinBox(0, 20, 1, hbox);
+    m_iconMarginSB->setSuffix(i18n(" px"));
+    m_iconMarginSB->setValue(m_iconMargin);
+
     m_settingsDialog->show();
 }
 
@@ -307,6 +318,7 @@ void SystemTrayApplet::applySettings()
     }
 
     m_showClockInTray = m_showClockSettingCB->isChecked();
+    m_iconMargin = m_iconMarginSB->value();
 
     TDEConfig *conf = config();
 
@@ -356,6 +368,7 @@ void SystemTrayApplet::applySettings()
 
     conf->setGroup("System Tray");
     conf->writeEntry("ShowClockInTray", m_showClockInTray);
+    conf->writeEntry("IconMargin", m_iconMargin);
 
     conf->sync();
 
@@ -483,7 +496,7 @@ void SystemTrayApplet::iconSizeChanged() {
 		(*emb)->setFixedSize(m_iconSize, m_iconSize);
 		++emb;
 	}
-	
+
 	emb = m_hiddenWins.begin();
 	while (emb != m_hiddenWins.end()) {
 		(*emb)->setFixedSize(m_iconSize, m_iconSize);
@@ -516,6 +529,7 @@ void SystemTrayApplet::loadSettings()
     conf->setGroup("System Tray");
     m_iconSize = conf->readNumEntry("systrayIconWidth", 22);
     m_showClockInTray = conf->readNumEntry("ShowClockInTray", false);
+    m_iconMargin = conf->readNumEntry("IconMargin", 1);
 }
 
 void SystemTrayApplet::systemTrayWindowAdded( WId w )
@@ -627,7 +641,7 @@ void SystemTrayApplet::updateVisibleWins()
             (*emb)->hide();
         }
     }
-    
+
     TQMap< QXEmbed*, TQString > names; // cache window names and classes
     TQMap< QXEmbed*, TQString > classes;
     for( TrayEmbedList::const_iterator it = m_shownWins.begin();
@@ -683,7 +697,6 @@ void SystemTrayApplet::refreshExpandButton()
         a = m_showHidden ? TQt::DownArrow : TQt::UpArrow;
     else
         a = (m_showHidden ^ kapp->reverseLayout()) ? TQt::RightArrow : TQt::LeftArrow;
-    
     m_expandButton->setArrowType(a);
 }
 
@@ -881,7 +894,7 @@ int SystemTrayApplet::widthForHeight(int h) const
         me->setFixedHeight(h);
     }
 
-    return sizeHint().width(); 
+    return sizeHint().width();
 }
 
 int SystemTrayApplet::heightForWidth(int w) const
@@ -900,7 +913,7 @@ int SystemTrayApplet::heightForWidth(int w) const
         me->setFixedWidth(w);
     }
 
-    return sizeHint().height(); 
+    return sizeHint().height();
 }
 
 void SystemTrayApplet::moveEvent( TQMoveEvent* )
@@ -933,7 +946,7 @@ void SystemTrayApplet::layoutTray()
     int i = 0, line, nbrOfLines, heightWidth;
     bool showExpandButton = m_expandButton && m_expandButton->isVisibleTo(this);
     delete m_layout;
-    m_layout = new TQGridLayout(this, 1, 1, ICON_MARGIN, ICON_MARGIN);
+    m_layout = new TQGridLayout(this, 1, 1, 0, m_iconMargin);
 
     if (m_expandButton)
     {
@@ -951,20 +964,20 @@ void SystemTrayApplet::layoutTray()
     // the opposite direction of line
     int col = 0;
 
-    // 
-    // The margin and spacing specified in the layout implies that:
-    // [-- ICON_MARGIN pixels --] [-- first icon --] [-- ICON_MARGIN pixels --] ... [-- ICON_MARGIN pixels --] [-- last icon --] [-- ICON_MARGIN pixels --]
     //
-    // So, if we say that iconWidth is the icon width plus the ICON_MARGIN pixels spacing, then the available width for the icons
-    // is the widget width minus ICON_MARGIN pixels margin. Forgetting these ICON_MARGIN pixels broke the layout algorithm in KDE <= 3.5.9.
+    // The margin and spacing specified in the layout implies that:
+    // [-- m_iconMargin pixels --] [-- first icon --] [-- m_iconMargin pixels --] ... [-- m_iconMargin pixels --] [-- last icon --] [-- m_iconMargin pixels --]
+    //
+    // So, if we say that iconWidth is the icon width plus the m_iconMargin pixels spacing, then the available width for the icons
+    // is the widget width minus m_iconMargin pixels margin. Forgetting these m_iconMargin pixels broke the layout algorithm in KDE <= 3.5.9.
     //
     // This fix makes the workarounds in the heightForWidth() and widthForHeight() methods unneeded.
     //
 
     if (orientation() == TQt::Vertical)
     {
-        int iconWidth = maxIconWidth() + ICON_MARGIN; // +2 for the margins that implied by the layout
-        heightWidth = width() - ICON_MARGIN;
+        int iconWidth = maxIconWidth() + m_iconMargin * 2; // +2 for the margins that implied by the layout
+        heightWidth = width() - m_iconMargin * 2;
         // to avoid nbrOfLines=0 we ensure heightWidth >= iconWidth!
         heightWidth = heightWidth < iconWidth ? iconWidth : heightWidth;
         nbrOfLines = heightWidth / iconWidth;
@@ -1040,8 +1053,8 @@ void SystemTrayApplet::layoutTray()
     }
     else // horizontal
     {
-        int iconHeight = maxIconHeight() + ICON_MARGIN; // +2 for the margins that implied by the layout
-        heightWidth = height() - ICON_MARGIN;
+        int iconHeight = maxIconHeight() + m_iconMargin * 2; // +2 for the margins that implied by the layout
+        heightWidth = height() - m_iconMargin * 2;
         heightWidth = heightWidth < iconHeight ? iconHeight : heightWidth; // to avoid nbrOfLines=0
         nbrOfLines = heightWidth / iconHeight;
 
@@ -1129,11 +1142,11 @@ void SystemTrayApplet::paletteChange(const TQPalette & /* oldPalette */)
 void SystemTrayApplet::setBackground()
 {
     TrayEmbedList::const_iterator lastEmb;
-    
+
     lastEmb = m_shownWins.end();
     for (TrayEmbedList::const_iterator emb = m_shownWins.begin(); emb != lastEmb; ++emb)
         (*emb)->setBackground();
-    
+
     lastEmb = m_hiddenWins.end();
     for (TrayEmbedList::const_iterator emb = m_hiddenWins.begin(); emb != lastEmb; ++emb)
         (*emb)->setBackground();
@@ -1188,7 +1201,7 @@ void TrayEmbed::ensureBackgroundSet()
 		// Get the RGB background image
 		bg.fill(parentWidget(), pos());
 		TQImage bgImage = bg.convertToImage();
-		
+
 		// Create the ARGB pixmap
 		Pixmap argbpixmap = XCreatePixmap(x11Display(), embeddedWinId(), width(), height(), 32);
 		GC gc;
@@ -1207,7 +1220,7 @@ void TrayEmbed::ensureBackgroundSet()
 				XDrawPoint(x11Display(), argbpixmap, gc, x, y);
 			}
 		}
-		XFlush(x11Display()); 
+		XFlush(x11Display());
 		XSetWindowBackgroundPixmap(x11Display(), embeddedWinId(), argbpixmap);
 		XFreePixmap(x11Display(), argbpixmap);
 		XFreeGC(x11Display(), gc);

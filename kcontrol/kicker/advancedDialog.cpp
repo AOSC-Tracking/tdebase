@@ -61,9 +61,9 @@ advancedDialog::advancedDialog(TQWidget* parent, const char* name)
             this, TQ_SLOT(changed()));
     connect(m_advancedWidget->tintSlider, TQ_SIGNAL(valueChanged(int)),
             this, TQ_SLOT(changed()));
-    connect(m_advancedWidget->menubarPanelTransparent, TQ_SIGNAL(clicked()),
+    connect(m_advancedWidget->blurSlider, TQ_SIGNAL(valueChanged(int)),
             this, TQ_SLOT(changed()));
-    connect(m_advancedWidget->menubarPanelBlurred, TQ_SIGNAL(clicked()),
+    connect(m_advancedWidget->menubarPanelTransparent, TQ_SIGNAL(clicked()),
             this, TQ_SLOT(changed()));
     connect(m_advancedWidget->kickerResizeHandle, TQ_SIGNAL(clicked()),
             this, TQ_SLOT(changed()));
@@ -97,10 +97,21 @@ void advancedDialog::load()
     int tintValue = c.readNumEntry( "TintValue", 33 );
     m_advancedWidget->tintSlider->setValue( tintValue );
 
+    // Compatibility with deprecated MenubarPanelBlurred option
+    int blurValue = 0;
+    if (c.hasKey("MenubarPanelBlurred"))
+    {
+        if (c.readNumEntry("MenubarPanelBlurred", false))
+        {
+            blurValue = 4;
+        }
+        c.deleteEntry("MenubarPanelBlurred");
+    }
+    blurValue = c.readNumEntry("BlurValue", blurValue);
+    m_advancedWidget->blurSlider->setValue(blurValue);
+
     bool transparentMenubarPanel = c.readBoolEntry("MenubarPanelTransparent", false);
     m_advancedWidget->menubarPanelTransparent->setChecked( transparentMenubarPanel );
-    bool blurredMenubarPanel = c.readBoolEntry("MenubarPanelBlurred", false);
-    m_advancedWidget->menubarPanelBlurred->setChecked( blurredMenubarPanel );
 
     bool useKickerResizeHandle = c.readBoolEntry("UseResizeHandle", false);
     m_advancedWidget->kickerResizeHandle->setChecked( useKickerResizeHandle );
@@ -125,10 +136,10 @@ void advancedDialog::save()
                  m_advancedWidget->tintColorB->color());
     c.writeEntry("TintValue",
                  m_advancedWidget->tintSlider->value());
+    c.writeEntry("BlurValue",
+                 m_advancedWidget->blurSlider->value());
     c.writeEntry("MenubarPanelTransparent",
                  m_advancedWidget->menubarPanelTransparent->isChecked());
-    c.writeEntry("MenubarPanelBlurred",
-                 m_advancedWidget->menubarPanelBlurred->isChecked());
     c.writeEntry("UseResizeHandle",
                  m_advancedWidget->kickerResizeHandle->isChecked());
     c.writeEntry("ShowDeepButtons",
@@ -161,10 +172,10 @@ void advancedDialog::save()
                              m_advancedWidget->tintColorB->color());
         extConfig.writeEntry("TintValue",
                              m_advancedWidget->tintSlider->value());
+        extConfig.writeEntry("BlurValue",
+                             m_advancedWidget->blurSlider->value());
         extConfig.writeEntry("MenubarPanelTransparent",
                              m_advancedWidget->menubarPanelTransparent->isChecked());
-        extConfig.writeEntry("MenubarPanelBlurred",
-                             m_advancedWidget->menubarPanelBlurred->isChecked());
         extConfig.writeEntry("UseResizeHandle",
                              m_advancedWidget->kickerResizeHandle->isChecked());
         extConfig.writeEntry("ShowDeepButtons",
@@ -172,7 +183,7 @@ void advancedDialog::save()
 
         extConfig.sync();
     }
-   
+
     c.sync();
 
     KickerConfig::the()->notifyKicker();
