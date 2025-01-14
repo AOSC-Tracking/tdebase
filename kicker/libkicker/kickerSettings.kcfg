@@ -44,8 +44,8 @@
    </entry>
 
 <entry name="MenubarPanelBlurred" type="Bool" >
-      <label>Enable blurring for menubar panel</label>
-      <whatsthis>When this option is enabled, the panel containing the menubar will blur pseudo-transparent image</whatsthis>
+      <label>Enable blurring for menubar panel (deprecated)</label>
+      <whatsthis>This option is deprecated, use MenubarPanelBlur</whatsthis>
       <default>false</default>
    </entry>
 
@@ -77,6 +77,14 @@
       <default>33</default>
       <min>0</min>
       <max>100</max>
+   </entry>
+
+<entry name="BlurValue" type="Int" >
+      <label>Blur strength</label>
+      <whatsthis>Set blur effect strenght for the panel. Set to 0 to disable blur.</whatsthis>
+      <default>0</default>
+      <min>0</min>
+      <max>10</max>
    </entry>
 
 <entry name="TintColor" type="Color" >

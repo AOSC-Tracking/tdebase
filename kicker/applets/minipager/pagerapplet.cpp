@@ -442,7 +442,7 @@ void KMiniPager::wheelEvent( TQWheelEvent* e )
 {
     int newDesk;
     int desktops = KWin::numberOfDesktops();
-   
+
 
     if(cycleWindow()){
 
@@ -456,7 +456,7 @@ void KMiniPager::wheelEvent( TQWheelEvent* e )
     {
         newDesk = (desktops + m_curDesk - 2) % desktops + 1;
     }
-  
+
     slotButtonSelected(newDesk);
     }
 }
@@ -735,6 +735,7 @@ void KMiniPager::aboutToShowContextMenu()
     showMenu->insertItem(i18n("&Window Thumbnails"), WindowThumbnails);
     showMenu->insertItem(i18n("&Window Icons"), WindowIcons);
     showMenu->insertItem(i18n("&Cycle on Wheel"), Cycle);
+    showMenu->insertItem(i18n("3&D Desk Borders"), Border3D);
 
     showMenu->insertTitle(i18n("Text Label"));
     showMenu->insertItem(i18n("Desktop N&umber"),
@@ -767,10 +768,8 @@ void KMiniPager::aboutToShowContextMenu()
     m_contextMenu->setItemChecked(WindowThumbnails, m_settings->preview());
     m_contextMenu->setItemChecked(WindowIcons, m_settings->icons());
     m_contextMenu->setItemChecked(Cycle, m_settings->cycle());
+    m_contextMenu->setItemChecked(Border3D, m_settings->border3D());
     m_contextMenu->setItemEnabled(WindowIcons, m_settings->preview());
-    m_contextMenu->setItemEnabled(RenameDesktop,
-                                  m_settings->labelType() ==
-                                  PagerSettings::EnumLabelType::LabelName);
 }
 
 void KMiniPager::slotShowMenu(const TQPoint& pos, int desktop)
@@ -821,6 +820,9 @@ void KMiniPager::contextMenuActivated(int result)
             break;
         case Cycle:
              m_settings->setCycle(!m_settings->cycle());
+            break;
+        case Border3D:
+            m_settings->setBorder3D(!m_settings->border3D());
             break;
         case WindowIcons:
             m_settings->setIcons(!m_settings->icons());
