@@ -247,7 +247,7 @@ LockProcess::LockProcess()
 	kde_wm_transparent_to_desktop = XInternAtom(tqt_xdisplay(), "_TDE_TRANSPARENT_TO_DESKTOP", False);
 	kde_wm_transparent_to_black = XInternAtom(tqt_xdisplay(), "_TDE_TRANSPARENT_TO_BLACK", False);
 
-	kapp->installX11EventFilter(this);
+	tdeApp->installX11EventFilter(this);
 
 	mForceContinualLockDisplayTimer = new TQTimer( this );
 	mHackDelayStartupTimer = new TQTimer( this );
@@ -413,7 +413,7 @@ void LockProcess::init(bool child, bool useBlankOnly)
 #endif
 
 #if (TQT_VERSION-0 >= 0x030200) // XRANDR support
-	connect( kapp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized()));
+	connect( tdeApp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized()));
 #endif
 
 	if (!trinity_desktop_lock_use_system_modal_dialogs) {
@@ -622,7 +622,7 @@ void LockProcess::quitSaver()
 		return;
 	}
 	stopSaver();
-	kapp->quit();
+	tdeApp->quit();
 }
 
 //---------------------------------------------------------------------------
@@ -650,7 +650,7 @@ void LockProcess::startSecureDialog()
 	mInSecureDialog = false;
 	if (ret == 0) {
 		mClosingWindows = 1;
-		kapp->quit();
+		tdeApp->quit();
 	}
 	if (ret == 1) {
 		// In case of a forced lock we don't react to events during
@@ -699,12 +699,12 @@ void LockProcess::startSecureDialog()
 		if (system("ksysguard &") == -1) {
                     // Error handler to shut up gcc warnings
                 }
-		kapp->quit();
+		tdeApp->quit();
 	}
 	if (ret == 3) {
 		mClosingWindows = 1;
 		DCOPRef("ksmserver","ksmserver").send("logout", (int)TDEApplication::ShutdownConfirmYes, (int)TDEApplication::ShutdownTypeNone, (int)TDEApplication::ShutdownModeInteractive);
-		kapp->quit();
+		tdeApp->quit();
 	}
 	// FIXME
 	// Handle remaining case (switch user)
@@ -798,8 +798,8 @@ void LockProcess::readSaver()
 	if (!mSaver.isEmpty()) {
 		TQString file = locate("scrsav", mSaver);
 
-		bool opengl = kapp->authorize("opengl_screensavers");
-		bool manipulatescreen = kapp->authorize("manipulatescreen_screensavers");
+		bool opengl = tdeApp->authorize("opengl_screensavers");
+		bool manipulatescreen = tdeApp->authorize("manipulatescreen_screensavers");
 		KDesktopFile config(file, true);
 		if (config.readEntry("X-TDE-Type").utf8() != 0) {
 			TQString saverType = config.readEntry("X-TDE-Type").utf8();
@@ -1799,7 +1799,7 @@ void LockProcess::displayLockDialogIfNeeded()
 					if (checkPass()) {
 						mClosingWindows = true;
 						stopSaver();
-						kapp->quit();
+						tdeApp->quit();
 					}
 				}
 				mBusy = false;
@@ -2207,7 +2207,7 @@ bool LockProcess::x11Event(XEvent *event)
 				}
 				if ((!mLocked) && (!mInSecureDialog)) {
 					stopSaver();
-					kapp->quit();
+					tdeApp->quit();
 				}
 				if (mAutoLogout) {
 					// we need to restart the auto logout countdown
@@ -2219,7 +2219,7 @@ bool LockProcess::x11Event(XEvent *event)
 				if (!mLocked || checkPass()) {
 					mClosingWindows = true;
 					stopSaver();
-					kapp->quit();
+					tdeApp->quit();
 				}
 				else if (mAutoLogout) {
 					// we need to restart the auto logout countdown

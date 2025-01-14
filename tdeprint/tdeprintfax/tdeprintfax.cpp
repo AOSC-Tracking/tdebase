@@ -178,7 +178,7 @@ KdeprintFax::KdeprintFax(TQWidget *parent, const char *name)
 	updateState();
 
 	resize(550,500);
-	TQWidget	*d = kapp->desktop();
+	TQWidget	*d = tdeApp->desktop();
 	move((d->width()-width())/2, (d->height()-height())/2);
 }
 

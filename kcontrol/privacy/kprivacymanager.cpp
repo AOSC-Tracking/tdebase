@@ -36,8 +36,8 @@
 
 KPrivacyManager::KPrivacyManager()
 {
-  if (!kapp->dcopClient()->isAttached())
-    kapp->dcopClient()->attach();
+  if (!tdeApp->dcopClient()->isAttached())
+    tdeApp->dcopClient()->attach();
 
   m_error = false;
 }
@@ -75,12 +75,12 @@ bool KPrivacyManager::clearThumbnails()
 
 bool KPrivacyManager::clearRunCommandHistory() const
 {
-  return kapp->dcopClient()->send( "kdesktop", "KDesktopIface", "clearCommandHistory()", TQString("") );
+  return tdeApp->dcopClient()->send( "kdesktop", "KDesktopIface", "clearCommandHistory()", TQString("") );
 }
 
 bool KPrivacyManager::clearAllCookies() const
 {
-  return kapp->dcopClient()->send( "kded", "kcookiejar", "deleteAllCookies()", TQString("") );
+  return tdeApp->dcopClient()->send( "kded", "kcookiejar", "deleteAllCookies()", TQString("") );
 }
 
 bool KPrivacyManager::clearSavedClipboardContents()
@@ -98,7 +98,7 @@ bool KPrivacyManager::clearSavedClipboardContents()
     return true;
   }
 
-  return kapp->dcopClient()->send( "klipper", "klipper", "clearClipboardHistory()", TQString("") );
+  return tdeApp->dcopClient()->send( "klipper", "klipper", "clearClipboardHistory()", TQString("") );
 }
 
 bool KPrivacyManager::clearFormCompletion() const
@@ -123,7 +123,7 @@ bool KPrivacyManager::clearRecentDocuments() const
 
 bool KPrivacyManager::clearQuickStartMenu() const
 {
-  return kapp->dcopClient()->send( "kicker", "kicker", "clearQuickStartMenu()", TQString("") );
+  return tdeApp->dcopClient()->send( "kicker", "kicker", "clearQuickStartMenu()", TQString("") );
 }
 
 bool KPrivacyManager::clearWebHistory()
@@ -134,10 +134,10 @@ bool KPrivacyManager::clearWebHistory()
   if(!isApplicationRegistered("konqueror"))
   {
     kdDebug() << "couldn't find Konqueror instance, preloading." << endl;
-    kapp->tdeinitExec("konqueror", args, 0,0);
+    tdeApp->tdeinitExec("konqueror", args, 0,0);
   }
 
-  return kapp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
+  return tdeApp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
                                    "notifyClear(TQCString)", TQString("") );
 }
 
@@ -170,7 +170,7 @@ bool KPrivacyManager::clearKPDFDocData()
 bool KPrivacyManager::isApplicationRegistered(const TQString &appName)
 {
 
-  QCStringList regApps = kapp->dcopClient()->registeredApplications();
+  QCStringList regApps = tdeApp->dcopClient()->registeredApplications();
 
   for ( QCStringList::Iterator it = regApps.begin(); it != regApps.end(); ++it )
     if((*it).find(appName.latin1()) != -1) return true;

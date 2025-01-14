@@ -553,7 +553,7 @@ void PanelServiceMenu::slotExec(int id)
 
     KSycocaEntry * e = entryMap_[id];
 
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
 
     KService::Ptr service = static_cast<KService *>(e);
     TDEApplication::startServiceByDesktopPath(service->desktopEntryPath(),
@@ -596,25 +596,25 @@ void PanelServiceMenu::mouseReleaseEvent(TQMouseEvent * ev)
         switch (contextKSycocaEntry_->sycocaType())
         {
         case KST_KService:
-            if (kapp->authorize("editable_desktop_icons"))
+            if (tdeApp->authorize("editable_desktop_icons"))
             {
                 hasEntries = true;
                 popupMenu_->insertItem(SmallIconSet("desktop"),
                     i18n("Add Item to Desktop"), AddItemToDesktop);
             }
-            if (kapp->authorizeTDEAction("kicker_rmb") && !Kicker::the()->isImmutable())
+            if (tdeApp->authorizeTDEAction("kicker_rmb") && !Kicker::the()->isImmutable())
             {
                 hasEntries = true;
                 popupMenu_->insertItem(SmallIconSet("kicker"),
                     i18n("Add Item to Main Panel"), AddItemToPanel);
             }
-            if (kapp->authorizeTDEAction("menuedit"))
+            if (tdeApp->authorizeTDEAction("menuedit"))
             {
                 hasEntries = true;
                 popupMenu_->insertItem(SmallIconSet("kmenuedit"),
                     i18n("Edit Item"), EditItem);
             }
-            if (kapp->authorize("run_command"))
+            if (tdeApp->authorize("run_command"))
             {
                 hasEntries = true;
                 popupMenu_->insertItem(SmallIconSet("system-run"),
@@ -623,19 +623,19 @@ void PanelServiceMenu::mouseReleaseEvent(TQMouseEvent * ev)
             break;
 
         case KST_KServiceGroup:
-            if (kapp->authorize("editable_desktop_icons"))
+            if (tdeApp->authorize("editable_desktop_icons"))
             {
                 hasEntries = true;
                 popupMenu_->insertItem(SmallIconSet("desktop"),
                     i18n("Add Menu to Desktop"), AddMenuToDesktop);
             }
-            if (kapp->authorizeTDEAction("kicker_rmb") && !Kicker::the()->isImmutable())
+            if (tdeApp->authorizeTDEAction("kicker_rmb") && !Kicker::the()->isImmutable())
             {
                 hasEntries = true;
                 popupMenu_->insertItem(SmallIconSet("kicker"),
                     i18n("Add Menu to Main Panel"), AddMenuToPanel);
             }
-            if (kapp->authorizeTDEAction("menuedit"))
+            if (tdeApp->authorizeTDEAction("menuedit"))
             {
                 hasEntries = true;
                 popupMenu_->insertItem(SmallIconSet("kmenuedit"),
@@ -691,7 +691,7 @@ void PanelServiceMenu::slotContextMenu(int selected)
             if ( kicker_screen_number )
                 appname.sprintf("kicker-screen-%d", kicker_screen_number);
             service = static_cast<KService *>(contextKSycocaEntry_);
-            kapp->dcopClient()->send(appname, "Panel", "addServiceButton(TQString)", service->desktopEntryPath());
+            tdeApp->dcopClient()->send(appname, "Panel", "addServiceButton(TQString)", service->desktopEntryPath());
             break;
         }
 
@@ -708,8 +708,8 @@ void PanelServiceMenu::slotContextMenu(int selected)
             if ( kicker_screen_number )
                 appname.sprintf("kdesktop-screen-%d", kicker_screen_number);
             service = static_cast<KService *>(contextKSycocaEntry_);
-            kapp->updateRemoteUserTimestamp( appname );
-            kapp->dcopClient()->send(appname, "default", "popupExecuteCommand(TQString)", service->exec());
+            tdeApp->updateRemoteUserTimestamp( appname );
+            tdeApp->dcopClient()->send(appname, "default", "popupExecuteCommand(TQString)", service->exec());
             break;
         }
 
@@ -735,7 +735,7 @@ void PanelServiceMenu::slotContextMenu(int selected)
 
             g = static_cast<KServiceGroup *>(contextKSycocaEntry_);
             ds << "foo" << g->relPath();
-            kapp->dcopClient()->send("kicker", "Panel", "addServiceMenuButton(TQString,TQString)", ba);
+            tdeApp->dcopClient()->send("kicker", "Panel", "addServiceMenuButton(TQString,TQString)", ba);
             break;
         }
 

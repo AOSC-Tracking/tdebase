@@ -229,7 +229,7 @@ void KDEDConfig::getServiceStatus()
 	TQByteArray replyData;
 
 
-	if (!kapp->dcopClient()->call( "kded", "kded", "loadedModules()", TQByteArray(),
+	if (!tdeApp->dcopClient()->call( "kded", "kded", "loadedModules()", TQByteArray(),
 				replyType, replyData ) ) {
 
 		_lvLoD->setEnabled( false );
@@ -310,7 +310,7 @@ void KDEDConfig::slotStartService()
 	TQCString replyType;
 	TQDataStream arg( data, IO_WriteOnly );
 	arg << service;
-	if (kapp->dcopClient()->call( "kded", "kded", "loadModule(TQCString)", data, replyType, replyData ) ) {
+	if (tdeApp->dcopClient()->call( "kded", "kded", "loadModule(TQCString)", data, replyType, replyData ) ) {
 		TQDataStream reply(replyData, IO_ReadOnly);
 		if ( replyType == "bool" )
 		{
@@ -337,7 +337,7 @@ void KDEDConfig::slotStopService()
 	TQDataStream arg( data, IO_WriteOnly );
 
 	arg << service;
-	if (kapp->dcopClient()->send( "kded", "kded", "unloadModule(TQCString)", data ) ) {
+	if (tdeApp->dcopClient()->send( "kded", "kded", "unloadModule(TQCString)", data ) ) {
 		slotServiceRunningToggled();
 	}
 	else {

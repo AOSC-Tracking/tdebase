@@ -129,7 +129,7 @@ KonqMainWindow * KonqMisc::createBrowserWindowFromProfile( const TQString &path,
   else if( KonqMainWindow::isPreloaded() && KonqMainWindow::preloadedWindow() != NULL )
   {
       mainWindow = KonqMainWindow::preloadedWindow();
-      TDEStartupInfo::setWindowStartupId( mainWindow->winId(), kapp->startupId());
+      TDEStartupInfo::setWindowStartupId( mainWindow->winId(), tdeApp->startupId());
       KonqMainWindow::setPreloadedWindow( NULL );
       KonqMainWindow::setPreloadedFlag( false );
       mainWindow->resetWindow();

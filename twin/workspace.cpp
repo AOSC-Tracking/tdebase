@@ -220,7 +220,7 @@ Workspace::Workspace( bool restore )
         (WFlags)(TQt::WType_Desktop | TQt::WPaintUnclipped)
     );
 
-    kapp->setGlobalMouseTracking( true ); // so that this doesn't mess eventmask on root window later
+    tdeApp->setGlobalMouseTracking( true ); // so that this doesn't mess eventmask on root window later
     // call this before XSelectInput() on the root window
     startup = new TDEStartupInfo(
         TDEStartupInfo::DisableKWinModule | TDEStartupInfo::AnnounceSilenceChanges, this );
@@ -259,7 +259,7 @@ Workspace::Workspace( bool restore )
     init();
 
 #if (TQT_VERSION-0 >= 0x030200) // XRANDR support
-    connect( kapp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized()));
+    connect( tdeApp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized()));
 #endif
 
     if (!supportsCompMgr()) {
@@ -414,12 +414,12 @@ void Workspace::init()
     // extra NETRootInfo instance in Client mode is needed to get the values of the properties
     NETRootInfo client_info( tqt_xdisplay(), NET::ActiveWindow | NET::CurrentDesktop );
     int initial_desktop;
-    if( !kapp->isSessionRestored())
+    if( !tdeApp->isSessionRestored())
         initial_desktop = client_info.currentDesktop();
     else
         {
-        TDEConfigGroupSaver saver( kapp->sessionConfig(), "Session" );
-        initial_desktop = kapp->sessionConfig()->readNumEntry( "desktop", 1 );
+        TDEConfigGroupSaver saver( tdeApp->sessionConfig(), "Session" );
+        initial_desktop = tdeApp->sessionConfig()->readNumEntry( "desktop", 1 );
         }
     if( !setCurrentDesktop( initial_desktop ))
         setCurrentDesktop( 1 );
@@ -431,16 +431,16 @@ void Workspace::init()
             TQ_SLOT(slotReconfigure()));
     connect( &updateToolWindowsTimer, TQ_SIGNAL( timeout()), this, TQ_SLOT( slotUpdateToolWindows()));
 
-    connect(kapp, TQ_SIGNAL(appearanceChanged()), this,
+    connect(tdeApp, TQ_SIGNAL(appearanceChanged()), this,
             TQ_SLOT(slotReconfigure()));
-    connect(kapp, TQ_SIGNAL(settingsChanged(int)), this,
+    connect(tdeApp, TQ_SIGNAL(settingsChanged(int)), this,
             TQ_SLOT(slotSettingsChanged(int)));
-    connect(kapp, TQ_SIGNAL( kipcMessage( int, int )), this, TQ_SLOT( kipcMessage( int, int )));
+    connect(tdeApp, TQ_SIGNAL( kipcMessage( int, int )), this, TQ_SLOT( kipcMessage( int, int )));
 
     active_client = NULL;
     rootInfo->setActiveWindow( None );
     focusToNull();
-    if( !kapp->isSessionRestored())
+    if( !tdeApp->isSessionRestored())
         ++block_focus; // because it will be set below
 
     char nm[ 100 ];
@@ -503,7 +503,7 @@ void Workspace::init()
         } // end updates blocker block
 
     Client* new_active_client = NULL;
-    if( !kapp->isSessionRestored())
+    if( !tdeApp->isSessionRestored())
         {
         --block_focus;
         new_active_client = findClient( WindowMatchPredicate( client_info.activeWindow()));
@@ -1277,7 +1277,7 @@ TQStringList Workspace::configModules(bool controlCenter)
     args <<  "tde-twindecoration.desktop";
     if (controlCenter)
         args << "tde-twinoptions.desktop";
-    else if (kapp->authorizeControlModule("tde-twinoptions.desktop"))
+    else if (tdeApp->authorizeControlModule("tde-twinoptions.desktop"))
         args  << "twinactions" << "twinfocus" <<  "twinmoving" << "twinadvanced" << "twinrules" << "twintranslucency";
     return args;
     }
@@ -1423,7 +1423,7 @@ bool Workspace::setCurrentDesktop( int new_desktop )
 
         current_desktop = new_desktop; // change the desktop (so that Client::updateVisibility() works)
 
-        bool desktopHasCompositing = kapp->isCompositionManagerAvailable();	// Technically I should call isX11CompositionAvailable(), but it isn't initialized via my kapp constructir, and in this case it doesn't really matter anyway....
+        bool desktopHasCompositing = tdeApp->isCompositionManagerAvailable();	// Technically I should call isX11CompositionAvailable(), but it isn't initialized via my tdeApp constructir, and in this case it doesn't really matter anyway....
         if (!desktopHasCompositing) {
             // If composition is not in use then we can hide the old windows before showing the new ones
             for ( ClientList::ConstIterator it = stacking_order.begin(); it != stacking_order.end(); ++it) {
@@ -1806,7 +1806,7 @@ void Workspace::setActiveScreenMouse( TQPoint mousepos )
 
 TQRect Workspace::screenGeometry( int screen ) const
     {
-    if (( !options->xineramaEnabled ) || (kapp->desktop()->numScreens() < 2))
+    if (( !options->xineramaEnabled ) || (tdeApp->desktop()->numScreens() < 2))
         return tqApp->desktop()->geometry();
     return tqApp->desktop()->screenGeometry( screen );
     }
@@ -2995,7 +2995,7 @@ void Workspace::startKompmgr()
         TQByteArray ba;
         TQDataStream arg(ba, IO_WriteOnly);
         arg << "";
-        kapp->dcopClient()->emitDCOPSignal("default", "kompmgrStarted()", ba);
+        tdeApp->dcopClient()->emitDCOPSignal("default", "kompmgrStarted()", ba);
     }
     if (popup){ delete popup; popup = 0L; } // to add/remove opacity slider
 }
@@ -3014,7 +3014,7 @@ void Workspace::stopKompmgr()
     TQByteArray ba;
     TQDataStream arg(ba, IO_WriteOnly);
     arg << "";
-    kapp->dcopClient()->emitDCOPSignal("default", "kompmgrStopped()", ba);
+    tdeApp->dcopClient()->emitDCOPSignal("default", "kompmgrStopped()", ba);
 }
 
 void Workspace::kompmgrReloadSettings()

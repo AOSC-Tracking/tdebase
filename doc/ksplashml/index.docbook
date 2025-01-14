@@ -606,13 +606,13 @@ or before it starts loading plugins, &etc;, invoke &ksplash; as
 follows:</para>
 
 <programlisting>
-DCOPClient *c = kapp-&gt;dcopClient();
+DCOPClient *c = tdeApp-&gt;dcopClient();
 TQString error;
 QCString KSplashName;
 int pid = 0;
 QStringList args;
 args &lt;&lt; "--theme=MyCoolTheme" &lt;&lt; "--managed";
-if (kapp-&gt;startServiceByDesktopName("ksplash", args, &amp;error,
+if (tdeApp-&gt;startServiceByDesktopName("ksplash", args, &amp;error,
 &amp;KSplashName, &amp;pid))
 {
   KMessageBox::sorry(0, error, "Unable to invoke KSplash");

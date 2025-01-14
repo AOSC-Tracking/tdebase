@@ -44,17 +44,17 @@ void PanelQuickBrowser::initialize()
     KURL url;
     
     url.setPath(TQDir::homeDirPath());
-    if (kapp->authorizeURLAction("list", KURL(), url))
+    if (tdeApp->authorizeURLAction("list", KURL(), url))
         insertItem(SmallIcon("kfm_home"), i18n("&Home Folder"),
                new PanelBrowserMenu(url.path(), this));
                
     url.setPath(TQDir::rootDirPath());
-    if (kapp->authorizeURLAction("list", KURL(), url))
+    if (tdeApp->authorizeURLAction("list", KURL(), url))
         insertItem(SmallIcon("folder_red"), i18n("&Root Folder"),
                new PanelBrowserMenu(url.path(), this));
                
     url.setPath(TQDir::rootDirPath() + "etc");
-    if (kapp->authorizeURLAction("list", KURL(), url))
+    if (tdeApp->authorizeURLAction("list", KURL(), url))
         insertItem(SmallIcon("folder_yellow"), i18n("System &Configuration"),
                new PanelBrowserMenu(url.path(), this));
 }

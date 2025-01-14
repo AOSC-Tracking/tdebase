@@ -191,7 +191,7 @@ void ThemeDefault::_initUi()
   setFixedHeight( mInactivePixmap->height() +
                   top_label->height() + bottom_label->height() );
 
-  const TQRect rect = kapp->desktop()->screenGeometry( mTheme->xineramaScreen() );
+  const TQRect rect = tdeApp->desktop()->screenGeometry( mTheme->xineramaScreen() );
   // TDEGlobalSettings::splashScreenDesktopGeometry(); cannot be used here.
   // kdDebug() << "ThemeDefault::_initUi" << rect << endl;
 

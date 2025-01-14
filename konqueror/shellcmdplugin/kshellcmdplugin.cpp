@@ -30,7 +30,7 @@ KShellCmdPlugin::KShellCmdPlugin( TQObject* parent, const char* name,
 	                          const TQStringList & )
     : KParts::Plugin( parent, name )
 {
-    if (!kapp->authorize("shell_access"))
+    if (!tdeApp->authorize("shell_access"))
        return;
 
     new TDEAction( i18n( "&Execute Shell Command..." ), "system-run", CTRL+Key_E, this,

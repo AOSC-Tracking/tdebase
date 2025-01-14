@@ -79,7 +79,7 @@ void KWebDesktopRun::slotFinished( TDEIO::Job * job )
     if (job->error())
     {
         kdDebug() << job->errorString() << endl;
-        kapp->exit(1);
+        tdeApp->exit(1);
     }
 }
 
@@ -141,7 +141,7 @@ void KWebDesktop::slotCompleted()
     TQPixmap snapshot = TQPixmap::grabWidget( m_part->widget() );
     snapshot.save( m_imageFile, "PNG" );
     // And terminate the app.
-    kapp->quit();
+    tdeApp->quit();
 }
 
 KParts::ReadOnlyPart* KWebDesktop::createPart( const TQString& mimeType )

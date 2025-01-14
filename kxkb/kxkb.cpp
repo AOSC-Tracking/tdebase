@@ -114,7 +114,7 @@ bool KXKBApp::settingsRead()
 	}
 
     if ( kxkbConfig.m_useKxkb == false ) {
-        kapp->quit();
+        tdeApp->quit();
         return false;
     }
 	
@@ -153,7 +153,7 @@ bool KXKBApp::settingsRead()
 	kdDebug() << "default layout is " << m_currentLayout.toPair() << endl;
 	
 	if( kxkbConfig.m_layouts.count() == 1 && !kxkbConfig.m_showSingle) {
-		kapp->quit();
+		tdeApp->quit();
 		return false;
  	}
 
@@ -172,7 +172,7 @@ void KXKBApp::initTray()
 	{
 		KSystemTray* sysTray = new KxkbSystemTray();
 		TDEPopupMenu* popupMenu = sysTray->contextMenu();
-	//	popupMenu->insertTitle( kapp->miniIcon(), kapp->caption() );
+	//	popupMenu->insertTitle( tdeApp->miniIcon(), tdeApp->caption() );
 
 		m_tray = new KxkbLabelController(sysTray, popupMenu);
  		connect(popupMenu, TQ_SIGNAL(activated(int)), this, TQ_SLOT(menuActivated(int)));
@@ -270,7 +270,7 @@ void KXKBApp::menuActivated(int id)
 	}
 	else if (id == KxkbLabelController::HELP_MENU_ID)
 	{
-		TDEApplication::kApplication()->invokeHelp(0, "kxkb");
+		tdeApp->invokeHelp(0, "kxkb");
 	}
 //	else
 //	{
@@ -301,7 +301,7 @@ void KXKBApp::maybeShowLayoutNotification() {
 		QCStringList modules;
 		TQCString replyType;
 		TQByteArray replyData;
-		if (kapp->dcopClient()->call("kded", "kded", "loadedModules()",
+		if (tdeApp->dcopClient()->call("kded", "kded", "loadedModules()",
 			TQByteArray(), replyType, replyData))
 		{
 			if (replyType == "QCStringList") {
@@ -317,7 +317,7 @@ void KXKBApp::maybeShowLayoutNotification() {
 
 	if (useKMilo) {
 		DCOPRef kmilo("kded", "kmilod");
-		if (kmilo.send("displayText(TQString,TQPixmap)", layoutName, kapp->miniIcon()))
+		if (kmilo.send("displayText(TQString,TQPixmap)", layoutName, tdeApp->miniIcon()))
 			notificationSent = true;
 	}
 

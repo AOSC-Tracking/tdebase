@@ -289,7 +289,7 @@ extern "C" int TDE_EXPORT kdemain(int argc, char* argv[])
        eargs.append( args->arg(i) );
 
      if (title.isEmpty() &&
-         (kapp->caption() == kapp->aboutData()->programName()))
+         (tdeApp->caption() == tdeApp->aboutData()->programName()))
      {
         title = TQFile::decodeName(shell);  // program executed in the title bar
      }
@@ -413,7 +413,7 @@ extern "C" int TDE_EXPORT kdemain(int argc, char* argv[])
     }
   }
 
-  if (!kapp->authorizeTDEAction("size"))
+  if (!tdeApp->authorizeTDEAction("size"))
     fixed_size = true;
 
   // ///////////////////////////////////////////////

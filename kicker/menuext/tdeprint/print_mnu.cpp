@@ -103,13 +103,13 @@ void PrintMenu::slotExec(int ID)
     switch (ID)
     {
         case ADD_PRINTER_ID:
-            kapp->tdeinitExec("kaddprinterwizard");
+            tdeApp->tdeinitExec("kaddprinterwizard");
             break;
         case TDEPRINT_SETTINGS_ID:
-	    kapp->tdeinitExec("kaddprinterwizard", TQStringList("--tdeconfig"));
+	    tdeApp->tdeinitExec("kaddprinterwizard", TQStringList("--tdeconfig"));
             break;
 	case CONFIG_SERVER_ID:
-	    kapp->tdeinitExec("kaddprinterwizard", TQStringList("--serverconfig"));
+	    tdeApp->tdeinitExec("kaddprinterwizard", TQStringList("--serverconfig"));
 	    break;
         case PRINT_MANAGER_ID:
             KRun::runCommand("tdecmshell tde-printers.desktop");
@@ -118,14 +118,14 @@ void PrintMenu::slotExec(int ID)
             KRun::runCommand("kfmclient openProfile filemanagement print:/", "kfmclient", "konqueror");
             break;
 	case KPRINTER_ID:
-	    kapp->tdeinitExec("kprinter");
+	    tdeApp->tdeinitExec("kprinter");
 	    break;
         default:
             {
                 // start kjobviewer
                 TQStringList args;
                 args << "--show" << "-d" << text(ID).remove('&');
-                kapp->tdeinitExec("kjobviewer", args);
+                tdeApp->tdeinitExec("kjobviewer", args);
             }
             break;
     }

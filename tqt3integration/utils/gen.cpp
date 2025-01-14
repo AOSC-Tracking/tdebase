@@ -740,7 +740,7 @@ void genarateTDEPreStub( TQTextStream& stream )
         if( function.delayed_return )
             {
             stream << "    JobData job;\n";
-            stream << "    job.transaction = kapp->dcopClient()->beginTransaction();\n";
+            stream << "    job.transaction = tdeApp->dcopClient()->beginTransaction();\n";
             stream << "    job.type = JobData::" + TQString( function.name[ 0 ].upper()) + function.name.mid( 1 ) + ";\n";
             }
         for( TQValueList< Arg >::ConstIterator it2 = function.args.begin();
@@ -870,7 +870,7 @@ void genarateTDEPostStub( TQTextStream& stream )
             stream << ";\n";
             }
         if( function.delayed_return )
-            stream << "    kapp->dcopClient()->endTransaction( job.transaction, replyType, replyData );\n";
+            stream << "    tdeApp->dcopClient()->endTransaction( job.transaction, replyType, replyData );\n";
         stream << "    }\n";
         stream << "\n";
         }

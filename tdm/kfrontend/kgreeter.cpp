@@ -1020,7 +1020,7 @@ KStdGreeter::KStdGreeter()
 		case LOGO_LOGO:
 			{
 				TQMovie movie( _logo );
-				kapp->eventLoop()->processEvents( TQEventLoop::ExcludeUserInput | TQEventLoop::ExcludeSocketNotifiers, 100 );
+				tdeApp->eventLoop()->processEvents( TQEventLoop::ExcludeUserInput | TQEventLoop::ExcludeSocketNotifiers, 100 );
 				TQPixmap pixmap;
 				if (!movie.framePixmap().isNull() || pixmap.load( _logo )) {
 					pixLabel = new TQLabel( this );

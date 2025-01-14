@@ -585,9 +585,9 @@ void KFocusConfig::save( void )
     if (standAlone)
     {
         config->sync();
-        if ( !kapp->dcopClient()->isAttached() )
-            kapp->dcopClient()->attach();
-        kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+        if ( !tdeApp->dcopClient()->isAttached() )
+            tdeApp->dcopClient()->attach();
+        tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
     }
     emit TDECModule::changed(false);
 }
@@ -748,9 +748,9 @@ void KActiveBorderConfig::save() {
     if (standAlone)
     {
         config->sync();
-        if (!kapp->dcopClient()->isAttached())
-            kapp->dcopClient()->attach();
-        kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+        if (!tdeApp->dcopClient()->isAttached())
+            tdeApp->dcopClient()->attach();
+        tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
     }
     emit TDECModule::changed(false);
 }
@@ -954,9 +954,9 @@ void KAdvancedConfig::save( void )
     if (standAlone)
     {
         config->sync();
-        if ( !kapp->dcopClient()->isAttached() )
-            kapp->dcopClient()->attach();
-        kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+        if ( !tdeApp->dcopClient()->isAttached() )
+            tdeApp->dcopClient()->attach();
+        tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
     }
     emit TDECModule::changed(false);
 }
@@ -1382,9 +1382,9 @@ void KMovingConfig::save( void )
     if (standAlone)
     {
         config->sync();
-        if ( !kapp->dcopClient()->isAttached() )
-            kapp->dcopClient()->attach();
-        kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+        if ( !tdeApp->dcopClient()->isAttached() )
+            tdeApp->dcopClient()->attach();
+        tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
     }
     emit TDECModule::changed(false);
 }
@@ -1965,9 +1965,9 @@ void KTranslucencyConfig::save( void )
   if (standAlone)
   {
     config->sync();
-        if ( !kapp->dcopClient()->isAttached() )
-            kapp->dcopClient()->attach();
-        kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+        if ( !tdeApp->dcopClient()->isAttached() )
+            tdeApp->dcopClient()->attach();
+        tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
   }
   if (useTranslucency->isChecked())
     startKompmgr();
@@ -2035,12 +2035,12 @@ bool KTranslucencyConfig::kompmgrAvailable()
 
 void KTranslucencyConfig::startKompmgr()
 {
-    kapp->dcopClient()->send("twin*", "", "startKompmgr()", TQString(""));
+    tdeApp->dcopClient()->send("twin*", "", "startKompmgr()", TQString(""));
 }
 
 void KTranslucencyConfig::stopKompmgr()
 {
-    kapp->dcopClient()->send("twin*", "", "stopKompmgr()", TQString(""));
+    tdeApp->dcopClient()->send("twin*", "", "stopKompmgr()", TQString(""));
 }
 
 void KTranslucencyConfig::showWarning(bool alphaActivated)

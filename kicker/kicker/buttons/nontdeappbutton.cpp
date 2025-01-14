@@ -216,7 +216,7 @@ void NonKDEAppButton::runCommand(const TQString& execStr)
     // since kicker doesn't listen to or use the session manager, we have
     // to make sure that our environment is set up correctly. this is
     // accomlplished by doing:
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
 
     if (term)
     {

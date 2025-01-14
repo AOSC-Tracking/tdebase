@@ -209,7 +209,7 @@ void RunApplet::run_command(const TQString& command)
     TQString exec;
     bool focusNeeded = false;
 
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
 
     _filterData->setData( _input->currentText().stripWhiteSpace() );
     TQStringList filters;
@@ -230,7 +230,7 @@ void RunApplet::run_command(const TQString& command)
     }
     else if (cmd == "logout")
 	{
-	    bool shutdown = kapp->requestShutDown();
+	    bool shutdown = tdeApp->requestShutDown();
 	    if( !shutdown )
             {
                 // This i18n string is in kdesktop/desktop.cpp as well. Maybe we should DCOP to kdesktop instead ?

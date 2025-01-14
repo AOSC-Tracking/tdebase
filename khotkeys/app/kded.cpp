@@ -39,7 +39,7 @@ TDE_EXPORT KDEDModule *create_khotkeys( const TQCString& obj )
 {
   // Check if khotkeys is already running as a stand alone application.
   // In such case just exit.
-  if (kapp->dcopClient()->isApplicationRegistered("khotkeys"))
+  if (tdeApp->dcopClient()->isApplicationRegistered("khotkeys"))
   {
     kdWarning(1217) << "khotkeys [kded module] is already running as a standalone application. Exiting." << endl;
     return nullptr;

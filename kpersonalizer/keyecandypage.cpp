@@ -416,7 +416,7 @@ void KEyeCandyPage::enableIconEffectSizePanel(bool enable){
 	else
 		stream << panelsize;
 
-	kapp->dcopClient()->send( "kicker", "Panel", "setPanelSize(int)",data);
+	tdeApp->dcopClient()->send( "kicker", "Panel", "setPanelSize(int)",data);
 }
 
 /** No descriptions */
@@ -623,13 +623,13 @@ void KEyeCandyPage::save(bool currSettings){
 	kdesktopconf->sync();
 	TDEGlobal::config()->sync();
 	// restart twin  for window effects
-	kapp->dcopClient()->send("knotify", "Notify", "reconfigure()", TQString(""));
-	kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+	tdeApp->dcopClient()->send("knotify", "Notify", "reconfigure()", TQString(""));
+	tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
 	// set the display options (style effects)
 	KIPC::sendMessageAll(KIPC::SettingsChanged);
 	TQApplication::syncX();
 	// kicker stuff: Iconzooming etc.
-	kapp->dcopClient()->send( "kicker", "Panel", "configure()", TQString("") );
+	tdeApp->dcopClient()->send( "kicker", "Panel", "configure()", TQString("") );
 	// Icon stuff
 	for (int i=0; i<TDEIcon::LastGroup; i++) {
 		KIPC::sendMessageAll(KIPC::IconChanged, i);
@@ -637,10 +637,10 @@ void KEyeCandyPage::save(bool currSettings){
 	// font stuff
 	KIPC::sendMessageAll(KIPC::FontChanged);
 	// unfortunately, the konqiconview does not re-read the configuration to restructure the previews and the background picture
-	kapp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", TQString("") );
-	kapp->dcopClient()->send( "kdesktop", "KDesktopIface", "configure()", TQString("") );
-	kapp->dcopClient()->send( "kdesktop", "KBackgroundIface", "configure()", TQString("") );
-	kapp->dcopClient()->send( "kdesktop", "KDesktopIface", "lineupIcons()", TQString("") );
+	tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", TQString("") );
+	tdeApp->dcopClient()->send( "kdesktop", "KDesktopIface", "configure()", TQString("") );
+	tdeApp->dcopClient()->send( "kdesktop", "KBackgroundIface", "configure()", TQString("") );
+	tdeApp->dcopClient()->send( "kdesktop", "KDesktopIface", "lineupIcons()", TQString("") );
 }
 
 void KEyeCandyPage::slotEyeCandyShowDetails(bool details){
@@ -677,7 +677,7 @@ void KEyeCandyPage::getUserDefaults(){
 	TQByteArray replydata;
 	TQByteArray data;
 	TQCString replytype;
-	kapp->dcopClient()->call( "kicker", "Panel", "panelSize()",data, replytype, replydata);
+	tdeApp->dcopClient()->call( "kicker", "Panel", "panelSize()",data, replytype, replydata);
 	TQDataStream stream( replydata, IO_ReadOnly );
 	stream >> panelsize;
 

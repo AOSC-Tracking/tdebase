@@ -201,8 +201,8 @@ NSPluginLoader::NSPluginLoader()
   _filetype.setAutoDelete(true);
 
   // trap dcop register events
-  kapp->dcopClient()->setNotifications(true);
-  TQObject::connect(kapp->dcopClient(),
+  tdeApp->dcopClient()->setNotifications(true);
+  TQObject::connect(tdeApp->dcopClient(),
                    TQ_SIGNAL(applicationRegistered(const TQCString&)),
                    this, TQ_SLOT(applicationRegistered(const TQCString&)));
 
@@ -376,9 +376,9 @@ bool NSPluginLoader::loadViewer(const TQString &mimeType)
 
    // wait for the process to run
    int cnt = 0;
-   while (!kapp->dcopClient()->isApplicationRegistered(_dcopid))
+   while (!tdeApp->dcopClient()->isApplicationRegistered(_dcopid))
    {
-       //kapp->processEvents(); // would lead to recursive calls in tdehtml
+       //tdeApp->processEvents(); // would lead to recursive calls in tdehtml
 #ifdef HAVE_USLEEP
        usleep( 50*1000 );
 #else

@@ -82,7 +82,7 @@ KickerTip::KickerTip(TQWidget * parent)
     hide();
     connect(&m_frameTimer, TQ_SIGNAL(timeout()), TQ_SLOT(internalUpdate()));
 //     // FIXME: The settingsChanged(SettingsCategory) signal is not available under Trinity; where was it originally supposed to come from?
-//     connect(kapp, TQ_SIGNAL(settingsChanged(SettingsCategory)), TQ_SLOT(slotSettingsChanged()));
+//     connect(tdeApp, TQ_SIGNAL(settingsChanged(SettingsCategory)), TQ_SLOT(slotSettingsChanged()));
 }
 
 KickerTip::~KickerTip()

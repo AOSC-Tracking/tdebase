@@ -194,7 +194,7 @@ void KSocksConfig::libSelection()
 
 void KSocksConfig::load()
 {
-  TDEConfigGroup config(kapp->config(), "Socks");
+  TDEConfigGroup config(tdeApp->config(), "Socks");
   base->_c_enableSocks->setChecked(config.readBoolEntry("SOCKS_enable", false));
   int id = config.readNumEntry("SOCKS_method", 1);
   base->bg->setButton(id);
@@ -228,7 +228,7 @@ void KSocksConfig::load()
 
 void KSocksConfig::save()
 {
-  TDEConfigGroup config(kapp->config(), "Socks");
+  TDEConfigGroup config(tdeApp->config(), "Socks");
   config.writeEntry("SOCKS_enable",base-> _c_enableSocks->isChecked(), true, true);
   config.writeEntry("SOCKS_method", base->bg->id(base->bg->selected()), true, true);
   config.writePathEntry("SOCKS_lib", base->_c_customPath->url(), true, true);
@@ -241,7 +241,7 @@ void KSocksConfig::save()
   }
   config.writePathEntry("SOCKS_lib_path", libs, ',', true, true);
 
-  kapp->config()->sync();
+  tdeApp->config()->sync();
 
   emit changed(false);
 }

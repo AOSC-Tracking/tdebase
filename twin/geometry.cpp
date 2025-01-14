@@ -223,12 +223,12 @@ TQRect Workspace::clientArea( clientAreaOption opt, int screen, int desktop ) co
     {
     if( desktop == NETWinInfo::OnAllDesktops || desktop == 0 )
         desktop = currentDesktop();
-    TQDesktopWidget *desktopwidget = kapp->desktop();
+    TQDesktopWidget *desktopwidget = tdeApp->desktop();
     TQRect sarea = screenarea // may be NULL during KWin initialization
         ? screenarea[ desktop ][ screen ]
         : desktopwidget->screenGeometry( screen );
     TQRect warea = workarea[ desktop ].isNull()
-        ? kapp->desktop()->geometry()
+        ? tdeApp->desktop()->geometry()
         : workarea[ desktop ];
     switch (opt)
         {
@@ -802,7 +802,7 @@ TQRect Client::adjustedClientArea( const TQRect &desktopArea, const TQRect& area
     // HACK: workarea handling is not xinerama aware, so if this strut
     // reserves place at a xinerama edge that's inside the virtual screen,
     // ignore the strut for workspace setting.
-    if( area == kapp->desktop()->geometry())
+    if( area == tdeApp->desktop()->geometry())
         {
         if( stareaL.left() < screenarea.left())
             stareaL = TQRect();
@@ -2376,14 +2376,14 @@ bool Client::startMoveResize()
       || ( isResize() && rules()->checkMoveResizeMode( options->resizeMode ) != Options::Opaque ) )
     {
         grabXServer();
-        kapp->sendPostedEvents();
+        tdeApp->sendPostedEvents();
         // we have server grab -> nothing should cause paint events
         // unfortunately, that's not completely true, Qt may generate
         // paint events on some widgets due to FocusIn(?)
         // eat them, otherwise XOR painting will be broken (#58054)
         // paint events for the geometrytip need to be allowed, though
         // eater = new EatAllPaintEvents;
-// not needed anymore?        kapp->installEventFilter( eater );
+// not needed anymore?        tdeApp->installEventFilter( eater );
     }
     Notify::raise( isResize() ? Notify::ResizeStart : Notify::MoveStart );
 

@@ -741,7 +741,7 @@ void KFLConfigPage::apply()
 void KFLConfigPage::reload()
 {
   // read in from config file
-  TDEConfig *config = kapp->config();
+  TDEConfig *config = tdeApp->config();
   config->setGroup( "Filelist" );
   cbEnableShading->setChecked( config->readBoolEntry("Shading Enabled", &m_filelist->m_enableBgShading ) );
   kcbViewShade->setColor( config->readColorEntry("View Shade", &m_filelist->m_viewShade ) );

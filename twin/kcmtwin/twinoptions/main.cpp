@@ -183,9 +183,9 @@ void KWinOptions::save()
   emit TDECModule::changed( false );
   // Send signal to twin
   mConfig->sync();
-  if ( !kapp->dcopClient()->isAttached() )
-      kapp->dcopClient()->attach();
-  kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+  if ( !tdeApp->dcopClient()->isAttached() )
+      tdeApp->dcopClient()->attach();
+  tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
 }
 
 
@@ -295,9 +295,9 @@ void TDEActionsOptions::save()
   emit TDECModule::changed( false );
   // Send signal to twin
   mConfig->sync();
-  if ( !kapp->dcopClient()->isAttached() )
-      kapp->dcopClient()->attach();
-  kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+  if ( !tdeApp->dcopClient()->isAttached() )
+      tdeApp->dcopClient()->attach();
+  tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
 }
 
 

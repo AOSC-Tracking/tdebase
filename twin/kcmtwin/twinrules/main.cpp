@@ -256,9 +256,9 @@ static int edit( Window wid, bool whole_app )
         delete orig_rule;
         }
     saveRules( rules );
-    if( !kapp->dcopClient()->isAttached())
-        kapp->dcopClient()->attach();
-    kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+    if( !tdeApp->dcopClient()->isAttached())
+        tdeApp->dcopClient()->attach();
+    tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
     return 0;
     }
     

@@ -116,7 +116,7 @@ void ModifiersModule::save()
 		if( bMacSwap )
 			setupMacModifierKeys();
 		else
-			kapp->tdeinitExec("kxkb");
+			tdeApp->tdeinitExec("kxkb");
 		m_bMacSwapOrig = bMacSwap;
 		updateWidgets();
 	}

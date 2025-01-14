@@ -122,7 +122,7 @@ void KCMDnssd::load()
 	TQProcess avahiStatus(TQString("/usr/share/avahi/avahi_status"), this, "avahiStatus");
 	avahiStatus.start();
 	while (avahiStatus.isRunning()) {
-	  kapp->processEvents();
+	  tdeApp->processEvents();
 	}
 	int exitStatus = avahiStatus.exitStatus();
 	if (exitStatus == 0) { // disabled

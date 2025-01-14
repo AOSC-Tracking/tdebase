@@ -11,7 +11,7 @@ SOON :
 pri modify gestures vymazat stav
 nektere simple akce by mely mit i conditions (nebo alespon jedno okno)
 QPtrList -> QValueList
-pouzit Q/KApp( nogui ? ) v daemonu ?
+pouzit Q/TDEApp( nogui ? ) v daemonu ?
 class Condition + tab 'Windows' -> 'Conditions'
   - asi rozdelit Command/URL na Command/URL a SwitchToWindow
   - nebo udelat, ze Command_url_action_data ( atd. ) maji jen jednu shortcut a tak, tj. dalsi zjednoduseni UI ?

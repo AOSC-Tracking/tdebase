@@ -371,7 +371,7 @@ void ExtensionContainer::writeConfig()
 
 void ExtensionContainer::showPanelMenu( const TQPoint& globalPos )
 {
-    if (!kapp->authorizeTDEAction("kicker_rmb"))
+    if (!tdeApp->authorizeTDEAction("kicker_rmb"))
     {
         return;
     }
@@ -484,7 +484,7 @@ void ExtensionContainer::moveMe()
 
     if (screen < 0)
     {
-        screen = kapp->desktop()->screenNumber(this);
+        screen = tdeApp->desktop()->screenNumber(this);
     }
 
     if (screen < 0)
@@ -1260,7 +1260,7 @@ int ExtensionContainer::arrangeHideButtons()
             _ltHB->setMaximumHeight(maxHeight);
             _ltHB->setMaximumWidth(14);
             _layout->remove(_ltHB);
-            if (kapp->reverseLayout())
+            if (tdeApp->reverseLayout())
             {
                 _layout->addWidget(_ltHB, 1, 2, (TQt::AlignmentFlags)vertAlignment);
             }
@@ -1275,7 +1275,7 @@ int ExtensionContainer::arrangeHideButtons()
             _rbHB->setMaximumHeight(maxHeight);
             _rbHB->setMaximumWidth(14);
             _layout->remove(_rbHB);
-            if (kapp->reverseLayout())
+            if (tdeApp->reverseLayout())
             {
                 _layout->addWidget(_rbHB, 1, 0, (TQt::AlignmentFlags)(leftAlignment | vertAlignment));
             }

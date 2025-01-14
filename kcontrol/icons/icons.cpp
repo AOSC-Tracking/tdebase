@@ -477,8 +477,8 @@ void TDEIconConfig::save()
     g.writeEntry("IconUseRoundedRect", mpRoundedCheck->isChecked(), true, true);
     g.writeEntry("ShowKonqIconActivationEffect", mpActiveEffectCheck->isChecked(), true, true);
 
-    kapp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", TQString("") );
-    kapp->dcopClient()->send( "kdesktop", "KDesktopIface", "configure()", TQString("") );
+    tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", TQString("") );
+    tdeApp->dcopClient()->send( "kdesktop", "KDesktopIface", "configure()", TQString("") );
 
     mpConfig->sync();
     mpSystrayConfig->sync();
@@ -497,10 +497,10 @@ void TDEIconConfig::save()
     }
 
     // Signal kicker to reload icon configuration
-    kapp->dcopClient()->send("kicker", "kicker", "configure()", TQByteArray());
+    tdeApp->dcopClient()->send("kicker", "kicker", "configure()", TQByteArray());
 
     // Signal system tray to reload icon configuration
-    kapp->dcopClient()->send("kicker", "SystemTrayApplet", "iconSizeChanged()", TQByteArray());
+    tdeApp->dcopClient()->send("kicker", "SystemTrayApplet", "iconSizeChanged()", TQByteArray());
 }
 
 void TDEIconConfig::defaults()

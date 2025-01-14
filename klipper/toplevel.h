@@ -127,7 +127,7 @@ protected:
     bool ignoreClipboardChanges() const;
 
     TDEConfig* config() const { return m_config; }
-    bool isApplet() const { return m_config != kapp->config(); }
+    bool isApplet() const { return m_config != tdeApp->config(); }
 
 protected slots:
     void slotPopupMenu();

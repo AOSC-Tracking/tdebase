@@ -166,7 +166,7 @@ HwDeviceSystemTray::HwDeviceSystemTray(TQWidget *parent, const char *name)
 	globalKeys->setEnabled(true);
 	globalKeys->updateConnections();
 
-	connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
+	connect(tdeApp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
 
 	TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
 	doDiskNotifications(true);
@@ -760,7 +760,7 @@ void HwDeviceSystemTray::devicePopupClicked(KPassivePopup* popup, TQPoint point,
 }
 
 void HwDeviceSystemTray::slotHelpContents() {
-	kapp->invokeHelp(TQString::null, "hwdevicetray");
+	tdeApp->invokeHelp(TQString::null, "hwdevicetray");
 }
 
 #include "hwdevicetray.moc"

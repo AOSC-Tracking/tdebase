@@ -71,7 +71,7 @@ KCustomMenu::slotActivated(int id)
   KService::Ptr s = d->entryMap[id];
   if (!s)
      return;
-  kapp->startServiceByDesktopPath(s->desktopEntryPath());
+  tdeApp->startServiceByDesktopPath(s->desktopEntryPath());
 }
 
 // The following is copied from kicker's PanelServiceMenu

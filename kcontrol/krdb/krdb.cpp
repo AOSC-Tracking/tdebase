@@ -94,7 +94,7 @@ static void applyGtkStyles(bool active, int version)
    TQByteArray params;
    TQDataStream stream(params, IO_WriteOnly);
    stream << name << value;
-   kapp->dcopClient()->send("tdelauncher", "tdelauncher", "setLaunchEnv(TQCString,TQCString)", params);
+   tdeApp->dcopClient()->send("tdelauncher", "tdelauncher", "setLaunchEnv(TQCString,TQCString)", params);
 }
 
 // -----------------------------------------------------------------------------
@@ -168,9 +168,9 @@ static void applyQtSettings( TDEConfig& kglobals, TQSettings& settings )
 
   TQMap <TQString, bool> pathDb;
     // OK, this isn't fun at all.
-    // KApp adds paths ending with /, QApp those without slash, and if
+    // TDEApp adds paths ending with /, QApp those without slash, and if
     // one gives it something that is other way around, it will complain and scare
-    // users. So we need to know whether a path being added is from KApp, and in this case
+    // users. So we need to know whether a path being added is from TDEApp, and in this case
     // end it with.. So keep a TQMap to bool, specifying whether the path is KDE-specified..
 
   TQString qversion = tqVersion();

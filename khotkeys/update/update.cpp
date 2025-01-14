@@ -57,6 +57,6 @@ int main( int argc, char* argv[] )
         }
     settings.write_settings();
     TQByteArray data;
-    kapp->dcopClient()->send( "khotkeys*", "khotkeys", "reread_configuration()", data );
+    tdeApp->dcopClient()->send( "khotkeys*", "khotkeys", "reread_configuration()", data );
     return 0;
     }

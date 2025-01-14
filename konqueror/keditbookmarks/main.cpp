@@ -61,7 +61,7 @@ static void continueInWindow(TQString _wname) {
     TQCString wname = _wname.latin1();
     int id = -1;
 
-    QCStringList apps = kapp->dcopClient()->registeredApplications();
+    QCStringList apps = tdeApp->dcopClient()->registeredApplications();
     for (QCStringList::Iterator it = apps.begin(); it != apps.end(); ++it) {
         TQCString &clientId = *it;
 
@@ -93,7 +93,7 @@ static int askUser(TDEApplication &app, TQString filename, bool &readonly) {
     int ret = KMessageBox::warningYesNo(0, 
             i18n("Another instance of %1 is already running, do you really "
                 "want to open another instance or continue work in the same instance?\n"
-                "Please note that, unfortunately, duplicate views are read-only.").arg(kapp->caption()), 
+                "Please note that, unfortunately, duplicate views are read-only.").arg(tdeApp->caption()), 
             i18n("Warning"),
             i18n("Run Another"),     /* yes */
             i18n("Continue in Same") /*  no */);

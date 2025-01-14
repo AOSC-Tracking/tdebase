@@ -83,7 +83,7 @@ void FavIconsItr::doAction() {
     // kdDebug() << "FavIconsItr::doAction()" << endl;
     curItem()->setTmpStatus(i18n("Updating favicon..."));
     if (!m_updater) {
-        m_updater = new FavIconUpdater(kapp, "FavIconUpdater");
+        m_updater = new FavIconUpdater(tdeApp, "FavIconUpdater");
         connect(m_updater, TQ_SIGNAL( done(bool) ),
                 this,      TQ_SLOT( slotDone(bool) ) );
     }

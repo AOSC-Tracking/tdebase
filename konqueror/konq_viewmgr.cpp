@@ -1704,7 +1704,7 @@ void KonqViewManager::profileListDirty( bool broadcast )
     return;
   }
 
-  kapp->dcopClient()->send( "konqueror*", "KonquerorIface", "updateProfileList()", TQByteArray() );
+  tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface", "updateProfileList()", TQByteArray() );
 }
 
 void KonqViewManager::slotProfileActivated( int id )

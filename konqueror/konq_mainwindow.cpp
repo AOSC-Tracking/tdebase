@@ -192,7 +192,7 @@ KonqMainWindow::KonqMainWindow( const KURL &initialURL, bool openInitialURL, con
 
   // init history-manager, load history, get completion object
   if ( !s_pCompletion ) {
-    KonqHistoryManager *mgr = new KonqHistoryManager( kapp, "history mgr" );
+    KonqHistoryManager *mgr = new KonqHistoryManager( tdeApp, "history mgr" );
     s_pCompletion = mgr->completionObject();
 
 
@@ -220,7 +220,7 @@ KonqMainWindow::KonqMainWindow( const KURL &initialURL, bool openInitialURL, con
   connect( KSycoca::self(), TQ_SIGNAL( databaseChanged() ),
            this, TQ_SLOT( slotDatabaseChanged() ) );
 
-  connect( kapp, TQ_SIGNAL( tdedisplayFontChanged()), TQ_SLOT(slotReconfigure()));
+  connect( tdeApp, TQ_SIGNAL( tdedisplayFontChanged()), TQ_SLOT(slotReconfigure()));
 
   //load the xmlui file specified in the profile or the default konqueror.rc
   setXMLFile( xmluiFile );
@@ -347,7 +347,7 @@ TQWidget * KonqMainWindow::createContainer( TQWidget *parent, int index, const T
   if ( res && (element.tagName() == tagToolBar) && (element.attribute( "name" ) == nameBookmarkBar) )
   {
     assert( res->inherits( "TDEToolBar" ) );
-    if (!kapp->authorizeTDEAction("bookmarks"))
+    if (!tdeApp->authorizeTDEAction("bookmarks"))
     {
         delete res;
         return 0;
@@ -706,7 +706,7 @@ void KonqMainWindow::openURL( KonqView *_view, const KURL &_url,
 bool KonqMainWindow::openView( TQString serviceType, const KURL &_url, KonqView *childView, KonqOpenURLRequest& req )
 {
   // Second argument is referring URL
-  if ( !kapp->authorizeURLAction("open", childView ? childView->url() : KURL(), _url) )
+  if ( !tdeApp->authorizeURLAction("open", childView ? childView->url() : KURL(), _url) )
   {
      TQString msg = TDEIO::buildErrorString(TDEIO::ERR_ACCESS_DENIED, _url.prettyURL());
      KMessageBox::queuedMessageBox( this, KMessageBox::Error, msg );
@@ -1401,7 +1401,7 @@ void KonqMainWindow::slotSendURL()
     subject = m_currentView->caption();
   else
     subject = fileNameList;
-  kapp->invokeMailer(TQString::null,TQString::null,TQString::null,
+  tdeApp->invokeMailer(TQString::null,TQString::null,TQString::null,
                      subject, body);
 }
 
@@ -1441,7 +1441,7 @@ void KonqMainWindow::slotSendFile()
     subject = m_currentView->caption();
   else
     subject = fileNameList;
-  kapp->invokeMailer(TQString::null, TQString::null, TQString::null, subject,
+  tdeApp->invokeMailer(TQString::null, TQString::null, TQString::null, subject,
                      TQString::null, //body
                      TQString::null,
                      urls); // attachments
@@ -2020,7 +2020,7 @@ void KonqMainWindow::slotConfigure()
         for( TQStringList::ConstIterator it = modules.begin();
                 it != end; ++it )
         {
-            if ( kapp->authorizeControlModule( *it ) )
+            if ( tdeApp->authorizeControlModule( *it ) )
             {
                 m_configureDialog->addModule( *it );
             }
@@ -2104,14 +2104,14 @@ void KonqMainWindow::slotRunFinished()
 
   if ( !run->mailtoURL().isEmpty() )
   {
-      kapp->invokeMailer( run->mailtoURL() );
+      tdeApp->invokeMailer( run->mailtoURL() );
   }
 
   if ( run->hasError() ) { // we had an error
       TQByteArray data;
       TQDataStream s( data, IO_WriteOnly );
-      s << run->url().prettyURL() << kapp->dcopClient()->defaultObject();
-      kapp->dcopClient()->send( "konqueror*", "KonquerorIface",
+      s << run->url().prettyURL() << tdeApp->dcopClient()->defaultObject();
+      tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface",
 				"removeFromCombo(TQString,TQCString)", data);
   }
 
@@ -2239,7 +2239,7 @@ void KonqMainWindow::slotPartActivated( KParts::Part *part )
     unplugViewModeActions();
     createGUI( 0L );
     KParts::MainWindow::setCaption( "" );
-    KParts::MainWindow::setIcon( kapp->icon());
+    KParts::MainWindow::setIcon( tdeApp->icon());
     return;
   }
 
@@ -3774,7 +3774,7 @@ void KonqMainWindow::comboAction( int action, const TQString& url, const TQCStri
     }
 
     // only one instance should save...
-    if ( combo && objId == kapp->dcopClient()->defaultObject() )
+    if ( combo && objId == tdeApp->dcopClient()->defaultObject() )
       combo->saveItems();
 }
 
@@ -3840,7 +3840,7 @@ void KonqMainWindow::initActions()
   (void) new TDEAction( i18n( "&Duplicate Window" ), "window_duplicate", CTRL+Key_D, this, TQ_SLOT( slotDuplicateWindow() ), actionCollection(), "duplicate_window" );
   (void) new TDEAction( i18n( "Send &Link Address..." ), "mail_generic", 0, this, TQ_SLOT( slotSendURL() ), actionCollection(), "sendURL" );
   (void) new TDEAction( i18n( "S&end File..." ), "mail_generic", 0, this, TQ_SLOT( slotSendFile() ), actionCollection(), "sendPage" );
-  if (kapp->authorize("shell_access"))
+  if (tdeApp->authorize("shell_access"))
   {
      (void) new TDEAction( i18n( "Open &Terminal" ), "openterm", Key_F4, this, TQ_SLOT( slotOpenTerminal() ), actionCollection(), "open_terminal" );
   }
@@ -3915,7 +3915,7 @@ void KonqMainWindow::initActions()
       "tde-tdehtml_plugins.desktop" << "tde-kcmkonqyperformance.desktop";
 
 
-  if (!kapp->authorizeControlModules(configModules()).isEmpty())
+  if (!tdeApp->authorizeControlModules(configModules()).isEmpty())
      KStdAction::preferences (this, TQ_SLOT (slotConfigure()), actionCollection() );
 
   KStdAction::keyBindings( guiFactory(), TQ_SLOT( configureShortcuts() ), actionCollection() );
@@ -4557,7 +4557,7 @@ void KonqMainWindow::setCaption( const TQString &caption )
   {
     kdDebug(1202) << "KonqMainWindow::setCaption(" << caption << ")" << endl;
 
-    // Keep an unmodified copy of the caption (before kapp->makeStdCaption is applied)
+    // Keep an unmodified copy of the caption (before tdeApp->makeStdCaption is applied)
     m_currentView->setCaption( caption );
     KParts::MainWindow::setCaption( m_currentView->caption() );
   }
@@ -5050,7 +5050,7 @@ void KonqMainWindow::updateOpenWithActions()
 
   m_openWithActions.clear();
 
-  if (!kapp->authorizeTDEAction("openwith"))
+  if (!tdeApp->authorizeTDEAction("openwith"))
      return;
 
   const TDETrader::OfferList & services = m_currentView->appServiceOffers();
@@ -5309,7 +5309,7 @@ void KonqMainWindow::closeEvent( TQCloseEvent *e )
   kdDebug(1202) << "KonqMainWindow::closeEvent begin" << endl;
   // This breaks session management (the window is withdrawn in twin)
   // so let's do this only when closed by the user.
-  if ( static_cast<KonquerorApplication *>(kapp)->closedByUser() )
+  if ( static_cast<KonquerorApplication *>(tdeApp)->closedByUser() )
   {
     if ( viewManager()->docContainer() && viewManager()->docContainer()->frameType()=="Tabs" )
     {
@@ -5401,7 +5401,7 @@ void KonqMainWindow::closeEvent( TQCloseEvent *e )
           TQApplication::sendEvent( (*it)->part()->widget(), e );
   }
   KParts::MainWindow::closeEvent( e );
-  if( isPreloaded() && !kapp->sessionSaving())
+  if( isPreloaded() && !tdeApp->sessionSaving())
   { // queryExit() refused closing, hide instead
       hide();
   }
@@ -5410,7 +5410,7 @@ void KonqMainWindow::closeEvent( TQCloseEvent *e )
 
 bool KonqMainWindow::queryExit()
 {
-    if( kapp->sessionSaving()) // *sigh*
+    if( tdeApp->sessionSaving()) // *sigh*
         return true;
     return !stayPreloaded();
 }
@@ -5812,14 +5812,14 @@ void KonqMainWindow::setPreloadedFlag( bool preloaded )
     s_preloaded = preloaded;
     if( s_preloaded )
     {
-        kapp->disableSessionManagement(); // dont restore preloaded konqy's
+        tdeApp->disableSessionManagement(); // dont restore preloaded konqy's
         return; // was registered before calling this
     }
     delete s_preloadedWindow; // preloaded state was abandoned without reusing the window
     s_preloadedWindow = NULL;
-    kapp->enableSessionManagement(); // enable SM again
+    tdeApp->enableSessionManagement(); // enable SM again
     DCOPRef ref( "kded", "konqy_preloader" );
-    ref.send( "unregisterPreloadedKonqy", kapp->dcopClient()->appId());
+    ref.send( "unregisterPreloadedKonqy", tdeApp->dcopClient()->appId());
 }
 
 void KonqMainWindow::setPreloadedWindow( KonqMainWindow* window )
@@ -5863,7 +5863,7 @@ void KonqMainWindow::resetWindow()
 // Qt remembers the iconic state if the window was withdrawn while on another virtual desktop
     clearWState( WState_Minimized );
     ignoreInitialGeometry();
-    kapp->setTopWidget( this ); // set again the default window icon
+    tdeApp->setTopWidget( this ); // set again the default window icon
 }
 
 bool KonqMainWindow::event( TQEvent* e )
@@ -5901,12 +5901,12 @@ bool KonqMainWindow::stayPreloaded()
         return false;
     DCOPRef ref( "kded", "konqy_preloader" );
     if( !ref.callExt( "registerPreloadedKonqy", DCOPRef::NoEventLoop, 5000,
-        kapp->dcopClient()->appId(), tqt_xscreen()))
+        tdeApp->dcopClient()->appId(), tqt_xscreen()))
     {
         return false;
     }
     KonqMainWindow::setPreloadedFlag( true );
-    kdDebug(1202) << "Konqy kept for preloading :" << kapp->dcopClient()->appId() << endl;
+    kdDebug(1202) << "Konqy kept for preloading :" << tdeApp->dcopClient()->appId() << endl;
     KonqMainWindow::setPreloadedWindow( this );
     return true;
 }

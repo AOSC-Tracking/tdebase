@@ -30,7 +30,7 @@ KonqyPreloader::KonqyPreloader( const TQCString& obj )
     : KDEDModule( obj )
     {
     reconfigure();
-    connect( kapp->dcopClient(), TQ_SIGNAL( applicationRemoved( const TQCString& )),
+    connect( tdeApp->dcopClient(), TQ_SIGNAL( applicationRemoved( const TQCString& )),
         TQ_SLOT( appRemoved( const TQCString& )));
     connect( &check_always_preloaded_timer, TQ_SIGNAL( timeout()),
 	TQ_SLOT( checkAlwaysPreloaded()));
@@ -109,7 +109,7 @@ void KonqyPreloader::updateCount()
 	{
 	if( !check_always_preloaded_timer.isActive())
 	    {
-	    if( kapp->tdeinitExec( TQString::fromLatin1( "konqueror" ),
+	    if( tdeApp->tdeinitExec( TQString::fromLatin1( "konqueror" ),
 		TQStringList() << TQString::fromLatin1( "--preload" ), NULL, NULL, "0" ) == 0 )
 		{
 		kdDebug( 1202 ) << "Preloading Konqueror instance" << endl;

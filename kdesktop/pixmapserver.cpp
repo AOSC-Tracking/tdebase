@@ -39,7 +39,7 @@
 KPixmapServer::KPixmapServer()
     : TQWidget(0L, "shpixmap comm window")
 {
-    kapp->installX11EventFilter(this);
+    tdeApp->installX11EventFilter(this);
     pixmap = XInternAtom(tqt_xdisplay(), "PIXMAP", false);
 }
 

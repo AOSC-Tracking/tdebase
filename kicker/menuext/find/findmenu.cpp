@@ -67,13 +67,13 @@ void FindMenu::slotExec( int pos )
 {
   TQString app = mConfigList[ pos ];
 
-  kapp->propagateSessionManager();
+  tdeApp->propagateSessionManager();
 
   KSimpleConfig config(app, true);
   config.setDesktopGroup();
-  if (kapp && config.readEntry("Type") == "Link")
+  if (tdeApp && config.readEntry("Type") == "Link")
   {
-    kapp->invokeBrowser(config.readEntry("URL"));
+    tdeApp->invokeBrowser(config.readEntry("URL"));
   }
   else
   {

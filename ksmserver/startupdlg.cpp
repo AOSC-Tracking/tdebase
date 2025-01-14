@@ -63,10 +63,10 @@ Copyright (C) 2000 Matthias Ettrich <ettrich@kde.org>
 
 TQWidget* KSMStartupIPDlg::showStartupIP()
 {
-    kapp->enableStyles();
+    tdeApp->enableStyles();
     KSMStartupIPDlg* l = new KSMStartupIPDlg( 0 );
 
-    kapp->disableStyles();
+    tdeApp->disableStyles();
 
     return l;
 }

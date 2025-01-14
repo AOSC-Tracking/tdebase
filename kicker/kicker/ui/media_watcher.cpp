@@ -43,7 +43,7 @@ MediaWatcher::MediaWatcher( TQObject *parent ) :
 void MediaWatcher::updateDevices()
 {
     DCOPRef nsd( "kded", "mediamanager" );
-    nsd.setDCOPClient( kapp->dcopClient() );
+    nsd.setDCOPClient( tdeApp->dcopClient() );
     m_devices = nsd.call( "fullList" );
 }
 

@@ -522,9 +522,9 @@ void TDEStylePage::liveUpdate() {
 	// color palette changes
 	KIPC::sendMessageAll(KIPC::PaletteChanged);
 	// twin-style
-	kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+	tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
 	// kdesktop-background
-	kapp->dcopClient()->send("kdesktop", "KBackgroundIface", "configure()", TQString(""));
+	tdeApp->dcopClient()->send("kdesktop", "KBackgroundIface", "configure()", TQString(""));
 }
 
 /** show the previewWidget styled with the selected one */

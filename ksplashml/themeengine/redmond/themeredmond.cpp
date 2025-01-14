@@ -86,7 +86,7 @@ ThemeRedmond::ThemeRedmond( TQWidget *parent, const char *name, const TQStringLi
 
 void ThemeRedmond::_initUi()
 {
-  const TQRect screen = kapp->desktop()->screenGeometry( mTheme->xineramaScreen() );
+  const TQRect screen = tdeApp->desktop()->screenGeometry( mTheme->xineramaScreen() );
   //TQRect fullScreen = TDEGlobalSettings::desktopGeometry(0L);
 
   mImage.resize( screen.width(), screen.height() );
@@ -275,7 +275,7 @@ void ThemeRedmond::_initUi()
 
 void ThemeRedmond::paintEvent( TQPaintEvent *pe )
 {
-  const TQRect screen = kapp->desktop()->screenGeometry( mTheme->xineramaScreen() );
+  const TQRect screen = tdeApp->desktop()->screenGeometry( mTheme->xineramaScreen() );
 
   TQPainter p;
   p.begin( this );
@@ -308,7 +308,7 @@ void ThemeRedmond::paintEvent( TQPaintEvent *pe )
 
 void ThemeRedmond::_readSettings()
 {
-  const TQRect screen = kapp->desktop()->screenGeometry( mTheme->xineramaScreen() );
+  const TQRect screen = tdeApp->desktop()->screenGeometry( mTheme->xineramaScreen() );
   //TQRect fullScreen = TDEGlobalSettings::desktopGeometry(0L);
 
   if( !mTheme )

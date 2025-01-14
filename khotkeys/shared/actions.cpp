@@ -124,7 +124,7 @@ void Command_url_action::execute()
     static bool sm_ready = false;
     if( !sm_ready )
         {
-        kapp->propagateSessionManager();
+        tdeApp->propagateSessionManager();
         sm_ready = true;
         }
 //    int space_pos = command_url().find( ' ' );
@@ -149,7 +149,7 @@ void Command_url_action::execute()
             }
         case KURIFilterData::EXECUTABLE:
             {
-            if (!kapp->authorize("shell_access"))
+            if (!tdeApp->authorize("shell_access"))
 		return;
             if( !uri.hasArgsAndOptions())
                 {
@@ -167,7 +167,7 @@ void Command_url_action::execute()
             }
         case KURIFilterData::SHELL:
             {
-            if (!kapp->authorize("shell_access"))
+            if (!tdeApp->authorize("shell_access"))
 		return;
             if( !KRun::runCommand(
                 cmd + ( uri.hasArgsAndOptions() ? uri.argsAndOptions() : "" ),

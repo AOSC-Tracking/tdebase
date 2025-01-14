@@ -116,7 +116,7 @@ int main( int argc, char **argv )
   KWin::setOnAllDesktops( kasbar->winId(), true );
   kdDebug() << "kasbar: Window id is " << kasbar->winId() << endl;
 
-  TDEApplication::kApplication()->dcopClient()->registerAs( "kasbar" );
+  tdeApp->dcopClient()->registerAs( "kasbar" );
 
   app.connect( &app, TQ_SIGNAL( lastWindowClosed() ), TQ_SLOT(quit()) );
 

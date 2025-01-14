@@ -78,7 +78,7 @@ ClipboardPoll::ClipboardPoll( TQWidget* parent )
     selection.timestamp_atom = atoms[ 4 ];
     clipboard.timestamp_atom = atoms[ 5 ];
     bool use_polling = true;
-    kapp->installX11EventFilter( this );
+    tdeApp->installX11EventFilter( this );
 #ifdef HAVE_XFIXES
     int dummy;
     if( XFixesQueryExtension( tqt_xdisplay(), &xfixes_event_base, &dummy ))
@@ -108,8 +108,8 @@ ClipboardPoll::ClipboardPoll( TQWidget* parent )
     
 void ClipboardPoll::initPolling()
 {
-    connect( kapp->clipboard(), TQ_SIGNAL( selectionChanged() ), TQ_SLOT(qtSelectionChanged()));
-    connect( kapp->clipboard(), TQ_SIGNAL( dataChanged() ), TQ_SLOT( qtClipboardChanged() ));
+    connect( tdeApp->clipboard(), TQ_SIGNAL( selectionChanged() ), TQ_SLOT(qtSelectionChanged()));
+    connect( tdeApp->clipboard(), TQ_SIGNAL( dataChanged() ), TQ_SLOT( qtClipboardChanged() ));
     connect( &timer, TQ_SIGNAL( timeout()), TQ_SLOT( timeout()));
     timer.start( 1000, false );
     selection.atom = XA_PRIMARY;
@@ -146,7 +146,7 @@ bool ClipboardPoll::x11Event( XEvent* e )
     if( xfixes_event_base != -1 && e->type == xfixes_event_base + XFixesSelectionNotify )
     {
         XFixesSelectionNotifyEvent* ev = reinterpret_cast< XFixesSelectionNotifyEvent* >( e );
-        if( ev->selection == XA_PRIMARY && !kapp->clipboard()->ownsSelection())
+        if( ev->selection == XA_PRIMARY && !tdeApp->clipboard()->ownsSelection())
         {
 #ifdef NOISY_KLIPPER_
             kdDebug() << "SELECTION CHANGED (XFIXES)" << endl;
@@ -154,7 +154,7 @@ bool ClipboardPoll::x11Event( XEvent* e )
             set_tqt_x_time(ev->timestamp);
             emit clipboardChanged( true );
         }
-        else if( ev->selection == xa_clipboard && !kapp->clipboard()->ownsClipboard())
+        else if( ev->selection == xa_clipboard && !tdeApp->clipboard()->ownsClipboard())
         {
 #ifdef NOISY_KLIPPER_
             kdDebug() << "CLIPBOARD CHANGED (XFIXES)" << endl;
@@ -217,13 +217,13 @@ void ClipboardPoll::updateQtOwnership( SelectionData& data )
 void ClipboardPoll::timeout()
 {
     KlipperWidget::updateTimestamp();
-    if( !kapp->clipboard()->ownsSelection() && checkTimestamp( selection ) ) {
+    if( !tdeApp->clipboard()->ownsSelection() && checkTimestamp( selection ) ) {
 #ifdef NOISY_KLIPPER_
         kdDebug() << "SELECTION CHANGED" << endl;
 #endif
         emit clipboardChanged( true );
     }
-    if( !kapp->clipboard()->ownsClipboard() && checkTimestamp( clipboard ) ) {
+    if( !tdeApp->clipboard()->ownsClipboard() && checkTimestamp( clipboard ) ) {
 #ifdef NOISY_KLIPPER_
         kdDebug() << "CLIPBOARD CHANGED" << endl;
 #endif

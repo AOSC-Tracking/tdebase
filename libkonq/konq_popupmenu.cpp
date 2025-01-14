@@ -314,13 +314,13 @@ bool KonqPopupMenu::KIOSKAuthorizedAction(TDEConfig& cfg)
     }
 
     TQStringList list = cfg.readListEntry("X-TDE-AuthorizeAction");
-    if (kapp && !list.isEmpty())
+    if (tdeApp && !list.isEmpty())
     {
         for(TQStringList::ConstIterator it = list.begin();
             it != list.end();
             ++it)
         {
-            if (!kapp->authorize((*it).stripWhiteSpace()))
+            if (!tdeApp->authorize((*it).stripWhiteSpace()))
             {
                 return false;
             }
@@ -433,7 +433,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
             connect(localURLJob, TQ_SIGNAL(localURL(TDEIO::LocalURLJob*, const KURL&, bool)), this, TQ_SLOT(slotLocalURL(TDEIO::LocalURLJob*, const KURL&, bool)));
             connect(localURLJob, TQ_SIGNAL(destroyed()), this, TQ_SLOT(slotLocalURLKIODestroyed()));
             while (!d->localURLSlotFired) {
-                kapp->eventLoop()->enterLoop();
+                tdeApp->eventLoop()->enterLoop();
             }
             if (d->localURLResultIsLocal) {
                 realURL = d->localURLResultURL;
@@ -488,10 +488,10 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
     if (!isCurrentTrash)
         addMerge( "konqueror" );
 
-    bool isKDesktop = TQCString( kapp->name() ) == "kdesktop";
+    bool isKDesktop = TQCString( tdeApp->name() ) == "kdesktop";
 
     if (( kpf & ShowProperties ) && isKDesktop &&
-        !kapp->authorize("editable_desktop_icons"))
+        !tdeApp->authorize("editable_desktop_icons"))
     {
         kpf &= ~ShowProperties; // remove flag
     }
@@ -584,7 +584,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
                     addDel = true;
                 }
                 else {
-                    TDEConfigGroup configGroup( kapp->config(), "KDE" );
+                    TDEConfigGroup configGroup( tdeApp->config(), "KDE" );
                     if ( configGroup.readBoolEntry( "ShowDeleteCommand", false ) )
                         addDel = true;
                 }
@@ -634,7 +634,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         act = new TDEAction( caption, "bookmark_add", 0, this, TQ_SLOT( slotPopupAddToBookmark() ), &m_ownActions, "bookmark_add" );
         if (m_lstItems.count() > 1)
             act->setEnabled(false);
-        if (kapp->authorizeTDEAction("bookmarks"))
+        if (tdeApp->authorizeTDEAction("bookmarks"))
             addAction( act );
         if (bIsLink)
             addGroup( "linkactions" );
@@ -715,7 +715,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
             if ( cfg.hasKey( "X-TDE-ShowIfRunning" ) )
             {
                 const TQString app = cfg.readEntry( "X-TDE-ShowIfRunning" );
-                if ( !kapp->dcopClient()->isApplicationRegistered( app.utf8() ) )
+                if ( !tdeApp->dcopClient()->isApplicationRegistered( app.utf8() ) )
                     continue;
             }
             if ( cfg.hasKey( "X-TDE-ShowIfDcopCall" ) )
@@ -723,7 +723,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
                 TQString dcopcall = cfg.readEntry( "X-TDE-ShowIfDcopCall" );
                 const TQCString app = TQString(dcopcall.section(' ', 0,0)).utf8();
 
-                //if( !kapp->dcopClient()->isApplicationRegistered( app ))
+                //if( !tdeApp->dcopClient()->isApplicationRegistered( app ))
                 //	continue; //app does not exist so cannot send call
 
                 TQByteArray dataToSend;
@@ -739,7 +739,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
                     continue; //Be safe.
                 }
 
-                if(!kapp->dcopClient()->call( app, object,
+                if(!tdeApp->dcopClient()->call( app, object,
                                               function.utf8(),
                                               dataToSend, replyType, replyData, true, 1000))
                     continue;
@@ -839,7 +839,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
 
         TDETrader::OfferList offers;
 
-        if (kapp->authorizeTDEAction("openwith"))
+        if (tdeApp->authorizeTDEAction("openwith"))
         {
             TQString constraint = "Type == 'Application' and DesktopEntryName != 'kfmclient' and DesktopEntryName != 'kfmclient_dir' and DesktopEntryName != 'kfmclient_html'";
             TQString subConstraint = " and '%1' in ServiceTypes";
@@ -1221,7 +1221,7 @@ void KonqPopupMenu::slotLocalURL(TDEIO::LocalURLJob *job, const KURL& url, bool 
   d->localURLSlotFired = true;
   d->localURLResultURL = url;
   d->localURLResultIsLocal = isLocal;
-  kapp->eventLoop()->exitLoop();
+  tdeApp->eventLoop()->exitLoop();
 }
 
 void KonqPopupMenu::slotLocalURLKIODestroyed()
@@ -1230,7 +1230,7 @@ void KonqPopupMenu::slotLocalURLKIODestroyed()
     d->localURLSlotFired = true;
     d->localURLResultURL = KURL();
     d->localURLResultIsLocal = false;
-    kapp->eventLoop()->exitLoop();
+    tdeApp->eventLoop()->exitLoop();
   }
 }
 

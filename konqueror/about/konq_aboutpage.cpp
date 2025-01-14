@@ -111,7 +111,7 @@ TQString KonqAboutPageFactory::launch()
   TQString continue_icon_path = TQApplication::reverseLayout()?iconloader->iconPath("1leftarrow", TDEIcon::Small ):iconloader->iconPath("1rightarrow", TDEIcon::Small );
 
   res = res.arg( locate( "data", "tdeui/about/kde_infopage.css" ) );
-  if ( kapp->reverseLayout() )
+  if ( tdeApp->reverseLayout() )
     res = res.arg( "@import \"%1\";" ).arg( locate( "data", "tdeui/about/kde_infopage_rtl.css" ) );
   else
     res = res.arg( "" );
@@ -196,7 +196,7 @@ TQString KonqAboutPageFactory::intro()
     TQString continue_icon_path = TQApplication::reverseLayout()?iconloader->iconPath("1leftarrow", TDEIcon::Small ):iconloader->iconPath("1rightarrow", TDEIcon::Small );
 
     res = res.arg( locate( "data", "tdeui/about/kde_infopage.css" ) );
-    if ( kapp->reverseLayout() )
+    if ( tdeApp->reverseLayout() )
 	res = res.arg( "@import \"%1\";" ).arg( locate( "data", "tdeui/about/kde_infopage_rtl.css" ) );
     else
 	res = res.arg( "" );
@@ -251,7 +251,7 @@ TQString KonqAboutPageFactory::specs()
 	return res;
 
     res = res.arg( locate( "data", "tdeui/about/kde_infopage.css" ) );
-    if ( kapp->reverseLayout() )
+    if ( tdeApp->reverseLayout() )
 	res = res.arg( "@import \"%1\";" ).arg( locate( "data", "tdeui/about/kde_infopage_rtl.css" ) );
     else
 	res = res.arg( "" );
@@ -348,7 +348,7 @@ TQString KonqAboutPageFactory::tips()
     TQString continue_icon_path = TQApplication::reverseLayout()?iconloader->iconPath("1leftarrow", TDEIcon::Small ):iconloader->iconPath("1rightarrow", TDEIcon::Small );
 
     res = res.arg( locate( "data", "tdeui/about/kde_infopage.css" ) );
-    if ( kapp->reverseLayout() )
+    if ( tdeApp->reverseLayout() )
 	res = res.arg( "@import \"%1\";" ).arg( locate( "data", "tdeui/about/kde_infopage_rtl.css" ) );
     else
 	res = res.arg( "" );
@@ -412,7 +412,7 @@ TQString KonqAboutPageFactory::plugins()
     if ( s_plugins_html )
         return *s_plugins_html;
 
-    TQString res = loadFile( locate( "data", kapp->reverseLayout() ? "konqueror/about/plugins_rtl.html" : "konqueror/about/plugins.html" ))
+    TQString res = loadFile( locate( "data", tdeApp->reverseLayout() ? "konqueror/about/plugins_rtl.html" : "konqueror/about/plugins.html" ))
                   .arg(i18n("Installed Plugins"))
                   .arg(i18n("<td>Plugin</td><td>Description</td><td>File</td><td>Types</td>"))
                   .arg(i18n("Installed"))

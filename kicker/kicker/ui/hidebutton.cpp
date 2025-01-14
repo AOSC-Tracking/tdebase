@@ -38,11 +38,11 @@ HideButton::HideButton(TQWidget *parent, const char *name)
 {
     setBackgroundOrigin(AncestorOrigin);
 
-    connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
-    connect(kapp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(slotIconChanged(int)));
+    connect(tdeApp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
+    connect(tdeApp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(slotIconChanged(int)));
 
-    kapp->addKipcEventMask(KIPC::SettingsChanged);
-    kapp->addKipcEventMask(KIPC::IconChanged);
+    tdeApp->addKipcEventMask(KIPC::SettingsChanged);
+    tdeApp->addKipcEventMask(KIPC::IconChanged);
 
     slotSettingsChanged(TDEApplication::SETTINGS_MOUSE);
 }

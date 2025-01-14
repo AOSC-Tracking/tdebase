@@ -131,8 +131,8 @@ KonqCombo::KonqCombo( TQWidget *parent, const char *name )
     setHistoryEditorEnabled( true ); 
     connect( this, TQ_SIGNAL(removed( const TQString&) ), TQ_SLOT(slotRemoved( const TQString& )) );
 
-    if ( !kapp->dcopClient()->isAttached() )
-        kapp->dcopClient()->attach();
+    if ( !tdeApp->dcopClient()->isAttached() )
+        tdeApp->dcopClient()->attach();
 }
 
 KonqCombo::~KonqCombo()
@@ -157,8 +157,8 @@ void KonqCombo::setURL( const TQString& url )
         m_returnPressed = false;      
         TQByteArray data;
         TQDataStream s( data, IO_WriteOnly );
-        s << url << kapp->dcopClient()->defaultObject();
-        kapp->dcopClient()->send( "konqueror*", "KonquerorIface",
+        s << url << tdeApp->dcopClient()->defaultObject();
+        tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface",
                                   "addToCombo(TQString,TQCString)", data);
     }
     // important security consideration: always display the beginning
@@ -506,16 +506,16 @@ void KonqCombo::slotCleared()
 {
     TQByteArray data;
     TQDataStream s( data, IO_WriteOnly );
-    s << kapp->dcopClient()->defaultObject();
-    kapp->dcopClient()->send( "konqueror*", "KonquerorIface", "comboCleared(TQCString)", data);
+    s << tdeApp->dcopClient()->defaultObject();
+    tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface", "comboCleared(TQCString)", data);
 }
 
 void KonqCombo::slotRemoved( const TQString& item )
 {
     TQByteArray data;
     TQDataStream s( data, IO_WriteOnly );
-    s << item << kapp->dcopClient()->defaultObject();
-    kapp->dcopClient()->send( "konqueror*", "KonquerorIface",
+    s << item << tdeApp->dcopClient()->defaultObject();
+    tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface",
                                "removeFromCombo(TQString,TQCString)", data);
 }
 

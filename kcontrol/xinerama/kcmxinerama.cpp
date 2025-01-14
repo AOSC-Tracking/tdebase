@@ -175,9 +175,9 @@ void KCMXinerama::save() {
 		config->writeEntry("Unmanaged", item == _displays ? -3 : item);
 		config->sync();
 
-		if (!kapp->dcopClient()->isAttached())
-			kapp->dcopClient()->attach();
-		kapp->dcopClient()->send("twin", "", "reconfigure()", TQString(""));
+		if (!tdeApp->dcopClient()->isAttached())
+			tdeApp->dcopClient()->attach();
+		tdeApp->dcopClient()->send("twin", "", "reconfigure()", TQString(""));
 
 		ksplashrc->setGroup("Xinerama");
 		ksplashrc->writeEntry("KSplashScreen", xw->_enableXinerama->isChecked() ? xw->_ksplashDisplay->currentItem() : -2 /* ignore Xinerama */);

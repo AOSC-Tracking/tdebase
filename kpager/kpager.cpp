@@ -67,7 +67,7 @@ KPagerMainWindow::KPagerMainWindow(TQWidget *parent, const char *name)
     m_pPager = new KPager(this, 0);
     setCentralWidget(m_pPager);
 
-    TDEConfig *cfg = kapp->config();
+    TDEConfig *cfg = tdeApp->config();
     cfg->setGroup("KPager");
 
     // Update the last used geometry
@@ -91,7 +91,7 @@ KPagerMainWindow::KPagerMainWindow(TQWidget *parent, const char *name)
 //	  rect.pos.y+rect.size.height-m_pPager->height());
 // antonio:The above lines don't work. I should look at them when I have
 // more time
-        move(kapp->desktop()->width()-m_pPager->sizeHint().width()-5,kapp->desktop()->height()-m_pPager->sizeHint().height()-25);
+        move(tdeApp->desktop()->width()-m_pPager->sizeHint().width()-5,tdeApp->desktop()->height()-m_pPager->sizeHint().height()-25);
     }
 
     // Set the wm flags to this window
@@ -158,9 +158,9 @@ void KPagerMainWindow::showAt(int x, int y)
   // Just in case we lost the sticky bit... (as when a window is hidden)
   KWin::setOnAllDesktops( winId(), true);
   
-  if (x>kapp->desktop()->width()/2) // Right
+  if (x>tdeApp->desktop()->width()/2) // Right
     x-=m_pPager->width()+5;
-  if (y>kapp->desktop()->height()/2) // Bottom
+  if (y>tdeApp->desktop()->height()/2) // Bottom
     y-=m_pPager->height()+25;
   move(x,y);
   show();
@@ -195,7 +195,7 @@ KPager::KPager(KPagerMainWindow *parent, const char *name)
 
     KPagerConfigDialog::initConfiguration();
 
-    TDEConfig *cfg = kapp->config();
+    TDEConfig *cfg = tdeApp->config();
     cfg->setGroup("KPager");
     m_showStickyOption=cfg->readBoolEntry("ShowStickyOption",false);
 
@@ -224,7 +224,7 @@ KPager::KPager(KPagerMainWindow *parent, const char *name)
              TQ_SLOT( slotNumberOfDesktopsChanged(int) ) );
     connect( m_winmodule, TQ_SIGNAL( currentDesktopChanged(int)),
              TQ_SLOT( slotCurrentDesktopChanged(int) ) );
-    connect(kapp, TQ_SIGNAL(backgroundChanged(int)),
+    connect(tdeApp, TQ_SIGNAL(backgroundChanged(int)),
             TQ_SLOT(slotBackgroundChanged(int)));
 
     TQFont defFont(TDEGlobalSettings::generalFont().family(), 10, TQFont::Bold);
@@ -232,7 +232,7 @@ KPager::KPager(KPagerMainWindow *parent, const char *name)
     setFont(defFont);
 
     m_prefs_action = KStdAction::preferences(this, TQ_SLOT(configureDialog()), parent->actionCollection());
-    m_quit_action = KStdAction::quit(kapp, TQ_SLOT(quit()), parent->actionCollection());
+    m_quit_action = KStdAction::quit(tdeApp, TQ_SLOT(quit()), parent->actionCollection());
 
     updateLayout();
 }

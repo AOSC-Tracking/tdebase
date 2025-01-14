@@ -65,7 +65,7 @@ WndIcon::WndIcon(
   TQPoint p = determinePosition();
   mGroundX = mPosX = p.x();
   mGroundY = mPosY = p.y();
-  move( p + kapp->desktop()->screenGeometry( mXineramaScreen ).topLeft() );
+  move( p + tdeApp->desktop()->screenGeometry( mXineramaScreen ).topLeft() );
 
   if( mIconJumping )
   {
@@ -98,7 +98,7 @@ TQPoint WndIcon::determinePosition()
   int DW, DH, SBH, wid, X, Y, x, y, nSlot, topshift, bottomshift;
 
   bottomshift = topshift = 0;
-  const TQRect srect = kapp->desktop()->screenGeometry( mXineramaScreen );
+  const TQRect srect = tdeApp->desktop()->screenGeometry( mXineramaScreen );
   // TDEGlobalSettings::splashScreenDesktopGeometry(); cannot be used here.
   DW = srect.width();
   DH = srect.height();
@@ -301,7 +301,7 @@ void WndIcon::slotJump()
     mPosY = (int)((float)mPosY - mVelocity );
     break;
   }
-  move( TQPoint( mPosX, mPosY ) + kapp->desktop()->screenGeometry( mXineramaScreen ).topLeft() );
+  move( TQPoint( mPosX, mPosY ) + tdeApp->desktop()->screenGeometry( mXineramaScreen ).topLeft() );
 }
 
 void WndIcon::slotStopJumping()

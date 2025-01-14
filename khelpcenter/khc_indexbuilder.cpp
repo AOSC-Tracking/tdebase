@@ -143,21 +143,21 @@ void IndexBuilder::sendErrorSignal( const TQString &error )
   TQByteArray params;
   TQDataStream stream( params, IO_WriteOnly );
   stream << error;
-  kapp->dcopClient()->emitDCOPSignal("buildIndexError(TQString)", params );  
+  tdeApp->dcopClient()->emitDCOPSignal("buildIndexError(TQString)", params );  
 }
 
 void IndexBuilder::sendProgressSignal()
 {
   kdDebug(1402) << "IndexBuilder::sendProgressSignal()" << endl;
  
-  kapp->dcopClient()->emitDCOPSignal("buildIndexProgress()", TQByteArray() );  
+  tdeApp->dcopClient()->emitDCOPSignal("buildIndexProgress()", TQByteArray() );  
 }
 
 void IndexBuilder::quit()
 {
   kdDebug(1402) << "IndexBuilder::quit()" << endl;
 
-  kapp->quit();
+  tdeApp->quit();
 }
 
 

@@ -653,7 +653,7 @@ int main( int argc, char **argv )
       printf("90\n"); fflush(stdout);
     }
 
-    DCOPClient *dcc = kapp->dcopClient();
+    DCOPClient *dcc = tdeApp->dcopClient();
     if ( !dcc->isAttached() )
         dcc->attach();
     // Tel kded to update sycoca database.

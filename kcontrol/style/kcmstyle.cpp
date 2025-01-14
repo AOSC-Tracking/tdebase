@@ -95,7 +95,7 @@ extern "C"
         TQByteArray properties;
         TQDataStream d(properties, IO_WriteOnly);
         d.setVersion( 3 );      // Qt2 apps need this.
-        d << kapp->palette() << TDEGlobalSettings::generalFont();
+        d << tdeApp->palette() << TDEGlobalSettings::generalFont();
         Atom a = XInternAtom(tqt_xdisplay(), "_QT_DESKTOP_PROPERTIES", false);
 
         // do it for all root windows - multihead support
@@ -668,12 +668,12 @@ void KCMStyle::save()
 
 	if (m_bEffectsDirty) {
 		KIPC::sendMessageAll(KIPC::SettingsChanged);
-		kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+		tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
 	}
         //update kicker to re-used tooltips kicker parameter otherwise, it overwritted
         //by style tooltips parameters.
         TQByteArray data;
-        kapp->dcopClient()->send( "kicker", "kicker", "configure()", data );
+        tdeApp->dcopClient()->send( "kicker", "kicker", "configure()", data );
 
 	// Clean up
 	m_bEffectsDirty  = false;

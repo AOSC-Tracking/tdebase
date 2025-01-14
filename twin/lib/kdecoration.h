@@ -659,7 +659,7 @@ class KWIN_EXPORT KDecoration
 	 * This function may be reimplemented to provide custom minimize/restore animations
 	 * The reimplementation is allowed to perform X server grabs if necessary
          * (only using the functions provided by this API, no direct Xlib calls), but no
-	 * futher event processing is allowed (i.e. no kapp->processEvents()).
+	 * futher event processing is allowed (i.e. no tdeApp->processEvents()).
 	 * @a False should be returned if the default implementation should be used.
 	 * Note that you should not use this function to force disabling of the animation.
 	 *

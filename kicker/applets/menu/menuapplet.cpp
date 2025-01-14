@@ -89,7 +89,7 @@ Applet::Applet( const TQString& configFile_P, TQWidget* parent_P )
     setBackgroundOrigin(AncestorOrigin);
     dcopclient.registerAs( "menuapplet", false );
     // toolbarAppearanceChanged(int) is sent when changing macstyle
-    connect( kapp, TQ_SIGNAL( toolbarAppearanceChanged( int )),
+    connect( tdeApp, TQ_SIGNAL( toolbarAppearanceChanged( int )),
         this, TQ_SLOT( readSettings()));
     claimSelection();
     readSettings();

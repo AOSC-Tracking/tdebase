@@ -101,7 +101,7 @@ Minicli::Minicli( TQWidget *parent, const char *name)
   // Cancel button...
   m_dlg->pbCancel->setGuiItem ( KStdGuiItem::cancel() );
 
-  if (!kapp->authorize("shell_access"))
+  if (!tdeApp->authorize("shell_access"))
     m_dlg->pbOptions->hide();
 
   m_dlg->pbRun->setEnabled(!m_dlg->cbCommand->currentText().isEmpty());
@@ -317,8 +317,8 @@ void Minicli::accept()
 
   if ( logout )
   {
-     kapp->propagateSessionManager();
-     kapp->requestShutDown();
+     tdeApp->propagateSessionManager();
+     tdeApp->requestShutDown();
   }
   if ( lock )
   {
@@ -326,7 +326,7 @@ void Minicli::accept()
      int kicker_screen_number = tqt_xscreen();
      if ( kicker_screen_number )
          appname.sprintf("kdesktop-screen-%d", kicker_screen_number);
-     kapp->dcopClient()->send(appname, "KScreensaverIface", "lock()", TQString(""));
+     tdeApp->dcopClient()->send(appname, "KScreensaverIface", "lock()", TQString(""));
   }
 }
 
@@ -437,7 +437,7 @@ int Minicli::runCommand()
 
   kdDebug (1207) << "Use terminal ? " << useTerminal << endl;
 
-  if (!kapp->authorize("shell_access"))
+  if (!tdeApp->authorize("shell_access"))
     useTerminal = false;
 
   if( needsTDEsu() )
@@ -585,7 +585,7 @@ int Minicli::runCommand()
         // fall-through to shell case
         case KURIFilterData::SHELL:
         {
-          if (kapp->authorize("shell_access"))
+          if (tdeApp->authorize("shell_access"))
           {
             exec = cmd;
 
@@ -651,7 +651,7 @@ void Minicli::notifyServiceStarted(KService::Ptr service)
     TQDataStream stream(params, IO_WriteOnly);
     stream << "minicli" << service->storageId();
     kdDebug() << "minicli appLauncher dcop signal: " << service->storageId() << endl;
-    TDEApplication::kApplication()->dcopClient()->emitDCOPSignal("appLauncher",
+    tdeApp->dcopClient()->emitDCOPSignal("appLauncher",
         "serviceStartedByStorageId(TQString,TQString)", params);
 }
 

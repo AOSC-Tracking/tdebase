@@ -47,13 +47,13 @@ SimpleButton::SimpleButton(TQWidget *parent, const char *name, bool forceStandar
 {
     setBackgroundOrigin( AncestorOrigin );
 
-    connect( kapp, TQ_SIGNAL( settingsChanged( int ) ),
+    connect( tdeApp, TQ_SIGNAL( settingsChanged( int ) ),
        TQ_SLOT( slotSettingsChanged( int ) ) );
-    connect( kapp, TQ_SIGNAL( iconChanged( int ) ),
+    connect( tdeApp, TQ_SIGNAL( iconChanged( int ) ),
        TQ_SLOT( slotIconChanged( int ) ) );
 
-    kapp->addKipcEventMask( KIPC::SettingsChanged );
-    kapp->addKipcEventMask( KIPC::IconChanged );
+    tdeApp->addKipcEventMask( KIPC::SettingsChanged );
+    tdeApp->addKipcEventMask( KIPC::IconChanged );
 
     slotSettingsChanged( TDEApplication::SETTINGS_MOUSE );
 }

@@ -574,7 +574,7 @@ void KAccessApp::createDialogContents() {
       lay->setSpacing(KDialog::spacingHint());
 
       TQLabel *label1 = new TQLabel( contents);
-      TQPixmap pixmap = TDEApplication::kApplication()->iconLoader()->loadIcon("messagebox_warning", TDEIcon::NoGroup, TDEIcon::SizeMedium, TDEIcon::DefaultState, 0, true);
+      TQPixmap pixmap = tdeApp->iconLoader()->loadIcon("messagebox_warning", TDEIcon::NoGroup, TDEIcon::SizeMedium, TDEIcon::DefaultState, 0, true);
       if (pixmap.isNull())
          pixmap = TQMessageBox::standardIcon(TQMessageBox::Warning);
       label1->setPixmap(pixmap);
@@ -751,7 +751,7 @@ void KAccessApp::xkbControlsNotify(XkbControlsNotifyEvent *event)
               +" "+i18n("These AccessX settings are needed for some users with motion impairments and can be configured in the Trinity Control Center. You can also turn them on and off with standardized keyboard gestures.\n\nIf you do not need them, you can select \"Deactivate all AccessX features and gestures\".") );
 
         KWin::setState( dialog->winId(), NET::KeepAbove );
-        kapp->updateUserTimestamp();
+        tdeApp->updateUserTimestamp();
         dialog->show();
      }
   }

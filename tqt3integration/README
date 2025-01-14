@@ -19,7 +19,7 @@ v kded nesmi byt nic, co znovu vstupuje do event loop
     - udelat na to test
     - spravit tdewallet
 
-blokovat uzivatelsky vstup, jako to dela kapp pro dcop
+blokovat uzivatelsky vstup, jako to dela tdeApp pro dcop
 
 obcas se dela demand-attention v taskbaru
 - navic je problem s focus stealing prevention, kdyz aplikace nejdriv zobrazi jen samotny dialog

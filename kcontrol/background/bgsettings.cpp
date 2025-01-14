@@ -1275,6 +1275,6 @@ void TDEGlobalBackgroundSettings::writeSettings()
 
     // tell kdesktop to get it's butt in gear and pick up the new settings
     TQByteArray data;
-    kapp->dcopClient()->send("kdesktop", "KDesktopIface", "configure()", data);
+    tdeApp->dcopClient()->send("kdesktop", "KDesktopIface", "configure()", data);
 }
 

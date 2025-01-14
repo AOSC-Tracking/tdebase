@@ -149,7 +149,7 @@ GUIClient::GUIClient ( MainWindow *mw )
   m_toolMenu->insert( new TDEActionSeparator( m_toolMenu ) );
 
   // read shortcuts
-  actionCollection()->readShortcutSettings( "Shortcuts", kapp->config() );
+  actionCollection()->readShortcutSettings( "Shortcuts", tdeApp->config() );
 }
 
 GUIClient::~GUIClient()
@@ -167,7 +167,7 @@ void GUIClient::registerToolView (ToolView *tv)
 
   // try to read the action shortcut
   TDEShortcut sc;
-  TDEConfig *cfg = kapp->config();
+  TDEConfig *cfg = tdeApp->config();
   TQString _grp = cfg->group();
   cfg->setGroup("Shortcuts");
   sc = TDEShortcut( cfg->readEntry( aname, "" ) );

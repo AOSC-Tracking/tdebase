@@ -129,7 +129,7 @@ void KeyboardConfig::load()
 
   XKeyboardState kbd;
 
-  XGetKeyboardControl(kapp->getDisplay(), &kbd);
+  XGetKeyboardControl(tdeApp->getDisplay(), &kbd);
 
   config.setGroup("Keyboard");
   bool key = config.readBoolEntry("KeyboardRepeating", true);
@@ -156,7 +156,7 @@ void KeyboardConfig::save()
 
   kbd.key_click_percent = clickVolume;
   kbd.auto_repeat_mode = keyboardRepeat;
-  XChangeKeyboardControl(kapp->getDisplay(),
+  XChangeKeyboardControl(tdeApp->getDisplay(),
                            KBKeyClickPercent | KBAutoRepeatMode,
                            &kbd);
   if( keyboardRepeat ) {
@@ -538,12 +538,12 @@ void KeyboardConfig::init_keyboard()
 	XKeyboardState   kbd;
 	XKeyboardControl kbdc;
 
-	XGetKeyboardControl(kapp->getDisplay(), &kbd);
+	XGetKeyboardControl(tdeApp->getDisplay(), &kbd);
 	bool key = config->readBoolEntry("KeyboardRepeating", true);
 	kbdc.key_click_percent = config->readNumEntry("ClickVolume", kbd.key_click_percent);
 	kbdc.auto_repeat_mode = (key ? AutoRepeatModeOn : AutoRepeatModeOff);
 
-	XChangeKeyboardControl(kapp->getDisplay(),
+	XChangeKeyboardControl(tdeApp->getDisplay(),
 						   KBKeyClickPercent | KBAutoRepeatMode,
 						   &kbdc);
 

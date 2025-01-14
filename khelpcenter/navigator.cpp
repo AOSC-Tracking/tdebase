@@ -80,7 +80,7 @@ Navigator::Navigator( View *view, TQWidget *parent, const char *name )
    : TQWidget( parent, name ), mIndexDialog( 0 ),
      mView( view ), mSelected( false )
 {
-    TDEConfig *config = kapp->config();
+    TDEConfig *config = tdeApp->config();
     config->setGroup("General");
     mShowMissingDocs = config->readBoolEntry("ShowMissingDocs",false);
 

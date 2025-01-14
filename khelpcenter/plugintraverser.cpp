@@ -73,7 +73,7 @@ void PluginTraverser::process( DocEntry *entry )
       appItem = new NavigatorAppItem( entry, mListView, mCurrentItem );
     else
       appItem = new NavigatorAppItem( entry, mParentItem, mCurrentItem );
-    TDEConfig *cfg = kapp->config();
+    TDEConfig *cfg = tdeApp->config();
     cfg->setGroup( "General" );
     appItem->setRelpath( cfg->readPathEntry( "AppsRoot" ) );
     mCurrentItem = appItem;

@@ -459,7 +459,7 @@ bool TDEIO_Print::getDBFile( const KURL& src )
 	connect( job, TQ_SIGNAL( data( TDEIO::Job*, const TQByteArray& ) ), TQ_SLOT( slotData( TDEIO::Job*, const TQByteArray& ) ) );
 	connect( job, TQ_SIGNAL( totalSize( TDEIO::Job*, TDEIO::filesize_t ) ), TQ_SLOT( slotTotalSize( TDEIO::Job*, TDEIO::filesize_t ) ) );
 	connect( job, TQ_SIGNAL( processedSize( TDEIO::Job*, TDEIO::filesize_t ) ), TQ_SLOT( slotProcessedSize( TDEIO::Job*, TDEIO::filesize_t ) ) );
-	kapp->enter_loop();
+	tdeApp->enter_loop();
 	m_httpBuffer.close();
 
 	/* return the result */
@@ -510,7 +510,7 @@ void TDEIO_Print::slotResult( TDEIO::Job *j )
 		m_httpError = j->error();
 		m_httpErrorTxt = j->errorText();
 	}
-	kapp->exit_loop();
+	tdeApp->exit_loop();
 }
 
 void TDEIO_Print::slotData( TDEIO::Job *j, const TQByteArray& d )

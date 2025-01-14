@@ -247,7 +247,7 @@ bool MediaImpl::ensureMediumMounted(Medium &medium)
 		connect( job, TQ_SIGNAL( warning( TDEIO::Job *, const TQString & ) ),
 		         this, TQ_SLOT( slotWarning( TDEIO::Job *, const TQString & ) ) );
 		*/
-		kapp->dcopClient()
+		tdeApp->dcopClient()
 		->connectDCOPSignal("kded", "mediamanager",
 		                    "mediumChanged(TQString, bool)",
 		                    "mediaimpl",
@@ -272,7 +272,7 @@ bool MediaImpl::ensureMediumMounted(Medium &medium)
 
 		mp_mounting = 0L;
 		
-		kapp->dcopClient()
+		tdeApp->dcopClient()
 		->disconnectDCOPSignal("kded", "mediamanager",
 		                       "mediumChanged(TQString, bool)",
 		                       "mediaimpl",

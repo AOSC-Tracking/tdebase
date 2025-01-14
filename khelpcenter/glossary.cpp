@@ -94,7 +94,7 @@ Glossary::Glossary( TQWidget *parent ) : TDEListView( parent )
 
 	m_sourceFile = View::View::langLookup( TQString::fromLatin1( "khelpcenter/glossary/index.docbook" ) );
 
-	m_config = kapp->config();
+	m_config = tdeApp->config();
 	m_config->setGroup( "Glossary" );
 
 }
@@ -142,7 +142,7 @@ int Glossary::glossaryCTime() const
 
 void Glossary::rebuildGlossaryCache()
 {
-	TDEMainWindow *mainWindow = dynamic_cast<TDEMainWindow *>( kapp->mainWidget() );
+	TDEMainWindow *mainWindow = dynamic_cast<TDEMainWindow *>( tdeApp->mainWidget() );
 	Q_ASSERT( mainWindow );
 	mainWindow->statusBar()->message( i18n( "Rebuilding cache..." ) );
 
@@ -172,7 +172,7 @@ void Glossary::meinprocExited( TDEProcess *meinproc )
 	
 	m_status = CacheOk;
 
-	TDEMainWindow *mainWindow = dynamic_cast<TDEMainWindow *>( kapp->mainWidget() );
+	TDEMainWindow *mainWindow = dynamic_cast<TDEMainWindow *>( tdeApp->mainWidget() );
 	Q_ASSERT( mainWindow );
 	mainWindow->statusBar()->message( i18n( "Rebuilding cache... done." ), 2000 );
 

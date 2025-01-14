@@ -203,7 +203,7 @@ void CfgEmailClient::save(TDEConfig *)
 	if (!cfgName.isEmpty())
 		::chmod(TQFile::encodeName(cfgName), 0600);
 
-	kapp->dcopClient()->emitDCOPSignal("KDE_emailSettingsChanged()", TQByteArray());
+	tdeApp->dcopClient()->emitDCOPSignal("KDE_emailSettingsChanged()", TQByteArray());
 
 	emit changed(false);
 }
@@ -298,7 +298,7 @@ void CfgTerminalEmulator::save(TDEConfig *) {
 	delete config;
 
 	KIPC::sendMessageAll(KIPC::SettingsChanged);
-	kapp->dcopClient()->send("tdelauncher", "tdelauncher","reparseConfiguration()", TQString::null);
+	tdeApp->dcopClient()->send("tdelauncher", "tdelauncher","reparseConfiguration()", TQString::null);
 
 	emit changed(false);
 }

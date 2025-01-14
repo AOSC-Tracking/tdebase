@@ -313,15 +313,15 @@ static int directCommand(TDECmdLineArgs *args)
 						       0, // name
 						       duration );
 	TQTimer *timer = new TQTimer();
-	TQObject::connect( timer, TQ_SIGNAL( timeout() ), kapp, TQ_SLOT( quit() ) );
-	TQObject::connect( popup, TQ_SIGNAL( clicked() ), kapp, TQ_SLOT( quit() ) );
+	TQObject::connect( timer, TQ_SIGNAL( timeout() ), tdeApp, TQ_SLOT( quit() ) );
+	TQObject::connect( popup, TQ_SIGNAL( clicked() ), tdeApp, TQ_SLOT( quit() ) );
 	timer->start( duration, TRUE );
 
 #ifdef TQ_WS_X11
-	if ( ! kapp->geometryArgument().isEmpty()) {
+	if ( ! tdeApp->geometryArgument().isEmpty()) {
 	    int x, y;
 	    int w, h;
-	    int m = XParseGeometry( kapp->geometryArgument().latin1(), &x, &y, (unsigned int*)&w, (unsigned int*)&h);
+	    int m = XParseGeometry( tdeApp->geometryArgument().latin1(), &x, &y, (unsigned int*)&w, (unsigned int*)&h);
 	    if ( (m & XNegative) )
 		x = TDEApplication::desktop()->width()  + x - w;
 	    if ( (m & YNegative) )
@@ -329,7 +329,7 @@ static int directCommand(TDECmdLineArgs *args)
 	    popup->setAnchor( TQPoint(x, y) );
 	}
 #endif
-	kapp->exec();
+	tdeApp->exec();
 	return 0;
       }
 
@@ -469,7 +469,7 @@ static int directCommand(TDECmdLineArgs *args)
 	    dlg.setMode(KFile::File | KFile::LocalOnly);
 	}
 	Widgets::handleXGeometry(&dlg);
-	kapp->setTopWidget( &dlg );
+	tdeApp->setTopWidget( &dlg );
 	dlg.setCaption(title.isNull() ? i18n("Open") : title);
 	dlg.exec();
 
@@ -510,7 +510,7 @@ static int directCommand(TDECmdLineArgs *args)
 	    dlg.setSelection( startDir );
 	dlg.setOperationMode( KFileDialog::Saving );
 	Widgets::handleXGeometry(&dlg);
-	kapp->setTopWidget( &dlg );
+	tdeApp->setTopWidget( &dlg );
 	dlg.setCaption(title.isNull() ? i18n("Save As") : title);
 	dlg.exec();
 
@@ -545,7 +545,7 @@ static int directCommand(TDECmdLineArgs *args)
 	KDirSelectDialog myDialog( startDir, true, 0,
 				   "kdirselect dialog", true );
 
-	kapp->setTopWidget( &myDialog );
+	tdeApp->setTopWidget( &myDialog );
 
 	Widgets::handleXGeometry(&myDialog);
 	if ( !title.isNull() )
@@ -581,7 +581,7 @@ static int directCommand(TDECmdLineArgs *args)
 	    dlg.setMode(KFile::File);
 	}
 	Widgets::handleXGeometry(&dlg);
-	kapp->setTopWidget( &dlg );
+	tdeApp->setTopWidget( &dlg );
 	dlg.setCaption(title.isNull() ? i18n("Open") : title);
 	dlg.exec();
 
@@ -649,7 +649,7 @@ static int directCommand(TDECmdLineArgs *args)
             context = TDEIcon::StatusIcon;
 
 	TDEIconDialog dlg(0, "icon dialog");
-	kapp->setTopWidget( &dlg );
+	tdeApp->setTopWidget( &dlg );
 	dlg.setup( group, context);
 	if (!title.isNull())
 	    dlg.setCaption(title);

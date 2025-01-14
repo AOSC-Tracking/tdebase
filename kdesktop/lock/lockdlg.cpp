@@ -244,7 +244,7 @@ void PasswordDlg::init(GreeterPluginHandle *plugin)
 	connect(ok, TQ_SIGNAL(clicked()), TQ_SLOT(slotOK()));
 	connect(mNewSessButton, TQ_SIGNAL(clicked()), TQ_SLOT(slotSwitchUser()));
 
-	if (!DM().isSwitchable() || !kapp->authorize("switch_user")) {
+	if (!DM().isSwitchable() || !tdeApp->authorize("switch_user")) {
 		mNewSessButton->hide();
 	}
 
@@ -939,7 +939,7 @@ void PasswordDlg::slotSwitchUser()
 		vbox2->addStretch( 2 );
 	}
 
-	if (kapp->authorize("start_new_session") && (p = dm.numReserve()) >= 0) {
+	if (tdeApp->authorize("start_new_session") && (p = dm.numReserve()) >= 0) {
 		btn = new KPushButton( KGuiItem(i18n("Start &New Session"), "fork"), winFrame );
 		connect( btn, TQ_SIGNAL(clicked()), TQ_SLOT(slotStartNewSession()) );
 		connect( btn, TQ_SIGNAL(clicked()), &dialog, TQ_SLOT(accept()) );

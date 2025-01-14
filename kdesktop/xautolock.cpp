@@ -71,7 +71,7 @@ XAutoLock::XAutoLock()
 #endif
     if( !xautolock_useXidle && !xautolock_useMit )
     {
-        kapp->installX11EventFilter( this );
+        tdeApp->installX11EventFilter( this );
         int (*oldHandler)(Display *, XErrorEvent *);
         oldHandler = XSetErrorHandler(catchFalseAlarms);
         XSync(tqt_xdisplay(), False );

@@ -77,7 +77,7 @@ SchemaEditor::SchemaEditor(TQWidget * parent, const char *name)
 
     connect(spix, TQ_SIGNAL(done(bool)), TQ_SLOT(previewLoaded(bool)));
 
-    DCOPClient *client = kapp->dcopClient();
+    DCOPClient *client = tdeApp->dcopClient();
     if (!client->isAttached())
 	client->attach();
     TQByteArray data;
@@ -666,7 +666,7 @@ void SchemaEditor::readSchema(int num)
 		    continue;
 		if (!(0 <= bo && bo <= 1))
 		    continue;
-		color[fi] = kapp->palette().active().text();
+		color[fi] = tdeApp->palette().active().text();
 		transparent[fi] = tr;
 		bold[fi] = bo;
 		type[fi] = 1;
@@ -681,7 +681,7 @@ void SchemaEditor::readSchema(int num)
 		    continue;
 		if (!(0 <= bo && bo <= 1))
 		    continue;
-		color[fi] = kapp->palette().active().base();
+		color[fi] = tdeApp->palette().active().base();
 		transparent[fi] = tr;
 		bold[fi] = bo;
 		type[fi] = 2;

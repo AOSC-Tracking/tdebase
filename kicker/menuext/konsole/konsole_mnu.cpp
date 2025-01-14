@@ -91,7 +91,7 @@ void KonsoleMenu::initialize()
     }
     else
     {
-        kapp->iconLoader()->addAppDir("konsole");
+        tdeApp->iconLoader()->addAppDir("konsole");
     }
 
     setInitialized(true);
@@ -244,7 +244,7 @@ void KonsoleMenu::slotExec(int id)
     }
 
     --id;
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
     TQStringList args;
     if (static_cast<unsigned int>(id) < sessionList.count())
     {
@@ -273,7 +273,7 @@ void KonsoleMenu::launchProfile(int id)
     // this is a session, not a bookmark, so execute that instead
    TQStringList args;
    args << "--profile" << m_profiles[id];
-   kapp->tdeinitExec("konsole", args);
+   tdeApp->tdeinitExec("konsole", args);
 }
 
 KURL KonsoleMenu::baseURL() const

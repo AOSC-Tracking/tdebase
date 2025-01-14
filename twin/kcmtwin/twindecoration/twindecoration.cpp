@@ -970,7 +970,7 @@ TQString KWinDecorationModule::handbookSection() const
 
 void KWinDecorationModule::resetKWin()
 {
-	bool ok = kapp->dcopClient()->send("twin*", "KWinInterface",
+	bool ok = tdeApp->dcopClient()->send("twin*", "KWinInterface",
                         "reconfigure()", TQByteArray());
 	if (!ok)
 		kdDebug() << "kcmtwindecoration: Could not reconfigure twin" << endl;

@@ -39,7 +39,7 @@ class JobTray : public KSystemTray
 {
 public:
 	JobTray(KJobViewerApp *parent, const char *name = 0)
-		: KSystemTray(0, name), m_app(parent) { connect( this, TQ_SIGNAL( quitSelected() ), kapp, TQ_SLOT( quit() ) ); }
+		: KSystemTray(0, name), m_app(parent) { connect( this, TQ_SIGNAL( quitSelected() ), tdeApp, TQ_SLOT( quit() ) ); }
 protected:
 	void mousePressEvent(TQMouseEvent*);
 private:
@@ -184,7 +184,7 @@ void KJobViewerApp::slotJobsShown(KMJobViewer *view, bool hasJobs)
 	}
 	else {
 		TDEStartupInfo::appStarted();
-		kapp->quit();
+		tdeApp->quit();
 	}
 }
 
@@ -230,7 +230,7 @@ void KJobViewerApp::slotViewerDestroyed(KMJobViewer *view)
 	if (view)
 		m_views.take(view->printer());
 	if (m_views.count() == 0)
-		kapp->quit();
+		tdeApp->quit();
 }
 
 #include "kjobviewer.moc"

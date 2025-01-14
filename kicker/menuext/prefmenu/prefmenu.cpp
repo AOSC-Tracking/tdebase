@@ -328,7 +328,7 @@ void PrefMenu::slotExec(int id)
         return;
     }
 
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
     KSycocaEntry *e = m_entryMap[id];
     KService::Ptr service = static_cast<KService *>(e);
     TDEApplication::startServiceByDesktopPath(service->desktopEntryPath(),

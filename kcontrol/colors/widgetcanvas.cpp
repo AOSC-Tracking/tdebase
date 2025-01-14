@@ -433,7 +433,7 @@ void WidgetCanvas::drawSampleWidgets()
     // Menu bar
 
     //qDrawShadePanel ( &paint, 25, 55, width()-52, 28, cg, FALSE, 2, &brush);
-    kapp->style().drawPrimitive(TQStyle::PE_PanelMenuBar, &paint, 
+    tdeApp->style().drawPrimitive(TQStyle::PE_PanelMenuBar, &paint, 
 			TQRect(TQPoint(25, 55), TQSize(width()-52, 28)), cg);
 
     paint.setFont( menuFont );
@@ -441,7 +441,7 @@ void WidgetCanvas::drawSampleWidgets()
 	TQString file = i18n("File");
     textLen = paint.fontMetrics().width( file );
     //qDrawShadePanel ( &paint, 30, 59, textLen + 10, 21, cg, FALSE, 2, &brush);
-	kapp->style().drawPrimitive(TQStyle::PE_Panel, &paint,
+	tdeApp->style().drawPrimitive(TQStyle::PE_Panel, &paint,
 			TQRect(30, 59, textLen + 10, 21), cg);
     paint.drawText( 35, 74, file );
 
@@ -526,7 +526,7 @@ void WidgetCanvas::drawSampleWidgets()
     cg2.setColor(TQColorGroup::Button, button);
     cg2.setColor(TQColorGroup::Background, window);
     //qDrawWinButton(&paint, xpos, ypos, textLen+32, 28, cg, false, &brush);
-	kapp->style().drawPrimitive(TQStyle::PE_ButtonCommand, &paint,
+	tdeApp->style().drawPrimitive(TQStyle::PE_ButtonCommand, &paint,
 			TQRect(xpos, ypos, textLen+32, 28), cg2, TQStyle::Style_Enabled | TQStyle::Style_Raised);
     paint.setPen(buttonTxt);
     paint.drawText(xpos, ypos, textLen+32, 28, AlignCenter,

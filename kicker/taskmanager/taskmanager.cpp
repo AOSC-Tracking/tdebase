@@ -1459,7 +1459,7 @@ void Task::tileTo(int position)
     TQByteArray params;
     TQDataStream stream(params, IO_WriteOnly);
     stream << _win << position;
-    TDEApplication::kApplication()->dcopClient()->send("twin", "KWinInterface", "tileWindowToBorder(unsigned long int, int)", params);
+    tdeApp->dcopClient()->send("twin", "KWinInterface", "tileWindowToBorder(unsigned long int, int)", params);
 }
 
 Startup::Startup(const TDEStartupInfoId& id, const TDEStartupInfoData& data,

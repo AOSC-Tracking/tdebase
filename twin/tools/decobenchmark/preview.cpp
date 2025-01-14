@@ -67,7 +67,7 @@ void KDecorationPreview::performRepaintTest(int n)
     positionPreviews(0);
     for (int i = 0; i < n; ++i) {
         deco->widget()->repaint();
-        kapp->processEvents();
+        tdeApp->processEvents();
     }
 }
 
@@ -80,7 +80,7 @@ void KDecorationPreview::performCaptionTest(int n)
         bridge->setCaption(caption.arg(i) );
         deco->captionChange();
         deco->widget()->repaint();
-        kapp->processEvents();
+        tdeApp->processEvents();
     }
 }
 
@@ -91,7 +91,7 @@ void KDecorationPreview::performResizeTest(int n)
     deco->captionChange();
     for (int i = 0; i < n; ++i) {
         positionPreviews(i % 200);
-        kapp->processEvents();
+        tdeApp->processEvents();
     }
 }
 
@@ -103,7 +103,7 @@ void KDecorationPreview::performRecreationTest(int n)
     positionPreviews(0);
     for (int i = 0; i < n; ++i) {
         recreateDecoration();
-        kapp->processEvents();
+        tdeApp->processEvents();
     }
 }
 

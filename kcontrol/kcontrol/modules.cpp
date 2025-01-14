@@ -101,7 +101,7 @@ void ConfigModule::deleteClient()
   _embedStack = 0;
   delete _embedFrame;
   _embedFrame = 0;
-  kapp->syncX();
+  tdeApp->syncX();
 
   if(_module)
     _module->close(true);
@@ -282,7 +282,7 @@ bool ConfigModuleList::readDesktopEntriesRecursive(const TQString &path)
      if (p->isType(KST_KService))
      {
         KService *s = static_cast<KService*>(p);
-        if (!kapp->authorizeControlModule(s->menuId()))
+        if (!tdeApp->authorizeControlModule(s->menuId()))
            continue;
 
         ConfigModule *module = new ConfigModule(s);

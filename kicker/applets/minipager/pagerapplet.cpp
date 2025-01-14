@@ -141,9 +141,9 @@ KMiniPager::KMiniPager(const TQString& configFile, Type type, int actions,
     connect( m_twin, TQ_SIGNAL( windowRemoved(WId) ), this, TQ_SLOT( slotWindowRemoved(WId) ) );
     connect( m_twin, TQ_SIGNAL( windowChanged(WId,unsigned int) ), this, TQ_SLOT( slotWindowChanged(WId,unsigned int) ) );
     connect( m_twin, TQ_SIGNAL( desktopNamesChanged() ), this, TQ_SLOT( slotDesktopNamesChanged() ) );
-    connect( kapp, TQ_SIGNAL(backgroundChanged(int)), TQ_SLOT(slotBackgroundChanged(int)) );
+    connect( tdeApp, TQ_SIGNAL(backgroundChanged(int)), TQ_SLOT(slotBackgroundChanged(int)) );
 
-    if (kapp->authorizeTDEAction("kicker_rmb") && kapp->authorizeControlModule("tde-kcmtaskbar.desktop"))
+    if (tdeApp->authorizeTDEAction("kicker_rmb") && tdeApp->authorizeControlModule("tde-kcmtaskbar.desktop"))
     {
         m_contextMenu = new TQPopupMenu();
         connect(m_contextMenu, TQ_SIGNAL(aboutToShow()), TQ_SLOT(aboutToShowContextMenu()));
@@ -799,7 +799,7 @@ void KMiniPager::contextMenuActivated(int result)
             return;
 
         case ConfigureDesktops:
-            kapp->startServiceByDesktopName("desktop");
+            tdeApp->startServiceByDesktopName("desktop");
             return;
 
         case RenameDesktop:
@@ -883,7 +883,7 @@ void KMiniPager::slotDesktopNamesChanged()
 
 void KMiniPager::showPager()
 {
-    DCOPClient *dcop=kapp->dcopClient();
+    DCOPClient *dcop=tdeApp->dcopClient();
 
     if (dcop->isApplicationRegistered("kpager"))
     {
@@ -922,7 +922,7 @@ void KMiniPager::showKPager(bool toggleShow)
             pt=mapToGlobal( TQPoint(x(), y()) );
     }
 
-    DCOPClient *dcop=kapp->dcopClient();
+    DCOPClient *dcop=tdeApp->dcopClient();
 
     TQByteArray data;
     TQDataStream arg(data, IO_WriteOnly);
@@ -941,7 +941,7 @@ void KMiniPager::applicationRegistered( const TQCString  & appName )
 {
     if (appName == "kpager")
     {
-        disconnect( kapp->dcopClient(), TQ_SIGNAL( applicationRegistered(const TQCString &) ),
+        disconnect( tdeApp->dcopClient(), TQ_SIGNAL( applicationRegistered(const TQCString &) ),
                     this, TQ_SLOT(applicationRegistered(const TQCString &)) );
         showKPager(false);
     }

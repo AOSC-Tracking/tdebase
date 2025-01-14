@@ -214,7 +214,7 @@ bool IconThemesConfig::installThemes(const TQStringList &themes, const TQString 
 
   KTar archive(archiveName);
   archive.open(IO_ReadOnly);
-  kapp->processEvents();
+  tdeApp->processEvents();
 
   const KArchiveDirectory* rootDir = archive.directory();
 
@@ -225,7 +225,7 @@ bool IconThemesConfig::installThemes(const TQStringList &themes, const TQString 
     progressDiag.setLabel(
         i18n("<qt>Installing <strong>%1</strong> theme</qt>")
         .arg(*it));
-    kapp->processEvents();
+    tdeApp->processEvents();
 
     if (progressDiag.wasCancelled())
       break;

@@ -192,8 +192,8 @@ extern "C" TDE_EXPORT int kdemain( int argc, char* argv[] )
 
     TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
 
-    kapp->dcopClient()->registerAs("ksmserver", false);
-    if (!kapp->dcopClient()->isRegistered())
+    tdeApp->dcopClient()->registerAs("ksmserver", false);
+    if (!tdeApp->dcopClient()->isRegistered())
     {
        tqWarning("[KSMServer] Could not register with DCOPServer. Aborting.");
        return 1;
@@ -217,7 +217,7 @@ extern "C" TDE_EXPORT int kdemain( int argc, char* argv[] )
 #endif
 
     KSMServer *server = new KSMServer( TQString::fromLatin1(wm), TQString::fromLatin1(wmaddargs), only_local);
-    kapp->dcopClient()->setDefaultObject( server->objId() );
+    tdeApp->dcopClient()->setDefaultObject( server->objId() );
 
     IceSetIOErrorHandler( IoErrorHandler );
 

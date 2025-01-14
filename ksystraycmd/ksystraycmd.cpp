@@ -143,14 +143,14 @@ void KSysTrayCmd::refresh()
 
   TQToolTip::remove( this );
   if ( win ) {
-    TDEConfig *appCfg = kapp->config();
+    TDEConfig *appCfg = tdeApp->config();
     TDEConfigGroupSaver configSaver(appCfg, "System Tray");
     int iconWidth = appCfg->readNumEntry("systrayIconWidth", 22);
 
     // ksystraycmd's icon or app's icon
     if (ownIcon)
     {
-      setPixmap( KSystemTray::loadIcon( kapp->iconName() ) );
+      setPixmap( KSystemTray::loadIcon( tdeApp->iconName() ) );
     }
     else
     {
@@ -167,7 +167,7 @@ void KSysTrayCmd::refresh()
     else
       TQToolTip::add( this, window );
 
-    setPixmap( KSystemTray::loadIcon( kapp->iconName() ) );
+    setPixmap( KSystemTray::loadIcon( tdeApp->iconName() ) );
   }
 }
 

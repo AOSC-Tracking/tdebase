@@ -57,11 +57,11 @@ KPersonalizer::KPersonalizer(TQWidget *parent, const char *name)
 	: KWizard(parent, name, true) {
 
 	// first, reset the startup from true (see desktop file in share/autostart) to false
-	setCaption(kapp->caption());
-	kapp->config()->setGroup("General");
+	setCaption(tdeApp->caption());
+	tdeApp->config()->setGroup("General");
 	os_dirty = eye_dirty = style_dirty=false;
-	kapp->config()->writeEntry("FirstLogin", false);
-	kapp->config()->sync();
+	tdeApp->config()->writeEntry("FirstLogin", false);
+	tdeApp->config()->sync();
 
 	countrypage= new KCountryPage(this);
 	addPage( countrypage, i18n( "Step 1: Introduction" ) );

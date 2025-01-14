@@ -139,7 +139,7 @@ void AppletContainer::configure()
 
     if (isImmutable() ||
         KickerSettings::hideAppletHandles() ||
-        !kapp->authorizeTDEAction("kicker_rmb"))
+        !tdeApp->authorizeTDEAction("kicker_rmb"))
     {
         if (_handle->isVisibleTo(this))
         {
@@ -216,7 +216,7 @@ void AppletContainer::signalToBeRemoved()
 
 void AppletContainer::showAppletMenu()
 {
-    if (!kapp->authorizeTDEAction("kicker_rmb"))
+    if (!tdeApp->authorizeTDEAction("kicker_rmb"))
     {
         return;
     }
@@ -461,7 +461,7 @@ void AppletContainer::setImmutable(bool immutable)
     BaseContainer::setImmutable(immutable);
     if (isImmutable() ||
         KickerSettings::hideAppletHandles() ||
-        !kapp->authorizeTDEAction("kicker_rmb"))
+        !tdeApp->authorizeTDEAction("kicker_rmb"))
     {
         if (_handle->isVisibleTo(this))
         {

@@ -1323,7 +1323,7 @@ DCOPRef NSPluginViewer::newClass( TQString plugin )
        _classes.insert( plugin, cls );
    }
 
-   return DCOPRef( kapp->dcopClient()->appId(), cls->objId() );
+   return DCOPRef( tdeApp->dcopClient()->appId(), cls->objId() );
 }
 
 
@@ -1566,7 +1566,7 @@ DCOPRef NSPluginClass::newInstance( TQString url, TQString mimeType, TQ_INT8 emb
    }
 
    _instances.append( inst );
-   return DCOPRef(kapp->dcopClient()->appId(), inst->objId());
+   return DCOPRef(tdeApp->dcopClient()->appId(), inst->objId());
 }
 
 

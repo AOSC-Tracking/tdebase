@@ -276,7 +276,7 @@ void PrintWrapper::slotPrint()
 			errormsg(i18n("Unable to construct the print dialog."));
 	}
 
-	TQTimer::singleShot(10,kapp,TQ_SLOT(quit()));
+	TQTimer::singleShot(10,tdeApp,TQ_SLOT(quit()));
 }
 
 void hack( KPrintDialog* dlg );

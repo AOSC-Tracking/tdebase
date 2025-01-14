@@ -46,7 +46,7 @@ WndStatus::WndStatus( TQPalette /*pal*/,
   setCursor( KCursor::blankCursor() );
   setSpacing( 5 );
 
-  const TQRect rect = kapp->desktop()->screenGeometry( xineramaScreen );
+  const TQRect rect = tdeApp->desktop()->screenGeometry( xineramaScreen );
   // TDEGlobalSettings::splashScreenDesktopGeometry(); cannot be used here.
 
   TQLabel *pix = new TQLabel( this );

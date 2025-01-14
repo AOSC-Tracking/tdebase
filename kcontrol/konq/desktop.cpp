@@ -221,11 +221,11 @@ void KDesktopConfig::save()
   delete config;
 
   // Tell kdesktop about the new config file
-  if ( !kapp->dcopClient()->isAttached() )
-     kapp->dcopClient()->attach();
+  if ( !tdeApp->dcopClient()->isAttached() )
+     tdeApp->dcopClient()->attach();
   TQByteArray data;
 
-  kapp->dcopClient()->send( appname, "KDesktopIface", "configure()", data );
+  tdeApp->dcopClient()->send( appname, "KDesktopIface", "configure()", data );
 
   emit changed(false);
 }

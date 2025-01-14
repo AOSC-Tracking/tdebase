@@ -95,7 +95,7 @@ void ModuleTitle::clear()
 {
   m_icon->setPixmap( TQPixmap() );
   m_name->setText( TQString::null );
-  kapp->processEvents();
+  tdeApp->processEvents();
 }
 
 ModuleWidget::ModuleWidget( TQWidget *parent, const char *name )
@@ -214,7 +214,7 @@ i18n("There are unsaved changes in the active module.\n"
     }
 
   raiseWidget( _busyw );
-  kapp->processEvents();
+  tdeApp->processEvents();
 
   deleteModule();
   if (!module) return true;

@@ -70,8 +70,8 @@ MenuManager::MenuManager(TQObject *parent)
     else
 	m_kmenu = new KMenuStub(new KMenu);
 
-    kapp->dcopClient()->setNotifications(true);
-    connect(kapp->dcopClient(), TQ_SIGNAL(applicationRemoved(const TQCString&)),
+    tdeApp->dcopClient()->setNotifications(true);
+    connect(tdeApp->dcopClient(), TQ_SIGNAL(applicationRemoved(const TQCString&)),
             this, TQ_SLOT(applicationRemoved(const TQCString&)));
 }
 
@@ -210,7 +210,7 @@ TQCString MenuManager::createMenu(TQPixmap icon, TQString text)
     p->text = text;
     p->icon = icon;
     p->idInParentMenu = m_kmenu->insertClientMenu( p );
-    p->createdBy = kapp->dcopClient()->senderId();
+    p->createdBy = tdeApp->dcopClient()->senderId();
     m_kmenu->adjustSize();
     return name;
 }

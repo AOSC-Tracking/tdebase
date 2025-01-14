@@ -71,8 +71,8 @@ extern TQCString kdesktop_name, kicker_name, twin_name;
 
 KRootWidget::KRootWidget() : TQObject()
 {
-     kapp->desktop()->installEventFilter(this);
-     kapp->desktop()->setAcceptDrops( true );
+     tdeApp->desktop()->installEventFilter(this);
+     tdeApp->desktop()->setAcceptDrops( true );
 }
 
 bool KRootWidget::eventFilter ( TQObject *, TQEvent * e )
@@ -157,8 +157,8 @@ KDesktop::KDesktop( SaverEngine* saver, bool x_root_hack, bool wait_for_kded ) :
   setAcceptDrops(true); // WStyle_Customize seems to disable that
   m_pKwinmodule = new KWinModule( this );
 
-  kapp->dcopClient()->setNotifications(true);
-  kapp->dcopClient()->connectDCOPSignal(kicker_name, kicker_name, "desktopIconsAreaChanged(TQRect, int)",
+  tdeApp->dcopClient()->setNotifications(true);
+  tdeApp->dcopClient()->connectDCOPSignal(kicker_name, kicker_name, "desktopIconsAreaChanged(TQRect, int)",
                                         "KDesktopIface", "desktopIconsAreaChanged(TQRect, int)", false);
 
   // Dont repaint on configuration changes during construction
@@ -184,15 +184,15 @@ KDesktop::KDesktop( SaverEngine* saver, bool x_root_hack, bool wait_for_kded ) :
   setGeometry( TQApplication::desktop()->geometry() );
   lower();
 
-  connect( kapp, TQ_SIGNAL( shutDown() ),
+  connect( tdeApp, TQ_SIGNAL( shutDown() ),
            this, TQ_SLOT( slotShutdown() ) );
 
-  connect(kapp, TQ_SIGNAL(settingsChanged(int)),
+  connect(tdeApp, TQ_SIGNAL(settingsChanged(int)),
           this, TQ_SLOT(slotSettingsChanged(int)));
-  kapp->addKipcEventMask(KIPC::SettingsChanged);
+  tdeApp->addKipcEventMask(KIPC::SettingsChanged);
 
-  kapp->addKipcEventMask(KIPC::IconChanged);
-  connect(kapp, TQ_SIGNAL(iconChanged(int)), this, TQ_SLOT(slotIconChanged(int)));
+  tdeApp->addKipcEventMask(KIPC::IconChanged);
+  connect(tdeApp, TQ_SIGNAL(iconChanged(int)), this, TQ_SLOT(slotIconChanged(int)));
 
   connect(KSycoca::self(), TQ_SIGNAL(databaseChanged()),
           this, TQ_SLOT(slotDatabaseChanged()));
@@ -205,7 +205,7 @@ KDesktop::KDesktop( SaverEngine* saver, bool x_root_hack, bool wait_for_kded ) :
   TQTimer::singleShot(0, this, TQ_SLOT( slotStart() ));
 
 #if (TQT_VERSION-0 >= 0x030200) // XRANDR support
-  connect( kapp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized()));
+  connect( tdeApp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized()));
 #endif
 }
 
@@ -301,7 +301,7 @@ KDesktop::initRoot()
         TQCString replyType;
         TQRect area;
 
-        if ( kapp->dcopClient()->call(kicker_name, kicker_name, "desktopIconsArea(int)",
+        if ( tdeApp->dcopClient()->call(kicker_name, kicker_name, "desktopIconsArea(int)",
                                        data, replyType, result, false, 2000) )
         {
           TQDataStream res(result, IO_ReadOnly);
@@ -364,7 +364,7 @@ KDesktop::backgroundInitDone()
           m_pIconView->setErasePixmap( *bg );
 
        show();
-       kapp->sendPostedEvents();
+       tdeApp->sendPostedEvents();
     }
 
     DCOPRef r( "ksmserver", "ksmserver" );
@@ -404,7 +404,7 @@ KDesktop::slotStart()
   keys->readSettings();
   keys->updateConnections();
 
-  connect(kapp, TQ_SIGNAL(appearanceChanged()), TQ_SLOT(slotConfigure()));
+  connect(tdeApp, TQ_SIGNAL(appearanceChanged()), TQ_SLOT(slotConfigure()));
 
   TQTimer::singleShot(300, this, TQ_SLOT( slotUpAndRunning() ));
 }
@@ -504,7 +504,7 @@ void KDesktop::popupExecuteCommand(const TQString& command)
   if (m_bInit)
       return;
 
-  if (!kapp->authorize("run_command"))
+  if (!tdeApp->authorize("run_command"))
       return;
 
   // Created on demand
@@ -839,7 +839,7 @@ void KDesktop::refresh()
   m_bNeedRepaint |= 1;
   updateWorkArea();
 #endif
-  kapp->dcopClient()->send( twin_name, "", "refresh()", TQString(""));
+  tdeApp->dcopClient()->send( twin_name, "", "refresh()", TQString(""));
   refreshIcons();
 }
 
@@ -907,7 +907,7 @@ void KDesktop::desktopIconsAreaChanged(const TQRect &area, int screen)
     if (screen <= -2)
        screen = kdesktop_screen_number;
     else if (screen == -1)
-       screen = kapp->desktop()->primaryScreen();
+       screen = tdeApp->desktop()->primaryScreen();
 
     // This is pretty broken, mixes Xinerama and non-Xinerama multihead
     // and generally doesn't seem to be required anyway => ignore screen.
@@ -1032,7 +1032,7 @@ void KDesktop::logout()
 void KDesktop::logout( TDEApplication::ShutdownConfirm confirm,
                        TDEApplication::ShutdownType sdtype )
 {
-    if( !kapp->requestShutDown( confirm, sdtype ) )
+    if( !tdeApp->requestShutDown( confirm, sdtype ) )
         // this i18n string is also in kicker/applets/run/runapplet
         KMessageBox::error( this, i18n("Could not log out properly.\nThe session manager cannot "
                                         "be contacted. You can try to force a shutdown by pressing "
@@ -1124,7 +1124,7 @@ void KDesktop::setIconsEnabled( bool enable )
 
 void KDesktop::desktopResized()
 {
-    resize(kapp->desktop()->size());
+    resize(tdeApp->desktop()->size());
 
     if ( m_pIconView )
     {
@@ -1132,7 +1132,7 @@ void KDesktop::desktopResized()
         // remove all icons, resize desktop, tell kdiconview new iconsArea size
         // tell kdiconview to reget all icons
         m_pIconView->slotClear();
-        m_pIconView->resize(kapp->desktop()->size());
+        m_pIconView->resize(tdeApp->desktop()->size());
 
         // get new desktopIconsArea from kicker
         TQByteArray data, result;
@@ -1141,7 +1141,7 @@ void KDesktop::desktopResized()
         TQCString replyType;
         TQRect area;
 
-        if ( kapp->dcopClient()->call(kicker_name, kicker_name, "desktopIconsArea(int)",
+        if ( tdeApp->dcopClient()->call(kicker_name, kicker_name, "desktopIconsArea(int)",
                                        data, replyType, result, false, 2000) )
         {
             TQDataStream res(result, IO_ReadOnly);

@@ -78,7 +78,7 @@ void KHotKeysApp::reread_configuration()
 
 void KHotKeysApp::quit()
     {
-    kapp->quit();
+    tdeApp->quit();
     }
 
 } // namespace KHotKeys

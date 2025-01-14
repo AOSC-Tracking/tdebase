@@ -104,9 +104,9 @@ void userInterOpts::save()
     else m_pConfig->writeEntry( "MultipleTabConfirm", true );
 
     TQByteArray data;
-    if ( !TDEApplication::kApplication()->dcopClient()->isAttached() )
-      kapp->dcopClient()->attach();
-    TDEApplication::kApplication()->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", data );
+    if ( !tdeApp->dcopClient()->isAttached() )
+      tdeApp->dcopClient()->attach();
+    tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", data );
 
     if ( m_pPermanentCloseButton->isChecked() )
       m_pHoverCloseButton->setEnabled(false);

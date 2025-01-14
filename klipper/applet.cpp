@@ -90,7 +90,7 @@ void KlipperApplet::preferences()
 
 void KlipperApplet::help()
 {
-    kapp->invokeHelp(TQString::null, TQString::fromLatin1("klipper"));
+    tdeApp->invokeHelp(TQString::null, TQString::fromLatin1("klipper"));
 }
 
 void KlipperApplet::about()
@@ -114,7 +114,7 @@ void KlipperAppletWidget::init()
     TQByteArray arg1, arg2;
     TQCString str;
     // call() - wait for finishing
-    kapp->dcopClient()->call("klipper", "klipper", "quitProcess()", arg1, str, arg2 );
+    tdeApp->dcopClient()->call("klipper", "klipper", "quitProcess()", arg1, str, arg2 );
     // register ourselves, so if klipper process is started,
     // it will quit immediately (TDEUniqueApplication)
     s_dcop = new DCOPClient;

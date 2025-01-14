@@ -66,11 +66,11 @@ TaskBarExtension::TaskBarExtension(const TQString& configFile, Type type,
     connect(m_container, TQ_SIGNAL(containerCountChanged()),
             TQ_SIGNAL(updateLayout()));
 
-    kapp->dcopClient()->setNotifications(true);
+    tdeApp->dcopClient()->setNotifications(true);
     connectDCOPSignal("kicker", "kicker", "configurationChanged()",
                       "configure()", false);
 
-    connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()),
+    connect(tdeApp, TQ_SIGNAL(tdedisplayPaletteChanged()),
             TQ_SLOT(setBackgroundTheme()));
 
     TQTimer::singleShot(0, this, TQ_SLOT(setBackgroundTheme()));

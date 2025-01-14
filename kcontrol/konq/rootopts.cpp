@@ -512,8 +512,8 @@ void DesktopPathConfig::save()
     }
 
     // Tell kdesktop about the new config file
-    if ( !kapp->dcopClient()->isAttached() )
-       kapp->dcopClient()->attach();
+    if ( !tdeApp->dcopClient()->isAttached() )
+       tdeApp->dcopClient()->attach();
     TQByteArray data;
 
     int konq_screen_number = TDEApplication::desktop()->primaryScreen();
@@ -524,7 +524,7 @@ void DesktopPathConfig::save()
     else {
         appname.sprintf("kdesktop-screen-%d", konq_screen_number);
     }
-    kapp->dcopClient()->send( appname, "KDesktopIface", "configure()", data );
+    tdeApp->dcopClient()->send( appname, "KDesktopIface", "configure()", data );
 }
 
 bool DesktopPathConfig::moveDir( const KURL & src, const KURL & dest, const TQString & type )

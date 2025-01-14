@@ -436,7 +436,7 @@ void KTheme::apply()
 
     desktopConf.sync();         // TODO sync and signal only if <desktop> elem present
     // reconfigure kdesktop. kdesktop will notify all clients
-    DCOPClient *client = kapp->dcopClient();
+    DCOPClient *client = tdeApp->dcopClient();
     if ( !client->isAttached() ) {
         client->attach();
     }

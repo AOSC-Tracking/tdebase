@@ -211,7 +211,7 @@ bool HostConnector::useCustom() const
 
 void HostConnector::slotHelp()
 {
-  kapp->invokeHelp( "CONNECTINGTOOTHERHOSTS", "ksysguard/the-sensor-browser.html" );
+  tdeApp->invokeHelp( "CONNECTINGTOOTHERHOSTS", "ksysguard/the-sensor-browser.html" );
 }
 
 #include "HostConnector.moc"

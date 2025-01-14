@@ -155,13 +155,13 @@ void HistorySidebarConfig::save()
     TQByteArray dataAge;
     TQDataStream streamAge( dataAge, IO_WriteOnly );
     streamAge << age << "foo";
-    kapp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
+    tdeApp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
 			      "notifyMaxAge(TQ_UINT32, TQCString)", dataAge );
 
     TQByteArray dataCount;
     TQDataStream streamCount( dataCount, IO_WriteOnly );
     streamCount << count << "foo";
-    kapp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
+    tdeApp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
 			      "notifyMaxCount(TQ_UINT32, TQCString)", dataCount );
 
     m_settings->m_valueYoungerThan = dialog->spinNewer->value();

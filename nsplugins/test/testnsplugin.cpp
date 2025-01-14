@@ -46,7 +46,7 @@ TestNSPlugin::TestNSPlugin()
    // file menu
    KStdAction::openNew( this, TQ_SLOT(newView()), actionCollection());
    KStdAction::close( this, TQ_SLOT(closeView()), actionCollection());
-   KStdAction::quit( kapp, TQ_SLOT(quit()), actionCollection());
+   KStdAction::quit( tdeApp, TQ_SLOT(quit()), actionCollection());
 
    createGUI( "testnspluginui.rc" );
 }

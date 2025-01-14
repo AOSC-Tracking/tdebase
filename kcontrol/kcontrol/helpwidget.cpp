@@ -80,7 +80,7 @@ bool HelpWidget::clicked(const TQString & _url)
     }
 
     if ( textUrl.find('@') > -1 ) {
-        kapp->invokeMailer(textUrl);
+        tdeApp->invokeMailer(textUrl);
         return true;
     }
 

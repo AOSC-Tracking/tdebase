@@ -84,7 +84,7 @@ inline const KDecorationOptions* options() { return KDecoration::options(); }
 - Replace 'contextHelp()' with 'showContextHelp()'.
 - WindowWrapperShowEvent() is gone, simply use showEvent() filtered by the event filter if needed.
 - Change 'animateIconifyOrDeiconify()' to 'animateMinize()', if it's empty, simply remove it.
-  Make sure it doesn't reenter the event loop (no kapp->processEvents()).
+  Make sure it doesn't reenter the event loop (no tdeApp->processEvents()).
 - Buttons should use explicit setCursor() if they don't want cursor set by mousePosition().
   I.e. usually call setCursor( ArrowCursor ) in your MyButton.
 - In the part where you insert windowWrapper() into the layout, i.e. something like

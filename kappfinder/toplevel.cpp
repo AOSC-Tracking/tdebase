@@ -88,12 +88,12 @@ TopLevel::TopLevel( const TQString &destDir, TQWidget *parent, const char *name 
   bbox->addStretch( 5 );
   mApplyButton = bbox->addButton( KStdGuiItem::apply(), this, TQ_SLOT( slotCreate() ) );
   mApplyButton->setEnabled( false );
-  bbox->addButton( KStdGuiItem::close(), kapp, TQ_SLOT( quit() ) );
+  bbox->addButton( KStdGuiItem::close(), tdeApp, TQ_SLOT( quit() ) );
   bbox->layout();
 
   layout->addWidget( bbox );
 
-	connect( kapp, TQ_SIGNAL( lastWindowClosed() ), kapp, TQ_SLOT( quit() ) );
+	connect( tdeApp, TQ_SIGNAL( lastWindowClosed() ), tdeApp, TQ_SLOT( quit() ) );
 
   mAppCache.setAutoDelete( true );
 
@@ -105,7 +105,7 @@ TopLevel::TopLevel( const TQString &destDir, TQWidget *parent, const char *name 
   TDEStartupInfo::appStarted();
 
   TQAccel *accel = new TQAccel( this );
-  accel->connectItem( accel->insertItem( Key_Q + CTRL ), kapp, TQ_SLOT( quit() ) );
+  accel->connectItem( accel->insertItem( Key_Q + CTRL ), tdeApp, TQ_SLOT( quit() ) );
 
   TDEAcceleratorManager::manage( this );
 }

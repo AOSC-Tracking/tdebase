@@ -285,7 +285,7 @@ void KBehaviourOptions::save()
     config.sync();
 
     // Tell the running server
-    if ( kapp->dcopClient()->isApplicationRegistered( "tdeio_uiserver" ) )
+    if ( tdeApp->dcopClient()->isApplicationRegistered( "tdeio_uiserver" ) )
     {
       UIServer_stub uiserver( "tdeio_uiserver", "UIServer" );
       uiserver.setListMode( cbListProgress->isChecked() );
@@ -293,10 +293,10 @@ void KBehaviourOptions::save()
 
     // Send signal to konqueror
     TQByteArray data;
-    if ( !kapp->dcopClient()->isAttached() )
-      kapp->dcopClient()->attach();
-    kapp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", data );
-    kapp->dcopClient()->send( "kdesktop", "KDesktopIface", "configure()", data );
+    if ( !tdeApp->dcopClient()->isAttached() )
+      tdeApp->dcopClient()->attach();
+    tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", data );
+    tdeApp->dcopClient()->send( "kdesktop", "KDesktopIface", "configure()", data );
 }
 
 TQString KBehaviourOptions::handbookSection() const

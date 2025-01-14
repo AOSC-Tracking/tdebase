@@ -90,14 +90,14 @@ void KOSPage::save(bool currSettings){
 	TQApplication::syncX();
 	// enable/disable the mac menu, call dcop
 	// Tell kdesktop about the new config file
-	kapp->dcopClient()->send("kdesktop", "KDesktopIface", "configure()", TQByteArray());
+	tdeApp->dcopClient()->send("kdesktop", "KDesktopIface", "configure()", TQByteArray());
 	///////////////////////////////////////////
 	/// restart twin  for window effects
-	kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+	tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
 	///////////////////////////////////////////
 	
 	// Make the kaccess daemon read the changed config file
-	kapp->startServiceByDesktopName("kaccess");
+	tdeApp->startServiceByDesktopName("kaccess");
 }
 
 

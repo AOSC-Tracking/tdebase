@@ -140,7 +140,7 @@ void URLButton::dragEnterEvent(TQDragEnterEvent *ev)
 
 void URLButton::dropEvent(TQDropEvent *ev)
 {
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
     KURL::List execList;
     if(KURLDrag::decode(ev, execList)){
         KURL url( fileItem->url() );
@@ -165,7 +165,7 @@ void URLButton::startDrag()
 
 void URLButton::slotExec()
 {
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
     fileItem->run();
 }
 

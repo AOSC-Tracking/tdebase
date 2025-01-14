@@ -321,7 +321,7 @@ void GrepTool::processOutput()
       lbResult->insertItem(item);
     buf = buf.mid(pos+1);
   }
-  kapp->processEvents();
+  tdeApp->processEvents();
 }
 
 void GrepTool::slotSearch()

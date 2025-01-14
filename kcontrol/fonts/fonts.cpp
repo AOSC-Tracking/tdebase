@@ -757,7 +757,7 @@ void TDEFonts::save()
 
   KIPC::sendMessageAll(KIPC::FontChanged);
 
-  kapp->processEvents(); // Process font change ourselves
+  tdeApp->processEvents(); // Process font change ourselves
 
   bool aaSave = false;
   // Don't overwrite global settings unless explicitly asked for - e.g. the system

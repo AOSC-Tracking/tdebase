@@ -108,12 +108,12 @@ ExtensionProxy::ExtensionProxy(TQObject* parent, const char* name)
   , _extension(0)
 {
     // try to attach to DCOP server
-    if (!kapp->dcopClient()->attach()) {
+    if (!tdeApp->dcopClient()->attach()) {
 	kdError() << "Failed to attach to DCOP server." << endl;
 	exit(0);
     }
 
-    if (kapp->dcopClient()->registerAs("extension_proxy", true) == 0) {
+    if (tdeApp->dcopClient()->registerAs("extension_proxy", true) == 0) {
 	kdError() << "Failed to register at DCOP server." << endl;
 	exit(0);
     }
@@ -121,7 +121,7 @@ ExtensionProxy::ExtensionProxy(TQObject* parent, const char* name)
 
 ExtensionProxy::~ExtensionProxy()
 {
-    kapp->dcopClient()->detach();
+    tdeApp->dcopClient()->detach();
 }
 
 void ExtensionProxy::loadExtension(const TQCString& desktopFile, const TQCString& configFile)
@@ -195,7 +195,7 @@ void ExtensionProxy::dock(const TQCString& callbackID)
     _callbackID = callbackID;
 
     // try to attach to DCOP server
-    DCOPClient* dcop = kapp->dcopClient();
+    DCOPClient* dcop = tdeApp->dcopClient();
 
     dcop->setNotifications(true);
     connect(dcop, TQ_SIGNAL(applicationRemoved(const TQCString&)),
@@ -380,7 +380,7 @@ void ExtensionProxy::slotUpdateLayout()
     else
 	appname.sprintf("kicker-screen-%d", screen_number);
 
-    kapp->dcopClient()->send(appname, _callbackID, "updateLayout()", data);
+    tdeApp->dcopClient()->send(appname, _callbackID, "updateLayout()", data);
 }
 
 void ExtensionProxy::slotApplicationRemoved(const TQCString& appId)
@@ -396,6 +396,6 @@ void ExtensionProxy::slotApplicationRemoved(const TQCString& appId)
 
     if(appId == appname) {
 	kdDebug(1210) << "Connection to kicker lost, shutting down" << endl;
-	kapp->quit();
+	tdeApp->quit();
     }
 }

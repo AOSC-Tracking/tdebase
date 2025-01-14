@@ -72,7 +72,7 @@ PositionTab::PositionTab(TQWidget *parent, const char* name)
     /*
      * set the tooltips on the buttons properly for RTL langs
      */
-    if (kapp->reverseLayout())
+    if (tdeApp->reverseLayout())
     {
         TQToolTip::add(locationTopRight,     i18n("Top left"));
         TQToolTip::add(locationTop,          i18n("Top center"));
@@ -229,7 +229,7 @@ void PositionTab::movePanel(int whichButton)
 	   setPositionButtons();
 	   return;
 	}
-        m_panelAlign = kapp->reverseLayout() ? AlignRight : AlignLeft;
+        m_panelAlign = tdeApp->reverseLayout() ? AlignRight : AlignLeft;
         m_panelPos = PosTop;
     }
     else if (pushed == locationTop)
@@ -249,38 +249,38 @@ void PositionTab::movePanel(int whichButton)
 	   setPositionButtons();
 	   return;
 	}
-        m_panelAlign = kapp->reverseLayout() ? AlignLeft : AlignRight;
+        m_panelAlign = tdeApp->reverseLayout() ? AlignLeft : AlignRight;
         m_panelPos = PosTop;
     }
     else if (pushed == locationLeftTop)
     {
-	if (!(m_panelInfo->_allowedPosition[kapp->reverseLayout() ? PosRight : PosLeft]))
+	if (!(m_panelInfo->_allowedPosition[tdeApp->reverseLayout() ? PosRight : PosLeft]))
 	{
 	   setPositionButtons();
 	   return;
 	}
         m_panelAlign = AlignLeft;
-        m_panelPos = kapp->reverseLayout() ? PosRight : PosLeft;
+        m_panelPos = tdeApp->reverseLayout() ? PosRight : PosLeft;
     }
     else if (pushed == locationLeft)
     {
-	if (!(m_panelInfo->_allowedPosition[kapp->reverseLayout() ? PosRight : PosLeft]))
+	if (!(m_panelInfo->_allowedPosition[tdeApp->reverseLayout() ? PosRight : PosLeft]))
 	{
 	   setPositionButtons();
 	   return;
 	}
         m_panelAlign = AlignCenter;
-        m_panelPos = kapp->reverseLayout() ? PosRight : PosLeft;
+        m_panelPos = tdeApp->reverseLayout() ? PosRight : PosLeft;
     }
     else if (pushed == locationLeftBottom)
     {
-	if (!(m_panelInfo->_allowedPosition[kapp->reverseLayout() ? PosRight : PosLeft]))
+	if (!(m_panelInfo->_allowedPosition[tdeApp->reverseLayout() ? PosRight : PosLeft]))
 	{
 	   setPositionButtons();
 	   return;
 	}
         m_panelAlign = AlignRight;
-        m_panelPos = kapp->reverseLayout() ? PosRight : PosLeft;
+        m_panelPos = tdeApp->reverseLayout() ? PosRight : PosLeft;
     }
     else if (pushed == locationBottomLeft)
     {
@@ -289,7 +289,7 @@ void PositionTab::movePanel(int whichButton)
 	   setPositionButtons();
 	   return;
 	}
-        m_panelAlign = kapp->reverseLayout() ? AlignRight : AlignLeft;
+        m_panelAlign = tdeApp->reverseLayout() ? AlignRight : AlignLeft;
         m_panelPos = PosBottom;
     }
     else if (pushed == locationBottom)
@@ -309,38 +309,38 @@ void PositionTab::movePanel(int whichButton)
 	   setPositionButtons();
 	   return;
 	}
-        m_panelAlign = kapp->reverseLayout() ? AlignLeft : AlignRight;
+        m_panelAlign = tdeApp->reverseLayout() ? AlignLeft : AlignRight;
         m_panelPos = PosBottom;
     }
     else if (pushed == locationRightTop)
     {
-	if (!(m_panelInfo->_allowedPosition[kapp->reverseLayout() ? PosLeft : PosRight]))
+	if (!(m_panelInfo->_allowedPosition[tdeApp->reverseLayout() ? PosLeft : PosRight]))
 	{
 	   setPositionButtons();
 	   return;
 	}
         m_panelAlign = AlignLeft;
-        m_panelPos = kapp->reverseLayout() ? PosLeft : PosRight;
+        m_panelPos = tdeApp->reverseLayout() ? PosLeft : PosRight;
     }
     else if (pushed == locationRight)
     {
-	if (!(m_panelInfo->_allowedPosition[kapp->reverseLayout() ? PosLeft : PosRight]))
+	if (!(m_panelInfo->_allowedPosition[tdeApp->reverseLayout() ? PosLeft : PosRight]))
 	{
 	   setPositionButtons();
 	   return;
 	}
         m_panelAlign = AlignCenter;
-        m_panelPos = kapp->reverseLayout() ? PosLeft : PosRight;
+        m_panelPos = tdeApp->reverseLayout() ? PosLeft : PosRight;
     }
     else if (pushed == locationRightBottom)
     {
-	if (!(m_panelInfo->_allowedPosition[kapp->reverseLayout() ? PosLeft : PosRight]))
+	if (!(m_panelInfo->_allowedPosition[tdeApp->reverseLayout() ? PosLeft : PosRight]))
 	{
 	   setPositionButtons();
 	   return;
 	}
         m_panelAlign = AlignRight;
-        m_panelPos = kapp->reverseLayout() ? PosLeft : PosRight;
+        m_panelPos = tdeApp->reverseLayout() ? PosLeft : PosRight;
     }
 
     lengthenPanel(-1);
@@ -582,47 +582,47 @@ void PositionTab::setPositionButtons() {
     if (m_panelPos == PosTop)
     {
         if (m_panelAlign == AlignLeft)
-            kapp->reverseLayout() ? locationTopRight->setOn(true) :
+            tdeApp->reverseLayout() ? locationTopRight->setOn(true) :
                                     locationTopLeft->setOn(true);
         else if (m_panelAlign == AlignCenter)
             locationTop->setOn(true);
         else // if (m_panelAlign == AlignRight
-            kapp->reverseLayout() ? locationTopLeft->setOn(true) :
+            tdeApp->reverseLayout() ? locationTopLeft->setOn(true) :
                                     locationTopRight->setOn(true);
     }
     else if (m_panelPos == PosRight)
     {
         if (m_panelAlign == AlignLeft)
-            kapp->reverseLayout() ? locationLeftTop->setOn(true) :
+            tdeApp->reverseLayout() ? locationLeftTop->setOn(true) :
                                     locationRightTop->setOn(true);
         else if (m_panelAlign == AlignCenter)
-            kapp->reverseLayout() ? locationLeft->setOn(true) :
+            tdeApp->reverseLayout() ? locationLeft->setOn(true) :
                                     locationRight->setOn(true);
         else // if (m_panelAlign == AlignRight
-            kapp->reverseLayout() ? locationLeftBottom->setOn(true) :
+            tdeApp->reverseLayout() ? locationLeftBottom->setOn(true) :
                                     locationRightBottom->setOn(true);
     }
     else if (m_panelPos == PosBottom)
     {
         if (m_panelAlign == AlignLeft)
-            kapp->reverseLayout() ? locationBottomRight->setOn(true) :
+            tdeApp->reverseLayout() ? locationBottomRight->setOn(true) :
                                     locationBottomLeft->setOn(true);
         else if (m_panelAlign == AlignCenter)
             locationBottom->setOn(true);
         else // if (m_panelAlign == AlignRight
-            kapp->reverseLayout() ? locationBottomLeft->setOn(true) :
+            tdeApp->reverseLayout() ? locationBottomLeft->setOn(true) :
                                     locationBottomRight->setOn(true);
     }
     else // if (m_panelPos == PosLeft
     {
         if (m_panelAlign == AlignLeft)
-            kapp->reverseLayout() ? locationRightTop->setOn(true) :
+            tdeApp->reverseLayout() ? locationRightTop->setOn(true) :
                                     locationLeftTop->setOn(true);
         else if (m_panelAlign == AlignCenter)
-            kapp->reverseLayout() ? locationRight->setOn(true) :
+            tdeApp->reverseLayout() ? locationRight->setOn(true) :
                                     locationLeft->setOn(true);
         else // if (m_panelAlign == AlignRight
-            kapp->reverseLayout() ? locationRightBottom->setOn(true) :
+            tdeApp->reverseLayout() ? locationRightBottom->setOn(true) :
                                     locationLeftBottom->setOn(true);
     }
 

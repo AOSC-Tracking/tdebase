@@ -402,7 +402,7 @@ wp_load:
 	// HACK: Use KFileMetaInfo only when we're attached to DCOP.
 	// KFileMetaInfo needs tdesycoca and so on, but this code is
 	// used also in krootimage (which in turn is used by tdm).
-	if( kapp->dcopClient()->isAttached()) {
+	if( tdeApp->dcopClient()->isAttached()) {
 	    KFileMetaInfo metaInfo(file);
 	    if (metaInfo.isValid() && metaInfo.item("Orientation").isValid()) {
 		switch (metaInfo.item("Orientation").string().toInt()) {

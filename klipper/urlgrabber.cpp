@@ -49,7 +49,7 @@ URLGrabber::URLGrabber( TDEConfig* config )
  : m_config( config )
 {
     if( m_config == NULL )
-        m_config = kapp->config();
+        m_config = tdeApp->config();
     myMenu = 0L;
     myPopupKillTimeout = 8;
     m_stripWhiteSpace = true;

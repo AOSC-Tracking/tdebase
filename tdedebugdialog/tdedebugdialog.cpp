@@ -244,7 +244,7 @@ void TDEDebugDialog::save()
   pConfig->writeEntry( "AbortFatal", pAbortFatal->isChecked() );
 
   TQByteArray data;
-  if (!kapp->dcopClient()->send("*", "KDebug", "notifyKDebugConfigChanged()", data))
+  if (!tdeApp->dcopClient()->send("*", "KDebug", "notifyKDebugConfigChanged()", data))
   {
     kdError() << "Unable to send DCOP message" << endl;
   }

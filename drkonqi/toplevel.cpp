@@ -92,8 +92,8 @@ Toplevel :: Toplevel(KrashConfig *krashconf, TQWidget *parent, const char *name)
   connect(this, TQ_SIGNAL(closeClicked()), TQ_SLOT(accept()));
   connect(m_krashconf, TQ_SIGNAL(newDebuggingApplication(const TQString&)), TQ_SLOT(slotNewDebuggingApp(const TQString&)));
 
-  if ( !m_krashconf->safeMode() && kapp->dcopClient()->attach() )
-    kapp->dcopClient()->registerAs( kapp->name() );
+  if ( !m_krashconf->safeMode() && tdeApp->dcopClient()->attach() )
+    tdeApp->dcopClient()->registerAs( tdeApp->name() );
 }
 
 Toplevel :: ~Toplevel()

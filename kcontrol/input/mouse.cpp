@@ -161,7 +161,7 @@ MouseConfig::MouseConfig (TQWidget * parent, const char *name)
     connect( tab1->cbAutoSelect, TQ_SIGNAL( clicked() ), this, TQ_SLOT( slotClick() ) );
 
     unsigned char map[20];
-    int buttonCount = XGetPointerMapping(kapp->getDisplay(), map, 20);
+    int buttonCount = XGetPointerMapping(tdeApp->getDisplay(), map, 20);
 
     // Only allow setting reversing scroll polarity if we have scroll buttons
     tab1->cbScrollPolarity->setEnabled(buttonCount >= 5);
@@ -624,7 +624,7 @@ void MouseConfig::save()
   themetab->save();
 
   // restart kaccess
-  kapp->startServiceByDesktopName("kaccess");
+  tdeApp->startServiceByDesktopName("kaccess");
 
   TDECModule::changed(false);
 
@@ -686,14 +686,14 @@ void MouseSettings::load(TDEConfig *config)
 {
   int accel_num, accel_den, threshold;
   double accel;
-  XGetPointerControl( kapp->getDisplay(),
+  XGetPointerControl( tdeApp->getDisplay(),
               &accel_num, &accel_den, &threshold );
   accel = float(accel_num) / float(accel_den);
 
   // get settings from X server
   int h = RIGHT_HANDED;
   unsigned char map[20];
-  num_buttons = XGetPointerMapping(kapp->getDisplay(), map, 20);
+  num_buttons = XGetPointerMapping(tdeApp->getDisplay(), map, 20);
 
   handedEnabled = true;
 
@@ -781,14 +781,14 @@ void MouseConfig::slotWheelScrollLinesChanged(int value)
 
 void MouseSettings::apply(bool force)
 {
-  XChangePointerControl( kapp->getDisplay(),
+  XChangePointerControl( tdeApp->getDisplay(),
                          true, true, int(tqRound(accelRate*10)), 10, thresholdMove);
 
   // 256 might seems extreme, but X has already been known to return 32,
   // and we don't want to truncate things. Xlib limits the table to 256 bytes,
   // so it's a good uper bound..
   unsigned char map[256];
-  num_buttons = XGetPointerMapping(kapp->getDisplay(), map, 256);
+  num_buttons = XGetPointerMapping(tdeApp->getDisplay(), map, 256);
 
   int remap=(num_buttons>=1);
   if (handedEnabled && (m_handedNeedsApply || force)) {
@@ -857,7 +857,7 @@ void MouseSettings::apply(bool force)
       }
       int retval;
       if (remap)
-          while ((retval=XSetPointerMapping(kapp->getDisplay(), map,
+          while ((retval=XSetPointerMapping(tdeApp->getDisplay(), map,
                                             num_buttons)) == MappingBusy)
               /* keep trying until the pointer is free */
           { };

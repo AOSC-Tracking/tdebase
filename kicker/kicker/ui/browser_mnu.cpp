@@ -139,7 +139,7 @@ void PanelBrowserMenu::initialize()
 
     KURL url;
     url.setPath(path());
-    if (!kapp->authorizeURLAction("list", KURL(), url))
+    if (!tdeApp->authorizeURLAction("list", KURL(), url))
     {
         insertItem(i18n("Not Authorized to Read Folder"));
         return;
@@ -152,7 +152,7 @@ void PanelBrowserMenu::initialize()
        TDEConfig *c = TDEGlobal::config();
        c->setGroup("menus");
        insertItem(CICON("kfm"), i18n("Open in File Manager"), this, TQ_SLOT(slotOpenFileManager()));
-	if (kapp->authorize("shell_access") && KickerSettings::showOpenInTerminal())
+	if (tdeApp->authorize("shell_access") && KickerSettings::showOpenInTerminal())
 	    insertItem(CICON("terminal"), i18n("Open in Terminal"), this, TQ_SLOT(slotOpenTerminal()));
     	insertSeparator();
     }
@@ -437,7 +437,7 @@ void PanelBrowserMenu::dropEvent( TQDropEvent *ev )
 
 void PanelBrowserMenu::slotExec(int id)
 {
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
 
     if(!_filemap.contains(id)) return;
 
@@ -449,7 +449,7 @@ void PanelBrowserMenu::slotExec(int id)
 
 void PanelBrowserMenu::slotOpenTerminal()
 {
-    TDEConfig * config = kapp->config();
+    TDEConfig * config = tdeApp->config();
     config->setGroup("General");
     TQString term = config->readPathEntry("TerminalApplication", "konsole");
 

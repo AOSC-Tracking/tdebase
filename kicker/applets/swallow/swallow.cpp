@@ -161,7 +161,7 @@ void SwallowApplet::createApps( SwallowCommandList* list )
 		 TQ_SLOT( embedded(SwallowApp *)));
 	appList->append( app );
 	++it;
-	kapp->processEvents();
+	tdeApp->processEvents();
     }
 
     m_layout->activate();
@@ -287,7 +287,7 @@ SwallowApp::SwallowApp(const SwallowCommand *swc, TQWidget* parent,
 
 	// move window out of sight
 	//	*process << "-geometry";
-	//	*process << TQString("32x32+%1+%2").arg(kapp->desktop()->width()).arg(kapp->desktop()->height());
+	//	*process << TQString("32x32+%1+%2").arg(tdeApp->desktop()->width()).arg(tdeApp->desktop()->height());
 
 	connect(process, TQ_SIGNAL(processExited(TDEProcess*)),
 		this, TQ_SLOT(processExited(TDEProcess*)));

@@ -186,7 +186,7 @@ void TopLevel::showProcesses()
 void TopLevel::showOnCurrentDesktop()
 {
   KWin::setOnDesktop( winId(), KWin::currentDesktop() );
-  kapp->updateUserTimestamp();
+  tdeApp->updateUserTimestamp();
   KWin::forceActiveWindow( winId() );
 }
 
@@ -216,7 +216,7 @@ TQString TopLevel::readIntegerSensor( const TQString &sensorLocator )
   TQString sensor = sensorLocator.right( sensorLocator.length() -
                                         sensorLocator.find( ':' ) - 1 );
 
-  DCOPClientTransaction *dcopTransaction = kapp->dcopClient()->beginTransaction();
+  DCOPClientTransaction *dcopTransaction = tdeApp->dcopClient()->beginTransaction();
   mDCopFIFO.prepend( dcopTransaction );
 
   KSGRD::SensorMgr->engage( host, "", "ksysguardd" );
@@ -233,7 +233,7 @@ TQStringList TopLevel::readListSensor( const TQString& sensorLocator )
   TQString sensor = sensorLocator.right( sensorLocator.length() -
                                         sensorLocator.find( ':' ) - 1 );
 
-  DCOPClientTransaction *dcopTransaction = kapp->dcopClient()->beginTransaction();
+  DCOPClientTransaction *dcopTransaction = tdeApp->dcopClient()->beginTransaction();
   mDCopFIFO.prepend( dcopTransaction );
 
   KSGRD::SensorMgr->engage( host, "", "ksysguardd" );
@@ -317,7 +317,7 @@ void TopLevel::disconnectHost()
 
 void TopLevel::editToolbars()
 {
-  saveMainWindowSettings( kapp->config() );
+  saveMainWindowSettings( tdeApp->config() );
   KEditToolbar dlg( actionCollection() );
   connect( &dlg, TQ_SIGNAL( newToolbarConfig() ), this,
            TQ_SLOT( slotNewToolbarConfig() ) );
@@ -328,7 +328,7 @@ void TopLevel::editToolbars()
 void TopLevel::slotNewToolbarConfig()
 {
   createGUI();
-  applyMainWindowSettings( kapp->config() );
+  applyMainWindowSettings( tdeApp->config() );
 }
 
 void TopLevel::editStyle()
@@ -371,8 +371,8 @@ bool TopLevel::queryClose()
     if ( !mWorkSpace->saveOnQuit() )
       return false;
 
-    saveProperties( kapp->config() );
-    kapp->config()->sync();
+    saveProperties( tdeApp->config() );
+    tdeApp->config()->sync();
   }
 
   return true;
@@ -471,7 +471,7 @@ void TopLevel::answerReceived( int id, const TQString &answer )
       reply << answer;
 
       DCOPClientTransaction *dcopTransaction = mDCopFIFO.last();
-      kapp->dcopClient()->endTransaction( dcopTransaction, replyType, replyData );
+      tdeApp->dcopClient()->endTransaction( dcopTransaction, replyType, replyData );
       mDCopFIFO.removeLast();
       break;
     }
@@ -490,7 +490,7 @@ void TopLevel::answerReceived( int id, const TQString &answer )
       reply << resultList;
 
       DCOPClientTransaction *dcopTransaction = mDCopFIFO.last();
-      kapp->dcopClient()->endTransaction( dcopTransaction, replyType, replyData );
+      tdeApp->dcopClient()->endTransaction( dcopTransaction, replyType, replyData );
       mDCopFIFO.removeLast();
       break;
     }

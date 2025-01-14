@@ -50,7 +50,7 @@ KSmartcardConfig::KSmartcardConfig(TQWidget *parent, const char *name)
   TQVBoxLayout *layout = new TQVBoxLayout(this, KDialog::marginHint(), KDialog::spacingHint());
   config = new TDEConfig("ksmartcardrc", false, false);
 
-  DCOPClient *dc = TDEApplication::kApplication()->dcopClient();
+  DCOPClient *dc = tdeApp->dcopClient();
 
   _ok = false;
   dc->remoteInterfaces("kded", "kardsvc", &_ok);
@@ -189,7 +189,7 @@ void KSmartcardConfig::loadReadersTab( TQStringList lr){
 
     //  New view items
     TDEListViewItem * temp;
-    kapp->dcopClient()->call("kded", "kded", "unloadModule(TQCString)",
+    tdeApp->dcopClient()->call("kded", "kded", "unloadModule(TQCString)",
 			     data, rettype, retval);
 
     (void) new TDEListViewItem(base->_readerHostsListView,
@@ -217,7 +217,7 @@ void KSmartcardConfig::loadReadersTab( TQStringList lr){
    TQDataStream argATR(dataATR,IO_WriteOnly);
    argATR << *_slot;
 
-   kapp->dcopClient()->call("kded", "kardsvc", "getCardATR(TQString)",
+   tdeApp->dcopClient()->call("kded", "kardsvc", "getCardATR(TQString)",
 			   dataATR, rettype, retval);
 
 
@@ -304,7 +304,7 @@ void KSmartcardConfig::load(bool useDefaults )
   }
 
   // We call kardsvc to retrieve the current readers
-  kapp->dcopClient()->call("kded", "kardsvc", "getSlotList ()",
+  tdeApp->dcopClient()->call("kded", "kardsvc", "getSlotList ()",
 			   data, rettype, retval);
   TQStringList readers;
   readers.clear();
@@ -337,17 +337,17 @@ if (_ok) {
   // Start or stop the server as needed
   if (base->enableSupport->isChecked()) {
 
-    kapp->dcopClient()->call("kded", "kded", "loadModule(TQCString)",
+    tdeApp->dcopClient()->call("kded", "kded", "loadModule(TQCString)",
 			     data, rettype, retval);
     config->sync();
 
-    kapp->dcopClient()->call("kded", "kardsvc", "reconfigure()",
+    tdeApp->dcopClient()->call("kded", "kardsvc", "reconfigure()",
 			     data, rettype, retval);
   } else {
 
 
 
-    kapp->dcopClient()->call("kded", "kded", "unloadModule(TQCString)",
+    tdeApp->dcopClient()->call("kded", "kded", "unloadModule(TQCString)",
 			     data, rettype, retval);
   }
 
@@ -389,7 +389,7 @@ extern "C"
 	TQDataStream arg(data, IO_WriteOnly);
 	TQCString modName = "kardsvc";
 	arg << modName;
-	kapp->dcopClient()->call("kded", "kded", "loadModule(TQCString)",
+	tdeApp->dcopClient()->call("kded", "kded", "loadModule(TQCString)",
 			         data, rettype, retval);
     }
   }

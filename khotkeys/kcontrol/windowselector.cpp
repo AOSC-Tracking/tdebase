@@ -34,15 +34,15 @@ WindowSelector::WindowSelector( TQObject* receiver_P, const char* slot_P )
 
 void WindowSelector::select()
     {
-    kapp->desktop()->grabMouse( TQCursor( TQt::crossCursor ));
-    kapp->installX11EventFilter( this );
+    tdeApp->desktop()->grabMouse( TQCursor( TQt::crossCursor ));
+    tdeApp->installX11EventFilter( this );
     }
 
 bool WindowSelector::x11Event( XEvent* e )
     {
     if( e->type != ButtonPress )
         return false;
-    kapp->desktop()->releaseMouse();
+    tdeApp->desktop()->releaseMouse();
     if( e->xbutton.button == Button1 )
         {
         WId window = findRealWindow( e->xbutton.subwindow );

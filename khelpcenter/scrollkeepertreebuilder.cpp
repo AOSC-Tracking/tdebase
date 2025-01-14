@@ -44,7 +44,7 @@ ScrollKeeperTreeBuilder::ScrollKeeperTreeBuilder( TQObject *parent, const char *
 
 void ScrollKeeperTreeBuilder::loadConfig()
 {
-  TDEConfig *cfg = kapp->config();
+  TDEConfig *cfg = tdeApp->config();
   {
     TDEConfigGroupSaver groupSaver( cfg, "ScrollKeeper" );
     mShowEmptyDirs = cfg->readBoolEntry( "ShowEmptyDirs", false );

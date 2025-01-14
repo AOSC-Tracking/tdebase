@@ -50,7 +50,7 @@ Wed, 8 Sep 99    Geert Jansen <g.t.jansen@stud.tue.nl>
 
 Wed, 1 Sep 99    Geert Jansen <g.t.jansen@stud.tue.nl>
 
-    * Deferred instantiation of kapp in tdesu.cpp.
+    * Deferred instantiation of tdeApp in tdesu.cpp.
     * Finished porting to KDE2.
 
 Sun, 29 Aug 99    Geert Jansen <g.t.jansen@stud.tue.nl>

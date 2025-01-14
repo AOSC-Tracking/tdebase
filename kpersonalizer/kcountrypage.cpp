@@ -163,18 +163,18 @@ bool KCountryPage::save(KLanguageButton *comboCountry, KLanguageButton *comboLan
 		TQByteArray data, da;
 		TQDataStream stream( data, IO_WriteOnly );
 		stream << comboLang->current();
-		if ( !kapp->dcopClient()->isAttached() )
-			kapp->dcopClient()->attach();
+		if ( !tdeApp->dcopClient()->isAttached() )
+			tdeApp->dcopClient()->attach();
 		// tdesycoca needs to be rebuilt
 		TDEProcess proc;
 		proc << TQString::fromLatin1("tdebuildsycoca");
 		proc.start(TDEProcess::DontCare);
 		kdDebug() << "TDELocaleConfig::save : sending signal to kdesktop" << endl;
 		// inform kicker and kdeskop about the new language
-		kapp->dcopClient()->send( "kicker", "Panel", "restart()", TQString::null);
+		tdeApp->dcopClient()->send( "kicker", "Panel", "restart()", TQString::null);
 		// call, not send, so that we know it's done before coming back
 		// (we both access kdeglobals...)
-		kapp->dcopClient()->call( "kdesktop", "KDesktopIface", "languageChanged(TQString)", data, replyType, replyData );
+		tdeApp->dcopClient()->call( "kdesktop", "KDesktopIface", "languageChanged(TQString)", data, replyType, replyData );
 	}
 	// KPersonalizer::next() probably waits for a return-value
 	return true;

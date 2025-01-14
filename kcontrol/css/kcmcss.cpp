@@ -193,7 +193,7 @@ void CSSConfig::save()
     {
       CSSTemplate css(templ);
 
-      dest = kapp->dirs()->saveLocation("data", "kcmcss");
+      dest = tdeApp->dirs()->saveLocation("data", "kcmcss");
       dest += "/override.css";
 
       css.expand(dest, cssDict());

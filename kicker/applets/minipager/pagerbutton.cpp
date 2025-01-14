@@ -213,7 +213,7 @@ void KMiniPagerButton::loadBgPixmap()
     if (m_pager->bgType() != PagerSettings::EnumBackgroundType::BgLive)
         return; // not needed
 
-    DCOPClient *client = kapp->dcopClient();
+    DCOPClient *client = tdeApp->dcopClient();
     if (!client->isAttached())
     {
         client->attach();

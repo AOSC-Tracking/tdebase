@@ -49,7 +49,7 @@
       <whatsthis></whatsthis>
     </entry>
     <entry key="FileNameColumnWidth" type="Int">
-      <default code="true">25 * TDEApplication::kApplication()->fontMetrics().width( "m" )</default>
+      <default code="true">25 * tdeApp->fontMetrics().width( "m" )</default>
       <label>Width of the FileName Column</label>
       <whatsthis></whatsthis>
     </entry>

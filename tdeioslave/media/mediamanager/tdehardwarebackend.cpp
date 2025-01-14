@@ -1239,7 +1239,7 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 		// The caller expects the device to be mounted when the function
 		// completes. Thus block until the job completes.
 		while (!data.completed) {
-			kapp->eventLoop()->enterLoop();
+			tdeApp->eventLoop()->enterLoop();
 		}
 		if (!data.error) {
 			result["result"] = true;
@@ -1350,7 +1350,7 @@ TQStringVariantMap TDEBackend::unmount(const TQString &id)
 		// The caller expects the device to be unmounted when the function
 		// completes. Thus block until the job completes.
 		while (!data.completed) {
-			kapp->eventLoop()->enterLoop();
+			tdeApp->eventLoop()->enterLoop();
 		}
 		if (!data.error) {
 			result["result"] = true;
@@ -1682,7 +1682,7 @@ void TDEBackend::slotResult(TDEIO::Job *job)
 	/* Job completed. Notify the caller */
 	data->error = job->error();
 	data->completed = true;
-	kapp->eventLoop()->exitLoop();
+	tdeApp->eventLoop()->exitLoop();
 }
 
 TQString TDEBackend::isInFstab(const Medium *medium)

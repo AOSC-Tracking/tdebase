@@ -86,15 +86,15 @@ void Gesture::update_grab()
     if( _enabled && handlers.count() > 0
         && ( exclude == NULL || !exclude->match( Window_data( windows_handler->active_window()))))
         {
-        kapp->removeX11EventFilter( this ); // avoid being installed twice
-        kapp->installX11EventFilter( this );
+        tdeApp->removeX11EventFilter( this ); // avoid being installed twice
+        tdeApp->installX11EventFilter( this );
         // CHECKME at se grabuje jen kdyz je alespon jedno gesto?
         grab_mouse( true );
         }
     else
         {
         grab_mouse( false );
-        kapp->removeX11EventFilter( this );
+        tdeApp->removeX11EventFilter( this );
         }
     }
 

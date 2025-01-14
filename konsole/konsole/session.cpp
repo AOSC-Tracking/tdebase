@@ -181,7 +181,7 @@ void TESession::run()
     return;
   }
 
-  TQString appId=kapp->dcopClient()->appId();
+  TQString appId=tdeApp->dcopClient()->appId();
 
   TQString cwd_save = TQDir::currentDirPath();
   if (!initial_cwd.isEmpty())

@@ -161,7 +161,7 @@ void TaskBarContainer::configure()
                 break;
         }
 
-        windowListButton->setPixmap(kapp->iconLoader()->loadIcon(icon,
+        windowListButton->setPixmap(tdeApp->iconLoader()->loadIcon(icon,
                                                                  TDEIcon::Panel,
                                                                  16));
         windowListButton->setMinimumSize(windowListButton->sizeHint());
@@ -188,20 +188,20 @@ void TaskBarContainer::preferences()
 {
     TQByteArray data;
 
-    if (!kapp->dcopClient()->isAttached())
+    if (!tdeApp->dcopClient()->isAttached())
     {
-        kapp->dcopClient()->attach();
+        tdeApp->dcopClient()->attach();
     }
 
     if (configFile == GLOBAL_TASKBAR_CONFIG_FILE_NAME)
     {
-        kapp->dcopClient()->send("kicker", "kicker", "showTaskBarConfig()", data);
+        tdeApp->dcopClient()->send("kicker", "kicker", "showTaskBarConfig()", data);
     }
     else
     {
         TQDataStream args( data, IO_WriteOnly );
         args << configFile;
-        kapp->dcopClient()->send("kicker", "kicker", "showTaskBarConfig(TQString)", data);
+        tdeApp->dcopClient()->send("kicker", "kicker", "showTaskBarConfig(TQString)", data);
     }
 }
 
@@ -266,7 +266,7 @@ void TaskBarContainer::popupDirectionChange(KPanelApplet::Direction d)
 
     if (windowListButton)
     {
-        windowListButton->setPixmap(kapp->iconLoader()->loadIcon(icon,
+        windowListButton->setPixmap(tdeApp->iconLoader()->loadIcon(icon,
                                                                  TDEIcon::Panel,
                                                                  16));
         windowListButton->setMinimumSize(windowListButton->sizeHint());

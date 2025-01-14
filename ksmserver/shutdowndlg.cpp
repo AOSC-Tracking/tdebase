@@ -86,7 +86,7 @@ KSMShutdownFeedback::KSMShutdownFeedback()
    m_greyImageCreated( FALSE )
 
 {
-	if (kapp->isX11CompositionAvailable()) {
+	if (tdeApp->isX11CompositionAvailable()) {
 		m_grayImage = TQImage( TQApplication::desktop()->width(), TQApplication::desktop()->height(), 32 );
 		m_grayImage = m_grayImage.convertDepth(32);
 		m_grayImage.setAlphaBuffer(false);
@@ -132,7 +132,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 		float doFancyLogoutFadeTime = (float)TDEConfigGroup(TDEGlobal::config(), "Logout").readDoubleNumEntry("doFancyLogoutFadeTime", 4000);
 		float doFancyLogoutFadeBackTime = (float)TDEConfigGroup(TDEGlobal::config(), "Logout").readDoubleNumEntry("doFancyLogoutFadeBackTime", 1000);
 
-		if (kapp->isX11CompositionAvailable()) {
+		if (tdeApp->isX11CompositionAvailable()) {
 			// We can do this in a different (simpler) manner because we have compositing support!
 			// if slotPaintEffect() is called first time, we have to initialize the gray image
 			// we also could do that in the constructor, but then the displaying of the
@@ -377,7 +377,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 	else {
 		if (TDEConfigGroup(TDEGlobal::config(), "Logout").readBoolEntry("doFadeaway", true)) {
 			// standard logout fade
-			 if (kapp->isX11CompositionAvailable()) {
+			 if (tdeApp->isX11CompositionAvailable()) {
 				// We can do this in a different (simpler) manner because we have compositing support!
 				// The end effect will be very similar to the old style logout
 				float doFancyLogoutFadeTime = 1000;
@@ -580,7 +580,7 @@ void KSMShutdownIPFeedback::enableExports()
 {
 #ifdef TQ_WS_X11
 	kdDebug(270) << k_lineinfo << "activating background exports.\n";
-	DCOPClient *client = kapp->dcopClient();
+	DCOPClient *client = tdeApp->dcopClient();
 	if (!client->isAttached()) {
 		client->attach();
 	}
@@ -646,14 +646,14 @@ void KSMShutdownIPFeedback::slotPaintEffect()
 			pm = TQPixmap();
 		}
 	}
-	if ((pm.isNull()) || (pm.width() != kapp->desktop()->width()) || (pm.height() != kapp->desktop()->height())) {
+	if ((pm.isNull()) || (pm.width() != tdeApp->desktop()->width()) || (pm.height() != tdeApp->desktop()->height())) {
 		if (mPixmapTimeout < 10) {
 			TQTimer::singleShot( 100, this, TQ_SLOT(slotPaintEffect()) );
 			mPixmapTimeout++;
 			return;
 		}
 		else {
-			pm = TQPixmap(kapp->desktop()->width(), kapp->desktop()->height());
+			pm = TQPixmap(tdeApp->desktop()->width(), tdeApp->desktop()->height());
 			pm.fill(TQt::black);
 			m_paintedFromSharedRootPixmap = false;
 		}
@@ -1168,7 +1168,7 @@ void KSMShutdownDlg::slotHybridSuspend()
 
 bool KSMShutdownDlg::confirmShutdown( bool maysd, bool mayrb, TDEApplication::ShutdownType& sdtype, TQString& bootOption, int* selection )
 {
-	kapp->enableStyles();
+	tdeApp->enableStyles();
 	KSMShutdownDlg* l = new KSMShutdownDlg( 0 /*KSMShutdownFeedback::self()*/, maysd, mayrb, sdtype, selection );
 
 	// Show dialog (will save the background in showEvent)
@@ -1182,16 +1182,16 @@ bool KSMShutdownDlg::confirmShutdown( bool maysd, bool mayrb, TDEApplication::Sh
 
 	delete l;
 
-	kapp->disableStyles();
+	tdeApp->disableStyles();
 	return result;
 }
 
 TQWidget* KSMShutdownIPDlg::showShutdownIP()
 {
-	kapp->enableStyles();
+	tdeApp->enableStyles();
 	KSMShutdownIPDlg* l = new KSMShutdownIPDlg( 0 );
 
-	kapp->disableStyles();
+	tdeApp->disableStyles();
 
 	return l;
 }
@@ -1346,7 +1346,7 @@ void KSMDelayedMessageBox::updateText()
 
 bool KSMDelayedMessageBox::showTicker( TDEApplication::ShutdownType sdtype, const TQString &bootOption, int confirmDelay )
 {
-	kapp->enableStyles();
+	tdeApp->enableStyles();
 	KSMDelayedMessageBox msg( sdtype, bootOption, confirmDelay );
 	TQSize sh = msg.sizeHint();
 	TQRect rect = TDEGlobalSettings::desktopGeometry(TQCursor::pos());
@@ -1355,7 +1355,7 @@ bool KSMDelayedMessageBox::showTicker( TDEApplication::ShutdownType sdtype, cons
 			rect.y() + (rect.height() - sh.height())/2);
 	bool result = msg.exec();
 
-	kapp->disableStyles();
+	tdeApp->disableStyles();
 	return result;
 }
 

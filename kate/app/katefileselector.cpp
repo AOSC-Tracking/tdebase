@@ -230,7 +230,7 @@ void KateFileSelector::readConfig(TDEConfig *config, const TQString & name)
   cmbPath->setMaxItems( config->readNumEntry( "pathcombo history len", 9 ) );
   cmbPath->setURLs( config->readPathListEntry( "dir history" ) );
   // if we restore history
-  if ( config->readBoolEntry( "restore location", true ) || kapp->isRestored() ) {
+  if ( config->readBoolEntry( "restore location", true ) || tdeApp->isRestored() ) {
     TQString loc( config->readPathEntry( "location" ) );
     if ( ! loc.isEmpty() ) {
 //       waitingDir = loc;
@@ -245,7 +245,7 @@ void KateFileSelector::readConfig(TDEConfig *config, const TQString & name)
   filter->setHistoryItems( config->readListEntry("filter history"), true );
   lastFilter = config->readEntry( "last filter" );
   TQString flt("");
-  if ( config->readBoolEntry( "restore last filter", true ) || kapp->isRestored() )
+  if ( config->readBoolEntry( "restore last filter", true ) || tdeApp->isRestored() )
     flt = config->readEntry("current filter");
   filter->lineEdit()->setText( flt );
   slotFilterChange( flt );
@@ -629,7 +629,7 @@ void KFSConfigPage::apply()
 
   m_changed = false;
 
-  TDEConfig *config = kapp->config();
+  TDEConfig *config = tdeApp->config();
   config->setGroup( "fileselector" );
   // toolbar
   TQStringList l;
@@ -671,7 +671,7 @@ void KFSConfigPage::reload()
 }
 void KFSConfigPage::init()
 {
-  TDEConfig *config = kapp->config();
+  TDEConfig *config = tdeApp->config();
   config->setGroup( "fileselector" );
   // toolbar
   TQStringList l = config->readListEntry( "toolbar actions", ',' );

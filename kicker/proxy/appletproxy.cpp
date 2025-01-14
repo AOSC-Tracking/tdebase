@@ -126,7 +126,7 @@ AppletProxy::AppletProxy(TQObject* parent, const char* name)
   , _applet(0)
 {
     // try to attach to DCOP server
-    if (!kapp->dcopClient()->attach()) {
+    if (!tdeApp->dcopClient()->attach()) {
 	kdError() << "Failed to attach to DCOP server." << endl;
         KMessageBox::error(0,
                            i18n("The applet proxy could not be started due to DCOP communication problems."),
@@ -134,7 +134,7 @@ AppletProxy::AppletProxy(TQObject* parent, const char* name)
 	exit(0);
     }
 
-    if (kapp->dcopClient()->registerAs("applet_proxy", true) == 0) {
+    if (tdeApp->dcopClient()->registerAs("applet_proxy", true) == 0) {
 	kdError() << "Failed to register at DCOP server." << endl;
         KMessageBox::error(0,
                            i18n("The applet proxy could not be started due to DCOP registration problems."),
@@ -147,7 +147,7 @@ AppletProxy::AppletProxy(TQObject* parent, const char* name)
 
 AppletProxy::~AppletProxy()
 {
-    kapp->dcopClient()->detach();
+    tdeApp->dcopClient()->detach();
     delete _info;
     delete _applet;
 }
@@ -255,7 +255,7 @@ void AppletProxy::dock(const TQCString& callbackID)
     _callbackID = callbackID;
 
     // try to attach to DCOP server
-    DCOPClient* dcop = kapp->dcopClient();
+    DCOPClient* dcop = tdeApp->dcopClient();
 
     dcop->setNotifications(true);
     connect(dcop, TQ_SIGNAL(applicationRemoved(const TQCString&)),
@@ -463,7 +463,7 @@ void AppletProxy::slotUpdateLayout()
     else
 	appname.sprintf("kicker-screen-%d", screen_number);
 
-    kapp->dcopClient()->send(appname, _callbackID, "updateLayout()", data);
+    tdeApp->dcopClient()->send(appname, _callbackID, "updateLayout()", data);
 }
 
 void AppletProxy::slotRequestFocus()
@@ -480,7 +480,7 @@ void AppletProxy::slotRequestFocus()
     else
 	appname.sprintf("kicker-screen-%d", screen_number);
 
-    kapp->dcopClient()->send(appname, _callbackID, "requestFocus()", data);
+    tdeApp->dcopClient()->send(appname, _callbackID, "requestFocus()", data);
 }
 
 void AppletProxy::slotApplicationRemoved(const TQCString& appId)
@@ -496,7 +496,7 @@ void AppletProxy::slotApplicationRemoved(const TQCString& appId)
 
     if(appId == appname) {
 	kdDebug(1210) << "Connection to kicker lost, shutting down" << endl;
-	kapp->quit();
+	tdeApp->quit();
     }
 }
 
@@ -510,7 +510,7 @@ void AppletProxy::showStandalone()
     _applet->resize( _applet->widthForHeight( 48 ), 48 );
     _applet->setMinimumSize( _applet->size() );
     _applet->setCaption( _info->name() );
-    kapp->setMainWidget( _applet );
+    tdeApp->setMainWidget( _applet );
     _applet->show();
 }
 

@@ -454,7 +454,7 @@ bool clientApp::doIt()
   }
   TQCString command = args->arg(0);
 
-  // read ASN env. variable for non-KApp cases
+  // read ASN env. variable for non-TDEApp cases
   startup_id_str = TDEStartupInfo::currentStartupIdEnv().id();
 
   if ( command == "openURL" || command == "newTab" )
@@ -619,7 +619,7 @@ bool clientApp::doIt()
   {
     checkArgumentCount(argc, 1, 1);
     TQByteArray data;
-    kapp->dcopClient()->send( "*", "KonqMainViewIface", "reparseConfiguration()", data );
+    tdeApp->dcopClient()->send( "*", "KonqMainViewIface", "reparseConfiguration()", data );
     // Warning. In case something is added/changed here, keep kcontrol/konq/main.cpp in sync.
   }
   else if ( command == "configureDesktop" )

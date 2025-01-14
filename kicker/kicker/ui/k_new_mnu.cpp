@@ -1225,9 +1225,9 @@ void KMenu::initialize()
     kdDebug(1210) << "KMenu::initialize()" << endl;
 
     // in case we've been through here before, let's disconnect
-    disconnect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()),
+    disconnect(tdeApp, TQ_SIGNAL(tdedisplayPaletteChanged()),
             this, TQ_SLOT(paletteChanged()));
-    connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()),
+    connect(tdeApp, TQ_SIGNAL(tdedisplayPaletteChanged()),
             this, TQ_SLOT(paletteChanged()));
 
    /*
@@ -1236,7 +1236,7 @@ void KMenu::initialize()
     TDEConfig ksmserver("ksmserverrc", false, false);
     ksmserver.setGroup("General");
     connect( m_branding, TQ_SIGNAL(clicked()), TQ_SLOT(slotOpenHomepage()));
-    m_tabBar->setTabEnabled(LeaveTab, kapp->authorize("logout"));
+    m_tabBar->setTabEnabled(LeaveTab, tdeApp->authorize("logout"));
 
     // load search field history
     TQStringList histList = KickerSettings::history();
@@ -1309,10 +1309,10 @@ void KMenu::insertStaticExitItems()
     int index = 1;
 
     m_exitView->leftView()->insertSeparator( nId++, i18n("Session"), index++ );
-    if (kapp->authorize("logout"))
+    if (tdeApp->authorize("logout"))
        m_exitView->leftView()->insertItem( "edit-undo", i18n( "Log out" ),
                                    i18n( "End current session" ), "kicker:/logout", nId++, index++ );
-    if (kapp->authorize("lock_screen"))
+    if (tdeApp->authorize("lock_screen"))
        m_exitView->leftView()->insertItem( "system-lock-screen", i18n( "Lock" ),
                                    i18n( "Lock computer screen" ), "kicker:/lock", nId++, index++ );
 
@@ -1324,7 +1324,7 @@ void KMenu::insertStaticExitItems()
                                i18n("Save current Session for next login"),
                                "kicker:/savesession", nId++, index++ );
     }
-    if (DM().isSwitchable() && kapp->authorize("switch_user"))
+    if (DM().isSwitchable() && tdeApp->authorize("switch_user"))
     {
         KMenuItem *switchuser = m_exitView->leftView()->insertItem( "switchuser", i18n( "Switch User" ),
                                                                     i18n( "Manage parallel sessions" ), "kicker:/switchuser/", nId++, index++ );
@@ -1386,7 +1386,7 @@ void KMenu::insertStaticItems()
     m_systemView->insertMenuItem(p, nId++, index++);
 
     // run command
-    if (kapp->authorize("run_command"))
+    if (tdeApp->authorize("run_command"))
     {
         m_systemView->insertItem( "system-run", i18n("Run Command..."),
                    "", "kicker:/runusercommand", nId++, index++ );
@@ -1479,18 +1479,18 @@ void KMenu::slotLock()
     TQCString appname( "kdesktop" );
     if ( kicker_screen_number )
         appname.sprintf("kdesktop-screen-%d", kicker_screen_number);
-    kapp->dcopClient()->send(appname, "KScreensaverIface", "lock()", TQString(""));
+    tdeApp->dcopClient()->send(appname, "KScreensaverIface", "lock()", TQString(""));
 }
 
 void KMenu::slotOpenHomepage()
 {
     accept();
-    kapp->invokeBrowser("http://www.trinitydesktop.org");
+    tdeApp->invokeBrowser("http://www.trinitydesktop.org");
 }
 
 void KMenu::slotLogout()
 {
-    kapp->requestShutDown();
+    tdeApp->requestShutDown();
 }
 
 void KMenu::slotPopulateSessions()
@@ -1499,9 +1499,9 @@ void KMenu::slotPopulateSessions()
     DM dm;
 
     sessionsMenu->clear();
-    if (kapp->authorize("start_new_session") && (p = dm.numReserve()) >= 0)
+    if (tdeApp->authorize("start_new_session") && (p = dm.numReserve()) >= 0)
     {
-        if (kapp->authorize("lock_screen"))
+        if (tdeApp->authorize("lock_screen"))
 	  sessionsMenu->insertItem(/*SmallIconSet("lockfork"),*/ i18n("Lock Current && Start New Session"), 100 );
         sessionsMenu->insertItem(SmallIconSet("fork"), i18n("Start New Session"), 101 );
         if (!p) {
@@ -1534,7 +1534,7 @@ void KMenu::slotSessionActivated( int ent )
 void KMenu::doNewSession( bool lock )
 {
     int result = KMessageBox::warningContinueCancel(
-        kapp->desktop()->screen(kapp->desktop()->screenNumber(this)),
+        tdeApp->desktop()->screen(tdeApp->desktop()->screenNumber(this)),
         i18n("<p>You have chosen to open another desktop session.<br>"
                "The current session will be hidden "
                "and a new login screen will be displayed.<br>"
@@ -1583,8 +1583,8 @@ void KMenu::searchAccept()
 
     if ( logout )
     {
-        kapp->propagateSessionManager();
-        kapp->requestShutDown();
+        tdeApp->propagateSessionManager();
+        tdeApp->requestShutDown();
     }
     if ( lock )
     {
@@ -1592,7 +1592,7 @@ void KMenu::searchAccept()
         int kicker_screen_number = tqt_xscreen();
         if ( kicker_screen_number )
             appname.sprintf("kdesktop-screen-%d", kicker_screen_number);
-        kapp->dcopClient()->send(appname, "KScreensaverIface", "lock()", TQString(""));
+        tdeApp->dcopClient()->send(appname, "KScreensaverIface", "lock()", TQString(""));
     }
 }
 
@@ -1656,7 +1656,7 @@ bool KMenu::runCommand()
       // fall-through to shell case
       case KURIFilterData::SHELL:
       {
-        if (kapp->authorize("shell_access"))
+        if (tdeApp->authorize("shell_access"))
         {
           exec = cmd;
 
@@ -2419,7 +2419,7 @@ void KMenu::doQuery (bool return_pressed)
 #endif
                 )
                 exe = TQString();
-            else if (kapp->authorize("shell_access"))
+            else if (tdeApp->authorize("shell_access"))
             {
                 if( filterData.hasArgsAndOptions() )
                     exe += filterData.argsAndOptions();
@@ -2660,7 +2660,7 @@ void KMenu::slotStartURL(const TQString& u)
         TQDataStream stream(params, IO_WriteOnly);
         stream << 0 << -1 << "";
 
-        kapp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
+        tdeApp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
     }
     else if ( u == "kicker:/runcommand" )
     {
@@ -2675,14 +2675,14 @@ void KMenu::slotStartURL(const TQString& u)
         TQDataStream stream(params, IO_WriteOnly);
         stream << 2 << -1 << "";
 
-        kapp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
+        tdeApp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
     }
     else if ( u == "kicker:/restart" ) {
         TQByteArray params;
         TQDataStream stream(params, IO_WriteOnly);
         stream << 1 << -1 << TQString();
 
-        kapp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
+        tdeApp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
     }
     else if ( u == "kicker:/suspend_freeze" ) {
         slotSuspend( SuspendType::Freeze );
@@ -2701,7 +2701,7 @@ void KMenu::slotStartURL(const TQString& u)
     }
     else if ( u == "kicker:/savesession" ) {
         TQByteArray data;
-        kapp->dcopClient()->send( "ksmserver", "default",
+        tdeApp->dcopClient()->send( "ksmserver", "default",
                 "saveCurrentSession()", data );
     }
     else if ( u == "kicker:/switchuser" ) {
@@ -2722,7 +2722,7 @@ void KMenu::slotStartURL(const TQString& u)
         TQDataStream stream(params, IO_WriteOnly);
         stream << 1 << -1 << rebootOptions[u.mid(16).toInt()];
 
-        kapp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
+        tdeApp->dcopClient()->send("ksmserver", "default", "logoutTimed(int,int,TQString)", params);
     }
 #warning restart entry not supported
 #if 0
@@ -2753,12 +2753,12 @@ void KMenu::slotStartURL(const TQString& u)
                 TQDataStream arg(data, IO_WriteOnly);
                 arg << u.mid(9,22);
 
-                kapp->dcopClient()->send("knotes","KNotesIface","showNote(TQString)", data);
+                tdeApp->dcopClient()->send("knotes","KNotesIface","showNote(TQString)", data);
             }
             return;
         }
 
-        kapp->propagateSessionManager();
+        tdeApp->propagateSessionManager();
         (void) new KRun( u, parentWidget());
     }
 }
@@ -2837,7 +2837,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
             if (hasEntries)
                 m_popupMenu->insertSeparator();
 
-            if (kapp->authorize("editable_desktop_icons") )
+            if (tdeApp->authorize("editable_desktop_icons") )
             {
                 hasEntries = true;
                 if (m_popupPath.menuPath.endsWith("/"))
@@ -2847,7 +2847,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
                   m_popupMenu->insertItem(SmallIconSet("desktop"),
                       i18n("Add Item to Desktop"), AddItemToDesktop);
             }
-            if (kapp->authorizeTDEAction("kicker_rmb") && !Kicker::the()->isImmutable())
+            if (tdeApp->authorizeTDEAction("kicker_rmb") && !Kicker::the()->isImmutable())
             {
                 hasEntries = true;
                 if (m_popupPath.menuPath.endsWith("/"))
@@ -2857,7 +2857,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
                    m_popupMenu->insertItem(SmallIconSet("kicker"),
                       i18n("Add Item to Main Panel"), AddItemToPanel);
             }
-            if (kapp->authorizeTDEAction("menuedit") && !kitem->menuPath().isEmpty())
+            if (tdeApp->authorizeTDEAction("menuedit") && !kitem->menuPath().isEmpty())
             {
                 hasEntries = true;
                 if (kitem->menuPath().endsWith("/"))
@@ -2865,7 +2865,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
                 else
                   m_popupMenu->insertItem(SmallIconSet("kmenuedit"), i18n("Edit Item"), EditItem);
             }
-            if (kapp->authorize("run_command") && (m_popupService || (!m_popupPath.menuPath.isEmpty() && !m_popupPath.menuPath.endsWith("/"))))
+            if (tdeApp->authorize("run_command") && (m_popupService || (!m_popupPath.menuPath.isEmpty() && !m_popupPath.menuPath.endsWith("/"))))
             {
                hasEntries = true;
                m_popupMenu->insertItem(SmallIconSet("system-run"),
@@ -2969,10 +2969,10 @@ void KMenu::slotContextMenu(int selected)
 	case AddItemToPanel:
             accept();
 	    if (m_popupService)
-	    	kapp->dcopClient()->send("kicker", "Panel", "addServiceButton(TQString)", m_popupService->desktopEntryPath());
+	    	tdeApp->dcopClient()->send("kicker", "Panel", "addServiceButton(TQString)", m_popupService->desktopEntryPath());
             else
 #warning FIXME special RecentDocuments/foo.desktop handling
-	    	kapp->dcopClient()->send("kicker", "Panel", "addURLButton(TQString)", m_popupPath.path);
+	    	tdeApp->dcopClient()->send("kicker", "Panel", "addURLButton(TQString)", m_popupPath.path);
 	    accept();
 	    break;
 
@@ -2988,10 +2988,10 @@ void KMenu::slotContextMenu(int selected)
 	case PutIntoRunDialog:
 	    accept();
 	    if (m_popupService)
-	      kapp->dcopClient()->send("kdesktop", "default", "popupExecuteCommand(TQString)", m_popupService->exec());
+	      tdeApp->dcopClient()->send("kdesktop", "default", "popupExecuteCommand(TQString)", m_popupService->exec());
 	    else
 #warning FIXME special RecentDocuments/foo.desktop handling
-              kapp->dcopClient()->send("kdesktop", "default", "popupExecuteCommand(TQString)", m_popupPath.path);
+              tdeApp->dcopClient()->send("kdesktop", "default", "popupExecuteCommand(TQString)", m_popupPath.path);
             accept();
 	    break;
 
@@ -3010,7 +3010,7 @@ void KMenu::slotContextMenu(int selected)
 	case AddMenuToPanel:
 	    accept();
             ds << "foo" << m_popupPath.menuPath;
-	    kapp->dcopClient()->send("kicker", "Panel", "addServiceMenuButton(TQString,TQString)", ba);
+	    tdeApp->dcopClient()->send("kicker", "Panel", "addServiceMenuButton(TQString,TQString)", ba);
 	    break;
 
         case AddToFavorites:
@@ -3243,7 +3243,7 @@ void KMenu::notifyServiceStarted(KService::Ptr service)
     TQDataStream stream(params, IO_WriteOnly);
     stream << "minicli" << service->storageId();
     kdDebug() << "minicli appLauncher dcop signal: " << service->storageId() << endl;
-    TDEApplication::kApplication()->dcopClient()->emitDCOPSignal("appLauncher",
+    tdeApp->dcopClient()->emitDCOPSignal("appLauncher",
         "serviceStartedByStorageId(TQString,TQString)", params);
 }
 
@@ -3569,7 +3569,7 @@ bool KMenu::ensureServiceRunning(const TQString & service)
     TQDataStream arg(data, IO_WriteOnly);
     arg << service << URLs;
 
-    if ( !kapp->dcopClient()->call( "tdelauncher", "tdelauncher", "start_service_by_desktop_name(TQString,TQStringList)",
+    if ( !tdeApp->dcopClient()->call( "tdelauncher", "tdelauncher", "start_service_by_desktop_name(TQString,TQStringList)",
                       data, replyType, replyData) ) {
         tqWarning( "call to tdelauncher failed.");
         return false;
@@ -3849,7 +3849,7 @@ void KMenu::runUserCommand()
     if ( kicker_screen_number )
         appname.sprintf("kdesktop-screen-%d", kicker_screen_number);
 
-    kapp->updateRemoteUserTimestamp( appname );
-    kapp->dcopClient()->send( appname, "KDesktopIface",
+    tdeApp->updateRemoteUserTimestamp( appname );
+    tdeApp->dcopClient()->send( appname, "KDesktopIface",
                               "popupExecuteCommand()", data );
 }

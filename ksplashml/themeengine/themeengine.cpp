@@ -44,9 +44,9 @@ ThemeEngine::ThemeEngine( TQWidget *, const char *, const TQStringList& args )
   : TQVBox( 0, "wndSplash", (WFlags)(WStyle_Customize|WX11BypassWM) ), d(0), mUseWM(false)
 {
   d = new ThemeEnginePrivate;
-  kapp->installX11EventFilter( this );
-  kapp->installEventFilter( this );
-  (void)kapp->desktop();
+  tdeApp->installX11EventFilter( this );
+  tdeApp->installEventFilter( this );
+  (void)tdeApp->desktop();
   XWindowAttributes rootAttr;
   XGetWindowAttributes(tqt_xdisplay(), RootWindow(tqt_xdisplay(),
                         tqt_xscreen()), &rootAttr);

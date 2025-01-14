@@ -366,7 +366,7 @@ bool SearchEngine::search( TQString words, TQString method, int matches,
     mProc->start(TDEProcess::NotifyOnExit, TDEProcess::All);
 
     while (mSearchRunning && mProc->isRunning())
-      kapp->processEvents();
+      tdeApp->processEvents();
 
     if ( !mProc->normalExit() || mProc->exitStatus() != 0 ) {
       kdError() << "Unable to run search program '" << commonSearchProgram

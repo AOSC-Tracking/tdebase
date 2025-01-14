@@ -497,7 +497,7 @@ void KScreenSaver::save()
     // TODO (GJ): When you changed anything, these two lines will give a segfault
     // on exit. I don't know why yet.
 
-    DCOPClient *client = kapp->dcopClient();
+    DCOPClient *client = tdeApp->dcopClient();
     client->send("kdesktop", "KScreensaverIface", "configure()", TQString(""));
 
     mChanged = false;
@@ -842,7 +842,7 @@ void KScreenSaver::slotSetup()
         }
 
         mSetupBt->setEnabled( false );
-        kapp->flushX();
+        tdeApp->flushX();
 
         mSetupProc->start();
     }
@@ -886,8 +886,8 @@ void KScreenSaver::slotTest()
         {
             mTestWin = new TestWin();
             mTestWin->setBackgroundMode(TQWidget::NoBackground);
-            mTestWin->setGeometry(0, 0, kapp->desktop()->width(),
-                                    kapp->desktop()->height());
+            mTestWin->setGeometry(0, 0, tdeApp->desktop()->width(),
+                                    tdeApp->desktop()->height());
         }
 
         mTestWin->show();

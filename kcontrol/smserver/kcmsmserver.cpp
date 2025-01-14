@@ -135,7 +135,7 @@ void SMServerConfig::save()
 
   // update the k menu if necessary
   TQByteArray data;
-  kapp->dcopClient()->send( "kicker", "kicker", "configure()", data );
+  tdeApp->dcopClient()->send( "kicker", "kicker", "configure()", data );
 }
 
 void SMServerConfig::defaults()

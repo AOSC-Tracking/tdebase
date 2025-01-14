@@ -919,12 +919,12 @@ ClockApplet::ClockApplet(const TQString& configFile, Type t, int actions,
 
     connect(m_layoutTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(fixupLayout()));
     connect(_timer, TQ_SIGNAL(timeout()), TQ_SLOT(slotUpdate()));
-    connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(globalPaletteChange()));
+    connect(tdeApp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(globalPaletteChange()));
 
     reconfigure();    // initialize clock widget
     slotUpdate();
 
-    if (kapp->authorizeTDEAction("kicker_rmb"))
+    if (tdeApp->authorizeTDEAction("kicker_rmb"))
     {
         menu = new TDEPopupMenu();
         connect(menu, TQ_SIGNAL(aboutToShow()), TQ_SLOT(aboutToShowContextMenu()));
@@ -1485,7 +1485,7 @@ void ClockApplet::toggleCalendar()
 
 void ClockApplet::openContextMenu()
 {
-    if (!menu || !kapp->authorizeTDEAction("kicker_rmb"))
+    if (!menu || !tdeApp->authorizeTDEAction("kicker_rmb"))
         return;
 
     menu->exec( TQCursor::pos() );
@@ -1585,7 +1585,7 @@ void ClockApplet::aboutToShowContextMenu()
 
         menu->insertItem(i18n("&Type"), type_menu, 101, 1);
         menu->insertItem(i18n("Show Time&zone"), zoneMenu, 110, 2);
-        if (kapp->authorize("user/root"))
+        if (tdeApp->authorize("user/root"))
         {
             menu->insertItem(SmallIcon("date"), i18n("&Adjust Date && Time..."), 103, 4);
         }

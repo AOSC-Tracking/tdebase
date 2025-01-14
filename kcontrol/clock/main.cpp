@@ -89,7 +89,7 @@ void KclockModule::save()
 #endif
 
   // Tell the clock applet about the change so that it can update its timezone
-  kapp->dcopClient()->send( "kicker", "ClockApplet", "reconfigure()", TQByteArray() );
+  tdeApp->dcopClient()->send( "kicker", "ClockApplet", "reconfigure()", TQByteArray() );
 }
 
 void KclockModule::load()

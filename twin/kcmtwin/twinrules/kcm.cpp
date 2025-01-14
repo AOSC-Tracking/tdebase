@@ -66,9 +66,9 @@ void KCMRules::save()
     emit TDECModule::changed( false );
     // Send signal to twin
     config.sync();
-    if( !kapp->dcopClient()->isAttached())
-        kapp->dcopClient()->attach();
-    kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+    if( !tdeApp->dcopClient()->isAttached())
+        tdeApp->dcopClient()->attach();
+    tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
     }
 
 void KCMRules::defaults()

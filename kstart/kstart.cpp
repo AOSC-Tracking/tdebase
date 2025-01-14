@@ -61,7 +61,7 @@ KStart::KStart()
     }
     // propagate the app startup notification info to the started app
     TDEStartupInfoId id;
-    id.initId( kapp->startupId());
+    id.initId( tdeApp->startupId());
     id.setupStartupEnv();
 
     //finally execute the comand
@@ -76,7 +76,7 @@ KStart::KStart()
     else
         TDEStartupInfo::sendFinish( id ); // failed to start
 
-  TQTimer::singleShot( useRule ? 0 : 120 * 1000, kapp, TQ_SLOT( quit()));
+  TQTimer::singleShot( useRule ? 0 : 120 * 1000, tdeApp, TQ_SLOT( quit()));
 }
 
 void KStart::sendRule() {
@@ -126,7 +126,7 @@ void KStart::sendRule() {
     }
 
     msg.broadcastMessage( "_KDE_NET_WM_TEMPORARY_RULES", message, -1, false );
-    kapp->flushX();
+    tdeApp->flushX();
 }
 
 const int SUPPORTED_WINDOW_TYPES_MASK = NET::NormalMask | NET::DesktopMask | NET::DockMask

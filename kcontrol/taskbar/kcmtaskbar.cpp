@@ -292,7 +292,7 @@ TaskbarConfig::~TaskbarConfig()
 
 void TaskbarConfig::slotEditGlobalConfiguration() {
     TQByteArray data;
-    kapp->dcopClient()->send("kicker", "kicker", "reshowTaskBarConfig()", data);
+    tdeApp->dcopClient()->send("kicker", "kicker", "reshowTaskBarConfig()", data);
 }
 
 void TaskbarConfig::processLockouts()
@@ -445,7 +445,7 @@ void TaskbarConfig::load()
     m_widget->showAllScreens->setChecked(!m_settingsObject->showCurrentScreenOnly());
 
     int iconSize = m_settingsObject->iconSize();
-    if(kapp->iconLoader()->currentSize(TDEIcon::Small) != iconSize)
+    if(tdeApp->iconLoader()->currentSize(TDEIcon::Small) != iconSize)
     {
         m_widget->smallIcons->setChecked(false);
     }
@@ -457,11 +457,11 @@ void TaskbarConfig::save()
 
     if(m_widget->smallIcons->isChecked())
     {
-        m_settingsObject->setIconSize(kapp->iconLoader()->currentSize(TDEIcon::Small));
+        m_settingsObject->setIconSize(tdeApp->iconLoader()->currentSize(TDEIcon::Small));
     }
     else
     {
-        m_settingsObject->setIconSize(kapp->iconLoader()->currentSize(TDEIcon::Panel));
+        m_settingsObject->setIconSize(tdeApp->iconLoader()->currentSize(TDEIcon::Panel));
     }
 
     m_settingsObject->setShowCurrentScreenOnly(!m_widget->showAllScreens->isChecked());
@@ -474,7 +474,7 @@ void TaskbarConfig::save()
     m_settingsObject->writeConfig();
 
     TQByteArray data;
-    kapp->dcopClient()->emitDCOPSignal("kdeTaskBarConfigChanged()", data);
+    tdeApp->dcopClient()->emitDCOPSignal("kdeTaskBarConfigChanged()", data);
 }
 
 void TaskbarConfig::defaults()

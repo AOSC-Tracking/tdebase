@@ -387,7 +387,7 @@ void KonqSidebarBookmarkModule::slotOpenTab()
     else
 	return;
 
-    DCOPRef ref(kapp->dcopClient()->appId(), tree()->topLevelWidget()->name());
+    DCOPRef ref(tdeApp->dcopClient()->appId(), tree()->topLevelWidget()->name());
 
     if (bookmark.isGroup()) {
         KBookmarkGroup group = bookmark.toGroup();
@@ -412,9 +412,9 @@ void KonqSidebarBookmarkModule::slotCopyLocation()
 
     if ( !bookmark.isGroup() )
     {
-        kapp->clipboard()->setData( KBookmarkDrag::newDrag(bookmark, 0),
+        tdeApp->clipboard()->setData( KBookmarkDrag::newDrag(bookmark, 0),
                                     TQClipboard::Selection );
-        kapp->clipboard()->setData( KBookmarkDrag::newDrag(bookmark, 0),
+        tdeApp->clipboard()->setData( KBookmarkDrag::newDrag(bookmark, 0),
                                     TQClipboard::Clipboard );
     }
 }

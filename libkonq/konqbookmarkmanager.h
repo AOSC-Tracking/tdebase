@@ -22,7 +22,7 @@ public:
             {
                 TDEIO::file_copy(KURL::fromPathOrURL(globalBookmarkFile),
                                  KURL::fromPathOrURL(bookmarksFile));
-                kapp->processEvents(3000);   // Allows up to 3 seconds to copy the file
+                tdeApp->processEvents(3000);   // Allows up to 3 seconds to copy the file
             }
             s_bookmarkManager = KBookmarkManager::managerForFile( bookmarksFile );
         }

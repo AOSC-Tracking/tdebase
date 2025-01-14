@@ -276,7 +276,7 @@ TDMShutdown::TDMShutdown( int _uid, TQWidget *_parent )
 		freeStrArr( tlist );
 		targets->setCurrentItem( oldTarget == -1 ? defaultTarget : oldTarget );
 		TQHBoxLayout *hb = new TQHBoxLayout( hlp, 0, KDsh );
-		int spc = kapp->style().pixelMetric( TQStyle::PM_ExclusiveIndicatorWidth )
+		int spc = tdeApp->style().pixelMetric( TQStyle::PM_ExclusiveIndicatorWidth )
 		          + howGroup->insideSpacing();
 		hb->addSpacing( spc );
 		hb->addWidget( targets );

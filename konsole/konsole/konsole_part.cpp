@@ -325,14 +325,14 @@ void konsolePart::emitOpenURLRequest(const TQString &cwd)
 
 void konsolePart::makeGUI()
 {
-  if (!kapp->authorizeTDEAction("konsole_rmb"))
+  if (!tdeApp->authorizeTDEAction("konsole_rmb"))
      return;
 
   actions = new TDEActionCollection( (TDEMainWindow*)parentWidget );
   settingsActions = new TDEActionCollection( (TDEMainWindow*)parentWidget );
 
   // Send Signal Menu -------------------------------------------------------------
-  if (kapp->authorizeTDEAction("send_signal"))
+  if (tdeApp->authorizeTDEAction("send_signal"))
   {
      m_signals = new TDEPopupMenu((TDEMainWindow*)parentWidget);
      m_signals->insertItem( i18n( "&Suspend Task" )   + " (STOP)", SIGSTOP);
@@ -347,7 +347,7 @@ void konsolePart::makeGUI()
   }
 
   // Settings Menu ----------------------------------------------------------------
-  if (kapp->authorizeTDEAction("settings"))
+  if (tdeApp->authorizeTDEAction("settings"))
   {
      m_options = new TDEPopupMenu((TDEMainWindow*)parentWidget);
 
@@ -388,7 +388,7 @@ void konsolePart::makeGUI()
       selectSetEncoding->plug(m_options);
 
      // Keyboard Options Menu ---------------------------------------------------
-     if (kapp->authorizeTDEAction("keyboard"))
+     if (tdeApp->authorizeTDEAction("keyboard"))
      {
         m_keytab = new TDEPopupMenu((TDEMainWindow*)parentWidget);
         m_keytab->setCheckable(true);
@@ -397,7 +397,7 @@ void konsolePart::makeGUI()
      }
 
      // Schema Options Menu -----------------------------------------------------
-     if (kapp->authorizeTDEAction("schema"))
+     if (tdeApp->authorizeTDEAction("schema"))
      {
         m_schema = new TDEPopupMenu((TDEMainWindow*)parentWidget);
         m_schema->setCheckable(true);

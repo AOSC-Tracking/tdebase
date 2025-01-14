@@ -81,7 +81,7 @@ AppletInfo::AppletInfo( const TQString& deskFile, const TQString& configFile, co
         else
         {
             m_configFile.append("_")
-                        .append(kapp->randomString(20).lower())
+                        .append(tdeApp->randomString(20).lower())
                         .append("_rc");
         }
     }

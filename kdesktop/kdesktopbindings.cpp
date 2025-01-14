@@ -14,7 +14,7 @@
 	keys->insert( "Program:kdesktop", i18n("Desktop") );
 
 #ifndef NOSLOTS
-	if (kapp->authorize("run_command"))
+	if (tdeApp->authorize("run_command"))
 	{
 #endif
 		DEF( I18N_NOOP("Run Command"), ALT+TQt::Key_F2, WIN+TQt::Key_Return, slotExecuteCommand() );
@@ -25,20 +25,20 @@
 	DEF( I18N_NOOP("Show Window List"), ALT+TQt::Key_F5, WIN+TQt::Key_0, slotShowWindowList() );
 	DEF( I18N_NOOP("Switch User"), ALT+CTRL+TQt::Key_Insert, WIN+TQt::Key_Insert, slotSwitchUser() );
 #ifndef NOSLOTS
-	if (kapp->authorize("lock_screen"))
+	if (tdeApp->authorize("lock_screen"))
 	{
 #endif
 		DEF2( I18N_NOOP("Lock Session"), ALT+CTRL+TQt::Key_L, WIN+TQt::Key_ScrollLock, KRootWm::self(), TQ_SLOT(slotLock()) );
 		DEF2( I18N_NOOP("Lock Session (Hotkey)"), TDEShortcut(TQString("XF86ScreenSaver")), TDEShortcut(TQString("XF86ScreenSaver")), KRootWm::self(), TQ_SLOT(slotLock()) );
 #ifndef NOSLOTS
 	}
-	if (kapp->authorize("start_screensaver"))
+	if (tdeApp->authorize("start_screensaver"))
 	{
 #endif
 		DEF2( I18N_NOOP("Start Screen Saver"), ALT+CTRL+TQt::Key_S, WIN+TQt::Key_S, KRootWm::self(), TQ_SLOT(slotSave()) );
 #ifndef NOSLOTS
 	}
-	if (kapp->authorize("logout"))
+	if (tdeApp->authorize("logout"))
 	{
 #endif
 		DEF( I18N_NOOP("Log Out"), ALT+CTRL+TQt::Key_Delete, WIN+TQt::Key_Escape, slotLogout() );

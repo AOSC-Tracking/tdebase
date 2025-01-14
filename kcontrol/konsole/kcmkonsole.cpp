@@ -165,7 +165,7 @@ void KCMKonsole::save()
 
     emit changed(false);
 
-    DCOPClient *dcc = kapp->dcopClient();
+    DCOPClient *dcc = tdeApp->dcopClient();
     dcc->send("konsole-*", "konsole", "reparseConfiguration()", TQByteArray());
     dcc->send("kdesktop", "default", "configure()", TQByteArray());
     dcc->send("tdelauncher", "tdelauncher", "reparseConfiguration()", TQByteArray());

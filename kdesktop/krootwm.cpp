@@ -86,7 +86,7 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
   // Creates the new menu
   menuBar = 0; // no menubar yet
   menuNew = 0;
-  if (m_bDesktopEnabled && kapp->authorize("editable_desktop_icons"))
+  if (m_bDesktopEnabled && tdeApp->authorize("editable_desktop_icons"))
   {
      menuNew = new KNewMenu( m_actionCollection, "new_menu" );
      connect(menuNew->popupMenu(), TQ_SIGNAL( aboutToShow() ),
@@ -95,7 +95,7 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
               m_pDesktop->iconView(), TQ_SLOT( slotNewMenuActivated() ) );
   }
 
-  if (kapp->authorizeTDEAction("bookmarks"))
+  if (tdeApp->authorizeTDEAction("bookmarks"))
   {
      bookmarks = new TDEActionMenu( i18n("Bookmarks"), "bookmark", m_actionCollection, "bookmarks" );
      // The KBookmarkMenu is needed to fill the Bookmarks menu in the desktop menubar.
@@ -132,7 +132,7 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
   }
 #endif
 
-  if (kapp->authorize("run_command"))
+  if (tdeApp->authorize("run_command"))
   {
      new TDEAction(i18n("Run Command..."), "system-run", 0, m_pDesktop, TQ_SLOT( slotExecuteCommand() ), m_actionCollection, "exec" );
      new TDEAction(i18n("Open Terminal Here..." ), "terminal", CTRL+Key_T, this, TQ_SLOT( slotOpenTerminal() ),
@@ -153,7 +153,7 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
               m_actionCollection, "cascade" );
 
   // arrange menu actions
-  if (m_bDesktopEnabled && kapp->authorize("editable_desktop_icons"))
+  if (m_bDesktopEnabled && tdeApp->authorize("editable_desktop_icons"))
   {
      new TDEAction(i18n("By Name (Case Sensitive)"), 0, this, TQ_SLOT( slotArrangeByNameCS() ),
                  m_actionCollection, "sort_ncs");
@@ -189,22 +189,22 @@ KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), 
                  m_actionCollection, "refresh" );
   }
   // Icons in sync with kicker
-  if (kapp->authorize("lock_screen"))
+  if (tdeApp->authorize("lock_screen"))
   {
       new TDEAction(i18n("Lock Session"), "system-lock-screen", 0, this, TQ_SLOT( slotLock() ),
                   m_actionCollection, "lock" );
   }
-  if (kapp->authorize("logout"))
+  if (tdeApp->authorize("logout"))
   {
       new TDEAction(i18n("Log Out \"%1\"...").arg(KUser().loginName()), "system-log-out", 0,
                   this, TQ_SLOT( slotLogout() ), m_actionCollection, "logout" );
   }
 
-  if (kapp->authorize("start_new_session") && DM().isSwitchable())
+  if (tdeApp->authorize("start_new_session") && DM().isSwitchable())
   {
       new TDEAction(i18n("Start New Session"), "fork", 0, this,
                   TQ_SLOT( slotNewSession() ), m_actionCollection, "newsession" );
-      if (kapp->authorize("lock_screen"))
+      if (tdeApp->authorize("lock_screen"))
       {
           new TDEAction(i18n("Lock Current && Start New Session"), "system-lock-screen", 0, this,
                       TQ_SLOT( slotLockNNewSession() ), m_actionCollection, "lockNnewsession" );
@@ -249,7 +249,7 @@ void KRootWm::initConfig()
   // Read configuration for icons alignment
   if ( m_bDesktopEnabled ) {
     m_pDesktop->iconView()->setAutoAlign( KDesktopSettings::autoLineUpIcons() );
-    if ( kapp->authorize( "editable_desktop_icons" ) ) {
+    if ( tdeApp->authorize( "editable_desktop_icons" ) ) {
         m_pDesktop->iconView()->setIconsLocked( KDesktopSettings::lockIcons() );
         TDEToggleAction *aLockIcons = static_cast<TDEToggleAction*>(m_actionCollection->action("lock_icons"));
         if (aLockIcons)
@@ -464,7 +464,7 @@ void KRootWm::buildMenus()
     }
     int lastSep = desktopMenu->insertSeparator();
 
-    if (sessionsMenu && kapp->authorize("switch_user"))
+    if (sessionsMenu && tdeApp->authorize("switch_user"))
     {
         desktopMenu->insertItem(SmallIconSet("switchuser" ), i18n("Switch User"), sessionsMenu);
         needSeparator = true;
@@ -618,7 +618,7 @@ void KRootWm::mousePressed( const TQPoint& _global, int _button )
         activateMenu( middleButtonChoice, _global );
         break;
     case TQt::RightButton:
-        if (!kapp->authorize("action/kdesktop_rmb")) return;
+        if (!tdeApp->authorize("action/kdesktop_rmb")) return;
         activateMenu( rightButtonChoice, _global );
         break;
     default:
@@ -791,7 +791,7 @@ void KRootWm::slotConfigureDesktop() {
     TQStringList modules = configModules();
     for (TQStringList::const_iterator it = modules.constBegin(); it != modules.constEnd(); ++it)
     {
-      if (kapp->authorizeControlModule(*it))
+      if (tdeApp->authorizeControlModule(*it))
       {
           m_configDialog->addModule(*it);
       }
@@ -815,22 +815,22 @@ void KRootWm::slotToggleDesktopMenu()
     KDesktopSettings::writeConfig();
 
     TQByteArray data;
-    kapp->dcopClient()->send( kdesktop_name, "KDesktopIface", "configure()", data);
+    tdeApp->dcopClient()->send( kdesktop_name, "KDesktopIface", "configure()", data);
     // for the standalone menubar setting
-    kapp->dcopClient()->send( "menuapplet*", "menuapplet", "configure()", data );
-    kapp->dcopClient()->send( kicker_name, kicker_name, "configureMenubar()", data );
-    kapp->dcopClient()->send( "twin*", "", "reconfigure()", data );
+    tdeApp->dcopClient()->send( "menuapplet*", "menuapplet", "configure()", data );
+    tdeApp->dcopClient()->send( kicker_name, kicker_name, "configureMenubar()", data );
+    tdeApp->dcopClient()->send( "twin*", "", "reconfigure()", data );
 }
 
 
 void KRootWm::slotUnclutterWindows()
 {
-    kapp->dcopClient()->send(twin_name, "KWinInterface", "unclutterDesktop()", TQString(""));
+    tdeApp->dcopClient()->send(twin_name, "KWinInterface", "unclutterDesktop()", TQString(""));
 }
 
 
 void KRootWm::slotCascadeWindows() {
-    kapp->dcopClient()->send(twin_name, "KWinInterface", "cascadeDesktop()", TQString(""));
+    tdeApp->dcopClient()->send(twin_name, "KWinInterface", "cascadeDesktop()", TQString(""));
 }
 
 
@@ -840,7 +840,7 @@ void KRootWm::slotLock() {
 
 
 void KRootWm::slotSave() {
-    kapp->dcopClient()->send(kdesktop_name, "KScreensaverIface", "save()", TQString(""));
+    tdeApp->dcopClient()->send(kdesktop_name, "KScreensaverIface", "save()", TQString(""));
 }
 
 

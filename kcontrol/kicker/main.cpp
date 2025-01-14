@@ -63,10 +63,10 @@ KickerConfig::KickerConfig(TQWidget *parent, const char *name)
 
     init();
 
-    kapp->dcopClient()->setNotifications(true);
+    tdeApp->dcopClient()->setNotifications(true);
     connectDCOPSignal("kicker", "kicker", "configSwitchToPanel(TQString)",
                       "jumpToPanel(TQString)", false);
-    kapp->dcopClient()->send("kicker", "kicker", "configLaunched()", TQByteArray());
+    tdeApp->dcopClient()->send("kicker", "kicker", "configLaunched()", TQByteArray());
 
     connect(this, TQ_SIGNAL(hidingPanelChanged(int)),
             this, TQ_SLOT(setCurrentPanelIndex(int)));
@@ -135,13 +135,13 @@ void KickerConfig::init()
 void KickerConfig::restartKicker()
 {
     // Tell kicker to restart
-    if (!kapp->dcopClient()->isAttached())
+    if (!tdeApp->dcopClient()->isAttached())
     {
-        kapp->dcopClient()->attach();
+        tdeApp->dcopClient()->attach();
     }
     TQCString appname;
     appname = "kicker";
-    kapp->dcopClient()->send(appname, appname, "restart", TQString(""));
+    tdeApp->dcopClient()->send(appname, appname, "restart", TQString(""));
 }
 
 void KickerConfig::notifyKicker()
@@ -151,9 +151,9 @@ void KickerConfig::notifyKicker()
     emit aboutToNotifyKicker();
 
     // Tell kicker about the new config file.
-    if (!kapp->dcopClient()->isAttached())
+    if (!tdeApp->dcopClient()->isAttached())
     {
-        kapp->dcopClient()->attach();
+        tdeApp->dcopClient()->attach();
     }
 
     TQByteArray data;
@@ -168,7 +168,7 @@ void KickerConfig::notifyKicker()
         appname.sprintf("kicker-screen-%d", m_screenNumber);
     }
 
-    kapp->dcopClient()->send(appname, appname, "configure()", data);
+    tdeApp->dcopClient()->send(appname, appname, "configure()", data);
 }
 
 void KickerConfig::setupExtensionInfo(TDEConfig& config, bool checkExists, bool reloadIfExists)

@@ -379,7 +379,7 @@ bool TDEShortURIFilter::filterURI( KURIFilterData& data ) const
     u.setRef(ref);
     u.setQuery(query);
 
-    if (kapp && !kapp->authorizeURLAction( TQString::fromLatin1("open"), KURL(), u))
+    if (tdeApp && !tdeApp->authorizeURLAction( TQString::fromLatin1("open"), KURL(), u))
     {
       // No authorisation, we pretend it's a file will get
       // an access denied error later on.
@@ -514,7 +514,7 @@ bool TDEShortURIFilter::filterURI( KURIFilterData& data ) const
     u.setPath(path);
     u.setRef(ref);
 
-    if (kapp && !kapp->authorizeURLAction( TQString::fromLatin1("open"), KURL(), u))
+    if (tdeApp && !tdeApp->authorizeURLAction( TQString::fromLatin1("open"), KURL(), u))
     {
       // No authorisation, we pretend it exists and will get
       // an access denied error later on.

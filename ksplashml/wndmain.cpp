@@ -46,7 +46,7 @@ KSplash::KSplash(const char *name)
   mSessMgrCalled = false;
   mTimeToGo = false;
 
-  TDEConfig * config = kapp->config();
+  TDEConfig * config = tdeApp->config();
   slotReadProperties(config);
 
   prepareSplashScreen();
@@ -160,17 +160,17 @@ void KSplash::nextIcon()
 
 void KSplash::initDcop()
 {
-  disconnect( kapp->dcopClient(), TQ_SIGNAL( attachFailed(const TQString&) ), kapp, TQ_SLOT( dcopFailure(const TQString&) ) );
+  disconnect( tdeApp->dcopClient(), TQ_SIGNAL( attachFailed(const TQString&) ), tdeApp, TQ_SLOT( dcopFailure(const TQString&) ) );
 
-  if ( kapp->dcopClient()->isAttached() )
+  if ( tdeApp->dcopClient()->isAttached() )
     return;
 
-  if ( kapp->dcopClient()->attach() )
+  if ( tdeApp->dcopClient()->attach() )
   {
     if(!mKsTheme->managedMode())
       upAndRunning( "dcop" );
-    kapp->dcopClient()->registerAs( "ksplash", false );
-    kapp->dcopClient()->setDefaultObject( objId() );
+    tdeApp->dcopClient()->registerAs( "ksplash", false );
+    tdeApp->dcopClient()->setDefaultObject( objId() );
   }
   else
   {

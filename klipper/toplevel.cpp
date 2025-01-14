@@ -121,7 +121,7 @@ extern bool tqt_qclipboard_bailout_hack;
 
 static void ensureGlobalSyncOff(TDEConfig* config);
 
-// config == kapp->config for process, otherwise applet
+// config == tdeApp->config for process, otherwise applet
 KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
     : TQWidget( parent )
     , DCOPObject( "klipper" )
@@ -138,7 +138,7 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
 
     updateTimestamp(); // read initial X user time
     setBackgroundMode( X11ParentRelative );
-    clip = kapp->clipboard();
+    clip = tdeApp->clipboard();
 
     connect( &m_overflowClearTimer, TQ_SIGNAL( timeout()), TQ_SLOT( slotClearOverflow()));
     m_overflowClearTimer.start( 1000 );
@@ -187,7 +187,7 @@ KlipperWidget::KlipperWidget( TQWidget *parent, TDEConfig* config )
     showTimer = new TQTime();
 
     readProperties(m_config);
-    connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
+    connect(tdeApp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
 
     poll = new ClipboardPoll( this );
     connect( poll, TQ_SIGNAL( clipboardChanged( bool ) ),
@@ -235,7 +235,7 @@ KlipperWidget::~KlipperWidget()
     delete showTimer;
     delete hideTimer;
     delete myURLGrabber;
-    if( m_config != kapp->config())
+    if( m_config != tdeApp->config())
         delete m_config;
     tqt_qclipboard_bailout_hack = false;
 }
@@ -616,7 +616,7 @@ void KlipperWidget::slotQuit()
         return;
     config->sync();
 
-    kapp->quit();
+    tdeApp->quit();
 
 }
 
@@ -785,7 +785,7 @@ bool KlipperWidget::blockFetchingNewData()
 //   while the user is doing a selection using the mouse, OOo stops updating the clipboard
 //   contents, so in practice it's like the user has selected only the part which was
 //   selected when Klipper asked first.
-    ButtonState buttonstate = kapp->keyboardMouseState();
+    ButtonState buttonstate = tdeApp->keyboardMouseState();
     if( ( buttonstate & ( ShiftButton | TQt::LeftButton )) == ShiftButton // #85198
         || ( buttonstate & TQt::LeftButton ) == TQt::LeftButton ) { // #80302
         m_pendingContentsCheck = true;
@@ -1180,7 +1180,7 @@ TDEAboutData* KlipperWidget::aboutData()
 }
 
 Klipper::Klipper( TQWidget* parent )
-    : KlipperWidget( parent, kapp->config())
+    : KlipperWidget( parent, tdeApp->config())
 {
 }
 
@@ -1192,7 +1192,7 @@ Klipper::Klipper( TQWidget* parent )
 // find newInstance()  (which doesn't do anything in Klipper anyway)
 int Klipper::newInstance()
 {
-    kapp->dcopClient()->setPriorityCall(false); // Allow other dcop calls
+    tdeApp->dcopClient()->setPriorityCall(false); // Allow other dcop calls
     return 0;
 }
 
@@ -1200,8 +1200,8 @@ int Klipper::newInstance()
 // (AKA ugly hack)
 void Klipper::quitProcess()
 {
-    kapp->dcopClient()->detach();
-    kapp->quit();
+    tdeApp->dcopClient()->detach();
+    tdeApp->quit();
 }
 
 static void ensureGlobalSyncOff(TDEConfig* config) {

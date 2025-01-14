@@ -133,7 +133,7 @@ DCOPBrowserApplicationItem::DCOPBrowserApplicationItem
 	TQString mainWindowName= rx.cap(1) + "-mainwindow#1" ;
 
 	TQByteArray data;
-	int callId=kapp->dcopClient()->callAsync( app_, mainWindowName.utf8(), "icon()", data, this, TQ_SLOT(retreiveIcon(int, const TQCString&, const TQByteArray&)));
+	int callId=tdeApp->dcopClient()->callAsync( app_, mainWindowName.utf8(), "icon()", data, this, TQ_SLOT(retreiveIcon(int, const TQCString&, const TQByteArray&)));
 
 	if(!callId)
 	{
@@ -142,7 +142,7 @@ DCOPBrowserApplicationItem::DCOPBrowserApplicationItem
 		TQDataStream arg(data, IO_WriteOnly);
 		arg << TQCString( "MainWindow" );
 
-		kapp->dcopClient()->callAsync( app_, "qt", "find(TQCString)", data, this, TQ_SLOT(slotGotWindowName(int, const TQCString&, const TQByteArray& )));
+		tdeApp->dcopClient()->callAsync( app_, "qt", "find(TQCString)", data, this, TQ_SLOT(slotGotWindowName(int, const TQCString&, const TQByteArray& )));
 	}
 }
 
@@ -163,7 +163,7 @@ DCOPBrowserApplicationItem::populate()
   bool ok = false;
   bool isDefault = false;
 
-  QCStringList objs = kapp->dcopClient()->remoteObjects(app_, &ok);
+  QCStringList objs = tdeApp->dcopClient()->remoteObjects(app_, &ok);
 
   for (QCStringList::ConstIterator it = objs.begin(); it != objs.end(); ++it)
   {
@@ -191,7 +191,7 @@ void DCOPBrowserApplicationItem::slotGotWindowName(int /*callId*/, const TQCStri
 		if(!mainWindowName.isEmpty())
 		{
 			TQByteArray data;
-			kapp->dcopClient()->callAsync( app_, mainWindowName.utf8(), "icon()", data,
+			tdeApp->dcopClient()->callAsync( app_, mainWindowName.utf8(), "icon()", data,
 				this, TQ_SLOT(retreiveIcon(int, const TQCString&, const TQByteArray&)));
 		}
 	}
@@ -245,7 +245,7 @@ DCOPBrowserInterfaceItem::populate()
 
   bool ok = false;
 
-  QCStringList funcs = kapp->dcopClient()->remoteFunctions(app_, object_, &ok);
+  QCStringList funcs = tdeApp->dcopClient()->remoteFunctions(app_, object_, &ok);
 
   for (QCStringList::ConstIterator it = funcs.begin(); it != funcs.end(); ++it)
     if ((*it) != "QCStringList functions()")
@@ -283,7 +283,7 @@ DCOPBrowserFunctionItem::setOpen(bool o)
 KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
   : TDEMainWindow(parent, name)
 {
-  dcopClient = kapp->dcopClient();
+  dcopClient = tdeApp->dcopClient();
   resize( 377, 480 );
   statusBar()->message(i18n("Welcome to the TDE DCOP browser"));
   setIcon(TDEGlobal::iconLoader()->loadIcon("enhanced_browsing", TDEIcon::NoGroup, TDEIcon::SizeSmall));
@@ -797,7 +797,7 @@ void KDCOPWindow::slotCallFunction( TQListViewItem* it )
     }
   }
 
-  DCOPRef( fitem->app(), "MainApplication-Interface" ).call( "updateUserTimestamp", kapp->userTimestamp());
+  DCOPRef( fitem->app(), "MainApplication-Interface" ).call( "updateUserTimestamp", tdeApp->userTimestamp());
 
   // Now do the DCOP call
 

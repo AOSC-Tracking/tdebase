@@ -79,7 +79,7 @@ void KonqXMLGUIClient::addAction( const char *name, const TQDomElement &menu )
 {
   static const TQString& tagAction = TDEGlobal::staticQString( "action" );
 
-  if (!kapp->authorizeTDEAction(name))
+  if (!tdeApp->authorizeTDEAction(name))
      return;
 
   handlePendingSeparator();

@@ -251,7 +251,7 @@ the <guilabel>Preview and Metafiles</guilabel> tab and change the
 
 <title>Configuring Programs</title>
 
-<sect2 id="configure-kapp">
+<sect2 id="configure-tdeApp">
 <title>Application Configuration</title>
 <!-- FIXME: Make a more friendly title -->
 <indexterm><primary>Configuration</primary></indexterm>

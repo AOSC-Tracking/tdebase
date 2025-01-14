@@ -96,7 +96,7 @@ void RecentDocsMenu::slotClearHistory() {
 
 void RecentDocsMenu::slotExec(int id) {
 	if (id >= 0) {
-		kapp->propagateSessionManager();
+		tdeApp->propagateSessionManager();
 		KURL u;
 		u.setPath(_fileList[id]);
 		KDEDesktopMimeType::run(u, true);

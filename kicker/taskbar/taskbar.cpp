@@ -131,7 +131,7 @@ TaskBar::TaskBar( TaskBarSettings* settingsObject, TaskBarSettings* globalSettin
 
     blocklayout = false;
 
-    connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
+    connect(tdeApp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
     keys = new TDEGlobalAccel( this );
 #include "taskbarbindings.cpp"
     keys->readSettings();

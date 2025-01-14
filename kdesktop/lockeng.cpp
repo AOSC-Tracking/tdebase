@@ -333,7 +333,7 @@ void SaverEngine::lockScreen(bool DCOP)
 		if( ok && mState != Saving )
 		{
 			if (DCOP) {
-				DCOPClientTransaction* trans = kapp->dcopClient()->beginTransaction();
+				DCOPClientTransaction* trans = tdeApp->dcopClient()->beginTransaction();
 				if (trans) {
 					mLockTransactions.append( trans );
 				}
@@ -354,7 +354,7 @@ void SaverEngine::processLockTransactions()
 	{
 		TQCString replyType = "void";
 		TQByteArray arr;
-		kapp->dcopClient()->endTransaction( *it, replyType, arr );
+		tdeApp->dcopClient()->endTransaction( *it, replyType, arr );
 	}
 	mLockTransactions.clear();
 }
@@ -447,7 +447,7 @@ void SaverEngine::enableExports()
 {
 #ifdef TQ_WS_X11
 	kdDebug(270) << k_lineinfo << "activating background exports.\n";
-	DCOPClient *client = kapp->dcopClient();
+	DCOPClient *client = tdeApp->dcopClient();
 	if (!client->isAttached()) {
 		client->attach();
 	}
@@ -675,7 +675,7 @@ void SaverEngine::recoverFromHackingAttempt()
 		TQByteArray data;
 		TQDataStream arg(data, IO_WriteOnly);
 		arg << (int)0 << (int)0 << (int)2;
-		if (!kapp->dcopClient()->send("ksmserver", "default", "logout(int,int,int)", data)) {
+		if (!tdeApp->dcopClient()->send("ksmserver", "default", "logout(int,int,int)", data)) {
 			// Someone got to DCOP before we did
 			// Try an emergency system logout
 			system("logout");

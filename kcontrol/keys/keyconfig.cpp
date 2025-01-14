@@ -206,12 +206,12 @@ void KKeyModule::load()
   kc->commitChanges();
   actions.writeActions( KeySet, 0, true, true );
   if ( KeyType == "global" ) {
-    if ( !kapp->dcopClient()->isAttached() )
-      kapp->dcopClient()->attach();
+    if ( !tdeApp->dcopClient()->isAttached() )
+      tdeApp->dcopClient()->attach();
     // TODO: create a reconfigureKeys() method.
-    kapp->dcopClient()->send("twin", "", "reconfigure()", "");
-    kapp->dcopClient()->send("kdesktop", "", "configure()", "");
-    kapp->dcopClient()->send("kicker", "Panel", "configure()", "");
+    tdeApp->dcopClient()->send("twin", "", "reconfigure()", "");
+    tdeApp->dcopClient()->send("kdesktop", "", "configure()", "");
+    tdeApp->dcopClient()->send("kicker", "Panel", "configure()", "");
   }
 }*/
 

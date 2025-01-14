@@ -98,7 +98,7 @@ void KonqSidebarHistorySettings::applySettings()
     delete config;
 
     // notify konqueror instances about the new configuration
-    kapp->dcopClient()->send( "konqueror*", "KonqSidebarHistorySettings",
+    tdeApp->dcopClient()->send( "konqueror*", "KonqSidebarHistorySettings",
 			      "notifySettingsChanged()", TQByteArray() );
 }
 

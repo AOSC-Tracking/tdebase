@@ -138,7 +138,7 @@ KDIconView::KDIconView( TQWidget *parent, const char* name )
       m_bNeedSave( false ),
       m_autoAlign( false ),
       m_hasExistingPos( false ),
-      m_bEditableDesktopIcons( kapp->authorize("editable_desktop_icons") ),
+      m_bEditableDesktopIcons( tdeApp->authorize("editable_desktop_icons") ),
       m_bShowDot( false ),
       m_bVertAlign( true ),
       m_dirLister( 0L ),
@@ -379,7 +379,7 @@ void KDIconView::start()
 
     // Start the directory lister !
     m_dirLister->setShowingDotFiles( m_bShowDot );
-    kapp->allowURLAction("list", KURL(), url());
+    tdeApp->allowURLAction("list", KURL(), url());
     startDirLister();
     createActions();
 }
@@ -566,7 +566,7 @@ void KDIconView::startDirLister()
         u.setPath( *it );
         m_mergeDirs.append( u );
         // And start listing this dir right now
-        kapp->allowURLAction("list", KURL(), u);
+        tdeApp->allowURLAction("list", KURL(), u);
         m_dirLister->openURL( u, true );
     }
     configureMedia();
@@ -749,7 +749,7 @@ void KDIconView::slotReturnPressed( TQIconViewItem *item )
 
 void KDIconView::slotExecuted( TQIconViewItem *item )
 {
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
     m_lastDeletedIconPos = TQPoint(); // user action -> not renaming an icon
     if (item) {
         visualActivate(item);
@@ -839,7 +839,7 @@ void KDIconView::saveMediaListView()
         appname = "kdesktop";
     else
         appname.sprintf("kdesktop-screen-%d", konq_screen_number);
-    kapp->dcopClient()->send( appname, "KDesktopIface", "configure()", data );
+    tdeApp->dcopClient()->send( appname, "KDesktopIface", "configure()", data );
     delete g_pConfig;
 }
 
@@ -947,7 +947,7 @@ void KDIconView::slotDelete()
 // Not to be confused with the global popup-menu, KRootWm, when doing RMB on the desktop
 void KDIconView::popupMenu( const TQPoint &_global, const KFileItemList& _items )
 {
-    if (!kapp->authorize("action/kdesktop_rmb")) return;
+    if (!tdeApp->authorize("action/kdesktop_rmb")) return;
     if (!m_dirLister) return;
     if ( _items.count() == 1 )
         m_popupURL = _items.getFirst()->url();

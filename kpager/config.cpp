@@ -146,7 +146,7 @@ void KPagerConfigDialog::loadConfiguration()
 
 void KPagerConfigDialog::initConfiguration(void)
 {
-  TDEConfig *cfg= kapp->config();
+  TDEConfig *cfg= tdeApp->config();
   cfg->setGroup("KPager");
 
   m_windowDrawMode=cfg->readNumEntry("windowDrawMode", Desktop::c_defWindowDrawMode);

@@ -42,13 +42,13 @@ bool SessionManaged::saveState( TQSessionManager& sm )
         {
         Workspace::self()->sessionSaveStarted();
         if( ksmserver ) // save stacking order etc. before "save file?" etc. dialogs change it
-            Workspace::self()->storeSession( kapp->sessionConfig(), SMSavePhase0 );
+            Workspace::self()->storeSession( tdeApp->sessionConfig(), SMSavePhase0 );
         sm.release(); // Qt doesn't automatically release in this case (bug?)
         sm.requestPhase2();
         return true;
         }
-    Workspace::self()->storeSession( kapp->sessionConfig(), ksmserver ? SMSavePhase2 : SMSavePhase2Full );
-    kapp->sessionConfig()->sync();
+    Workspace::self()->storeSession( tdeApp->sessionConfig(), ksmserver ? SMSavePhase2 : SMSavePhase2Full );
+    tdeApp->sessionConfig()->sync();
     return true;
     }
 
@@ -149,7 +149,7 @@ void Workspace::storeSession( TDEConfig* config, SMSavePhase phase )
 void Workspace::loadSessionInfo()
     {
     session.clear();
-    TDEConfig* config = kapp->sessionConfig();
+    TDEConfig* config = tdeApp->sessionConfig();
     config->setGroup("Session" );
     int count =  config->readNumEntry( "count" );
     int active_client = config->readNumEntry( "active" );

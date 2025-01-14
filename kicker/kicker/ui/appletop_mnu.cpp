@@ -99,7 +99,7 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
             insertSeparator();
         }
 
-        TQPixmap iconPix(kapp->iconLoader()->loadIcon(icon,
+        TQPixmap iconPix(tdeApp->iconLoader()->loadIcon(icon,
                                                      TDEIcon::Small, 0,
                                                      TDEIcon::DefaultState,
                                                      0, true));
@@ -175,7 +175,7 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
           insertItem(SmallIcon("about_kde"), i18n("Switch to Trinity Classic Menu Style"), this, TQ_SLOT(toggleLegacy()));
     }
 
-    if ((actions & PanelAppletOpMenu::KMenuEditor) && kapp->authorizeTDEAction("menuedit"))
+    if ((actions & PanelAppletOpMenu::KMenuEditor) && tdeApp->authorizeTDEAction("menuedit"))
     {
         if (needSeparator)
         {
@@ -187,7 +187,7 @@ PanelAppletOpMenu::PanelAppletOpMenu(int actions, TQPopupMenu *opMenu, const TQP
     }
 
     if ((actions & PanelAppletOpMenu::BookmarkEditor) &&
-        kapp->authorizeTDEAction("edit_bookmarks"))
+        tdeApp->authorizeTDEAction("edit_bookmarks"))
     {
         if (needSeparator)
         {

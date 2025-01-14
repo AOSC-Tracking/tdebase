@@ -43,7 +43,7 @@ extern "C"
         // FIXME: what about two taskbars? perhaps this should be inserted just once
         TDEGlobal::locale()->insertCatalogue( "ktaskbarapplet" );
         int options = 0;
-        if (kapp->authorizeControlModule("tde-kcmtaskbar.desktop"))
+        if (tdeApp->authorizeControlModule("tde-kcmtaskbar.desktop"))
            options = KPanelApplet::Preferences;
         TaskbarApplet *taskbar = new TaskbarApplet( configFile, KPanelApplet::Stretch,
                                                     options, parent, "ktaskbarapplet" );

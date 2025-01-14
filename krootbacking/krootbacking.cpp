@@ -68,7 +68,7 @@ void KRootBacking::init()
     m_bInit = false;
     m_bActive = false;
 
-    connect(kapp, TQ_SIGNAL(backgroundChanged(int)), TQ_SLOT(slotBackgroundChanged(int)));
+    connect(tdeApp, TQ_SIGNAL(backgroundChanged(int)), TQ_SLOT(slotBackgroundChanged(int)));
     connect(m_pTimer, TQ_SIGNAL(timeout()), TQ_SLOT(repaint()));
 #ifdef TQ_WS_X11
     connect(m_pPixmap, TQ_SIGNAL(done(bool)), TQ_SLOT(slotDone(bool)));
@@ -195,7 +195,7 @@ void KRootBacking::enableExports()
 {
 #ifdef TQ_WS_X11
     kdDebug(270) << k_lineinfo << "activating background exports.\n";
-    DCOPClient *client = kapp->dcopClient();
+    DCOPClient *client = tdeApp->dcopClient();
     if (!client->isAttached())
 	client->attach();
     TQByteArray data;

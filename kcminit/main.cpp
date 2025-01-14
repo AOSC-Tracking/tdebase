@@ -180,8 +180,8 @@ KCMInit::KCMInit( TDECmdLineArgs* args )
 
   }
 
-  if ( !kapp->dcopClient()->isAttached() )
-    kapp->dcopClient()->attach();
+  if ( !tdeApp->dcopClient()->isAttached() )
+    tdeApp->dcopClient()->attach();
 
   // This key has no GUI apparently
   TDEConfig config("kcmdisplayrc", true );
@@ -194,13 +194,13 @@ KCMInit::KCMInit( TDECmdLineArgs* args )
   TQByteArray params;
   TQDataStream stream(params, IO_WriteOnly);
   stream << name << value;
-  kapp->dcopClient()->send("tdelauncher", "tdelauncher", "setLaunchEnv(TQCString,TQCString)", params);
+  tdeApp->dcopClient()->send("tdelauncher", "tdelauncher", "setLaunchEnv(TQCString,TQCString)", params);
   setenv( name, value, 1 ); // apply effect also to itself
 
   if( startup )
   {
      runModules( 0 );
-     kapp->dcopClient()->send( "ksplash", "", "upAndRunning(TQString)",  TQString("kcminit"));
+     tdeApp->dcopClient()->send( "ksplash", "", "upAndRunning(TQString)",  TQString("kcminit"));
      sendReady();
      TQTimer::singleShot( 300 * 1000, tqApp, TQ_SLOT( quit())); // just in case
      tqApp->exec(); // wait for runPhase1() and runPhase2()

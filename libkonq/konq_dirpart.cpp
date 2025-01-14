@@ -168,7 +168,7 @@ KonqDirPart::KonqDirPart( TQObject *parent, const char *name )
 	    this, TQ_SLOT( slotIconSizeToggled( bool ) ) );
     connect( m_paSmallIcons, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotIconSizeToggled( bool ) ) );
 
-    connect( kapp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(slotIconChanged(int)) );
+    connect( tdeApp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(slotIconChanged(int)) );
 #if 0
     // Extract 6 icon sizes from the icon theme.
     // Use 16,22,32,48,64,128 as default.

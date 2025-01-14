@@ -148,7 +148,7 @@ void FontDialog::setupFontEncodingBox()
 
 void FontDialog::load()
 {
-	TDEConfig *cfg = kapp->config();
+	TDEConfig *cfg = tdeApp->config();
 	{
 		TDEConfigGroupSaver groupSaver( cfg, "HTML Settings" );
 
@@ -178,7 +178,7 @@ void FontDialog::load()
 
 void FontDialog::save()
 {
-	TDEConfig *cfg = kapp->config();
+	TDEConfig *cfg = tdeApp->config();
 	{
 		TDEConfigGroupSaver groupSaver( cfg, "General" );
 		cfg->writeEntry( "UseKonqSettings", false );

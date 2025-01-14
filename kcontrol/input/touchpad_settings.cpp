@@ -345,7 +345,7 @@ void TouchpadSettings::apply(bool force)
 
         if (offWhileTyping)
         {
-            kapp->tdeinitExec("tdesyndaemon");
+            tdeApp->tdeinitExec("tdesyndaemon");
         }
     }
 

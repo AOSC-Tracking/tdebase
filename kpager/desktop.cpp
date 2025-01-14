@@ -160,16 +160,16 @@ KWin::WindowInfo *Desktop::windowAtPosition(const TQPoint &p, TQPoint *internalp
 void Desktop::convertRectS2P(TQRect &r)
 {
     TQRect tmp(r);
-    r.setRect(deskX()+tmp.x()*deskWidth()/kapp->desktop()->width(),
-	      deskY()+tmp.y()*deskHeight()/kapp->desktop()->height(),
-	      tmp.width()*deskWidth()/kapp->desktop()->width(),
-	      tmp.height()*deskHeight()/kapp->desktop()->height());
+    r.setRect(deskX()+tmp.x()*deskWidth()/tdeApp->desktop()->width(),
+	      deskY()+tmp.y()*deskHeight()/tdeApp->desktop()->height(),
+	      tmp.width()*deskWidth()/tdeApp->desktop()->width(),
+	      tmp.height()*deskHeight()/tdeApp->desktop()->height());
 }
 
 void Desktop::convertCoordP2S(int &x, int &y)
 {
-    x=(x-deskX())*(kapp->desktop()->width())/deskWidth();
-    y=(y-deskY())*(kapp->desktop()->height())/deskHeight();
+    x=(x-deskX())*(tdeApp->desktop()->width())/deskWidth();
+    y=(y-deskY())*(tdeApp->desktop()->height())/deskHeight();
 }
 
 TQPixmap scalePixmap(const TQPixmap &pixmap, int width, int height)
@@ -201,7 +201,7 @@ void Desktop::loadBgPixmap(void)
   bool retval;
 
 //  if (!m_bgDirty) return;
-  DCOPClient *client = kapp->dcopClient();
+  DCOPClient *client = tdeApp->dcopClient();
   if (!client->isAttached())
       client->attach();
   TQByteArray data, data2, replyData;

@@ -88,7 +88,7 @@ void CFontPreview::paintEvent(TQPaintEvent *)
     {
         if(!itsCurrentUrl.isEmpty())
         {
-            paint.setPen(kapp->palette().active().text());
+            paint.setPen(tdeApp->palette().active().text());
             paint.drawText(rect(), AlignCenter, i18n(" No preview available"));
         }
     }

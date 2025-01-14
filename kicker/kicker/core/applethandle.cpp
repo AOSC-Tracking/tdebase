@@ -58,7 +58,7 @@ AppletHandle::AppletHandle(AppletContainer* parent)
     m_dragBar->installEventFilter(this);
     m_layout->addWidget(m_dragBar);
 
-    if (kapp->authorizeTDEAction("kicker_rmb"))
+    if (tdeApp->authorizeTDEAction("kicker_rmb"))
     {
         m_menuButton = new AppletHandleButton( this );
         m_menuButton->installEventFilter(this);
@@ -252,7 +252,7 @@ bool AppletHandle::eventFilter(TQObject *o, TQEvent *e)
 
 void AppletHandle::menuButtonPressed()
 {
-    if (!kapp->authorizeTDEAction("kicker_rmb"))
+    if (!tdeApp->authorizeTDEAction("kicker_rmb"))
     {
         return;
     }

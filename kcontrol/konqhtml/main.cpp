@@ -149,9 +149,9 @@ void KJSParts::save()
   // Send signal to konqueror
   // Warning. In case something is added/changed here, keep kfmclient in sync
   TQByteArray data;
-  if ( !kapp->dcopClient()->isAttached() )
-    kapp->dcopClient()->attach();
-  kapp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", data );
+  if ( !tdeApp->dcopClient()->isAttached() )
+    tdeApp->dcopClient()->attach();
+  tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", data );
 }
 
 

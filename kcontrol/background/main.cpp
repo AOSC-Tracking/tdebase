@@ -100,7 +100,7 @@ void KBackground::save()
     m_base->save();
 
     // reconfigure kdesktop. kdesktop will notify all clients
-    DCOPClient *client = kapp->dcopClient();
+    DCOPClient *client = tdeApp->dcopClient();
     if (!client->isAttached())
 	client->attach();
 

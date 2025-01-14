@@ -44,7 +44,7 @@ void KonqFavIconMgr::setIconForURL(const KURL &url, const KURL &iconURL)
     TQByteArray data;
     TQDataStream str(data, IO_WriteOnly);
     str << url << iconURL;
-    kapp->dcopClient()->send("kded", "favicons", "setIconForURL(KURL, KURL)", data);
+    tdeApp->dcopClient()->send("kded", "favicons", "setIconForURL(KURL, KURL)", data);
 }
 
 void KonqFavIconMgr::downloadHostIcon(const KURL &url)
@@ -52,6 +52,6 @@ void KonqFavIconMgr::downloadHostIcon(const KURL &url)
     TQByteArray data;
     TQDataStream str(data, IO_WriteOnly);
     str << url;
-    kapp->dcopClient()->send("kded", "favicons", "downloadHostIcon(KURL)", data);
+    tdeApp->dcopClient()->send("kded", "favicons", "downloadHostIcon(KURL)", data);
 }
 

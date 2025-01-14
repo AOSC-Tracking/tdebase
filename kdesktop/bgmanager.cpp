@@ -102,7 +102,7 @@ KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* twinModule
     }
 
 #ifdef COMPOSITE
-    m_tPixmap = new KPixmap(kapp->desktop()->size());
+    m_tPixmap = new KPixmap(tdeApp->desktop()->size());
     m_tPixmap->fill(TQColor(0, 0x0));
     connect(myApp, TQ_SIGNAL(cmBackgroundChanged( bool )),
             TQ_SLOT(slotCmBackgroundChanged( bool )));
@@ -130,7 +130,7 @@ KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* twinModule
 
 
 #if (TQT_VERSION-0 >= 0x030200)
-    connect( kapp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized())); // RANDR support
+    connect( tdeApp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized())); // RANDR support
 #endif
 
     TQSize s(m_pKwinmodule->numberOfViewports(m_pKwinmodule->currentDesktop()));
@@ -1026,13 +1026,13 @@ void KBackgroundManager::desktopResized()
 #ifdef COMPOSITE
     if (m_tPixmap)
 	delete m_tPixmap;
-    m_tPixmap = new KPixmap(kapp->desktop()->size());
+    m_tPixmap = new KPixmap(tdeApp->desktop()->size());
     m_tPixmap->fill(TQColor(0, 0x0));
 #endif
     
     m_Hash = 0;
     if( m_pDesktop ) {
-        m_pDesktop->resize( kapp->desktop()->geometry().size());
+        m_pDesktop->resize( tdeApp->desktop()->geometry().size());
         if (m_Renderer[effectiveDesktop()]->renderer(0)->usingCrossXml()){
             m_Renderer[effectiveDesktop()]->renderer(0)->changeWallpaper();
         }

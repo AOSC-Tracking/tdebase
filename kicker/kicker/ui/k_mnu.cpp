@@ -125,13 +125,13 @@ void PanelKMenu::hideMenu()
     // Try to redraw the area under the menu
     // Qt makes this surprisingly difficult to do in a timely fashion!
     while (isShown() == true)
-        kapp->eventLoop()->processEvents(1000);
+        tdeApp->eventLoop()->processEvents(1000);
     TQTimer *windowtimer = new TQTimer( this );
     connect( windowtimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(windowClearTimeout()) );
     windowTimerTimedOut = false;
     windowtimer->start( 0, TRUE );	// Wait for all window system events to be processed
     while (windowTimerTimedOut == false)
-        kapp->eventLoop()->processEvents(TQEventLoop::ExcludeUserInput, 1000);
+        tdeApp->eventLoop()->processEvents(TQEventLoop::ExcludeUserInput, 1000);
 
     // HACK
     // The TDE Menu takes an unknown amount of time to disappear, and redrawing
@@ -144,7 +144,7 @@ void PanelKMenu::hideMenu()
     windowTimerTimedOut = false;
     delaytimer->start( 100, TRUE );	// Wait for 100 milliseconds
     while (windowTimerTimedOut == false)
-        kapp->eventLoop()->processEvents(TQEventLoop::ExcludeUserInput, 1000);
+        tdeApp->eventLoop()->processEvents(TQEventLoop::ExcludeUserInput, 1000);
 }
 
 void PanelKMenu::windowClearTimeout()
@@ -247,9 +247,9 @@ void PanelKMenu::initialize()
     if (loadSidePixmap())
     {
         // in case we've been through here before, let's disconnect
-        disconnect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()),
+        disconnect(tdeApp, TQ_SIGNAL(tdedisplayPaletteChanged()),
                    this, TQ_SLOT(paletteChanged()));
-        connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()),
+        connect(tdeApp, TQ_SIGNAL(tdedisplayPaletteChanged()),
                 this, TQ_SLOT(paletteChanged()));
     }
     else
@@ -317,7 +317,7 @@ void PanelKMenu::initialize()
     bool need_separator = false;
 
     // insert bookmarks
-    if (KickerSettings::useBookmarks() && kapp->authorizeTDEAction("bookmarks"))
+    if (KickerSettings::useBookmarks() && tdeApp->authorizeTDEAction("bookmarks"))
     {
         // Need to create a new popup each time, it's deleted by subMenus.clear()
         TDEPopupMenu * bookmarkParent = new TDEPopupMenu( this, "bookmarks" );
@@ -385,7 +385,7 @@ void PanelKMenu::initialize()
     }
 
     // run command
-    if (kapp->authorize("run_command"))
+    if (tdeApp->authorize("run_command"))
     {
         insertItem(KickerLib::menuIconSet("system-run"),
                    i18n("Run Command..."),
@@ -394,7 +394,7 @@ void PanelKMenu::initialize()
         insertSeparator();
     }
 
-    if (DM().isSwitchable() && kapp->authorize("switch_user"))
+    if (DM().isSwitchable() && tdeApp->authorize("switch_user"))
     {
         sessionsMenu = new TQPopupMenu( this );
         insertItem(KickerLib::menuIconSet("switchuser"), i18n("Switch User"), sessionsMenu);
@@ -412,12 +412,12 @@ void PanelKMenu::initialize()
         insertItem(KickerLib::menuIconSet("document-save"), i18n("Save Session"), this, TQ_SLOT(slotSaveSession()));
     }
 
-    if (kapp->authorize("lock_screen"))
+    if (tdeApp->authorize("lock_screen"))
     {
         insertItem(KickerLib::menuIconSet("system-lock-screen"), i18n("Lock Session"), this, TQ_SLOT(slotLock()));
     }
 
-    if (kapp->authorize("logout"))
+    if (tdeApp->authorize("logout"))
     {
         insertItem(KickerLib::menuIconSet("system-log-out"), i18n("Log Out..."), this, TQ_SLOT(slotLogout()));
     }
@@ -477,13 +477,13 @@ void PanelKMenu::slotLock()
     TQByteArray replyData;
     // Block here until lock is complete
     // If this is not done the desktop of the locked session will be shown after VT switch until the lock fully engages!
-    kapp->dcopClient()->call(appname, "KScreensaverIface", "lock()", TQCString(""), replyType, replyData);
+    tdeApp->dcopClient()->call(appname, "KScreensaverIface", "lock()", TQCString(""), replyType, replyData);
 }
 
 void PanelKMenu::slotLogout()
 {
     hide();
-    kapp->requestShutDown();
+    tdeApp->requestShutDown();
 }
 
 void PanelKMenu::slotPopulateSessions()
@@ -492,9 +492,9 @@ void PanelKMenu::slotPopulateSessions()
     DM dm;
 
     sessionsMenu->clear();
-    if (kapp->authorize("start_new_session") && (p = dm.numReserve()) >= 0)
+    if (tdeApp->authorize("start_new_session") && (p = dm.numReserve()) >= 0)
     {
-        if (kapp->authorize("lock_screen")) {
+        if (tdeApp->authorize("lock_screen")) {
             sessionsMenu->insertItem(SmallIconSet("system-lock-screen"), i18n("Lock Current && Start New Session"), 100 );
         }
         sessionsMenu->insertItem(SmallIconSet("switchuser"), i18n("Start New Session"), 101 );
@@ -528,7 +528,7 @@ void PanelKMenu::slotSessionActivated( int ent )
 void PanelKMenu::doNewSession( bool lock )
 {
     int result = KMessageBox::warningContinueCancel(
-        kapp->desktop()->screen(kapp->desktop()->screenNumber(this)),
+        tdeApp->desktop()->screen(tdeApp->desktop()->screenNumber(this)),
         i18n("<p>You have chosen to open another desktop session.<br>"
                "The current session will be hidden "
                "and a new login screen will be displayed.<br>"
@@ -558,7 +558,7 @@ void PanelKMenu::doNewSession( bool lock )
 void PanelKMenu::slotSaveSession()
 {
     TQByteArray data;
-    kapp->dcopClient()->send( "ksmserver", "default",
+    tdeApp->dcopClient()->send( "ksmserver", "default",
                               "saveCurrentSession()", data );
 }
 
@@ -569,8 +569,8 @@ void PanelKMenu::slotRunCommand()
     if ( kicker_screen_number )
         appname.sprintf("kdesktop-screen-%d", kicker_screen_number);
 
-    kapp->updateRemoteUserTimestamp( appname );
-    kapp->dcopClient()->send( appname, "KDesktopIface",
+    tdeApp->updateRemoteUserTimestamp( appname );
+    tdeApp->dcopClient()->send( appname, "KDesktopIface",
                               "popupExecuteCommand()", data );
 }
 

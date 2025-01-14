@@ -724,7 +724,7 @@ void TaskContainer::drawButton(TQPainter *p)
     if (taskBar->showIcons())
     {
       if (pixmap.isNull() && m_startup)
-          pixmap = kapp->iconLoader()->loadIcon(m_startup->icon(), TDEIcon::Panel, iconSize);
+          pixmap = tdeApp->iconLoader()->loadIcon(m_startup->icon(), TDEIcon::Panel, iconSize);
 
       if ( !pixmap.isNull() )
       {
@@ -1254,7 +1254,7 @@ void TaskContainer::popupMenu(int action)
     }
     else if (action == m_settingsObject->ShowOperationsMenu)
     {
-        if (!kapp->authorizeTDEAction("twin_rmb"))
+        if (!tdeApp->authorizeTDEAction("twin_rmb"))
         {
             return;
         }

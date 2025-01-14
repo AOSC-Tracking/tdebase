@@ -418,8 +418,8 @@ void DesktopBehavior::save()
     g_pConfig->sync();
 
     // Tell kdesktop about the new config file
-    if ( !kapp->dcopClient()->isAttached() )
-       kapp->dcopClient()->attach();
+    if ( !tdeApp->dcopClient()->isAttached() )
+       tdeApp->dcopClient()->attach();
     TQByteArray data;
 
     int konq_screen_number = TDEApplication::desktop()->primaryScreen();
@@ -428,11 +428,11 @@ void DesktopBehavior::save()
         appname = "kdesktop";
     else
         appname.sprintf("kdesktop-screen-%d", konq_screen_number);
-    kapp->dcopClient()->send( appname, "KDesktopIface", "configure()", data );
+    tdeApp->dcopClient()->send( appname, "KDesktopIface", "configure()", data );
     // for the standalone menubar setting
-    kapp->dcopClient()->send( "menuapplet*", "menuapplet", "configure()", data );
-    kapp->dcopClient()->send( "kicker", "kicker", "configureMenubar()", data );
-    kapp->dcopClient()->send( "twin*", "", "reconfigure()", data );
+    tdeApp->dcopClient()->send( "menuapplet*", "menuapplet", "configure()", data );
+    tdeApp->dcopClient()->send( "kicker", "kicker", "configureMenubar()", data );
+    tdeApp->dcopClient()->send( "twin*", "", "reconfigure()", data );
 }
 
 void DesktopBehavior::enableChanged()

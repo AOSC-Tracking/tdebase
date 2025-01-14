@@ -296,7 +296,7 @@ bool KonqOperations::askDeleteConfirmation( const KURL::List & selectedURLs, int
       if (!keyName.isEmpty())
       {
          // Check kmessagebox setting... erase & copy to konquerorrc.
-         TDEConfig *config = kapp->config();
+         TDEConfig *config = tdeApp->config();
          TDEConfigGroupSaver saver(config, "Notification Messages");
          if (!config->readBoolEntry(keyName, true))
          {
@@ -512,7 +512,7 @@ void KonqOperations::doFileCopy()
     }
 
     bool linkOnly = false;
-    if (isDesktopFile && !kapp->authorize("run_desktop_files") &&
+    if (isDesktopFile && !tdeApp->authorize("run_desktop_files") &&
         (m_destURL.path(1) == TDEGlobalSettings::desktopPath()) )
     {
        linkOnly = true;
@@ -520,7 +520,7 @@ void KonqOperations::doFileCopy()
 
     if ( !mlst.isEmpty() && m_destURL.protocol() == "trash" )
     {
-        if ( itemIsOnDesktop && !kapp->authorize("editable_desktop_icons") )
+        if ( itemIsOnDesktop && !tdeApp->authorize("editable_desktop_icons") )
         {
             delete this;
             return;

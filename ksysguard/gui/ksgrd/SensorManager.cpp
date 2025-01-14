@@ -238,7 +238,7 @@ void SensorManager::requestDisengage( const SensorAgent *agent )
 	 * So we have to post an event which is later caught by
 	 * SensorManger::customEvent(). */
   TQCustomEvent* event = new TQCustomEvent( TQEvent::User, (void*)agent );
-  kapp->postEvent( this, event );
+  tdeApp->postEvent( this, event );
 }
 
 bool SensorManager::disengage( const SensorAgent *agent )
@@ -293,7 +293,7 @@ void SensorManager::hostLost( const SensorAgent *agent )
     TQCustomEvent *event = new TQCustomEvent( TQEvent::User );
     event->setData( new TQString( i18n( "Connection to %1 has been lost." )
                     .arg( agent->hostName() ) ) );
-    kapp->postEvent( mBroadcaster, event );
+    tdeApp->postEvent( mBroadcaster, event );
   }
 }
 
@@ -305,7 +305,7 @@ void SensorManager::notify( const TQString &msg ) const
   if ( mBroadcaster ) {
     TQCustomEvent *event = new TQCustomEvent( TQEvent::User );
     event->setData( new TQString( msg ) );
-    kapp->postEvent( mBroadcaster, event );
+    tdeApp->postEvent( mBroadcaster, event );
   }
 }
 

@@ -74,7 +74,7 @@ static bool startArts()
 	delete config;
 
 	if (startServer)
-		kapp->tdeinitExec(startRealtime?"artswrapper":"artsd",
+		tdeApp->tdeinitExec(startRealtime?"artswrapper":"artsd",
 		                  TQStringList::split(" ",args));
 	return startServer;
 }
@@ -600,7 +600,7 @@ void KArtsModule::restartServer()
 	}
 
 	// Restart knotify
-	kapp->startServiceByDesktopName("knotify");
+	tdeApp->startServiceByDesktopName("knotify");
 }
 
 bool KArtsModule::artsdIsRunning()

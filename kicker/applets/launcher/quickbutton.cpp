@@ -118,7 +118,7 @@ QuickURL::QuickURL(const TQString &u)
 }
 
 void QuickURL::run() const
-{  kapp->propagateSessionManager();   // is this needed?
+{  tdeApp->propagateSessionManager();   // is this needed?
    if (_service)
       KRun::run(*(_service), KURL::List());
    else

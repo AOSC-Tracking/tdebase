@@ -111,7 +111,7 @@ void ExtensionManager::initialize()
         m_mainPanel = pm->createExtensionContainer(
                             "childpanelextension.desktop",
                             true,
-                            TQString(kapp->aboutData()->appName()) + "rc",
+                            TQString(tdeApp->aboutData()->appName()) + "rc",
                             "Main Panel");
     }
 
@@ -129,7 +129,7 @@ void ExtensionManager::initialize()
 
     m_mainPanel->readConfig();
     m_mainPanel->show();
-    kapp->processEvents();
+    tdeApp->processEvents();
 
     // read extension list
     config->setGroup("General");
@@ -173,7 +173,7 @@ void ExtensionManager::initialize()
             addContainer(e);
             e->readConfig();
             e->show();
-            kapp->processEvents();
+            tdeApp->processEvents();
         }
     }
     m_loadingContainers = false;
@@ -222,7 +222,7 @@ void ExtensionManager::configureMenubar(bool duringInit)
         updateMenubar();
 
         m_menubarPanel->show();
-        connect(kapp, TQ_SIGNAL(tdedisplayFontChanged()), TQ_SLOT(updateMenubar()));
+        connect(tdeApp, TQ_SIGNAL(tdedisplayFontChanged()), TQ_SLOT(updateMenubar()));
     }
     else if (m_menubarPanel)
     {
@@ -692,7 +692,7 @@ TQRect ExtensionManager::workArea(int XineramaScreen, const ExtensionContainer* 
     }
 
     TQRect workArea;
-    if ((XineramaScreen == XineramaAllScreens) || (kapp->desktop()->numScreens() < 2))
+    if ((XineramaScreen == XineramaAllScreens) || (tdeApp->desktop()->numScreens() < 2))
     {
          /* special value for all screens */
          workArea = Kicker::the()->twinModule()->workArea(list);

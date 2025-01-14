@@ -514,8 +514,8 @@ static void sighandler(int sig)
        delete server;
     }
 
-    if (kapp) {
-        kapp->quit();
+    if (tdeApp) {
+        tdeApp->quit();
     }
     //::exit(0);
 }
@@ -688,7 +688,7 @@ KSMServer::KSMServer( const TQString& windowManager, const TQString& windowManag
     connect( &protectionTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( protectionTimerTick() ) );
     connect( &restoreTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( tryRestoreNext() ) );
     connect( &shutdownTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( timeoutQuit() ) );
-    connect( kapp, TQ_SIGNAL( shutDown() ), this, TQ_SLOT( cleanUp() ) );
+    connect( tdeApp, TQ_SIGNAL( shutDown() ), this, TQ_SLOT( cleanUp() ) );
 
     reconfigure();
 }

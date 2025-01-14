@@ -94,8 +94,8 @@ static void signalHandler(int sigId)
     // try to cleanup all windows
     signal(SIGTERM, SIG_DFL); // next one kills
     signal(SIGHUP,  SIG_DFL); // next one kills
-    if (kapp)
-        kapp->quit(); // turn catchable signals into clean shutdown
+    if (tdeApp)
+        tdeApp->quit(); // turn catchable signals into clean shutdown
 }
 
 void KDesktop::slotUpAndRunning()
@@ -273,7 +273,7 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
 
     // Mark kdeskop as immutable if all of its config modules have been disabled
     if (!myApp->config()->isImmutable() &&
-        kapp->authorizeControlModules(KRootWm::configModules()).isEmpty())
+        tdeApp->authorizeControlModules(KRootWm::configModules()).isEmpty())
     {
        myApp->config()->setReadOnly(true);
        myApp->config()->reparseConfiguration();

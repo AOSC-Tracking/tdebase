@@ -162,7 +162,7 @@ bool PanelExtension::eventFilter(TQObject*, TQEvent * e)
     if ( e->type() == TQEvent::MouseButtonPress )
     {
         TQMouseEvent* me = (TQMouseEvent*) e;
-        if ( me->button() == TQt::RightButton && kapp->authorize("action/kicker_rmb"))
+        if ( me->button() == TQt::RightButton && tdeApp->authorize("action/kicker_rmb"))
         {
             Kicker::the()->setInsertionPoint(me->globalPos());
             opMenu()->exec(me->globalPos());
@@ -386,7 +386,7 @@ void PanelExtension::slotBuildOpMenu()
                             this, TQ_SLOT(showProcessManager()));
     _opMnu->insertSeparator();
 
-    if (kapp->authorize("action/help"))
+    if (tdeApp->authorize("action/help"))
     {
         KHelpMenu* help = new KHelpMenu( this, TDEGlobal::instance()->aboutData(), false);
         _opMnu->insertItem(SmallIconSet("help"), KStdGuiItem::help().text(), help->menu());

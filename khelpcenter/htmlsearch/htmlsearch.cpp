@@ -22,7 +22,7 @@ HTMLSearch::HTMLSearch()
 
 TQString HTMLSearch::dataPath(const TQString& _lang)
 {
-    return kapp->dirs()->saveLocation("data", TQString("khelpcenter/%1").arg(_lang));
+    return tdeApp->dirs()->saveLocation("data", TQString("khelpcenter/%1").arg(_lang));
 }
 
 
@@ -56,7 +56,7 @@ void HTMLSearch::scanDir(const TQString& dir)
         if (*it != "." && *it != "..")
         {
             scanDir(dir + *it + "/");
-            kapp->processEvents();
+            tdeApp->processEvents();
         }
 }
 
@@ -74,7 +74,7 @@ bool HTMLSearch::saveFilesList(const TQString& _lang)
 
     // add KDE help dirs
     if (config->readBoolEntry("KDE", true))
-        dirs = kapp->dirs()->findDirs("html", _lang + "/");
+        dirs = tdeApp->dirs()->findDirs("html", _lang + "/");
     kdDebug() << "got " << dirs.count() << " dirs\n";
 
     // TODO: Man and Info!!
@@ -232,7 +232,7 @@ bool HTMLSearch::generateIndex(TQString _lang, TQWidget *parent)
     // create progress dialog
     progress = new ProgressDialog(parent);
     progress->show();
-    kapp->processEvents();
+    tdeApp->processEvents();
 
     // create files list ----------------------------------------------
     if (!saveFilesList(_lang))
@@ -243,7 +243,7 @@ bool HTMLSearch::generateIndex(TQString _lang, TQWidget *parent)
     // run htdig ------------------------------------------------------
     TDEConfig *config = new TDEConfig("khelpcenterrc", true);
     TDEConfigGroupSaver saver(config, "htdig");
-    TQString exe = config->readPathEntry("htdig", kapp->dirs()->findExe("htdig"));
+    TQString exe = config->readPathEntry("htdig", tdeApp->dirs()->findExe("htdig"));
 
     if (exe.isEmpty())
     {
@@ -310,7 +310,7 @@ bool HTMLSearch::generateIndex(TQString _lang, TQWidget *parent)
         // execute htdig
         _proc->start(TDEProcess::NotifyOnExit, TDEProcess::Stdout );
 
-        kapp->enter_loop();
+        tdeApp->enter_loop();
 
         if (!_proc->normalExit() || _proc->exitStatus() != 0)
 	{
@@ -322,13 +322,13 @@ bool HTMLSearch::generateIndex(TQString _lang, TQWidget *parent)
 
         // _filesDigged += CHUNK_SIZE;
         progress->setFilesDigged(_filesDigged);
-        kapp->processEvents();
+        tdeApp->processEvents();
     }
 
     progress->setState(2);
 
     // run htmerge -----------------------------------------------------
-    exe = config->readPathEntry("htmerge", kapp->dirs()->findExe("htmerge"));
+    exe = config->readPathEntry("htmerge", tdeApp->dirs()->findExe("htmerge"));
     if (exe.isEmpty())
     {
         delete config;
@@ -347,7 +347,7 @@ bool HTMLSearch::generateIndex(TQString _lang, TQWidget *parent)
 
     _proc->start(TDEProcess::NotifyOnExit, TDEProcess::Stdout);
 
-    kapp->enter_loop();
+    tdeApp->enter_loop();
 
     if (!_proc->normalExit() || _proc->exitStatus() != 0)
     {
@@ -360,7 +360,7 @@ bool HTMLSearch::generateIndex(TQString _lang, TQWidget *parent)
     delete _proc;
 
     progress->setState(3);
-    kapp->processEvents();
+    tdeApp->processEvents();
 
     delete progress;
     delete config;
@@ -393,7 +393,7 @@ void HTMLSearch::htdigExited(TDEProcess *p)
 {
     kdDebug() << "htdig terminated " << p->exitStatus() << endl;
     _htdigRunning = false;
-    kapp->exit_loop();
+    tdeApp->exit_loop();
 }
 
 
@@ -401,7 +401,7 @@ void HTMLSearch::htmergeExited(TDEProcess *)
 {
   kdDebug() << "htmerge terminated" << endl;
   _htmergeRunning = false;
-  kapp->exit_loop();
+  tdeApp->exit_loop();
 }
 
 
@@ -415,7 +415,7 @@ void HTMLSearch::htsearchExited(TDEProcess *)
 {
   kdDebug() << "htsearch terminated" << endl;
   _htsearchRunning = false;
-  kapp->exit_loop();
+  tdeApp->exit_loop();
 }
 
 
@@ -432,7 +432,7 @@ TQString HTMLSearch::search(TQString _lang, TQString words, TQString method, int
   // run htsearch ----------------------------------------------------
   TDEConfig *config = new TDEConfig("khelpcenterrc", true);
   TDEConfigGroupSaver saver(config, "htdig");
-  TQString exe = config->readPathEntry("htsearch", kapp->dirs()->findExe("htsearch"));
+  TQString exe = config->readPathEntry("htsearch", tdeApp->dirs()->findExe("htsearch"));
   if (exe.isEmpty())
   {
       delete config;
@@ -454,7 +454,7 @@ TQString HTMLSearch::search(TQString _lang, TQString words, TQString method, int
 
   _proc->start(TDEProcess::NotifyOnExit, TDEProcess::Stdout);
 
-  kapp->enter_loop();
+  tdeApp->enter_loop();
 
   if (!_proc->normalExit() || _proc->exitStatus() != 0)
     {

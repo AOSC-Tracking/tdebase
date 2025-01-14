@@ -54,7 +54,7 @@ StartupId::StartupId( TQWidget* parent, const char* name )
         XWindowAttributes attrs;
         XGetWindowAttributes( tqt_xdisplay(), tqt_xrootwin(), &attrs);
         XSelectInput( tqt_xdisplay(), tqt_xrootwin(), attrs.your_event_mask | SubstructureNotifyMask);
-        kapp->installX11EventFilter( this );
+        tdeApp->installX11EventFilter( this );
         }
     connect( &update_timer, TQ_SIGNAL( timeout()), TQ_SLOT( update_startupid()));
     connect( &startup_info,
@@ -140,7 +140,7 @@ bool StartupId::x11Event( XEvent* e )
 void StartupId::finishKDEStartup()
     {
     kde_startup_status = StartupDone;
-    kapp->removeX11EventFilter( this );
+    tdeApp->removeX11EventFilter( this );
     if( startups.count() == 0 )
         stop_startupid();
     }

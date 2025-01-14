@@ -257,7 +257,7 @@ void KSMServer::shutdownInternal( TDEApplication::ShutdownConfirm confirm,
         // Set the real desktop background to black so that exit looks
         // clean regardless of what was on "our" desktop.
         if (!showLogoutStatusDlg) {
-            kapp->desktop()->setBackgroundColor( TQt::black );
+            tdeApp->desktop()->setBackgroundColor( TQt::black );
         }
         state = Shutdown;
         wmPhase1WaitingCount = 0;
@@ -318,7 +318,7 @@ void KSMServer::suspendInternal(int state)
         TQByteArray replyData;
         // Block here until lock is complete
         // If this is not done the desktop of the locked session will be shown after suspend/hibernate until the lock fully engages!
-        kapp->dcopClient()->call("kdesktop", "KScreensaverIface", "lock()", TQCString(""), replyType, replyData);
+        tdeApp->dcopClient()->call("kdesktop", "KScreensaverIface", "lock()", TQCString(""), replyType, replyData);
     }
 
 #ifdef WITH_TDEHWLIB
@@ -833,12 +833,12 @@ void KSMServer::completeShutdownOrCheckpoint()
 
     if ( state == Shutdown ) {
         bool waitForKNotify = true;
-        if( !kapp->dcopClient()->connectDCOPSignal( "knotify", "",
+        if( !tdeApp->dcopClient()->connectDCOPSignal( "knotify", "",
             "notifySignal(TQString,TQString,TQString,TQString,TQString,int,int,int,int)",
             "ksmserver", "notifySlot(TQString,TQString,TQString,TQString,TQString,int,int,int,int)", false )) {
             waitForKNotify = false;
         }
-        if( !kapp->dcopClient()->connectDCOPSignal( "knotify", "",
+        if( !tdeApp->dcopClient()->connectDCOPSignal( "knotify", "",
             "playingFinished(int,int)",
             "ksmserver", "logoutSoundFinished(int,int)", false )) {
             waitForKNotify = false;
@@ -1024,7 +1024,7 @@ void KSMServer::killingCompleted()
         pid_t child;
         child = fork();
         if (child != 0) {
-            kapp->quit();
+            tdeApp->quit();
         }
         else if (child == 0) {
             // If any remaining client(s) do not exit quickly (e.g. drkonqui) terminate so that they can be seen and interacted with
@@ -1033,7 +1033,7 @@ void KSMServer::killingCompleted()
         }
     }
     else {
-        kapp->quit();
+        tdeApp->quit();
     }
 }
 

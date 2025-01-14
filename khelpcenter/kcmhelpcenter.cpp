@@ -240,12 +240,12 @@ KCMHelpCenter::KCMHelpCenter( KHC::SearchEngine *engine, TQWidget *parent,
 
   load();
 
-  bool success = kapp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
+  bool success = tdeApp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
       0, "buildIndexProgress()", "kcmhelpcenter",
       "slotIndexProgress()", false );
   if ( !success ) kdError() << "connect DCOP signal failed" << endl;
 
-  success = kapp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
+  success = tdeApp->dcopClient()->connectDCOPSignal( "khc_indexbuilder",
       0, "buildIndexError(TQString)", "kcmhelpcenter",
       "slotIndexError(TQString)", false );
   if ( !success ) kdError() << "connect DCOP signal failed" << endl;

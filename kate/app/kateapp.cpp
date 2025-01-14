@@ -113,7 +113,7 @@ KateApp::~KateApp ()
 
 KateApp *KateApp::self ()
 {
-  return (KateApp *) kapp;
+  return (KateApp *) tdeApp;
 }
 
 Kate::Application *KateApp::application ()

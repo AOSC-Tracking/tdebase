@@ -77,7 +77,7 @@ void ThemeUnified::_initUi()
   mSysModalDialog->show();
   mSysModalDialog->setActiveWindow();
 
-  const TQRect rect = kapp->desktop()->screenGeometry( mTheme->xineramaScreen() );
+  const TQRect rect = tdeApp->desktop()->screenGeometry( mTheme->xineramaScreen() );
 
   // Center the dialog
   TQSize sh = sizeHint();

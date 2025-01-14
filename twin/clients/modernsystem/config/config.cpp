@@ -57,7 +57,7 @@ ModernSysConfig::ModernSysConfig(TDEConfig* conf, TQWidget* parent) : TQObject(p
 	hbox = new TQHBox(sliderBox);
 	hbox->setSpacing(6);
 
-	bool rtl = kapp->reverseLayout();
+	bool rtl = tdeApp->reverseLayout();
 	label1 = new TQLabel(i18n("Small"), hbox);
 	label1->setAlignment(rtl ? AlignRight : AlignLeft);
 	label2 = new TQLabel(i18n("Medium"), hbox);

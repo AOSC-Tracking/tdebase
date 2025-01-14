@@ -72,8 +72,8 @@ void KAbstractDebugDialog::buildButtons( TQVBoxLayout * topLayout )
 
 void KAbstractDebugDialog::slotShowHelp()
 {
-  if (kapp)
-    kapp->invokeHelp();
+  if (tdeApp)
+    tdeApp->invokeHelp();
 }
 
 void KAbstractDebugDialog::slotApply()

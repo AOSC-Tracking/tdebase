@@ -474,7 +474,7 @@ protected slots:
   // Connected to KSycoca
   void slotDatabaseChanged();
 
-  // Connected to KApp
+  // Connected to TDEApp
   void slotReconfigure();
 
   void slotForceSaveMainWindowSettings();

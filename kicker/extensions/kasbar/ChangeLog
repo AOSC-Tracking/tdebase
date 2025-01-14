@@ -634,7 +634,7 @@
 
 2002-05-14 Tuesday 10:31  gioele
 
-	* kapp.h -> tdeapplication.h
+	* tdeApp.h -> tdeapplication.h
 
 2002-04-23 Tuesday 14:02  binner
 

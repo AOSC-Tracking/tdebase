@@ -131,7 +131,7 @@ TQPopupMenu* Workspace::clientPopup()
         popup->insertSeparator();
 
         if (!TDEGlobal::config()->isImmutable() && 
-            !kapp->authorizeControlModules(Workspace::configModules(true)).isEmpty())
+            !tdeApp->authorizeControlModules(Workspace::configModules(true)).isEmpty())
             {
             popup->insertItem(SmallIconSet( "configure" ), i18n("Configur&e Window Behavior…"), this, TQ_SLOT( configureWM() ));
             popup->insertSeparator();
@@ -1148,7 +1148,7 @@ void Workspace::slotWindowOperations()
 
 void Workspace::showWindowMenu( const TQRect &pos, Client* cl )
     {
-    if (!kapp->authorizeTDEAction("twin_rmb"))
+    if (!tdeApp->authorizeTDEAction("twin_rmb"))
         return;
     if( !cl )
         return;

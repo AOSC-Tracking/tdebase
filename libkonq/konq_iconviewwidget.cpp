@@ -127,8 +127,8 @@ KonqIconViewWidget::KonqIconViewWidget( TQWidget * parent, const char * name, WF
     connect( this, TQ_SIGNAL( selectionChanged() ),
              this, TQ_SLOT( slotSelectionChanged() ) );
 
-    kapp->addKipcEventMask( KIPC::IconChanged );
-    connect( kapp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(slotIconChanged(int)) );
+    tdeApp->addKipcEventMask( KIPC::IconChanged );
+    connect( tdeApp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(slotIconChanged(int)) );
     connect( this, TQ_SIGNAL(onItem(TQIconViewItem *)), TQ_SLOT(slotOnItem(TQIconViewItem *)) );
     connect( this, TQ_SIGNAL(onViewport()), TQ_SLOT(slotOnViewport()) );
     connect( this, TQ_SIGNAL(itemRenamed(TQIconViewItem *, const TQString &)), TQ_SLOT(slotItemRenamed(TQIconViewItem *, const TQString &)) );
@@ -349,7 +349,7 @@ void KonqIconViewWidget::slotOnItem( TQIconViewItem *_item )
         d->pSoundPlayer->mimeTypes().contains(
             item->item()->mimetype())
         && TDEGlobalSettings::showFilePreview(item->item()->url())
-        && topLevelWidget() == kapp->activeWindow())
+        && topLevelWidget() == tdeApp->activeWindow())
     {
         d->pSoundItem = item;
         d->bSoundItemClicked = false;

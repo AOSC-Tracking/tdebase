@@ -121,7 +121,7 @@ void HtmlSearchConfig::load( TDEConfig *config )
 {
   config->setGroup("htdig");
 
-  mHtsearchUrl->lineEdit()->setText(config->readPathEntry("htsearch", kapp->dirs()->findExe("htsearch")));
+  mHtsearchUrl->lineEdit()->setText(config->readPathEntry("htsearch", tdeApp->dirs()->findExe("htsearch")));
   mIndexerBin->lineEdit()->setText(config->readPathEntry("indexer"));
   mDbDir->lineEdit()->setText(config->readPathEntry("dbdir", "/opt/www/htdig/db/" ) );
 }
@@ -137,14 +137,14 @@ void HtmlSearchConfig::save( TDEConfig *config )
 
 void HtmlSearchConfig::defaults()
 {
-    mHtsearchUrl->lineEdit()->setText(kapp->dirs()->findExe("htsearch"));
+    mHtsearchUrl->lineEdit()->setText(tdeApp->dirs()->findExe("htsearch"));
     mIndexerBin->lineEdit()->setText("");
     mDbDir->lineEdit()->setText("/opt/www/htdig/db/" );
 }
 
 void HtmlSearchConfig::urlClicked(const TQString &url)
 {
-  kapp->invokeBrowser(url);
+  tdeApp->invokeBrowser(url);
 }
 
 } // End namespace KHC

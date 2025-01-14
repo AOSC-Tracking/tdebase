@@ -406,7 +406,7 @@ SensorLogger::RMBClicked(TQListViewItem* item, const TQPoint& point, int)
 	case 2: {
 		TQCustomEvent* ev = new TQCustomEvent(TQEvent::User);
 		ev->setData(this);
-		kapp->postEvent(parent(), ev);
+		tdeApp->postEvent(parent(), ev);
 		break;
 		}
 	case 3:	{

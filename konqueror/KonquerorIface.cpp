@@ -60,7 +60,7 @@ DCOPRef KonquerorIface::openBrowserWindow( const TQString &url )
 
 DCOPRef KonquerorIface::openBrowserWindowASN( const TQString &url, const TQCString& startup_id )
 {
-    kapp->setStartupId( startup_id );
+    tdeApp->setStartupId( startup_id );
     return openBrowserWindow( url );
 }
 
@@ -71,7 +71,7 @@ DCOPRef KonquerorIface::createNewWindow( const TQString &url )
 
 DCOPRef KonquerorIface::createNewWindowASN( const TQString &url, const TQCString& startup_id, bool tempFile )
 {
-    kapp->setStartupId( startup_id );
+    tdeApp->setStartupId( startup_id );
     return createNewWindow( url, TQString::null, tempFile );
 }
 
@@ -86,7 +86,7 @@ DCOPRef KonquerorIface::createNewWindowWithSelection( const TQString &url, TQStr
 
 DCOPRef KonquerorIface::createNewWindowWithSelectionASN( const TQString &url, TQStringList filesToSelect, const TQCString &startup_id )
 {
-    kapp->setStartupId( startup_id );
+    tdeApp->setStartupId( startup_id );
     return createNewWindowWithSelection( url, filesToSelect );
 }
 
@@ -106,7 +106,7 @@ DCOPRef KonquerorIface::createNewWindow( const TQString &url, const TQString &mi
 DCOPRef KonquerorIface::createNewWindowASN( const TQString &url, const TQString &mimetype,
     const TQCString& startup_id, bool tempFile )
 {
-    kapp->setStartupId( startup_id );
+    tdeApp->setStartupId( startup_id );
     return createNewWindow( url, mimetype, tempFile );
 }
 
@@ -123,7 +123,7 @@ DCOPRef KonquerorIface::createBrowserWindowFromProfile( const TQString &path )
 
 DCOPRef KonquerorIface::createBrowserWindowFromProfileASN( const TQString &path, const TQCString& startup_id )
 {
-    kapp->setStartupId( startup_id );
+    tdeApp->setStartupId( startup_id );
     return createBrowserWindowFromProfile( path );
 }
 
@@ -141,7 +141,7 @@ DCOPRef KonquerorIface::createBrowserWindowFromProfile( const TQString & path, c
 DCOPRef KonquerorIface::createBrowserWindowFromProfileASN( const TQString &path, const TQString &filename,
     const TQCString& startup_id )
 {
-    kapp->setStartupId( startup_id );
+    tdeApp->setStartupId( startup_id );
     return createBrowserWindowFromProfile( path, filename );
 }
 
@@ -157,7 +157,7 @@ DCOPRef KonquerorIface::createBrowserWindowFromProfileAndURL( const TQString & p
 DCOPRef KonquerorIface::createBrowserWindowFromProfileAndURLASN( const TQString & path, const TQString &filename, const TQString &url,
     const TQCString& startup_id )
 {
-    kapp->setStartupId( startup_id );
+    tdeApp->setStartupId( startup_id );
     return createBrowserWindowFromProfileAndURL( path, filename, url );
 }
 
@@ -175,7 +175,7 @@ DCOPRef KonquerorIface::createBrowserWindowFromProfileAndURL( const TQString &pa
 DCOPRef KonquerorIface::createBrowserWindowFromProfileAndURLASN( const TQString & path, const TQString &filename, const TQString &url, const TQString &mimetype,
     const TQCString& startup_id )
 {
-    kapp->setStartupId( startup_id );
+    tdeApp->setStartupId( startup_id );
     return createBrowserWindowFromProfileAndURL( path, filename, url, mimetype );
 }
 
@@ -218,7 +218,7 @@ TQValueList<DCOPRef> KonquerorIface::getWindows()
     {
       TQPtrListIterator<KonqMainWindow> it( *mainWindows );
       for (; it.current(); ++it )
-        lst.append( DCOPRef( kapp->dcopClient()->appId(), it.current()->dcopObject()->objId() ) );
+        lst.append( DCOPRef( tdeApp->dcopClient()->appId(), it.current()->dcopObject()->objId() ) );
     }
     return lst;
 }
@@ -290,5 +290,5 @@ bool KonquerorIface::processCanBeReused( int screen )
 void KonquerorIface::terminatePreloaded()
 {
     if( KonqMainWindow::isPreloaded())
-        kapp->exit();
+        tdeApp->exit();
 }

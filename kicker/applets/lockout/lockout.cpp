@@ -88,19 +88,19 @@ Lockout::Lockout( const TQString& configFile, TQWidget *parent, const char *name
     lockButton->installEventFilter( this );
     logoutButton->installEventFilter( this );
 
-    if (!kapp->authorize("lock_screen"))
+    if (!tdeApp->authorize("lock_screen"))
        lockButton->hide();
 
-    if (!kapp->authorize("logout"))
+    if (!tdeApp->authorize("logout"))
        logoutButton->hide();
 
     lockButton->setSizePolicy(TQSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding));
     logoutButton->setSizePolicy(TQSizePolicy(TQSizePolicy::MinimumExpanding, TQSizePolicy::MinimumExpanding));
 
-    if ( !kapp->dcopClient()->isAttached() )
-        kapp->dcopClient()->attach();
+    if ( !tdeApp->dcopClient()->isAttached() )
+        tdeApp->dcopClient()->attach();
 
-    connect( kapp, TQ_SIGNAL( iconChanged(int) ), TQ_SLOT( slotIconChanged() ));
+    connect( tdeApp, TQ_SIGNAL( iconChanged(int) ), TQ_SLOT( slotIconChanged() ));
 }
 
 Lockout::~Lockout()
@@ -146,12 +146,12 @@ void Lockout::lock()
     int kicker_screen_number = tqt_xscreen();
     if ( kicker_screen_number )
         appname.sprintf("kdesktop-screen-%d", kicker_screen_number);
-    kapp->dcopClient()->send(appname, "KScreensaverIface", "lock()", TQString(""));
+    tdeApp->dcopClient()->send(appname, "KScreensaverIface", "lock()", TQString(""));
 }
 
 void Lockout::logout()
 {
-    kapp->requestShutDown();
+    tdeApp->requestShutDown();
 }
 
 void Lockout::mousePressEvent(TQMouseEvent* e)
@@ -185,7 +185,7 @@ void Lockout::propagateMouseEvent(TQMouseEvent* e)
 
 bool Lockout::eventFilter( TQObject *o, TQEvent *e )
 {
-    if (!kapp->authorizeTDEAction("kicker_rmb"))
+    if (!tdeApp->authorizeTDEAction("kicker_rmb"))
         return false;     // Process event normally:
 
     if( e->type() == TQEvent::MouseButtonPress )

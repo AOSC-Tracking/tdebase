@@ -256,9 +256,9 @@ void TDEHTMLSearchConfig::load()
   TDEConfig *config = new TDEConfig("khelpcenterrc", true);
 
   config->setGroup("htdig");
-  htdigBin->lineEdit()->setText(config->readPathEntry("htdig", kapp->dirs()->findExe("htdig")));
-  htsearchBin->lineEdit()->setText(config->readPathEntry("htsearch", kapp->dirs()->findExe("htsearch")));
-  htmergeBin->lineEdit()->setText(config->readPathEntry("htmerge", kapp->dirs()->findExe("htmerge")));
+  htdigBin->lineEdit()->setText(config->readPathEntry("htdig", tdeApp->dirs()->findExe("htdig")));
+  htsearchBin->lineEdit()->setText(config->readPathEntry("htsearch", tdeApp->dirs()->findExe("htsearch")));
+  htmergeBin->lineEdit()->setText(config->readPathEntry("htmerge", tdeApp->dirs()->findExe("htmerge")));
 
   config->setGroup("Scope");
   indexKDE->setChecked(config->readBoolEntry("KDE", true));
@@ -310,9 +310,9 @@ void TDEHTMLSearchConfig::save()
 
 void TDEHTMLSearchConfig::defaults()
 {
-  htdigBin->lineEdit()->setText(kapp->dirs()->findExe("htdig"));
-  htsearchBin->lineEdit()->setText(kapp->dirs()->findExe("htsearch"));
-  htmergeBin->lineEdit()->setText(kapp->dirs()->findExe("htmerge"));
+  htdigBin->lineEdit()->setText(tdeApp->dirs()->findExe("htdig"));
+  htsearchBin->lineEdit()->setText(tdeApp->dirs()->findExe("htsearch"));
+  htmergeBin->lineEdit()->setText(tdeApp->dirs()->findExe("htmerge"));
 
   indexKDE->setChecked(true);
   indexMan->setChecked(false);
@@ -328,7 +328,7 @@ void TDEHTMLSearchConfig::defaults()
 
 void TDEHTMLSearchConfig::urlClicked(const TQString &url)
 {
-  kapp->invokeBrowser(url);
+  tdeApp->invokeBrowser(url);
 }
 
 
@@ -336,7 +336,7 @@ void TDEHTMLSearchConfig::generateIndex()
 {
   save();
 
-  TQString exe = kapp->dirs()->findExe("tdehtmlindex");
+  TQString exe = tdeApp->dirs()->findExe("tdehtmlindex");
   if (exe.isEmpty())
     return;
 

@@ -112,7 +112,7 @@ void RecentlyLaunchedApps::appLaunched(const TQString& strApp)
     TQByteArray params;
     TQDataStream stream(params, IO_WriteOnly);
     stream << launchDCOPSignalSource() << strApp;
-    TDEApplication::kApplication()->dcopClient()->emitDCOPSignal("appLauncher",
+    tdeApp->dcopClient()->emitDCOPSignal("appLauncher",
         "serviceStartedByStorageId(TQString,TQString)", params);
 
     for (TQValueList<RecentlyLaunchedAppInfo>::iterator it = m_appInfos.begin();

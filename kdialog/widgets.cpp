@@ -42,10 +42,10 @@
 void Widgets::handleXGeometry(TQWidget * dlg)
 {
 #ifdef TQ_WS_X11
-    if ( ! kapp->geometryArgument().isEmpty()) {
+    if ( ! tdeApp->geometryArgument().isEmpty()) {
 	int x, y;
 	int w, h;
-	int m = XParseGeometry( kapp->geometryArgument().latin1(), &x, &y, (unsigned int*)&w, (unsigned int*)&h);
+	int m = XParseGeometry( tdeApp->geometryArgument().latin1(), &x, &y, (unsigned int*)&w, (unsigned int*)&h);
 	if ( (m & XNegative) )
 	    x = TDEApplication::desktop()->width()  + x - w;
 	if ( (m & YNegative) )
@@ -69,7 +69,7 @@ bool Widgets::passwordBox(TQWidget *parent, const TQString& title, const TQStrin
 {
   KPasswordDialog dlg( KPasswordDialog::Password, false, 0, parent );
 
-  kapp->setTopWidget( &dlg );
+  tdeApp->setTopWidget( &dlg );
   dlg.setCaption(title);
   dlg.setPrompt(text);
 
@@ -86,7 +86,7 @@ int Widgets::textBox(TQWidget *parent, int width, int height, const TQString& ti
 //  KTextBox dlg(parent, 0, TRUE, width, height, file);
   KDialogBase dlg( parent, 0, true, title, KDialogBase::Ok, KDialogBase::Ok );
 
-  kapp->setTopWidget( &dlg );
+  tdeApp->setTopWidget( &dlg );
   KTextEdit *edit = new KTextEdit( dlg.makeVBoxMainWidget() );
   edit->setReadOnly(TRUE);
 
@@ -119,7 +119,7 @@ int Widgets::textInputBox(TQWidget *parent, int width, int height, const TQStrin
 //  KTextBox dlg(parent, 0, TRUE, width, height, file);
   KDialogBase dlg( parent, 0, true, title, KDialogBase::Ok, KDialogBase::Ok );
 
-  kapp->setTopWidget( &dlg );
+  tdeApp->setTopWidget( &dlg );
   TQVBox* vbox = dlg.makeVBoxMainWidget();
 
   if( args.count() > 0 )
@@ -152,7 +152,7 @@ bool Widgets::comboBox(TQWidget *parent, const TQString& title, const TQString& 
   KDialogBase dlg( parent, 0, true, title, KDialogBase::Ok|KDialogBase::Cancel,
                    KDialogBase::Ok );
 
-  kapp->setTopWidget( &dlg );
+  tdeApp->setTopWidget( &dlg );
   dlg.setCaption(title);
   TQVBox* vbox = dlg.makeVBoxMainWidget();
 
@@ -177,7 +177,7 @@ bool Widgets::listBox(TQWidget *parent, const TQString& title, const TQString& t
 {
   TDEListBoxDialog box(text,parent);
 
-  kapp->setTopWidget( &box );
+  tdeApp->setTopWidget( &box );
   box.setCaption(title);
 
   for (unsigned int i = 0; i+1<args.count(); i += 2) {
@@ -205,7 +205,7 @@ bool Widgets::checkList(TQWidget *parent, const TQString& title, const TQString&
 
   TQListBox &table = box.getTable();
 
-  kapp->setTopWidget( &box );
+  tdeApp->setTopWidget( &box );
   box.setCaption(title);
 
   for (unsigned int i=0; i+2<args.count(); i += 3) {
@@ -249,7 +249,7 @@ bool Widgets::radioBox(TQWidget *parent, const TQString& title, const TQString& 
 
   TQListBox &table = box.getTable();
 
-  kapp->setTopWidget( &box );
+  tdeApp->setTopWidget( &box );
   box.setCaption(title);
 
   for (unsigned int i=0; i+2<args.count(); i += 3) {
@@ -274,7 +274,7 @@ bool Widgets::radioBox(TQWidget *parent, const TQString& title, const TQString& 
 bool Widgets::progressBar(TQWidget *parent, const TQString& title, const TQString& text, int totalSteps)
 {
   ProgressDialog dlg( parent, title, text, totalSteps );
-  kapp->setTopWidget( &dlg );
+  tdeApp->setTopWidget( &dlg );
   dlg.setCaption( title );
   handleXGeometry(&dlg);
   dlg.exec();

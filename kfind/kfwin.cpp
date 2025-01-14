@@ -178,7 +178,7 @@ void KfindWindow::copySelection()
 
   if (drag_obj)
   {
-    TQClipboard *cb = kapp->clipboard();
+    TQClipboard *cb = tdeApp->clipboard();
     cb->setData(drag_obj);
   }
 }

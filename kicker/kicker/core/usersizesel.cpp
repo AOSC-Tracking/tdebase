@@ -99,7 +99,7 @@ void UserSizeSel::mouseMoveEvent(TQMouseEvent * e)
 //     int screen = xineramaScreen();
 //     if (screen < 0)
 //     {
-//         screen = kapp->desktop()->screenNumber(this);
+//         screen = tdeApp->desktop()->screenNumber(this);
 //     }
 //     TQRect desktopGeom = TQApplication::desktop()->screenGeometry(screen);
     if (newSize < PANEL_MINIMUM_HEIGHT)

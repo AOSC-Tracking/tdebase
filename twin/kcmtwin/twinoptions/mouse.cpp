@@ -368,7 +368,7 @@ KTitleBarActionsConfig::KTitleBarActionsConfig (bool _standAlone, TDEConfig *_co
     coMax[b]->setSizePolicy( TQSizePolicy( TQSizePolicy::Fixed, TQSizePolicy::Minimum ));
   }
 
-  connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(paletteChanged()));
+  connect(tdeApp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(paletteChanged()));
 
   layout->addStretch();
 
@@ -567,9 +567,9 @@ void KTitleBarActionsConfig::save()
   if (standAlone)
   {
     config->sync();
-    if ( !kapp->dcopClient()->isAttached() )
-      kapp->dcopClient()->attach();
-    kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+    if ( !tdeApp->dcopClient()->isAttached() )
+      tdeApp->dcopClient()->attach();
+    tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
   }
 }
 
@@ -850,9 +850,9 @@ void KWindowActionsConfig::save()
   if (standAlone)
   {
     config->sync();
-    if ( !kapp->dcopClient()->isAttached() )
-      kapp->dcopClient()->attach();
-    kapp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
+    if ( !tdeApp->dcopClient()->isAttached() )
+      tdeApp->dcopClient()->attach();
+    tdeApp->dcopClient()->send("twin*", "", "reconfigure()", TQString(""));
   }
 }
 

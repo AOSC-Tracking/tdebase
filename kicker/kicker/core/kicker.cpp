@@ -59,7 +59,7 @@
 
 #include "kicker.moc"
 
-Kicker* Kicker::the() { return static_cast<Kicker*>(kapp); }
+Kicker* Kicker::the() { return static_cast<Kicker*>(tdeApp); }
 
 Kicker::Kicker()
     : TDEUniqueApplication(),
@@ -88,7 +88,7 @@ Kicker::Kicker()
     }
 
     // Make kicker immutable if configuration modules have been marked immutable
-    if (isKioskImmutable() && kapp->authorizeControlModules(Kicker::configModules(true)).isEmpty())
+    if (isKioskImmutable() && tdeApp->authorizeControlModules(Kicker::configModules(true)).isEmpty())
     {
         config()->setReadOnly(true);
         config()->reparseConfiguration();
@@ -413,7 +413,7 @@ void Kicker::configDialogFinished()
     if (m_reloadingConfigDialog) {
         TQByteArray data;
         m_reloadingConfigDialog = false;
-        kapp->dcopClient()->send("kicker", "kicker", "showTaskBarConfig()", data);
+        tdeApp->dcopClient()->send("kicker", "kicker", "showTaskBarConfig()", data);
     }
 }
 

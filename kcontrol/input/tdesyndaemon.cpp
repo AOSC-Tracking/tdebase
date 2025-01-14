@@ -90,7 +90,7 @@ TDESynDaemon::~TDESynDaemon()
 
 void TDESynDaemon::stop()
 {
-    kapp->quit();
+    tdeApp->quit();
 }
 
 void TDESynDaemon::poll()

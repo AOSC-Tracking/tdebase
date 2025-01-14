@@ -134,7 +134,7 @@ static TQString realDesktopPath()
  */
 static void copyDesktopLinks()
 {
-    TDEConfig *config = kapp->config();
+    TDEConfig *config = tdeApp->config();
     config->setGroup("General");
     if (!config->readBoolEntry("CopyDesktopLinks", true))
        return;

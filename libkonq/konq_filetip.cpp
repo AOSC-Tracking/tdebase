@@ -217,12 +217,12 @@ void KonqFileTip::setFilter( bool enable )
     if ( enable == m_filter ) return;
 
     if ( enable ) {
-        kapp->installEventFilter( this );
+        tdeApp->installEventFilter( this );
         TQApplication::setGlobalMouseTracking( true );
     }
     else {
         TQApplication::setGlobalMouseTracking( false );
-        kapp->removeEventFilter( this );
+        tdeApp->removeEventFilter( this );
     }
     m_filter = enable;
 }

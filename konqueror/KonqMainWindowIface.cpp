@@ -93,7 +93,7 @@ DCOPRef KonqMainWindowIface::currentView()
   if ( !view )
     return DCOPRef();
 
-  return DCOPRef( kapp->dcopClient()->appId(), view->dcopObject()->objId() );
+  return DCOPRef( tdeApp->dcopClient()->appId(), view->dcopObject()->objId() );
 }
 
 DCOPRef KonqMainWindowIface::currentPart()
@@ -115,7 +115,7 @@ DCOPRef KonqMainWindowIface::view(int viewNumber)
       ++it;
   if ( it == viewMap.end() )
       return DCOPRef();
-  return DCOPRef( kapp->dcopClient()->appId(), (*it)->dcopObject()->objId() );
+  return DCOPRef( tdeApp->dcopClient()->appId(), (*it)->dcopObject()->objId() );
 }
 
 DCOPRef KonqMainWindowIface::part(int viewNumber)
@@ -131,7 +131,7 @@ DCOPRef KonqMainWindowIface::part(int viewNumber)
 
 DCOPRef KonqMainWindowIface::action( const TQCString &name )
 {
-  return DCOPRef( kapp->dcopClient()->appId(), m_dcopActionProxy->actionObjectId( name ) );
+  return DCOPRef( tdeApp->dcopClient()->appId(), m_dcopActionProxy->actionObjectId( name ) );
 }
 
 QCStringList KonqMainWindowIface::actions()

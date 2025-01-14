@@ -189,20 +189,20 @@ KService::Ptr khotkeys_find_menu_entry( const TQString& shortcut_P )
 void khotkeys_send_reread_config()
     {
     TQByteArray data;
-    if( !kapp->dcopClient()->isAttached())
-        kapp->dcopClient()->attach();
-    if(kapp->dcopClient()->isApplicationRegistered( "khotkeys" ))
+    if( !tdeApp->dcopClient()->isAttached())
+        tdeApp->dcopClient()->attach();
+    if(tdeApp->dcopClient()->isApplicationRegistered( "khotkeys" ))
         {
         // khotkeys running as a standalone application
         TQByteArray data;
         kdDebug( 1217 ) << "telling khotkeys standalone application to reread configuration" << endl;
-        kapp->dcopClient()->send( "khotkeys", "khotkeys", "reread_configuration()", data );
+        tdeApp->dcopClient()->send( "khotkeys", "khotkeys", "reread_configuration()", data );
         }
     else
         {
         TQCString replyType;
         TQByteArray replyData;
-        if (kapp->dcopClient()->call("kded", "kded", "loadedModules()",
+        if (tdeApp->dcopClient()->call("kded", "kded", "loadedModules()",
               TQByteArray(), replyType, replyData))
             {
             if (replyType == "QCStringList")
@@ -215,7 +215,7 @@ void khotkeys_send_reread_config()
                     // khotkeys running as a kded service
                     TQByteArray data;
                     kdDebug( 1217 ) << "telling khotkeys kded daemon to reread configuration" << endl;
-                    kapp->dcopClient()->send( "kded", "khotkeys", "reread_configuration()", data );
+                    tdeApp->dcopClient()->send( "kded", "khotkeys", "reread_configuration()", data );
                     }
                 }
             }

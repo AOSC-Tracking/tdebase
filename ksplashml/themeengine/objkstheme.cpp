@@ -32,9 +32,9 @@ ObjKsTheme::ObjKsTheme( const TQString& theme )
   :mActiveTheme (theme), mThemeDir("/"), mThemeConfig (0L), mThemePrefix( "Themes/" ), d(0)
 {
   // Get Xinerama config.
-  TDEConfig *config = kapp->config();
+  TDEConfig *config = tdeApp->config();
   config->setGroup( "Xinerama" );
-  TQDesktopWidget *desktop = kapp->desktop();
+  TQDesktopWidget *desktop = tdeApp->desktop();
   mXineramaScreen = config->readNumEntry("KSplashScreen", desktop->primaryScreen());
 
   // For Xinerama, let's put the mouse on the first head.  Otherwise it could appear anywhere!
@@ -92,7 +92,7 @@ bool ObjKsTheme::loadThemeRc( const TQString& activeTheme, bool force )
 bool ObjKsTheme::loadLocalConfig( const TQString& activeTheme, bool force )
 {
   //kdDebug() << "ObjKsTheme::loadLocalConfig" << endl;
-  TDEConfig *cfg = kapp->config();
+  TDEConfig *cfg = tdeApp->config();
   return( loadTDEConfig( cfg, activeTheme, force ) );
 }
 

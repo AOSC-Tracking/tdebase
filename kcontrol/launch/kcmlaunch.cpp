@@ -212,11 +212,11 @@ LaunchConfig::save()
 
   emit changed( false );
 
-  if (!kapp->dcopClient()->isAttached())
-     kapp->dcopClient()->attach();
+  if (!tdeApp->dcopClient()->isAttached())
+     tdeApp->dcopClient()->attach();
   TQByteArray data;
-  kapp->dcopClient()->send( "kicker", "Panel", "restart()", data );
-  kapp->dcopClient()->send( "kdesktop", "", "configure()", data );
+  tdeApp->dcopClient()->send( "kicker", "Panel", "restart()", data );
+  tdeApp->dcopClient()->send( "kdesktop", "", "configure()", data );
 }
 
   void

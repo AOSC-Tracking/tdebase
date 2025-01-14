@@ -134,6 +134,6 @@ void KickerClientMenu::slotActivated(int id)
 	TQByteArray data;
 	TQDataStream dataStream( data, IO_WriteOnly );
 	dataStream << id;
-	kapp->dcopClient()->send( app, obj, "activated(int)", data );
+	tdeApp->dcopClient()->send( app, obj, "activated(int)", data );
     }
 }

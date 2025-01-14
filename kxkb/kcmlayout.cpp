@@ -445,8 +445,8 @@ void LayoutConfig::save()
 	keys->writeSettings(0, true);
 
 	// Get current layout from Kxkb
-	if (!kapp->dcopClient()->isAttached())
-		kapp->dcopClient()->attach();
+	if (!tdeApp->dcopClient()->isAttached())
+		tdeApp->dcopClient()->attach();
 
 	DCOPRef kxkbref("kxkb", "kxkb");
 	DCOPReply reply = kxkbref.call( "getCurrentLayout" );
@@ -459,7 +459,7 @@ void LayoutConfig::save()
 	}
 
 	// Cause Kxkb to reread configuration
-	kapp->tdeinitExecWait("kxkb");
+	tdeApp->tdeinitExecWait("kxkb");
 
 	// If previous call was valid, try to change layout
 	if ( reply.isValid() ) {
@@ -1247,7 +1247,7 @@ extern "C"
 		m_kxkbConfig.load(KxkbConfig::LOAD_INIT_OPTIONS);
 
 		if( m_kxkbConfig.m_useKxkb == true ) {
-			kapp->startServiceByDesktopName("kxkb");
+			tdeApp->startServiceByDesktopName("kxkb");
 		}
 		else {
 			if (!XKBExtension::setXkbOptions(m_kxkbConfig.getKXkbOptions())) {

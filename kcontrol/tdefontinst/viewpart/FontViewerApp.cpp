@@ -50,7 +50,7 @@ CFontViewerAppMainWindow::CFontViewerAppMainWindow()
     if(factory)
     {
         KStdAction::open(this, TQ_SLOT(fileOpen()), actionCollection());
-        KStdAction::quit(kapp, TQ_SLOT(quit()), actionCollection());
+        KStdAction::quit(tdeApp, TQ_SLOT(quit()), actionCollection());
 
         itsPreview=(KParts::ReadOnlyPart *)factory->create(this, "fontvier", "KParts::ReadOnlyPart");
 
@@ -72,9 +72,9 @@ CFontViewerAppMainWindow::CFontViewerAppMainWindow()
             itsPreview->openURL(openURL);
 
         TQSize             defSize(450, 380);
-        TDEConfigGroupSaver saver(kapp->config(), CFG_GROUP);
+        TDEConfigGroupSaver saver(tdeApp->config(), CFG_GROUP);
 
-        resize(kapp->config()->readSizeEntry(CFG_SIZE_KEY, &defSize));
+        resize(tdeApp->config()->readSizeEntry(CFG_SIZE_KEY, &defSize));
         show();
     }
     else
@@ -83,9 +83,9 @@ CFontViewerAppMainWindow::CFontViewerAppMainWindow()
 
 CFontViewerAppMainWindow::~CFontViewerAppMainWindow()
 {
-    TDEConfigGroupSaver saver(kapp->config(), CFG_GROUP);
-    kapp->config()->writeEntry(CFG_SIZE_KEY, size());
-    kapp->config()->sync();
+    TDEConfigGroupSaver saver(tdeApp->config(), CFG_GROUP);
+    tdeApp->config()->writeEntry(CFG_SIZE_KEY, size());
+    tdeApp->config()->sync();
 }
 
 void CFontViewerAppMainWindow::fileOpen()

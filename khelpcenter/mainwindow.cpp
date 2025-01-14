@@ -130,7 +130,7 @@ MainWindow::MainWindow()
     mSplitter->setSizes(sizes);
     setGeometry(366, 0, 800, 600);
 
-    TDEConfig *cfg = kapp->config();
+    TDEConfig *cfg = tdeApp->config();
     {
       TDEConfigGroupSaver groupSaver( cfg, "General" );
       if ( cfg->readBoolEntry( "UseKonqSettings", true ) ) {
@@ -447,7 +447,7 @@ void MainWindow::updateZoomActions()
   actionCollection()->action( "incFontSizes" )->setEnabled( mDoc->zoomFactor() + mDoc->zoomStepping() <= 300 );
   actionCollection()->action( "decFontSizes" )->setEnabled( mDoc->zoomFactor() - mDoc->zoomStepping() >= 20 );
 
-  TDEConfig *cfg = kapp->config();
+  TDEConfig *cfg = tdeApp->config();
   {
     TDEConfigGroupSaver groupSaver( cfg, "General" );
     cfg->writeEntry( "Font zoom factor", mDoc->zoomFactor() );

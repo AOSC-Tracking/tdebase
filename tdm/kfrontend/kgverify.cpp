@@ -106,7 +106,7 @@ KGVerify::KGVerify(KGVerifyHandler *_handler, KdmThemer *_themer,
 #endif
 {
 	connect( &timer, TQ_SIGNAL(timeout()), TQ_SLOT(slotTimeout()) );
-	connect( kapp, TQ_SIGNAL(activity()), TQ_SLOT(slotActivity()) );
+	connect( tdeApp, TQ_SIGNAL(activity()), TQ_SLOT(slotActivity()) );
 
 	_parent->installEventFilter( this );
 }
@@ -849,7 +849,7 @@ KGVerify::handleVerify()
 			failed = true;
 			updateStatus();
 			handler->verifyFailed();
-			timer.start( 1500 + kapp->random()/(RAND_MAX/1000) );
+			timer.start( 1500 + tdeApp->random()/(RAND_MAX/1000) );
 			return;
 		}
 		if (ret != V_FAIL)

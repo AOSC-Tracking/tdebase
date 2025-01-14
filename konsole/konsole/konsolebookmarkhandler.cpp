@@ -55,7 +55,7 @@ KonsoleBookmarkHandler::KonsoleBookmarkHandler( Konsole *konsole, bool toplevel 
         m_file = locateLocal( "data", "konsole/bookmarks.xml" );
 
     KBookmarkManager *manager = KBookmarkManager::managerForFile( m_file, false);
-    manager->setEditorOptions(kapp->caption(), false);
+    manager->setEditorOptions(tdeApp->caption(), false);
     manager->setUpdate( true );
     manager->setShowNSBookmarks( false );
     

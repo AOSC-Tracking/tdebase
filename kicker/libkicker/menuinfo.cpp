@@ -39,13 +39,13 @@ MenuInfo::MenuInfo(const TQString& desktopFile)
     df.setGroup("Desktop Entry");
 
     TQStringList list = df.readListEntry("X-TDE-AuthorizeAction");
-    if (kapp && !list.isEmpty())
+    if (tdeApp && !list.isEmpty())
     {
        for(TQStringList::ConstIterator it = list.begin();
            it != list.end();
            ++it)
        {
-          if (!kapp->authorize((*it).stripWhiteSpace()))
+          if (!tdeApp->authorize((*it).stripWhiteSpace()))
              return;
        }
     }

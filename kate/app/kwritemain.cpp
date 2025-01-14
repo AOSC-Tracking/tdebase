@@ -81,7 +81,7 @@ KWrite::KWrite (KTextEditor::Document *doc)
     {
       KMessageBox::error(this, i18n("A TDE text-editor component could not be found;\n"
                                     "please check your TDE installation."));
-      kapp->exit(1);
+      tdeApp->exit(1);
     }
 
     docList.append(doc);
@@ -134,7 +134,7 @@ KWrite::~KWrite()
     delete m_view->document();
   }
 
-  kapp->config()->sync ();
+  tdeApp->config()->sync ();
 }
 
 void KWrite::setupActions()
@@ -297,7 +297,7 @@ void KWrite::editKeys()
 
 void KWrite::editToolbars()
 {
-  saveMainWindowSettings( kapp->config(), "MainWindow" );
+  saveMainWindowSettings( tdeApp->config(), "MainWindow" );
   KEditToolbar *dlg = new KEditToolbar(guiFactory());
   connect( dlg, TQ_SIGNAL(newToolbarConfig()), this, TQ_SLOT(slotNewToolbarConfig()) );
   dlg->exec();
@@ -306,7 +306,7 @@ void KWrite::editToolbars()
 
 void KWrite::slotNewToolbarConfig()
 {
-  applyMainWindowSettings( kapp->config(), "MainWindow" );
+  applyMainWindowSettings( tdeApp->config(), "MainWindow" );
 }
 
 
@@ -431,13 +431,13 @@ void KWrite::writeConfig(TDEConfig *config)
 //config file
 void KWrite::readConfig()
 {
-  TDEConfig *config = kapp->config();
+  TDEConfig *config = tdeApp->config();
   readConfig(config);
 }
 
 void KWrite::writeConfig()
 {
-  TDEConfig *config = kapp->config();
+  TDEConfig *config = tdeApp->config();
   writeConfig(config);
 }
 
@@ -492,7 +492,7 @@ void KWrite::saveGlobalProperties(TDEConfig *config) //save documents
 //restore session
 void KWrite::restore()
 {
-  TDEConfig *config = kapp->sessionConfig();
+  TDEConfig *config = tdeApp->sessionConfig();
 
   if (!config)
     return;
@@ -595,7 +595,7 @@ extern "C" TDE_EXPORT int kdemain(int argc, char **argv)
 
   TDEGlobal::locale()->insertCatalogue("katepart");
 
-  DCOPClient *client = kapp->dcopClient();
+  DCOPClient *client = tdeApp->dcopClient();
   if (!client->isRegistered())
   {
     client->attach();
@@ -604,7 +604,7 @@ extern "C" TDE_EXPORT int kdemain(int argc, char **argv)
 
   TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
 
-  if (kapp->isRestored())
+  if (tdeApp->isRestored())
   {
     KWrite::restore();
   }

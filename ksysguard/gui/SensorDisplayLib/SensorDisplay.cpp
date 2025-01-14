@@ -182,7 +182,7 @@ bool SensorDisplay::eventFilter( TQObject *object, TQEvent *event )
       case 3: {
           TQCustomEvent *e = new TQCustomEvent( TQEvent::User );
           e->setData( this );
-          kapp->postEvent( parent(), e );
+          tdeApp->postEvent( parent(), e );
         }
         break;
       case 4:

@@ -143,7 +143,7 @@ class runMenuWidget : public TQWidget, public QMenuItem
             TQPainter p(this);
             TQRect r(rect());
             // ew, nasty hack. may result in coredumps due to horrid C-style cast???
-            kapp->style().drawControl(TQStyle::CE_PopupMenuItem, &p, m_menu, r, palette().active(), TQStyle::Style_Enabled,
+            tdeApp->style().drawControl(TQStyle::CE_PopupMenuItem, &p, m_menu, r, palette().active(), TQStyle::Style_Enabled,
                                       TQStyleOption(static_cast<TQMenuItem*>(this), 0, TDEIcon::SizeMedium ));
             p.drawPixmap(KDialog::spacingHint(), 1, icon);
             p.drawText((KDialog::spacingHint() * 2) + TDEIcon::SizeMedium, textRect.height() + ((height() - textRect.height()) / 2), i18n("Run:"));
@@ -432,7 +432,7 @@ void TOM::initialize()
     }
     else
     {
-      connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(paletteChanged()));
+      connect(tdeApp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(paletteChanged()));
     }*/
 
     // TASKS
@@ -484,7 +484,7 @@ void TOM::initialize()
     {
         removeItem(destMenuTitleID);
     }
-    else if (kapp->authorize("run_command"))
+    else if (tdeApp->authorize("run_command"))
     {
         insertItem(DesktopIcon("system-run", TDEIcon::SizeMedium), i18n("Run Command..."), this, TQ_SLOT(runCommand()));
     }
@@ -510,7 +510,7 @@ void TOM::initialize()
     insertTitle(i18n("Special Items"), contextMenuTitleID);
 
     // if we have no destinations, put the run command here
-    if (numDests == 0 && kapp->authorize("run_command"))
+    if (numDests == 0 && tdeApp->authorize("run_command"))
     {
         insertItem(DesktopIcon("system-run", TDEIcon::SizeMedium), i18n("Run Command..."), this, TQ_SLOT(runCommand()));
     }
@@ -817,8 +817,8 @@ void TOM::runCommand()
     if ( kicker_screen_number )
         appname.sprintf("kdesktop-screen-%d", kicker_screen_number);
 
-    kapp->updateRemoteUserTimestamp( appname );
-    kapp->dcopClient()->send( appname, "KDesktopIface",
+    tdeApp->updateRemoteUserTimestamp( appname );
+    tdeApp->dcopClient()->send( appname, "KDesktopIface",
                               "popupExecuteCommand()", data );
 }
 
@@ -826,7 +826,7 @@ void TOM::runTask(int id)
 {
     if (!m_tasks.contains(id)) return;
 
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
     TDEApplication::startServiceByDesktopPath(m_tasks[id]->desktopEntryPath(),
       TQStringList(), 0, 0, 0, "", true);
 }
@@ -840,7 +840,7 @@ void TOM::openRecentDocument(int id)
 {
     if (id >= 0)
     {
-        kapp->propagateSessionManager();
+        tdeApp->propagateSessionManager();
         KURL u;
         u.setPath(m_recentDocURLs[id]);
         KDEDesktopMimeType::run(u, true);
@@ -849,7 +849,7 @@ void TOM::openRecentDocument(int id)
 
 void TOM::logout()
 {
-    kapp->requestShutDown();
+    tdeApp->requestShutDown();
 }
 
 #include "tom.moc"

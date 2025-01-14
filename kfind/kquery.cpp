@@ -384,7 +384,7 @@ void KQuery::processQuery( KFileItem* file)
                  return;
              }
           }
-          kapp->processEvents();
+          tdeApp->processEvents();
        }
        delete stream;
 

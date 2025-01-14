@@ -343,7 +343,7 @@ void ActionsImpl::slotCopy() {
     TQValueList<KBookmark> bookmarks
         = ListView::self()->itemsToBookmarks(ListView::self()->selectedItemsMap());
     KBookmarkDrag* data = KBookmarkDrag::newDrag(bookmarks, 0 /* not this ! */);
-    kapp->clipboard()->setData(data, TQClipboard::Clipboard);
+    tdeApp->clipboard()->setData(data, TQClipboard::Clipboard);
 }
 
 void ActionsImpl::slotPaste() {
@@ -351,7 +351,7 @@ void ActionsImpl::slotPaste() {
     KEBMacroCommand *mcmd =
         CmdGen::insertMimeSource(
                             i18n("Paste"),
-                            kapp->clipboard()->data(TQClipboard::Clipboard),
+                            tdeApp->clipboard()->data(TQClipboard::Clipboard),
                             ListView::self()->userAddress());
     CmdHistory::self()->didCommand(mcmd);
 }
@@ -442,7 +442,7 @@ void ActionsImpl::slotPrint() {
     (*tstream) << exporter.toString(CurrentMgr::self()->mgr()->root(), true);
     tmpf.close();
 
-    s_appId = kapp->dcopClient()->appId();
+    s_appId = tdeApp->dcopClient()->appId();
     s_objId = s_part->property("dcopObjectId").toString().latin1();
     connect(s_part, TQ_SIGNAL(completed()), this, TQ_SLOT(slotDelayedPrint()));
 

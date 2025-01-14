@@ -50,8 +50,8 @@ KonqHistoryManager::KonqHistoryManager( TQObject *parent, const char *name )
     m_filename = locateLocal( "data",
 			      TQString::fromLatin1("konqueror/konq_history" ));
 
-    if ( !kapp->dcopClient()->isAttached() )
-	kapp->dcopClient()->attach();
+    if ( !tdeApp->dcopClient()->isAttached() )
+	tdeApp->dcopClient()->attach();
 
 
     // take care of the completion object
@@ -355,7 +355,7 @@ void KonqHistoryManager::emitAddToHistory( const KonqHistoryEntry& entry )
     // Protection against very long urls (like data:)
     if ( data.size() > 4096 )
         return;
-    kapp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
+    tdeApp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
 			      "notifyHistoryEntry(KonqHistoryEntry, TQCString)",
 			      data );
 }
@@ -397,7 +397,7 @@ void KonqHistoryManager::emitRemoveFromHistory( const KURL& url )
     TQByteArray data;
     TQDataStream stream( data, IO_WriteOnly );
     stream << url << objId();
-    kapp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
+    tdeApp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
 			      "notifyRemove(KURL, TQCString)", data );
 }
 
@@ -406,7 +406,7 @@ void KonqHistoryManager::emitRemoveFromHistory( const KURL::List& urls )
     TQByteArray data;
     TQDataStream stream( data, IO_WriteOnly );
     stream << urls << objId();
-    kapp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
+    tdeApp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
 			      "notifyRemove(KURL::List, TQCString)", data );
 }
 
@@ -415,7 +415,7 @@ void KonqHistoryManager::emitClear()
     TQByteArray data;
     TQDataStream stream( data, IO_WriteOnly );
     stream << objId();
-    kapp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
+    tdeApp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
 			      "notifyClear(TQCString)", data );
 }
 
@@ -424,7 +424,7 @@ void KonqHistoryManager::emitSetMaxCount( TQ_UINT32 count )
     TQByteArray data;
     TQDataStream stream( data, IO_WriteOnly );
     stream << count << objId();
-    kapp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
+    tdeApp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
 			      "notifyMaxCount(TQ_UINT32, TQCString)", data );
 }
 
@@ -433,7 +433,7 @@ void KonqHistoryManager::emitSetMaxAge( TQ_UINT32 days )
     TQByteArray data;
     TQDataStream stream( data, IO_WriteOnly );
     stream << days << objId();
-    kapp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
+    tdeApp->dcopClient()->send( "konqueror*", "KonqHistoryManager",
 			      "notifyMaxAge(TQ_UINT32, TQCString)", data );
 }
 

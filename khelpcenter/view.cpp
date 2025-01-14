@@ -62,7 +62,7 @@ View::~View()
 
 void View::copySelectedText()
 {
-  kapp->clipboard()->setText( selectedText() );
+  tdeApp->clipboard()->setText( selectedText() );
 }
 
 bool View::openURL( const KURL &url )
@@ -374,7 +374,7 @@ KURL View::urlFromLinkNode( const DOM::Node &n ) const
 
 void View::slotReload( const KURL &url )
 {
-  const_cast<TDEHTMLSettings *>( settings() )->init( kapp->config() );
+  const_cast<TDEHTMLSettings *>( settings() )->init( tdeApp->config() );
   KParts::URLArgs args = browserExtension()->urlArgs();
   args.reload = true;
   browserExtension()->setURLArgs( args );

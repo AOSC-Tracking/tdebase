@@ -89,12 +89,12 @@ PanelButton::PanelButton( TQWidget* parent, const char* name, bool forceStandard
 
     updateSettings(TDEApplication::SETTINGS_MOUSE);
 
-    kapp->addKipcEventMask(KIPC::SettingsChanged | KIPC::IconChanged);
+    tdeApp->addKipcEventMask(KIPC::SettingsChanged | KIPC::IconChanged);
 
     installEventFilter(KickerTip::the());
 
-    connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(updateSettings(int)));
-    connect(kapp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(updateIcon(int)));
+    connect(tdeApp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(updateSettings(int)));
+    connect(tdeApp, TQ_SIGNAL(iconChanged(int)), TQ_SLOT(updateIcon(int)));
 }
 
 void PanelButton::configure()
@@ -1057,8 +1057,8 @@ void PanelPopupButton::slotExecMenu()
 
     m_pressedDuringPopup = false;
     KickerTip::enableTipping(false);
-    kapp->syncX();
-    kapp->processEvents();
+    tdeApp->syncX();
+    tdeApp->processEvents();
 
     if (!m_initialized)
     {

@@ -32,7 +32,7 @@ TerminalHere::TerminalHere() : TDEApplication()
 {
 	TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
 
-	TDEConfig *config = kapp->config();
+	TDEConfig *config = tdeApp->config();
 	config->setGroup("General");
 	TQString term = config->readPathEntry("TerminalApplication", "konsole");
 

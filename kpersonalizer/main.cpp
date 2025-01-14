@@ -48,8 +48,8 @@ int main(int argc, char *argv[])
 	TDELocale::setMainCatalogue("kpersonalizer");
 
 	TDEApplication a;
-	if ( !kapp->dcopClient()->isAttached() )
-		kapp->dcopClient()->attach();
+	if ( !tdeApp->dcopClient()->isAttached() )
+		tdeApp->dcopClient()->attach();
 
 	TDECmdLineArgs *args = TDECmdLineArgs::parsedArgs();
 

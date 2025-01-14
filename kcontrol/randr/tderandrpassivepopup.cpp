@@ -88,7 +88,7 @@ void KRandrPassivePopup::startWatchingWidget( TQWidget* widget_P )
 	    }
 	}
     if( x11_events )
-	kapp->installX11EventFilter( this );
+	tdeApp->installX11EventFilter( this );
     }
     	
 bool KRandrPassivePopup::eventFilter( TQObject* o, TQEvent* e )

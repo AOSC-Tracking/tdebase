@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
     
     {
         TDEStartupInfoId id;
-        id.initId( kapp->startupId());
+        id.initId( tdeApp->startupId());
         id.setupStartupEnv(); // make DESKTOP_STARTUP_ID env. var. available again
     }
 
@@ -272,7 +272,7 @@ static int startApp()
     
     QCStringList env;
     TQCString options;
-    env << ( "DESKTOP_STARTUP_ID=" + kapp->startupId());
+    env << ( "DESKTOP_STARTUP_ID=" + tdeApp->startupId());
     
     if (pw->pw_uid)
     {
@@ -348,7 +348,7 @@ static int startApp()
     if (needpw)
     {
         TDEStartupInfoId id;
-        id.initId( kapp->startupId());
+        id.initId( tdeApp->startupId());
         TDEStartupInfoData data;
         data.setSilent( TDEStartupInfoData::Yes );
         TDEStartupInfo::sendChange( id, data );
@@ -380,7 +380,7 @@ static int startApp()
     }
 
     // Some events may need to be handled (like a button animation)
-    kapp->processEvents();
+    tdeApp->processEvents();
 
     // Run command
     if (!change_uid)

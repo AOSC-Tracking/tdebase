@@ -365,7 +365,7 @@ LibUnloader::LibUnloader( const TQString &libName, TQObject *parent )
 
 void LibUnloader::unload( const TQString &libName )
 {
-    (void)new LibUnloader( libName, kapp );
+    (void)new LibUnloader( libName, tdeApp );
 }
 
 void LibUnloader::unload()

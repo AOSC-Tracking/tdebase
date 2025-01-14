@@ -169,7 +169,7 @@ ProxyWidget::ProxyWidget(TDECModule *client, TQString title, const char *name,
 	 TQCString replyType;
 	 TQByteArray replyData;
 	 
-	 if (kapp->dcopClient()->call("kcontrol", "moduleIface", "getPalette()", TQByteArray(),
+	 if (tdeApp->dcopClient()->call("kcontrol", "moduleIface", "getPalette()", TQByteArray(),
 				 replyType, replyData))
 		 if ( replyType == "TQPalette") {
 			 TQDataStream reply( replyData, IO_ReadOnly );
@@ -178,7 +178,7 @@ ProxyWidget::ProxyWidget(TDECModule *client, TQString title, const char *name,
 			 setPalette(pal);
 		 }
 /* // Doesn't work ...
-	 if (kapp->dcopClient()->call("kcontrol", "moduleIface", "getStyle()", TQByteArray(),
+	 if (tdeApp->dcopClient()->call("kcontrol", "moduleIface", "getStyle()", TQByteArray(),
 				 replyType, replyData))
 		 if ( replyType == "TQString") {
 			 TQDataStream reply( replyData, IO_ReadOnly );
@@ -187,7 +187,7 @@ ProxyWidget::ProxyWidget(TDECModule *client, TQString title, const char *name,
 			 setStyle(style);
 		 }
 */	 
-	 if (kapp->dcopClient()->call("kcontrol", "moduleIface", "getFont()", TQByteArray(),
+	 if (tdeApp->dcopClient()->call("kcontrol", "moduleIface", "getFont()", TQByteArray(),
 				 replyType, replyData))
 		 if ( replyType == "TQFont") {
 			 TQDataStream reply( replyData, IO_ReadOnly );
@@ -273,7 +273,7 @@ void ProxyWidget::handbookClicked()
   if (getuid()!=0)
 	  emit handbookRequest();
   else
-     kapp->dcopClient()->send("kcontrol", "moduleIface", "invokeHandbook()", TQByteArray());
+     tdeApp->dcopClient()->send("kcontrol", "moduleIface", "invokeHandbook()", TQByteArray());
 }
 
 void ProxyWidget::helpClicked()
@@ -281,7 +281,7 @@ void ProxyWidget::helpClicked()
   if (getuid()!=0)
          emit helpRequest();
   else
-     kapp->dcopClient()->send("kcontrol", "moduleIface", "invokeHelp()", TQByteArray());
+     tdeApp->dcopClient()->send("kcontrol", "moduleIface", "invokeHelp()", TQByteArray());
 }
 
 void ProxyWidget::defaultClicked()

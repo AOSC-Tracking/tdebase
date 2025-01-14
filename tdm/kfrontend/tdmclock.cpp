@@ -41,7 +41,7 @@ KdmClock::KdmClock( TQWidget *parent, const char *name )
 	timer->start( 1000 );
 
 	// reading rc file
-	//TDEConfig *config = kapp->config();
+	//TDEConfig *config = tdeApp->config();
 
 	//config->setGroup( "Option" );
 	mDate = false;//config->readNumEntry( "date", FALSE );

@@ -223,7 +223,7 @@ void FilterOptions::save()
   // kdDebug () << "Engine: " << m_defaultEngineMap[engine] << endl;
 
   int changedProviderCount = 0;
-  TQString path = kapp->dirs()->saveLocation("services", "searchproviders/");
+  TQString path = tdeApp->dirs()->saveLocation("services", "searchproviders/");
 
   m_favoriteEngines.clear();
 
@@ -291,7 +291,7 @@ void FilterOptions::save()
   for (TQStringList::ConstIterator it = m_deletedProviders.begin();
       it != m_deletedProviders.end(); ++it)
   {
-      TQStringList matches = kapp->dirs()->findAllResources("services", "searchproviders/" + *it + ".desktop");
+      TQStringList matches = tdeApp->dirs()->findAllResources("services", "searchproviders/" + *it + ".desktop");
 
       // Shouldn't happen
       if (!matches.count())

@@ -90,7 +90,7 @@ KonqBidiHistoryAction::KonqBidiHistoryAction ( const TQString & text, TQObject* 
 
 int KonqBidiHistoryAction::plug( TQWidget *widget, int index )
 {
-  if (kapp && !kapp->authorizeTDEAction(name()))
+  if (tdeApp && !tdeApp->authorizeTDEAction(name()))
     return -1;
 
   // Go menu
@@ -242,7 +242,7 @@ void KonqLogoAction::updateIcon(int id)
 
 int KonqLogoAction::plug( TQWidget *widget, int index )
 {
-  if (kapp && !kapp->authorizeTDEAction(name()))
+  if (tdeApp && !tdeApp->authorizeTDEAction(name()))
     return -1;
 
 /*

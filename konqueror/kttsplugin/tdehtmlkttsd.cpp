@@ -63,11 +63,11 @@ void TDEHTMLPluginKTTSD::slotReadOut()
     else
     {
         // If KTTSD not running, start it.
-        DCOPClient *client = kapp->dcopClient();
+        DCOPClient *client = tdeApp->dcopClient();
         if (!client->isApplicationRegistered("kttsd"))
         {
             TQString error;
-            if (kapp->startServiceByDesktopName("kttsd", TQStringList(), &error))
+            if (tdeApp->startServiceByDesktopName("kttsd", TQStringList(), &error))
                 TQMessageBox::warning(0, i18n( "Starting KTTSD Failed"), error );
         }
 

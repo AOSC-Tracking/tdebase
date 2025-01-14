@@ -883,7 +883,7 @@ void KonqSidebarTree::enableActions( bool copy, bool cut, bool paste,
 bool KonqSidebarTree::tabSupport()
 {
     // see if the newTab() dcop function is available (i.e. the sidebar is embedded into konqueror)
-   DCOPRef ref(kapp->dcopClient()->appId(), topLevelWidget()->name());
+   DCOPRef ref(tdeApp->dcopClient()->appId(), topLevelWidget()->name());
     DCOPReply reply = ref.call("functions()");
     if (reply.isValid()) {
         QCStringList funcs;
@@ -1023,7 +1023,7 @@ void KonqSidebarTree::slotOpenNewWindow()
 void KonqSidebarTree::slotOpenTab()
 {
     if (!m_currentTopLevelItem) return;
-    DCOPRef ref(kapp->dcopClient()->appId(), topLevelWidget()->name());
+    DCOPRef ref(tdeApp->dcopClient()->appId(), topLevelWidget()->name());
     ref.call( "newTab(TQString)", m_currentTopLevelItem->externalURL().url() );
 }
 
@@ -1031,8 +1031,8 @@ void KonqSidebarTree::slotCopyLocation()
 {
     if (!m_currentTopLevelItem) return;
     KURL url = m_currentTopLevelItem->externalURL();
-    kapp->clipboard()->setData( new KURLDrag(url, 0), TQClipboard::Selection );
-    kapp->clipboard()->setData( new KURLDrag(url, 0), TQClipboard::Clipboard );
+    tdeApp->clipboard()->setData( new KURLDrag(url, 0), TQClipboard::Selection );
+    tdeApp->clipboard()->setData( new KURLDrag(url, 0), TQClipboard::Clipboard );
 }
 
 ///////////////////////////////////////////////////////////////////

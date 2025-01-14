@@ -104,7 +104,7 @@ ContainerArea::ContainerArea(TDEConfig* _c,
     setBackground();
 
     connect(&_autoScrollTimer, TQ_SIGNAL(timeout()), TQ_SLOT(autoScroll()));
-    connect(kapp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(setBackground()));
+    connect(tdeApp, TQ_SIGNAL(tdedisplayPaletteChanged()), TQ_SLOT(setBackground()));
     connect(Kicker::the(), TQ_SIGNAL(immutabilityChanged(bool)),
             TQ_SLOT(immutabilityChanged(bool)));
     connect(this, TQ_SIGNAL(contentsMoving(int, int)), TQ_SLOT(setBackground()));
@@ -325,7 +325,7 @@ void ContainerArea::loadContainers(const TQStringList& containers)
             a = new DesktopButtonContainer(group, m_opMenu, m_contents);
         else if (appletType == "WindowListButton")
             a = new WindowListButtonContainer(group, m_opMenu, m_contents);
-        else if ((appletType == "BookmarksButton") && kapp->authorizeTDEAction("bookmarks"))
+        else if ((appletType == "BookmarksButton") && tdeApp->authorizeTDEAction("bookmarks"))
             a = new BookmarksButtonContainer(group, m_opMenu, m_contents);
         else if (appletType == "ServiceButton")
             a = new ServiceButtonContainer(group, m_opMenu, m_contents);
@@ -438,7 +438,7 @@ const TQWidget* ContainerArea::addButton(const AppletInfo& info)
 
     if (buttonType == "BookmarksButton")
     {
-        if (kapp->authorizeTDEAction("bookmarks"))
+        if (tdeApp->authorizeTDEAction("bookmarks"))
         {
             return addBookmarksButton();
         }
@@ -979,7 +979,7 @@ void ContainerArea::mouseMoveEvent(TQMouseEvent *ev)
         saveContainerConfig(true);
 
         PanelDrag *dd = new PanelDrag(_moveAC, this);
-        dd->setPixmap(kapp->iconLoader()->loadIcon(_moveAC->icon(), TDEIcon::Small));
+        dd->setPixmap(tdeApp->iconLoader()->loadIcon(_moveAC->icon(), TDEIcon::Small));
         grabKeyboard();
         dd->drag();
         releaseKeyboard();
@@ -1640,7 +1640,7 @@ void ContainerArea::moveDragIndicator(int pos)
 void ContainerArea::updateBackground( const TQPixmap& pm )
 {
     TQBrush bgBrush(colorGroup().background(), pm);
-    TQPalette pal = kapp->palette();
+    TQPalette pal = tdeApp->palette();
     pal.setBrush(TQColorGroup::Background, bgBrush);
     setPalette(pal);
 

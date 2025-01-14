@@ -106,9 +106,9 @@ SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int ac
 
     twin_module = new KWinModule(this);
 
-    // kApplication notifies us of settings changes. added to support
+    // tdeApp notifies us of settings changes. added to support
     // disabling of frame effect on mouse hover
-    kapp->dcopClient()->setNotifications(true);
+    tdeApp->dcopClient()->setNotifications(true);
     connectDCOPSignal("kicker", "kicker", "configurationChanged()", "loadSettings()", false);
 
     TQTimer::singleShot(0, this, TQ_SLOT(initialize()));
@@ -682,7 +682,7 @@ void SystemTrayApplet::refreshExpandButton()
     if (orientation() == TQt::Vertical)
         a = m_showHidden ? TQt::DownArrow : TQt::UpArrow;
     else
-        a = (m_showHidden ^ kapp->reverseLayout()) ? TQt::RightArrow : TQt::LeftArrow;
+        a = (m_showHidden ^ tdeApp->reverseLayout()) ? TQt::RightArrow : TQt::LeftArrow;
     
     m_expandButton->setArrowType(a);
 }

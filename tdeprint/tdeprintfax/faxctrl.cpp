@@ -486,7 +486,7 @@ void FaxCtrl::filter()
 		}
 		else
 		{
-			TQString	tmp = locateLocal("tmp","tdeprintfax_") + kapp->randomString(8);
+			TQString	tmp = locateLocal("tmp","tdeprintfax_") + tdeApp->randomString(8);
 			m_filteredfiles.prepend(tmp);
 			m_tempfiles.append(tmp);
 			m_process->clearArguments();

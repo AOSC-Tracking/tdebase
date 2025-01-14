@@ -32,7 +32,7 @@ KonqPixmapProvider * KonqPixmapProvider::s_self = 0L;
 KonqPixmapProvider * KonqPixmapProvider::self()
 {
     if ( !s_self )
-	s_self = new KonqPixmapProvider( kapp, "KonqPixmapProvider" );
+	s_self = new KonqPixmapProvider( tdeApp, "KonqPixmapProvider" );
 
     return s_self;
 }

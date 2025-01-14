@@ -75,10 +75,10 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
 	globalKeys->setEnabled(true);
 	globalKeys->updateConnections();
 
-	connect(kapp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
+	connect(tdeApp, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)));
 
 #if (TQT_VERSION-0 >= 0x030200) // XRANDR support
-//	connect(this, TQ_SIGNAL(screenSizeChanged(int, int)), kapp->desktop(), TQ_SLOT( desktopResized()));
+//	connect(this, TQ_SIGNAL(screenSizeChanged(int, int)), tdeApp->desktop(), TQ_SLOT( desktopResized()));
 #endif
 
 	randr_display = XOpenDisplay(NULL);
@@ -924,6 +924,6 @@ void KRandRSystemTray::deviceChanged (TDEGenericDevice* device) {
 
 void KRandRSystemTray::slotHelpContents()
 {
-  kapp->invokeHelp(TQString::null, "tderandrtray");
+  tdeApp->invokeHelp(TQString::null, "tderandrtray");
 }
 

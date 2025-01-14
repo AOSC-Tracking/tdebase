@@ -197,8 +197,8 @@ public:
 KonqUndoManager::KonqUndoManager()
 : DCOPObject( "KonqUndoManager" )
 {
-  if ( !kapp->dcopClient()->isAttached() )
-      kapp->dcopClient()->attach();
+  if ( !tdeApp->dcopClient()->isAttached() )
+      tdeApp->dcopClient()->attach();
 
   d = new KonqUndoManagerPrivate;
   d->m_syncronized = initializeFromKDesky();
@@ -625,7 +625,7 @@ bool KonqUndoManager::initializeFromKDesky()
   // ### FIXME: post 2.1
   return false;
 
-  DCOPClient *client = kapp->dcopClient();
+  DCOPClient *client = tdeApp->dcopClient();
 
   if ( client->appId() == "kdesktop" ) // we are master :)
     return true;

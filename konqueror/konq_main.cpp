@@ -70,7 +70,7 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
   KTempFile crashlog_file(locateLocal("tmp", "konqueror-crash-"), ".log");
   KonqMainWindow::s_crashlog_file = crashlog_file.file();
 
-  if ( kapp->isRestored() )
+  if ( tdeApp->isRestored() )
   {
     int n = 1;
     while ( KonqMainWindow::canBeRestored( n ) )

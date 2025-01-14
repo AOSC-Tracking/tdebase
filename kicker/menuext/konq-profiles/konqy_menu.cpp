@@ -83,7 +83,7 @@ void KonquerorProfilesMenu::slotExec(int id)
 {
    TQStringList args;
    args<<"--profile"<<m_profiles[id-1];
-   kapp->tdeinitExec("konqueror", args);
+   tdeApp->tdeinitExec("konqueror", args);
 }
 
 void KonquerorProfilesMenu::reload()

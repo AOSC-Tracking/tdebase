@@ -331,7 +331,7 @@ Konsole::Konsole(const char* name, int histon, bool menubaron, bool tabbaron, bo
 
   if (isRestored) {
     n_tabbar = wanted_tabbar;
-    TDEConfig *c = TDEApplication::kApplication()->sessionConfig();
+    TDEConfig *c = tdeApp->sessionConfig();
 //    c->setDesktopGroup();      // Reads from wrong group
     b_dynamicTabHide = c->readBoolEntry("DynamicTabHide", false);
   }
@@ -359,9 +359,9 @@ Konsole::Konsole(const char* name, int histon, bool menubaron, bool tabbaron, bo
     if (te) te->setScrollbarLocation(TEWidget::SCRNONE);
   }
 
-//  connect(kapp, TQ_SIGNAL(tdedisplayFontChanged()), this, TQ_SLOT(slotFontChanged()));
+//  connect(tdeApp, TQ_SIGNAL(tdedisplayFontChanged()), this, TQ_SLOT(slotFontChanged()));
 
-  kapp->dcopClient()->setDefaultObject( "konsole" );
+  tdeApp->dcopClient()->setDefaultObject( "konsole" );
 }
 
 
@@ -506,7 +506,7 @@ void Konsole::makeGUI()
    TDEActionCollection* actions = actionCollection();
 
    // Send Signal Menu -------------------------------------------------------------
-   if (kapp->authorizeTDEAction("send_signal"))
+   if (tdeApp->authorizeTDEAction("send_signal"))
    {
       m_signals = new TDEPopupMenu(this);
       m_signals->insertItem( i18n( "&Suspend Task" )   + " (STOP)", SIGSTOP);
@@ -668,11 +668,11 @@ void Konsole::makeGUI()
       selectSetEncoding->setCurrentItem (0);
       selectSetEncoding->plug(m_options);
 
-      if (kapp->authorizeTDEAction("keyboard"))
+      if (tdeApp->authorizeTDEAction("keyboard"))
          m_options->insertItem( SmallIconSet( "key_bindings" ), i18n( "&Keyboard" ), m_keytab );
 
       // Schema
-      if (kapp->authorizeTDEAction("schema"))
+      if (tdeApp->authorizeTDEAction("schema"))
          m_options->insertItem( SmallIconSet( "colorize" ), i18n( "Sch&ema" ), m_schema);
 
       // Select size
@@ -960,7 +960,7 @@ void Konsole::makeTabWidget()
   connect(tabwidget, TQ_SIGNAL(contextMenu(const TQPoint &)),
                      TQ_SLOT(slotTabbarContextMenu(const TQPoint &)));
 
-  if (kapp->authorize("shell_access")) {
+  if (tdeApp->authorize("shell_access")) {
     connect(tabwidget, TQ_SIGNAL(mouseDoubleClick()), TQ_SLOT(newSession()));
 
     m_newSessionButton = new TQToolButton( tabwidget );
@@ -1016,7 +1016,7 @@ bool Konsole::eventFilter( TQObject *o, TQEvent *ev )
 
 void Konsole::makeBasicGUI()
 {
-  if (kapp->authorize("shell_access")) {
+  if (tdeApp->authorize("shell_access")) {
     m_tabbarSessionsCommands = new TDEPopupMenu( this );
     TDEAcceleratorManager::manage( m_tabbarSessionsCommands );
     connect(m_tabbarSessionsCommands, TQ_SIGNAL(activated(int)), TQ_SLOT(newSessionTabbar(int)));
@@ -1028,7 +1028,7 @@ void Konsole::makeBasicGUI()
   TDEAcceleratorManager::manage( m_edit );
   m_view = new TDEPopupMenu(this);
   TDEAcceleratorManager::manage( m_view );
-  if (kapp->authorizeTDEAction("bookmarks"))
+  if (tdeApp->authorizeTDEAction("bookmarks"))
   {
     bookmarkHandler = new KonsoleBookmarkHandler( this, true );
     m_bookmarks = bookmarkHandler->menu();
@@ -1036,20 +1036,20 @@ void Konsole::makeBasicGUI()
     bookmarks_menu_check();
   }
 
-  if (kapp->authorizeTDEAction("settings")) {
+  if (tdeApp->authorizeTDEAction("settings")) {
      m_options = new TDEPopupMenu(this);
      TDEAcceleratorManager::manage( m_options );
   }
 
-  if (kapp->authorizeTDEAction("help"))
+  if (tdeApp->authorizeTDEAction("help"))
      m_help = helpMenu(0, false);
 
-  if (kapp->authorizeTDEAction("konsole_rmb")) {
+  if (tdeApp->authorizeTDEAction("konsole_rmb")) {
      m_rightButton = new TDEPopupMenu(this);
      TDEAcceleratorManager::manage( m_rightButton );
   }
 
-  if (kapp->authorizeTDEAction("bookmarks"))
+  if (tdeApp->authorizeTDEAction("bookmarks"))
   {
     // Bookmarks that open new sessions.
     bookmarkHandlerSession = new KonsoleBookmarkHandler( this, false );
@@ -1133,7 +1133,7 @@ void Konsole::makeBasicGUI()
   m_renameSession = new TDEAction(i18n("&Rename Session..."), TQt::CTRL+TQt::SHIFT+TQt::Key_R, this,
                                 TQ_SLOT(slotRenameSession()), m_shortcuts, "rename_session");
 
-  if (kapp->authorizeTDEAction("zmodem_upload"))
+  if (tdeApp->authorizeTDEAction("zmodem_upload"))
     m_zmodemUpload = new TDEAction( i18n( "&ZModem Upload..." ),
                                   TQt::CTRL+TQt::ALT+TQt::Key_U, this,
                                   TQ_SLOT( slotZModemUpload() ),
@@ -1239,7 +1239,7 @@ void Konsole::activateMenu()
  */
 bool Konsole::queryClose()
 {
-   if(kapp->sessionSaving())
+   if(tdeApp->sessionSaving())
      // saving session - do not even think about doing any kind of cleanup here
        return true;
 
@@ -3394,7 +3394,7 @@ void Konsole::buildSessionMenus()
 
    createSessionMenus();
 
-   if (kapp->authorizeTDEAction("file_print"))
+   if (tdeApp->authorizeTDEAction("file_print"))
    {
       m_session->insertSeparator();
       m_print->plug(m_session);
@@ -3494,7 +3494,7 @@ void Konsole::loadSessionCommands()
   cmd_serial = 99;
   cmd_first_screen = -1;
 
-  if (!kapp->authorize("shell_access"))
+  if (!tdeApp->authorize("shell_access"))
      return;
 
   addSessionCommand(TQString::null);
@@ -3583,7 +3583,7 @@ void Konsole::addScreenSession(const TQString &path, const TQString &socket)
 
 void Konsole::loadScreenSessions()
 {
-  if (!kapp->authorize("shell_access"))
+  if (!tdeApp->authorize("shell_access"))
      return;
   TQCString screenDir = getenv("SCREENDIR");
   if (screenDir.isEmpty())
@@ -4230,7 +4230,7 @@ void Konsole::slotZModemUpload()
 
 void Konsole::slotZModemDetected(TESession *session)
 {
-  if (!kapp->authorize("zmodem_download")) return;
+  if (!tdeApp->authorize("zmodem_download")) return;
 
   if(se != session)
     activateSession(session);

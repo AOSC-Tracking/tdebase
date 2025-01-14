@@ -91,7 +91,7 @@ DCOPRef KonqViewIface::part()
   if ( dcopProperty.type() != TQVariant::CString )
     return res;
 
-  res.setRef( kapp->dcopClient()->appId(), dcopProperty.toCString() );
+  res.setRef( tdeApp->dcopClient()->appId(), dcopProperty.toCString() );
   return res;
 }
 

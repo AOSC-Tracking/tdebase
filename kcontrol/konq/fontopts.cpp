@@ -330,9 +330,9 @@ void KonqFontOptions::save()
     // Send signal to konqueror
     // Warning. In case something is added/changed here, keep kfmclient in sync
     TQByteArray data;
-    if ( !kapp->dcopClient()->isAttached() )
-      kapp->dcopClient()->attach();
-    kapp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", data );
+    if ( !tdeApp->dcopClient()->isAttached() )
+      tdeApp->dcopClient()->attach();
+    tdeApp->dcopClient()->send( "konqueror*", "KonquerorIface", "reparseConfiguration()", data );
 
     // Tell kdesktop about the new config file
     int konq_screen_number = TDEApplication::desktop()->primaryScreen();
@@ -341,7 +341,7 @@ void KonqFontOptions::save()
         appname = "kdesktop";
     else
         appname.sprintf("kdesktop-screen-%d", konq_screen_number);
-    kapp->dcopClient()->send( appname, "KDesktopIface", "configure()", data );
+    tdeApp->dcopClient()->send( appname, "KDesktopIface", "configure()", data );
 }
 
 TQString KonqFontOptions::handbookSection() const

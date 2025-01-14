@@ -171,7 +171,7 @@ void KNetAttach::finished()
 	return;
     }
 
-    kapp->invokeBrowser(url.url());
+    tdeApp->invokeBrowser(url.url());
 
     TQString name = _connectionName->text().stripWhiteSpace();
 

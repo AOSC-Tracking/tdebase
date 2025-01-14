@@ -169,7 +169,7 @@ void ServiceButton::dropEvent( TQDropEvent* ev )
 {
     KURL::List uriList;
     if( KURLDrag::decode( ev, uriList ) && _service ) {
-        kapp->propagateSessionManager();
+        tdeApp->propagateSessionManager();
         KRun::run( *_service, uriList );
     }
     PanelButton::dropEvent(ev);
@@ -200,7 +200,7 @@ void ServiceButton::performExec()
     if (!_service) return;
 
     KURL::List uriList;
-    kapp->propagateSessionManager();
+    tdeApp->propagateSessionManager();
     KRun::run( *_service, uriList );
 }
 

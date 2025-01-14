@@ -43,7 +43,7 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider,
 
     enableButtonSeparator(true);
 
-    m_dlg->leQuery->setMinimumWidth(kapp->fontMetrics().maxWidth() * 40);
+    m_dlg->leQuery->setMinimumWidth(tdeApp->fontMetrics().maxWidth() * 40);
 
     connect(m_dlg->leName, TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT(slotChanged()));
     connect(m_dlg->leQuery, TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT(slotChanged()));
