@@ -99,7 +99,7 @@ set( ${target}_SRCS
 tde_add_tdeinit_executable( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
   LINK
-    pthread kdesktopsettings-static bgnd-static dmctl-static
+    ${CMAKE_THREAD_LIBS_INIT} kdesktopsettings-static bgnd-static dmctl-static
     dbusscreensaverservice-static dbusscreensaveriface-static
     konq-shared tdeutils-shared tdesu-shared ${TDEHW_LIBRARIES}
     ${XRENDER_LIBRARIES} ${XCURSOR_LIBRARIES} Xext ${CMAKE_DL_LIBS}

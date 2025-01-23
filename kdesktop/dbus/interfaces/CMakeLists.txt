@@ -23,7 +23,6 @@ set( ScreenSaver_SRCS dbusbaseNode.cpp introspectableInterface.cpp screensaverIn
 add_custom_command( 
     OUTPUT  ${ScreenSaver_HDRS} ${ScreenSaver_SRCS}
     COMMAND ${DBUSXML2QT3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/org.freedesktop.ScreenSaver.xml 2>/dev/null
-    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} 
 )
 
 tde_add_library( dbusscreensaveriface STATIC_PIC AUTOMOC
