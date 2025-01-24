@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Seasons - Winter
+activeBackground=193,202,216
+activeBlend=207,216,230
+activeForeground=82,82,82
+activeTitleBtnBg=193,202,216
+alternateBackground=255,255,255
+background=244,243,242
+buttonBackground=237,235,234
+buttonForeground=82,82,82
+contrast=5
+foreground=82,82,82
+frame=193,202,216
+handle=193,202,216
+inactiveBackground=216,221,228
+inactiveBlend=244,243,242
+inactiveForeground=128,128,128
+inactiveFrame=216,221,228
+inactiveHandle=216,221,228
+inactiveTitleBtnBg=216,221,228
+linkColor=0,0,192
+selectBackground=193,202,216
+selectForeground=0,0,0
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=255,255,255
+windowForeground=82,82,82

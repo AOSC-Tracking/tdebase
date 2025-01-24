@@ -9,16 +9,9 @@
 #
 #################################################
 
+file( GLOB _color_schemes_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.kcsrc )
 tde_create_translated_desktop(
-  SOURCE
-    AtlasGreen.kcsrc BeOS.kcsrc BlueSlate.kcsrc
-    CDE.kcsrc DarkBlue.kcsrc DesertRed.kcsrc DigitalCDE.kcsrc
-    PaleGray.kcsrc Pumpkin.kcsrc SolarisCDE.kcsrc Storm.kcsrc
-    Windows2000.kcsrc System.kcsrc Next.kcsrc PointReyesGreen.kcsrc
-    KDEOne.kcsrc KDETwo.kcsrc MediaPeach.kcsrc Windows95.kcsrc EveX.kcsrc
-    WindowsXP.kcsrc Keramik.kcsrc KeramikEmerald.kcsrc KeramikWhite.kcsrc
-    BlackOnWhite.kcsrc WhiteOnBlack.kcsrc YellowOnBlue.kcsrc Plastik.kcsrc
-    Human.kcsrc Last.fm.kcsrc Lizard.kcsrc Sienna.kcsrc Platinum.kcsrc WedgieWeb.kcsrc
+  SOURCE ${_color_schemes_files}
   DESTINATION ${DATA_INSTALL_DIR}/tdedisplay/color-schemes
   PO_DIR kcontrol-color-schemes
 )

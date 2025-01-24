@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Jewels - Sapphire
+activeBackground=1,49,180
+activeBlend=31,75,180
+activeForeground=255,255,255
+activeTitleBtnBg=1,49,180
+alternateBackground=240,240,255
+background=216,216,255
+buttonBackground=199,200,253
+buttonForeground=0,0,0
+contrast=5
+foreground=0,0,0
+frame=1,49,180
+handle=1,49,180
+inactiveBackground=152,159,255
+inactiveBlend=184,187,255
+inactiveForeground=128,128,128
+inactiveFrame=152,159,255
+inactiveHandle=152,159,255
+inactiveTitleBtnBg=152,159,255
+linkColor=0,0,192
+selectBackground=1,49,180
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=240,240,255
+windowForeground=0,0,0

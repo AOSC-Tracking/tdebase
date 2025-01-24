@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Jewels - Carbon
+activeBackground=19,14,10
+activeBlend=33,28,24
+activeForeground=255,255,255
+activeTitleBtnBg=19,14,10
+alternateBackground=252,252,252
+background=236,236,236
+buttonBackground=225,225,225
+buttonForeground=0,0,0
+contrast=5
+foreground=0,0,0
+frame=19,14,10
+handle=19,14,10
+inactiveBackground=33,28,24
+inactiveBlend=177,177,177
+inactiveForeground=175,175,175
+inactiveFrame=33,28,24
+inactiveHandle=33,28,24
+inactiveTitleBtnBg=33,28,24
+linkColor=0,0,192
+selectBackground=19,14,10
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=252,252,252
+windowForeground=0,0,0

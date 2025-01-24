@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Jewels - Amethyst
+activeBackground=153,102,204
+activeBlend=167,116,218
+activeForeground=255,255,255
+activeTitleBtnBg=153,102,204
+alternateBackground=255,240,255
+background=247,216,255
+buttonBackground=242,201,254
+buttonForeground=0,0,0
+contrast=5
+foreground=0,0,0
+frame=153,102,204
+handle=153,102,204
+inactiveBackground=255,164,255
+inactiveBlend=251,190,255
+inactiveForeground=128,128,128
+inactiveFrame=255,164,255
+inactiveHandle=255,164,255
+inactiveTitleBtnBg=255,164,255
+linkColor=0,0,192
+selectBackground=153,102,204
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=255,240,255
+windowForeground=0,0,0

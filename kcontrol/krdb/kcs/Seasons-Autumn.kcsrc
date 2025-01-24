@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Seasons - Autumn
+activeBackground=175,95,55
+activeBlend=205,125,55
+activeForeground=255,255,255
+activeTitleBtnBg=175,95,55
+alternateBackground=255,250,245
+background=240,230,210
+buttonBackground=235,222,198
+buttonForeground=0,0,0
+contrast=5
+foreground=0,0,0
+frame=175,95,55
+handle=175,95,55
+inactiveBackground=235,205,125
+inactiveBlend=240,230,210
+inactiveForeground=175,175,175
+inactiveFrame=235,205,125
+inactiveHandle=235,205,125
+inactiveTitleBtnBg=235,205,125
+linkColor=0,0,192
+selectBackground=175,95,55
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=255,250,245
+windowForeground=0,0,0
