@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Jewels - Emerald
+activeBackground=80,200,120
+activeBlend=107,200,120
+activeForeground=255,255,255
+activeTitleBtnBg=80,200,120
+alternateBackground=240,255,240
+background=216,255,216
+buttonBackground=200,254,201
+buttonForeground=0,0,0
+contrast=5
+foreground=0,0,0
+frame=80,200,120
+handle=80,200,120
+inactiveBackground=152,255,159
+inactiveBlend=184,255,187
+inactiveForeground=128,128,128
+inactiveFrame=152,255,159
+inactiveHandle=152,255,159
+inactiveTitleBtnBg=152,255,159
+linkColor=0,0,192
+selectBackground=80,200,120
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=240,255,240
+windowForeground=0,0,0

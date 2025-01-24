@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Jewels - Ruby
+activeBackground=224,17,95
+activeBlend=224,44,95
+activeForeground=255,255,255
+activeTitleBtnBg=224,17,95
+alternateBackground=255,240,240
+background=255,216,216
+buttonBackground=254,199,201
+buttonForeground=0,0,0
+contrast=5
+foreground=0,0,0
+frame=224,17,95
+handle=224,17,95
+inactiveBackground=255,159,152
+inactiveBlend=255,187,184
+inactiveForeground=128,128,128
+inactiveFrame=255,159,152
+inactiveHandle=255,159,152
+inactiveTitleBtnBg=255,159,152
+linkColor=0,0,192
+selectBackground=224,17,95
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=255,240,240
+windowForeground=0,0,0

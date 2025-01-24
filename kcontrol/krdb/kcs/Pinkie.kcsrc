@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Pinkie
+activeBackground=255,134,209
+activeBlend=255,184,235
+activeForeground=255,255,255
+activeTitleBtnBg=220,220,220
+alternateBackground=251,224,221
+background=254,224,250
+buttonBackground=248,209,233
+buttonForeground=0,0,0
+contrast=1
+foreground=0,0,0
+frame=255,235,237
+handle=255,235,237
+inactiveBackground=133,67,114
+inactiveBlend=210,118,158
+inactiveForeground=236,237,231
+inactiveFrame=255,235,237
+inactiveHandle=255,235,237
+inactiveTitleBtnBg=220,220,220
+linkColor=0,0,192
+selectBackground=255,174,228
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=255,230,245
+windowForeground=0,0,0

@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Seasons - Spring
+activeBackground=90,180,60
+activeBlend=139,203,105
+activeForeground=255,255,255
+activeTitleBtnBg=90,180,60
+alternateBackground=245,250,245
+background=225,235,225
+buttonBackground=215,229,214
+buttonForeground=0,0,0
+contrast=5
+foreground=0,0,0
+frame=90,180,60
+handle=90,180,60
+inactiveBackground=205,235,175
+inactiveBlend=225,235,225
+inactiveForeground=175,175,175
+inactiveFrame=205,235,175
+inactiveHandle=205,235,175
+inactiveTitleBtnBg=205,235,175
+linkColor=0,0,192
+selectBackground=90,180,60
+selectForeground=255,255,255
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=245,250,245
+windowForeground=0,0,0

@@ -1,0 +1,27 @@
+[Color Scheme]
+Name=Jewels - Aquamarine
+activeBackground=127,255,212
+activeBlend=157,255,212
+activeForeground=0,0,0
+activeTitleBtnBg=127,255,212
+alternateBackground=240,255,255
+background=216,255,255
+buttonBackground=201,255,254
+buttonForeground=0,0,0
+contrast=5
+foreground=0,0,0
+frame=127,255,212
+handle=127,255,212
+inactiveBackground=159,255,255
+inactiveBlend=187,255,255
+inactiveForeground=128,128,128
+inactiveFrame=159,255,255
+inactiveHandle=159,255,255
+inactiveTitleBtnBg=159,255,255
+linkColor=0,0,192
+selectBackground=127,255,212
+selectForeground=0,0,0
+shadeSortColumn=true
+visitedLinkColor=128,0,128
+windowBackground=240,255,255
+windowForeground=0,0,0
