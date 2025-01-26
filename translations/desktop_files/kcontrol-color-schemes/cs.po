@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-02 18:13+0000\n"
+"POT-Creation-Date: 2025-01-26 18:11+0000\n"
 "PO-Revision-Date: 2024-09-05 17:36+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
@@ -53,6 +53,11 @@ msgid "Desert Red"
 msgstr "Pouštní červená"
 
 #. Name
+#: Different.kcsrc:2
+msgid "Different"
+msgstr ""
+
+#. Name
 #: DigitalCDE.kcsrc:3
 msgid "Digital CDE"
 msgstr "CDE Digital"
@@ -66,6 +71,46 @@ msgstr "EveX"
 #: Human.kcsrc:2
 msgid "Human"
 msgstr "Člověk"
+
+#. Name
+#: Jewels-Amethyst.kcsrc:2
+msgid "Jewels - Amethyst"
+msgstr ""
+
+#. Name
+#: Jewels-Aquamarine.kcsrc:2
+msgid "Jewels - Aquamarine"
+msgstr ""
+
+#. Name
+#: Jewels-Carbon.kcsrc:2
+msgid "Jewels - Carbon"
+msgstr ""
+
+#. Name
+#: Jewels-Citrin.kcsrc:2
+msgid "Jewels - Citrin"
+msgstr ""
+
+#. Name
+#: Jewels-Emerald.kcsrc:2
+msgid "Jewels - Emerald"
+msgstr ""
+
+#. Name
+#: Jewels-Ruby.kcsrc:2
+msgid "Jewels - Ruby"
+msgstr ""
+
+#. Name
+#: Jewels-Sapphire.kcsrc:2
+msgid "Jewels - Sapphire"
+msgstr ""
+
+#. Name
+#: Jewels-Topaz.kcsrc:2
+msgid "Jewels - Topaz"
+msgstr ""
 
 #. Name
 #: KDEOne.kcsrc:2
@@ -98,6 +143,11 @@ msgid "Last.fm"
 msgstr "Last.fm"
 
 #. Name
+#: Lila.kcsrc:2
+msgid "Lila"
+msgstr ""
+
+#. Name
 #: Lizard.kcsrc:2
 msgid "Lizard"
 msgstr "Ještěrka"
@@ -118,6 +168,11 @@ msgid "Pale Gray"
 msgstr "Bledě šedá"
 
 #. Name
+#: Pinkie.kcsrc:2
+msgid "Pinkie"
+msgstr ""
+
+#. Name
 #: Plastik.kcsrc:2
 msgid "Plastik"
 msgstr "Plastický"
@@ -136,6 +191,26 @@ msgstr "Zelená Point Reyes"
 #: Pumpkin.kcsrc:3
 msgid "Pumpkin"
 msgstr "Dýně"
+
+#. Name
+#: Seasons-Autumn.kcsrc:2
+msgid "Seasons - Autumn"
+msgstr ""
+
+#. Name
+#: Seasons-Spring.kcsrc:2
+msgid "Seasons - Spring"
+msgstr ""
+
+#. Name
+#: Seasons-Summer.kcsrc:2
+msgid "Seasons - Summer"
+msgstr ""
+
+#. Name
+#: Seasons-Winter.kcsrc:2
+msgid "Seasons - Winter"
+msgstr ""
 
 #. Name
 #: Sienna.kcsrc:2
