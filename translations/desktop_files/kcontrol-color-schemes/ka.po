@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 18:11+0000\n"
-"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"PO-Revision-Date: 2025-01-27 09:33+0000\n"
 "Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
 "Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/color-schemes/ka/>\n"
@@ -55,7 +55,7 @@ msgstr "უდაბნოს წითელი"
 #. Name
 #: Different.kcsrc:2
 msgid "Different"
-msgstr ""
+msgstr "განსხვავებული"
 
 #. Name
 #: DigitalCDE.kcsrc:3
@@ -75,42 +75,42 @@ msgstr "ადამიანი"
 #. Name
 #: Jewels-Amethyst.kcsrc:2
 msgid "Jewels - Amethyst"
-msgstr ""
+msgstr "ძვირფასეულობა - ამეთვისტო"
 
 #. Name
 #: Jewels-Aquamarine.kcsrc:2
 msgid "Jewels - Aquamarine"
-msgstr ""
+msgstr "ძვირფასეულობა - აკვამარინი"
 
 #. Name
 #: Jewels-Carbon.kcsrc:2
 msgid "Jewels - Carbon"
-msgstr ""
+msgstr "ძვირფასეულობა - ნახშირბადი"
 
 #. Name
 #: Jewels-Citrin.kcsrc:2
 msgid "Jewels - Citrin"
-msgstr ""
+msgstr "ძვირფასეულობა - ციტრინი"
 
 #. Name
 #: Jewels-Emerald.kcsrc:2
 msgid "Jewels - Emerald"
-msgstr ""
+msgstr "ძვირფასეულობა - ზურმუხტი"
 
 #. Name
 #: Jewels-Ruby.kcsrc:2
 msgid "Jewels - Ruby"
-msgstr ""
+msgstr "ძვირფასეულობა - ლალი"
 
 #. Name
 #: Jewels-Sapphire.kcsrc:2
 msgid "Jewels - Sapphire"
-msgstr ""
+msgstr "ძვირფასეულობა - საფირონი"
 
 #. Name
 #: Jewels-Topaz.kcsrc:2
 msgid "Jewels - Topaz"
-msgstr ""
+msgstr "ძვირფასეულობა - ტოპაზი"
 
 #. Name
 #: KDEOne.kcsrc:2
@@ -145,7 +145,7 @@ msgstr "Last.fm"
 #. Name
 #: Lila.kcsrc:2
 msgid "Lila"
-msgstr ""
+msgstr "შროშანისფერი"
 
 #. Name
 #: Lizard.kcsrc:2
@@ -170,7 +170,7 @@ msgstr "მკრთალი ნაცრისფერი"
 #. Name
 #: Pinkie.kcsrc:2
 msgid "Pinkie"
-msgstr ""
+msgstr "მოვარდისფრო"
 
 #. Name
 #: Plastik.kcsrc:2
@@ -195,22 +195,22 @@ msgstr "გოგრა"
 #. Name
 #: Seasons-Autumn.kcsrc:2
 msgid "Seasons - Autumn"
-msgstr ""
+msgstr "სეზონები - შემოდგომა"
 
 #. Name
 #: Seasons-Spring.kcsrc:2
 msgid "Seasons - Spring"
-msgstr ""
+msgstr "სეზონები - გაზაფხული"
 
 #. Name
 #: Seasons-Summer.kcsrc:2
 msgid "Seasons - Summer"
-msgstr ""
+msgstr "სეზონები - ზაფხული"
 
 #. Name
 #: Seasons-Winter.kcsrc:2
 msgid "Seasons - Winter"
-msgstr ""
+msgstr "სეზონები - ზამთარი"
 
 #. Name
 #: Sienna.kcsrc:2
