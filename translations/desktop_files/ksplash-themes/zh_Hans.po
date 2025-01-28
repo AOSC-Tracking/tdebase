@@ -6,92 +6,95 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-24 18:26+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-01-28 12:12+0000\n"
+"Last-Translator: Toad114514 <xiaolan2332021@163.com>\n"
+"Language-Team: Chinese (Simplified) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/ksplash-themes/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: pics/themes/TDE-Classic/Theme.rc:4
 #: pics/themes/TDE-Classic/locolor/Theme.rc:4
 msgid "TDE 3.5 Splash Screen"
-msgstr ""
+msgstr "TDE 3.5 启动画面"
 
 #. Description
 #: pics/themes/TDE-Classic/Theme.rc:5
 #: pics/themes/TDE-Classic/locolor/Theme.rc:5
 msgid "Waves of change"
-msgstr ""
+msgstr "变化的波浪"
 
 #. Name
 #: pics/themes/blue-bend/Theme.rc:6
 msgid "Blue-Bend KDE Splash Theme"
-msgstr ""
+msgstr "Blue-Bend KDE 启动画面"
 
 #. Description
 #: pics/themes/blue-bend/Theme.rc:7
 msgid "Load Blue-Bend KDE KSplash theme."
-msgstr ""
+msgstr "加载 Blue-Bend KDE KSplash 主题。"
 
 #. Name
 #: pics/themes/default/Theme.rc:6
 msgid "Refresh TDE Splash Theme"
-msgstr ""
+msgstr "Refresh TDE 启动画面主题"
 
 #. Description
 #: pics/themes/default/Theme.rc:7
 msgid "Load Refresh TDE KSplash theme."
-msgstr ""
+msgstr "加载 Refresh TDE KSplash 主题。"
 
 #. Name
 #: pics/themes/none/Theme.rc:4
 msgid "No Splash Screen"
-msgstr ""
+msgstr "没有启动画面"
 
 #. Description
 #: pics/themes/none/Theme.rc:5
 msgid "Splash Screen Turned Off"
-msgstr ""
+msgstr "关闭启动画面"
 
 #. Name
 #: pics/themes/simple/Theme.rc:4
 msgid "Simple Splash Screen"
-msgstr ""
+msgstr "Simple 启动画面"
 
 #. Description
 #: pics/themes/simple/Theme.rc:5
 msgid "Very Simple Optimized Splash Screen"
-msgstr ""
+msgstr "非常简洁的启动画面"
 
 #. Name
 #: pics/themes/unified/Theme.rc:4
 msgid "Trinity Unified Splash Screen"
-msgstr ""
+msgstr "Trinity Unified 启动画面"
 
 #. Description
 #: pics/themes/unified/Theme.rc:5
 msgid "Unified system startup screen"
-msgstr ""
+msgstr "Unified 系统的启动画面"
 
 #. Name
 #: themeengine/redmond/Theme.rc:2
 msgid "Redmond Splash Screen"
-msgstr ""
+msgstr "Redmond 启动画面"
 
 #. Description
 #: themeengine/redmond/Theme.rc:3
 msgid "KSplash theme inspired by the Microsoft Windows startup screen."
-msgstr ""
+msgstr "该主题受微软 Windows 启动画面的启发。"
 
 #. Name
 #: themeengine/standard/Theme.rc:2
 msgid "Standard Splash Screen"
-msgstr ""
+msgstr "Standard 启动画面"
 
 #. Description
 #: themeengine/standard/Theme.rc:3
 msgid "Standard TDE KSplash theme."
-msgstr ""
+msgstr "普通的 TDE KSplash 主题。"
