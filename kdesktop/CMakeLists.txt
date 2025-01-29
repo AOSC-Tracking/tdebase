@@ -17,7 +17,6 @@ add_subdirectory( patterns )
 add_subdirectory( programs )
 add_subdirectory( init )
 add_subdirectory( kwebdesktop )
-add_subdirectory( dbus/interfaces )
 add_subdirectory( dbus/screensaver )
 
 
@@ -32,6 +31,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/tdmlib
   ${CMAKE_SOURCE_DIR}/kcontrol/background
   ${CMAKE_SOURCE_DIR}/libkonq
+  ${CMAKE_CURRENT_BINARY_DIR}/dbus/screensaver
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
   ${DBUS_INCLUDE_DIRS}
@@ -99,15 +99,12 @@ set( ${target}_SRCS
 tde_add_tdeinit_executable( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
   LINK
-    ${CMAKE_THREAD_LIBS_INIT} kdesktopsettings-static bgnd-static dmctl-static
-    dbusscreensaverservice-static dbusscreensaveriface-static
+    ${CMAKE_THREAD_LIBS_INIT} kdesktopsettings-static 
+    bgnd-static dmctl-static dbusscreensaverservice-static
     konq-shared tdeutils-shared tdesu-shared ${TDEHW_LIBRARIES}
     ${XRENDER_LIBRARIES} ${XCURSOR_LIBRARIES} Xext ${CMAKE_DL_LIBS}
     ${XSS_LIBRARIES} ${DBUS_1_TQT_LIBRARIES}
 )
-
-add_dependencies(${target} dbusscreensaveriface-static dbusscreensaverservice-static )
-
 
 ##### kdesktopsettings (static) #################
 

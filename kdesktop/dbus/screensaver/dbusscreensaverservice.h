@@ -25,8 +25,8 @@
 #include <tqmap.h>
 #include <tqdbusconnection.h>
 
-#include "dbus/interfaces/screensaverNode.h"
-#include "dbus/interfaces/dbusbaseNode.h"
+#include "screensaverNode.h"
+#include "dbusbaseNode.h"
 #include "screensaverInterfaceImpl.h"
 
 class ScreenSaverService: public org::freedesktop::screensaverNode

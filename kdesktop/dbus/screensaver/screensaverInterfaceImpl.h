@@ -27,7 +27,7 @@
 #include <tqmap.h>
 #include <tqdbusconnection.h>
 
-#include "dbus/interfaces/screensaverInterface.h"
+#include "screensaverInterface.h"
 
 #define DBUS_SCREENSAVER_SERVICE      "TDEDbusScreenSaver"
 #define DBUS_SCREENSAVER_SERVICE_NAME "org.freedesktop.ScreenSaver"
