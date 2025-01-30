@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Heimen Stoffels <vistausss@fastmail.com>, 2024.
+# Heimen Stoffels <vistausss@fastmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 18:11+0000\n"
-"PO-Revision-Date: 2024-11-18 13:11+0000\n"
+"PO-Revision-Date: 2025-01-31 11:12+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/color-schemes/nl/>\n"
@@ -55,7 +55,7 @@ msgstr "Woestijnrood"
 #. Name
 #: Different.kcsrc:2
 msgid "Different"
-msgstr ""
+msgstr "Anders"
 
 #. Name
 #: DigitalCDE.kcsrc:3
@@ -75,42 +75,42 @@ msgstr "Human"
 #. Name
 #: Jewels-Amethyst.kcsrc:2
 msgid "Jewels - Amethyst"
-msgstr ""
+msgstr "Juwelen: amethist"
 
 #. Name
 #: Jewels-Aquamarine.kcsrc:2
 msgid "Jewels - Aquamarine"
-msgstr ""
+msgstr "Juwelen: aquamarijn"
 
 #. Name
 #: Jewels-Carbon.kcsrc:2
 msgid "Jewels - Carbon"
-msgstr ""
+msgstr "Juwelen: carbon"
 
 #. Name
 #: Jewels-Citrin.kcsrc:2
 msgid "Jewels - Citrin"
-msgstr ""
+msgstr "Juwelen: citrien"
 
 #. Name
 #: Jewels-Emerald.kcsrc:2
 msgid "Jewels - Emerald"
-msgstr ""
+msgstr "Juwelen: smaragd"
 
 #. Name
 #: Jewels-Ruby.kcsrc:2
 msgid "Jewels - Ruby"
-msgstr ""
+msgstr "Juwelen: robijn"
 
 #. Name
 #: Jewels-Sapphire.kcsrc:2
 msgid "Jewels - Sapphire"
-msgstr ""
+msgstr "Juwelen: saffier"
 
 #. Name
 #: Jewels-Topaz.kcsrc:2
 msgid "Jewels - Topaz"
-msgstr ""
+msgstr "Juwelen: topaas"
 
 #. Name
 #: KDEOne.kcsrc:2
@@ -145,7 +145,7 @@ msgstr "Last.fm"
 #. Name
 #: Lila.kcsrc:2
 msgid "Lila"
-msgstr ""
+msgstr "Lila"
 
 #. Name
 #: Lizard.kcsrc:2
@@ -170,12 +170,12 @@ msgstr "Vaalgrijs"
 #. Name
 #: Pinkie.kcsrc:2
 msgid "Pinkie"
-msgstr ""
+msgstr "Rozig"
 
 #. Name
 #: Plastik.kcsrc:2
 msgid "Plastik"
-msgstr "Plastiek"
+msgstr "Plastik"
 
 #. Name
 #: Platinum.kcsrc:2
@@ -195,22 +195,22 @@ msgstr "Pompoen"
 #. Name
 #: Seasons-Autumn.kcsrc:2
 msgid "Seasons - Autumn"
-msgstr ""
+msgstr "Seizoenen: herfst"
 
 #. Name
 #: Seasons-Spring.kcsrc:2
 msgid "Seasons - Spring"
-msgstr ""
+msgstr "Seizoenen: lente"
 
 #. Name
 #: Seasons-Summer.kcsrc:2
 msgid "Seasons - Summer"
-msgstr ""
+msgstr "Seizoenen: zomer"
 
 #. Name
 #: Seasons-Winter.kcsrc:2
 msgid "Seasons - Winter"
-msgstr ""
+msgstr "Seizoenen: winter"
 
 #. Name
 #: Sienna.kcsrc:2
