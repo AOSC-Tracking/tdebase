@@ -592,7 +592,7 @@ processCtrl( const char *string, int len, int fd, struct display *d )
 		} else if (fd >= 0 && !strcmp( ar[0], "activevt" )) {
 #ifdef HAVE_VTS
 			Reply( "ok" );
-			int vt_fd = getfd(NULL);
+			int vt_fd = getfd();
 			if (vt_fd > 0) {
 				struct vt_stat vtstat;
 				if (!ioctl(vt_fd, VT_GETSTATE, &vtstat)) {
