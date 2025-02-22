@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Roman Savochenko <roman@oscada.org>, 2020, 2024.
+# Roman Savochenko <roman@oscada.org>, 2020, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2024-09-10 15:10+0000\n"
+"PO-Revision-Date: 2025-02-22 09:41+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdeioslave-desktop-files/uk/>\n"
@@ -273,7 +273,7 @@ msgstr "Мої Документи"
 #. Comment
 #: media/mimetypes/mynetworkplaces.desktop:6
 msgid "My Network Places"
-msgstr "Мої Віддалені Місця"
+msgstr "Мої Мережеві Місця"
 
 #. Comment
 #: media/mimetypes/nfs_mounted.desktop:6
@@ -456,7 +456,7 @@ msgstr "Домашня тека"
 #. Name
 #: system/entries/remote.desktop:6
 msgid "Remote Places"
-msgstr "Віддалені місця"
+msgstr "Віддалені Місця"
 
 #. Name
 #: system/entries/users.desktop:6

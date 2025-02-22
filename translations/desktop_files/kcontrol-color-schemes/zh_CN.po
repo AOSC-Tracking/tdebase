@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Toad114514 <xiaolan2332021@163.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 18:11+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-02-22 09:41+0000\n"
+"Last-Translator: Toad114514 <xiaolan2332021@163.com>\n"
+"Language-Team: Chinese (Simplified) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/color-schemes/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: AtlasGreen.kcsrc:3
@@ -54,12 +55,12 @@ msgstr "沙漠红"
 #. Name
 #: Different.kcsrc:2
 msgid "Different"
-msgstr ""
+msgstr "不一样"
 
 #. Name
 #: DigitalCDE.kcsrc:3
 msgid "Digital CDE"
-msgstr ""
+msgstr "数字 CDE"
 
 #. Name
 #: EveX.kcsrc:2
@@ -69,22 +70,22 @@ msgstr ""
 #. Name
 #: Human.kcsrc:2
 msgid "Human"
-msgstr ""
+msgstr "人类"
 
 #. Name
 #: Jewels-Amethyst.kcsrc:2
 msgid "Jewels - Amethyst"
-msgstr ""
+msgstr "珠宝 - 紫水晶"
 
 #. Name
 #: Jewels-Aquamarine.kcsrc:2
 msgid "Jewels - Aquamarine"
-msgstr ""
+msgstr "珠宝 - 蓝宝石"
 
 #. Name
 #: Jewels-Carbon.kcsrc:2
 msgid "Jewels - Carbon"
-msgstr ""
+msgstr "珠宝"
 
 #. Name
 #: Jewels-Citrin.kcsrc:2
@@ -94,7 +95,7 @@ msgstr ""
 #. Name
 #: Jewels-Emerald.kcsrc:2
 msgid "Jewels - Emerald"
-msgstr ""
+msgstr "珠宝 - 绿宝石"
 
 #. Name
 #: Jewels-Ruby.kcsrc:2
@@ -123,7 +124,6 @@ msgstr ""
 
 #. Name
 #: Keramik.kcsrc:2
-#, fuzzy
 msgid "Keramik"
 msgstr "Keramik 白"
 
@@ -195,22 +195,22 @@ msgstr "南瓜黄"
 #. Name
 #: Seasons-Autumn.kcsrc:2
 msgid "Seasons - Autumn"
-msgstr ""
+msgstr "季节 - 秋天"
 
 #. Name
 #: Seasons-Spring.kcsrc:2
 msgid "Seasons - Spring"
-msgstr ""
+msgstr "季节 - 春天"
 
 #. Name
 #: Seasons-Summer.kcsrc:2
 msgid "Seasons - Summer"
-msgstr ""
+msgstr "季节 - 夏天"
 
 #. Name
 #: Seasons-Winter.kcsrc:2
 msgid "Seasons - Winter"
-msgstr ""
+msgstr "季节 - 冬天"
 
 #. Name
 #: Sienna.kcsrc:2
