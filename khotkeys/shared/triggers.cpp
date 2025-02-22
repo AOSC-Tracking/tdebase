@@ -16,7 +16,7 @@
 
 #include "triggers.h"
 
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <tdeconfig.h>
 #include <kdebug.h>
 #include <twinmodule.h>

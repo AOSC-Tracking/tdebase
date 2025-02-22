@@ -54,7 +54,7 @@
 #include <tdesycoca.h>
 #include <tdetempfile.h>
 #include <tdemessagebox.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <twinmodule.h>
 #include <krun.h>
 #include <twin.h>

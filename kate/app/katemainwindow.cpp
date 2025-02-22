@@ -55,7 +55,7 @@
 #include <kdockwidget.h>
 #include <kedittoolbar.h>
 #include <tdefiledialog.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <tdeglobal.h>
 #include <tdeglobalsettings.h>
 #include <kiconloader.h>

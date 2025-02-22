@@ -21,7 +21,7 @@
 #define _TOPLEVEL_H_
 
 #include <tdeapplication.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <tdepopupmenu.h>
 #include <tqmap.h>
 #include <tqpixmap.h>

@@ -25,7 +25,7 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <kstringhandler.h>
 #include <stdarg.h>
 #include <kdebug.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <kkeynative.h>
 #include <tdeglobalsettings.h>
 #include <kiconeffect.h>

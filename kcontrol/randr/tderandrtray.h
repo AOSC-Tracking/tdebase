@@ -22,7 +22,7 @@
 #include <tqptrlist.h>
 
 #include <ksystemtray.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 
 #ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>

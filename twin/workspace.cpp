@@ -24,7 +24,7 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <tqclipboard.h>
 #include <tdemenubar.h>
 #include <tdeprocess.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <dcopclient.h>
 #include <kipc.h>
 

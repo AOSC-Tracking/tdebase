@@ -31,7 +31,7 @@
 #include <tqvaluevector.h>
 
 #include <kcmultidialog.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <khelpmenu.h>
 #include "tdeprocess.h"
 #include <kpropertiesdialog.h>

@@ -35,7 +35,7 @@ DESCRIPTION
 #include <tdeaboutdata.h>
 #include <tdecmdlineargs.h>
 #include <tdeglobal.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <tdelocale.h>
 #include <tdeprocess.h>
 #include <twinmodule.h>

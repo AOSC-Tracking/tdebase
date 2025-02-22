@@ -26,7 +26,7 @@
 #include <tdeapplication.h>
 #include <kiconloader.h>
 #include <tdemessagebox.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <dcopref.h>
 #include <dcopclient.h>
 

@@ -36,7 +36,7 @@
 #include <kdebug.h>
 #include <kdirwatch.h>
 #include <tdeglobal.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <kiconloader.h>
 #include <kimageio.h>
 #include <tdelocale.h>

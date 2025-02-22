@@ -47,7 +47,7 @@
 #include <kinstance.h>
 #include <kdebug.h>
 #include <kdialogbase.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <tdeglobal.h>
 #include <tdeglobalsettings.h>
 #include <kiconloader.h>

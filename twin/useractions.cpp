@@ -26,7 +26,7 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <kiconloader.h>
 #include <tdelocale.h>
 #include <tdeconfig.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <tdeapplication.h>
 #include <tqregexp.h>
 

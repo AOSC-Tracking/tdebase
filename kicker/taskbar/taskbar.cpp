@@ -36,7 +36,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeapplication.h>
 #include <kdebug.h>
 #include <tdeglobal.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 #include <kimageeffect.h>
 #include <tdelocale.h>
 #include <kstandarddirs.h>

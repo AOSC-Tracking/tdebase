@@ -28,7 +28,7 @@
 #include <kxerrorhandler.h>
 #include <kkeynative.h>
 #include <tqtimer.h>
-#include <kglobalaccel.h>
+#include <tdeglobalaccel.h>
 
 
 #include <X11/Xlib.h>
