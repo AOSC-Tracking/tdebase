@@ -39,7 +39,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeglobalaccel.h>
 #include <kimageeffect.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "kickerSettings.h"
 #include "taskbarsettings.h"

@@ -28,7 +28,7 @@
 #include <tdelocale.h>
 #include <knuminput.h>
 #include <krun.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurllabel.h>
 #include <dcopref.h>
 

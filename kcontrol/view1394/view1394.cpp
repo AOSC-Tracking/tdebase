@@ -26,7 +26,7 @@
 #include <kdialog.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "view1394.h"
 

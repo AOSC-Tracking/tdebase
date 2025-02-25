@@ -59,7 +59,7 @@
 #include <krun.h>
 #include <twin.h>
 #include <tdesu/su.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeconfig.h>
 #include <kiconloader.h>
 #include <kpushbutton.h>

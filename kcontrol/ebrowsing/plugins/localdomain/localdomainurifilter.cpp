@@ -23,7 +23,7 @@
 #include "localdomainurifilter.h"
 
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 
 #include <tqregexp.h>

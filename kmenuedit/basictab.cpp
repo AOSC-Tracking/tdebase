@@ -27,7 +27,7 @@
 #include <tqwhatsthis.h>
 
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobal.h>
 #include <kdialog.h>
 #include <kkeybutton.h>

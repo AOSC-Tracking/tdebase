@@ -61,7 +61,7 @@
 #include <tdelocale.h>
 #include <kdialog.h>
 #include <tdeconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 #include <tdeaboutdata.h>
 

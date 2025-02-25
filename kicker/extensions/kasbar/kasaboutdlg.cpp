@@ -61,7 +61,7 @@
 
 #include <tdeversion.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobal.h>
 #include <kiconloader.h>
 #include <ktextbrowser.h>

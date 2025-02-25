@@ -16,7 +16,7 @@
 
 #include <tdeapplication.h>
 #include <tdecmdlineargs.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeconfig.h>
 #include <kdebug.h>
 #include <dcopclient.h>

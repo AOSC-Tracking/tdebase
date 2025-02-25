@@ -31,7 +31,7 @@
 #include <tdelocale.h>
 #include <ktrader.h>
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kopenwith.h>
 #include <kurlrequesterdlg.h>
 #include <tdemessagebox.h>

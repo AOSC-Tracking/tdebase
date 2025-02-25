@@ -29,7 +29,7 @@
 #include <kdebug.h>
 #include <tdemessagebox.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <stdlib.h>
 

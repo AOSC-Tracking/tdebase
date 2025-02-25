@@ -35,7 +35,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <knuminput.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdefontrequester.h>
 #include <kkeybutton.h>
 #include <tdemessagebox.h>

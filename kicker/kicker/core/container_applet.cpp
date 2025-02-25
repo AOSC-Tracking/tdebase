@@ -40,7 +40,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kpanelapplet.h>
 #include <tdepopupmenu.h>
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "applethandle.h"
 #include "appletinfo.h"

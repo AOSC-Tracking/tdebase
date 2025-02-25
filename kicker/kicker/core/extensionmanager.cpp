@@ -34,7 +34,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdelocale.h>
 #include <tdemenubar.h>
 #include <tdemessagebox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <twinmodule.h>
 #include <dcopref.h>
 

@@ -45,7 +45,7 @@
 #include <kicontheme.h>
 #include <kiconeffect.h>
 #include <kurldrag.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kprotocolinfo.h>
 #include <ktrader.h>
 

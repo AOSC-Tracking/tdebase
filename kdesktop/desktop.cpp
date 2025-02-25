@@ -44,7 +44,7 @@
 #include <dcopclient.h>
 #include <kcursor.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kimageio.h>
 #include <kinputdialog.h>
 #include <kipc.h>

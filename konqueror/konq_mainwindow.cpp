@@ -87,7 +87,7 @@
 #include <kprotocolinfo.h>
 #include <tdestdaccel.h>
 #include <kstdaction.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdesycoca.h>
 #include <tdetempfile.h>
 #include <kurlrequesterdlg.h>

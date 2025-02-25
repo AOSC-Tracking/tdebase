@@ -8,7 +8,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <ksavefile.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeaction.h>
 #include <kiconloader.h>
 #include <kurifilter.h>

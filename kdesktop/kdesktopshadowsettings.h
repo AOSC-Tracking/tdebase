@@ -24,7 +24,7 @@
 #define __FX_DATA_DESKTOP
 
 #include <tqcolor.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeconfig.h>
 
 #include <kshadowsettings.h>

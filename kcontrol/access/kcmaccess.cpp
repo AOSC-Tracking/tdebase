@@ -24,7 +24,7 @@
 
 
 #include <kcombobox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kcolorbutton.h>
 #include <tdefiledialog.h>
 #include <tdeapplication.h>

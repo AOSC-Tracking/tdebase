@@ -29,7 +29,7 @@
 
 #include <tdelocale.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <kicondialog.h>

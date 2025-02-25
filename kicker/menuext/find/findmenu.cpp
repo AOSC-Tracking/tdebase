@@ -24,7 +24,7 @@
 #include <tdeapplication.h>
 #include <kiconloader.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "findmenu.h"
 

@@ -25,7 +25,7 @@
 #include <kdebug.h>
 #include <ksavefile.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <zlib.h>
 

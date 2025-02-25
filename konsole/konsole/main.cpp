@@ -37,7 +37,7 @@
 #include <tdecmdlineargs.h>
 #include <kimageio.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobalsettings.h>
 #include <tdeio/netaccess.h>
 #include <tdemessagebox.h>

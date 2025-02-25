@@ -4,7 +4,7 @@
 
 #include <tdelocale.h>
 #include <kprogress.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 
 #include "progressdialog.moc"

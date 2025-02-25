@@ -22,7 +22,7 @@
 #include <tqmap.h>
 
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeapplication.h>
 #include <tdelocale.h>
 #include <dcopclient.h>

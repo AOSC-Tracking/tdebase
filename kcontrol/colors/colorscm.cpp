@@ -32,7 +32,7 @@
 #include <kipc.h>
 #include <tdemessagebox.h>
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeaboutdata.h>
 
 #if defined TQ_WS_X11 && !defined K_WS_QTONLY

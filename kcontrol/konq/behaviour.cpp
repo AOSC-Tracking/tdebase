@@ -33,7 +33,7 @@
 #include <tdeio/uiserver_stub.h>
 #include <tdelocale.h>
 #include <konq_defaults.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurlrequester.h>
 
 #include "behaviour.h"

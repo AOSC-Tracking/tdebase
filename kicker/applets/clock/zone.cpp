@@ -30,7 +30,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kcolorbutton.h>
 #include <tdeconfig.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kstringhandler.h>
 #include <tdelocale.h>
 

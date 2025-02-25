@@ -68,7 +68,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdelocale.h>
 #include <tdeglobal.h>
 #include <tdeconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <unistd.h>
 #include <tdeapplication.h>
 #include <kstaticdeleter.h>

@@ -35,7 +35,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <kmimetype.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ktrader.h>
 #include <konq_defaults.h> // include default values directly from libkonq
 #include <kurlrequester.h>

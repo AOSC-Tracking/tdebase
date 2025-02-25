@@ -29,7 +29,7 @@ that is intentional :-]
 
 #include <tdelocale.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kiconloader.h>
 #include <kservicegroup.h>
 #include <kdebug.h>

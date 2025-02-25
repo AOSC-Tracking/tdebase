@@ -14,7 +14,7 @@
 #include <tdemessagebox.h>
 #include <kdebug.h>
 #include <tdeaboutapplication.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "kftabdlg.h"
 #include "kquery.h"

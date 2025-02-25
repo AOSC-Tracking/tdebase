@@ -47,7 +47,7 @@ using namespace std;
 #include <tderecentdocument.h>
 #include <kservice.h>
 #include <kservicegroup.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kstdaction.h>
 #include <tdesycocaentry.h>
 

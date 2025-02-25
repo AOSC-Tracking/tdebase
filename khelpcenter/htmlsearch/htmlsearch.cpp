@@ -4,7 +4,7 @@
 
 #include <tdeapplication.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeprocess.h>
 #include <tdelocale.h>
 #include <tdeconfig.h>

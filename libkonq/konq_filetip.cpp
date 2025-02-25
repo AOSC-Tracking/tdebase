@@ -23,7 +23,7 @@
 
 #include <tdefileitem.h>
 #include <tdeglobalsettings.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeapplication.h>
 
 #include <tqlabel.h>

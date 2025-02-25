@@ -54,7 +54,7 @@
 #include <kdebug.h>
 #include <tdemessagebox.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 #include <kurl.h>
 #include <tdeio/ioslave_defaults.h>

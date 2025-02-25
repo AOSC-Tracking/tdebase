@@ -22,7 +22,7 @@
 #include <tqfileinfo.h>
 
 #include <tdeapplication.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>
 #include <kdesktopfile.h>

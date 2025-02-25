@@ -33,7 +33,7 @@
 #include <kdebug.h>
 #include <tdeconfig.h>
 #include <tdeapplication.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kprotocolinfo.h>
 #include <ksimpleconfig.h>
 #include <kstaticdeleter.h>

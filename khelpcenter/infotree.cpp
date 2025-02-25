@@ -29,7 +29,7 @@
 #include <kiconloader.h>
 #include <tdelistview.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurl.h>
 
 #include <tqfile.h>

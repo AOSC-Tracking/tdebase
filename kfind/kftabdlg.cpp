@@ -25,7 +25,7 @@
 #include <tdefiledialog.h>
 #include <kregexpeditorinterface.h>
 #include <tdeparts/componentfactory.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "kquery.h"
 #include "kftabdlg.h"

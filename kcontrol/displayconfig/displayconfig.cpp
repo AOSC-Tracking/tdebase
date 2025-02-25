@@ -47,7 +47,7 @@
 #include <kurlrequester.h>
 #include <tdecmoduleloader.h>
 #include <kgenericfactory.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <unistd.h>
 #include <ksimpleconfig.h>

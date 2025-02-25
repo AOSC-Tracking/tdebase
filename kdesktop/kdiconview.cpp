@@ -42,7 +42,7 @@
 #include <kivfreespaceoverlay.h>
 #include <kprotocolinfo.h>
 #include <kstdaction.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurldrag.h>
 #include <twin.h>
 #include <twinmodule.h>

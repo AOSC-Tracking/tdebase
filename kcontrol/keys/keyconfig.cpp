@@ -20,7 +20,7 @@
 
 #include <kdebug.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ksimpleconfig.h>
 #include <tdemessagebox.h>
 #include <kseparator.h>

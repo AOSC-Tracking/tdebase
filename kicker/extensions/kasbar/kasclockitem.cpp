@@ -12,7 +12,7 @@
 #include <kpixmap.h>
 #include <kpixmapeffect.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdepopupmenu.h>
 
 #include <taskmanager.h>

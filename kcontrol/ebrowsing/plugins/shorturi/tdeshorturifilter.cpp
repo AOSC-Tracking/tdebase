@@ -32,7 +32,7 @@
 #include <tdeapplication.h>
 #include <kdebug.h>
 #include <kprotocolinfo.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeconfig.h>
 #include <kmimetype.h>
 

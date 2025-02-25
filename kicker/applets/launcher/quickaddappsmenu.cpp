@@ -23,7 +23,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ******************************************************************/
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdesktopfile.h>
 #include <tdeglobalsettings.h>
 #include <tdesycocaentry.h>

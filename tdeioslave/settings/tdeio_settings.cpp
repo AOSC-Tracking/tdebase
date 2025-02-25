@@ -29,7 +29,7 @@
 #include <tdeprocess.h>
 #include <kservice.h>
 #include <kservicegroup.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 class SettingsProtocol : public TDEIO::SlaveBase
 {

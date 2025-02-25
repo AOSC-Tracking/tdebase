@@ -48,7 +48,7 @@
 ** SUCH DAMAGE.
 */
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kpixmapeffect.h>
 
 #include "kasbar.h"

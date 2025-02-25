@@ -24,7 +24,7 @@
 
 #include <kiconloader.h>
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 
 #include <tqdir.h>

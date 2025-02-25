@@ -22,7 +22,7 @@
 #include "katemainwindow.h"
 #include "katedocmanager.h"
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 #include <kdebug.h>
 #include <kdirwatch.h>

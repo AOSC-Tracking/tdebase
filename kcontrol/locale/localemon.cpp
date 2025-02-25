@@ -35,7 +35,7 @@
 #include <knuminput.h>
 #include <kdialog.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "toplevel.h"
 #include "localemon.h"

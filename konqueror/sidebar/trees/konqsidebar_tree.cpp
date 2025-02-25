@@ -2,7 +2,7 @@
 #include "konqsidebar_tree.moc"
 #include "konq_sidebartree.h"
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ksimpleconfig.h>
 #include <kinputdialog.h>
 #include <kiconloader.h>

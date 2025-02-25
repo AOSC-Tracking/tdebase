@@ -42,7 +42,7 @@
 #include <knuminput.h>
 #include <tdeapplication.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeprocess.h>
 #include <kdialog.h>
 

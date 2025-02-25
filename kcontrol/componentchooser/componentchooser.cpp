@@ -34,7 +34,7 @@
 #include <tdemessagebox.h>
 #include <kopenwith.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ktrader.h>
 #include <kurlrequester.h>
 #include <tdeprocess.h>

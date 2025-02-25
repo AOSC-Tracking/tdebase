@@ -65,7 +65,7 @@
 #include <tdemessagebox.h>
 #include <kinstance.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 #include <kremoteencoding.h>
 #include <kurl.h>

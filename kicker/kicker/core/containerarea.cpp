@@ -35,7 +35,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <tdeapplication.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurl.h>
 #include <kdebug.h>
 #include <kdesktopfile.h>

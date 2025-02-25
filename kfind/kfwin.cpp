@@ -27,7 +27,7 @@
 #include <krun.h>
 #include <tdeprocess.h>
 #include <kpropertiesdialog.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdemessagebox.h>
 #include <kmimetype.h>
 #include <tdeglobal.h>

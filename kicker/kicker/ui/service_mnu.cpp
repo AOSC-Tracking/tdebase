@@ -31,7 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <dcopclient.h>
 #include <tdeapplication.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 #include <kdesktopfile.h>
 #include <tdeglobalsettings.h>

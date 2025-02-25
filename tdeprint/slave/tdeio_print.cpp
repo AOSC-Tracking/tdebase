@@ -30,7 +30,7 @@
 #include <kdebug.h>
 #include <kinstance.h>
 #include <tdeio/global.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kiconloader.h>
 #include <kmimetype.h>
 #include <tdeio/job.h>

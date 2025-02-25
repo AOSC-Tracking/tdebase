@@ -38,7 +38,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kdebug.h>
 #include <tdeglobalsettings.h>
 #include <kpushbutton.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kstdguiitem.h>
 
 #include <paneldrag.h>

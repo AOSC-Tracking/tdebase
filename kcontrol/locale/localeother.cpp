@@ -29,7 +29,7 @@
 #include <kdialog.h>
 #include <tdelocale.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "localeother.h"
 #include "localeother.moc"

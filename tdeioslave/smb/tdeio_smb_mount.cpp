@@ -19,7 +19,7 @@
 */
 
 #include "tdeio_smb.h"
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tqcstring.h>
 #include <unistd.h>
 #include <tqdir.h>

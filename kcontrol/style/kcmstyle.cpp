@@ -53,7 +53,7 @@
 #include <tdemessagebox.h>
 #include <ksimpleconfig.h>
 #include <tdestyle.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "../krdb/krdb.h"
 

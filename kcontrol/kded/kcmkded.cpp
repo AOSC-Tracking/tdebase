@@ -37,7 +37,7 @@
 #include <tdelistview.h>
 #include <tdemessagebox.h>
 #include <kservice.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "kcmkded.h"
 #include "kcmkded.moc"

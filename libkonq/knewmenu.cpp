@@ -26,7 +26,7 @@
 #include <kinputdialog.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kprotocolinfo.h>
 #include <tdepopupmenu.h>
 #include <krun.h>

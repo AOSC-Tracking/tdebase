@@ -68,7 +68,7 @@
 #include <ksimpleconfig.h>
 #include <kstatusbar.h>
 #include <kstdaction.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ktrader.h>
 #include <kurldrag.h>
 #include <kdesktopfile.h>

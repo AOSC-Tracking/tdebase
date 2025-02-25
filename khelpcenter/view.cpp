@@ -13,7 +13,7 @@
 #include <tdehtmlview.h>
 #include <tdelocale.h>
 #include <tdepopupmenu.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tqfileinfo.h>
 #include <tqclipboard.h>

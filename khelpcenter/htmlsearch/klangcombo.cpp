@@ -23,7 +23,7 @@
 
 #include <tqiconset.h>
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "klangcombo.h"
 #include "klangcombo.moc"

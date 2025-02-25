@@ -19,7 +19,7 @@
 #include <klibloader.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ktrader.h>
 #include <twin.h>
 #include <dcopclient.h>

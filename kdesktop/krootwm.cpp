@@ -33,7 +33,7 @@
 #include <errno.h>
 
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdepopupmenu.h>
 #include <tdeapplication.h>
 #include <tdeconfig.h>

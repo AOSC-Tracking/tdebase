@@ -99,7 +99,7 @@ Time to start a requirement list.
 
 #include <tdefontdialog.h>
 #include <kkeydialog.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tqpainter.h>
 #include <tdemenubar.h>
 #include <tdemessagebox.h>

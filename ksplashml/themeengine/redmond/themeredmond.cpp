@@ -22,7 +22,7 @@
 #include <tdeglobalsettings.h>
 #include <kiconloader.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kuser.h>
 #include <tdeemailsettings.h>
 

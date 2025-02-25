@@ -2,7 +2,7 @@
 #define KONQBOOKMARKMANAGER_H
 
 #include <kbookmarkmanager.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurl.h>
 #include <tdeio/job.h>
 #include <libkonq_export.h>

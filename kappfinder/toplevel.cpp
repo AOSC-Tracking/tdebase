@@ -31,7 +31,7 @@
 #include <kprogress.h>
 #include <kservice.h>
 #include <kservicegroup.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kstdguiitem.h>
 #include <tdestartupinfo.h>
 

@@ -38,7 +38,7 @@
 #include <dmctl.h>
 #include <dcopref.h>
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeapplication.h>
 #include <kservicegroup.h>
 #include <kdebug.h>

@@ -1,5 +1,5 @@
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tqcombobox.h>
 #include <kdebug.h>
 

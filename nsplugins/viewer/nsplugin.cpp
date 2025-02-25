@@ -51,7 +51,7 @@
 #include <tdelocale.h>
 #include <tdeprocess.h>
 #include <tdeprotocolmanager.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdetempfile.h>
 #include <kurl.h>
 

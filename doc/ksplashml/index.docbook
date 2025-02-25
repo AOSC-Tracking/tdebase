@@ -1101,7 +1101,7 @@ appropriate plugin.</para>
 #include &lt;tdeglobalsettings.h&gt;
 #include &lt;tdelocale.h&gt;
 #include &lt;ksplash/objkstheme.h&gt;
-#include &lt;kstandarddirs.h&gt;
+#include &lt;tdestandarddirs.h&gt;
 
 #include "rotwidget.h"
 #include "theme2k.h"

@@ -22,7 +22,7 @@
 #include <tqpixmap.h>
 #include <tqimage.h>
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kpixmapsplitter.h>
 #include <kmimetype.h>
 

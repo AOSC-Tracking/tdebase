@@ -37,7 +37,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <kpixmap.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <twin.h>
 
 #include "bgrender.h"

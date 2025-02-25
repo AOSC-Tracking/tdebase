@@ -30,7 +30,7 @@
 #include <tdeprocess.h>
 #include <qxembed.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 
 #include "modules.h"

@@ -43,7 +43,7 @@
 #include <tdeapplication.h>
 #include <kdebug.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <klibloader.h>
 #include <tdeconfig.h>
 #include <tdecrash.h>

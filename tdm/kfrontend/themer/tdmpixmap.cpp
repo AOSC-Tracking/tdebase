@@ -30,7 +30,7 @@
 #endif
 
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tqfile.h>
 #include <tqpainter.h>

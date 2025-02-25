@@ -28,7 +28,7 @@
 #include <ksimpleconfig.h>
 #include <tdeglobal.h>
 #include <tdeglobalsettings.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 #include <tdeapplication.h>
 #include <tdelistview.h>

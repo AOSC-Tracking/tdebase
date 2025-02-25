@@ -23,7 +23,7 @@
 #include <tdeaboutdata.h>
 #include <tdecmdlineargs.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ktip.h>
 #include <tdeuniqueapplication.h>
 #include <twin.h>

@@ -20,7 +20,7 @@
 #include <tdelocale.h>
 #include <kpushbutton.h>
 #include <kseparator.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ksimpleconfig.h>
 #include <tdeglobalsettings.h>
 #include <tdeconfig.h>

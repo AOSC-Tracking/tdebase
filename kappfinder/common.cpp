@@ -22,7 +22,7 @@
 #include <kdebug.h>
 #include <kdesktopfile.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tqdir.h>
 #include <tqfile.h>

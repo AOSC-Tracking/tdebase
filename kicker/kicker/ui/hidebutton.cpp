@@ -29,7 +29,7 @@
 #include <kiconloader.h>
 #include <kicontheme.h>
 #include <kipc.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 HideButton::HideButton(TQWidget *parent, const char *name)
     : TQButton(parent, name),

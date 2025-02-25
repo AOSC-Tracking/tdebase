@@ -30,7 +30,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <klibloader.h>
 #include <kpanelapplet.h>
 #include <kpanelextension.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kstaticdeleter.h>
 
 #include "appletinfo.h"

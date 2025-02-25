@@ -29,7 +29,7 @@
 #include "Misc.h"
 #include <tqfile.h>
 #include <tdeprocess.h> 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <klargefile.h>
 #include <tdeio/netaccess.h>
 #include <unistd.h>

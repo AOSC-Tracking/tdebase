@@ -24,7 +24,7 @@
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <kpixmap.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurldrag.h>
 #include <tqapplication.h>
 #include <tqpixmap.h>

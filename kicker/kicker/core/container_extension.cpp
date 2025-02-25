@@ -43,7 +43,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kdesktopfile.h>
 #include <tdeglobal.h>
 #include <kicker.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <twin.h>
 #include <tdelocale.h>
 #include <tdeglobalsettings.h>

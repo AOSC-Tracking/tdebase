@@ -8,7 +8,7 @@
 #include <tqregexp.h>
 
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 
 #include <X11/Xlib.h>

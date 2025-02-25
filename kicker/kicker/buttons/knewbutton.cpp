@@ -33,7 +33,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <tdelocale.h>
 #include <tdeapplication.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kiconloader.h>
 #include <kdebug.h>
 

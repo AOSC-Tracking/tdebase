@@ -30,7 +30,7 @@
 #include <tdeio/netaccess.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeaccelmanager.h>
 
 #include "WorkSheet.h"

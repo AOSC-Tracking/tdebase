@@ -32,7 +32,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <kstdguiitem.h>
 #include <tdeprocio.h>
 #include <kdialog.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kuser.h>
 #include <tdeconfig.h>
 #include <kiconloader.h>

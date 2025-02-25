@@ -31,7 +31,7 @@
 
 #include <tdelocale.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kbugreport.h>
 #include <tdefiledialog.h>
 #include <tdemessagebox.h>

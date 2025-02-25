@@ -39,7 +39,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdemessagebox.h>
 #include <knuminput.h>
 #include <tdeconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurldrag.h>
 #include <kdebug.h>
 

@@ -39,7 +39,7 @@
 #include <tdemessagebox.h>
 #include <kservice.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ktrader.h>
 
 #include "ikwsopts.h"

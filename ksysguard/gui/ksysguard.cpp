@@ -47,7 +47,7 @@
 #include <ksgrd/SensorAgent.h>
 #include <ksgrd/SensorManager.h>
 #include <ksgrd/StyleEngine.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kstatusbar.h>
 #include <kstdaction.h>
 #include <twin.h>

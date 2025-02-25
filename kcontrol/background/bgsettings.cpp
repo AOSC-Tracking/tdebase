@@ -24,7 +24,7 @@
 #include <kdebug.h>
 #include <tdeglobalsettings.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <krandomsequence.h>
 #include <konq_defaults.h>
 

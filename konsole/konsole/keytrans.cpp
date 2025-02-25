@@ -30,7 +30,7 @@
 #include <tqobject.h>
 #include <tqintdict.h>
 #include <tqfile.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 
 #include <stdio.h>

@@ -35,7 +35,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kicondialog.h>
 #include <tdemessagebox.h>
 #include <kmimetype.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurlcompletion.h>
 #include <kurlrequester.h>
 #include <kurl.h>

@@ -30,7 +30,7 @@
 #include <kicontheme.h>
 #include <kimageio.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeio/job.h>
 
 #include "favicons.moc"

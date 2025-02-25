@@ -32,7 +32,7 @@
 #include <tdelocale.h>
 #include <tdelistview.h>
 #include <kiconloader.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdemessagebox.h>
 
 ConfFilters::ConfFilters(TQWidget *parent, const char *name)

@@ -30,7 +30,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tqvalidator.h>
 

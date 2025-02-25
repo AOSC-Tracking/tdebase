@@ -20,7 +20,7 @@
  */
 
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurl.h>
 #include <tdeprocess.h>
 #include <tdeio/job.h>

@@ -24,7 +24,7 @@
 #include <tdeglobal.h>
 #include <kdebug.h>
 #include <tdeconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tqfile.h>
 #include <tqtextstream.h>

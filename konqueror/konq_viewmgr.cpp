@@ -28,7 +28,7 @@
 #include <tqptrlist.h>
 
 #include <tdeaccelgen.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 #include <tdeapplication.h>
 #include <tdeglobalsettings.h>

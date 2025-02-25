@@ -48,7 +48,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <klineedit.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdetoolbarbutton.h>
 #include <twin.h>
 #include <popupmenutop.h>

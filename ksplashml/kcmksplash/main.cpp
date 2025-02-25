@@ -19,7 +19,7 @@
 #include <tdecmodule.h>
 #include <kdebug.h>
 #include <kgenericfactory.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "installer.h"
 

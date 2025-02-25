@@ -17,7 +17,7 @@
 #include <tqregexp.h>
 
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 
 #include "usbdb.h"

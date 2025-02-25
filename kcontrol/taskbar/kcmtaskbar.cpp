@@ -35,7 +35,7 @@
 #include <kgenericfactory.h>
 #include <twin.h>
 #include <kcolorbutton.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kiconloader.h>
 
 #define protected public

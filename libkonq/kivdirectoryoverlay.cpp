@@ -27,7 +27,7 @@
 #include <tdefileitem.h>
 #include <tdeapplication.h>
 #include <kdirlister.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kiconloader.h>
 #include <konq_settings.h>
 #include <tdelocale.h>

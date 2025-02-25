@@ -9,7 +9,7 @@
 
 #include <kdebug.h>
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kiconloader.h>
 #include <kinstance.h>
 #include <tdelocale.h>

@@ -33,7 +33,7 @@
 #include <tdeconfig.h>
 #include <kdebug.h>
 #include <tdeglobalsettings.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeprocio.h>
 #include <ksavefile.h>
 #include <tdetempfile.h>

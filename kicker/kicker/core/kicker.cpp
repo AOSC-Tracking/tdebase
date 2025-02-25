@@ -41,7 +41,7 @@
 #include <kimageio.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <twin.h>
 #include <twinmodule.h>
 

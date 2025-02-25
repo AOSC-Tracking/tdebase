@@ -22,7 +22,7 @@
 
 #include <tdelocale.h>
 #include <tdeaboutdata.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelistview.h>
 #include <ksimpleconfig.h>
 #include <tdeglobalsettings.h>

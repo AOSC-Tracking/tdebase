@@ -7,7 +7,7 @@
 #include <tdeapplication.h>
 #include <tdemessagebox.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kzip.h>
 
 #include "kquery.h"

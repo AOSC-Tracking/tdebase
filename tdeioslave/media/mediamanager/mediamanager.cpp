@@ -26,7 +26,7 @@
 #include <tdelocale.h>
 
 #include <kdirnotify_stub.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "mediamanagersettings.h"
 

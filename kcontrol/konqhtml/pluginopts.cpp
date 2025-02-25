@@ -23,7 +23,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <tdeprocio.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurlrequester.h>
 
 #include "htmlopts.h"

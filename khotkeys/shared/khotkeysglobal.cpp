@@ -18,7 +18,7 @@
 
 #include <assert.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <klibloader.h>
 
 #include "input.h"

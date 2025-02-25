@@ -20,7 +20,7 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <tqfile.h>
 #include <tdeprocess.h>
 #include <unistd.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tqwhatsthis.h>
 #include <twin.h>
 #include <kiconloader.h>

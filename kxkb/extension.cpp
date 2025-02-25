@@ -7,7 +7,7 @@
 #include <tqdir.h>
 
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeprocess.h>
 
 #include <X11/Xatom.h>

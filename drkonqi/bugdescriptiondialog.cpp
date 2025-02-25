@@ -32,7 +32,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kstdguiitem.h>
 #include <kurl.h>
 #include <kurllabel.h>

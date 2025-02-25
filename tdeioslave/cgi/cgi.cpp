@@ -24,7 +24,7 @@
 
 #include <kdebug.h>
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kinstance.h>
 #include <tdelocale.h>
 #include <tdeconfig.h>

@@ -66,7 +66,7 @@
 #include <kpushbutton.h>
 #include <kresolver.h>
 #include <kseparator.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurllabel.h>
 #include <kurlrequester.h>
 

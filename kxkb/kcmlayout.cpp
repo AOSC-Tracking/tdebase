@@ -21,7 +21,7 @@
 #include <tdeglobal.h>
 #include <tdeconfig.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 #include <tdeapplication.h>
 #include <kiconloader.h>

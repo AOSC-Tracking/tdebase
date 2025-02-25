@@ -24,7 +24,7 @@
 #include <dcopclient.h>
 #include <tdeapplication.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kimageeffect.h>
 #include <tdeprocess.h>
 #include <kpixmapio.h>

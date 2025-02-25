@@ -56,7 +56,7 @@
 #include <tdelocale.h>
 #include <ksimpleconfig.h>
 #include <kstdaction.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <twin.h>
 #include <kseparator.h>
 

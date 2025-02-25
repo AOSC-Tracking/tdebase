@@ -32,7 +32,7 @@
 #include <tdeglobal.h>
 #include <tdeaboutdata.h>
 #include <kdialog.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeprocess.h>
 #include <tdeapplication.h>
 #include <dcopclient.h>

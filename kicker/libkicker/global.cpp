@@ -31,7 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kiconeffect.h>
 #include <kiconloader.h>
 #include <tdeio/netaccess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kservice.h>
 #include <ksimpleconfig.h>
 

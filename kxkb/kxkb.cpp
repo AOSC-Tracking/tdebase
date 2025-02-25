@@ -41,7 +41,7 @@ DESCRIPTION
 #include <twinmodule.h>
 #include <twin.h>
 #include <tdetempfile.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kipc.h>
 #include <tdeaction.h>
 #include <tdepopupmenu.h>

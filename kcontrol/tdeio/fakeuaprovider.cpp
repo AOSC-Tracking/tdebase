@@ -22,7 +22,7 @@
 
 #include <kdebug.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "fakeuaprovider.h"
 

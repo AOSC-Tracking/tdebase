@@ -5,7 +5,7 @@
 #include <kiconloader.h>
 #include <kpushbutton.h>
 #include <kseparator.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ktabwidget.h>
 #include <ktextbrowser.h>
 #include <tdelocale.h>

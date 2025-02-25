@@ -30,7 +30,7 @@
 #include <kiconloader.h>
 #include <kinputdialog.h>
 #include <tdeglobalsettings.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kxmlguifactory.h>
 #include <kxmlguibuilder.h>
 #include <tdeparts/componentfactory.h>

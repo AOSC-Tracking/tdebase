@@ -33,7 +33,7 @@
 #include <krun.h>
 #include <kservice.h>
 #include <kmimetype.h> // for KDEDesktopMimeType
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #undef Bool
 

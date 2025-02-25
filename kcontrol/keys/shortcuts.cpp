@@ -40,7 +40,7 @@
 #include <tdemessagebox.h>
 #include <tdeshortcutlist.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <dcopref.h>
 
 ShortcutsModule::ShortcutsModule( TQWidget *parent, const char *name )

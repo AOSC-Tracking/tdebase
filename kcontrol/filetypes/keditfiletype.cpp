@@ -27,7 +27,7 @@
 #include <kdebug.h>
 #include <tdecmdlineargs.h>
 #include <tdesycoca.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #ifdef TQ_WS_X11
 #include <X11/Xlib.h>

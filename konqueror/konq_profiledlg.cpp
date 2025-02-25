@@ -32,7 +32,7 @@
 #include <kdebug.h>
 #include <kstdguiitem.h>
 #include <tdeio/global.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 #include <ksimpleconfig.h>
 #include <kseparator.h>

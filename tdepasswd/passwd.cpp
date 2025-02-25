@@ -26,7 +26,7 @@
 #include <tqcstring.h>
 
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tdesu/process.h>
 #include "passwd.h"

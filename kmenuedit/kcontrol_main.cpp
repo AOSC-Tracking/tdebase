@@ -25,7 +25,7 @@
 #include <tdelocale.h>
 #include <tdecmdlineargs.h>
 #include <tdeaboutdata.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "kmenuedit.h"
 

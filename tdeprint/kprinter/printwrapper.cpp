@@ -35,7 +35,7 @@
 #include <tdeapplication.h>
 #include <tdecmdlineargs.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeio/netaccess.h>
 #include <kurl.h>
 #include <kdebug.h>

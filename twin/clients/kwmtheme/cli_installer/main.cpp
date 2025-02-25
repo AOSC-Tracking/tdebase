@@ -4,7 +4,7 @@
 #include <ksimpleconfig.h>
 #include <tdeglobal.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdecmdlineargs.h>
 #include <tdelocale.h>
 

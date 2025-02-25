@@ -24,7 +24,7 @@
 
 #include <kdesktopfile.h>
 #include <khotkeys.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 //
 // MenuFolderInfo

@@ -44,7 +44,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqframe.h>
 #include <tqtimer.h>
 #include <tqpainter.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include "service_mnu.h"
 
 class ItemView;

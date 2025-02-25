@@ -23,7 +23,7 @@
 #include <tdeglobal.h>
 #include <kinstance.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tqstringlist.h>
 

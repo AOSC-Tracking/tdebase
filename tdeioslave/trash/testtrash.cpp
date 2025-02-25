@@ -41,7 +41,7 @@
 #include <unistd.h>
 #include <assert.h>
 #include <tdefileitem.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 static bool check(const TQString& txt, TQString a, TQString b)
 {

@@ -14,7 +14,7 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <tdeconfig.h>
 #include <kdebug.h>
 #include <kinstance.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 int main( int argc, char* argv[] )
     {

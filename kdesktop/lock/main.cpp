@@ -34,7 +34,7 @@
 #include <tdeglobalsettings.h>
 #include <dcopref.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tdmtsak.h>
 

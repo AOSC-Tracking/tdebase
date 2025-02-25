@@ -22,7 +22,7 @@
 #include <kdirwatch.h>
 #include <kurl.h>
 #include <kmountpoint.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #ifdef _OS_SOLARIS_
 #define MTAB "/etc/mnttab"

@@ -24,7 +24,7 @@
 #include <tqpainter.h>
 #include <tdemessagebox.h>
 #include <klibloader.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

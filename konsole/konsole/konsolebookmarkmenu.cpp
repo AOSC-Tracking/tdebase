@@ -17,7 +17,7 @@
 */
 
 #include <tdepopupmenu.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeaction.h>
 
 #include "konsole.h"

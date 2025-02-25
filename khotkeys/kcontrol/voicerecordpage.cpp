@@ -12,7 +12,7 @@
 #include <tqlabel.h>
 #include <tqpushbutton.h>
 #include <klineedit.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tdelocale.h>
 #include <tdemessagebox.h>

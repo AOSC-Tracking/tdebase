@@ -30,7 +30,7 @@
 #include <knuminput.h>
 #include <tdeprocio.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <stdlib.h>
 
 #ifdef HAVE_FREETYPE2

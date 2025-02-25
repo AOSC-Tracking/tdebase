@@ -37,7 +37,7 @@
 #include <kpropertiesdialog.h>
 #include <krun.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tdeaction.h>
 #include <tdeapplication.h>

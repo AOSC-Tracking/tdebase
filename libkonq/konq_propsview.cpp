@@ -21,7 +21,7 @@
 #include "konq_settings.h"
 
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kpixmap.h>
 #include <tqpixmapcache.h>
 #include <tqiconview.h>

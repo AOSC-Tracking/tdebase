@@ -5,7 +5,7 @@
 #include <tqstringlist.h>
 #include <tqdir.h>
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>
 #include <kdebug.h>

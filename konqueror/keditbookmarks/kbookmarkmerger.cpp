@@ -27,7 +27,7 @@
 #include <kbookmarkmanager.h>
 #include <tdecmdlineargs.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <dcopclient.h>
 

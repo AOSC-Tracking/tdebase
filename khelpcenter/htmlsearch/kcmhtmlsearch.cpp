@@ -19,7 +19,7 @@
  */
 
 #include <tqlayout.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 #include <kurllabel.h>
 #include <tdeapplication.h>

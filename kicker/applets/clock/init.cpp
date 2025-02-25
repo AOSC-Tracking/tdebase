@@ -41,7 +41,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kdebug.h>
 #include <kcolorbutton.h>
 #include <kiconloader.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeapplication.h>
 #include <tdeprocess.h>
 #include <tdelocale.h>

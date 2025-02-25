@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeapplication.h>
 #include <ksimpleconfig.h>
 #include <klibloader.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kpanelmenu.h>
 #include <tdeparts/componentfactory.h>
 

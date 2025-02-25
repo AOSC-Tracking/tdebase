@@ -25,7 +25,7 @@
 #include <kimageio.h>
 #include <tdelistview.h>
 #include <kstaticdeleter.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 
 #include "hidingconfig.h"

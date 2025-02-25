@@ -34,7 +34,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <kservicegroup.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurldrag.h>
 
 #include "kthememanager.h"

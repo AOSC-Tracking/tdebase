@@ -33,7 +33,7 @@
 #include <knuminput.h>
 #include <kpanelextension.h>
 #include <kpixmap.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <twin.h>
 
 #include "main.h"

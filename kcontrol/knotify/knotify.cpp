@@ -32,7 +32,7 @@
 #include <tdeconfig.h>
 #include <knotifydialog.h>
 #include <tdeparts/genericfactory.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurlcompletion.h>
 #include <kurlrequester.h>
 

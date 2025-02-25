@@ -22,7 +22,7 @@
 #include <tqcursor.h>
 
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kservicegroup.h>
 #include <kiconloader.h>
 #include <tdemessagebox.h>

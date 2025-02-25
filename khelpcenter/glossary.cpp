@@ -27,7 +27,7 @@
 #include <tdelocale.h>
 #include <tdemainwindow.h>
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kstatusbar.h>
 
 #include <tqheader.h>

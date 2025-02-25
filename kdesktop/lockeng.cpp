@@ -20,7 +20,7 @@
 #include <tdecryptographiccarddevice.h>
 #endif
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeapplication.h>
 #include <kservicegroup.h>
 #include <ksimpleconfig.h>

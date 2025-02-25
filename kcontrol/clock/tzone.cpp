@@ -40,7 +40,7 @@
 
 #if defined(USE_SOLARIS)
 #include <tdetempfile.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <sys/param.h>
 #include <sys/types.h>
 #include <sys/stat.h>

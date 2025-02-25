@@ -37,7 +37,7 @@
 #include <kuser.h>
 #include <kdialog.h>
 #include <kimageio.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeaboutdata.h>
 #include <kgenericfactory.h>
 #include <tdemessagebox.h>

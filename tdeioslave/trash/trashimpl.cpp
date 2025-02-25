@@ -29,7 +29,7 @@
 #include <kurl.h>
 #include <kdirnotify_stub.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobalsettings.h>
 #include <kmountpoint.h>
 #include <tdemessagebox.h>

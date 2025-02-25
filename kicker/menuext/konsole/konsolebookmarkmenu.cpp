@@ -7,7 +7,7 @@
 #include <kmimetype.h>
 #include <tdepopupmenu.h>
 #include <ksavefile.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 //#include <kbookmarkmenu.h>
 
 #include "konsole_mnu.h"

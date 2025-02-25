@@ -26,7 +26,7 @@
 #include <dcopref.h>
 #include <tdelocale.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tdecmdlineargs.h>
 #include <tdeaboutdata.h>

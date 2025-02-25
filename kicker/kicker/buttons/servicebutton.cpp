@@ -30,7 +30,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kicontheme.h>
 #include <kpropertiesdialog.h>
 #include <krun.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurl.h>
 
 #include "global.h"

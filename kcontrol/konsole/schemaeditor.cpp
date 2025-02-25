@@ -29,7 +29,7 @@
 #include <tqcombobox.h>
 #include <kdebug.h>
 #include <tqcheckbox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 //#include <errno.h>
 

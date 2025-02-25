@@ -40,7 +40,7 @@
 #include <tdeaction.h>
 #include <tdeapplication.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>
 #include <kdebug.h>

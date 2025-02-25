@@ -28,7 +28,7 @@
 #include <tqpixmap.h>
 
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 /*
  * KdmPixmap. A pixmap element

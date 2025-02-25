@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeapplication.h>
 #include <kdebug.h>
 #include <kiconloader.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <twindowlistmenu.h>
 
 #include <X11/X.h>

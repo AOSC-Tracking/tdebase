@@ -12,7 +12,7 @@
 #include <tdefontdialog.h>
 #include <kgenericfactory.h>
 #include <tdeglobalsettings.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurlrequester.h>
 
 #include "cssconfig.h"

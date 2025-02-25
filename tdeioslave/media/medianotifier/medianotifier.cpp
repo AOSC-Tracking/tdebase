@@ -47,7 +47,7 @@
 #include <krun.h>
 #include <tdemessagebox.h>
 #include <kstdguiitem.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "notificationdialog.h"
 #include "notifiersettings.h"

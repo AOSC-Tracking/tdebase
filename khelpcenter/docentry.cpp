@@ -4,7 +4,7 @@
 #include <kdebug.h>
 #include <kdesktopfile.h>
 #include <kurl.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeapplication.h>
 
 #include "prefs.h"

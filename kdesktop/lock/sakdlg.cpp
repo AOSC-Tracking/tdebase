@@ -14,7 +14,7 @@
 #include <tdelocale.h>
 #include <kpushbutton.h>
 #include <kseparator.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobalsettings.h>
 #include <tdeconfig.h>
 #include <kiconloader.h>

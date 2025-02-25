@@ -29,7 +29,7 @@
 #include <kimagefilepreview.h>
 #include <tdelocale.h>
 //#include <tderecentdocument.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurlrequester.h>
 
 #include "konq_bgnddlg.h"

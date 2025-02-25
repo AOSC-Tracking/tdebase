@@ -30,7 +30,7 @@
 #include <kdebug.h>
 #include <kinstance.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 #include <kurl.h>
 

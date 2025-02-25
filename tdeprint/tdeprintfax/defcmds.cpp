@@ -20,7 +20,7 @@
 #include "defcmds.h"
 
 #include <tqregexp.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 TQString defaultCommand(const TQString& cmd)
 {

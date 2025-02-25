@@ -23,7 +23,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "popupmenutop.h"
 #include "kickerSettings.h"
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tqimage.h>
 #include <kdebug.h>
 

@@ -28,7 +28,7 @@
 #include <tdeapplication.h>
 #include <kdebug.h>
 #include <tderecentdocument.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tqstringlist.h>
 #include <tqfile.h>

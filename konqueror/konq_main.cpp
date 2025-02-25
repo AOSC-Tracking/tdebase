@@ -27,7 +27,7 @@
 
 #include <tdetempfile.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 #include <tdecmdlineargs.h>
 #include <dcopclient.h>

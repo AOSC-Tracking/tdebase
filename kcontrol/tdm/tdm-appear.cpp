@@ -40,7 +40,7 @@
 #include <kimageio.h>
 #include <kcombobox.h>
 #include <tdemessagebox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeio/netaccess.h>
 #include <kiconloader.h>
 #include <kurldrag.h>

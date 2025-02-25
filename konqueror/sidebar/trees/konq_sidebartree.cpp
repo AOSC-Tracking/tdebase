@@ -43,7 +43,7 @@
 #include <tdeprocess.h>
 #include <kpropertiesdialog.h>
 #include <kprotocolinfo.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurldrag.h>
 
 #include <stdlib.h>

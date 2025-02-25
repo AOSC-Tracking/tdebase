@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeprocess.h>
 #include <kshell.h>
 #include <twin.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdemessagebox.h>
 #include <tdeapplication.h>
 #include <dcopclient.h>

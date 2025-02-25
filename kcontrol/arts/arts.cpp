@@ -46,7 +46,7 @@
 #include <tdeprocess.h>
 #include <krichtextlabel.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kurlrequester.h>
 #include <libtdemid/deviceman.h>
 

@@ -37,7 +37,7 @@
 #include <kiconloader.h>
 #include <klanguagebutton.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "kcmlocale.h"
 #include "kcmlocale.moc"

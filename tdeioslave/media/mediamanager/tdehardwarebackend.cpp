@@ -33,7 +33,7 @@
 #include <tdemessagebox.h>
 #include <tdeapplication.h>
 #include <kprotocolinfo.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "dialog.h"
 

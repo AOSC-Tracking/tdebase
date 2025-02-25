@@ -35,7 +35,7 @@
 #include "kserviceselectdlg.h"
 #include "typeslistitem.h"
 #include <kpropertiesdialog.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 KServiceListItem::KServiceListItem( KService *pService, int kind )
     : TQListBoxText(), desktopPath(pService->desktopEntryPath())

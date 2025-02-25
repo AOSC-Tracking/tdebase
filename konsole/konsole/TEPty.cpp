@@ -80,7 +80,7 @@
 #include <errno.h>
 #include <termios.h>
                      
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 #include <kdebug.h>
 #include <kpty.h>

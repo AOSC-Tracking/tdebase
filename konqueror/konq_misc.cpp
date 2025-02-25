@@ -27,7 +27,7 @@
 #include <tdemessagebox.h>
 #include <kurifilter.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <twin.h>
 #include <kprotocolinfo.h>
 #include <kurldrag.h>

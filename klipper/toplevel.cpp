@@ -40,7 +40,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <ksavefile.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ksimpleconfig.h>
 #include <kstringhandler.h>
 #include <ksystemtray.h>

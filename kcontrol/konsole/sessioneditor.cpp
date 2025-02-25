@@ -21,7 +21,7 @@
 #include <tqlineedit.h>
 #include <tqcombobox.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tdelocale.h>
 #include <tdefiledialog.h>

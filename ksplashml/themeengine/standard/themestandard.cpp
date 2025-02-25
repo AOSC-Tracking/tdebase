@@ -15,7 +15,7 @@
 #include <tdeglobalsettings.h>
 #include <kiconloader.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeconfig.h>
 
 #include <tqdesktopwidget.h>

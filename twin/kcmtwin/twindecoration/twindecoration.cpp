@@ -48,7 +48,7 @@
 #include <kcombobox.h>
 #include <kdebug.h>
 #include <kdesktopfile.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>
 #include <kdialog.h>

@@ -31,7 +31,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeglobal.h>
 #include <tdelocale.h>
 #include <krootpixmap.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "global.h"
 #include "kickerSettings.h"

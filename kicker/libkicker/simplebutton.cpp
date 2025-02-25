@@ -30,7 +30,7 @@
 #include <kiconeffect.h>
 #include <kicontheme.h>
 #include <kipc.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include "kickerSettings.h"
 

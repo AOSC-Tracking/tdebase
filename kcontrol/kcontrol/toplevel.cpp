@@ -19,7 +19,7 @@
 */
 
 #include <tdeapplication.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeconfig.h>
 #include <kbugreport.h>
 #include <tdeaboutapplication.h>

@@ -41,7 +41,7 @@
 #include <tdelocale.h>
 #include <kdialogbase.h>
 #include <kmimetype.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeapplication.h>
 #include <twin.h>
 #include <tdeemailsettings.h>

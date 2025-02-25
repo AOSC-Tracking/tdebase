@@ -19,7 +19,7 @@
 
 #include "kateapp.h"
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdelocale.h>
 #include <tdecmdlineargs.h>
 #include <tdeaboutdata.h>

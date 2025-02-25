@@ -23,7 +23,7 @@
 #include <ksimpleconfig.h>
 #include <tdelocale.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kiconloader.h>
 #include <dcopclient.h>
 #include <tdeprocess.h>

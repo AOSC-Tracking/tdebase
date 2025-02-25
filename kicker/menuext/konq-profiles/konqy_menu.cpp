@@ -27,7 +27,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeglobal.h>
 #include <tdeapplication.h>
 #include <krun.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeio/global.h>
 #include <ksimpleconfig.h>
 

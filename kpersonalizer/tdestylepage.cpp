@@ -26,7 +26,7 @@
 #include <tqobjectlist.h>
 
 #include <tdeconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeapplication.h>
 #include <tdeglobal.h>
 #include <kdebug.h>

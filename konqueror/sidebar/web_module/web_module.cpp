@@ -29,7 +29,7 @@
 #include <tdelocale.h>
 #include <konq_pixmapprovider.h>
 #include <tdeparts/browserextension.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 
 KonqSideBarWebModule::KonqSideBarWebModule(TDEInstance *instance, TQObject *parent, TQWidget *widgetParent, TQString &desktopName, const char* name)

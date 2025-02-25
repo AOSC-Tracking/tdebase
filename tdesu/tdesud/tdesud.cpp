@@ -68,7 +68,7 @@
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <tdecmdlineargs.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeaboutdata.h>
 #include <tdesu/client.h>
 #include <tdesu/defaults.h>

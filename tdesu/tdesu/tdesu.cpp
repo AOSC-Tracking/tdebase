@@ -30,7 +30,7 @@
 #include <kdebug.h>
 #include <tdeglobal.h>
 #include <tdeapplication.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeconfig.h>
 #include <tdelocale.h>
 #include <tdeaboutdata.h>

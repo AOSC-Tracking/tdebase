@@ -47,7 +47,7 @@
 #include <kimageio.h>
 #include <tdelocale.h>
 #include <kpixmap.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kstringhandler.h>
 #include <kurlrequester.h>
 #include <twin.h>

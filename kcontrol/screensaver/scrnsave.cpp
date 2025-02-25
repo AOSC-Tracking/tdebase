@@ -42,7 +42,7 @@
 #include <knuminput.h>
 #include <tdeprocess.h>
 #include <kservicegroup.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ksimpleconfig.h>
 
 #include <X11/Xlib.h>

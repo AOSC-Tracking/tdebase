@@ -34,7 +34,7 @@
 #include <kimagefilepreview.h>
 #include <tdeio/netaccess.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdemessagebox.h>
 #include <kurldrag.h>
 

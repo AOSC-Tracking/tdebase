@@ -33,7 +33,7 @@
 #include <dcopref.h>
 
 #include <ksharedpixmap.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <krootbacking.h>
 
 static TQString wallpaperForDesktop(int desktop)

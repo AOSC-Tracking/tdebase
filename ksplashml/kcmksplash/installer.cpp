@@ -26,7 +26,7 @@
 #include <tdemessagebox.h>
 #include <tdeprocess.h>
 #include <kpushbutton.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <ktar.h>
 #include <ktrader.h>
 #include <kurldrag.h>

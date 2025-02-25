@@ -15,7 +15,7 @@
 #include <kgenericfactory.h>
 #include <tdeglobalsettings.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kprogress.h>
 
 #include <tqcheckbox.h>

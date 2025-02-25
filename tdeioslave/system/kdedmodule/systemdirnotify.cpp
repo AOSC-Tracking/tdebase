@@ -21,7 +21,7 @@
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdesktopfile.h>
 
 #include <kdirnotify_stub.h>

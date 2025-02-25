@@ -41,7 +41,7 @@
 #include <tdemessagebox.h>
 #include <ksimpleconfig.h>
 #include <kstdaction.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobalsettings.h>
 #include <tdestdaccel.h>
 

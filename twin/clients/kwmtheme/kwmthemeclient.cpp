@@ -5,7 +5,7 @@
 #include <tqdrawutil.h>
 #include <tqpainter.h>
 #include <kpixmapeffect.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <tqbitmap.h>

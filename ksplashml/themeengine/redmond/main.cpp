@@ -10,7 +10,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tqlabel.h>
 #include <tqpixmap.h>

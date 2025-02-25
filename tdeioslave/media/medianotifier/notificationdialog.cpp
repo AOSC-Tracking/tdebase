@@ -26,7 +26,7 @@
 
 #include <krun.h>
 #include <tdelocale.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeio/global.h>
 #include <tdelistbox.h>
 #include <tqlabel.h>

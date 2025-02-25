@@ -29,7 +29,7 @@
 #include <tdeprocio.h>
 #include <krun.h>
 #include <kshell.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <stdlib.h>
 #include <tqfile.h>

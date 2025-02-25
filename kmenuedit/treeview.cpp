@@ -34,7 +34,7 @@
 #include <tqstringlist.h>
 
 #include <tdeglobal.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kinputdialog.h>
 #include <tdelocale.h>
 #include <ksimpleconfig.h>

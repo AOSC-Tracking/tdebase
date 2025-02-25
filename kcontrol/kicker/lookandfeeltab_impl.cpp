@@ -31,7 +31,7 @@
 #include <klineedit.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <kickerSettings.h>
 #include "advancedDialog.h"

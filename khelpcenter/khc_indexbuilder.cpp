@@ -30,7 +30,7 @@
 #include <kdebug.h>
 #include <dcopclient.h>
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeconfig.h>
 
 #include <tqfile.h>

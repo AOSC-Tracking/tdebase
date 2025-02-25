@@ -51,7 +51,7 @@
 
 #include <kdatastream.h>
 #include <tdetempfile.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <tdeparts/part.h>
 #include <tdeparts/componentfactory.h>

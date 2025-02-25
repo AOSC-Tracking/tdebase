@@ -5,7 +5,7 @@
 #include <tqregexp.h>
 #include <tqdict.h>
 
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdeglobalsettings.h>
 #include <tdelocale.h>
 #include <kdebug.h>

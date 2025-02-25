@@ -21,7 +21,7 @@
 #include "tdelistdebugdialog.h"
 #include <tdecmdlineargs.h>
 #include <tdeaboutdata.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tqtextstream.h>
 #include <tdelocale.h>
 #include <kdebug.h>

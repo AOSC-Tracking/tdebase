@@ -178,7 +178,7 @@ TQString GaleonImportCommand::requestFilename() const {
             i18n("*.xbel|Galeon Bookmark Files (*.xbel)"));
 }
 
-#include "kstandarddirs.h"
+#include "tdestandarddirs.h"
 
 TQString KDE2ImportCommand::requestFilename() const {
     return KFileDialog::getOpenFileName(

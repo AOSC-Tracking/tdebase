@@ -32,7 +32,7 @@
 
 #include <tdeprocess.h>
 #include <kdebug.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdemessagebox.h>
 #include <tdelocale.h>
 #include <tdetempfile.h>

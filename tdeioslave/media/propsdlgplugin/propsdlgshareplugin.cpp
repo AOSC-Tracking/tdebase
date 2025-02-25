@@ -29,7 +29,7 @@
 #include <tdefileshare.h>
 #include <tdemessagebox.h>
 #include <tdeprocess.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdialog.h>
 #include <tdeglobal.h>
 #include <dcopref.h>

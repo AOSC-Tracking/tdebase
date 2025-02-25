@@ -36,7 +36,7 @@
 #include <kstdguiitem.h>
 #include <tdeglobal.h>
 #include <tdemessagebox.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <cstdlib>
 #include <unistd.h>

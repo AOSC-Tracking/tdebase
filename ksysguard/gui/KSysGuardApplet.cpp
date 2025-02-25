@@ -34,7 +34,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <ksavefile.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <tdepopupmenu.h>
 
 #include <ksgrd/SensorClient.h>

@@ -41,7 +41,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kipc.h>
 #include <kiconloader.h>
 #include <kurldrag.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 
 #include <math.h>
 #include <algorithm>

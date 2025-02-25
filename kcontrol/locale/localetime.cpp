@@ -30,7 +30,7 @@
 
 #include <kdialog.h>
 #include <ksimpleconfig.h>
-#include <kstandarddirs.h>
+#include <tdestandarddirs.h>
 #include <kdebug.h>
 #include <kcalendarsystem.h>
 

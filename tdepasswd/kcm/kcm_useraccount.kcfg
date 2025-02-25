@@ -4,7 +4,7 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
 	<include>tdeglobal.h</include>
-	<include>kstandarddirs.h</include>
+	<include>tdestandarddirs.h</include>
 	<kcfgfile name="tdm/tdmrc"/>
 	<group name="X-*-Greeter">
 		<entry name="faceDir" type="Path">
