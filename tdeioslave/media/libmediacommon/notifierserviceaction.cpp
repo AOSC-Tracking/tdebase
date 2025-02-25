@@ -22,7 +22,7 @@
 #include <tqdir.h>
 #include <tqfile.h>
 #include <tqfileinfo.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kdesktopfile.h>
 #include <tdelocale.h>
 
