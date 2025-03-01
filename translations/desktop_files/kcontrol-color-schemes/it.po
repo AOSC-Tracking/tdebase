@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Fiflagar Lorizen <fiflagar.lorizen@posteo.net>, 2021.
-# Michele Calgaro <michele.calgaro@yahoo.it>, 2023.
+# Michele Calgaro <michele.calgaro@yahoo.it>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 18:11+0000\n"
-"PO-Revision-Date: 2023-11-08 01:13+0000\n"
+"PO-Revision-Date: 2025-03-01 01:44+0000\n"
 "Last-Translator: Michele Calgaro <michele.calgaro@yahoo.it>\n"
 "Language-Team: Italian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/color-schemes/it/>\n"
@@ -56,7 +56,7 @@ msgstr "Rosso deserto"
 #. Name
 #: Different.kcsrc:2
 msgid "Different"
-msgstr ""
+msgstr "Differente"
 
 #. Name
 #: DigitalCDE.kcsrc:3
@@ -76,42 +76,42 @@ msgstr "Umano"
 #. Name
 #: Jewels-Amethyst.kcsrc:2
 msgid "Jewels - Amethyst"
-msgstr ""
+msgstr "Gioielli - Ametista"
 
 #. Name
 #: Jewels-Aquamarine.kcsrc:2
 msgid "Jewels - Aquamarine"
-msgstr ""
+msgstr "Gioielli - Acquamarina"
 
 #. Name
 #: Jewels-Carbon.kcsrc:2
 msgid "Jewels - Carbon"
-msgstr ""
+msgstr "Gioielli - Carbonio"
 
 #. Name
 #: Jewels-Citrin.kcsrc:2
 msgid "Jewels - Citrin"
-msgstr ""
+msgstr "Gioielli - Citrino"
 
 #. Name
 #: Jewels-Emerald.kcsrc:2
 msgid "Jewels - Emerald"
-msgstr ""
+msgstr "Gioielli - Smeraldo"
 
 #. Name
 #: Jewels-Ruby.kcsrc:2
 msgid "Jewels - Ruby"
-msgstr ""
+msgstr "Gioielli - Rubino"
 
 #. Name
 #: Jewels-Sapphire.kcsrc:2
 msgid "Jewels - Sapphire"
-msgstr ""
+msgstr "Gioielli - Zaffiro"
 
 #. Name
 #: Jewels-Topaz.kcsrc:2
 msgid "Jewels - Topaz"
-msgstr ""
+msgstr "Gioielli - Topazio"
 
 #. Name
 #: KDEOne.kcsrc:2
@@ -146,7 +146,7 @@ msgstr "Last.fm"
 #. Name
 #: Lila.kcsrc:2
 msgid "Lila"
-msgstr ""
+msgstr "Lila"
 
 #. Name
 #: Lizard.kcsrc:2
@@ -171,7 +171,7 @@ msgstr "Grigio pallido"
 #. Name
 #: Pinkie.kcsrc:2
 msgid "Pinkie"
-msgstr ""
+msgstr "Rosato"
 
 #. Name
 #: Plastik.kcsrc:2
@@ -196,22 +196,22 @@ msgstr "Zucca"
 #. Name
 #: Seasons-Autumn.kcsrc:2
 msgid "Seasons - Autumn"
-msgstr ""
+msgstr "Stagioni - Autunno"
 
 #. Name
 #: Seasons-Spring.kcsrc:2
 msgid "Seasons - Spring"
-msgstr ""
+msgstr "Stagioni - Primavera"
 
 #. Name
 #: Seasons-Summer.kcsrc:2
 msgid "Seasons - Summer"
-msgstr ""
+msgstr "Stagioni - Estate"
 
 #. Name
 #: Seasons-Winter.kcsrc:2
 msgid "Seasons - Winter"
-msgstr ""
+msgstr "Stagioni - Inverno"
 
 #. Name
 #: Sienna.kcsrc:2
