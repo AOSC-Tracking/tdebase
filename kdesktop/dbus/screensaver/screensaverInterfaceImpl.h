@@ -54,6 +54,16 @@ public:
     void restoreState();
 
 protected:
+    /**
+     *  Name:           GetActive
+     *  Args:           (none)
+     *  Returns:        DBUS_TYPE_BOOLEAN
+     *  Descriptions:   Returns the value of the current state of activity.
+     *                  See setActive().
+     *
+     * Not implemented
+     */
+    virtual bool GetActive(bool& arg0, TQT_DBusError& error);
 
     /**
      * void Lock()

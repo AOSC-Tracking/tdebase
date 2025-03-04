@@ -62,6 +62,30 @@ TQString ScreenSaverInterfaceImpl::objectPath() const
     return TQString(DBUS_SCREENSAVER_SERVICE_PATH);
 }
 
+bool ScreenSaverInterfaceImpl::GetActive(bool& arg0, TQT_DBusError& dbuserror) {
+
+    DCOPReply reply = m_kdesktopdcoprefobj.call("isBlanked");
+    arg0 = false;
+    if (!reply.isValid())
+    {
+        TQString e("ScreenSaverInterfaceImpl::GetActive(): there was some error using DCOP.");
+        tqDebug(e);
+        dbuserror = TQT_DBusError::stdFailed(e);
+        return false;
+    }
+    else
+    {
+        if (!reply.get(arg0))
+        {
+            TQString e("ScreenSaverInterfaceImpl::GetActive(): there was some error getting the value from DCOPReply");
+            tqDebug(e);
+            dbuserror = TQT_DBusError::stdFailed(e);
+            return false;
+        }
+    }
+    return true;
+}
+
 bool ScreenSaverInterfaceImpl::Lock(TQT_DBusError& dbuserror) {
 
     DCOPReply reply = m_kdesktopdcoprefobj.call("lock");

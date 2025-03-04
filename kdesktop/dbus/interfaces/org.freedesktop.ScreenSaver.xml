@@ -4,6 +4,9 @@
     <signal name="ActiveChanged">
       <arg type="b"/>
     </signal>
+    <method name="GetActive">
+      <arg type="b" direction="out"/>
+    </method>
     <method name="Lock">
     </method>
     <method name="SetActive">
