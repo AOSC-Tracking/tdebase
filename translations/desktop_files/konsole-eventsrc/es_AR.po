@@ -1,70 +1,85 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Slávek Banko <slavek.banko@axis.cz>, 2024.
+# Alejo Fernández <alejofernandez@hotmail.com.ar>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 15:54+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-03-07 16:44+0000\n"
+"Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
+"Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/konsole-events/es_AR/>\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Comment
 #: eventsrc:3
+#, fuzzy
 msgid "Konsole"
-msgstr ""
+msgstr "Konsole"
 
 #. Name
 #: eventsrc:6
+#, fuzzy
 msgid "Bell in visible session"
-msgstr ""
+msgstr "Timbre en sesión visible"
 
 #. Comment
 #: eventsrc:7
+#, fuzzy
 msgid "Bell emitted within a visible session"
-msgstr ""
+msgstr "Suena el timbre incluso en un sesión visible"
 
 #. Name
 #: eventsrc:12
+#, fuzzy
 msgid "Bell in non-visible session"
-msgstr ""
+msgstr "Timbre en sesión invisible"
 
 #. Comment
 #: eventsrc:13
+#, fuzzy
 msgid "Bell emitted within a non-visible session"
-msgstr ""
+msgstr "Suena el timbre incluso en un sesión visible"
 
 #. Name
 #: eventsrc:18
+#, fuzzy
 msgid "Activity in monitored session"
-msgstr ""
+msgstr "Actividad en sesión monitorizada"
 
 #. Comment
 #: eventsrc:19
+#, fuzzy
 msgid "Activity detected in a monitored session"
-msgstr ""
+msgstr "Detectada actividad en una sesión monitorizada"
 
 #. Name
 #: eventsrc:23
+#, fuzzy
 msgid "Silence in monitored session"
-msgstr ""
+msgstr "Silencio en sesión monitorizada"
 
 #. Comment
 #: eventsrc:24
+#, fuzzy
 msgid "Silence detected in a monitored session"
-msgstr ""
+msgstr "Silencio detectado en una sesión monitorizada"
 
 #. Name
 #: eventsrc:28
+#, fuzzy
 msgid "Session finished with non-zero status"
-msgstr ""
+msgstr "Sesión terminada con estado no cero"
 
 #. Comment
 #: eventsrc:29
+#, fuzzy
 msgid "A session has exited with non-zero status"
-msgstr ""
+msgstr "Ha terminado una sesión con estado no cero"
