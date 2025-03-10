@@ -19,14 +19,16 @@ install( CODE "execute_process( COMMAND mkfontdir \$ENV{DESTDIR}${DATA_INSTALL_D
 
 # FIXME generating fonts can be improved
 
-add_custom_target( console8x16.pcf.gz ALL )
-add_custom_command( TARGET console8x16.pcf.gz
+add_custom_target( konsole-font-8x16 ALL
+  DEPENDS console8x16.pcf.gz )
+add_custom_command( OUTPUT console8x16.pcf.gz
   COMMAND bdftopcf -o console8x16.pcf ${CMAKE_CURRENT_SOURCE_DIR}/console8x16.bdf
   COMMAND gzip -f --best console8x16.pcf
   DEPENDS console8x16.bdf )
 
-add_custom_target( 9x15.pcf.gz ALL )
-add_custom_command( TARGET 9x15.pcf.gz
+add_custom_target( konsole-font-9x15 ALL
+  DEPENDS 9x15.pcf.gz )
+add_custom_command( OUTPUT 9x15.pcf.gz
   COMMAND bdftopcf -o 9x15.pcf ${CMAKE_CURRENT_SOURCE_DIR}/9x15.bdf
   COMMAND gzip -f --best 9x15.pcf
   DEPENDS 9x15.bdf )
