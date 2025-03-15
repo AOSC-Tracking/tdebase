@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Alejo Fernández <alejofernandez@hotmail.com.ar>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-03-15 15:44+0000\n"
+"Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
+"Language-Team: Spanish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kappfinder-data/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Development/Forte.desktop:2
@@ -87,7 +88,7 @@ msgstr "Diseñador Qt"
 #. Name
 #: Development/j2mewtk.desktop:2
 msgid "J2ME"
-msgstr ""
+msgstr "J2ME"
 
 #. GenericName
 #: Development/j2mewtk.desktop:3
@@ -107,7 +108,7 @@ msgstr "Herramienta de traducción"
 #. Name
 #: Development/pose.desktop:2
 msgid "Pose"
-msgstr ""
+msgstr "Pose"
 
 #. GenericName
 #: Development/pose.desktop:3
@@ -117,7 +118,7 @@ msgstr "Emulador Palm/Inalámbrico"
 #. Name
 #: Development/sced.desktop:2
 msgid "Sced"
-msgstr ""
+msgstr "Sced"
 
 #. GenericName
 #: Development/sced.desktop:3
@@ -127,7 +128,7 @@ msgstr "Modelador de escenas"
 #. Name
 #: Games/Arcade/ClanBomber.desktop:2
 msgid "ClanBomber"
-msgstr ""
+msgstr "ClanBomber"
 
 #. GenericName
 #: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
@@ -148,12 +149,12 @@ msgstr "Burbuja congelada"
 #. GenericName
 #: Games/Arcade/FrozenBubble.desktop:3
 msgid "Tetris-Like Game"
-msgstr "Juego tipo Tetris"
+msgstr "Tetris-Like Game"
 
 #. Name
 #: Games/Arcade/Gnibbles.desktop:2
 msgid "Gnibbles"
-msgstr ""
+msgstr "Gnibbles"
 
 #. GenericName
 #: Games/Arcade/Gnibbles.desktop:3
@@ -163,12 +164,12 @@ msgstr "Juego GNOME de Nibbles"
 #. Name
 #: Games/Arcade/GnobotsII.desktop:2
 msgid "Gnobots II"
-msgstr ""
+msgstr "Gnobots II"
 
 #. Name
 #: Games/Arcade/Mures.desktop:2
 msgid "Mures"
-msgstr ""
+msgstr "Mures"
 
 #. Name
 #: Games/Arcade/SuperMethaneBrothers.desktop:2
