@@ -36,7 +36,7 @@ RootNodeService::~RootNodeService()
 {
 }
 
-TQT_DBusObjectBase* RootNodeService::createInterface(const TQString& interfaceName)
+TQT_DBusObjectBase* RootNodeService::createInterface(const TQString &interfaceName)
 {
     return (TQT_DBusObjectBase*) m_interfaces[interfaceName];
 }
@@ -52,7 +52,7 @@ OrgNodeService::~OrgNodeService()
 {
 }
 
-TQT_DBusObjectBase* OrgNodeService::createInterface(const TQString& interfaceName)
+TQT_DBusObjectBase* OrgNodeService::createInterface(const TQString &interfaceName)
 {
     return (TQT_DBusObjectBase*) m_interfaces[interfaceName];
 }
@@ -68,15 +68,14 @@ FreeDesktopNodeService::~FreeDesktopNodeService()
 {
 }
 
-TQT_DBusObjectBase* FreeDesktopNodeService::createInterface(const TQString& interfaceName)
+TQT_DBusObjectBase* FreeDesktopNodeService::createInterface(const TQString &interfaceName)
 {
     return (TQT_DBusObjectBase*) m_interfaces[interfaceName];
 }
 
 ScreenSaverService::ScreenSaverService(TQT_DBusConnection &conn) :
         org::freedesktop::screensaverNode(),
-        m_connection(conn),
-        screenSaverInterface(new ScreenSaverInterfaceImpl(conn))
+        screenSaverInterface(new ScreenSaverInterfaceImpl(conn)), m_connection(conn)
 {
     m_interfaces.insert("org.freedesktop.DBus.Introspectable", this);
     m_interfaces.insert("org.freedesktop.ScreenSaver", screenSaverInterface);
@@ -85,19 +84,17 @@ ScreenSaverService::ScreenSaverService(TQT_DBusConnection &conn) :
 
 ScreenSaverService::~ScreenSaverService()
 {
-    if(screenSaverInterface)
+    if (screenSaverInterface)
     {
         screenSaverInterface->restoreState();
         delete screenSaverInterface;
     }
 }
 
-TQT_DBusObjectBase* ScreenSaverService::createInterface(const TQString& interfaceName)
+TQT_DBusObjectBase* ScreenSaverService::createInterface(const TQString &interfaceName)
 {
     return (TQT_DBusObjectBase*) m_interfaces[interfaceName];
 }
-
-
 
 TDEDbusScreenSaver::TDEDbusScreenSaver()
 {
@@ -111,11 +108,7 @@ TDEDbusScreenSaver::TDEDbusScreenSaver()
 TDEDbusScreenSaver::~TDEDbusScreenSaver()
 {
     // unconfigure the DBus service and close connection
-    if (!unconfigureService())
-    {
-        tqDebug("Failed to properly close the screen saver service");
-    }
-
+    unconfigureService();
     delete screenSaverService;
     delete freeDesktopNodeService;
     delete orgService;
@@ -129,40 +122,38 @@ bool TDEDbusScreenSaver::isConnectedToDBUS()
 
 bool TDEDbusScreenSaver::configureService()
 {
-      m_connection = TQT_DBusConnection::addConnection(TQT_DBusConnection::SessionBus, DBUS_SCREENSAVER_SERVICE);
+    m_connection = TQT_DBusConnection::addConnection(TQT_DBusConnection::SessionBus, DBUS_SCREENSAVER_SERVICE);
 
-        if (!m_connection.isConnected())
-        {
-            tqDebug(i18n("Failed to open connection to system message bus: %1").arg(m_connection.lastError().message()));
-            return false;
-        }
+    rootService = new RootNodeService(m_connection);
+    orgService = new OrgNodeService(m_connection);
+    freeDesktopNodeService = new FreeDesktopNodeService(m_connection);
+    screenSaverService = new ScreenSaverService(m_connection);
 
-        // try to get a specific service name
-        if (!m_connection.requestName(DBUS_SCREENSAVER_SERVICE_NAME))
-        {
-            tqWarning(i18n("Requesting name %1 failed. "
-                    "The object will only be addressable through unique name '%2'").arg(
-                            DBUS_SCREENSAVER_SERVICE_NAME).arg(m_connection.uniqueName()));
-            return false;
-        }
+    if (!m_connection.isConnected())
+    {
+        tqDebug(i18n("Failed to open connection to system message bus: %1").arg(m_connection.lastError().message()));
+        return false;
+    }
 
-        rootService = new RootNodeService(m_connection);
-        orgService = new OrgNodeService(m_connection);
-        freeDesktopNodeService = new FreeDesktopNodeService(m_connection);
-        screenSaverService = new ScreenSaverService(m_connection);
+    // try to get a specific service name
+    if (!m_connection.requestName(DBUS_SCREENSAVER_SERVICE_NAME))
+    {
+        tqWarning(i18n("Requesting name %1 failed. "
+                "The object will only be addressable through unique name '%2'").arg(
+        DBUS_SCREENSAVER_SERVICE_NAME).arg(m_connection.uniqueName()));
+        return false;
+    }
     return true;
 }
 
-bool TDEDbusScreenSaver::unconfigureService()
+void TDEDbusScreenSaver::unconfigureService()
 {
     screenSaverService->screenSaverInterface->restoreState(); // will restore the original state
 
-    screenSaverService=nullptr;
-    freeDesktopNodeService=nullptr;
-    orgService=nullptr;
-    rootService=nullptr;
+    screenSaverService = nullptr;
+    freeDesktopNodeService = nullptr;
+    orgService = nullptr;
+    rootService = nullptr;
     // close D-Bus connection
     m_connection.closeConnection(DBUS_SCREENSAVER_SERVICE);
-
-    return true;
 }

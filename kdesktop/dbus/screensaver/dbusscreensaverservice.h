@@ -19,8 +19,8 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-#ifndef KDESKTOP_LOCK_DBUS_SCREENSAVER_DBUSSCREENSAVERSERVICE_H_
-#define KDESKTOP_LOCK_DBUS_SCREENSAVER_DBUSSCREENSAVERSERVICE_H_
+#ifndef KDESKTOP_DBUSSCREENSAVERSERVICE_H_
+#define KDESKTOP_DBUSSCREENSAVERSERVICE_H_
 
 #include <tqmap.h>
 #include <tqdbusconnection.h>
@@ -108,11 +108,9 @@ private:
 
     /*!
      * This function is to close the connection to D-Bus
-     * \return boolean with the result of the operation
-     * \retval true if successfully unset D-Bus connection
-     * \retval false if unsuccessful
+     * \return void
      */
-    bool unconfigureService();
+    void unconfigureService();
 
 private:
     TQT_DBusConnection m_connection;
@@ -124,4 +122,4 @@ private:
 
 };
 
-#endif /* KDESKTOP_LOCK_DBUS_SCREENSAVER_DBUSSCREENSAVERSERVICE_H_ */
+#endif /* KDESKTOP_DBUSSCREENSAVERSERVICE_H_ */

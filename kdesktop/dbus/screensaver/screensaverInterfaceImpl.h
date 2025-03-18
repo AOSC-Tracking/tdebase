@@ -61,9 +61,8 @@ protected:
      *  Descriptions:   Returns the value of the current state of activity.
      *                  See setActive().
      *
-     * Not implemented
      */
-    virtual bool GetActive(bool& arg0, TQT_DBusError& error);
+    virtual bool GetActive(bool& retval, TQT_DBusError& error);
 
     /**
      * void Lock()
@@ -84,9 +83,8 @@ protected:
      *                 screen and may run a graphical theme.  This does
      *                 not necessary mean that the screen is locked.
      *
-     * Not implemented
      */
-    virtual bool SetActive(bool& arg0, bool e, TQT_DBusError& error);
+    virtual bool SetActive(bool& retval, bool e, TQT_DBusError& error);
 
     /**
      *
@@ -128,7 +126,7 @@ protected:
 
 private:
     bool screenSaverIsEnabled();
-    bool forceScreenSaver(bool);
+    bool setScreenSaverState(bool);
 
     struct Pair {
         TQString name;
@@ -137,10 +135,10 @@ private:
 
     TQT_DBusConnection *m_connection;
     TQMap<TQ_UINT32,Pair> m_cookies;
-    TQ_UINT32 m_ccount;
+    TQ_UINT32 m_cookieCount;
 
     DCOPRef m_kdesktopdcoprefobj;
-    bool isScreenSaverEnabled;
+    bool m_screenSaverEnabled;
 };
 
 #endif /* KDESKTOP_SCREENSAVERINTERFACEIMPL_H_ */
