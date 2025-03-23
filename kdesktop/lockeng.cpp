@@ -698,6 +698,14 @@ void SaverEngine::slotLockProcessWaiting()
 
 void SaverEngine::slotLockProcessFullyActivated()
 {
+	// 'lockProcessFullyActivated' cannot be called directly from a signal handler,as it may hang
+	// in certain obscure circumstances. Instead we use a single-shot timer to schedule a
+	// call to 'lockProcessFullyActivated' once control has returned to the TQt main loop
+	TQTimer::singleShot(0, this, TQ_SLOT(lockProcessFullyActivated()));
+}
+
+void SaverEngine::lockProcessFullyActivated()
+{
 	mState = Saving;
 
 	if( systemdSession && systemdSession->canSend() ) {

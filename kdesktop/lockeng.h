@@ -115,6 +115,7 @@ public slots:
 protected slots:
 	void idleTimeout();
 	void lockProcessExited();
+	void lockProcessFullyActivated();
 	void lockProcessWaiting();
 
 private slots:
