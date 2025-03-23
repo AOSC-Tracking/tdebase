@@ -105,15 +105,17 @@ bool ScreenSaverInterfaceImpl::SetActive(bool &retval, bool b, TQT_DBusError &db
     DCOPReply reply = (b == true) ? m_kdesktopdcoprefobj.call("save") : m_kdesktopdcoprefobj.call("quit") ;
     if (!reply.isValid())
     {
-        retval = false;
         TQString e("ScreenSaverInterfaceImpl::SetActive: there was some error using DCOP.");
         tqDebug(e);
         dbuserror = TQT_DBusError::stdFailed(e);
-        return false;
+        retval = false;
     }
-    emitActiveChanged(b);
-    retval = true;
-    return true;
+    else
+    {
+        emitActiveChanged(b);
+        retval = true;
+    }
+    return retval;
 }
 
 bool ScreenSaverInterfaceImpl::Inhibit(const TQString &application_name,
@@ -124,13 +126,18 @@ bool ScreenSaverInterfaceImpl::Inhibit(const TQString &application_name,
     //however some other application like kplayer may have disabled the screensaver
     //when we call this function
     //m_screenSaverEnabled = screenSaverIsEnabled();
+    bool ret = true;
     if (m_screenSaverEnabled && m_cookies.isEmpty()) // disable only once
     {
         if (!setScreenSaverState(false))
         {
             dbuserror = TQT_DBusError::stdFailed(TQString("Failed to disable the screen saver"));
+            ret = false;
         }
-        emitActiveChanged(true);
+        else
+        {
+            emitActiveChanged(true);
+        }
     }
 
     cookie = m_cookieCount++;
@@ -141,7 +148,7 @@ bool ScreenSaverInterfaceImpl::Inhibit(const TQString &application_name,
     tqDebug(TQString("Inhibit: cookie(%1), application(%2), reason(%3)")
             .arg(cookie).arg(m_cookies[cookie].name).arg(m_cookies[cookie].value).local8Bit());
 
-    return true;
+    return ret;
 }
 
 bool ScreenSaverInterfaceImpl::UnInhibit(TQ_UINT32 cookie, TQT_DBusError &dbuserror)
@@ -167,7 +174,7 @@ bool ScreenSaverInterfaceImpl::UnInhibit(TQ_UINT32 cookie, TQT_DBusError &dbuser
 bool ScreenSaverInterfaceImpl::screenSaverIsEnabled()
 {
     DCOPReply reply = m_kdesktopdcoprefobj.call("isEnabled");
-    bool on = false;
+    bool retval = false;
     if (!reply.isValid())
     {
         tqDebug("ScreenSaverInterfaceImpl::screenSaverIsEnabled(): there was some error using DCOP.");
@@ -175,13 +182,13 @@ bool ScreenSaverInterfaceImpl::screenSaverIsEnabled()
     }
     else
     {
-        if (!reply.get(on))
+        if (!reply.get(retval))
         {
             tqDebug("ScreenSaverInterfaceImpl::screenSaverIsEnabled(): there was some error getting the value from DCOPReply");
             return false;
         }
     }
-    return on;
+    return retval;
 }
 
 bool ScreenSaverInterfaceImpl::setScreenSaverState(bool on)
