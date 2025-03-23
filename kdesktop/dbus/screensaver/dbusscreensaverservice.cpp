@@ -85,10 +85,7 @@ ScreenSaverService::ScreenSaverService(TQT_DBusConnection &conn) :
 ScreenSaverService::~ScreenSaverService()
 {
     if (screenSaverInterface)
-    {
-        screenSaverInterface->restoreState();
         delete screenSaverInterface;
-    }
 }
 
 TQT_DBusObjectBase* ScreenSaverService::createInterface(const TQString &interfaceName)
@@ -109,10 +106,6 @@ TDEDbusScreenSaver::~TDEDbusScreenSaver()
 {
     // unconfigure the DBus service and close connection
     unconfigureService();
-    delete screenSaverService;
-    delete freeDesktopNodeService;
-    delete orgService;
-    delete rootService;
 }
 
 bool TDEDbusScreenSaver::isConnectedToDBUS()
@@ -150,6 +143,14 @@ void TDEDbusScreenSaver::unconfigureService()
 {
     screenSaverService->screenSaverInterface->restoreState(); // will restore the original state
 
+    if(screenSaverService)
+        delete screenSaverService;
+    if(freeDesktopNodeService)
+        delete freeDesktopNodeService;
+    if(orgService)
+        delete orgService;
+    if(rootService)
+        delete rootService;
     screenSaverService = nullptr;
     freeDesktopNodeService = nullptr;
     orgService = nullptr;

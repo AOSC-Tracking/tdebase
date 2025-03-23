@@ -102,7 +102,7 @@ bool ScreenSaverInterfaceImpl::Lock(TQT_DBusError &dbuserror)
 bool ScreenSaverInterfaceImpl::SetActive(bool &retval, bool b, TQT_DBusError &dbuserror)
 {
 
-    DCOPReply reply = m_kdesktopdcoprefobj.call("setBlankOnly", b);
+    DCOPReply reply = (b == true) ? m_kdesktopdcoprefobj.call("save") : m_kdesktopdcoprefobj.call("quit") ;
     if (!reply.isValid())
     {
         retval = false;
@@ -111,7 +111,7 @@ bool ScreenSaverInterfaceImpl::SetActive(bool &retval, bool b, TQT_DBusError &db
         dbuserror = TQT_DBusError::stdFailed(e);
         return false;
     }
-    emitActiveChanged(true);
+    emitActiveChanged(b);
     retval = true;
     return true;
 }
@@ -157,7 +157,9 @@ bool ScreenSaverInterfaceImpl::UnInhibit(TQ_UINT32 cookie, TQT_DBusError &dbuser
         {
             dbuserror = TQT_DBusError::stdFailed(TQString("Failed to switch ScreenSaver %1!")
                     .arg((m_screenSaverEnabled) ? "on" : "off"));
+            return false;
         }
+        emitActiveChanged(false);
     }
     return true;
 }
@@ -169,12 +171,14 @@ bool ScreenSaverInterfaceImpl::screenSaverIsEnabled()
     if (!reply.isValid())
     {
         tqDebug("ScreenSaverInterfaceImpl::screenSaverIsEnabled(): there was some error using DCOP.");
+        return false;
     }
     else
     {
         if (!reply.get(on))
         {
             tqDebug("ScreenSaverInterfaceImpl::screenSaverIsEnabled(): there was some error getting the value from DCOPReply");
+            return false;
         }
     }
     return on;
