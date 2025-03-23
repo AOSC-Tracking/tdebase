@@ -9,7 +9,6 @@
 #define __LOCKENG_H__
 
 #include <tqwidget.h>
-#include <tqthread.h>
 #include <tdeprocess.h>
 #include <tqvaluevector.h>
 #include "KScreensaverIface.h"
@@ -27,21 +26,7 @@ class DCOPClientTransaction;
 class TQT_DBusMessage;
 class TQT_DBusProxy;
 
-class SaverEngineThreadHelperObject : public TQObject
-{
-	TQ_OBJECT
-	
-public slots:
-	void terminateThread();
-	void slotLockProcessWaiting();
-	void slotLockProcessFullyActivated();
 
-signals:
-	void lockProcessWaiting();
-	void lockProcessFullyActivated();
-};
-
-//===========================================================================
 /**
  * Screen saver engine.  Handles screensaver window, starting screensaver
  * hacks, and password entry.
@@ -121,19 +106,16 @@ public:
 	 */
 	void lockScreenAndSwitchSession(int vt);
 
-signals:
-	void terminateHelperThread();
-	void asyncLock();
-
 public slots:
+	void slotLockProcessFullyActivated();
 	void slotLockProcessReady();
-	void lockProcessWaiting();
-	void lockProcessFullyActivated();
+	void slotLockProcessWaiting();
 	void handleDBusSignal(const TQT_DBusMessage&);
 
 protected slots:
 	void idleTimeout();
 	void lockProcessExited();
+	void lockProcessWaiting();
 
 private slots:
 	void handleSecureDialog();
@@ -185,12 +167,7 @@ protected:
 	bool mBlankOnly;  // only use the blanker, not the defined saver
 	TQValueVector< DCOPClientTransaction* > mLockTransactions;
 
-public:
-	SaverEngineThreadHelperObject* m_threadHelperObject;
-
 private:
-	TQEventLoopThread* m_helperThread;
-	sigset_t mThreadBlockSet;
 	TDEProcess* mSAKProcess;
 	bool mTerminationRequested;
 	bool mSaverProcessReady;
