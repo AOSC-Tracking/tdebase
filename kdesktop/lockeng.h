@@ -91,12 +91,6 @@ public:
 	void lockScreen(bool DCOP = false);
 
 	/**
-	 * Called by KDesktop to wait for saver engage
-	 * @internal
-	 */
-	bool waitForLockEngage();
-
-	/**
 	 * @internal
 	 */
 	void lockScreenAndDoNewSession();
@@ -180,6 +174,8 @@ private:
 	TQT_DBusProxy* dBusLocal;
 	TQT_DBusProxy* dBusWatch;
 	TQT_DBusProxy* systemdSession;
+	sigset_t m_blockSignalsMask;
+	sigset_t m_origSignalsMask;
 };
 
 #endif

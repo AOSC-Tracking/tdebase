@@ -57,19 +57,22 @@ extern xautolock_corner_t xautolock_corners[ 4 ];
 
 bool trinity_lockeng_sak_available = TRUE;
 
-SaverEngine* m_masterSaverEngine = NULL;
+SaverEngine* m_masterSaverEngine = nullptr;
+
 static void sigusr1_handler(int)
 {
 	if (m_masterSaverEngine) {
 		m_masterSaverEngine->slotLockProcessWaiting();
 	}
 }
+
 static void sigusr2_handler(int)
 {
 	if (m_masterSaverEngine) {
 		m_masterSaverEngine->slotLockProcessFullyActivated();
 	}
 }
+
 static void sigttin_handler(int)
 {
 	if (m_masterSaverEngine) {
@@ -97,8 +100,9 @@ SaverEngine::SaverEngine()
 	  dBusWatch(0),
 	  systemdSession(0)
 {
-	// handle SIGUSR1
 	m_masterSaverEngine = this;
+
+	// handle SIGUSR1
 	mSignalAction.sa_handler= sigusr1_handler;
 	sigemptyset(&(mSignalAction.sa_mask));
 	sigaddset(&(mSignalAction.sa_mask), SIGUSR1);
@@ -106,7 +110,6 @@ SaverEngine::SaverEngine()
 	sigaction(SIGUSR1, &mSignalAction, 0L);
 
 	// handle SIGUSR2
-	m_masterSaverEngine = this;
 	mSignalAction.sa_handler= sigusr2_handler;
 	sigemptyset(&(mSignalAction.sa_mask));
 	sigaddset(&(mSignalAction.sa_mask), SIGUSR2);
@@ -114,7 +117,6 @@ SaverEngine::SaverEngine()
 	sigaction(SIGUSR2, &mSignalAction, 0L);
 
 	// handle SIGTTIN
-	m_masterSaverEngine = this;
 	mSignalAction.sa_handler= sigttin_handler;
 	sigemptyset(&(mSignalAction.sa_mask));
 	sigaddset(&(mSignalAction.sa_mask), SIGTTIN);
@@ -122,8 +124,7 @@ SaverEngine::SaverEngine()
 	sigaction(SIGTTIN, &mSignalAction, 0L);
 
 	// Save X screensaver parameters
-	XGetScreenSaver(tqt_xdisplay(), &mXTimeout, &mXInterval,
-					&mXBlanking, &mXExposures);
+	XGetScreenSaver(tqt_xdisplay(), &mXTimeout, &mXInterval, &mXBlanking, &mXExposures);
 
 	mState = Waiting;
 	mXAutoLock = 0;
@@ -163,6 +164,17 @@ SaverEngine::SaverEngine()
 	}
 	mLockProcess << path;
 	mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
+
+	// Must block signals before running the lock process, otherwise we risk
+	// missing out on them in case of unfavourable scheduling
+	sigemptyset(&m_blockSignalsMask);
+	sigaddset(&m_blockSignalsMask, SIGUSR1);
+	sigaddset(&m_blockSignalsMask, SIGUSR2);
+	sigaddset(&m_blockSignalsMask, SIGTTIN);
+	sigaddset(&m_blockSignalsMask, SIGCHLD);
+	sigprocmask(SIG_BLOCK, &m_blockSignalsMask, &m_origSignalsMask);
+	// Then reset status before actually starting the lock process
+	mSaverProcessReady = false;
 	if (mLockProcess.start() == false )
 	{
 		kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
@@ -178,8 +190,8 @@ SaverEngine::SaverEngine()
   bool autoLoginEnable = config->readBoolEntry("AutoLoginEnable", false);
   bool autoLoginLocked = config->readBoolEntry("AutoLoginLocked", false);
   if (autoLoginEnable && autoLoginLocked) {
-		mLockProcess.kill(SIGTTOU);
 		mLockProcess.kill(SIGUSR1);
+		mLockProcess.kill(SIGTTOU);
 	}
 	delete config;
 	config = NULL;
@@ -341,7 +353,7 @@ void SaverEngine::saverLockReady()
 {
 	if( mState != Engaging )
 	{
-		kdDebug( 1204 ) << "Got unexpected saverReady()" << endl;
+		kdDebug( 1204 ) << "Got unexpected saverLockReady()" << endl;
 	}
 	kdDebug( 1204 ) << "Saver Lock Ready" << endl;
 	processLockTransactions();
@@ -376,7 +388,7 @@ bool SaverEngine::isEnabled()
 bool SaverEngine::enable( bool e )
 {
 	if ( e == mEnabled )
-	return true;
+		return true;
 
 	// If we aren't in a suitable state, we will not reconfigure.
 	if (mState != Waiting)
@@ -498,13 +510,9 @@ void SaverEngine::configure()
 	// create a new config obj to ensure we read the latest options
 	KDesktopSettings::self()->readConfig();
 
-	bool e = KDesktopSettings::screenSaverEnabled();
 	mTimeout = KDesktopSettings::timeout();
 
-	mEnabled = !e;   // force the enable()
-
-	int action;
-	action = KDesktopSettings::actionTopLeft();
+	int action = KDesktopSettings::actionTopLeft();
 	xautolock_corners[0] = applyManualSettings(action);
 	action = KDesktopSettings::actionTopRight();
 	xautolock_corners[1] = applyManualSettings(action);
@@ -513,7 +521,9 @@ void SaverEngine::configure()
 	action = KDesktopSettings::actionBottomRight();
 	xautolock_corners[3] = applyManualSettings(action);
 
-	enable( e );
+	bool e = KDesktopSettings::screenSaverEnabled();
+	mEnabled = !e;  // set to '!e' to force the activation when calling enable()
+	enable(e);
 }
 
 //---------------------------------------------------------------------------
@@ -530,7 +540,6 @@ void SaverEngine::setBlankOnly( bool blankOnly )
 bool SaverEngine::restartDesktopLockProcess()
 {
 	if (!mLockProcess.isRunning()) {
-		mSaverProcessReady = false;
 		mLockProcess.clearArguments();
 		TQString path = TDEStandardDirs::findExe( "kdesktop_lock" );
 		if (path.isEmpty()) {
@@ -539,6 +548,12 @@ bool SaverEngine::restartDesktopLockProcess()
 		}
 		mLockProcess << path;
 		mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
+
+		// Must block signals before running the lock process, otherwise we risk
+		// missing out on them in case of unfavourable scheduling
+		sigprocmask(SIG_BLOCK, &m_blockSignalsMask, &m_origSignalsMask);
+		// Then reset status before actually starting the lock process
+		mSaverProcessReady = false;
 		if (mLockProcess.start() == false) {
 			kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
 			return false;
@@ -945,40 +960,11 @@ void SaverEngine::handleDBusSignal(const TQT_DBusMessage& msg) {
 }
 
 bool SaverEngine::waitForLockProcessStart() {
-	sigset_t new_mask;
-	sigset_t orig_mask;
-
-	// ensure that SIGCHLD is not subject to a race condition
-	sigemptyset(&new_mask);
-	sigaddset(&new_mask, SIGCHLD);
-
-	sigprocmask(SIG_BLOCK, &new_mask, &orig_mask);
-	while ((mLockProcess.isRunning()) && (!mSaverProcessReady)) {
-		// wait for any signal(s) to arrive
-		sigsuspend(&orig_mask);
+	while (mLockProcess.isRunning() && !mSaverProcessReady)
+	{
+		sigsuspend(&m_origSignalsMask);
 	}
-	sigprocmask(SIG_UNBLOCK, &new_mask, NULL);
-
-	return mLockProcess.isRunning();
-}
-
-bool SaverEngine::waitForLockEngage() {
-	sigset_t new_mask;
-	sigset_t orig_mask;
-
-	// wait for SIGUSR1, SIGUSR2, SIGTTIN
-	sigemptyset(&new_mask);
-	sigaddset(&new_mask, SIGUSR1);
-	sigaddset(&new_mask, SIGUSR2);
-	sigaddset(&new_mask, SIGTTIN);
-
-	sigprocmask(SIG_BLOCK, &new_mask, &orig_mask);
-	while ((mLockProcess.isRunning()) && (mState != Waiting) && (mState != Saving)) {
-		// wait for any signal(s) to arrive
-		sigsuspend(&orig_mask);
-	}
-	sigprocmask(SIG_UNBLOCK, &new_mask, NULL);
-
+	sigprocmask(SIG_SETMASK, &m_origSignalsMask, nullptr);
 	return mLockProcess.isRunning();
 }
 
