@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Heimen Stoffels <vistausss@fastmail.com>, 2024.
+# Heimen Stoffels <vistausss@fastmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2024-12-22 23:32+0000\n"
+"PO-Revision-Date: 2025-03-25 10:44+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kcontrol-desktop-files/nl/>\n"
@@ -30,7 +30,7 @@ msgstr "Toegankelijkheid"
 #. Comment
 #: access/kcmaccess.desktop:14
 msgid "Improve accessibility for disabled persons"
-msgstr "Verbeterde toegankelijkheid voor gebruikers met een handicap"
+msgstr "Verbeterde toegankelijkheid voor gebruikers met een beperking"
 
 #. Keywords
 #: access/kcmaccess.desktop:16
@@ -40,7 +40,7 @@ msgid ""
 msgstr ""
 "toegang;toegankelijkheid;doof;handicap;gehandicapt;bel;signalering;zichtbare "
 "meldingen;Keyboard;toetsenbord;keys;toetsen;vastgeplakte toetsen;"
-"toetsenaanslag;muisnavigatie;num pad;numerieke klavier;"
+"toetsenaanslag;muisnavigatie;num pad;numerieke klavier;beperking;"
 
 #. Name
 #: arts/arts.desktop:12
@@ -92,7 +92,7 @@ msgstr "Systeembel"
 #. Comment
 #: bell/bell.desktop:15
 msgid "System Bell Configuration"
-msgstr "Systeemgeluiden instellen"
+msgstr "Systeembel instellen"
 
 #. Keywords
 #: bell/bell.desktop:17
@@ -151,7 +151,7 @@ msgstr "Standaardprogramma's"
 #. Comment
 #: componentchooser/componentchooser.desktop:12
 msgid "Choose the default components for various services"
-msgstr "Kies de standaardcomponenten voor diverse services"
+msgstr "Kies de standaardonderdelen van diverse diensten"
 
 #. Keywords
 #: componentchooser/componentchooser.desktop:14
@@ -160,8 +160,8 @@ msgid ""
 "client;text editor;instant messenger;terminal emulator;web browser;file "
 "manager;URL;hyperlinks;"
 msgstr ""
-"standaard toepassingen;componenten;componentenkiezer;hulpbronnen;e-mail-"
-"client;tekstbewerker;instant-messenger;terminal-emulator;webbrowser;"
+"standaardprogramma's;componenten;onderdelen;componentenkiezer;hulpbronnen;e-"
+"mail-client;tekstbewerker;instant-messenger;terminal-emulator;webbrowser;"
 "bestandsbeheerder;url-adres;hyperlinks;"
 
 #. Name
@@ -175,8 +175,8 @@ msgid ""
 "Here you can configure your default web browser. All TDE applications in "
 "which you can select hyperlinks should honor this setting."
 msgstr ""
-"Hier kunt u uw standaard webbrowser instellen. Alle TDE-toepassingen waarin "
-"u een hyperkoppeling kunt aanklikken maken gebruik van deze instelling."
+"Hier kunt u uw standaard webbrowser instellen. Alle TDE-programma's waarin u "
+"een link kunt aanklikken maken gebruik van deze instelling."
 
 #. Name
 #: componentchooser/componentservices/kcm_filemanager.desktop:1
@@ -186,15 +186,14 @@ msgstr "Bestandsbeheerder"
 
 #. Comment
 #: componentchooser/componentservices/kcm_filemanager.desktop:3
-#, fuzzy
 msgid ""
 "This service allows you to configure your default file manager. All TDE "
 "applications which invoke a file manager application should honor this "
 "setting."
 msgstr ""
-"Met deze service kunt u uw standaard terminalemulator instellen. Alle TDE-"
-"toepassingen die een terminalemulator aanroepen zullen gebruik maken van "
-"deze instelling."
+"Met deze dienst kunt u uw standaard terminalemulator instellen. Alle TDE-"
+"programma's die een terminalemulator aanroepen zullen gebruik maken van deze "
+"instelling."
 
 #. Name
 #: componentchooser/componentservices/kcm_kemail.desktop:1
@@ -208,9 +207,9 @@ msgid ""
 "applications which need access to an email client application should honor "
 "this setting."
 msgstr ""
-"Met deze service kunt u uw standaard e-mailprogramma instellen. TDE-"
-"toepassingen die toegang tot een e-mailprogramma nodig hebben zullen deze "
-"instellingen gebruiken."
+"Met deze dienst kunt u uw standaard e-mailprogramma instellen. TDE-"
+"programma's die toegang tot een e-mailprogramma nodig hebben zullen deze "
+"instelling gebruiken."
 
 #. Name
 #: componentchooser/componentservices/kcm_terminal.desktop:1
@@ -224,9 +223,9 @@ msgid ""
 "applications which invoke a terminal emulator application should honor this "
 "setting."
 msgstr ""
-"Met deze service kunt u uw standaard terminalemulator instellen. Alle TDE-"
-"toepassingen die een terminalemulator aanroepen zullen gebruik maken van "
-"deze instelling."
+"Met deze dienst kunt u uw standaard terminalemulator instellen. Alle TDE-"
+"programma's die een terminalemulator aanroepen zullen gebruikmaken van deze "
+"instelling."
 
 #. Name
 #: crypto/crypto.desktop:10
@@ -283,9 +282,8 @@ msgstr "Beeldscherm en weergave"
 
 #. Comment
 #: displayconfig/displayconfig.desktop:14
-#, fuzzy
 msgid "Configure display"
-msgstr "Dienstwaarneming instellen"
+msgstr "Beeldscherm instellen"
 
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
@@ -318,7 +316,7 @@ msgid ""
 "Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet Filters;"
 "Network;Search Engines;Shortcuts;"
 msgstr ""
-"geavanceerd browsen;browsing;www;internet;internet keywords;surfen;"
+"geavanceerd browsen;browsing;www;internet;trefwoorden;surfen;"
 "internetzoektermen;zoekmachines;search engines;snelkoppelingen;"
 "internetfilters;Netwerk;verbeterd browsen;"
 
@@ -340,35 +338,32 @@ msgstr "Zoekmachine"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
 msgid "Acronym Database"
-msgstr "Acroniemen database"
+msgstr "Acroniemendatabank"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
 msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
-msgstr ""
+msgstr "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
-#, fuzzy
 msgid "Alexa"
-msgstr "Alexa URL-adres"
+msgstr "Alexa"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
-#, fuzzy
 msgid "http://info.alexa.com/search?q=\\{@}"
-msgstr "http://images.google.nl/images?q=\\{@}"
+msgstr "http://info.alexa.com/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
 msgid "Alexa URL"
-msgstr "Alexa URL-adres"
+msgstr "Alexa-url"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
-#, fuzzy
 msgid "http://info.alexa.com/data/details?url=\\{@}"
-msgstr "http://images.google.nl/images?q=\\{@}"
+msgstr "http://info.alexa.com/data/details?url=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
