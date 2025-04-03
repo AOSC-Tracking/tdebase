@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-25 17:45+0900\n"
+"POT-Creation-Date: 2025-04-03 18:15+0000\n"
 "PO-Revision-Date: 2024-11-18 13:11+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
@@ -32,3 +32,15 @@ msgstr "Andere toetsenbordindeling"
 #: eventsrc:7
 msgid "The keyboard layout was switched"
 msgstr "De toetsenbordindeling is gewijzigd"
+
+#. Name
+#: eventsrc:11
+#, fuzzy
+#| msgid "Keyboard layout switch"
+msgid "Keyboard layout switching error"
+msgstr "Andere toetsenbordindeling"
+
+#. Comment
+#: eventsrc:12
+msgid "Error while attempting to switch the keyboard layout"
+msgstr ""
