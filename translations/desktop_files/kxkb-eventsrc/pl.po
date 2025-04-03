@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-25 17:45+0900\n"
+"POT-Creation-Date: 2025-04-03 20:15+0000\n"
 "PO-Revision-Date: 2024-08-01 08:16+0000\n"
 "Last-Translator: Marek W <coronzon88@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
@@ -32,3 +32,14 @@ msgstr "Przełączenie układu klawiatury"
 #: eventsrc:7
 msgid "The keyboard layout was switched"
 msgstr "Przełączono układ klawiatury"
+
+#. Name
+#: eventsrc:11
+#, fuzzy
+msgid "Keyboard layout switching error"
+msgstr "Przełączenie układu klawiatury"
+
+#. Comment
+#: eventsrc:12
+msgid "Error while attempting to switch the keyboard layout"
+msgstr ""
