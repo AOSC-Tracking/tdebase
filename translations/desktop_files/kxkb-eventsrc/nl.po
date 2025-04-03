@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Heimen Stoffels <vistausss@outlook.com>, 2024.
-# Heimen Stoffels <vistausss@fastmail.com>, 2024.
+# Heimen Stoffels <vistausss@fastmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-03 18:15+0000\n"
-"PO-Revision-Date: 2024-11-18 13:11+0000\n"
+"PO-Revision-Date: 2025-04-05 14:18+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kxkb-events/nl/>\n"
@@ -35,12 +35,10 @@ msgstr "De toetsenbordindeling is gewijzigd"
 
 #. Name
 #: eventsrc:11
-#, fuzzy
-#| msgid "Keyboard layout switch"
 msgid "Keyboard layout switching error"
-msgstr "Andere toetsenbordindeling"
+msgstr "Andere toetsenbordindeling mislukt"
 
 #. Comment
 #: eventsrc:12
 msgid "Error while attempting to switch the keyboard layout"
-msgstr ""
+msgstr "Er kan geen andere toetsenbordindeling worden gekozen"
