@@ -259,7 +259,7 @@ uint XKBExtension::getGroup() const
 
 bool XKBExtension::kcmlayoutRunning()
 {
-	return kApp->dcopClient()->isApplicationRegistered("TDECModuleProxy-keyboard_layout");
+	return kapp->dcopClient()->isApplicationRegistered("TDECModuleProxy-keyboard_layout");
 }
 
 // Examines an X Event passed to it and takes actions if the event is of
