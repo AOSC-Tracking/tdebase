@@ -34,7 +34,9 @@ DESCRIPTION
 
 #include <tdeaboutdata.h>
 #include <tdecmdlineargs.h>
+#ifdef WITH_TDEHWLIB
 #include <tdehardwaredevices.h>
+#endif
 #include <tdeglobal.h>
 #include <kglobalaccel.h>
 #include <tdelocale.h>
@@ -83,10 +85,12 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
     connect( this, TQ_SIGNAL(settingsChanged(int)), TQ_SLOT(slotSettingsChanged(int)) );
     addKipcEventMask( KIPC::SettingsChanged );
 
+#if WITH_TDEHWLIB
     TDEHardwareDevices *hwdevices = TDEGlobal::hardwareDevices();
     connect(hwdevices, TQ_SIGNAL(hardwareAdded(TDEGenericDevice*)), this, TQ_SLOT(hardwareChanged(TDEGenericDevice*)));
     connect(hwdevices, TQ_SIGNAL(hardwareRemoved(TDEGenericDevice*)), this, TQ_SLOT(hardwareChanged(TDEGenericDevice*)));
     connect(hwdevices, TQ_SIGNAL(hardwareUpdated(TDEGenericDevice*)), this, TQ_SLOT(hardwareChanged(TDEGenericDevice*)));
+#endif
 }
 
 KXKBApp::~KXKBApp()
@@ -205,10 +209,12 @@ void KXKBApp::applyXkbOptions()
 
 void KXKBApp::hardwareChanged(TDEGenericDevice *dev)
 {
+#   if WITH_TDEHWLIB
     if (dev->type() == TDEGenericDeviceType::Keyboard)
     {
         TQTimer::singleShot(500, this, TQ_SLOT(applyXkbOptions()));
     }
+#   endif
 }
 
 // kdcop
