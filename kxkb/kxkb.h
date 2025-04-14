@@ -32,7 +32,11 @@ DESCRIPTION
 #include <tqptrqueue.h>
 
 #include <tdeuniqueapplication.h>
+#ifdef WITH_TDEHWLIB
 #include <tdegenericdevice.h>
+#else
+#define TDEGenericDevice void
+#endif
 
 #include "kxkbtraywindow.h"
 #include "kxkbconfig.h"
