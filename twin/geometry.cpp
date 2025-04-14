@@ -2328,26 +2328,19 @@ bool Client::startMoveResize()
     moveResizeMode = true;
     initialMoveResizeGeom = geometry();
 
-    if (activeTiled)
+    if ( maximizeMode() != MaximizeRestore )
     {
-        // Restore original geometry
-        activeTiled = false;
         if (options->resetMaximizedWindowGeometry() && isMove()) {
             /* Original geometry might be smaller than the tiled one, so the
              * mouse pointer might appear off-window when untiling.
              * Here we center the window horizontally under the mouse pointer.
              * This should work with most window decorations.
              */
-            activeTiledOrigGeom.moveLeft(TQCursor::pos().x() - (activeTiledOrigGeom.width() / 2));
-            moveOffset.setX(TQCursor::pos().x() - activeTiledOrigGeom.x());
+            geom_restore.moveLeft(TQCursor::pos().x() - (geom_restore.width() / 2));
+            moveOffset.setX(TQCursor::pos().x() - geom_restore.x());
 
-            setGeometry(activeTiledOrigGeom);
-        }
-    }
+            setGeometry(geom_restore);
 
-    if ( maximizeMode() != MaximizeRestore )
-    {
-        if (options->resetMaximizedWindowGeometry() && isMove()) {
             maximize(MaximizeRestore);
         }
         else {
@@ -2411,7 +2404,7 @@ void Client::finishMoveResize( bool cancel )
         kdDebug() <<"finishing moveresize in active mode, cancel is " << cancel << endl;
         activeMaximizing = false;
         activeTiled = true;
-        activeTiledOrigGeom = initialMoveResizeGeom;
+        geom_restore = initialMoveResizeGeom;
         switch (activeMode)
         {
             case ActiveMaximizeMode: {
@@ -2425,7 +2418,6 @@ void Client::finishMoveResize( bool cancel )
                 setGeometry(cancel ? initialMoveResizeGeom
                                    : activeBorderMaximizeGeometry());
         }
-        activeTiledOrigGeom.moveTopLeft(rect().topLeft());
     }
 
     checkMaximizeGeometry();
@@ -2726,6 +2718,16 @@ ActiveMaximizingMode Client::activeBorderMode() const
     return activeMode;
 }
 
+void Client::setActiveBorderPos( TQPoint pos )
+{
+    activePos = pos;
+}
+
+TQPoint Client::activeBorderPos() const
+{
+    return activePos;
+}
+
 void Client::setActiveBorder(ActiveBorder border) {
     currentActiveBorder = border;
 }
@@ -2766,7 +2768,7 @@ void Client::cancelActiveBorderMaximizing() {
 TQRect Client::activeBorderMaximizeGeometry()
 {
     TQRect ret;
-    TQRect max = workspace()->clientArea(MaximizeArea, TQCursor::pos(), workspace()->currentDesktop());
+    TQRect max = workspace()->clientArea(MaximizeArea, activePos, workspace()->currentDesktop());
     switch (activeBorderMode())
     {
         case ActiveMaximizeMode:
