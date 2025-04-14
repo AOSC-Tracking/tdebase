@@ -2542,15 +2542,21 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
     int distance_reset = activation_distance + 10;
 
     // Leave active maximizing mode when window moved away
-    if (active_current_border != ActiveNone &&
-       (pos.x() > activeLeft   + distance_reset) &&
-       (pos.x() < activeRight  - distance_reset) &&
-       (pos.y() > activeTop    + distance_reset) &&
-       (pos.y() < activeBottom - distance_reset))
+    if (movingClient &&
+       (options->activeBorders() == Options::ActiveTileMaximize ||
+        options->activeBorders() == Options::ActiveTileOnly))
     {
-        if (movingClient &&
-           (options->activeBorders() == Options::ActiveTileMaximize ||
-            options->activeBorders() == Options::ActiveTileOnly))
+        TQRect r = TQApplication::desktop()->screenGeometry(pos);
+        activeTop = r.top();
+        activeBottom = r.bottom();
+        activeLeft = r.left();
+        activeRight = r.right();
+
+        if (active_current_border != ActiveNone &&
+           (pos.x() > activeLeft   + distance_reset) &&
+           (pos.x() < activeRight  - distance_reset) &&
+           (pos.y() > activeTop    + distance_reset) &&
+           (pos.y() < activeBottom - distance_reset))
         {
             movingClient->cancelActiveBorderMaximizing();
             return;
@@ -2661,6 +2667,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
                 {
                     if (!movingClient->isResizable()) return;
                     movingClient->setActiveBorderMode(ActiveMaximizeMode);
+                    movingClient->setActiveBorderPos(pos);
                     movingClient->setActiveBorder(ActiveNone);
                     movingClient->setActiveBorderMaximizing(true);
                 }
@@ -2671,6 +2678,7 @@ void Workspace::checkActiveBorder(const TQPoint &pos, Time now)
                 {
                     if (!movingClient->isResizable()) return;
                     movingClient->setActiveBorderMode(ActiveTilingMode);
+                    movingClient->setActiveBorderPos(pos);
                     movingClient->setActiveBorder(border);
                     movingClient->setActiveBorderMaximizing(true);
                 }
