@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Slávek Banko <slavek.banko@axis.cz>, 2024.
+# Slávek Banko <slavek.banko@axis.cz>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 20:15+0000\n"
-"PO-Revision-Date: 2024-08-14 14:10+0000\n"
+"POT-Creation-Date: 2025-04-03 18:15+0000\n"
+"PO-Revision-Date: 2025-04-15 20:44+0000\n"
 "Last-Translator: Slávek Banko <slavek.banko@axis.cz>\n"
 "Language-Team: Czech <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kxkb-events/cs/>\n"
@@ -34,11 +34,10 @@ msgstr "Rozložení klávesnice bylo přepnuto"
 
 #. Name
 #: eventsrc:11
-#, fuzzy
 msgid "Keyboard layout switching error"
-msgstr "Přepnutí rozložení klávesnice"
+msgstr "Chyba při přepnutí rozložení klávesnice"
 
 #. Comment
 #: eventsrc:12
 msgid "Error while attempting to switch the keyboard layout"
-msgstr ""
+msgstr "Došlo k chybě při pokusu o přepnutí rozložení klávesnice"
