@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2025-01-28 12:12+0000\n"
+"PO-Revision-Date: 2025-04-22 18:53+0000\n"
 "Last-Translator: Toad114514 <xiaolan2332021@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kappfinder-data/zh_Hans/>\n"
@@ -69,7 +69,6 @@ msgstr "对话框编辑器"
 
 #. Name
 #: Development/eclipse.desktop:3
-#, fuzzy
 msgid "Eclipse"
 msgstr "Eclipse 集成开发环境"
 
@@ -182,7 +181,7 @@ msgstr ""
 #. Name
 #: Games/Arcade/TuxRacer.desktop:2
 msgid "TuxRacer"
-msgstr ""
+msgstr "TuxRacer 赛车"
 
 #. GenericName
 #: Games/Arcade/TuxRacer.desktop:3
@@ -344,7 +343,7 @@ msgstr "国际象棋游戏"
 #. Name
 #: Games/Card/AisleRiot.desktop:2
 msgid "AisleRiot"
-msgstr ""
+msgstr "AisleRiot 纸牌游戏"
 
 #. GenericName
 #: Games/Card/AisleRiot.desktop:3 Games/Card/FreeCell.desktop:3
@@ -374,9 +373,8 @@ msgstr "炸弹人"
 
 #. Name
 #: Games/Emulators/cmail.desktop:2
-#, fuzzy
 msgid "ChessMail"
-msgstr "国际象棋游戏"
+msgstr "ChessMail 国际象棋游戏"
 
 #. GenericName
 #: Games/Emulators/cmail.desktop:3
@@ -426,7 +424,7 @@ msgstr "潜入 Moria 并击败 Balrog"
 #. Name
 #: Games/Roguelikes/nethack.desktop:2
 msgid "NetHack"
-msgstr ""
+msgstr "NetHack 经典肉鸽"
 
 #. GenericName
 #: Games/Roguelikes/nethack.desktop:3 Games/Roguelikes/tome.desktop:3
@@ -496,7 +494,7 @@ msgstr "X 眼睛"
 #. Name
 #: Games/Toys/xpinguin.desktop:2
 msgid "Tux"
-msgstr ""
+msgstr "Tux 企鹅"
 
 #. GenericName
 #: Games/Toys/xpinguin.desktop:3
@@ -536,7 +534,7 @@ msgstr "图片查看程序"
 #. Name
 #: Graphics/GPhoto.desktop:2
 msgid "GPhoto"
-msgstr ""
+msgstr "GPhoto 命令行相机客户端"
 
 #. GenericName
 #: Graphics/GPhoto.desktop:3
@@ -566,7 +564,7 @@ msgstr "图片浏览器"
 #. Name
 #: Graphics/Sketch.desktop:2
 msgid "Sketch"
-msgstr ""
+msgstr "Sketch 3D 场景设计"
 
 #. GenericName
 #: Graphics/Sketch.desktop:3
@@ -606,7 +604,7 @@ msgstr "位图制作程序"
 #. Name
 #: Graphics/blender.desktop:2
 msgid "Blender"
-msgstr ""
+msgstr "Blender 建模"
 
 #. GenericName
 #: Graphics/blender.desktop:3
@@ -626,7 +624,7 @@ msgstr "PostScript 查看器"
 #. Name
 #: Graphics/gimp.desktop:2
 msgid "Gimp"
-msgstr ""
+msgstr "GIMP"
 
 #. GenericName
 #: Graphics/gimp.desktop:3
@@ -646,7 +644,7 @@ msgstr "Postscript 查看器"
 #. Name
 #: Graphics/inkscape.desktop:2
 msgid "Inkscape"
-msgstr ""
+msgstr "Inkspace SVG 编辑器"
 
 #. GenericName
 #: Graphics/inkscape.desktop:3 Graphics/sodipodi.desktop:3
@@ -681,7 +679,7 @@ msgstr "DVI 查看器"
 #. Name
 #: Graphics/xfig.desktop:2
 msgid "Xfig"
-msgstr ""
+msgstr "Xfig 放大镜"
 
 #. Name
 #: Graphics/xpaint.desktop:2
@@ -706,7 +704,7 @@ msgstr "图片查看器"
 #. Name
 #: Internet/BlueFish.desktop:2
 msgid "BlueFish"
-msgstr ""
+msgstr "BlueFish HTML 开发环境"
 
 #. GenericName
 #: Internet/BlueFish.desktop:3
@@ -736,7 +734,7 @@ msgstr "文件夹同步"
 #. Name
 #: Internet/Evolution.desktop:2
 msgid "Evolution"
-msgstr ""
+msgstr "Evolution 浏览器"
 
 #. GenericName
 #: Internet/Evolution.desktop:3 Internet/Netscapemessenger.desktop:3
@@ -795,9 +793,8 @@ msgstr "Web 浏览器"
 
 #. Name
 #: Internet/GnomeICU.desktop:2
-#, fuzzy
 msgid "GNOMEICU"
-msgstr "GNOME 国际象棋"
+msgstr "GNOME 国际象棋联机版"
 
 #. GenericName
 #: Internet/GnomeICU.desktop:3 Internet/licq.desktop:3
@@ -806,9 +803,8 @@ msgstr "ICQ 信使"
 
 #. Name
 #: Internet/Netscapemessenger.desktop:2
-#, fuzzy
 msgid "Netscape Messenger"
-msgstr "即时消息程序"
+msgstr "Netscape Messager 即时通讯"
 
 #. Name
 #: Internet/Nmapfe.desktop:2
@@ -844,18 +840,18 @@ msgstr ""
 #. Name
 #: Internet/Terminal/Lynx.desktop:2
 msgid "Lynx"
-msgstr ""
+msgstr "Lynx 命令行文本浏览器"
 
 #. Name
 #: Internet/Terminal/btdownloadcurses.desktop:2
 msgid "BitTorrent Python Curses GUI"
-msgstr ""
+msgstr "BitTorrent 种子下载器 (Python Curses GUI)"
 
 #. GenericName
 #: Internet/Terminal/btdownloadcurses.desktop:3
 #: Internet/btdownloadgui.desktop:3
 msgid "BitTorrent GUI"
-msgstr ""
+msgstr "BitTorrent 种子下载器"
 
 #. Name
 #: Internet/Terminal/lftp.desktop:2
@@ -950,7 +946,7 @@ msgstr ""
 #. Name
 #: Internet/epiphany.desktop:2
 msgid "Epiphany"
-msgstr ""
+msgstr "Epiphany 浏览器"
 
 #. Name
 #: Internet/ethereal.desktop:2
@@ -990,9 +986,8 @@ msgstr "GNOME 时间记录"
 
 #. Name
 #: Internet/gtelnet.desktop:2
-#, fuzzy
 msgid "GNOME Telnet"
-msgstr "GNOME 挖地雷"
+msgstr "GNOME telnet 前端"
 
 #. GenericName
 #: Internet/gtelnet.desktop:3
@@ -1037,12 +1032,12 @@ msgstr ""
 #. Name
 #: Internet/mozilla-firefox.desktop:2
 msgid "Firefox"
-msgstr ""
+msgstr "Firefox 浏览器"
 
 #. Name
 #: Internet/mozilla-thunderbird.desktop:2
 msgid "Thunderbird"
-msgstr ""
+msgstr "Thunderbird 下载器"
 
 #. Name
 #: Internet/mozilla.desktop:2
@@ -1067,7 +1062,7 @@ msgstr ""
 #. Name
 #: Internet/wireshark.desktop:2
 msgid "Wireshark"
-msgstr ""
+msgstr "Wireshark 网络攻击"
 
 #. Name
 #: Internet/xbiff.desktop:2
@@ -1076,9 +1071,8 @@ msgstr ""
 
 #. Name
 #: Internet/xchat.desktop:2
-#, fuzzy
 msgid "XChat"
-msgstr "IRC 聊天"
+msgstr "XChat IRC 客户端"
 
 #. GenericName
 #: Internet/xchat.desktop:3
@@ -1155,7 +1149,7 @@ msgstr "Alsa 混音器前端"
 #. Name
 #: Multimedia/audacity.desktop:2
 msgid "Audacity"
-msgstr ""
+msgstr "Audacity 音频编辑器"
 
 #. GenericName
 #: Multimedia/audacity.desktop:3 Multimedia/rezound.desktop:3
