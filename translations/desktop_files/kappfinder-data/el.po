@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# "blu.256" <mavridisf@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-04-24 12:44+0000\n"
+"Last-Translator: \"blu.256\" <mavridisf@gmail.com>\n"
+"Language-Team: Greek <https://mirror.git.trinitydesktop.org/weblate/projects/"
+"tdebase/kappfinder-data/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. Name
 #: Development/Forte.desktop:2
 msgid "Forte"
-msgstr ""
+msgstr "Forte"
 
 #. GenericName
 #: Development/Forte.desktop:3
@@ -39,7 +40,7 @@ msgstr "Προβολέας εγγράφων"
 #. Name
 #: Development/ddd.desktop:2
 msgid "DDD"
-msgstr ""
+msgstr "DDD"
 
 #. GenericName
 #: Development/ddd.desktop:3
@@ -48,9 +49,8 @@ msgstr "Αποσφαλματωτής εμφάνισης δεδομένων"
 
 #. Name
 #: Development/designer.desktop:2
-#, fuzzy
 msgid "Qt Designer"
-msgstr "Σχεδιαστής διασυνδέσεων"
+msgstr "Σχεδιαστής Qt"
 
 #. GenericName
 #: Development/designer.desktop:3
@@ -59,9 +59,8 @@ msgstr "Σχεδιαστής διασυνδέσεων"
 
 #. Name
 #: Development/dlgedit.desktop:2
-#, fuzzy
 msgid "Qt DlgEdit"
-msgstr "Επεξεργαστής διαλόγων"
+msgstr "Επεξεργαστής διαλόγων Qt"
 
 #. GenericName
 #: Development/dlgedit.desktop:3
@@ -71,23 +70,22 @@ msgstr "Επεξεργαστής διαλόγων"
 #. Name
 #: Development/eclipse.desktop:3
 msgid "Eclipse"
-msgstr ""
+msgstr "Eclipse"
 
 #. GenericName
 #: Development/eclipse.desktop:4
 msgid "Eclipse IDE"
-msgstr ""
+msgstr "Eclipse IDE"
 
 #. Name
 #: Development/fdesign.desktop:2
-#, fuzzy
 msgid "FormDesigner"
 msgstr "Σχεδιαστής διασυνδέσεων"
 
 #. Name
 #: Development/j2mewtk.desktop:2
 msgid "J2ME"
-msgstr ""
+msgstr "J2ME"
 
 #. GenericName
 #: Development/j2mewtk.desktop:3
@@ -97,7 +95,7 @@ msgstr "J2ME σετ εργαλείων"
 #. Name
 #: Development/linguist.desktop:2
 msgid "Qt Linguist"
-msgstr ""
+msgstr "Μεταφραστής Qt"
 
 #. GenericName
 #: Development/linguist.desktop:3
@@ -107,7 +105,7 @@ msgstr "Εργαλείο μεταφράσεων"
 #. Name
 #: Development/pose.desktop:2
 msgid "Pose"
-msgstr ""
+msgstr "Pose"
 
 #. GenericName
 #: Development/pose.desktop:3
@@ -117,7 +115,7 @@ msgstr "Προσομοιωτής Palm/Wireless"
 #. Name
 #: Development/sced.desktop:2
 msgid "Sced"
-msgstr ""
+msgstr "Sced"
 
 #. GenericName
 #: Development/sced.desktop:3
@@ -127,7 +125,7 @@ msgstr "Μοντελοποιητής σκηνών"
 #. Name
 #: Games/Arcade/ClanBomber.desktop:2
 msgid "ClanBomber"
-msgstr ""
+msgstr "ClanBomber"
 
 #. GenericName
 #: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
@@ -143,7 +141,7 @@ msgstr "Παιχνίδι arcade"
 #. Name
 #: Games/Arcade/FrozenBubble.desktop:2
 msgid "Frozen Bubble"
-msgstr ""
+msgstr "Frozen Bubble"
 
 #. GenericName
 #: Games/Arcade/FrozenBubble.desktop:3
@@ -153,7 +151,7 @@ msgstr "Παιχνίδι παρόμοιο με το Tetris"
 #. Name
 #: Games/Arcade/Gnibbles.desktop:2
 msgid "Gnibbles"
-msgstr ""
+msgstr "Gnibbles"
 
 #. GenericName
 #: Games/Arcade/Gnibbles.desktop:3
@@ -163,27 +161,27 @@ msgstr "Παιχνίδι Nibbles του GNOME"
 #. Name
 #: Games/Arcade/GnobotsII.desktop:2
 msgid "Gnobots II"
-msgstr ""
+msgstr "Gnobots II"
 
 #. Name
 #: Games/Arcade/Mures.desktop:2
 msgid "Mures"
-msgstr ""
+msgstr "Mures"
 
 #. Name
 #: Games/Arcade/SuperMethaneBrothers.desktop:2
 msgid "Super Methane Brothers"
-msgstr ""
+msgstr "Σούπερ Μεθαναδέφια"
 
 #. Name
 #: Games/Arcade/Trophy.desktop:2
 msgid "Trophy"
-msgstr ""
+msgstr "Βραβείο"
 
 #. Name
 #: Games/Arcade/TuxRacer.desktop:2
 msgid "TuxRacer"
-msgstr ""
+msgstr "TuxRacer"
 
 #. GenericName
 #: Games/Arcade/TuxRacer.desktop:3
@@ -193,17 +191,17 @@ msgstr "Παιχνίδι αγώνων ταχύτητας"
 #. Name
 #: Games/Arcade/XKobo.desktop:2
 msgid "XKobo"
-msgstr ""
+msgstr "XKobo"
 
 #. Name
 #: Games/Arcade/XSoldier.desktop:2
 msgid "XSoldier"
-msgstr ""
+msgstr "XSoldier"
 
 #. Name
 #: Games/Arcade/alephone-nogl.desktop:2
 msgid "Alephone"
-msgstr ""
+msgstr "Alephone"
 
 #. Comment
 #: Games/Arcade/alephone-nogl.desktop:3
@@ -226,12 +224,12 @@ msgstr ""
 #. Name
 #: Games/Arcade/battalion.desktop:2
 msgid "Batallion"
-msgstr ""
+msgstr "Στράτευμα"
 
 #. Name
 #: Games/Arcade/battleball.desktop:2
 msgid "Battleball"
-msgstr ""
+msgstr "Πολεμοσφαίριση"
 
 #. GenericName
 #: Games/Arcade/battleball.desktop:3
@@ -241,12 +239,12 @@ msgstr "Παιχνίδι με μπάλα"
 #. Name
 #: Games/Arcade/cxhextris.desktop:2
 msgid "cxhextris"
-msgstr ""
+msgstr "cxHextris"
 
 #. Name
 #: Games/Arcade/rocksndiamonds.desktop:2
 msgid "Rocks n Diamonds"
-msgstr ""
+msgstr "Πέτρες και Διαμάντια"
 
 #. GenericName
 #: Games/Arcade/rocksndiamonds.desktop:3 Games/Board/Glines.desktop:3
@@ -256,12 +254,12 @@ msgstr "Παιχνίδι τακτικής"
 #. Name
 #: Games/Arcade/scavenger.desktop:2
 msgid "Scavenger"
-msgstr ""
+msgstr "Κυνηγός"
 
 #. Name
 #: Games/Board/Gataxx.desktop:2
 msgid "Gataxx"
-msgstr ""
+msgstr "Gataxx"
 
 #. Name
 #: Games/Board/Gchess.desktop:2
@@ -271,13 +269,12 @@ msgstr "GNOME Σκάκι"
 #. Name
 #: Games/Board/Glines.desktop:2
 msgid "Glines"
-msgstr ""
+msgstr "GLines"
 
 #. Name
 #: Games/Board/Gmahjongg.desktop:2
-#, fuzzy
 msgid "GNOME Mahjongg"
-msgstr "GNOME Νάρκες"
+msgstr "GNOME Μαντζόγκ"
 
 #. GenericName
 #: Games/Board/Gmahjongg.desktop:3
@@ -297,12 +294,12 @@ msgstr "Παιχνίδι λογικής"
 #. Name
 #: Games/Board/Gnotravex.desktop:2
 msgid "Gnotravex"
-msgstr ""
+msgstr "Gnotravex"
 
 #. Name
 #: Games/Board/Gnotski.desktop:2
 msgid "Gnotski"
-msgstr ""
+msgstr "Gnotski"
 
 #. GenericName
 #: Games/Board/Gnotski.desktop:3
@@ -317,7 +314,7 @@ msgstr "GNOME Πέτρες"
 #. Name
 #: Games/Board/Iagno.desktop:2
 msgid "Iagno"
-msgstr ""
+msgstr "GNOME Ρεβέρσι"
 
 #. GenericName
 #: Games/Board/Iagno.desktop:3 Games/Board/SameGnome.desktop:3
@@ -333,13 +330,12 @@ msgstr "Ίδιο GNOME"
 #. Name
 #: Games/Board/Xgammon.desktop:2
 msgid "Xgammon"
-msgstr ""
+msgstr "XGammon"
 
 #. Name
 #: Games/Board/xboard.desktop:2
-#, fuzzy
 msgid "Xboard"
-msgstr "Πρόχειρο του X"
+msgstr "XBoard"
 
 #. GenericName
 #: Games/Board/xboard.desktop:3
@@ -349,7 +345,7 @@ msgstr "Παιχνίδι σκάκι"
 #. Name
 #: Games/Card/AisleRiot.desktop:2
 msgid "AisleRiot"
-msgstr ""
+msgstr "AisleRiot"
 
 #. GenericName
 #: Games/Card/AisleRiot.desktop:3 Games/Card/FreeCell.desktop:3
@@ -365,23 +361,22 @@ msgstr "Κυψέλες"
 #. Name
 #: Games/Card/PySol.desktop:2
 msgid "PySol"
-msgstr ""
+msgstr "PySol"
 
 #. Name
 #: Games/Card/XPat2.desktop:2
 msgid "XPat 2"
-msgstr ""
+msgstr "XPat 2"
 
 #. Name
 #: Games/Clanbomber.desktop:2
 msgid "Clanbomber"
-msgstr ""
+msgstr "Clanbomber"
 
 #. Name
 #: Games/Emulators/cmail.desktop:2
-#, fuzzy
 msgid "ChessMail"
-msgstr "Παιχνίδι σκάκι"
+msgstr "Ταχυδρομικό σκάκι"
 
 #. GenericName
 #: Games/Emulators/cmail.desktop:3
@@ -391,7 +386,7 @@ msgstr "Email για το Chess"
 #. Name
 #: Games/Emulators/qmamecat.desktop:2
 msgid "Qmamecat"
-msgstr ""
+msgstr "Qmamecat"
 
 #. GenericName
 #: Games/Emulators/qmamecat.desktop:3
@@ -401,7 +396,7 @@ msgstr "Προσομοιωτής arcade"
 #. Name
 #: Games/GTali.desktop:2
 msgid "GTali"
-msgstr ""
+msgstr "GTali"
 
 #. GenericName
 #: Games/GTali.desktop:3
@@ -411,7 +406,7 @@ msgstr "Παιχνίδι ζαριών"
 #. Name
 #: Games/Roguelikes/angband.desktop:2
 msgid "Angband"
-msgstr ""
+msgstr "Άνγκμπαντ"
 
 #. Comment
 #: Games/Roguelikes/angband.desktop:3
@@ -421,7 +416,7 @@ msgstr "Καταδυθείτε στο Angband και νικήστε τον Morgo
 #. Name
 #: Games/Roguelikes/moria.desktop:2
 msgid "Moria"
-msgstr ""
+msgstr "Η Μόρια"
 
 #. Comment
 #: Games/Roguelikes/moria.desktop:3
@@ -431,7 +426,7 @@ msgstr "Καταδυθείτε στο Moria και νικήστε τον Balrog"
 #. Name
 #: Games/Roguelikes/nethack.desktop:2
 msgid "NetHack"
-msgstr ""
+msgstr "NetHack"
 
 #. GenericName
 #: Games/Roguelikes/nethack.desktop:3 Games/Roguelikes/tome.desktop:3
@@ -441,7 +436,7 @@ msgstr "Παιχνίδι αναζήτησης"
 #. Name
 #: Games/Roguelikes/rogue.desktop:2
 msgid "Rogue"
-msgstr ""
+msgstr "Rogue"
 
 #. GenericName
 #: Games/Roguelikes/rogue.desktop:3
@@ -451,12 +446,12 @@ msgstr "Το αυθεντικό"
 #. Name
 #: Games/Roguelikes/tome.desktop:2
 msgid "ToME"
-msgstr ""
+msgstr "ToME"
 
 #. Name
 #: Games/Roguelikes/zangband.desktop:2
 msgid "ZAngband"
-msgstr ""
+msgstr "ZAngband"
 
 #. GenericName
 #: Games/Roguelikes/zangband.desktop:3
@@ -466,7 +461,7 @@ msgstr "Νικήστε τον Serpent of Chaos"
 #. Name
 #: Games/TacticStrategy/freeciv.desktop:3
 msgid "Freeciv"
-msgstr ""
+msgstr "FreeCiv"
 
 #. GenericName
 #: Games/TacticStrategy/freeciv.desktop:4 Games/xshipwars.desktop:4
@@ -486,7 +481,7 @@ msgstr "Ένας εξυπηρετητής για το Free Civ"
 #. Name
 #: Games/TacticStrategy/xscorch.desktop:3
 msgid "XScorch"
-msgstr ""
+msgstr "XScorch"
 
 #. Comment
 #: Games/TacticStrategy/xscorch.desktop:4
@@ -496,12 +491,12 @@ msgstr "Ελεύθερα διαθέσιμος κλώνος του Scorched Earth
 #. Name
 #: Games/Toys/xeyes.desktop:2
 msgid "X Eyes"
-msgstr ""
+msgstr "Χ Μάτια"
 
 #. Name
 #: Games/Toys/xpinguin.desktop:2
 msgid "Tux"
-msgstr ""
+msgstr "Τουξ ο Πιγκουίνος"
 
 #. GenericName
 #: Games/Toys/xpinguin.desktop:3
@@ -511,7 +506,7 @@ msgstr "Η μασκότ του Linux"
 #. Name
 #: Games/defendguin.desktop:3
 msgid "Defendguin"
-msgstr ""
+msgstr "Άμυνα Πιγκουίνων"
 
 #. GenericName
 #: Games/defendguin.desktop:4
@@ -521,17 +516,17 @@ msgstr "Παιχνίδι"
 #. Name
 #: Games/penguin-command.desktop:3
 msgid "Penguin Command"
-msgstr ""
+msgstr "Η Πιγκουινοομάδα"
 
 #. Name
 #: Games/xshipwars.desktop:3
 msgid "XShipWars"
-msgstr ""
+msgstr "XShipWars"
 
 #. Name
 #: Graphics/ElectricEyes.desktop:2
 msgid "Electric Eyes"
-msgstr ""
+msgstr "Ηλεκτρικοί οφθαλμοί"
 
 #. GenericName
 #: Graphics/ElectricEyes.desktop:3
@@ -541,7 +536,7 @@ msgstr "Προβολέας εικόνων"
 #. Name
 #: Graphics/GPhoto.desktop:2
 msgid "GPhoto"
-msgstr ""
+msgstr "GPhoto"
 
 #. GenericName
 #: Graphics/GPhoto.desktop:3
@@ -561,7 +556,7 @@ msgstr "Επεξεργαστής εικονιδίων του GNOME"
 #. Name
 #: Graphics/Gqview.desktop:2
 msgid "Gqview"
-msgstr ""
+msgstr "Gqview"
 
 #. GenericName
 #: Graphics/Gqview.desktop:3
@@ -571,7 +566,7 @@ msgstr "Προβολέας εικόνων"
 #. Name
 #: Graphics/Sketch.desktop:2
 msgid "Sketch"
-msgstr ""
+msgstr "Σκετς"
 
 #. GenericName
 #: Graphics/Sketch.desktop:3
@@ -581,7 +576,7 @@ msgstr "Πρόγραμμα ζωγραφικής βασισμένης σε δια
 #. Name
 #: Graphics/Xpcd.desktop:2
 msgid "Xpcd"
-msgstr ""
+msgstr "Xpcd"
 
 #. GenericName
 #: Graphics/Xpcd.desktop:3
@@ -591,7 +586,7 @@ msgstr "Εργαλεία PhotoCD"
 #. Name
 #: Graphics/Xwpick.desktop:2
 msgid "Xwpick"
-msgstr ""
+msgstr "Xwpick"
 
 #. GenericName
 #: Graphics/Xwpick.desktop:3
@@ -601,7 +596,7 @@ msgstr "Πρόγραμμα σύλληψης οθόνης"
 #. Name
 #: Graphics/bitmap.desktop:2
 msgid "X Bitmap"
-msgstr ""
+msgstr "X Bitmap"
 
 #. GenericName
 #: Graphics/bitmap.desktop:3
@@ -611,7 +606,7 @@ msgstr "Δημιουργός bitmap"
 #. Name
 #: Graphics/blender.desktop:2
 msgid "Blender"
-msgstr ""
+msgstr "Blender"
 
 #. GenericName
 #: Graphics/blender.desktop:3
@@ -621,7 +616,7 @@ msgstr "3D Μοντελοποιητής/Αποτυπωτής"
 #. Name
 #: Graphics/ghostview.desktop:2
 msgid "GhostView"
-msgstr ""
+msgstr "GhostView"
 
 #. GenericName
 #: Graphics/ghostview.desktop:3
@@ -631,7 +626,7 @@ msgstr "Προβολέας PostScript"
 #. Name
 #: Graphics/gimp.desktop:2
 msgid "Gimp"
-msgstr ""
+msgstr "GIMP"
 
 #. GenericName
 #: Graphics/gimp.desktop:3
@@ -641,7 +636,7 @@ msgstr "Πρόγραμμα επεξεργασίας εικόνας"
 #. Name
 #: Graphics/gv.desktop:2
 msgid "GV"
-msgstr ""
+msgstr "GV"
 
 #. GenericName
 #: Graphics/gv.desktop:3
@@ -651,7 +646,7 @@ msgstr "Προβολέας Postscript"
 #. Name
 #: Graphics/inkscape.desktop:2
 msgid "Inkscape"
-msgstr ""
+msgstr "Inkscape"
 
 #. GenericName
 #: Graphics/inkscape.desktop:3 Graphics/sodipodi.desktop:3
@@ -661,12 +656,12 @@ msgstr "Διανυσματική ζωγραφική"
 #. Name
 #: Graphics/sodipodi.desktop:2
 msgid "Sodipodi"
-msgstr ""
+msgstr "Sodipodi"
 
 #. Name
 #: Graphics/tgif.desktop:2
 msgid "TGif"
-msgstr ""
+msgstr "TGif"
 
 #. GenericName
 #: Graphics/tgif.desktop:3 Graphics/xfig.desktop:3
@@ -676,7 +671,7 @@ msgstr "Πρόγραμμα ζωγραφικής"
 #. Name
 #: Graphics/xdvi.desktop:2
 msgid "X DVI"
-msgstr ""
+msgstr "X DVI"
 
 #. GenericName
 #: Graphics/xdvi.desktop:3
@@ -686,12 +681,12 @@ msgstr "Προβολέας DVI"
 #. Name
 #: Graphics/xfig.desktop:2
 msgid "Xfig"
-msgstr ""
+msgstr "Xfig"
 
 #. Name
 #: Graphics/xpaint.desktop:2
 msgid "X Paint"
-msgstr ""
+msgstr "X Ζωγραφική"
 
 #. GenericName
 #: Graphics/xpaint.desktop:3
@@ -701,7 +696,7 @@ msgstr "Πρόγραμμα ζωγραφικής"
 #. Name
 #: Graphics/xv.desktop:2
 msgid "XV"
-msgstr ""
+msgstr "XV"
 
 #. GenericName
 #: Graphics/xv.desktop:3
@@ -711,7 +706,7 @@ msgstr "Προβολέας εικόνων"
 #. Name
 #: Internet/BlueFish.desktop:2
 msgid "BlueFish"
-msgstr ""
+msgstr "BlueFish"
 
 #. GenericName
 #: Internet/BlueFish.desktop:3
@@ -721,7 +716,7 @@ msgstr "Επεξεργαστής HTML"
 #. Name
 #: Internet/Dpsftp.desktop:2
 msgid "Dpsftp"
-msgstr ""
+msgstr "Dpsftp"
 
 #. GenericName
 #: Internet/Dpsftp.desktop:3 Internet/gFTP.desktop:3 Internet/xftp.desktop:3
@@ -731,7 +726,7 @@ msgstr "Περιηγητής FTP"
 #. Name
 #: Internet/DrakSync.desktop:2
 msgid "DrakSync"
-msgstr ""
+msgstr "DrakSync"
 
 #. GenericName
 #: Internet/DrakSync.desktop:3
@@ -741,7 +736,7 @@ msgstr "Εργαλείο συγχρονισμού φακέλων"
 #. Name
 #: Internet/Evolution.desktop:2
 msgid "Evolution"
-msgstr ""
+msgstr "Evolution"
 
 #. GenericName
 #: Internet/Evolution.desktop:3 Internet/Netscapemessenger.desktop:3
@@ -764,7 +759,6 @@ msgstr "Ειδοποίηση για mail"
 
 #. Name
 #: Internet/Fetchmailconf.desktop:2
-#, fuzzy
 msgid "Fetchmailconf"
 msgstr "Ρύθμιση του Fetchmail"
 
@@ -776,7 +770,7 @@ msgstr "Ρύθμιση του Fetchmail"
 #. Name
 #: Internet/Gabber.desktop:2
 msgid "Gabber"
-msgstr ""
+msgstr "Gabber"
 
 #. GenericName
 #: Internet/Gabber.desktop:3 Internet/gaim.desktop:3
@@ -786,7 +780,7 @@ msgstr "Στιγμιαίος αποστολέας"
 #. Name
 #: Internet/Galeon.desktop:2
 msgid "Galeon"
-msgstr ""
+msgstr "Galeon"
 
 #. GenericName
 #: Internet/Galeon.desktop:3 Internet/Terminal/Links.desktop:3
@@ -800,9 +794,8 @@ msgstr "Περιηγητής ιστού"
 
 #. Name
 #: Internet/GnomeICU.desktop:2
-#, fuzzy
 msgid "GNOMEICU"
-msgstr "GNOME Σκάκι"
+msgstr "GNOMEICU"
 
 #. GenericName
 #: Internet/GnomeICU.desktop:3 Internet/licq.desktop:3
@@ -811,14 +804,13 @@ msgstr "ICQ αποστολέας"
 
 #. Name
 #: Internet/Netscapemessenger.desktop:2
-#, fuzzy
 msgid "Netscape Messenger"
-msgstr "Στιγμιαίος αποστολέας"
+msgstr "Στιγμιαίος αποστολέας Netscape"
 
 #. Name
 #: Internet/Nmapfe.desktop:2
 msgid "Nmapfe"
-msgstr ""
+msgstr "Nmapfe"
 
 #. GenericName
 #: Internet/Nmapfe.desktop:3
@@ -828,7 +820,7 @@ msgstr "Σαρωτής θυρών"
 #. Name
 #: Internet/Pan.desktop:2
 msgid "Pan"
-msgstr ""
+msgstr "Pan"
 
 #. GenericName
 #: Internet/Pan.desktop:3 Internet/knews.desktop:3
@@ -838,33 +830,33 @@ msgstr "Αναγνώστης νέων Usenet"
 #. Name
 #: Internet/Sylpheed.desktop:2
 msgid "Sylpheed"
-msgstr ""
+msgstr "Sylpheed"
 
 #. Name
 #: Internet/Terminal/Links.desktop:2
 msgid "Links"
-msgstr ""
+msgstr "Links"
 
 #. Name
 #: Internet/Terminal/Lynx.desktop:2
 msgid "Lynx"
-msgstr ""
+msgstr "Lynx"
 
 #. Name
 #: Internet/Terminal/btdownloadcurses.desktop:2
 msgid "BitTorrent Python Curses GUI"
-msgstr ""
+msgstr "Περιβάλλον γραμμής εντολών BitTorrent"
 
 #. GenericName
 #: Internet/Terminal/btdownloadcurses.desktop:3
 #: Internet/btdownloadgui.desktop:3
 msgid "BitTorrent GUI"
-msgstr ""
+msgstr "Γραφικό περιβάλλον BitTorrent"
 
 #. Name
 #: Internet/Terminal/lftp.desktop:2
 msgid "Lftp"
-msgstr ""
+msgstr "LFTP"
 
 #. GenericName
 #: Internet/Terminal/lftp.desktop:3 Internet/Terminal/ncftp.desktop:3
@@ -874,22 +866,22 @@ msgstr "Πελάτης FTP"
 #. Name
 #: Internet/Terminal/mutt.desktop:2
 msgid "Mutt"
-msgstr ""
+msgstr "Mutt"
 
 #. Name
 #: Internet/Terminal/ncftp.desktop:2
 msgid "NcFTP"
-msgstr ""
+msgstr "NcFTP"
 
 #. Name
 #: Internet/Terminal/pine.desktop:2
 msgid "Pine"
-msgstr ""
+msgstr "Pine"
 
 #. Name
 #: Internet/Terminal/silc.desktop:2
 msgid "Silc"
-msgstr ""
+msgstr "Silc"
 
 #. GenericName
 #: Internet/Terminal/silc.desktop:3
@@ -899,7 +891,7 @@ msgstr "Πελάτης SILC"
 #. Name
 #: Internet/Terminal/slrn.desktop:2
 msgid "Slrn"
-msgstr ""
+msgstr "Slrn"
 
 #. GenericName
 #: Internet/Terminal/slrn.desktop:3
@@ -909,32 +901,32 @@ msgstr "Αναγνώστης νέων"
 #. Name
 #: Internet/Terminal/w3m.desktop:2
 msgid "w3m"
-msgstr ""
+msgstr "w3m"
 
 #. Name
 #: Internet/arena.desktop:2
 msgid "Arena"
-msgstr ""
+msgstr "Αρένα"
 
 #. Name
 #: Internet/balsa.desktop:2
 msgid "Balsa"
-msgstr ""
+msgstr "Balsa"
 
 #. Name
 #: Internet/btdownloadgui.desktop:2
 msgid "BitTorrent Python wxGTK GUI"
-msgstr ""
+msgstr "Γραφικό περιβάλλον BitTorrent (wxGTK)"
 
 #. Name
 #: Internet/coolmail.desktop:2
 msgid "Coolmail"
-msgstr ""
+msgstr "Coolmail"
 
 #. Name
 #: Internet/dc_gui.desktop:2
 msgid "DCTC GUI"
-msgstr ""
+msgstr "Γραφικό περιβάλλον DCTC"
 
 #. GenericName
 #: Internet/dc_gui.desktop:3
@@ -944,22 +936,22 @@ msgstr "Κλώνος απευθείας σύνδεσης(DCC)"
 #. Name
 #: Internet/ed2k_gui.desktop:2
 msgid "eDonkey2000 GTK+ Core Controller"
-msgstr ""
+msgstr "Κύριος ελεγκτής eDonkey 2000 (GTK+)"
 
 #. GenericName
 #: Internet/ed2k_gui.desktop:3
 msgid "eDonkey2000 GUI"
-msgstr ""
+msgstr "Γραφικό περιβάλλον eDonkey 2000"
 
 #. Name
 #: Internet/epiphany.desktop:2
 msgid "Epiphany"
-msgstr ""
+msgstr "Epiphany"
 
 #. Name
 #: Internet/ethereal.desktop:2
 msgid "Ethereal"
-msgstr ""
+msgstr "Ethereal"
 
 #. GenericName
 #: Internet/ethereal.desktop:3 Internet/wireshark.desktop:3
@@ -969,17 +961,17 @@ msgstr "Αναλυτής δικτύων"
 #. Name
 #: Internet/gFTP.desktop:2
 msgid "gFTP"
-msgstr ""
+msgstr "gFTP"
 
 #. Name
 #: Internet/gaim.desktop:2
 msgid "Gaim"
-msgstr ""
+msgstr "Gaim"
 
 #. Name
 #: Internet/gnomemeeting.desktop:2
 msgid "GnomeMeeting"
-msgstr ""
+msgstr "Συσκέψεις GNOME"
 
 #. GenericName
 #: Internet/gnomemeeting.desktop:3
@@ -988,15 +980,13 @@ msgstr "Διάσκεψη μέσω βίντεο"
 
 #. Name
 #: Internet/gnometalk.desktop:2
-#, fuzzy
 msgid "GNOME Talk"
-msgstr "Καταγραφέας χρόνου GNOME"
+msgstr "GNOME Talk"
 
 #. Name
 #: Internet/gtelnet.desktop:2
-#, fuzzy
 msgid "GNOME Telnet"
-msgstr "GNOME Νάρκες"
+msgstr "GNOME Telnet"
 
 #. GenericName
 #: Internet/gtelnet.desktop:3
@@ -1006,7 +996,7 @@ msgstr "Εργαλείο απομακρυσμένης πρόσβασης"
 #. Name
 #: Internet/ickle.desktop:2
 msgid "ickle"
-msgstr ""
+msgstr "ickle"
 
 #. GenericName
 #: Internet/ickle.desktop:3
@@ -1021,27 +1011,27 @@ msgstr "Αναζήτηση στο διαδίκτυο περί Java"
 #. Name
 #: Internet/knews.desktop:2
 msgid "KNews"
-msgstr ""
+msgstr "Ειδήσεις KNews"
 
 #. Name
 #: Internet/licq.desktop:2
 msgid "Licq"
-msgstr ""
+msgstr "LICQ"
 
 #. Name
 #: Internet/mldonkey_gui.desktop:2
 msgid "MLDonkey GTK+ Core Controller"
-msgstr ""
+msgstr "Κύριος ελεγκτής MLDonkey (GTK+)"
 
 #. GenericName
 #: Internet/mldonkey_gui.desktop:3
 msgid "MLDonkey GUI"
-msgstr ""
+msgstr "Γραφικό περιβάλλον MLDonkey"
 
 #. Name
 #: Internet/mozilla-firefox.desktop:2
 msgid "Firefox"
-msgstr ""
+msgstr "Firefox"
 
 #. Name
 #: Internet/mozilla-thunderbird.desktop:2
@@ -1051,38 +1041,37 @@ msgstr "Mozilla Thunderbird "
 #. Name
 #: Internet/mozilla.desktop:2
 msgid "Mozilla"
-msgstr ""
+msgstr "Mozilla"
 
 #. Name
 #: Internet/netscape.desktop:2
 msgid "Netscape"
-msgstr ""
+msgstr "Netscape"
 
 #. Name
 #: Internet/netscape6.desktop:2
 msgid "Netscape6"
-msgstr ""
+msgstr "Netscape 6"
 
 #. Name
 #: Internet/opera.desktop:2
 msgid "Opera"
-msgstr ""
+msgstr "Όπερα"
 
 #. Name
 #: Internet/wireshark.desktop:2
 msgid "Wireshark"
-msgstr ""
+msgstr "Wireshark"
 
 #. Name
 #: Internet/xbiff.desktop:2
 msgid "X Biff"
-msgstr ""
+msgstr "X Biff"
 
 #. Name
 #: Internet/xchat.desktop:2
-#, fuzzy
 msgid "XChat"
-msgstr "Πελάτης συζήτησης IRC"
+msgstr "XChat"
 
 #. GenericName
 #: Internet/xchat.desktop:3
@@ -1092,17 +1081,17 @@ msgstr "Πελάτης συζήτησης IRC"
 #. Name
 #: Internet/xfmail.desktop:2
 msgid "XFMail"
-msgstr ""
+msgstr "XFMail"
 
 #. Name
 #: Internet/xftp.desktop:2
 msgid "X FTP"
-msgstr ""
+msgstr "X FTP"
 
 #. Name
 #: Multimedia/Aumix.desktop:2
 msgid "Aumix"
-msgstr ""
+msgstr "Aumix"
 
 #. GenericName
 #: Multimedia/Aumix.desktop:3
@@ -1112,7 +1101,7 @@ msgstr "Μείκτης ήχου"
 #. Name
 #: Multimedia/Grip.desktop:2
 msgid "Grip"
-msgstr ""
+msgstr "Grip"
 
 #. GenericName
 #: Multimedia/Grip.desktop:3
@@ -1127,7 +1116,7 @@ msgstr "Πληροφορίες MP3"
 #. Name
 #: Multimedia/XMovie.desktop:2
 msgid "XMovie"
-msgstr ""
+msgstr "XMovie"
 
 #. GenericName
 #: Multimedia/XMovie.desktop:3 Multimedia/mplayer.desktop:3
@@ -1139,7 +1128,7 @@ msgstr "Αναπαραγωγέας βίντεο"
 #. Name
 #: Multimedia/alevt.desktop:2
 msgid "AleVT"
-msgstr ""
+msgstr "AleVT"
 
 #. GenericName
 #: Multimedia/alevt.desktop:3
@@ -1149,7 +1138,7 @@ msgstr "Προβολέας VideoText"
 #. Name
 #: Multimedia/alsamixergui.desktop:2
 msgid "AlsaMixerGui"
-msgstr ""
+msgstr "Γραφικός μίκτης ALSA"
 
 #. GenericName
 #: Multimedia/alsamixergui.desktop:3
@@ -1159,7 +1148,7 @@ msgstr "Ρύθμιση μίκτη Alsa"
 #. Name
 #: Multimedia/audacity.desktop:2
 msgid "Audacity"
-msgstr ""
+msgstr "Audacity"
 
 #. GenericName
 #: Multimedia/audacity.desktop:3 Multimedia/rezound.desktop:3
@@ -1170,7 +1159,7 @@ msgstr "Επεξεργαστής ήχου"
 #. Name
 #: Multimedia/aviplay.desktop:2
 msgid "Aviplay"
-msgstr ""
+msgstr "Αναπαραγωγέας AVI"
 
 #. GenericName
 #: Multimedia/aviplay.desktop:3
@@ -1180,7 +1169,7 @@ msgstr "Αναπαραγωγέας βίντεο AVI"
 #. Name
 #: Multimedia/bcast2000.desktop:2
 msgid "Broadcast 2000"
-msgstr ""
+msgstr "Εκπομπή 2000"
 
 #. GenericName
 #: Multimedia/bcast2000.desktop:3
@@ -1190,7 +1179,7 @@ msgstr "IDE Ήχου και Βίντεο"
 #. Name
 #: Multimedia/enjoympeg.desktop:2
 msgid "EnjoyMPEG"
-msgstr ""
+msgstr "EnjoyMPEG"
 
 #. GenericName
 #: Multimedia/enjoympeg.desktop:3 Multimedia/gtv.desktop:3
@@ -1200,12 +1189,12 @@ msgstr "Αναπαραγωγέας MPEG"
 #. Name
 #: Multimedia/gtv.desktop:2
 msgid "GTV"
-msgstr ""
+msgstr "GTV"
 
 #. Name
 #: Multimedia/jazz.desktop:2
 msgid "Jazz"
-msgstr ""
+msgstr "Jazz"
 
 #. GenericName
 #: Multimedia/jazz.desktop:3
@@ -1214,19 +1203,18 @@ msgstr "Επεξεργαστής ήχου"
 
 #. Name
 #: Multimedia/mplayer.desktop:2
-#, fuzzy
 msgid "MPlayer"
-msgstr "Αναπαραγωγέας MPEG"
+msgstr "MPlayer"
 
 #. Name
 #: Multimedia/mtv.desktop:2
 msgid "MpegTV"
-msgstr ""
+msgstr "MpegTV"
 
 #. Name
 #: Multimedia/ogle.desktop:2
 msgid "Ogle"
-msgstr ""
+msgstr "Ogle"
 
 #. GenericName
 #: Multimedia/ogle.desktop:3
@@ -1235,9 +1223,8 @@ msgstr "Αναπαραγωγέας DVD"
 
 #. Name
 #: Multimedia/oqtplayer.desktop:2
-#, fuzzy
 msgid "OQTPlayer"
-msgstr "Αναπαραγωγέας DVD"
+msgstr "OQTPlayer"
 
 #. GenericName
 #: Multimedia/oqtplayer.desktop:3
@@ -1246,19 +1233,18 @@ msgstr "Αναπαραγωγέας βίντεο MOV"
 
 #. Name
 #: Multimedia/realplayer.desktop:2
-#, fuzzy
 msgid "RealPlayer"
-msgstr "Αναπαραγωγέας βίντεο"
+msgstr "Αναπαραγωγέας Real"
 
 #. Name
 #: Multimedia/rezound.desktop:2
 msgid "reZound"
-msgstr ""
+msgstr "reZound"
 
 #. Name
 #: Multimedia/slab.desktop:2
 msgid "Slab"
-msgstr ""
+msgstr "Slab"
 
 #. GenericName
 #: Multimedia/slab.desktop:3
@@ -1268,12 +1254,12 @@ msgstr "Εγγραφέας ήχου"
 #. Name
 #: Multimedia/sweep.desktop:2
 msgid "Sweep"
-msgstr ""
+msgstr "Sweep"
 
 #. Name
 #: Multimedia/xawtv.desktop:2
 msgid "XawTV"
-msgstr ""
+msgstr "XawTV"
 
 #. GenericName
 #: Multimedia/xawtv.desktop:3
@@ -1283,7 +1269,7 @@ msgstr "Δείτε TV!"
 #. Name
 #: Multimedia/xcam.desktop:2
 msgid "XCam"
-msgstr ""
+msgstr "XCam"
 
 #. GenericName
 #: Multimedia/xcam.desktop:3
@@ -1293,7 +1279,7 @@ msgstr "Πρόγραμμα για κάμερες"
 #. Name
 #: Multimedia/xine.desktop:2
 msgid "Xine"
-msgstr ""
+msgstr "Xine"
 
 #. Name
 #: Multimedia/xmms-enqueue.desktop:2
@@ -1308,7 +1294,7 @@ msgstr "Εργαλείο λίστας αναπαραγωγής"
 #. Name
 #: Multimedia/xmms.desktop:2
 msgid "XMMS"
-msgstr ""
+msgstr "XMMS"
 
 #. GenericName
 #: Multimedia/xmms.desktop:3
@@ -1318,7 +1304,7 @@ msgstr "Αναπαραγωγέας πολυμέσων"
 #. Name
 #: Office/Applix.desktop:2
 msgid "Applix"
-msgstr ""
+msgstr "Applix"
 
 #. GenericName
 #: Office/Applix.desktop:3
@@ -1328,7 +1314,7 @@ msgstr "Σουίτα γραφείου"
 #. Name
 #: Office/Dia.desktop:2
 msgid "Dia"
-msgstr ""
+msgstr "Dia"
 
 #. GenericName
 #: Office/Dia.desktop:3 Office/Guppi.desktop:3
@@ -1337,9 +1323,8 @@ msgstr "Πρόγραμμα για διαγράμματα"
 
 #. Name
 #: Office/Gnome-Cal.desktop:2
-#, fuzzy
 msgid "GNOME-Cal"
-msgstr "GNOME Σκάκι"
+msgstr "Ημερολόγιο GNOME"
 
 #. GenericName
 #: Office/Gnome-Cal.desktop:3
@@ -1349,7 +1334,7 @@ msgstr "Προσωπικό ημερολόγιο"
 #. Name
 #: Office/Gnome-Card.desktop:2
 msgid "GNOME-Card"
-msgstr ""
+msgstr "Καρτοθήκη GNOME"
 
 #. GenericName
 #: Office/Gnome-Card.desktop:3
@@ -1364,7 +1349,7 @@ msgstr "Καταγραφέας χρόνου GNOME"
 #. Name
 #: Office/Gnumeric.desktop:2
 msgid "Gnumeric"
-msgstr ""
+msgstr "Gnumeric"
 
 #. GenericName
 #: Office/Gnumeric.desktop:3 Office/XsLite.desktop:3
@@ -1374,12 +1359,12 @@ msgstr "Λογιστικό φύλλο"
 #. Name
 #: Office/Guppi.desktop:2
 msgid "Guppi"
-msgstr ""
+msgstr "Guppi"
 
 #. Name
 #: Office/Ical.desktop:2
 msgid "Ical"
-msgstr ""
+msgstr "iCal"
 
 #. GenericName
 #: Office/Ical.desktop:3
@@ -1389,7 +1374,7 @@ msgstr "Πρόγραμμα ημερολογίου"
 #. Name
 #: Office/WordPerfect.desktop:2
 msgid "WordPerfect"
-msgstr ""
+msgstr "WordPerfect"
 
 #. GenericName
 #: Office/WordPerfect.desktop:3 Office/WordPerfect2000.desktop:3
@@ -1400,12 +1385,12 @@ msgstr "Επεξεργαστής κειμένου"
 #. Name
 #: Office/WordPerfect2000.desktop:2
 msgid "WordPerfect 2000"
-msgstr ""
+msgstr "WordPerfect 2000"
 
 #. Name
 #: Office/XAcc.desktop:2
 msgid "xacc"
-msgstr ""
+msgstr "XAcc"
 
 #. GenericName
 #: Office/XAcc.desktop:3
@@ -1415,17 +1400,17 @@ msgstr "Εργαλείο προσωπικών οικονομικών"
 #. Name
 #: Office/XsLite.desktop:2
 msgid "XsLite"
-msgstr ""
+msgstr "XsLite"
 
 #. Name
 #: Office/abiword.desktop:2
 msgid "AbiWord"
-msgstr ""
+msgstr "AbiWord"
 
 #. Name
 #: Office/acroread.desktop:2
 msgid "Acrobat Reader"
-msgstr ""
+msgstr "Προβολέας Acrobat"
 
 #. GenericName
 #: Office/acroread.desktop:3 Office/xpdf.desktop:3
@@ -1435,7 +1420,7 @@ msgstr "Προβολέας PDF"
 #. Name
 #: Office/gnucash.desktop:2
 msgid "GnuCash"
-msgstr ""
+msgstr "GnuCash"
 
 #. GenericName
 #: Office/gnucash.desktop:3
@@ -1445,12 +1430,12 @@ msgstr "Διαχειριστής οικονομικών"
 #. Name
 #: Office/lyx.desktop:2
 msgid "LyX"
-msgstr ""
+msgstr "LyX"
 
 #. Name
 #: Office/mrproject.desktop:2
 msgid "MrProject"
-msgstr ""
+msgstr "MrProject"
 
 #. GenericName
 #: Office/mrproject.desktop:3
@@ -1465,7 +1450,7 @@ msgstr "Netscape Βιβλίο διευθύνσεων"
 #. Name
 #: Office/plan.desktop:2
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #. GenericName
 #: Office/plan.desktop:3
@@ -1474,9 +1459,8 @@ msgstr "Διαχειριστής ημερολογίου"
 
 #. Name
 #: Office/pybliographic.desktop:2
-#, fuzzy
 msgid "Pybliographic"
-msgstr "Βιβλιογραφική βάση δεδομένων"
+msgstr "Pybliographic"
 
 #. GenericName
 #: Office/pybliographic.desktop:3
@@ -1486,7 +1470,7 @@ msgstr "Βιβλιογραφική βάση δεδομένων"
 #. Name
 #: Office/scribus.desktop:2
 msgid "Scribus"
-msgstr ""
+msgstr "Scribus"
 
 #. GenericName
 #: Office/scribus.desktop:3
@@ -1496,7 +1480,7 @@ msgstr "Επιτραπέζια τυπογραφία"
 #. Name
 #: Office/xpdf.desktop:2
 msgid "X PDF"
-msgstr ""
+msgstr "XPDF"
 
 #. Name
 #: System/Terminal/aterm.desktop:2
@@ -1511,7 +1495,7 @@ msgstr "Πρόγραμμα τερματικού"
 #. Name
 #: System/Terminal/procinfo.desktop:2
 msgid "Procinfo"
-msgstr ""
+msgstr "Πληροφορίες διεργασιών"
 
 #. GenericName
 #: System/Terminal/procinfo.desktop:3
@@ -1521,7 +1505,7 @@ msgstr "Πληροφορίες για τις διεργασίες του συσ�
 #. Name
 #: System/Terminal/rxvt.desktop:2
 msgid "RXVT"
-msgstr ""
+msgstr "RXVT"
 
 #. GenericName
 #: System/Terminal/rxvt.desktop:3
@@ -1531,7 +1515,7 @@ msgstr "Το δικό μας εκτεταμένο εικονικό τερματ�
 #. Name
 #: System/Terminal/vmstat.desktop:2
 msgid "Vmstat"
-msgstr ""
+msgstr "Πληροφορίες μνήμης"
 
 #. GenericName
 #: System/Terminal/vmstat.desktop:3
@@ -1551,7 +1535,7 @@ msgstr "Πελάτης WTS"
 #. Name
 #: System/editres.desktop:2
 msgid "EditXRes"
-msgstr ""
+msgstr "Επεξεργαστής πόρων X"
 
 #. GenericName
 #: System/editres.desktop:3
@@ -1566,7 +1550,7 @@ msgstr "SAM διαχείριση-συστήματος"
 #. Name
 #: System/wine.desktop:2
 msgid "Wine"
-msgstr ""
+msgstr "Wine"
 
 #. GenericName
 #: System/wine.desktop:3
@@ -1576,7 +1560,7 @@ msgstr "Εκτέλεση προγραμμάτων Windows"
 #. Name
 #: System/xosview.desktop:2
 msgid "X osview"
-msgstr ""
+msgstr "XOSView"
 
 #. GenericName
 #: System/xosview.desktop:3
@@ -1586,7 +1570,7 @@ msgstr "Επόπτης συστήματος"
 #. Name
 #: Utilities/Editors/emacs.desktop:2
 msgid "Emacs"
-msgstr ""
+msgstr "Emacs"
 
 #. GenericName
 #: Utilities/Editors/emacs.desktop:3 Utilities/Editors/gedit.desktop:3
@@ -1599,34 +1583,33 @@ msgstr "Επεξεργαστής κειμένου"
 
 #. Name
 #: Utilities/Editors/gedit.desktop:2
-#, fuzzy
 msgid "gEdit"
-msgstr "X Επεξεργαστής"
+msgstr "gEdit"
 
 #. Name
 #: Utilities/Editors/gvim.desktop:2
 msgid "Vi IMproved"
-msgstr ""
+msgstr "VIM"
 
 #. Name
 #: Utilities/Editors/lemacs.desktop:2
 msgid "Lucid Emacs"
-msgstr ""
+msgstr "Lucid Emacs"
 
 #. Name
 #: Utilities/Editors/nano.desktop:2
 msgid "Nano"
-msgstr ""
+msgstr "Nano"
 
 #. Name
 #: Utilities/Editors/nedit.desktop:2
 msgid "Nedit"
-msgstr ""
+msgstr "Nedit"
 
 #. Name
 #: Utilities/Editors/pico.desktop:2
 msgid "Pico"
-msgstr ""
+msgstr "Pico"
 
 #. Name
 #: Utilities/Editors/xedit.desktop:2
@@ -1636,12 +1619,12 @@ msgstr "X Επεξεργαστής"
 #. Name
 #: Utilities/Editors/xemacs.desktop:2
 msgid "X Emacs"
-msgstr ""
+msgstr "XEmacs"
 
 #. Name
 #: Utilities/GKrellM.desktop:2
 msgid "GKrellM"
-msgstr ""
+msgstr "GKrellM"
 
 #. GenericName
 #: Utilities/GKrellM.desktop:3
@@ -1650,9 +1633,8 @@ msgstr "Επόπτες GNU Krell"
 
 #. Name
 #: Utilities/GnomeWho.desktop:2
-#, fuzzy
 msgid "GNOME Who"
-msgstr "GNOME Σκάκι"
+msgstr "GNOME Who"
 
 #. GenericName
 #: Utilities/GnomeWho.desktop:3
@@ -1672,7 +1654,7 @@ msgstr "Προβολέας αρχείων καταγραφής"
 #. Name
 #: Utilities/XUtilities/Xkill.desktop:2
 msgid "X Kill"
-msgstr ""
+msgstr "X Kill"
 
 #. GenericName
 #: Utilities/XUtilities/Xkill.desktop:3
@@ -1681,9 +1663,8 @@ msgstr "Εργαλείο τερματισμού παραθύρων"
 
 #. Name
 #: Utilities/XUtilities/Xrefresh.desktop:2
-#, fuzzy
 msgid "X Refresh"
-msgstr "Ανανέωση οθόνης"
+msgstr "X Refresh"
 
 #. GenericName
 #: Utilities/XUtilities/Xrefresh.desktop:3
@@ -1693,7 +1674,7 @@ msgstr "Ανανέωση οθόνης"
 #. Name
 #: Utilities/XUtilities/Xtraceroute.desktop:2
 msgid "X Traceroute"
-msgstr ""
+msgstr "X Traceroute"
 
 #. GenericName
 #: Utilities/XUtilities/Xtraceroute.desktop:3
@@ -1703,7 +1684,7 @@ msgstr "Εργαλείο δικτύου"
 #. Name
 #: Utilities/XUtilities/xcalc.desktop:2
 msgid "X Calc"
-msgstr ""
+msgstr "X Calc"
 
 #. GenericName
 #: Utilities/XUtilities/xcalc.desktop:3 Utilities/calctool.desktop:3
@@ -1743,7 +1724,7 @@ msgstr "Προβολέας μηνυμάτων κονσόλας"
 #. Name
 #: Utilities/XUtilities/xload.desktop:2
 msgid "X Load"
-msgstr ""
+msgstr "X Load"
 
 #. GenericName
 #: Utilities/XUtilities/xload.desktop:3
@@ -1752,9 +1733,8 @@ msgstr "Καταγράφει το φόρτο του συστήματος"
 
 #. Name
 #: Utilities/XUtilities/xmag.desktop:2
-#, fuzzy
 msgid "X Magnifier"
-msgstr "Μεγέθυνση επιφάνειας εργασίας"
+msgstr "X Magnifier"
 
 #. GenericName
 #: Utilities/XUtilities/xmag.desktop:3
@@ -1774,7 +1754,7 @@ msgstr "Αριθμομηχανή"
 #. Name
 #: Utilities/e-notes.desktop:2
 msgid "E-Notes"
-msgstr ""
+msgstr "E-Notes"
 
 #. GenericName
 #: Utilities/e-notes.desktop:3
@@ -1783,14 +1763,13 @@ msgstr "Προσωπικές σημειώσεις"
 
 #. Name
 #: Utilities/oclock.desktop:2
-#, fuzzy
 msgid "OClock"
-msgstr "Ρολόι"
+msgstr "OClock"
 
 #. Name
 #: Utilities/xgnokii.desktop:2
 msgid "X-Gnokii"
-msgstr ""
+msgstr "X-Gnokii"
 
 #. GenericName
 #: Utilities/xgnokii.desktop:3
