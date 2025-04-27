@@ -7,12 +7,14 @@ Author :
 
 Last modified: 24 Oct 1999
 
+
 Overall design of KDesktop :
 =============================
 
 KDesktop is the program that handles the desktop icons,
 the popup menus for the desktop, the mac menubar, and the
 screensaver system.
+
 
 Files :
 =======
@@ -34,12 +36,14 @@ KDesktopIface* : DCOP interface for kdesktop, used by kfmclient
 
 lock* : screen saver/locker
 
+
 Libs used by KDesktop
 ======================
  
 tdecore, tdeui, tdefile  - usual stuff :)
 libtdeio - I/O stuff, mimetypes, services, registry
 libkonq - properties dialog, templates ("new") menu, dir lister, settings
+
 
 Screensaver
 ===========
@@ -69,6 +73,7 @@ The new background code is in bgrender.cpp and bgmanager.cpp. Some features:
 * Support for xearth like programs.
 * Can export a pixmap of the desktop background for pseudo transparency.
 
+
 Multiple monitors
 =================
 Two monitors showing different things (not a mirror-setup) can be configured
@@ -92,3 +97,30 @@ In case of 2 screen (multihead)
     |    | |     |  desktopGeometry = 3200 x 1200
     +----+ +-----+  screenGeometry = 1600 x 1200 (for each monitor)
 
+
+Interaction between kdesktop and kdesktop_lock
+==============================================
+kdesktop and kdesktop_lock interact using POSIX signals to coordinate their activities.
+Each time the screensaver or lock is activated and then stopped/unlocked, the current
+kdesktop_lock process is terminated and respawned, while kdesktop waits for the new process
+to be ready.
+
+kdesktop to kdesktop_lock communication:
+  kdesktop uses four signals to request different types of locks. These signals do not activate
+  the lock/screensaver. Some of the signals can be combined together, for example to request a
+  lock with blank screen.
+
+   - USR1 : request lock of the screen
+   - USR2 : request screensaver only, no lock
+   - WINCH: request lock of the screen using SAK (Secure Attention Key)
+   - TTIN : request blank screen for saver or lock
+
+  The lock/screensaver is started using a fifth signal.
+   - TTOU : activate the scrensaver or lock
+
+kdesktop_lock to kdesktop communication:
+  kdesktop_lock uses three signals to inform kdesktop of status changes.
+
+   - TTIN: the lock process is ready. This is sent after the process has been created/respawned
+   - USR2: the lock/screensaver has been activated
+   - USR1: the lock/screensaver has been unlocked/stopped
