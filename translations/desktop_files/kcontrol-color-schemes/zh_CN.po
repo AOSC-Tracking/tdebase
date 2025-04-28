@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 18:11+0000\n"
-"PO-Revision-Date: 2025-02-22 09:41+0000\n"
+"PO-Revision-Date: 2025-04-24 12:44+0000\n"
 "Last-Translator: Toad114514 <xiaolan2332021@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/color-schemes/zh_Hans/>\n"
@@ -90,7 +90,7 @@ msgstr "珠宝"
 #. Name
 #: Jewels-Citrin.kcsrc:2
 msgid "Jewels - Citrin"
-msgstr ""
+msgstr "珠宝 - 柠檬酸"
 
 #. Name
 #: Jewels-Emerald.kcsrc:2
@@ -100,27 +100,27 @@ msgstr "珠宝 - 绿宝石"
 #. Name
 #: Jewels-Ruby.kcsrc:2
 msgid "Jewels - Ruby"
-msgstr ""
+msgstr "珠宝 - 红宝石"
 
 #. Name
 #: Jewels-Sapphire.kcsrc:2
 msgid "Jewels - Sapphire"
-msgstr ""
+msgstr "珠宝 - 蓝宝石"
 
 #. Name
 #: Jewels-Topaz.kcsrc:2
 msgid "Jewels - Topaz"
-msgstr ""
+msgstr "珠宝 - 黄玉"
 
 #. Name
 #: KDEOne.kcsrc:2
 msgid "KDE 1"
-msgstr ""
+msgstr "KDE 1 经典"
 
 #. Name
 #: KDETwo.kcsrc:2
 msgid "KDE 2"
-msgstr ""
+msgstr "KDE 2 依旧经典"
 
 #. Name
 #: Keramik.kcsrc:2
@@ -220,7 +220,7 @@ msgstr ""
 #. Name
 #: SolarisCDE.kcsrc:2
 msgid "Solaris"
-msgstr ""
+msgstr "Solaris 系统"
 
 #. Name
 #: Storm.kcsrc:3
@@ -245,17 +245,17 @@ msgstr "高对比度白色文字"
 #. Name
 #: Windows2000.kcsrc:2
 msgid "Redmond 2000"
-msgstr ""
+msgstr "Redmond 2000 旧式渐变"
 
 #. Name
 #: Windows95.kcsrc:3
 msgid "Redmond 95"
-msgstr ""
+msgstr "Redmond 95 旧式"
 
 #. Name
 #: WindowsXP.kcsrc:2
 msgid "Redmond XP"
-msgstr ""
+msgstr "Redmond XP 最经典的一代"
 
 #. Name
 #: YellowOnBlue.kcsrc:2
