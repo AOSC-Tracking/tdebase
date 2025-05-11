@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2025-05-05 22:44+0000\n"
+"PO-Revision-Date: 2025-05-12 13:25+0000\n"
 "Last-Translator: tteweblate <tteweblate@relst.nl>\n"
 "Language-Team: Dutch <https://mirror.git.trinitydesktop.org/weblate/projects/"
 "tdebase/kappfinder-data/nl/>\n"
@@ -1605,12 +1605,12 @@ msgstr ""
 #. Name
 #: Utilities/Editors/nedit.desktop:2
 msgid "Nedit"
-msgstr ""
+msgstr "NEdit"
 
 #. Name
 #: Utilities/Editors/pico.desktop:2
 msgid "Pico"
-msgstr ""
+msgstr "Pico"
 
 #. Name
 #: Utilities/Editors/xedit.desktop:2
@@ -1620,7 +1620,7 @@ msgstr "X-aanpasser"
 #. Name
 #: Utilities/Editors/xemacs.desktop:2
 msgid "X Emacs"
-msgstr ""
+msgstr "X-Emacs"
 
 #. Name
 #: Utilities/GKrellM.desktop:2
@@ -1635,7 +1635,7 @@ msgstr ""
 #. Name
 #: Utilities/GnomeWho.desktop:2
 msgid "GNOME Who"
-msgstr ""
+msgstr "GNOME Wie"
 
 #. GenericName
 #: Utilities/GnomeWho.desktop:3
