@@ -656,7 +656,7 @@ KActiveBorderConfig::KActiveBorderConfig(bool _standAlone, TDEConfig *_config, T
                                        " satisfying on slow machines."));
 
     delays = new KIntNumInput(10, active_box);
-    delays->setRange(0, MAX_EDGE_RES, 50, true);
+    delays->setRange(0, MAX_EDGE_RES, 10, true);
     delays->setSuffix(i18n(" msec"));
     delays->setLabel(i18n("Border &activation delay:"));
     TQWhatsThis::add( delays, i18n("Here you can set a delay for the activation of"
@@ -664,7 +664,7 @@ KActiveBorderConfig::KActiveBorderConfig(bool _standAlone, TDEConfig *_config, T
        " has been pushed against a screen border for the specified number of milliseconds.") );
 
     distance = new KIntNumInput(10, active_box);
-    distance->setRange(1, 100, 1, true);
+    distance->setRange(1, 300, 1, true);
     distance->setSuffix(i18n(" px"));
     distance->setLabel(i18n("Border &activation distance:"));
     TQWhatsThis::add( distance, i18n("The distance from which an active border can"
