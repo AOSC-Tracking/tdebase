@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2025-03-15 15:44+0000\n"
+"PO-Revision-Date: 2025-05-13 14:19+0000\n"
 "Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
 "Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kcontrol-desktop-files/es_AR/>\n"
@@ -2427,7 +2427,7 @@ msgstr "Instalar"
 #. Name
 #: tdefontinst/kcmfontinst/kcmfontinst.desktop:14
 msgid "Font Installer"
-msgstr "Instalador de tiporafías"
+msgstr "Instalador de tipografías"
 
 #. Comment
 #: tdefontinst/kcmfontinst/kcmfontinst.desktop:16
