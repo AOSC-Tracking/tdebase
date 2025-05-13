@@ -35,7 +35,7 @@
 bool argb_visual = false;
 
 static const char description[] =
-    I18N_NOOP("A program to grab the current TDE desktop backrounds for xscreensaver");
+    I18N_NOOP("A program to grab the current TDE desktop backgrounds for xscreensaver");
 
 static const char version[] = "0.1";
 
