@@ -1,3 +1,3 @@
 tilesdir = $(kde_datadir)/konqueror/tiles
-tiles_DATA = bluemorning.png canvas.png kde4ever.png \
+tiles_DATA = bluemorning.png canvas.png trinity4ever.png \
              kenwimer.png noise.png paper_flieder.png redfiber.png
