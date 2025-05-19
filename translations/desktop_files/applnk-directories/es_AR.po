@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Slávek Banko <slavek.banko@axis.cz>, 2024.
-# Alejo Fernández <alejofernandez@hotmail.com.ar>, 2024.
+# Alejo Fernández <alejofernandez@hotmail.com.ar>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2024-11-19 14:10+0000\n"
+"PO-Revision-Date: 2025-05-19 12:52+0000\n"
 "Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
 "Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/applnk-directories/es_AR/>\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: .directory:2
 msgid "Default"
-msgstr "Predeterminado/a"
+msgstr "Por omisión"
 
 #. Name
 #: hidden.directory:4
@@ -93,9 +93,8 @@ msgstr "Juegos de cartas"
 
 #. Name
 #: kde-games-kids.directory:4 tde-games-kids.directory:4
-#, fuzzy
 msgid "Games for Kids"
-msgstr "Juegos para niños"
+msgstr "Juegos para chicos"
 
 #. Name
 #: kde-games-strategy.directory:4 tde-games-strategy.directory:4
