@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2025-05-19 12:52+0000\n"
+"PO-Revision-Date: 2025-05-20 12:16+0000\n"
 "Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
 "Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/applnk-directories/es_AR/>\n"
@@ -25,14 +25,12 @@ msgstr "Por omisión"
 
 #. Name
 #: hidden.directory:4
-#, fuzzy
 msgid "Internal Services"
 msgstr "Servicios internos"
 
 #. Name
 #: kde-development-webdevelopment.directory:4
 #: tde-development-webdevelopment.directory:4
-#, fuzzy
 msgid "Web Development"
 msgstr "Desarrollo web"
 
@@ -41,13 +39,11 @@ msgstr "Desarrollo web"
 #: kde-internet.directory:4 kde-multimedia.directory:4 kde-office.directory:4
 #: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
 #: kde-utilities.directory:4
-#, fuzzy
 msgid "KDE"
 msgstr "KDE"
 
 #. Name
 #: kde-editors.directory:4 tde-editors.directory:4
-#, fuzzy
 msgid "Editors"
 msgstr "Editores"
 
@@ -58,25 +54,21 @@ msgstr "Idiomas"
 
 #. Name
 #: kde-edu-mathematics.directory:4
-#, fuzzy
 msgid "Mathematics"
 msgstr "Matematicas"
 
 #. Name
 #: kde-edu-miscellaneous.directory:4
-#, fuzzy
 msgid "Miscellaneous"
 msgstr "Miscelaneo"
 
 #. Name
 #: kde-edu-science.directory:4 tde-science.directory:5
-#, fuzzy
 msgid "Science"
 msgstr "Ciencia"
 
 #. Name
 #: kde-games-arcade.directory:4 tde-games-arcade.directory:4
-#, fuzzy
 msgid "Arcade"
 msgstr "Arcade"
 
@@ -87,7 +79,6 @@ msgstr "Juegos de mesa"
 
 #. Name
 #: kde-games-card.directory:4 tde-games-card.directory:4
-#, fuzzy
 msgid "Card Games"
 msgstr "Juegos de cartas"
 
@@ -98,13 +89,11 @@ msgstr "Juegos para chicos"
 
 #. Name
 #: kde-games-strategy.directory:4 tde-games-strategy.directory:4
-#, fuzzy
 msgid "Tactics & Strategy"
 msgstr "Táctica y estrategia"
 
 #. Name
 #: kde-toys.directory:4 tde-toys.directory:4
-#, fuzzy
 msgid "Toys"
 msgstr "Ocio"
 
@@ -113,7 +102,6 @@ msgstr "Ocio"
 #: kde-utilities-accessibility.directory:4
 #: tde-utilities-accessibility.directory:4
 #: tde-utilities-accessibility.directory:6
-#, fuzzy
 msgid "Accessibility"
 msgstr "Accesibilidad"
 
@@ -121,7 +109,6 @@ msgstr "Accesibilidad"
 #. Comment
 #: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
 #: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
-#, fuzzy
 msgid "Desktop"
 msgstr "Escritorio"
 
@@ -129,25 +116,21 @@ msgstr "Escritorio"
 #. Comment
 #: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
 #: tde-utilities-pim.directory:6
-#, fuzzy
 msgid "PIM"
 msgstr "PIM"
 
 #. Name
 #: tde-development-translation.directory:4
-#, fuzzy
 msgid "Translation"
 msgstr "Traducción"
 
 #. Name
 #: tde-development.directory:4
-#, fuzzy
 msgid "Development"
 msgstr "Desarrollo"
 
 #. Name
 #: tde-edutainment.directory:4
-#, fuzzy
 msgid "Edutainment"
 msgstr "Entretenimientos educativos"
 
@@ -158,37 +141,31 @@ msgstr "Juegos de lógica"
 
 #. Name
 #: tde-games-roguelikes.directory:4
-#, fuzzy
 msgid "Rogue-like Games"
 msgstr "Juegos tipo Rogue"
 
 #. Name
 #: tde-games.directory:4
-#, fuzzy
 msgid "Games"
 msgstr "Juegos"
 
 #. Name
 #: tde-graphics.directory:4
-#, fuzzy
 msgid "Graphics"
 msgstr "Gráficos"
 
 #. Name
 #: tde-internet-terminal.directory:4 tde-system-terminal.directory:4
-#, fuzzy
 msgid "Terminal Applications"
 msgstr "Aplicaciones de terminal"
 
 #. Name
 #: tde-internet.directory:4
-#, fuzzy
 msgid "Internet"
 msgstr "Internet"
 
 #. Name
 #: tde-main.directory:5
-#, fuzzy
 msgid "TDE Menu"
 msgstr "Menú de TDE"
 
@@ -199,7 +176,6 @@ msgstr "Más programas"
 
 #. Name
 #: tde-multimedia.directory:4
-#, fuzzy
 msgid "Multimedia"
 msgstr "Multimedia"
 
@@ -211,43 +187,36 @@ msgstr "Gestión de información personal"
 
 #. Name
 #: tde-office.directory:4
-#, fuzzy
 msgid "Office"
 msgstr "Oficina"
 
 #. Name
 #: tde-settings-accessibility.directory:4
-#, fuzzy
 msgid "Regional & Accessibility"
 msgstr "Regional y accesibilidad"
 
 #. Name
 #: tde-settings-components.directory:4
-#, fuzzy
 msgid "TDE Components"
 msgstr "Componentes de TDE"
 
 #. Name
 #: tde-settings-hardware.directory:4
-#, fuzzy
 msgid "Hardware"
 msgstr "Hardware"
 
 #. Name
 #: tde-settings-information.directory:4
-#, fuzzy
 msgid "Device Informations"
 msgstr "Información del dispositivo"
 
 #. Name
 #: tde-settings-looknfeel.directory:4
-#, fuzzy
 msgid "Appearance & Themes"
 msgstr "Aspecto y temas"
 
 #. Name
 #: tde-settings-network.directory:4
-#, fuzzy
 msgid "Internet & Network"
 msgstr "Internet y Red"
 
@@ -255,25 +224,21 @@ msgstr "Internet y Red"
 #. Comment
 #: tde-settings-peripherals.directory:4 tde-utilities-peripherals.directory:4
 #: tde-utilities-peripherals.directory:6
-#, fuzzy
 msgid "Peripherals"
 msgstr "Periféricos"
 
 #. Name
 #: tde-settings-power.directory:4
-#, fuzzy
 msgid "Power Control"
 msgstr "Control de energía"
 
 #. Name
 #: tde-settings-security.directory:4
-#, fuzzy
 msgid "Security & Privacy"
 msgstr "Seguridad y privacidad"
 
 #. Name
 #: tde-settings-sound.directory:4
-#, fuzzy
 msgid "Sound & Multimedia"
 msgstr "Sonidos y multimedia"
 
@@ -284,13 +249,11 @@ msgstr "Administración y sistema"
 
 #. Name
 #: tde-settings-webbrowsing.directory:4
-#, fuzzy
 msgid "Web Browser"
 msgstr "Navegador Web"
 
 #. Name
 #: tde-settings.directory:4
-#, fuzzy
 msgid "Settings-Modules"
 msgstr "Módulos de preferencias"
 
@@ -316,38 +279,32 @@ msgstr "Administrador (SuperUser)"
 
 #. Name
 #: tde-system.directory:4
-#, fuzzy
 msgid "System"
 msgstr "Sistema"
 
 #. Name
 #: tde-unknown.directory:4
-#, fuzzy
 msgid "Lost & Found"
 msgstr "Objetos perdidos"
 
 #. Name
 #. Comment
 #: tde-utilities-file.directory:4 tde-utilities-file.directory:6
-#, fuzzy
 msgid "File"
 msgstr "Archivo"
 
 #. Name
 #: tde-utilities-xutils.directory:4
-#, fuzzy
 msgid "X-Utilities"
 msgstr "Utilidades-X"
 
 #. Comment
 #: tde-utilities-xutils.directory:6
-#, fuzzy
 msgid "X Window Utilities"
 msgstr "Utilidades X Window"
 
 #. Name
 #. Comment
 #: tde-utilities.directory:4 tde-utilities.directory:6
-#, fuzzy
 msgid "Utilities"
 msgstr "Utilidades"
