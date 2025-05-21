@@ -380,7 +380,7 @@ how it is positioned on the screen and how much of the screen it should use.</st
                 <string>Si&amp;ze</string>
             </property>
             <property name="whatsThis" stdset="0">
-                <string>This sets the size of the panel.</string>
+                <string>This sets the height of the panel. Tiny is 24 pixels high, Small is 30 pixels, Normal is 46 pixels, Large is 58 pixels.</string>
             </property>
             <grid>
                 <property name="name">
