@@ -93,14 +93,14 @@
             <default>200</default>
             <min>50</min>
             <max>500</max>
-            <label>Maximum button width</label>
-            <whatsthis>The maximum width to which a taskbar item can expand.</whatsthis>
+            <label>Maximum Taskbar Button Width</label>
+            <whatsthis>The maximum width each taskbar button will use. The default value is 200 pixels. The setting affects the Display options Text only and Icons and Text.</whatsthis>
         </entry>
         <entry key="MinimumButtonHeight" type="Int" >
             <default>18</default>
-            <label></label>
+            <label>Minimum Taskbar Button Height</label>
             <min>1</min>
-            <whatsthis></whatsthis>
+            <whatsthis>The minimum height to trigger taskbar buttons to stack into rows. The default value is 18 pixels. To prevent the taskbar buttons from stacking into rows, MinimumButtonHeight must be at least one pixel larger than the defined panel height.</whatsthis>
         </entry>
         <entry key="ShowCurrentScreenOnly" type="Bool" >
             <default>false</default>

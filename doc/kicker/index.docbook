@@ -1019,14 +1019,31 @@ If there is no mark in the checkbox, then the panel is fixed to the
 length specified in this section.
 </para>
 
-<para>The final section of this table is labeled
-<guilabel>Size</guilabel>, and refers to the
-<emphasis>height</emphasis> of the panel. The panel's size can be
-<guilabel>Tiny</guilabel>, <guilabel>Small</guilabel>,
+<para>The final section of this dialog is labeled <guilabel>Size</guilabel>,
+and refers to the <emphasis>height</emphasis> of the panel. The panel's size
+can be <guilabel>Tiny</guilabel>, <guilabel>Small</guilabel>,
 <guilabel>Medium</guilabel>, <guilabel>Large</guilabel> or
-<guilabel>Custom</guilabel>. If you choose
-<guilabel>Custom</guilabel> mode, you can resize &kicker; by
-specifying a height in the combobox.</para>
+<guilabel>Custom</guilabel>. Choosing <guilabel>Custom</guilabel> mode allows
+resizing &kicker; by specifying a height in the combobox. The default
+size for the predefined <emphasis>height</emphasis> <guilabel>Tiny</guilabel>
+is 24 pixels, <guilabel>Small</guilabel> is 30 pixels,
+<guilabel>Normal</guilabel> is 46 pixels, and <guilabel>Large</guilabel> is
+58 pixels.</para>
+
+<tip><para>There are additional hidden options. These hidden options are
+configured in <guilabel>$TDEHOME/share/config/ktaskbarrc [General]</guilabel>.
+The <guilabel>MinimumButtonHeight</guilabel> option is the
+<emphasis>height</emphasis> where taskbar buttons stack into rows. The default
+value is <emphasis>18</emphasis> pixels. To prevent the taskbar buttons from
+stacking into rows, <guilabel>MinimumButtonHeight</guilabel> must defined
+explicitly and be at least one pixel larger than the defined panel
+<emphasis>height</emphasis>.</para></tip>
+
+<tip><para>A second hidden option is <guilabel>MaximumButtonWidth</guilabel>.
+The default value is <emphasis>200</emphasis> pixels. This is the
+<emphasis>width</emphasis> each taskbar button will use. To override the
+default value the option must defined explicitly. The setting mostly affects
+using a Display option with text.</para></tip>
 
 <para>If you have multiple monitors, you can configure the panel for
 each screen entirely independently. If you are not sure which screen
