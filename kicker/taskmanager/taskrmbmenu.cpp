@@ -117,7 +117,7 @@ void TaskRMBMenu::fillMenu(Task::Ptr t)
     insertSeparator();
 
     if (taskMoveMenu) {
-        taskMoveMenu->reparent(this, taskMoveMenu->getWFlags(), taskMoveMenu->geometry().topLeft(), FALSE);
+        taskMoveMenu->reparent(this, taskMoveMenu->getWFlags(), taskMoveMenu->geometry().topLeft(), false);
         insertItem(i18n("Move Task Button"), taskMoveMenu);
 
         insertSeparator();
@@ -209,7 +209,7 @@ void TaskRMBMenu::fillMenu()
     enable = false;
 
     if (taskMoveMenu) {
-        taskMoveMenu->reparent(this, taskMoveMenu->getWFlags(), taskMoveMenu->geometry().topLeft(), FALSE);
+        taskMoveMenu->reparent(this, taskMoveMenu->getWFlags(), taskMoveMenu->geometry().topLeft(), false);
         insertItem(i18n("Move Task Button"), taskMoveMenu);
 
         insertSeparator();

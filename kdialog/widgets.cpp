@@ -83,12 +83,12 @@ bool Widgets::passwordBox(TQWidget *parent, const TQString& title, const TQStrin
 
 int Widgets::textBox(TQWidget *parent, int width, int height, const TQString& title, const TQString& file)
 {
-//  KTextBox dlg(parent, 0, TRUE, width, height, file);
+//  KTextBox dlg(parent, 0, true, width, height, file);
   KDialogBase dlg( parent, 0, true, title, KDialogBase::Ok, KDialogBase::Ok );
 
   kapp->setTopWidget( &dlg );
   KTextEdit *edit = new KTextEdit( dlg.makeVBoxMainWidget() );
-  edit->setReadOnly(TRUE);
+  edit->setReadOnly(true);
 
   TQFile f(file);
   if (!f.open(IO_ReadOnly))
@@ -116,7 +116,7 @@ int Widgets::textBox(TQWidget *parent, int width, int height, const TQString& ti
 
 int Widgets::textInputBox(TQWidget *parent, int width, int height, const TQString& title, const TQStringList& args, TQCString &result)
 {
-//  KTextBox dlg(parent, 0, TRUE, width, height, file);
+//  KTextBox dlg(parent, 0, true, width, height, file);
   KDialogBase dlg( parent, 0, true, title, KDialogBase::Ok, KDialogBase::Ok );
 
   kapp->setTopWidget( &dlg );
@@ -129,7 +129,7 @@ int Widgets::textInputBox(TQWidget *parent, int width, int height, const TQStrin
   }
 
   KTextEdit *edit = new KTextEdit( vbox );
-  edit->setReadOnly(FALSE);
+  edit->setReadOnly(false);
   edit->setTextFormat( TQt::PlainText );
   edit->setFocus();
 
@@ -214,7 +214,7 @@ bool Widgets::checkList(TQWidget *parent, const TQString& title, const TQString&
   }
 
   table.insertStringList(entries);
-  table.setMultiSelection(TRUE);
+  table.setMultiSelection(true);
   table.setCurrentItem(0); // This is to circumvent a Qt bug
 
   for (unsigned int i=0; i+2<args.count(); i += 3) {

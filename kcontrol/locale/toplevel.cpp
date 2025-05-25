@@ -64,7 +64,7 @@ TDELocaleApplication::TDELocaleApplication(TQWidget *parent, const char* /*name*
 
   m_locale = new TDELocale(TQString::fromLatin1("kcmlocale"), m_nullConfig);
   TQVBoxLayout *l = new TQVBoxLayout(this, 0, KDialog::spacingHint());
-  l->setAutoAdd(TRUE);
+  l->setAutoAdd(true);
 
   m_tab = new TQTabWidget(this);
 

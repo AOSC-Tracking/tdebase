@@ -152,7 +152,7 @@ bool qt_set_socket_handler( int sockfd, int type, TQObject *obj, bool enable )
 #if defined(CHECK_RANGE)
       tqWarning( "TQSocketNotifier: Internal error" );
 #endif
-      return FALSE;
+      return false;
   }
 
   XtPointer inpMask = 0;
@@ -161,7 +161,7 @@ bool qt_set_socket_handler( int sockfd, int type, TQObject *obj, bool enable )
   case TQSocketNotifier::Read:      inpMask = (XtPointer)XtInputReadMask; break;
   case TQSocketNotifier::Write:     inpMask = (XtPointer)XtInputWriteMask; break;
   case TQSocketNotifier::Exception: inpMask = (XtPointer)XtInputExceptMask; break;
-  default: return FALSE;
+  default: return false;
   }
 
   if (enable) {
@@ -197,13 +197,13 @@ bool qt_set_socket_handler( int sockfd, int type, TQObject *obj, bool enable )
       while ( sn && !(sn->obj == obj && sn->fd == sockfd) )
           sn = _notifiers[type].next();
       if ( !sn )				// not found
-          return FALSE;
+          return false;
 
       XtRemoveInput( sn->id );
       _notifiers[type].remove();
   }
 
-  return TRUE;
+  return true;
 }
 #endif
 

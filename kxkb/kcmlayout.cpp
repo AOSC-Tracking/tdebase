@@ -173,7 +173,7 @@ LayoutConfig::LayoutConfig(TQWidget *parent, const char *name)
   widget->listLayoutsSrc->setColumnWidth(LAYOUT_COLUMN_FLAG, 28);
   widget->listLayoutsDst->setColumnWidth(LAYOUT_COLUMN_FLAG, 28);
 
-  widget->listLayoutsDst->header()->setResizeEnabled(FALSE, LAYOUT_COLUMN_DISPLAY_NAME);
+  widget->listLayoutsDst->header()->setResizeEnabled(false, LAYOUT_COLUMN_DISPLAY_NAME);
 //  widget->listLayoutsDst->setColumnWidth(LAYOUT_COLUMN_DISPLAY_NAME, 0);
 
   widget->listLayoutsDst->setSorting(-1);

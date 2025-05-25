@@ -353,9 +353,9 @@ void DigitalClock::updateClock()
     if (_force || newStr != _timeStr)
     {
         _timeStr = newStr;
-        setUpdatesEnabled( FALSE );
+        setUpdatesEnabled( false );
         display(_timeStr);
-        setUpdatesEnabled( TRUE );
+        setUpdatesEnabled( true );
         update();
     }
     
@@ -415,7 +415,7 @@ void DigitalClock::paintEvent(TQPaintEvent*)
 // but other colors would break the lcd-lock anyway
 void DigitalClock::drawContents( TQPainter * p)
 {
-    setUpdatesEnabled( FALSE );
+    setUpdatesEnabled( false );
     TQPalette pal = palette();
     if (_prefs->digitalLCDStyle())
         pal.setColor( TQColorGroup::Foreground, TQColor(128,128,128));
@@ -430,7 +430,7 @@ void DigitalClock::drawContents( TQPainter * p)
         pal.setColor( TQColorGroup::Foreground, _prefs->digitalForegroundColor());
     setPalette( pal );
     p->translate( -2, -2 );
-    setUpdatesEnabled( TRUE );
+    setUpdatesEnabled( true );
     TQLCDNumber::drawContents( p );
     p->translate( +1, +1 );
 }

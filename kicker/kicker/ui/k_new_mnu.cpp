@@ -1974,7 +1974,7 @@ void KMenu::searchChanged(const TQString & text)
 
   if (input_timer->isActive ())
     input_timer->stop ();
-  input_timer->start (WAIT_BEFORE_QUERYING, TRUE);
+  input_timer->start (WAIT_BEFORE_QUERYING, true);
 }
 
 bool KMenu::dontQueryNow (const TQString& str)
@@ -2619,7 +2619,7 @@ TQString KMenu::iconForHitMenuItem(HitMenuItem *hit_item)
         return (mimetype_iconstore [hit_item->mimetype]);
     else {
         KMimeType::Ptr mimetype_ptr = KMimeType::mimeType (hit_item->mimetype);
-        TQString mimetype_icon = mimetype_ptr->icon(TQString(), FALSE);
+        TQString mimetype_icon = mimetype_ptr->icon(TQString(), false);
         mimetype_iconstore [hit_item->mimetype] = mimetype_icon;
         return mimetype_icon;
     }

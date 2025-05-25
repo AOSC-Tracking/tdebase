@@ -332,7 +332,7 @@ void FilterOptions::defaults()
 
 void FilterOptions::configChanged()
 {
-  // kdDebug () << "FilterOptions::configChanged: TRUE" << endl;
+  // kdDebug () << "FilterOptions::configChanged: true" << endl;
   emit changed(true);
 }
 

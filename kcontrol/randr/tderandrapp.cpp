@@ -41,7 +41,7 @@ void KRandRApp::handleX11ConfigChangeEvent()
 bool KRandRApp::x11EventFilter(XEvent* e)
 {
 	if (e->type == m_tray->screenChangeNotifyEvent()) {
-		m_eventMergingTimer.start(1000, TRUE);
+		m_eventMergingTimer.start(1000, true);
 	}
 	return TDEApplication::x11EventFilter( e );
 }

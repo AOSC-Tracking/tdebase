@@ -3682,9 +3682,9 @@ void KonqMainWindow::slotUpdateFullScreen( bool set )
     // happens only with the hackish non-_NET_WM_STATE_FULLSCREEN way
     setWFlags( WDestructiveClose );
     // Qt bug (see below)
-    setAcceptDrops( FALSE );
+    setAcceptDrops( false );
     topData()->dnd = 0;
-    setAcceptDrops( TRUE );
+    setAcceptDrops( true );
   }
   else
   {
@@ -3710,9 +3710,9 @@ void KonqMainWindow::slotUpdateFullScreen( bool set )
     // Qt bug, the flags aren't restored. They know about it.
     setWFlags( WType_TopLevel | WDestructiveClose );
     // Other Qt bug
-    setAcceptDrops( FALSE );
+    setAcceptDrops( false );
     topData()->dnd = 0;
-    setAcceptDrops( TRUE );
+    setAcceptDrops( true );
   }
 }
 

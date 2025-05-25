@@ -437,7 +437,7 @@ void KFileIVI::paintItem( TQPainter *p, const TQColorGroup &c )
     /*if ( ( ( KonqIconViewWidget* ) iconView() )->m_pActiveItem == this )
     {
         TQFont f( p->font() );
-        f.setUnderline( TRUE );
+        f.setUnderline( true );
         p->setFont( f );
     }*/
 
@@ -510,7 +510,7 @@ void KFileIVI::paintFontUpdate( TQPainter *p ) const
     if ( m_fileitem->isLink() )
     {
         TQFont f( p->font() );
-        f.setItalic( TRUE );
+        f.setItalic( true );
         p->setFont( f );
     }
 }

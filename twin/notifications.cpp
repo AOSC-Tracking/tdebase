@@ -92,7 +92,7 @@ TQString Notify::eventToName( Event e )
     return event;
     }
 
-static bool forgetIt = FALSE;
+static bool forgetIt = false;
 TQValueList< Notify::EventData > Notify::pending_events;
 
 bool Notify::raise( Event e, const TQString& message, Client* c )

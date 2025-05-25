@@ -344,7 +344,7 @@ void WidgetCanvas::drawSampleWidgets()
 
     // Inactive window
 
-    qDrawWinPanel ( &paint, 15, 5, width()-48, height(), cg, FALSE,
+    qDrawWinPanel ( &paint, 15, 5, width()-48, height(), cg, false,
                     &brush);
 
     paint.setBrush( iaTitle );
@@ -392,7 +392,7 @@ void WidgetCanvas::drawSampleWidgets()
 
     // Active window
 
-    qDrawWinPanel ( &paint, 20, 25+5, width()-40, height(), cg, FALSE,
+    qDrawWinPanel ( &paint, 20, 25+5, width()-40, height(), cg, false,
                     &brush);
 
     paint.setBrush( aTitle );paint.setPen( aTitle );
@@ -432,7 +432,7 @@ void WidgetCanvas::drawSampleWidgets()
     
     // Menu bar
 
-    //qDrawShadePanel ( &paint, 25, 55, width()-52, 28, cg, FALSE, 2, &brush);
+    //qDrawShadePanel ( &paint, 25, 55, width()-52, 28, cg, false, 2, &brush);
     kapp->style().drawPrimitive(TQStyle::PE_PanelMenuBar, &paint, 
 			TQRect(TQPoint(25, 55), TQSize(width()-52, 28)), cg);
 
@@ -440,7 +440,7 @@ void WidgetCanvas::drawSampleWidgets()
     paint.setPen(txt );
 	TQString file = i18n("File");
     textLen = paint.fontMetrics().width( file );
-    //qDrawShadePanel ( &paint, 30, 59, textLen + 10, 21, cg, FALSE, 2, &brush);
+    //qDrawShadePanel ( &paint, 30, 59, textLen + 10, 21, cg, false, 2, &brush);
 	kapp->style().drawPrimitive(TQStyle::PE_Panel, &paint,
 			TQRect(30, 59, textLen + 10, 21), cg);
     paint.drawText( 35, 74, file );
@@ -463,7 +463,7 @@ void WidgetCanvas::drawSampleWidgets()
 
     brush.setColor( window );
     qDrawShadePanel ( &paint, 25, 80+5-4, width()-7-45-2,
-                      height(), cg, TRUE, 2, &brush);
+                      height(), cg, true, 2, &brush);
 
     // Standard text
     TQFont fnt = TDEGlobalSettings::generalFont();
@@ -583,12 +583,12 @@ void WidgetCanvas::drawSampleWidgets()
     // Valance
 
     qDrawWinPanel ( &paint, 0, 0, width(), height(),
-                    parentWidget()->colorGroup(), TRUE, 0);
+                    parentWidget()->colorGroup(), true, 0);
 
     // Stop the painting
 
     hotspots[ spot++ ] =
         HotSpot( TQRect( 0, 0, width(), height() ), CSM_Background ); // ?
 
-    repaint( FALSE );
+    repaint( false );
 }

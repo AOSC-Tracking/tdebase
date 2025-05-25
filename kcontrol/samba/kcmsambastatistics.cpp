@@ -59,7 +59,7 @@ StatisticsView::StatisticsView(TQWidget *parent,TDEConfig *config, const char *n
   expandedInfoCb = new TQCheckBox( i18n( "Show expanded service info" ), this );
   expandedUserCb = new TQCheckBox( i18n( "Show expanded host info" ), this );
 
-   viewStatistics->setAllColumnsShowFocus(TRUE);
+   viewStatistics->setAllColumnsShowFocus(true);
    viewStatistics->setFocusPolicy(TQWidget::ClickFocus);
    viewStatistics->setShowSortIndicator(true);
    
@@ -73,8 +73,8 @@ StatisticsView::StatisticsView(TQWidget *parent,TDEConfig *config, const char *n
    eventCb->insertItem(i18n("Connection"));
    eventCb->insertItem(i18n("File Access"));
    
-   expandedInfoCb->setChecked(FALSE);
-   expandedUserCb->setChecked(FALSE);
+   expandedInfoCb->setChecked(false);
+   expandedUserCb->setChecked(false);
    clearStatistics();
    serviceLe->setText("*");
    hostLe->setText("*");
@@ -142,8 +142,8 @@ void StatisticsView::calculate()
    if ((expandedInfoCb->isChecked()) || (expandedUserCb->isChecked()))
    {
       SambaLog sLog;
-      TQRegExp rService(serviceLe->text(),FALSE,TRUE);
-      TQRegExp rHost(hostLe->text(),FALSE,TRUE);
+      TQRegExp rService(serviceLe->text(),false,true);
+      TQRegExp rHost(hostLe->text(),false,true);
       TQString item2, item3;
       TQListViewItem* item=dataList->firstChild();
       while (item!=0)
@@ -194,8 +194,8 @@ void StatisticsView::calculate()
    {
       calcCount++;
       int count(0);
-      TQRegExp rService(serviceLe->text(),FALSE,TRUE);
-      TQRegExp rHost(hostLe->text(),FALSE,TRUE);
+      TQRegExp rService(serviceLe->text(),false,true);
+      TQRegExp rHost(hostLe->text(),false,true);
       TQListViewItem* item=dataList->firstChild();
       while (item!=0)
       {

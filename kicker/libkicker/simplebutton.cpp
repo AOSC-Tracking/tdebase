@@ -95,7 +95,7 @@ void SimpleButton::drawButton( TQPainter *p )
 {
     TQRect r(0, 0, width(), height());
 
-    if (m_disableHighlighting == TRUE) {
+    if (m_disableHighlighting) {
         if (m_highlight || isDown() || isOn()) {
             int flags = TQStyle::Style_Default | TQStyle::Style_Enabled;
             if (isDown() || isOn()) flags |= TQStyle::Style_Down;
@@ -115,13 +115,13 @@ void SimpleButton::drawButtonLabel( TQPainter *p )
 
     TQPixmap pix = isEnabled() ? ((m_highlight&&(!m_disableHighlighting))? m_activeIcon : m_normalIcon) : m_disabledIcon;
 
-    if ((isOn() || isDown()) && (m_disableHighlighting == FALSE))
+    if ((isOn() || isDown()) && !m_disableHighlighting)
     {
         pix = TQImage(pix.convertToImage()).smoothScale(pix.width() - 2,
                                                pix.height() - 2);
     }
 
-    if (m_disableHighlighting == TRUE) {
+    if (m_disableHighlighting) {
         pix = TQImage(pix.convertToImage()).smoothScale(pix.width() - 4,
                                                pix.height() - 4);
     }
@@ -171,10 +171,10 @@ void SimpleButton::slotSettingsChanged(int category)
     }
 
     bool changeCursor;
-    if (m_forceStandardCursor == FALSE)
+    if (!m_forceStandardCursor)
         changeCursor = TDEGlobalSettings::changeCursorOverIcon();
     else
-        changeCursor = FALSE;
+        changeCursor = false;
 
     if (changeCursor)
     {

@@ -412,7 +412,7 @@ void KonqBaseListViewWidget::contentsMousePressEvent( TQMouseEvent *e ) {
 		TQRect r( m_rubber->normalize() );
 		delete m_rubber;
 		m_rubber = 0;
-		repaintContents( r, FALSE );
+		repaintContents( r, false );
 	}
 
 	delete m_selected;
@@ -449,7 +449,7 @@ void KonqBaseListViewWidget::contentsMouseReleaseEvent( TQMouseEvent *e ) {
 		TQRect r( m_rubber->normalize() );
 		delete m_rubber;
 		m_rubber = 0;
-		repaintContents( r, FALSE );
+		repaintContents( r, false );
 	}
 
 	if ( m_scrollTimer ) {
@@ -619,7 +619,7 @@ void KonqBaseListViewWidget::slotAutoScroll()
 
    TQRect rr;
    TQRect nr = m_rubber->normalize();
-   bool changed = FALSE;
+   bool changed = false;
 
    if ( cur )
    {
@@ -657,7 +657,7 @@ void KonqBaseListViewWidget::slotAutoScroll()
 	    {
                setSelected( cur, true );
                setActiveMultiSelectItem( at );
-               changed = TRUE;
+               changed = true;
                rr = rr.unite( itemRect( cur ) );
 	    }
          }
@@ -665,7 +665,7 @@ void KonqBaseListViewWidget::slotAutoScroll()
 	 {
             if ( cur->isSelected() )
 	    {
-               changed = TRUE;
+               changed = true;
                rr = rr.unite( itemRect( cur ) );
 	    }
 
@@ -695,7 +695,7 @@ void KonqBaseListViewWidget::slotAutoScroll()
 	    {
                setSelected( cur, true );
                setActiveMultiSelectItem( at );
-               changed = TRUE;
+               changed = true;
                rr = rr.unite( itemRect( cur ) );
 	    }
 	 }
@@ -703,7 +703,7 @@ void KonqBaseListViewWidget::slotAutoScroll()
 	 {
             if ( cur->isSelected() )
 	    {
-               changed = TRUE;
+               changed = true;
               rr = rr.unite( itemRect( cur ) );
 	    }
 

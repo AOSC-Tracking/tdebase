@@ -910,7 +910,7 @@ void TDEBackend::setCameraProperties(Medium* medium)
 
 	TQString device = "camera:/";
 
-	TQStringList devNodeList = TQStringList::split("/", sdevice->deviceNode(), TRUE);
+	TQStringList devNodeList = TQStringList::split("/", sdevice->deviceNode(), true);
 	TQString devNode0 = devNodeList[devNodeList.count()-2];
 	TQString devNode1 = devNodeList[devNodeList.count()-1];
 
@@ -1269,7 +1269,7 @@ TQStringVariantMap TDEBackend::mount(const Medium *medium)
 	}
 	if (diskLabel.isEmpty()) {
 		// Try to use a pretty mount point if possible
-		TQStringList pieces = TQStringList::split("/", sdevice->deviceNode(), FALSE);
+		TQStringList pieces = TQStringList::split("/", sdevice->deviceNode(), false);
 		TQString node = pieces[pieces.count()-1];
 		diskLabel = medium->label() + " (" + node + ")";
 		diskLabel.replace("/", "_");

@@ -63,12 +63,12 @@ SocketSecurity::SocketSecurity(int sockfd)
 
 SocketSecurity::SocketSecurity(int sockfd)
 {
-    static bool warned_him = FALSE;
+    static bool warned_him = false;
 
     if (!warned_him) {
         kdWarning() << "Using void socket security. Please add support for your" << endl;
         kdWarning() << "platform to tdesu/tdesud/secure.cpp" << endl;
-        warned_him = TRUE;
+        warned_him = true;
     }
 
     // This passes the test made in handler.cpp

@@ -908,14 +908,14 @@ void KSMServer::startKilling()
 
     kdDebug( 1218 ) << " We killed all clients. We have now clients.count()=" << clients.count() << endl;
     completeKilling();
-    shutdownTimer.start( KSMSERVER_SHUTDOWN_CLIENT_UNRESPONSIVE_TIMEOUT, TRUE );
+    shutdownTimer.start( KSMSERVER_SHUTDOWN_CLIENT_UNRESPONSIVE_TIMEOUT, true );
 }
 
 void KSMServer::completeKilling()
 {
     // Activity detected; reset forcible shutdown timer...
     if (shutdownTimer.isActive()) {
-        shutdownTimer.start( KSMSERVER_SHUTDOWN_CLIENT_UNRESPONSIVE_TIMEOUT, TRUE );
+        shutdownTimer.start( KSMSERVER_SHUTDOWN_CLIENT_UNRESPONSIVE_TIMEOUT, true );
     }
     SHUTDOWN_MARKER("completeKilling");
     kdDebug( 1218 ) << "KSMServer::completeKilling clients.count()=" << clients.count() << endl;

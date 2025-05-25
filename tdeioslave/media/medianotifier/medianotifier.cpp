@@ -67,7 +67,7 @@ MediaNotifier::MediaNotifier(const TQCString &name) : KDEDModule(name)
 	connectDCOPSignal( "kded", "mediamanager", "mediumRemoved(TQString, bool)",
 	                   "onMediumRemove(TQString, bool)", true );
 
-	m_notificationDialogList.setAutoDelete(FALSE);
+	m_notificationDialogList.setAutoDelete(false);
 	m_freeTimer = new TQTimer( this );
 	connect( m_freeTimer, TQ_SIGNAL( timeout() ), TQ_SLOT( checkFreeDiskSpace() ) );
 	m_freeTimer->start( 1000*6*2 /* 20 minutes */ );

@@ -295,8 +295,8 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
 	mainView->lv->header()->setStretchEnabled(true, 0);
 //	mainView->lv->addColumn(i18n("Interface"));
 //	mainView->lv->addColumn(i18n("Function"));
-	mainView->lv->setDragAutoScroll( FALSE );
-	mainView->lv->setRootIsDecorated( TRUE );
+	mainView->lv->setDragAutoScroll( false );
+	mainView->lv->setRootIsDecorated( true );
   connect(mainView->lv, TQ_SIGNAL(doubleClicked(TQListViewItem *)), TQ_SLOT(slotCallFunction(TQListViewItem *)));
   connect(mainView->lv, TQ_SIGNAL(currentChanged(TQListViewItem *)), TQ_SLOT(slotCurrentChanged(TQListViewItem *)));
   connect(mainView->lb_replyData, TQ_SIGNAL(contextMenuRequested(TQListBoxItem*, const TQPoint&)),

@@ -70,9 +70,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 bool argb_visual_available = false;
 bool has_twin = false;
 bool is_themed = false;
-bool trinity_desktop_lock_use_sak = TRUE;
-bool trinity_desktop_synchronize_keyboard_lights = TRUE;
-bool trinity_desktop_watch_cryptographic_cards = TRUE;
+bool trinity_desktop_lock_use_sak = true;
+bool trinity_desktop_synchronize_keyboard_lights = true;
+bool trinity_desktop_watch_cryptographic_cards = true;
 TQPoint primaryScreenPosition;
 
 static int

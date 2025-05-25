@@ -76,13 +76,13 @@ TQPopupMenu* Workspace::clientPopup()
     if ( !popup )
         {
         popup = new TQPopupMenu;
-        popup->setCheckable( TRUE );
+        popup->setCheckable( true );
         popup->setFont(TDEGlobalSettings::menuFont());
         connect( popup, TQ_SIGNAL( aboutToShow() ), this, TQ_SLOT( clientPopupAboutToShow() ) );
         connect( popup, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( clientPopupActivated(int) ) );
       
         advanced_popup = new TQPopupMenu( popup );
-        advanced_popup->setCheckable( TRUE );
+        advanced_popup->setCheckable( true );
         advanced_popup->setFont(TDEGlobalSettings::menuFont());
         connect( advanced_popup, TQ_SIGNAL( activated(int) ), this, TQ_SLOT( clientPopupActivated(int) ) );
         advanced_popup->insertItem( SmallIconSet( "go-up" ),
@@ -228,7 +228,7 @@ void Workspace::initDesktopPopup()
         return;
 
     desk_popup = new TQPopupMenu( popup );
-    desk_popup->setCheckable( TRUE );
+    desk_popup->setCheckable( true );
     desk_popup->setFont(TDEGlobalSettings::menuFont());
     connect( desk_popup, TQ_SIGNAL( activated(int) ),
              this, TQ_SLOT( slotSendToDesktop(int) ) );
@@ -250,7 +250,7 @@ void Workspace::desktopPopupAboutToShow()
     desk_popup->clear();
     desk_popup->insertItem( i18n("&All Desktops"), 0 );
     if ( active_popup_client && active_popup_client->isOnAllDesktops() )
-        desk_popup->setItemChecked( 0, TRUE );
+        desk_popup->setItemChecked( 0, true );
     desk_popup->insertSeparator( -1 );
     int id;
     const int BASE = 10;
@@ -268,7 +268,7 @@ void Workspace::desktopPopupAboutToShow()
                 i );
         if ( active_popup_client &&
              !active_popup_client->isOnAllDesktops() && active_popup_client->desktop()  == i )
-            desk_popup->setItemChecked( id, TRUE );
+            desk_popup->setItemChecked( id, true );
         }
     }
 
@@ -501,7 +501,7 @@ void Workspace::performWindowOperation( Client* c, Options::WindowOperation op )
  */
 bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalPos, bool handled )
     {
-    bool replay = FALSE;
+    bool replay = false;
     switch (command) 
         {
         case Options::MouseRaise:
@@ -548,12 +548,12 @@ bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalP
         case Options::MouseActivateRaiseAndPassClick:
             workspace()->takeActivity( this, ActivityFocus | ActivityRaise, handled );
             workspace()->setActiveScreenMouse( globalPos );
-            replay = TRUE;
+            replay = true;
             break;
         case Options::MouseActivateAndPassClick:
             workspace()->takeActivity( this, ActivityFocus, handled );
             workspace()->setActiveScreenMouse( globalPos );
-            replay = TRUE;
+            replay = true;
             break;
         case Options::MouseActivateRaiseAndMove:
         case Options::MouseActivateRaiseAndUnrestrictedMove:
@@ -571,7 +571,7 @@ bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalP
             if( moveResizeMode )
                 finishMoveResize( false );
             mode = PositionCenter;
-            buttonDown = TRUE;
+            buttonDown = true;
             moveOffset = TQPoint( globalPos.x() - x(), globalPos.y() - y()); // map from global
             invertedMoveOffset = rect().bottomRight() - moveOffset;
             unrestrictedMoveResize = ( command == Options::MouseActivateRaiseAndUnrestrictedMove
@@ -591,7 +591,7 @@ bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalP
                 break;
             if( moveResizeMode )
                 finishMoveResize( false );
-            buttonDown = TRUE;
+            buttonDown = true;
             moveOffset = TQPoint( globalPos.x() - x(), globalPos.y() - y()); // map from global
             int x = moveOffset.x(), y = moveOffset.y();
             bool left = x < width() / 3;
@@ -652,12 +652,12 @@ bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalP
                 {
                 if (opacity_ < 0xF3333333)
                     {
-                    setOpacity(TRUE, opacity_ + 0xCCCCCCC);
+                    setOpacity(true, opacity_ + 0xCCCCCCC);
                     custom_opacity = true;
                     }
                 else
                     {
-                    setOpacity(FALSE, 0xFFFFFFFF);
+                    setOpacity(false, 0xFFFFFFFF);
                     custom_opacity = false;
                     }
                 }
@@ -665,12 +665,12 @@ bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalP
         case Options::MouseOpacityLess:
             if (opacity_ > 0)
                 {
-                setOpacity(TRUE, (opacity_ > 0xCCCCCCC) ? opacity_ - 0xCCCCCCC : 0);
+                setOpacity(true, (opacity_ > 0xCCCCCCC) ? opacity_ - 0xCCCCCCC : 0);
                 custom_opacity = true;
                 }
             break;
         case Options::MouseNothing:
-            replay = TRUE;
+            replay = true;
             break;
         }
     return replay;

@@ -57,7 +57,7 @@ bool Shape::hasShape( WId w)
     unsigned int wws, hws, wbs, hbs;
     int boundingShaped = 0, clipShaped = 0;
     if (!available())
-        return FALSE;
+        return false;
     XShapeQueryExtents(tqt_xdisplay(), w,
                        &boundingShaped, &xws, &yws, &wws, &hws,
                        &clipShaped, &xbs, &ybs, &wbs, &hbs);

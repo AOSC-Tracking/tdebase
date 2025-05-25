@@ -174,16 +174,16 @@ extern pid_t kdesktop_pid;
 
 extern TQXLibWindowList trinity_desktop_lock_hidden_window_list;
 
-bool trinity_desktop_lock_autohide_lockdlg = TRUE;
+bool trinity_desktop_lock_autohide_lockdlg = true;
 
 #define ENABLE_CONTINUOUS_LOCKDLG_DISPLAY \
-if (!mForceContinualLockDisplayTimer->isActive()) mForceContinualLockDisplayTimer->start(100, FALSE); \
-trinity_desktop_lock_autohide_lockdlg = FALSE; \
+if (!mForceContinualLockDisplayTimer->isActive()) mForceContinualLockDisplayTimer->start(100, false); \
+trinity_desktop_lock_autohide_lockdlg = false; \
 mHackDelayStartupTimer->stop();
 
 #define DISABLE_CONTINUOUS_LOCKDLG_DISPLAY \
 mForceContinualLockDisplayTimer->stop(); \
-trinity_desktop_lock_autohide_lockdlg = TRUE; \
+trinity_desktop_lock_autohide_lockdlg = true; \
 mHackDelayStartupTimer->stop();
 
 //===========================================================================
@@ -463,7 +463,7 @@ static void sighup_handler(int)
 
 bool LockProcess::closeCurrentWindow()
 {
-	mClosingWindows = TRUE;
+	mClosingWindows = true;
 	if (currentDialog != NULL) {
 		mForceReject = true;
 		if (dynamic_cast<SAKDlg*>(currentDialog)) {
@@ -478,12 +478,12 @@ bool LockProcess::closeCurrentWindow()
 	}
 
 	if( mDialogs.isEmpty() ) {
-		mClosingWindows = FALSE;
+		mClosingWindows = false;
 		mForceReject = false;
 		return false;
 	}
 	else {
-		mClosingWindows = TRUE;
+		mClosingWindows = true;
 		return true;
 	}
 }
@@ -672,7 +672,7 @@ void LockProcess::startSecureDialog()
 			}
 			if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced && trinity_desktop_lock_use_system_modal_dialogs) {
 				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 			}
 			else {
 				if (mHackStartupEnabled == true) {
@@ -681,7 +681,7 @@ void LockProcess::startSecureDialog()
 				else {
 					if (trinity_desktop_lock_use_system_modal_dialogs == true) {
 						ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-						if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+						if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 					}
 					else {
 						startHack();
@@ -710,7 +710,7 @@ void LockProcess::startSecureDialog()
 	// Handle remaining case (switch user)
 	if (forcecontdisp) {
 		ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-		if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+		if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 	}
 	stopSaver();
 }
@@ -1065,7 +1065,7 @@ void LockProcess::desktopResized()
 		resizeTimer = new TQTimer( this );
 		connect( resizeTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(doDesktopResizeFinish()) );
 	}
-	resizeTimer->start( 100, TRUE ); // 100 millisecond single shot timer; should allow display switching operations to finish before hack is started
+	resizeTimer->start( 100, true ); // 100 millisecond single shot timer; should allow display switching operations to finish before hack is started
 }
 
 void LockProcess::doDesktopResizeFinish()
@@ -1084,7 +1084,7 @@ void LockProcess::doDesktopResizeFinish()
 	// Restart the hack as the window size is now different
 	if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_use_system_modal_dialogs) {
 		ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-		if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+		if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 	}
 	else {
 		if (mHackStartupEnabled == true) {
@@ -1093,7 +1093,7 @@ void LockProcess::doDesktopResizeFinish()
 		else {
 			if (trinity_desktop_lock_use_system_modal_dialogs == true) {
 				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 			}
 			else {
 				startHack();
@@ -1397,10 +1397,10 @@ bool LockProcess::startSaver(bool notify_ready)
 		}
 	}
 
-	if (mInSecureDialog == FALSE) {
+	if (mInSecureDialog == false) {
 		if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced && trinity_desktop_lock_use_system_modal_dialogs) {
 			ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-			if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+			if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 		}
 		else {
 			if (mHackStartupEnabled || mOverrideHackStartupEnabled) {
@@ -1410,7 +1410,7 @@ bool LockProcess::startSaver(bool notify_ready)
 			else {
 				if (trinity_desktop_lock_use_system_modal_dialogs == true) {
 					ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-					if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+					if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 				}
 				else {
 					startHack();
@@ -1529,7 +1529,7 @@ void LockProcess::closeDialogAndStartHack()
 				// Make sure saver will attempt to start again after DPMS wakeup
 				// This is related to Bug 1475
 				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 				// Should not start saver here, because the DPMS check method below would turn it right back off!
 				// This is related to Bug 1475
 				return;
@@ -1577,10 +1577,10 @@ void LockProcess::repaintRootWindowIfNeeded()
 
 bool LockProcess::startHack()
 {
-	mHackActive = TRUE;
+	mHackActive = true;
 
 	if ((mEnsureVRootWindowSecurityTimer) && (!mEnsureVRootWindowSecurityTimer->isActive())) {
-		mEnsureVRootWindowSecurityTimer->start(250, FALSE);
+		mEnsureVRootWindowSecurityTimer->start(250, false);
 	}
 
 	if (currentDialog || (!mDialogs.isEmpty())) {
@@ -1709,7 +1709,7 @@ bool LockProcess::startHack()
 			}
 			if (trinity_desktop_lock_use_system_modal_dialogs) {
 				ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 			}
 			saverReadyIfNeeded();
 		}
@@ -1735,7 +1735,7 @@ void LockProcess::stopHack()
 	}
 	setCursor( TQt::arrowCursor );
 
-	mHackActive = FALSE;
+	mHackActive = false;
 }
 
 //---------------------------------------------------------------------------
@@ -1744,7 +1744,7 @@ void LockProcess::hackExited(TDEProcess *)
 {
 	// Hack exited while we're supposed to be saving the screen.
 	// Make sure the saver window is black.
-	mHackActive = FALSE;
+	mHackActive = false;
 	usleep(100);
 	TQApplication::syncX();
 	if (!trinity_desktop_lock_use_system_modal_dialogs) {
@@ -1779,7 +1779,7 @@ void LockProcess::hackExited(TDEProcess *)
 	if (!mSuspended) {
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
 			ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-			if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+			if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 		}
 	}
 	saverReadyIfNeeded();
@@ -1816,7 +1816,7 @@ void LockProcess::suspend()
 			stopHack();
 			ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
 			if (mHackStartupEnabled) {
-				mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+				mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 			}
 		}
 		else {
@@ -1834,7 +1834,7 @@ void LockProcess::suspend()
 				}
 				hackstat[8191] = 0;
 				hackStatus = hackstat;
-				hackStatus = hackStatus.remove(TQRegExp("(*) ", TRUE, TRUE));
+				hackStatus = hackStatus.remove(TQRegExp("(*) ", true, true));
 				TQStringList hackStatusList = TQStringList::split(" ", hackStatus);
 				hackStatus = (*(hackStatusList.at(1)));
 			}
@@ -2029,7 +2029,7 @@ int LockProcess::execDialog( TQDialog *dlg )
 				connect( hackResumeTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(resumeUnforced()) );
 			}
 			if (mResizingDesktopLock == false) {
-				hackResumeTimer->start( 10, TRUE );
+				hackResumeTimer->start( 10, true );
 			}
 		}
 		else {
@@ -2192,7 +2192,7 @@ bool LockProcess::x11Event(XEvent *event)
 			// fall through
 		case KeyPress:
 			if ((mHackDelayStartupTimer) && (mHackDelayStartupTimer->isActive())) {
-				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+				if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 			}
 			if (mBusy || !mDialogs.isEmpty()) {
 				break;
@@ -2202,7 +2202,7 @@ bool LockProcess::x11Event(XEvent *event)
 				if (mLocked) {
 					ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
 					if (mHackStartupEnabled) {
-						mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+						mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 					}
 				}
 				if ((!mLocked) && (!mInSecureDialog)) {
@@ -2251,7 +2251,7 @@ bool LockProcess::x11Event(XEvent *event)
 							else {
 								if (trinity_desktop_lock_use_system_modal_dialogs == true) {
 									ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
-									if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, TRUE);
+									if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 								}
 								else {
 									resume( false );
@@ -2678,7 +2678,7 @@ void LockProcess::slotMouseActivity(XEvent *event)
 		}
 
 		// Clicked inside dialog; set focus
-		if (inFrame == TRUE) {
+		if (inFrame) {
 			WId window = mDialogs.first()->winId();
 			XSetInputFocus(tqt_xdisplay(), window, RevertToParent, CurrentTime);
 			fakeFocusIn(window);
@@ -2688,7 +2688,7 @@ void LockProcess::slotMouseActivity(XEvent *event)
 		}
 
 		// Clicked inside window handle (or border); drag window
-		if ((inFrame == TRUE) && (inDialog == FALSE)) {
+		if (inFrame && !inDialog) {
 			TQPoint oldPoint = mDialogs.first()->pos();
 			m_mouseDown = 1;
 			m_dialogPrevX = oldPoint.x();
@@ -2701,7 +2701,7 @@ void LockProcess::slotMouseActivity(XEvent *event)
 
 	// Drag the window...
 	if (event->type == MotionNotify) {
-		if (m_mouseDown == TRUE) {
+		if (m_mouseDown) {
 			int deltaX = me->x_root - m_mousePrevX;
 			int deltaY = me->y_root - m_mousePrevY;
 			m_dialogPrevX = m_dialogPrevX + deltaX;

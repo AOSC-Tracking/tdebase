@@ -149,7 +149,7 @@ bool KCrossBGRender::needWallpaperChange(){
 }
 
 /* 
- * This method change the enabledEffect flag to TRUE of FALSE, according 
+ * This method change the enabledEffect flag to true of false, according 
  * with multiWallpaperMode and FileName (it needs to be a XML)
  */
 void KCrossBGRender::fixEnabled(){

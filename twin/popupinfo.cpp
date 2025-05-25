@@ -42,7 +42,7 @@ PopupInfo::PopupInfo( Workspace* ws, const char *name )
     connect(&m_delayedHideTimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(hide()));
 
     TQFont f = font();
-    f.setBold( TRUE );
+    f.setBold( true );
     f.setPointSize( 14 );
     setFont( f );
 

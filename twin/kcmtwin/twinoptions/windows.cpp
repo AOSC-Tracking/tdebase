@@ -1436,7 +1436,7 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
     : TDECModule(parent, "kcmkwm"), config(_config), standAlone(_standAlone)
 {
   kompmgr = 0L;
-  resetKompmgr_ = FALSE;
+  resetKompmgr_ = false;
   TQVBoxLayout *lay = new TQVBoxLayout (this);
   kompmgrAvailable_ = kompmgrAvailable();
   if (!kompmgrAvailable_){
@@ -1523,7 +1523,7 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
   tabW->addTab(tGroup, i18n("Opacity"));
 
   TQWidget *sGroup = new TQWidget(tabW);
-//   sGroup->setCheckable(TRUE);
+//   sGroup->setCheckable(true);
   TQVBoxLayout *vLay2 = new TQVBoxLayout (sGroup,11,6);
   vLay2->addSpacing(11); // to get the proper gb top offset
   useShadows = new TQCheckBox(i18n("Use shadows on windows (standard effects should be disabled in the Styles module if this is checked)"),sGroup);
@@ -1738,7 +1738,7 @@ void KTranslucencyConfig::processShadowLockouts()
 
 void KTranslucencyConfig::resetKompmgr()
 {
-    resetKompmgr_ = TRUE;
+    resetKompmgr_ = true;
 }
 
 void KTranslucencyConfig::load( void )
@@ -1778,17 +1778,17 @@ void KTranslucencyConfig::load( void )
   TDEConfig conf_(TQDir::homeDirPath() + "/.xcompmgrrc");
   conf_.setGroup("xcompmgr");
 
-  disableARGB->setChecked(conf_.readBoolEntry("DisableARGB",FALSE));
-  useOpenGL->setChecked(conf_.readBoolEntry("useOpenGL",FALSE));
-  blurBackground->setChecked(conf_.readBoolEntry("blurBackground",FALSE));
+  disableARGB->setChecked(conf_.readBoolEntry("DisableARGB",false));
+  useOpenGL->setChecked(conf_.readBoolEntry("useOpenGL",false));
+  blurBackground->setChecked(conf_.readBoolEntry("blurBackground",false));
   blurBackground->setEnabled(useOpenGL->isChecked());
-  greyscaleBackground->setChecked(conf_.readBoolEntry("greyscaleBackground",FALSE));
+  greyscaleBackground->setChecked(conf_.readBoolEntry("greyscaleBackground",false));
   greyscaleBackground->setEnabled(useOpenGL->isChecked());
 
   useShadows->setChecked(conf_.readEntry("Compmode","").compare("CompClientShadows") == 0);
-  useShadowsOnMenuWindows->setChecked(conf_.readBoolEntry("ShadowsOnMenuWindows",TRUE));
-  useShadowsOnToolTipWindows->setChecked(conf_.readBoolEntry("ShadowsOnToolTipWindows",TRUE));
-  useShadowsOnDockWindows->setChecked(conf_.readBoolEntry("ShadowsOnDockWindows",FALSE));
+  useShadowsOnMenuWindows->setChecked(conf_.readBoolEntry("ShadowsOnMenuWindows",true));
+  useShadowsOnToolTipWindows->setChecked(conf_.readBoolEntry("ShadowsOnToolTipWindows",true));
+  useShadowsOnDockWindows->setChecked(conf_.readBoolEntry("ShadowsOnDockWindows",false));
   shadowTopOffset->setValue(-1*(conf_.readNumEntry("ShadowOffsetY",0)));
   shadowLeftOffset->setValue(-1*(conf_.readNumEntry("ShadowOffsetX",0)));
 
@@ -1808,10 +1808,10 @@ void KTranslucencyConfig::load( void )
   else
     shadowColor->setColor(TQColor(r,g,b));
 
-  fadeInWindows->setChecked(conf_.readBoolEntry("FadeWindows",FALSE));
-  fadeInMenuWindows->setChecked(conf_.readBoolEntry("FadeMenuWindows",TRUE));
-  fadeInToolTipWindows->setChecked(conf_.readBoolEntry("FadeToolTipWindows",TRUE));
-  fadeOnOpacityChange->setChecked(conf_.readBoolEntry("FadeTrans",FALSE));
+  fadeInWindows->setChecked(conf_.readBoolEntry("FadeWindows",false));
+  fadeInMenuWindows->setChecked(conf_.readBoolEntry("FadeMenuWindows",true));
+  fadeInToolTipWindows->setChecked(conf_.readBoolEntry("FadeToolTipWindows",true));
+  fadeOnOpacityChange->setChecked(conf_.readBoolEntry("FadeTrans",false));
   fadeInSpeed->setValue((int)(conf_.readDoubleNumEntry("FadeInStep",0.070)*1000.0));
   fadeOutSpeed->setValue((int)(conf_.readDoubleNumEntry("FadeOutStep",0.070)*1000.0));
 
@@ -2006,17 +2006,17 @@ void KTranslucencyConfig::defaults()
   inactiveWindowOpacity->setEnabled(false);
   movingWindowOpacity->setEnabled(false);
   dockWindowOpacity->setEnabled(false);
-  useShadows->setChecked(FALSE);
-  useShadowsOnMenuWindows->setChecked(TRUE);
-  useShadowsOnToolTipWindows->setChecked(TRUE);
-  useShadowsOnDockWindows->setChecked(FALSE);
-  removeShadowsOnMove->setChecked(FALSE);
-  removeShadowsOnResize->setChecked(FALSE);
+  useShadows->setChecked(false);
+  useShadowsOnMenuWindows->setChecked(true);
+  useShadowsOnToolTipWindows->setChecked(true);
+  useShadowsOnDockWindows->setChecked(false);
+  removeShadowsOnMove->setChecked(false);
+  removeShadowsOnResize->setChecked(false);
   shadowColor->setColor(TQt::black);
-  fadeInWindows->setChecked(FALSE);
-  fadeInMenuWindows->setChecked(TRUE);
-  fadeInToolTipWindows->setChecked(TRUE);
-  fadeOnOpacityChange->setChecked(FALSE);
+  fadeInWindows->setChecked(false);
+  fadeInMenuWindows->setChecked(true);
+  fadeInToolTipWindows->setChecked(true);
+  fadeOnOpacityChange->setChecked(false);
   fadeInSpeed->setValue(70);
   fadeOutSpeed->setValue(70);
   emit TDECModule::changed(true);

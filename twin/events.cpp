@@ -196,7 +196,7 @@ bool Workspace::workspaceEvent( XEvent * e )
     {
     if ( mouse_emulation && (e->type == ButtonPress || e->type == ButtonRelease ) )
         {
-        mouse_emulation = FALSE;
+        mouse_emulation = false;
         XUngrabKeyboard( tqt_xdisplay(), get_tqt_x_time() );
         }
 
@@ -221,7 +221,7 @@ bool Workspace::workspaceEvent( XEvent * e )
             if ( tab_grab || control_grab )
                 {
                 tab_box->handleMouseEvent( e );
-                return TRUE;
+                return true;
                 }
             break;
         case KeyPress:
@@ -323,7 +323,7 @@ bool Workspace::workspaceEvent( XEvent * e )
                         addSystemTrayWin( w );
                         }
                     }
-                return TRUE;
+                return true;
                 }
 
             return ( e->xunmap.event != e->xunmap.window ); // hide wm typical event from Qt
@@ -336,12 +336,12 @@ bool Workspace::workspaceEvent( XEvent * e )
             {
         //do not confuse Qt with these events. After all, _we_ are the
         //window manager who does the reparenting.
-            return TRUE;
+            return true;
             }
         case DestroyNotify:
             {
             if ( removeSystemTrayWin( e->xdestroywindow.window, false ) )
-                return TRUE;
+                return true;
             return false;
             }
         case MapRequest:
@@ -362,7 +362,7 @@ bool Workspace::workspaceEvent( XEvent * e )
 // this code doesn't check the parent to be root.
 //            if ( e->xmaprequest.parent == root ) { //###TODO store previously destroyed client ids
                 if ( addSystemTrayWin( e->xmaprequest.window ) )
-                    return TRUE;
+                    return true;
                 c = createClient( e->xmaprequest.window, false );
                 if ( c != NULL && root != tqt_xrootwin() )
                     { // TODO what is this?
@@ -428,7 +428,7 @@ bool Workspace::workspaceEvent( XEvent * e )
             break;
         case KeyRelease:
             if ( mouse_emulation )
-                return FALSE;
+                return false;
             break;
         case FocusIn:
             if( e->xfocus.window == rootWin() && TQCString( getenv("TDE_MULTIHEAD")).lower() != "true"
@@ -460,7 +460,7 @@ bool Workspace::workspaceEvent( XEvent * e )
         default:
             break;
         }
-    return FALSE;
+    return false;
     }
 
 // Some events don't have the actual window which caused the event
@@ -733,7 +733,7 @@ void Client::destroyNotifyEvent( XDestroyWindowEvent* e )
     }
 
 
-bool         blockAnimation = FALSE;
+bool         blockAnimation = false;
 
 /*!
    Handles client messages for the client window
@@ -887,7 +887,7 @@ void Client::enterNotifyEvent( XCrossingEvent* e )
             delete shadeHoverTimer;
             shadeHoverTimer = new TQTimer( this );
             connect( shadeHoverTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( shadeHover() ));
-            shadeHoverTimer->start( options->shadeHoverInterval, TRUE );
+            shadeHoverTimer->start( options->shadeHoverInterval, true );
             }
 
         if ( options->focusPolicy == Options::ClickToFocus )
@@ -900,7 +900,7 @@ void Client::enterNotifyEvent( XCrossingEvent* e )
             delete autoRaiseTimer;
             autoRaiseTimer = new TQTimer( this );
             connect( autoRaiseTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( autoRaise() ) );
-            autoRaiseTimer->start( options->autoRaiseInterval, TRUE  );
+            autoRaiseTimer->start( options->autoRaiseInterval, true  );
             }
 
         TQPoint currentPos( e->x_root, e->y_root );
@@ -979,7 +979,7 @@ void Client::grabButton( int modifier )
          ++i )
         XGrabButton( tqt_xdisplay(), AnyButton,
             modifier | mods[ i ],
-            wrapperId(),  FALSE, ButtonPressMask,
+            wrapperId(),  false, ButtonPressMask,
             GrabModeSync, GrabModeAsync, None, None );
     }
 
@@ -1425,7 +1425,7 @@ bool Client::buttonPressEvent( Window w, int button, int state, int x, int y, in
             bool replay = performMouseCommand( com, TQPoint( x_root, y_root), perform_handled );
 
             if ( isSpecialWindow())
-                replay = TRUE;
+                replay = true;
 
             if( w == wrapperId()) // these can come only from a grab
                 XAllowEvents(tqt_xdisplay(), replay? ReplayPointer : SyncPointer, CurrentTime ); //tqt_x_time);
@@ -1453,7 +1453,7 @@ void Client::processDecorationButtonPress( int button, int /*state*/, int x, int
     Options::MouseCommand com = Options::MouseNothing;
     bool active = isActive();
     if ( !wantsInput() ) // we cannot be active, use it anyway
-        active = TRUE;
+        active = true;
 
     if ( button == Button1 )
         com = active ? options->commandActiveTitlebar1() : options->commandInactiveTitlebar1();
@@ -1466,7 +1466,7 @@ void Client::processDecorationButtonPress( int button, int /*state*/, int x, int
         && com != Options::MouseMinimize )  // mouse release event
         {
         mode = mousePosition( TQPoint( x, y ));
-        buttonDown = TRUE;
+        buttonDown = true;
         moveOffset = TQPoint( x, y );
         invertedMoveOffset = rect().bottomRight() - moveOffset;
         unrestrictedMoveResize = false;
@@ -1517,7 +1517,7 @@ bool Client::buttonReleaseEvent( Window w, int /*button*/, int state, int x, int
     y = this->y();
     if ( (state & ( Button1Mask & Button2Mask & Button3Mask )) == 0 )
         {
-        buttonDown = FALSE;
+        buttonDown = false;
         if ( moveResizeMode )
             {
             finishMoveResize( false );
@@ -1604,7 +1604,7 @@ void Client::focusInEvent( XFocusInEvent* e )
     bool activate =  workspace()->allowClientActivation( this, -1U, true );
     workspace()->gotFocusIn( this ); // remove from should_get_focus list
     if( activate )
-        setActive( TRUE );
+        setActive( true );
     else
         {
         workspace()->restoreFocus();
@@ -1673,7 +1673,7 @@ void Client::focusOutEvent( XFocusOutEvent* e )
     if ( TQApplication::activePopupWidget() )
         return;
     if( !check_follows_focusin( this ))
-        setActive( FALSE );
+        setActive( false );
     }
 
 // performs _NET_WM_MOVERESIZE
@@ -1684,7 +1684,7 @@ void Client::NETMoveResize( int x_root, int y_root, NET::Direction direction )
     else if( moveResizeMode && direction == NET::MoveResizeCancel )
     {
         finishMoveResize( true );
-        buttonDown = FALSE;
+        buttonDown = false;
         setCursor( mode );
     }
     else if( direction >= NET::TopLeft && direction <= NET::Left )
@@ -1704,7 +1704,7 @@ void Client::NETMoveResize( int x_root, int y_root, NET::Direction direction )
             return;
         if( moveResizeMode )
             finishMoveResize( false );
-        buttonDown = TRUE;
+        buttonDown = true;
         moveOffset = TQPoint( x_root - x(), y_root - y()); // map from global
         invertedMoveOffset = rect().bottomRight() - moveOffset;
         unrestrictedMoveResize = false;
@@ -1756,12 +1756,12 @@ void Client::keyPressEvent( uint key_code )
         case Key_Return:
         case Key_Enter:
             finishMoveResize( false );
-            buttonDown = FALSE;
+            buttonDown = false;
             setCursor( mode );
             break;
         case Key_Escape:
             finishMoveResize( true );
-            buttonDown = FALSE;
+            buttonDown = false;
             setCursor( mode );
             break;
         default:

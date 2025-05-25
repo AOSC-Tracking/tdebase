@@ -129,7 +129,7 @@ void NotifierModule::slotActionSelected(TQListBoxItem *item)
 	bool isWritable = action!=0L && action->isWritable();
 	m_view->deleteButton->setEnabled( isWritable );
 	m_view->editButton->setEnabled( isWritable );
-	m_view->addButton->setEnabled( TRUE );
+	m_view->addButton->setEnabled( true );
 	m_view->toggleAutoButton->setEnabled( action!=0L && !m_mimetype.isEmpty() );
 }
 

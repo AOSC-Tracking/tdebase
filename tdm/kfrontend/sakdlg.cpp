@@ -84,7 +84,7 @@
 #define FIFO_FILE "/tmp/tdesocket-global/tdm/tdmctl-%1"
 #define FIFO_SAK_FILE "/tmp/tdesocket-global/tdm/tdmctl-sak-%1"
 
-bool trinity_desktop_lock_use_system_modal_dialogs = TRUE;
+bool trinity_desktop_lock_use_system_modal_dialogs = true;
 extern bool trinity_desktop_lock_use_sak;
 
 //===========================================================================

@@ -31,7 +31,7 @@ class TDE_EXPORT SimpleButton : public TQButton
     TQ_OBJECT
 
     public:
-        SimpleButton(TQWidget *parent, const char *name = 0, bool forceStandardCursor = FALSE);
+        SimpleButton(TQWidget *parent, const char *name = 0, bool forceStandardCursor = false);
         void setPixmap(const TQPixmap &pix);
         void setOrientation(TQt::Orientation orientaton);
         TQSize sizeHint() const;
@@ -66,7 +66,7 @@ class TDE_EXPORT SimpleArrowButton: public SimpleButton
     TQ_OBJECT
     
     public:
-        SimpleArrowButton(TQWidget *parent = 0, TQt::ArrowType arrow = TQt::UpArrow, const char *name = 0, bool forceStandardCursor = FALSE);
+        SimpleArrowButton(TQWidget *parent = 0, TQt::ArrowType arrow = TQt::UpArrow, const char *name = 0, bool forceStandardCursor = false);
         virtual ~SimpleArrowButton() {};
         TQSize sizeHint() const;
     

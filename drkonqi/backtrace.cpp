@@ -100,7 +100,7 @@ void BackTrace::start()
     return;
   }
   m_temp = new KTempFile;
-  m_temp->setAutoDelete(TRUE);
+  m_temp->setAutoDelete(true);
   int handle = m_temp->handle();
   TQString backtraceCommand = m_krashconf->backtraceCommand();
   const char* bt = backtraceCommand.latin1();
@@ -114,7 +114,7 @@ void BackTrace::start()
 
   // write the debugger command
   m_temp_cmd = new KTempFile(TQString::null, TQString::null, 0700);
-  m_temp_cmd->setAutoDelete(TRUE);
+  m_temp_cmd->setAutoDelete(true);
   handle = m_temp_cmd->handle();
   const char* dbgcommand = str.latin1();
   ::write(handle, dbgcommand, strlen(dbgcommand)); // the command to execute the debugger

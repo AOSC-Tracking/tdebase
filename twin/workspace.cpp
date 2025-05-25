@@ -58,7 +58,7 @@ Workspace *Workspace::_self = 0;
 TDEProcess* kompmgr = 0;
 TDESelectionOwner* kompmgr_selection;
 
-bool allowKompmgrRestart = TRUE;
+bool allowKompmgrRestart = true;
 extern bool disable_twin_composition_manager;
 
 bool supportsCompMgr()
@@ -187,7 +187,7 @@ Workspace::Workspace( bool restore )
     root = tqt_xrootwin();
     default_colormap = DefaultColormap(tqt_xdisplay(), tqt_xscreen() );
     installed_colormap = default_colormap;
-    session.setAutoDelete( TRUE );
+    session.setAutoDelete( true );
 
     for (int i = 0; i < ACTIVE_BORDER_COUNT; ++i)
     {
@@ -1306,10 +1306,10 @@ bool Workspace::isNotManaged( const TQString& title )
         if (r.search(title) != -1)
             {
             doNotManageList.remove( it );
-            return TRUE;
+            return true;
             }
         }
-    return FALSE;
+    return false;
     }
 
 /*!
@@ -1875,19 +1875,19 @@ void Workspace::calcDesktopLayout(int &x, int &y) const
 bool Workspace::addSystemTrayWin( WId w )
     {
     if ( systemTrayWins.contains( w ) )
-        return TRUE;
+        return true;
 
     NETWinInfo ni( tqt_xdisplay(), w, root, NET::WMKDESystemTrayWinFor );
     WId trayWinFor = ni.kdeSystemTrayWinFor();
     if ( !trayWinFor )
-        return FALSE;
+        return false;
     systemTrayWins.append( SystemTrayWindow( w, trayWinFor ) );
     XSelectInput( tqt_xdisplay(), w,
                   StructureNotifyMask
                   );
     XAddToSaveSet( tqt_xdisplay(), w );
     propagateSystemTrayWins();
-    return TRUE;
+    return true;
     }
 
 /*!
@@ -1897,7 +1897,7 @@ bool Workspace::addSystemTrayWin( WId w )
 bool Workspace::removeSystemTrayWin( WId w, bool check )
     {
     if ( !systemTrayWins.contains( w ) )
-        return FALSE;
+        return false;
     if( check )
         {
     // When getting UnmapNotify, it's not clear if it's the systray
@@ -1925,7 +1925,7 @@ bool Workspace::removeSystemTrayWin( WId w, bool check )
     systemTrayWins.remove( w );
     XRemoveFromSaveSet (tqt_xdisplay (), w);
     propagateSystemTrayWins();
-    return TRUE;
+    return true;
     }
 
 
@@ -2155,16 +2155,16 @@ void Workspace::slotMouseEmulation()
     if ( mouse_emulation )
         {
         XUngrabKeyboard(tqt_xdisplay(), get_tqt_x_time());
-        mouse_emulation = FALSE;
+        mouse_emulation = false;
         return;
         }
 
     if ( XGrabKeyboard(tqt_xdisplay(),
-                       root, FALSE,
+                       root, false,
                        GrabModeAsync, GrabModeAsync,
                        get_tqt_x_time()) == GrabSuccess )
         {
-        mouse_emulation = TRUE;
+        mouse_emulation = true;
         mouse_emulation_state = 0;
         mouse_emulation_window = 0;
         }
@@ -2284,7 +2284,7 @@ unsigned int Workspace::sendFakedMouseEvent( TQPoint pos, WId w, MouseEmulation 
 bool Workspace::keyPressMouseEmulation( XKeyEvent& ev )
     {
     if ( root != tqt_xrootwin() )
-        return FALSE;
+        return false;
     int kc = XkbKeycodeToKeysym(tqt_xdisplay(), ev.keycode, 0, 0);
     int km = ev.state & (ControlMask | Mod1Mask | ShiftMask);
 
@@ -2361,16 +2361,16 @@ bool Workspace::keyPressMouseEmulation( XKeyEvent& ev )
     // fall through
         case XK_Escape:
             XUngrabKeyboard(tqt_xdisplay(), get_tqt_x_time());
-            mouse_emulation = FALSE;
-            return TRUE;
+            mouse_emulation = false;
+            return true;
         default:
-            return FALSE;
+            return false;
         }
 
     TQCursor::setPos( pos );
     if ( mouse_emulation_state )
         mouse_emulation_state = sendFakedMouseEvent( pos, mouse_emulation_window, EmuMove, 0,  mouse_emulation_state );
-    return TRUE;
+    return true;
 
     }
 
@@ -2397,7 +2397,7 @@ void Workspace::requestDelayFocus( Client* c )
     delete delayFocusTimer;
     delayFocusTimer = new TQTimer( this );
     connect( delayFocusTimer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( delayFocus() ) );
-    delayFocusTimer->start( options->delayFocusInterval, TRUE  );
+    delayFocusTimer->start( options->delayFocusInterval, true  );
     }
 
 void Workspace::cancelDelayFocus()
@@ -2981,7 +2981,7 @@ void Workspace::startKompmgr()
     }
     if (!kompmgr->start(TDEProcess::OwnGroup, TDEProcess::Stderr))
     {
-        options->useTranslucency = FALSE;
+        options->useTranslucency = false;
         TDEProcess proc;
         proc << "kdialog" << "--error"
             << i18n("The Composite Manager could not be started.\\nMake sure you have \"" TDE_COMPOSITOR_BINARY "\" in a $PATH directory.")
@@ -2997,8 +2997,8 @@ void Workspace::startKompmgr()
         connect( kompmgr_selection, TQ_SIGNAL( lostOwnership()), TQ_SLOT( stopKompmgr()));
         kompmgr_selection->claim( true );
         connect(kompmgr, TQ_SIGNAL(processExited(TDEProcess*)), TQ_SLOT(restartKompmgr(TDEProcess*)));
-        options->useTranslucency = TRUE;
-        //allowKompmgrRestart = FALSE;
+        options->useTranslucency = true;
+        //allowKompmgrRestart = false;
         //TQTimer::singleShot( 60000, this, TQ_SLOT(unblockKompmgrRestart()) );
         TQByteArray ba;
         TQDataStream arg(ba, IO_WriteOnly);
@@ -3016,7 +3016,7 @@ void Workspace::stopKompmgr()
     delete kompmgr_selection;
     kompmgr_selection = NULL;
     kompmgr->disconnect(this, TQ_SLOT(restartKompmgr(TDEProcess*)));
-    options->useTranslucency = FALSE;
+    options->useTranslucency = false;
     if (popup){ delete popup; popup = 0L; } // to add/remove opacity slider
     kompmgr->kill(SIGKILL);
     TQByteArray ba;
@@ -3040,7 +3040,7 @@ bool Workspace::kompmgrIsRunning()
 
 void Workspace::unblockKompmgrRestart()
 {
-    allowKompmgrRestart = TRUE;
+    allowKompmgrRestart = true;
 }
 
 void Workspace::restartKompmgr( TDEProcess *proc )
@@ -3059,7 +3059,7 @@ void Workspace::restartKompmgr( TDEProcess *proc )
       {
           delete kompmgr_selection;
           kompmgr_selection = NULL;
-          options->useTranslucency = FALSE;
+          options->useTranslucency = false;
           if (crashed) {
             TDEProcess proc;
             proc << "kdialog" << "--error"
@@ -3083,7 +3083,7 @@ void Workspace::restartKompmgr( TDEProcess *proc )
         {
             delete kompmgr_selection;
             kompmgr_selection = NULL;
-            options->useTranslucency = FALSE;
+            options->useTranslucency = false;
             TDEProcess proc;
             proc << "kdialog" << "--error"
                 << i18n("The Composite Manager could not be started.\\nMake sure you have \"" TDE_COMPOSITOR_BINARY "\" in a $PATH directory.")
@@ -3092,7 +3092,7 @@ void Workspace::restartKompmgr( TDEProcess *proc )
         }
         else
         {
-            allowKompmgrRestart = FALSE;
+            allowKompmgrRestart = false;
             TQTimer::singleShot( 60000, this, TQ_SLOT(unblockKompmgrRestart()) );
         }
     }

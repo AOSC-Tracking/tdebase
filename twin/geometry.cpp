@@ -1692,7 +1692,7 @@ bool Client::isMaximizable() const
             return false;
         }
     if ( maximizeMode() != MaximizeRestore )
-        return TRUE;
+        return true;
     TQSize max = maxSize();
 #if 0
     if( max.width() < 32767 || max.height() < 32767 ) // sizes are 16bit with X

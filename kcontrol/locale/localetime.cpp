@@ -198,7 +198,7 @@ TDELocaleConfigTime::TDELocaleConfigTime(TDELocale *_locale,
   TQGridLayout *lay = new TQGridLayout(this, 7, 2,
 				     KDialog::marginHint(),
 				     KDialog::spacingHint());
-  lay->setAutoAdd(TRUE);
+  lay->setAutoAdd(true);
 
   m_labCalendarSystem = new TQLabel(this, I18N_NOOP("Calendar system:"));
   m_comboCalendarSystem = new TQComboBox(false, this);

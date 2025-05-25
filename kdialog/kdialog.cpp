@@ -156,7 +156,7 @@ static void outputStringList(TQStringList list, bool separateOutput)
 static int directCommand(TDECmdLineArgs *args)
 {
     TQString title;
-    bool separateOutput = FALSE;
+    bool separateOutput = false;
     bool printWId = args->isSet("print-winid");
     bool embed = args->isSet("embed") || args->isSet("attach");
     TQString defaultEntry;
@@ -170,7 +170,7 @@ static int directCommand(TDECmdLineArgs *args)
     // --separate-output
     if (args->isSet("separate-output"))
     {
-      separateOutput = TRUE;
+      separateOutput = true;
     }
     if (printWId || embed)
     {
@@ -315,7 +315,7 @@ static int directCommand(TDECmdLineArgs *args)
 	TQTimer *timer = new TQTimer();
 	TQObject::connect( timer, TQ_SIGNAL( timeout() ), kapp, TQ_SLOT( quit() ) );
 	TQObject::connect( popup, TQ_SIGNAL( clicked() ), kapp, TQ_SLOT( quit() ) );
-	timer->start( duration, TRUE );
+	timer->start( duration, true );
 
 #ifdef TQ_WS_X11
 	if ( ! kapp->geometryArgument().isEmpty()) {

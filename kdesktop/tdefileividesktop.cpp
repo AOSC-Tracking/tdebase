@@ -144,10 +144,10 @@ void KFileIVIDesktop::drawShadowedText( TQPainter *p, const TQColorGroup &cg )
 
   int textX;
   if (drawRoundedRect == true)
-    textX = textRect( FALSE ).x() + 4;
+    textX = textRect( false ).x() + 4;
   else
-    textX = textRect( FALSE ).x() + 2;
-  int textY = textRect( FALSE ).y();
+    textX = textRect( false ).x() + 2;
+  int textY = textRect( false ).y();
   int align = ((TDEIconView *) iconView())->itemTextPos() == TQIconView::Bottom
     ? AlignHCenter : AlignAuto;
   // FIXME
@@ -222,11 +222,11 @@ TQImage *KFileIVIDesktop::buildShadow( TQPainter *p, const int align,
   TQPainter pixPainter;
   int spread = shadowThickness();
 
-  TQPixmap textPixmap(textRect( FALSE ).width() + spread * 2 + 2,
-    textRect( FALSE ).height() + spread * 2 + 2);
+  TQPixmap textPixmap(textRect( false ).width() + spread * 2 + 2,
+    textRect( false ).height() + spread * 2 + 2);
 
   textPixmap.fill(TQColor(0,0,0));
-  textPixmap.setMask( textPixmap.createHeuristicMask(TRUE) );
+  textPixmap.setMask( textPixmap.createHeuristicMask(true) );
 
   pixPainter.begin(&textPixmap);
   pixPainter.setPen(white);    // get the pen from the root painter

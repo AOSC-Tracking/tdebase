@@ -293,7 +293,7 @@ static void cleanPassword(TQString & str)
 
     while (index >= 0)
     {
-	index = str.find(passwd, index, FALSE);
+	index = str.find(passwd, index, false);
 	if (index >= 0) {
 	    index += passwd.length();
 	    while (index < (int) str.length() &&

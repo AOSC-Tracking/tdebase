@@ -253,7 +253,7 @@ void DesktopBehavior::setMediaListViewEnabled(bool enabled)
         if (it->mimeType().startsWith("media/builtin-") == false)
             it->setVisible(enabled);
         else
-            it->setVisible(TRUE);
+            it->setVisible(true);
     }
 }
 

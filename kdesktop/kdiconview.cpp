@@ -1832,8 +1832,8 @@ void KDIconView::updateWorkArea( const TQRect &wr )
 		}
 	}
 	if ( needRepaint ) {
-		viewport()->repaint( FALSE );
-		repaint( FALSE );
+		viewport()->repaint( false );
+		repaint( false );
 		saveIconPositions();
 	}
 
@@ -1905,7 +1905,7 @@ bool KDIconView::isFreePosition( const TQIconViewItem *item, const TQRect &curre
 	if (area.isNull()) area = iconArea();
 
 	// If the proposed item rect is not contained by the desktop, by definition the item position is not free!
-	if (!area.contains(r, FALSE)) {
+	if (!area.contains(r, false)) {
 		return false;
 	}
 
@@ -1929,7 +1929,7 @@ bool KDIconView::isFreePosition( const TQIconViewItem *item, const TQRect& rect,
 	if (area.isNull()) area = iconArea();
 
 	// If the proposed item rect is not contained by the desktop, by definition the item position is not free!
-	if (!area.contains(rect, FALSE)) {
+	if (!area.contains(rect, false)) {
 		return false;
 	}
 

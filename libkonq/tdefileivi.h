@@ -237,7 +237,7 @@ private:
     /** You are not supposed to call this on a KFileIVI, from the outside,
      * it bypasses the icons cache */
     virtual void setPixmap ( const TQPixmap & icon ) { TDEIconViewItem::setPixmap( icon ); }
-    virtual void setPixmap ( const TQPixmap & icon, bool recalc, bool redraw = TRUE )
+    virtual void setPixmap ( const TQPixmap & icon, bool recalc, bool redraw = true )
         { TDEIconViewItem::setPixmap( icon, recalc, redraw ); }
 
     /** Check if a thumbnail will be generated and calc the size of the icon */

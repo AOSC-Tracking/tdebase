@@ -190,7 +190,7 @@ bool Client::manage( Window w, bool isMapped )
 //    onAllDesktopsChange(); decoration doesn't exist here yet
 
     TQRect geom( attr.x, attr.y, attr.width, attr.height );
-    bool placementDone = FALSE;
+    bool placementDone = false;
 
     if ( session )
         geom = session->geometry;
@@ -269,7 +269,7 @@ bool Client::manage( Window w, bool isMapped )
         if ( ( (xSizeHint.flags & PPosition) && !ignorePPosition ) ||
              (xSizeHint.flags & USPosition) ) 
             {
-            placementDone = TRUE;
+            placementDone = true;
             // disobey xinerama placement option for now (#70943)
             area = workspace()->clientArea( PlacementArea, geom.center(), desktop());
             }
@@ -290,7 +290,7 @@ bool Client::manage( Window w, bool isMapped )
     if( isMovable())
         {
         if( geom.x() > area.right() || geom.y() > area.bottom())
-            placementDone = FALSE; // weird, do not trust.
+            placementDone = false; // weird, do not trust.
         }
 
     if ( placementDone )
@@ -312,7 +312,7 @@ bool Client::manage( Window w, bool isMapped )
     if( !placementDone ) 
         { // placement needs to be after setting size
         workspace()->place( this, area );
-        placementDone = TRUE;
+        placementDone = true;
         }
 
     if(( !isSpecialWindow() || isToolbar()) && isMovable())
@@ -358,7 +358,7 @@ bool Client::manage( Window w, bool isMapped )
     // probably should be replaced by something better
     bool doNotShow = false;
     if ( workspace()->isNotManaged( caption() ) )
-        doNotShow = TRUE;
+        doNotShow = true;
 
     // other settings from the previous session
     if ( session ) 

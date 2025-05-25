@@ -65,10 +65,10 @@ TaskBarContainer::TaskBarContainer( bool enableFrame, TQString configFileOverrid
     TQFile configFileObject(locateLocal("config", configFile));
     if (!configFileObject.exists())
     {
-        TDEConfig globalConfig(GLOBAL_TASKBAR_CONFIG_FILE_NAME, TRUE, TRUE);
+        TDEConfig globalConfig(GLOBAL_TASKBAR_CONFIG_FILE_NAME, true, true);
         TDEConfig localConfig(configFile);
         globalConfig.copyTo(configFile, &localConfig);
-        localConfig.writeEntry("UseGlobalSettings", TRUE);
+        localConfig.writeEntry("UseGlobalSettings", true);
         localConfig.sync();
     }
     settingsObject = new TaskBarSettings(TDESharedConfig::openConfig(configFile));

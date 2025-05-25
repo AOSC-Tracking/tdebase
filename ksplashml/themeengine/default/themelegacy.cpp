@@ -158,7 +158,7 @@ void ThemeDefault::_initUi()
       mLabel->setPaletteForegroundColor( mLabelForeground );
       mLabel->setPaletteBackgroundPixmap( blimage );
       TQFont f(mLabel->font());
-      f.setBold(TRUE);
+      f.setBold(true);
       mLabel->setFont(f);
 
       mProgressBar = new KProgress( mLabel );

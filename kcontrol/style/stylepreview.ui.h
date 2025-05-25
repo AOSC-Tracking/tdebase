@@ -59,9 +59,9 @@ bool StylePreview::eventFilter( TQObject* /* obj */, TQEvent* ev )
         case TQEvent::Leave:
         case TQEvent::Wheel:
         case TQEvent::ContextMenu:
-            return TRUE; // ignore
+            return true; // ignore
         default:
             break;
     }
-    return FALSE;
+    return false;
 }

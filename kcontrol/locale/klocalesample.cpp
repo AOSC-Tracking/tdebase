@@ -42,7 +42,7 @@ TDELocaleSample::TDELocaleSample(TDELocale *locale,
     m_locale(locale)
 {
   TQGridLayout *lay = new TQGridLayout(this, 5, 2);
-  lay->setAutoAdd(TRUE);
+  lay->setAutoAdd(true);
 
   // Whatever the color scheme is, we want black text
   TQColorGroup a = palette().active();

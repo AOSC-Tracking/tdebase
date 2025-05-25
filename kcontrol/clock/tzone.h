@@ -43,7 +43,7 @@ signals:
 	void zoneChanged(bool);
 
 protected slots:
-  void handleZoneChange() {emit zoneChanged( TRUE );}
+  void handleZoneChange() {emit zoneChanged( true );}
 
 private:
   void currentZone();

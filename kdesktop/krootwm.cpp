@@ -72,7 +72,7 @@ KRootWm * KRootWm::s_rootWm = 0;
 
 extern TQCString kdesktop_name, kicker_name, twin_name;
 
-KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), startup(FALSE)
+KRootWm::KRootWm(SaverEngine* _saver, KDesktop* _desktop) : TQObject(_desktop), startup(false)
 {
   s_rootWm = this;
   m_actionCollection = new TDEActionCollection(_desktop, this, "KRootWm::m_actionCollection");

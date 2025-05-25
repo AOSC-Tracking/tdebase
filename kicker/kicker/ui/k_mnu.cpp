@@ -77,7 +77,7 @@ PanelKMenu::PanelKMenu()
   : PanelServiceMenu(TQString::null, TQString::null, 0, "KMenu")
   , bookmarkMenu(0)
   , bookmarkOwner(0)
-  , displayRepaired(FALSE)
+  , displayRepaired(false)
 {
     static const TQCString dcopObjId("KMenu");
     DCOPObject::setObjId(dcopObjId);
@@ -129,7 +129,7 @@ void PanelKMenu::hideMenu()
     TQTimer *windowtimer = new TQTimer( this );
     connect( windowtimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(windowClearTimeout()) );
     windowTimerTimedOut = false;
-    windowtimer->start( 0, TRUE );	// Wait for all window system events to be processed
+    windowtimer->start( 0, true );	// Wait for all window system events to be processed
     while (windowTimerTimedOut == false)
         kapp->eventLoop()->processEvents(TQEventLoop::ExcludeUserInput, 1000);
 
@@ -142,7 +142,7 @@ void PanelKMenu::hideMenu()
     TQTimer *delaytimer = new TQTimer( this );
     connect( delaytimer, TQ_SIGNAL(timeout()), this, TQ_SLOT(windowClearTimeout()) );
     windowTimerTimedOut = false;
-    delaytimer->start( 100, TRUE );	// Wait for 100 milliseconds
+    delaytimer->start( 100, true );	// Wait for 100 milliseconds
     while (windowTimerTimedOut == false)
         kapp->eventLoop()->processEvents(TQEventLoop::ExcludeUserInput, 1000);
 }
@@ -430,9 +430,9 @@ void PanelKMenu::initialize()
       insertTearOffHandle();
 #endif
 
-    if (displayRepaired == FALSE) {
-        displayRepairTimer->start(5, FALSE);
-        displayRepaired = TRUE;
+    if (displayRepaired == false) {
+        displayRepairTimer->start(5, false);
+        displayRepaired = true;
     }
 
     setInitialized(true);
@@ -445,7 +445,7 @@ void PanelKMenu::repairDisplay(void) {
         // Now do a nasty hack to prevent search bar merging into the side image
         // This forces a layout/repaint of the qpopupmenu
         repaint();			// This ensures that the side bar image was applied
-        styleChange(style());		// This forces a call to the private function updateSize(TRUE) inside the qpopupmenu.
+        styleChange(style());		// This forces a call to the private function updateSize(true) inside the qpopupmenu.
         update();			// This repaints the entire popup menu to apply the widget size/alignment changes made above
     }
 }

@@ -225,10 +225,10 @@ void PanelButton::updateSettings(int category)
         return;
     }
 
-    if (m_forceStandardCursor == FALSE)
+    if (!m_forceStandardCursor)
         m_changeCursorOverItem = TDEGlobalSettings::changeCursorOverIcon();
     else
-        m_changeCursorOverItem = FALSE;
+        m_changeCursorOverItem = false;
 
     if (m_changeCursorOverItem)
     {
@@ -436,7 +436,7 @@ void PanelButton::startDrag()
 
 void PanelButton::enterEvent(TQEvent* e)
 {
-    if (!m_highlight && m_disableHighlighting == FALSE)
+    if (!m_highlight && !m_disableHighlighting)
     {
         m_highlight = true;
         repaint(false);
@@ -602,7 +602,7 @@ void PanelButton::drawDeepButton(TQPainter *p)
         style().drawPrimitive(TQStyle::PE_ButtonBevel, p, btn_rect, colorGroup(), TQStyle::Style_Raised);
     }
 
-    drawButtonLabel(p,0,FALSE);
+    drawButtonLabel(p,0,false);
 
     if (hasFocus() || m_hasAcceptedDrag)
     {
@@ -616,7 +616,7 @@ void PanelButton::drawDeepButton(TQPainter *p)
 
 void PanelButton::drawButtonLabel(TQPainter *p)
 {
-    drawButtonLabel(p,0,TRUE);
+    drawButtonLabel(p,0,true);
 }
 
 void PanelButton::drawButtonLabel(TQPainter *p, int voffset, bool drawArrow)

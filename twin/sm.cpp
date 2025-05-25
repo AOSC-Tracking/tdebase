@@ -94,7 +94,7 @@ void Workspace::storeSession( TDEConfig* config, SMSavePhase phase )
             config->writeEntry( TQString("wmClientMachine")+n, c->wmClientMachine( true ).data() );
             config->writeEntry( TQString("resourceName")+n, c->resourceName().data() );
             config->writeEntry( TQString("resourceClass")+n, c->resourceClass().data() );
-            config->writeEntry( TQString("geometry")+n,  TQRect( c->calculateGravitation(TRUE), c->clientSize() ) ); // FRAME
+            config->writeEntry( TQString("geometry")+n,  TQRect( c->calculateGravitation(true), c->clientSize() ) ); // FRAME
             config->writeEntry( TQString("restore")+n, c->geometryRestore() );
             config->writeEntry( TQString("fsrestore")+n, c->geometryFSRestore() );
             config->writeEntry( TQString("maximize")+n, (int) c->maximizeMode() );
@@ -170,15 +170,15 @@ void Workspace::loadSessionInfo()
         info->maximized = config->readNumEntry( TQString("maximize")+n, 0 );
         info->fullscreen = config->readNumEntry( TQString("fullscreen")+n, 0 );
         info->desktop = config->readNumEntry( TQString("desktop")+n, 0 );
-        info->minimized = config->readBoolEntry( TQString("iconified")+n, FALSE );
-        info->onAllDesktops = config->readBoolEntry( TQString("sticky")+n, FALSE );
-        info->shaded = config->readBoolEntry( TQString("shaded")+n, FALSE );
-        info->shadowed = config->readBoolEntry( TQString("shadowed")+n, TRUE );
-        info->keepAbove = config->readBoolEntry( TQString("staysOnTop")+n, FALSE  );
-        info->keepBelow = config->readBoolEntry( TQString("keepBelow")+n, FALSE  );
-        info->skipTaskbar = config->readBoolEntry( TQString("skipTaskbar")+n, FALSE  );
-        info->skipPager = config->readBoolEntry( TQString("skipPager")+n, FALSE  );
-        info->userNoBorder = config->readBoolEntry( TQString("userNoBorder")+n, FALSE  );
+        info->minimized = config->readBoolEntry( TQString("iconified")+n, false );
+        info->onAllDesktops = config->readBoolEntry( TQString("sticky")+n, false );
+        info->shaded = config->readBoolEntry( TQString("shaded")+n, false );
+        info->shadowed = config->readBoolEntry( TQString("shadowed")+n, true );
+        info->keepAbove = config->readBoolEntry( TQString("staysOnTop")+n, false  );
+        info->keepBelow = config->readBoolEntry( TQString("keepBelow")+n, false  );
+        info->skipTaskbar = config->readBoolEntry( TQString("skipTaskbar")+n, false  );
+        info->skipPager = config->readBoolEntry( TQString("skipPager")+n, false  );
+        info->userNoBorder = config->readBoolEntry( TQString("userNoBorder")+n, false  );
         info->windowType = txtToWindowType( config->readEntry( TQString("windowType")+n ).latin1());
         info->shortcut = config->readEntry( TQString("shortcut")+n );
         info->active = ( active_client == i );

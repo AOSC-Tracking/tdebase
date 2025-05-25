@@ -1502,7 +1502,7 @@ void KonqIconViewWidget::insertInGrid(TQIconViewItem *item)
 
     TQMemArray<TQRect> rects = r.rects();
     TQMemArray<TQRect>::Iterator it = rects.begin();
-    bool foundPlace = FALSE;
+    bool foundPlace = false;
     for (; it != rects.end(); ++it)
     {
         TQRect rect = *it;

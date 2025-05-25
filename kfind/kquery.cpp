@@ -452,7 +452,7 @@ void KQuery::setRegExp(const TQString &regexp, bool caseSensitive)
   TQRegExp *regExp;
   TQRegExp sep(";");
   TQStringList strList=TQStringList::split( sep, regexp, false);
-//  TQRegExp globChars ("[\\*\\?\\[\\]]", TRUE,  FALSE);
+//  TQRegExp globChars ("[\\*\\?\\[\\]]", true,  false);
 
   m_regexps.clear();
 //  m_regexpsContainsGlobs.clear();

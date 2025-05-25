@@ -45,13 +45,13 @@ Atoms* atoms;
 int screen_number = -1;
 bool disable_twin_composition_manager = false;
 
-static bool initting = FALSE;
+static bool initting = false;
 
 static
 int x11ErrorHandler(Display *d, XErrorEvent *e)
     {
     char msg[80], req[80], number[80];
-    bool ignore_badwindow = TRUE; //maybe temporary
+    bool ignore_badwindow = true; //maybe temporary
 
     if (initting &&
         (
@@ -151,7 +151,7 @@ Application::Application( )
     // if there was already twin running, it saved its configuration after loosing the selection -> reread
     config()->reparseConfiguration();
 
-    initting = TRUE; // startup....
+    initting = true; // startup....
 
     // install X11 error handler
     XSetErrorHandler( x11ErrorHandler );
@@ -176,7 +176,7 @@ Application::Application( )
     DCOPRef ref( "kded", "kded" );
     ref.send( "unloadModule", TQCString( "kdetrayproxy" ));
     
-    initting = FALSE; // startup done, we are up and running now.
+    initting = false; // startup done, we are up and running now.
        
     dcopClient()->send( "ksplash", "", "upAndRunning(TQString)", TQString("wm started"));
     XEvent e;
@@ -216,7 +216,7 @@ void Application::lostSelection()
 bool Application::x11EventFilter( XEvent *e )
     {
     if ( Workspace::self()->workspaceEvent( e ) )
-             return TRUE;
+             return true;
     return TDEApplication::x11EventFilter( e );
     }
     

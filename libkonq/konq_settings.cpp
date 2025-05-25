@@ -109,7 +109,7 @@ void KonqFMSettings::init( TDEConfig * config )
       m_iconTransparency = DEFAULT_TEXTPREVIEW_ICONTRANSPARENCY;
 
   // Behaviour
-  m_alwaysNewWin = config->readBoolEntry( "AlwaysNewWin", FALSE );
+  m_alwaysNewWin = config->readBoolEntry( "AlwaysNewWin", false );
 
   m_homeURL = config->readPathEntry("HomeURL", "~");
 
