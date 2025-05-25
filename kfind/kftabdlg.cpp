@@ -59,11 +59,11 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
 
     pages[0] = new TQWidget( this, "page1" );
 
-    nameBox = new KComboBox(TRUE, pages[0], "combo1");
+    nameBox = new KComboBox(true, pages[0], "combo1");
     nameBox->setSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Fixed);  // allow smaller than widest entry
     TQLabel * namedL = new TQLabel(nameBox, i18n("&Named:"), pages[0], "named");
     TQToolTip::add( namedL, i18n("You can use wildcard matching and \";\" for separating multiple names") );
-    dirBox  = new KComboBox(TRUE, pages[0], "combo2");
+    dirBox  = new KComboBox(true, pages[0], "combo2");
     dirBox->setSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Fixed);  // allow smaller than widest entry
     TQLabel * lookinL = new TQLabel(dirBox, i18n("Look &in:"), pages[0], "named");
     subdirsCb  = new TQCheckBox(i18n("Include &subfolders"), pages[0]);
@@ -79,9 +79,9 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     if(TDEStandardDirs::findExe("locate")==NULL)
     	useLocateCb->setEnabled(false);
 
-    nameBox->setDuplicatesEnabled(FALSE);
+    nameBox->setDuplicatesEnabled(false);
     nameBox->setFocus();
-    dirBox->setDuplicatesEnabled(FALSE);
+    dirBox->setDuplicatesEnabled(false);
 
     nameBox->setInsertionPolicy(TQComboBox::AtTop);
     dirBox->setInsertionPolicy(TQComboBox::AtTop);
@@ -149,7 +149,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     rb[0] = new TQRadioButton(i18n("&between"), pages[1] );
     rb[1] = new TQRadioButton(i18n("&during the previous"), pages[1] );
     TQLabel * andL   = new TQLabel(i18n("and"), pages[1], "and");
-    betweenType = new KComboBox(FALSE, pages[1], "comboBetweenType");
+    betweenType = new KComboBox(false, pages[1], "comboBetweenType");
     betweenType->insertItem(i18n("minute(s)"));
     betweenType->insertItem(i18n("hour(s)"));
     betweenType->insertItem(i18n("day(s)"));
@@ -164,11 +164,11 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     toDate = new KDateCombo(pages[1], "toDate");
     timeBox = new TQSpinBox(1, 60, 1, pages[1], "timeBox");
 
-    sizeBox =new KComboBox(FALSE, pages[1], "sizeBox");
+    sizeBox =new KComboBox(false, pages[1], "sizeBox");
     TQLabel * sizeL   =new TQLabel(sizeBox,i18n("File &size is:"), pages[1],"size");
     sizeEdit=new TQSpinBox(0, INT_MAX, 1, pages[1], "sizeEdit" );
     sizeEdit->setValue(1);
-    sizeUnitBox =new KComboBox(FALSE, pages[1], "sizeUnitBox");
+    sizeUnitBox =new KComboBox(false, pages[1], "sizeUnitBox");
 
     m_usernameBox = new KComboBox( true, pages[1], "m_combo1");
     TQLabel *usernameLabel= new TQLabel(m_usernameBox,i18n("Files owned by &user:"),pages[1]);
@@ -189,8 +189,8 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
     int tmp = sizeEdit->fontMetrics().width(" 000000000 ");
     sizeEdit->setMinimumSize(tmp, sizeEdit->sizeHint().height());
 
-    m_usernameBox->setDuplicatesEnabled(FALSE);
-    m_groupBox->setDuplicatesEnabled(FALSE);
+    m_usernameBox->setDuplicatesEnabled(false);
+    m_groupBox->setDuplicatesEnabled(false);
     m_usernameBox->setInsertionPolicy(TQComboBox::AtTop);
     m_groupBox->setInsertionPolicy(TQComboBox::AtTop);
 
@@ -244,7 +244,7 @@ KfindTabWidget::KfindTabWidget(TQWidget *parent, const char *name)
 
     pages[2] = new TQWidget( this, "page3" );
 
-    typeBox =new KComboBox(FALSE, pages[2], "typeBox");
+    typeBox =new KComboBox(false, pages[2], "typeBox");
     typeBox->setSizePolicy(TQSizePolicy::Preferred, TQSizePolicy::Fixed);  // allow smaller than widest entry
     TQLabel * typeL   =new TQLabel(typeBox, i18n("File &type:"), pages[2], "type");
     textEdit=new KLineEdit(pages[2], "textEdit" );
@@ -543,18 +543,18 @@ void KfindTabWidget::setDefaults()
 bool KfindTabWidget::isDateValid()
 {
   // All files
-  if ( !findCreated->isChecked() ) return TRUE;
+  if ( !findCreated->isChecked() ) return true;
 
   if (rb[1]->isChecked())
   {
-    if (timeBox->value() > 0 ) return TRUE;
+    if (timeBox->value() > 0 ) return true;
 
     KMessageBox::sorry(this, i18n("Unable to search within a period that is less than a minute."));
-    return FALSE;
+    return false;
   }
 
   // If we can not parse either of the dates or
-  // "from" date is bigger than "to" date return FALSE.
+  // "from" date is bigger than "to" date return false.
   TQDate hi1, hi2;
 
   TQString str;
@@ -568,9 +568,9 @@ bool KfindTabWidget::isDateValid()
 
   if (!str.isNull()) {
     KMessageBox::sorry(0, str);
-    return FALSE;
+    return false;
   }
-  return TRUE;
+  return true;
 }
 
 void KfindTabWidget::setQuery(KQuery *query)
@@ -756,12 +756,12 @@ void KfindTabWidget::beginSearch()
 ///  dirlister->openURL(KURL(dirBox->currentText().stripWhiteSpace()));
 
   saveHistory();
-  setEnabled( FALSE );
+  setEnabled( false );
 }
 
 void KfindTabWidget::endSearch()
 {
-  setEnabled( TRUE );
+  setEnabled( true );
 }
 
 /*
@@ -775,16 +775,16 @@ void KfindTabWidget::fixLayout()
   // and second radio group on page two
 
   if(! findCreated->isChecked())  {
-    fromDate->setEnabled(FALSE);
-    toDate->setEnabled(FALSE);
-    timeBox->setEnabled(FALSE);
+    fromDate->setEnabled(false);
+    toDate->setEnabled(false);
+    timeBox->setEnabled(false);
     for(i=0; i<2; i++)
-      rb[i]->setEnabled(FALSE);
-    betweenType->setEnabled(FALSE);
+      rb[i]->setEnabled(false);
+    betweenType->setEnabled(false);
   }
   else {
     for(i=0; i<2; i++)
-      rb[i]->setEnabled(TRUE);
+      rb[i]->setEnabled(true);
 
     fromDate->setEnabled(rb[0]->isChecked());
     toDate->setEnabled(rb[0]->isChecked());

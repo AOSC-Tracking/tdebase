@@ -444,9 +444,9 @@ bool B2Client::isModalSystemNotification()
     result = XGetWindowProperty(tqt_xdisplay(), windowId(), kde_wm_system_modal_notification, 0L, 1L, False, XA_CARDINAL, &actual, &format, &n, &left, /*(unsigned char **)*/ &data);
     if (result == Success && data != None && format == 32 )
         {
-        return TRUE;
+        return true;
         }
-    return FALSE;
+    return false;
 }
 
 void B2Client::addButtons(const TQString& s, const TQString tips[],

@@ -1574,7 +1574,7 @@ void NSPluginClass::destroyInstance( NSPluginInstance* inst )
 {
     // mark for destruction
     _trash.append( inst );
-    timer(); //_timer->start( 0, TRUE );
+    timer(); //_timer->start( 0, true );
 }
 
 /****************************************************************************/
@@ -1642,7 +1642,7 @@ void NSPluginStreamBase::inform()
                 // stream into temporary file (use lower() in case the
                 // filename as an upper case X in it)
                 _tempFile = new KTempFile;
-                _tempFile->setAutoDelete( TRUE );
+                _tempFile->setAutoDelete( true );
                 _fileURL = _tempFile->name();
                 kdDebug() << "saving into " << _fileURL << endl;
             }
@@ -1949,7 +1949,7 @@ void NSPluginStream::data(TDEIO::Job * job, const TQByteArray &data)
     queue( data );
     if ( !pump() ) {
         _job->suspend();
-        _resumeTimer->start( 100, TRUE );
+        _resumeTimer->start( 100, true );
     }
 }
 
@@ -1986,7 +1986,7 @@ void NSPluginStream::resume()
       _job->resume();
    } else {
        kdDebug(1431) << "restart timer" << endl;
-       _resumeTimer->start( 100, TRUE );
+       _resumeTimer->start( 100, true );
    }
 }
 

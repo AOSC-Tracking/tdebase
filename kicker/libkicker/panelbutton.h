@@ -53,7 +53,7 @@ public:
      * @param parent the parent widget
      * @param name the widget's name
      */
-    PanelButton( TQWidget* parent, const char* name, bool forceStandardCursor = FALSE );
+    PanelButton( TQWidget* parent, const char* name, bool forceStandardCursor = false );
 
     /**
      * Configures this button according to the user's preferences for
@@ -430,7 +430,7 @@ public:
     * @param parent the parent widget
     * @param name the widget's name
     */
-    PanelPopupButton(TQWidget *parent=0, const char *name=0, bool forceStandardCursor = FALSE);
+    PanelPopupButton(TQWidget *parent=0, const char *name=0, bool forceStandardCursor = false);
 
     /**
      * Sets the button's popup menu.

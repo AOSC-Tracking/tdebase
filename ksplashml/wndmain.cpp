@@ -55,7 +55,7 @@ KSplash::KSplash(const char *name)
   mCurrentAction = mActionList.first();
 
   config->setGroup( "General" );
-  if ( config->readBoolEntry( "CloseOnClick", TRUE ) )
+  if ( config->readBoolEntry( "CloseOnClick", true ) )
     mThemeEngine->installEventFilter( this );
 
   connect( mThemeEngine, TQ_SIGNAL(destroyed()), this, TQ_SLOT(close()) );
@@ -75,7 +75,7 @@ KSplash::KSplash(const char *name)
   {
     close_timer = new TQTimer( this );
     connect( close_timer, TQ_SIGNAL( timeout() ), this, TQ_SLOT( close() ) );
-    close_timer->start( 60000, TRUE );
+    close_timer->start( 60000, true );
   }
 }
 
@@ -206,7 +206,7 @@ void KSplash::upAndRunning( TQString s )
     firstTime = false;
   }
   if ( close_timer->isActive() )
-    close_timer->start( 60000, TRUE );
+    close_timer->start( 60000, true );
 
   if( s == "dcop" )
   {
@@ -427,8 +427,8 @@ bool KSplash::eventFilter( TQObject *o, TQEvent *e )
   if ( ( e->type() == TQEvent::MouseButtonRelease ) && ( o == mThemeEngine ) )
   {
     TQTimer::singleShot( 0, this, TQ_SLOT(close()));
-    return TRUE;
+    return true;
   }
   else
-    return FALSE;
+    return false;
 }

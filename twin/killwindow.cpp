@@ -81,7 +81,7 @@ void KillWindow::start()
                 button_released = (ev.xbutton.button == Button1);
                 if ( ev.xbutton.button == Button3 ) 
                     {
-                    escape_pressed = TRUE;
+                    escape_pressed = true;
                     break;
                     }
                 if( ev.xbutton.button == Button1 || ev.xbutton.button == Button2 )

@@ -81,7 +81,7 @@ TQString KonqAboutPageFactory::loadFile( const TQString& file )
 		       file.left( file.findRev( '/' )) +
 		       TQString::fromLatin1("/\">\n");
     TQRegExp reg("<head>");
-    reg.setCaseSensitive(FALSE);
+    reg.setCaseSensitive(false);
     res.replace(reg, "<head>\n\t" + basehref);
     return res;
 }

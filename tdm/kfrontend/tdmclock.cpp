@@ -44,17 +44,17 @@ KdmClock::KdmClock( TQWidget *parent, const char *name )
 	//TDEConfig *config = tdeApp->config();
 
 	//config->setGroup( "Option" );
-	mDate = false;//config->readNumEntry( "date", FALSE );
-	mSecond = true;//config->readNumEntry( "second", TRUE );
-	mDigital = false;//config->readNumEntry( "digital", FALSE );
-	mBorder = false;//config->readNumEntry( "border", FALSE );
+	mDate = false;//config->readNumEntry( "date", false );
+	mSecond = true;//config->readNumEntry( "second", true );
+	mDigital = false;//config->readNumEntry( "digital", false );
+	mBorder = false;//config->readNumEntry( "border", false );
 
 	//config->setGroup( "Font" );
 	mFont.setFamily( TQString::fromLatin1("Utopia")/*config->readEntry( "Family", "Utopia")*/ );
 	mFont.setPointSize( 51/*config->readNumEntry( "Point Size", 51)*/ );
 	mFont.setWeight( 75/*config->readNumEntry( "Weight", 75)*/ );
-	mFont.setItalic( TRUE/*config->readNumEntry( "Italic",TRUE )*/ );
-	mFont.setBold( TRUE/*config->readNumEntry( "Bold",TRUE )*/ );
+	mFont.setItalic( true/*config->readNumEntry( "Italic",true )*/ );
+	mFont.setBold( true/*config->readNumEntry( "Bold",true )*/ );
 
 	setFixedSize( 100, 100 );
 

@@ -225,17 +225,17 @@ void Dtime::set_time()
   time.setHMS( hour->value(), minute->value(), second->value() );
   kclock->setTime( time );
 
-  emit timeChanged( TRUE );
+  emit timeChanged( true );
 }
 
 void Dtime::changeDate(TQDate d)
 {
   date = d;
-  emit timeChanged( TRUE );
+  emit timeChanged( true );
 }
 
 void Dtime::configChanged(){
-  emit timeChanged( TRUE );
+  emit timeChanged( true );
 }
 
 void Dtime::load()
@@ -347,11 +347,11 @@ void Dtime::timeout()
   // get current time
   time = TQTime::currentTime();
 
-  ontimeout = TRUE;
+  ontimeout = true;
   second->setValue(time.second());
   minute->setValue(time.minute());
   hour->setValue(time.hour());
-  ontimeout = FALSE;
+  ontimeout = false;
 
   kclock->setTime( time );
 }

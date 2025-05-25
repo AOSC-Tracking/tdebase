@@ -77,7 +77,7 @@ unsigned long Options::updateSettings()
     separateScreenFocus = config->readBoolEntry( "SeparateScreenFocus", false );
     activeMouseScreen = config->readBoolEntry( "ActiveMouseScreen", focusPolicy != ClickToFocus );
 
-    rollOverDesktops = config->readBoolEntry("RollOverDesktops", TRUE);
+    rollOverDesktops = config->readBoolEntry("RollOverDesktops", true);
 
 //    focusStealingPreventionLevel = config->readNumEntry( "FocusStealingPreventionLevel", 2 );
     // TODO use low level for now
@@ -99,8 +99,8 @@ unsigned long Options::updateSettings()
     xineramaPlacementScreen = KCLAMP( config->readNumEntry( "XineramaPlacementScreen", -1 ),
         -1, tqApp->desktop()->numScreens() - 1 );
 
-    animateShade = config->readBoolEntry("AnimateShade", TRUE );
-    animateMinimize = config->readBoolEntry("AnimateMinimize", TRUE );
+    animateShade = config->readBoolEntry("AnimateShade", true );
+    animateMinimize = config->readBoolEntry("AnimateMinimize", true );
     animateMinimizeSpeed = config->readNumEntry("AnimateMinimizeSpeed", 5 );
 
     if( focusPolicy == ClickToFocus )
@@ -112,21 +112,21 @@ unsigned long Options::updateSettings()
         }
     else
         {
-        autoRaise = config->readBoolEntry("AutoRaise", FALSE );
+        autoRaise = config->readBoolEntry("AutoRaise", false );
         autoRaiseInterval = config->readNumEntry("AutoRaiseInterval", 0 );
-        delayFocus = config->readBoolEntry("DelayFocus", FALSE );
+        delayFocus = config->readBoolEntry("DelayFocus", false );
         delayFocusInterval = config->readNumEntry("DelayFocusInterval", 0 );
         }
 
-    shadeHover = config->readBoolEntry("ShadeHover", FALSE );
+    shadeHover = config->readBoolEntry("ShadeHover", false );
     shadeHoverInterval = config->readNumEntry("ShadeHoverInterval", 250 );
 
     // important: autoRaise implies ClickRaise
-    clickRaise = autoRaise || config->readBoolEntry("ClickRaise", TRUE );
+    clickRaise = autoRaise || config->readBoolEntry("ClickRaise", true );
 
     borderSnapZone = config->readNumEntry("BorderSnapZone", 10);
     windowSnapZone = config->readNumEntry("WindowSnapZone", 10);
-    snapOnlyWhenOverlapping=config->readBoolEntry("SnapOnlyWhenOverlapping",FALSE);
+    snapOnlyWhenOverlapping=config->readBoolEntry("SnapOnlyWhenOverlapping",false);
 
     // active borders: compatibility with old option names (Electric*)
     active_borders = config->readNumEntry("ActiveBorders", -1);
@@ -205,7 +205,7 @@ unsigned long Options::updateSettings()
     onlyDecoTranslucent = config->readBoolEntry("OnlyDecoTranslucent",false);
     resetKompmgr = config->readBoolEntry("ResetKompmgr", false);
     if (resetKompmgr)
-        config->writeEntry("ResetKompmgr",FALSE);
+        config->writeEntry("ResetKompmgr",false);
 
      // window drop shadows
     config->setGroup("Style");

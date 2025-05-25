@@ -92,7 +92,7 @@ KSmartcardConfig::KSmartcardConfig(TQWidget *parent, const char *name)
 			    "",
 			    "signalReaderListChanged(TQStringList)",
 			    "loadReadersTab(TQStringList)",
-			    FALSE))
+			    false))
 
        kdDebug()<<"Error connecting to DCOP server" <<endl;
 
@@ -101,7 +101,7 @@ KSmartcardConfig::KSmartcardConfig(TQWidget *parent, const char *name)
 			    "",
 			    "signalCardStateChanged(TQString,bool,TQString)",
 			    "updateReadersState (TQString,bool,TQString) ",
-			    FALSE))
+			    false))
 
        kdDebug()<<"Error connecting to DCOP server" <<endl;
      _cardDB= new KCardDB();
@@ -263,14 +263,14 @@ void KSmartcardConfig::getSupportingModule( TDEListViewItem * ant,
                                                type,
                                                subType,
                                                subSubType);
-        hil->setSelectable(FALSE);
+        hil->setSelectable(false);
     }
     else{
 
 
         TDEListViewItem * hil =new TDEListViewItem(ant,
                                                i18n("No module managing this card"));
-        hil->setSelectable(FALSE);
+        hil->setSelectable(false);
     }
 
   }

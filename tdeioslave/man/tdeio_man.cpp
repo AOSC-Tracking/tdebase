@@ -1317,7 +1317,7 @@ void MANProtocol::showIndex(const TQString& section)
 #else /* !_USE_QSORT */
 
     QManIndexList manpages;
-    manpages.setAutoDelete(TRUE);
+    manpages.setAutoDelete(true);
 
 #endif /* _USE_QSORT */
 

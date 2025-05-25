@@ -1035,9 +1035,9 @@ bool KeramikClient::isModalSystemNotification()
     result = XGetWindowProperty(tqt_xdisplay(), windowId(), kde_wm_system_modal_notification, 0L, 1L, False, XA_CARDINAL, &actual, &format, &n, &left, /*(unsigned char **)*/ &data);
     if (result == Success && data != None && format == 32 )
         {
-        return TRUE;
+        return true;
         }
-    return FALSE;
+    return false;
 }
 
 void KeramikClient::addButtons( TQBoxLayout *layout, const TQString &s )
@@ -1662,7 +1662,7 @@ void KeramikClient::resizeEvent( TQResizeEvent *e )
 			widget()->update( TQRect( titlebar->geometry().topRight(), TQPoint( width() - 4,
 							titlebar->geometry().bottom() ) ) );
 			// Titlebar needs no paint event
-			TQApplication::postEvent( this, new TQPaintEvent( titlebar->geometry(), FALSE ) );
+			TQApplication::postEvent( this, new TQPaintEvent( titlebar->geometry(), false ) );
 		}
 	}
 }

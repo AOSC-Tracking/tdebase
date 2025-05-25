@@ -90,7 +90,7 @@ LogView::LogView(TQWidget *parent,TDEConfig *config, const char *name)
 
    logFileName.setURL("/var/log/samba.log");
 
-   viewHistory.setAllColumnsShowFocus(TRUE);
+   viewHistory.setAllColumnsShowFocus(true);
    viewHistory.setFocusPolicy(TQWidget::ClickFocus);
    viewHistory.setShowSortIndicator(true);
 
@@ -108,10 +108,10 @@ LogView::LogView(TQWidget *parent,TDEConfig *config, const char *name)
      " If the list is empty, try clicking the \"Update\" button. The samba"
      " log file will be read and the list refreshed.") );
 
-   showConnOpen.setChecked(TRUE);
-   showConnClose.setChecked(TRUE);
-   showFileOpen.setChecked(FALSE);
-   showFileClose.setChecked(FALSE);
+   showConnOpen.setChecked(true);
+   showConnClose.setChecked(true);
+   showFileOpen.setChecked(false);
+   showFileClose.setChecked(false);
 
    connect(&updateButton,TQ_SIGNAL(clicked()),this,TQ_SLOT(updateList()));
    emit contentsChanged(&viewHistory,0,0);
@@ -132,10 +132,10 @@ void LogView::loadSettings()
    configFile->setGroup(LOGGROUPNAME);
    logFileName.setURL(configFile->readPathEntry( "SambaLogFile", "/var/log/samba.log"));
 
-   showConnOpen.setChecked(configFile->readBoolEntry( "ShowConnectionOpen", TRUE));
-   showConnClose.setChecked(configFile->readBoolEntry( "ShowConnectionClose", FALSE));
-   showFileOpen.setChecked(configFile->readBoolEntry( "ShowFileOpen", TRUE));
-   showFileClose.setChecked(configFile->readBoolEntry( "ShowFileClose", FALSE));
+   showConnOpen.setChecked(configFile->readBoolEntry( "ShowConnectionOpen", true));
+   showConnClose.setChecked(configFile->readBoolEntry( "ShowConnectionClose", false));
+   showFileOpen.setChecked(configFile->readBoolEntry( "ShowFileOpen", true));
+   showFileClose.setChecked(configFile->readBoolEntry( "ShowFileClose", false));
 }
 
 void LogView::saveSettings()

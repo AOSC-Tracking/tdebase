@@ -43,7 +43,7 @@ TDELocaleConfigNumber::TDELocaleConfigNumber(TDELocale *locale,
   TQGridLayout *lay = new TQGridLayout(this, 5, 2,
 				     KDialog::marginHint(),
 				     KDialog::spacingHint());
-  lay->setAutoAdd(TRUE);
+  lay->setAutoAdd(true);
 
   m_labDecSym = new TQLabel(this, I18N_NOOP("&Decimal symbol:"));
   m_edDecSym = new TQLineEdit(this);

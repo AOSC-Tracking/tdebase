@@ -72,7 +72,7 @@ ChooserDlg::ChooserDlg()
 	vbox->addWidget( host_view );
 
 	iline = new TQLineEdit( this );
-	iline->setEnabled( TRUE );
+	iline->setEnabled( true );
 	TQLabel *itxt = new TQLabel( iline, i18n("Hos&t:"), this );
 	TQPushButton *addButton = new TQPushButton( i18n("A&dd"), this );
 	connect( addButton, TQ_SIGNAL(clicked()), TQ_SLOT(addHostname()) );

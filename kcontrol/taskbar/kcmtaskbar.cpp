@@ -200,7 +200,7 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     TQFile configFile(locateLocal("config", m_configFileName));
     if (!configFile.exists())
     {
-        TDEConfig globalConfig(GLOBAL_TASKBAR_CONFIG_FILE_NAME, TRUE, TRUE);
+        TDEConfig globalConfig(GLOBAL_TASKBAR_CONFIG_FILE_NAME, true, true);
         TDEConfig localConfig(m_configFileName);
         globalConfig.copyTo(m_configFileName, &localConfig);
         localConfig.sync();
@@ -333,7 +333,7 @@ void TaskbarConfig::processLockouts()
 
 void TaskbarConfig::slotReloadConfigurationFromGlobals()
 {
-    TDEConfig globalConfig(GLOBAL_TASKBAR_CONFIG_FILE_NAME, TRUE, TRUE);
+    TDEConfig globalConfig(GLOBAL_TASKBAR_CONFIG_FILE_NAME, true, true);
     TDEConfig localConfig(m_configFileName);
     globalConfig.copyTo(m_configFileName, &localConfig);
     localConfig.sync();

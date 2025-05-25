@@ -78,12 +78,12 @@ KSMShutdownFeedback::KSMShutdownFeedback()
    m_currentY( 0 ),
    m_grayOpacity( 0.0f ),
    m_compensation( 0.0f ),
-   m_fadeBackwards( FALSE ),
+   m_fadeBackwards( false ),
    m_unfadedImage(),
    m_grayImage(),
    m_fadeTime(),
    m_pmio(),
-   m_greyImageCreated( FALSE )
+   m_greyImageCreated( false )
 
 {
 	if (tdeApp->isX11CompositionAvailable()) {
@@ -113,7 +113,7 @@ KSMShutdownFeedback::KSMShutdownFeedback()
 void KSMShutdownFeedback::fadeBack( void )
 {
 	m_fadeTime.restart();
-	m_fadeBackwards = TRUE;
+	m_fadeBackwards = true;
 	// its possible that we have to fade back, before all is completely gray, so we cannot start
 	// with completely gray when fading back...
 	m_compensation = 1.0f - m_grayOpacity;
@@ -137,7 +137,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 			// if slotPaintEffect() is called first time, we have to initialize the gray image
 			// we also could do that in the constructor, but then the displaying of the
 			// logout-UI would be too much delayed...
-			if ( m_greyImageCreated == false )
+			if ( !m_greyImageCreated )
 			{
 				m_greyImageCreated = true;
 
@@ -170,11 +170,11 @@ void KSMShutdownFeedback::slotPaintEffect()
 			}
 
 			// return if fading is completely done...
-			if ( ( m_grayOpacity >= 1.0f && m_fadeBackwards == FALSE ) || ( m_grayOpacity <= 0.0f && m_fadeBackwards == TRUE ) )
+			if ( ( m_grayOpacity >= 1.0f && !m_fadeBackwards ) || ( m_grayOpacity <= 0.0f && m_fadeBackwards ) )
 				return;
 
 
-			if ( m_fadeBackwards == FALSE )
+			if ( !m_fadeBackwards )
 			{
 				m_grayOpacity = m_fadeTime.elapsed() / doFancyLogoutFadeTime;
 				if ( m_grayOpacity > 1.0f )
@@ -201,7 +201,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 			if( y2 > imgHeight )
 				y2 = imgHeight;
 
-			if( m_fadeBackwards == FALSE )
+			if( !m_fadeBackwards )
 			{
 				if( y1 > 0 && y1 < imgHeight && y1-m_rowsDone > 0 && m_rowsDone < imgHeight )
 				{
@@ -250,7 +250,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 			// if slotPaintEffect() is called first time, we have to initialize the gray image
 			// we also could do that in the constructor, but then the displaying of the
 			// logout-UI would be too much delayed...
-			if ( m_greyImageCreated == false )
+			if ( !m_greyImageCreated )
 			{
 				m_greyImageCreated = true;
 
@@ -278,11 +278,11 @@ void KSMShutdownFeedback::slotPaintEffect()
 			}
 
 			// return if fading is completely done...
-			if ( ( m_grayOpacity >= 1.0f && m_fadeBackwards == FALSE ) || ( m_grayOpacity <= 0.0f && m_fadeBackwards == TRUE ) )
+			if ( ( m_grayOpacity >= 1.0f && !m_fadeBackwards ) || ( m_grayOpacity <= 0.0f && m_fadeBackwards ) )
 				return;
 
 
-			if ( m_fadeBackwards == FALSE )
+			if ( !m_fadeBackwards )
 			{
 				m_grayOpacity = m_fadeTime.elapsed() / doFancyLogoutFadeTime;
 				if ( m_grayOpacity > 1.0f )
@@ -309,7 +309,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 			if( y2 > imgHeight )
 				y2 = imgHeight;
 
-			if( m_fadeBackwards == FALSE )
+			if( !m_fadeBackwards )
 			{
 				if( y1 > 0 && y1 < imgHeight && y1-m_rowsDone > 0 && m_rowsDone < imgHeight )
 				{
@@ -382,7 +382,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 				// The end effect will be very similar to the old style logout
 				float doFancyLogoutFadeTime = 1000;
 				float doFancyLogoutFadeBackTime = 0;
-				if ( m_greyImageCreated == false ) {
+				if ( !m_greyImageCreated ) {
 					m_greyImageCreated = true;
 
 					// eliminate nasty flicker on first show
@@ -414,11 +414,11 @@ void KSMShutdownFeedback::slotPaintEffect()
 				}
 
 				// return if fading is completely done...
-				if ( ( m_grayOpacity >= 1.0f && m_fadeBackwards == FALSE ) || ( m_grayOpacity <= 0.0f && m_fadeBackwards == TRUE ) ) {
+				if ( ( m_grayOpacity >= 1.0f && !m_fadeBackwards ) || ( m_grayOpacity <= 0.0f && m_fadeBackwards ) ) {
 					return;
 				}
 
-				if ( m_fadeBackwards == FALSE ) {
+				if ( !m_fadeBackwards ) {
 					m_grayOpacity = m_fadeTime.elapsed() / doFancyLogoutFadeTime;
 					if ( m_grayOpacity > 1.0f )
 					m_grayOpacity = 1.0f;
@@ -445,7 +445,7 @@ void KSMShutdownFeedback::slotPaintEffect()
 					y2 = imgHeight;
 				}
 
-				if( m_fadeBackwards == FALSE )
+				if( !m_fadeBackwards )
 				{
 					if( y1 > 0 && y1 < imgHeight && y1-m_rowsDone > 0 && m_rowsDone < imgHeight )
 					{
@@ -704,7 +704,7 @@ void KSMShutdownIPFeedback::slotPaintEffect()
 
 KSMShutdownDlg::KSMShutdownDlg( TQWidget* parent,
 								bool maysd, bool mayrb, TDEApplication::ShutdownType sdtype, int* selection )
-  : TQDialog( parent, 0, TRUE, (WFlags)WType_Popup ), targets(0), m_selection(selection)
+  : TQDialog( parent, 0, true, (WFlags)WType_Popup ), targets(0), m_selection(selection)
 	// this is a WType_Popup on purpose. Do not change that! Not
 	// having a popup here has severe side effects.
 
@@ -1377,7 +1377,7 @@ switch ( e->key() )
 	case Key_Enter:
 	case Key_Return:
 	case Key_Space:
-	  m_pressed = TRUE;
+	  m_pressed = true;
 	  setDown(true);
 	  emit pressed();
 	  break;
@@ -1402,7 +1402,7 @@ void KSMPushButton::keyReleaseEvent( TQKeyEvent* e )
 			if ( m_pressed )
 			{
 			setDown(false);
-			m_pressed = FALSE;
+			m_pressed = false;
 			emit released();
 			emit clicked();
 			}
@@ -1447,7 +1447,7 @@ void FlatButton::keyPressEvent( TQKeyEvent* e )
 		case Key_Enter:
 		case Key_Return:
 		case Key_Space:
-		m_pressed = TRUE;
+		m_pressed = true;
 		setDown(true);
 		emit pressed();
 		break;
@@ -1472,7 +1472,7 @@ void FlatButton::keyReleaseEvent( TQKeyEvent* e )
 			if ( m_pressed )
 			{
 			setDown(false);
-			m_pressed = FALSE;
+			m_pressed = false;
 			emit released();
 			emit clicked();
 			}

@@ -58,12 +58,12 @@
 TQXLibWindowList trinity_desktop_lock_hidden_window_list;
 
 // [FIXME] Add GUI configuration checkboxes for these three settings (see kdesktoprc [ScreenSaver] UseUnmanagedLockWindows, DelaySaverStart, and UseTDESAK)
-bool trinity_desktop_lock_use_system_modal_dialogs = FALSE;
-bool trinity_desktop_lock_delay_screensaver_start = FALSE;
-bool trinity_desktop_lock_use_sak = FALSE;
-bool trinity_desktop_lock_hide_active_windows = FALSE;
-bool trinity_desktop_lock_hide_cancel_button = FALSE;
-bool trinity_desktop_lock_forced = FALSE;
+bool trinity_desktop_lock_use_system_modal_dialogs = false;
+bool trinity_desktop_lock_delay_screensaver_start = false;
+bool trinity_desktop_lock_use_sak = false;
+bool trinity_desktop_lock_hide_active_windows = false;
+bool trinity_desktop_lock_hide_cancel_button = false;
+bool trinity_desktop_lock_forced = false;
 
 LockProcess* trinity_desktop_lock_process = NULL;
 
@@ -72,35 +72,35 @@ bool signalled_dontlock;
 bool signalled_securedialog;
 bool signalled_blank;
 bool signalled_run;
-bool in_internal_mode = FALSE;
+bool in_internal_mode = false;
 
-bool argb_visual = FALSE;
+bool argb_visual = false;
 pid_t kdesktop_pid = -1;
-bool trinity_desktop_lock_settings_initialized = FALSE;
+bool trinity_desktop_lock_settings_initialized = false;
 
 static void sigusr1_handler(int)
 {
-	signalled_forcelock = TRUE;
+	signalled_forcelock = true;
 }
 
 static void sigusr2_handler(int)
 {
-	signalled_dontlock = TRUE;
+	signalled_dontlock = true;
 }
 
 static void sigusr3_handler(int)
 {
-	signalled_securedialog = TRUE;
+	signalled_securedialog = true;
 }
 
 static void sigusr4_handler(int)
 {
-	signalled_blank = TRUE;
+	signalled_blank = true;
 }
 
 static void sigusr5_handler(int)
 {
-	signalled_run = TRUE;
+	signalled_run = true;
 }
 
 static int trapXErrors(Display *, XErrorEvent *)
@@ -246,11 +246,11 @@ int main( int argc, char **argv )
 		sigfillset(&new_mask);
 		sigprocmask(SIG_BLOCK, &new_mask, NULL);
 
-		signalled_forcelock = FALSE;
-		signalled_dontlock = FALSE;
-		signalled_securedialog = FALSE;
-		signalled_blank = FALSE;
-		signalled_run = FALSE;
+		signalled_forcelock = false;
+		signalled_dontlock = false;
+		signalled_securedialog = false;
+		signalled_blank = false;
+		signalled_run = false;
 
 		int kdesktop_screen_number = 0;
 		int starting_screen = 0;
@@ -396,7 +396,7 @@ int main( int argc, char **argv )
 			kdesktop_pid = atoi(args->getOption( "internal" ));
 			struct sigaction act;
 
-			in_internal_mode = TRUE;
+			in_internal_mode = true;
 
 			// handle SIGUSR1
 			act.sa_handler= sigusr1_handler;
@@ -437,7 +437,7 @@ int main( int argc, char **argv )
 			sigaddset(&new_mask,SIGTTIN);
 			sigaddset(&new_mask,SIGTTOU);
 
-			while (signalled_run == FALSE) {
+			while (!signalled_run) {
 				// let kdesktop know the saver process is ready
 				if (kill(kdesktop_pid, SIGTTIN) < 0) {
 					// The controlling kdesktop process probably died.  Commit suicide...
@@ -454,7 +454,7 @@ int main( int argc, char **argv )
 
 				// wait for SIGUSR1, SIGUSR2, SIGWINCH, SIGTTIN, or SIGTTOU
 				sigprocmask(SIG_BLOCK, &new_mask, &orig_mask);
-				if (signalled_run != TRUE) {
+				if (!signalled_run) {
 					sigsuspend(&orig_mask);
 				}
 				sigprocmask(SIG_UNBLOCK, &new_mask, NULL);
@@ -494,11 +494,11 @@ int main( int argc, char **argv )
 
 		delete tdmconfig;
 
-		if (args->isSet( "forcelock" ) || (signalled_forcelock == TRUE)) {
-			trinity_desktop_lock_forced = TRUE;
+		if (args->isSet( "forcelock" ) || signalled_forcelock) {
+			trinity_desktop_lock_forced = true;
 		}
 
-		trinity_desktop_lock_process->init(child, (args->isSet( "blank" ) || (signalled_blank == TRUE)));
+		trinity_desktop_lock_process->init(child, (args->isSet( "blank" ) || signalled_blank));
 		if (!child) {
 			trinity_desktop_lock_process->setChildren(child_sockets);
 		}
@@ -507,13 +507,13 @@ int main( int argc, char **argv )
 		}
 
 		bool rt;
-		if( (((!child) && (args->isSet( "forcelock" ))) || (signalled_forcelock == TRUE))) {
+		if( (((!child) && (args->isSet( "forcelock" ))) || signalled_forcelock)) {
 			rt = trinity_desktop_lock_process->lock();
 		}
-		else if( child || (args->isSet( "dontlock" ) || (signalled_dontlock == TRUE))) {
+		else if( child || (args->isSet( "dontlock" ) || signalled_dontlock)) {
 			rt = trinity_desktop_lock_process->dontLock();
 		}
-		else if( child || (args->isSet( "securedialog" ) || (signalled_securedialog == TRUE))) {
+		else if( child || (args->isSet( "securedialog" ) || signalled_securedialog)) {
 			int retcode = tde_sak_verify_calling_process();
 			if (retcode == 0) {
 				rt = trinity_desktop_lock_process->runSecureDialog();
@@ -529,7 +529,7 @@ int main( int argc, char **argv )
 			return 0;
 		}
 
-		if (in_internal_mode == FALSE) {
+		if (!in_internal_mode) {
 			trinity_desktop_lock_hidden_window_list.clear();
 			int ret = app->exec();
 			restore_hidden_override_redirect_windows();

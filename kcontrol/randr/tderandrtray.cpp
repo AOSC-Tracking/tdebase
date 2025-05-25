@@ -851,7 +851,7 @@ void KRandRSystemTray::slotDisplayProfileChanged(int parameter)
 		profileName = "";
 	}
 	TQPtrList<SingleScreenData> profileData = loadDisplayConfiguration(profileName, locateLocal("config", "/", true));
-	applyDisplayConfiguration(profileData, TRUE, locateLocal("config", "/", true));
+	applyDisplayConfiguration(profileData, true, locateLocal("config", "/", true));
 	destroyScreenInformationObject(profileData);
 }
 

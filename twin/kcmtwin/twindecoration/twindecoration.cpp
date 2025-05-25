@@ -753,11 +753,11 @@ void KWinDecorationModule::readConfig( TDEConfig* conf )
 	int swm;
 	for ( swm = 0; swm < thirdpartyWMList->count(); ++swm ) {
 		if ( thirdpartyWMList->text( swm ).startsWith(selectedWM + " ") ) {
-			found = TRUE;
+			found = true;
 			break;
 		}
 	}
-	if (found == FALSE) {
+	if (found == false) {
 		thirdpartyWMList->setCurrentItem(0);
 	}
 	else {

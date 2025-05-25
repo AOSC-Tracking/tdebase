@@ -54,7 +54,7 @@ bool PagerWindowDrag::decode( TQDropEvent *e, WId &w,int &deltax,int &deltay,int
 	    char *tmp=data.data();
 	    sscanf(tmp,"%lu %d %d %d", &w, &deltax, &deltay, &origdesk);
 	    e->accept();
-	    return TRUE;
+	    return true;
 	}
-    return FALSE;
+    return false;
 }

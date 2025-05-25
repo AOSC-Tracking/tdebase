@@ -161,7 +161,7 @@ class KonqFrameBase
   virtual void printFrameInfo( const TQString& spaces );
 
   virtual void reparentFrame( TQWidget* parent,
-                              const TQPoint & p, bool showIt=FALSE ) = 0;
+                              const TQPoint & p, bool showIt=false ) = 0;
 
   virtual KonqFrameContainerBase* parentContainer() { return m_pParentContainer; }
   virtual void setParentContainer(KonqFrameContainerBase* parent) { m_pParentContainer = parent; }
@@ -251,7 +251,7 @@ public:
   virtual void setTabIcon( const KURL &url, TQWidget* sender );
 
   virtual void reparentFrame(TQWidget * parent,
-                     const TQPoint & p, bool showIt=FALSE );
+                     const TQPoint & p, bool showIt=false );
 
   //virtual KonqFrameContainerBase* parentContainer();
   virtual TQWidget* widget() { return this; }
@@ -317,7 +317,7 @@ public:
   virtual TQCString frameType() { return TQCString("ContainerBase"); }
 
   virtual void reparentFrame(TQWidget * parent,
-                             const TQPoint & p, bool showIt=FALSE ) = 0;
+                             const TQPoint & p, bool showIt=false ) = 0;
 
   virtual KonqFrameBase* activeChild() { return m_pActiveChild; }
 
@@ -385,7 +385,7 @@ public:
 
   //inherited
   virtual void reparentFrame(TQWidget * parent,
-                             const TQPoint & p, bool showIt=FALSE );
+                             const TQPoint & p, bool showIt=false );
 
   //make this one public
   int idAfter( TQWidget* w ){ return TQSplitter::idAfter( w ); }

@@ -908,7 +908,7 @@ void KlipperWidget::checkClipData( bool selectionMode )
         // changing the clipboard at the same time.
         bSavedSelectionMode = selectionMode;
         bCheckForEmpty = true;
-        m_setClipboardTimer.start(100, TRUE);
+        m_setClipboardTimer.start(100, true);
         return;
     }
 
@@ -984,7 +984,7 @@ void KlipperWidget::checkClipData( bool selectionMode )
             // changing the clipboard at the same time.
             bSavedSelectionMode = !selectionMode; // inverted in order to sync
             bCheckForEmpty = false;
-            m_setClipboardTimer.start(100, TRUE);
+            m_setClipboardTimer.start(100, true);
         }
     }
 

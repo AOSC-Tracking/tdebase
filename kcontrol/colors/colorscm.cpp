@@ -167,7 +167,7 @@ KColorScheme::KColorScheme(TQWidget *parent, const char *name, const TQStringLis
        " prompted for a name.") );
 
     removeBt = new TQPushButton(i18n("R&emove Scheme"), group);
-    removeBt->setEnabled(FALSE);
+    removeBt->setEnabled(false);
     connect(removeBt, TQ_SIGNAL(clicked()), TQ_SLOT(slotRemove()));
 
     TQWhatsThis::add( removeBt, i18n("Press this button to remove the selected"

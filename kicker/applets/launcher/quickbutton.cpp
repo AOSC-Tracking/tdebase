@@ -266,10 +266,10 @@ void QuickButton::launch()
    }
    if (_qurl->kurl().url() == "SPECIAL_BUTTON__SHOW_DESKTOP") {
        if (isOn()) {
-           ShowDesktop::the()->showDesktop(TRUE);
+           ShowDesktop::the()->showDesktop(true);
        }
        else {
-           ShowDesktop::the()->showDesktop(FALSE);
+           ShowDesktop::the()->showDesktop(false);
        }
    }
    else {

@@ -58,7 +58,7 @@ Desktop::Desktop( int desk, TQString desktopName, TQWidget *parent, const char *
   m_bgPixmap = 0L;
   m_bgDirty=true;
   m_grabWindows=false;
-  setAcceptDrops(TRUE);
+  setAcceptDrops(true);
   setBackgroundMode(NoBackground);
 
   if (m_desk==1) Desktop::m_windowPixmaps.setAutoDelete(true);

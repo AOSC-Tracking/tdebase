@@ -698,7 +698,7 @@ void KSMPushButton::keyPressEvent( TQKeyEvent* e )
 		case Key_Enter:
 		case Key_Return:
 		case Key_Space:
-			m_pressed = TRUE;
+			m_pressed = true;
 			setDown(true);
 			emit pressed();
 		break;
@@ -723,7 +723,7 @@ void KSMPushButton::keyReleaseEvent( TQKeyEvent* e )
 			if ( m_pressed ) 
 			{
 			setDown(false);
-			m_pressed = FALSE;
+			m_pressed = false;
 			emit released();
 			emit clicked();
 			}
@@ -764,7 +764,7 @@ void FlatButton::keyPressEvent( TQKeyEvent* e )
 		case Key_Enter:
 		case Key_Return:
 		case Key_Space:
-			m_pressed = TRUE;
+			m_pressed = true;
 			setDown(true);
 			emit pressed();
 		break;
@@ -788,7 +788,7 @@ void FlatButton::keyReleaseEvent( TQKeyEvent* e )
 			if ( m_pressed ) 
 			{
 			setDown(false);
-			m_pressed = FALSE;
+			m_pressed = false;
 			emit released();
 			emit clicked();
 			}

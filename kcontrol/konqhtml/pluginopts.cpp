@@ -555,7 +555,7 @@ void KPluginOptions::pluginLoad( TDEConfig* /*config*/ )
             continue;
         }
 
-        TQStringList desc = TQStringList::split(':', line, TRUE);
+        TQStringList desc = TQStringList::split(':', line, true);
         TQString mime = desc[0].stripWhiteSpace();
         TQString name = desc[2];
         TQString suffixes = desc[1];

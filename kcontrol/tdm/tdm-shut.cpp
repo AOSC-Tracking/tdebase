@@ -49,13 +49,13 @@ TDMSessionsWidget::TDMSessionsWidget(TQWidget *parent, const char *name)
 
       TQGroupBox *group0 = new TQGroupBox( i18n("Allow Shutdown"), this );
 
-      sdlcombo = new TQComboBox( FALSE, group0 );
+      sdlcombo = new TQComboBox( false, group0 );
       sdllabel = new TQLabel (sdlcombo, i18n ("&Local:"), group0);
       sdlcombo->insertItem(i18n("Everybody"), SdAll);
       sdlcombo->insertItem(i18n("Only Root"), SdRoot);
       sdlcombo->insertItem(i18n("Nobody"), SdNone);
       connect(sdlcombo, TQ_SIGNAL(activated(int)), TQ_SLOT(changed()));
-      sdrcombo = new TQComboBox( FALSE, group0 );
+      sdrcombo = new TQComboBox( false, group0 );
       sdrlabel = new TQLabel (sdrcombo, i18n ("&Remote:"), group0);
       sdrcombo->insertItem(i18n("Everybody"), SdAll);
       sdrcombo->insertItem(i18n("Only Root"), SdRoot);

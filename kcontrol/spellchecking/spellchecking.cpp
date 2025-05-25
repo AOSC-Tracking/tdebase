@@ -66,7 +66,7 @@ void KSpellCheckingConfig::defaults()
     spellConfig->setNoRootAffix(0);
     spellConfig->setRunTogether(0);
     spellConfig->setDictionary("");
-    spellConfig->setDictFromList(FALSE);
+    spellConfig->setDictFromList(false);
     spellConfig->setEncoding (KS_E_UTF8);
     spellConfig->setClient (KS_CLIENT_ISPELL);
 }

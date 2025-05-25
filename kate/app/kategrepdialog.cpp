@@ -370,7 +370,7 @@ void GrepTool::slotSearch()
     *childproc << "-maxdepth" << "1";
   if (!cmbFiles->currentText().isEmpty() )
   {
-    TQStringList files = TQStringList::split ( ",", cmbFiles->currentText(), FALSE );
+    TQStringList files = TQStringList::split ( ",", cmbFiles->currentText(), false );
     *childproc << "(";
     bool first = true;
     for ( TQStringList::Iterator it = files.begin(); it != files.end(); ++it )

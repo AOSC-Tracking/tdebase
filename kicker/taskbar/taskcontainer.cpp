@@ -117,7 +117,7 @@ bool is_process_resumable(pid_t pid) {
 		TQByteArray statRaw = procStatFile.readAll();
 		procStatFile.close();
 		TQString statString(statRaw);
-		TQStringList statFields = TQStringList::split(" ", statString, TRUE);
+		TQStringList statFields = TQStringList::split(" ", statString, true);
 		TQString tcomm = statFields[1];
 		TQString state = statFields[2];
 		if( state == "T" ) {

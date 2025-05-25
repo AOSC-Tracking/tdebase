@@ -46,7 +46,7 @@ class TabBox : public TQFrame
         bool isAppsOnly() const;
 
         void reset();
-        void nextPrev( bool next = TRUE);
+        void nextPrev( bool next = true);
 
         void delayedShow();
         void hide();

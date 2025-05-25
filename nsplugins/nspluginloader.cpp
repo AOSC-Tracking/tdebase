@@ -272,7 +272,7 @@ void NSPluginLoader::scanPlugins()
           continue;
         }
 
-      TQStringList desc = TQStringList::split(':', line, TRUE);
+      TQStringList desc = TQStringList::split(':', line, true);
       TQString mime = desc[0].stripWhiteSpace();
       TQStringList suffixes = TQStringList::split(',', desc[1].stripWhiteSpace());
       if (!mime.isEmpty())

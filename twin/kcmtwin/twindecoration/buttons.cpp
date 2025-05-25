@@ -84,9 +84,9 @@ bool ButtonDrag::decode( TQDropEvent* e, Button& btn )
 		int supported;
 		stream >> supported;
 		btn.supported = supported;
-		return TRUE;
+		return true;
 	}
-	return FALSE;
+	return false;
 }
 
 
@@ -267,7 +267,7 @@ ButtonDropSite::ButtonDropSite( TQWidget* parent, const char* name )
 	: TQFrame( parent, name ),
 	  m_selected(0)
 {
-	setAcceptDrops( TRUE );
+	setAcceptDrops( true );
 	setFrameShape( WinPanel );
 	setFrameShadow( Raised );
 	setMinimumHeight( 26 );

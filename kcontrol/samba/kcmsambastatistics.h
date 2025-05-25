@@ -50,7 +50,7 @@ class LogItem
   LogItem():name(""), accessed(),count(0) {};
   LogItem(TQString n, TQString a):name(n), accessed(), count(1)
 	{
-	  accessed.setAutoDelete(TRUE);
+	  accessed.setAutoDelete(true);
 	  accessed.append(new SmallLogItem(a));
 	};
   TQString name;
@@ -66,7 +66,7 @@ class SambaLog
  public:
   SambaLog()
 	{
-	  items.setAutoDelete(TRUE);
+	  items.setAutoDelete(true);
 	};
   TQPtrList<LogItem> items;
   void addItem (TQString share, TQString host);

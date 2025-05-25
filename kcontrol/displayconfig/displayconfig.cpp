@@ -933,7 +933,7 @@ void KDisplayConfig::identifyMonitors () {
 }
 
 void KDisplayConfig::activatePreview() {
-	m_randrsimple->applyDisplayConfiguration(m_screenInfoArray[activeProfileName], TRUE);
+	m_randrsimple->applyDisplayConfiguration(m_screenInfoArray[activeProfileName], true);
 }
 
 void KDisplayConfig::load()
@@ -1080,10 +1080,10 @@ void KDisplayConfig::renameProfile () {
 
 void KDisplayConfig::activateProfile() {
 	if (getuid() != 0) {
-		m_randrsimple->applyDisplayConfiguration(m_screenInfoArray[activeProfileName], TRUE, locateLocal("config", "/", true));
+		m_randrsimple->applyDisplayConfiguration(m_screenInfoArray[activeProfileName], true, locateLocal("config", "/", true));
 	}
 	else {
-		m_randrsimple->applyDisplayConfiguration(m_screenInfoArray[activeProfileName], TRUE, KDE_CONFDIR);
+		m_randrsimple->applyDisplayConfiguration(m_screenInfoArray[activeProfileName], true, KDE_CONFDIR);
 	}
 	rescanHardware();
 }
@@ -1331,7 +1331,7 @@ void KDisplayConfig::updateDragDropDisplay() {
 		for ( i = 0; i < int(monitors.count()); ++i ) {
 			if (::tqt_cast<DraggableMonitor*>(monitors.at( i ))) {
 				TQWidget *monitor = static_cast<TQWidget*>(monitors.at( i ));
-				if ( !monitor->close(TRUE) ) {
+				if ( !monitor->close(true) ) {
 					Q_ASSERT("zombie monitor will not go away!");
 				}
 			}
@@ -1536,7 +1536,7 @@ void KDisplayConfig::gammaAllSliderChanged(int index) {
 	screendata->gamma_green = ((float)base->gammaAllSlider->value())/10.0;
 	screendata->gamma_blue = ((float)base->gammaAllSlider->value())/10.0;
 
-	m_gammaApplyTimer->start(10, TRUE);
+	m_gammaApplyTimer->start(10, true);
 
 	base->gammaAllSlider->blockSignals(false);
 	base->gammaRedSlider->blockSignals(false);
@@ -1558,7 +1558,7 @@ void KDisplayConfig::gammaRedSliderChanged(int index) {
 	screendata->gamma_red = ((float)index)/10.0;
 	gammaSetAverageAllSlider();
 	setGammaLabels();
-	m_gammaApplyTimer->start(10, TRUE);
+	m_gammaApplyTimer->start(10, true);
 
 	base->gammaAllSlider->blockSignals(false);
 	base->gammaRedSlider->blockSignals(false);
@@ -1580,7 +1580,7 @@ void KDisplayConfig::gammaGreenSliderChanged(int index) {
 	screendata->gamma_green = ((float)index)/10.0;
 	gammaSetAverageAllSlider();
 	setGammaLabels();
-	m_gammaApplyTimer->start(10, TRUE);
+	m_gammaApplyTimer->start(10, true);
 
 	base->gammaAllSlider->blockSignals(false);
 	base->gammaRedSlider->blockSignals(false);
@@ -1602,7 +1602,7 @@ void KDisplayConfig::gammaBlueSliderChanged(int index) {
 	screendata->gamma_blue = ((float)index)/10.0;
 	gammaSetAverageAllSlider();
 	setGammaLabels();
-	m_gammaApplyTimer->start(10, TRUE);
+	m_gammaApplyTimer->start(10, true);
 
 	base->gammaAllSlider->blockSignals(false);
 	base->gammaRedSlider->blockSignals(false);
@@ -1992,7 +1992,7 @@ void KDisplayConfig::saveActiveSystemWideProfileToDisk()
 
 void KDisplayConfig::save()
 {
-	if (m_randrsimple->applyDisplayConfiguration(m_screenInfoArray[activeProfileName], TRUE)) {
+	if (m_randrsimple->applyDisplayConfiguration(m_screenInfoArray[activeProfileName], true)) {
 		saveActiveSystemWideProfileToDisk();
 
 		updateProfileConfigObjectFromGrid();
@@ -2021,7 +2021,7 @@ void KDisplayConfig::save()
 		// Signal that settings were NOT applied
 		TQTimer *t = new TQTimer( this );
 		connect(t, TQ_SIGNAL(timeout()), TQ_SLOT(changed()) );
-		t->start( 100, FALSE );
+		t->start( 100, false );
 	}
 }
 

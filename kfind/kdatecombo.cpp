@@ -16,13 +16,13 @@
 
 #include "kdatecombo.moc"
 
-KDateCombo::KDateCombo(TQWidget *parent, const char *name ) : TQComboBox(FALSE, parent,name)
+KDateCombo::KDateCombo(TQWidget *parent, const char *name ) : TQComboBox(false, parent,name)
 {
   TQDate date = TQDate::currentDate();
   initObject(date, parent, name);
 }
 
-KDateCombo::KDateCombo(const TQDate & date, TQWidget *parent, const char *name) : TQComboBox(FALSE, parent,name)
+KDateCombo::KDateCombo(const TQDate & date, TQWidget *parent, const char *name) : TQComboBox(false, parent,name)
 {
   initObject(date, parent, name);
 }
@@ -69,9 +69,9 @@ bool KDateCombo::setDate(const TQDate & newDate)
     if (count())
       clear();
     insertItem(date2String(newDate));
-    return TRUE;
+    return true;
   }
-  return FALSE;
+  return false;
 }
 
 void KDateCombo::dateEnteredEvent(TQDate newDate)

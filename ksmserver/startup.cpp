@@ -87,8 +87,8 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kdebug.h>
 
 // shall we show a nice fancy login screen?
-bool showFancyLogin = FALSE;
-bool trinity_startup_main_sequence_done = FALSE;
+bool showFancyLogin = false;
+bool trinity_startup_main_sequence_done = false;
 
 /*!  Restores the previous session. Ensures the window manager is
   running (if specified).
@@ -307,7 +307,7 @@ void KSMServer::tryRestoreNext()
                           config->readEntry( TQString("userId")+n ));
         lastIdStarted = config->readEntry( TQString("clientId")+n );
         if ( !lastIdStarted.isEmpty() ) {
-            restoreTimer.start( 2000, TRUE );
+            restoreTimer.start( 2000, true );
             return; // we get called again from the clientRegistered handler
         }
     }
@@ -462,7 +462,7 @@ void KSMServer::upAndRunning( const TQString& msg )
     if (startupNotifierIPDlg) {
         static_cast<KSMStartupIPDlg*>(startupNotifierIPDlg)->setStartupPhase(msg);
         if (msg == TQString("session ready")) {
-            trinity_startup_main_sequence_done = TRUE;
+            trinity_startup_main_sequence_done = true;
         }
     }
     DCOPRef( "ksplash" ).send( "upAndRunning", msg );

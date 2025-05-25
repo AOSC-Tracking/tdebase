@@ -110,7 +110,7 @@ KfindWindow::KfindWindow( TQWidget *parent, const char *name )
 ,m_menu(0)
 {
   setSelectionMode( TQListView::Extended );
-  setShowSortIndicator( TRUE );
+  setShowSortIndicator( true );
 
   addColumn(i18n("Name"));
   addColumn(i18n("In Subfolder"));

@@ -600,7 +600,7 @@ void KPager::desktopPopupAboutToShow()
         id = m_dmnu->insertItem( TQString("&")+TQString::number(i )+TQString(" ")
                                  + m_winmodule->desktopName(i), i );
         if ( m_winfo.desktop() == i )
-            m_dmnu->setItemChecked( id, TRUE );
+            m_dmnu->setItemChecked( id, true );
     }
 }
 

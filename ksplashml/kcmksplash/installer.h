@@ -26,7 +26,7 @@ class SplashInstaller : public TQWidget
 {
   TQ_OBJECT
 public:
-  SplashInstaller(TQWidget *parent=0, const char *aName=0, bool aInit=FALSE);
+  SplashInstaller(TQWidget *parent=0, const char *aName=0, bool aInit=false);
   ~SplashInstaller();
 
   virtual void load();

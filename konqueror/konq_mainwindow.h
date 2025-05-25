@@ -282,7 +282,7 @@ public:
   void printFrameInfo( const TQString &spaces );
 
   void reparentFrame( TQWidget* parent,
-                              const TQPoint & p, bool showIt=FALSE );
+                              const TQPoint & p, bool showIt=false );
 
   KonqFrameContainerBase* parentContainer()const;
   void setParentContainer(KonqFrameContainerBase* parent);

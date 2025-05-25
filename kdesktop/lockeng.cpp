@@ -56,7 +56,7 @@
 #include "xautolock_c.h"
 extern xautolock_corner_t xautolock_corners[ 4 ];
 
-bool trinity_lockeng_sak_available = TRUE;
+bool trinity_lockeng_sak_available = true;
 
 SaverEngine* m_masterSaverEngine = NULL;
 static void sigusr1_handler(int)
@@ -172,7 +172,7 @@ SaverEngine::SaverEngine()
 	}
 	mLockProcess << path;
 	mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
-	if (mLockProcess.start() == false )
+	if (!mLockProcess.start())
 	{
 		kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
 	}
@@ -482,7 +482,7 @@ void SaverEngine::slotSAKProcessExited()
 	}
 	int retcode = mSAKProcess->exitStatus();
 	if ((retcode != 0) && (mSAKProcess->normalExit())) {
-		trinity_lockeng_sak_available = FALSE;
+		trinity_lockeng_sak_available = false;
 		printf("[kdesktop] SAK driven secure dialog is not available for use (retcode %d).  Check tdmtsak for proper functionality.\n", retcode); fflush(stdout);
 	}
 
@@ -490,7 +490,7 @@ void SaverEngine::slotSAKProcessExited()
 		return;
 	}
 
-	if ((mSAKProcess->normalExit()) && (trinity_lockeng_sak_available == TRUE)) {
+	if (mSAKProcess->normalExit() && trinity_lockeng_sak_available) {
 		bool ok = true;
 		if (mState == Waiting)
 		{
@@ -561,7 +561,7 @@ bool SaverEngine::restartDesktopLockProcess()
 		}
 		mLockProcess << path;
 		mLockProcess << TQString( "--internal" ) << TQString( "%1" ).arg(getpid());
-		if (mLockProcess.start() == false) {
+		if (!mLockProcess.start()) {
 			kdDebug( 1204 ) << "Failed to start kdesktop_lock!" << endl;
 			return false;
 		}
@@ -686,7 +686,7 @@ void SaverEngine::recoverFromHackingAttempt()
 void SaverEngine::lockProcessExited()
 {
 	bool abnormalExit = false;
-	if (mLockProcess.normalExit() == false) {
+	if (!mLockProcess.normalExit()) {
 		abnormalExit = true;
 	}
 	else {
@@ -694,11 +694,11 @@ void SaverEngine::lockProcessExited()
 			abnormalExit = true;
 		}
 	}
-	if (mTerminationRequested == true) {
+	if (mTerminationRequested) {
 		abnormalExit = false;
 		mTerminationRequested = false;
 	}
-	if (abnormalExit == true) {
+	if (abnormalExit) {
 		// PROBABLE HACKING ATTEMPT DETECTED
 		restartDesktopLockProcess();
 		mState = Waiting;
@@ -750,7 +750,7 @@ void SaverEngine::slotLockProcessReady()
 void SaverEngine::lockProcessWaiting()
 {
 	kdDebug(1204) << "SaverEngine: lock exited" << endl;
-	if (trinity_lockeng_sak_available == TRUE) {
+	if (trinity_lockeng_sak_available) {
 		handleSecureDialog();
 	}
 	if( mState == Waiting ) {

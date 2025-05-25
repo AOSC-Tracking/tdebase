@@ -415,7 +415,7 @@ void scanDirectory( TQString dir, TQStringList &mimeInfoList,
                   }
 
                   // write into type cache
-                  TQStringList tokens = TQStringList::split(':', *type, TRUE);
+                  TQStringList tokens = TQStringList::split(':', *type, true);
                   TQStringList::Iterator token;
                   token = tokens.begin();
                   cache << (*token).lower();

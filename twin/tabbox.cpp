@@ -203,7 +203,7 @@ void TabBox::reset()
         if ( clients.count() == 0 )  // height for the "not tasks" text
           {
           TQFont f = font();
-          f.setBold( TRUE );
+          f.setBold( true );
           f.setPointSize( 14 );
 
           h = TQFontMetrics(f).height()*4;
@@ -401,7 +401,7 @@ void TabBox::drawContents( TQPainter * )
         if ( !currentClient() )
             {
             TQFont f = font();
-            f.setBold( TRUE );
+            f.setBold( true );
             f.setPointSize( 14 );
 
             p.setFont(f);
@@ -993,26 +993,26 @@ bool Workspace::startKDEWalkThroughWindows()
     {
     if( !establishTabBoxGrab())
         return false;
-    tab_grab        = TRUE;
+    tab_grab        = true;
     keys->suspend( true );
     disable_shortcuts_keys->suspend( true );
     client_keys->suspend( true );
     tab_box->setMode( TabBox::WindowsMode );
     tab_box->reset();
-    return TRUE;
+    return true;
     }
 
 bool Workspace::startWalkThroughDesktops( int mode )
     {
     if( !establishTabBoxGrab())
         return false;
-    control_grab = TRUE;
+    control_grab = true;
     keys->suspend( true );
     disable_shortcuts_keys->suspend( true );
     client_keys->suspend( true );
     tab_box->setMode( (TabBox::Mode) mode );
     tab_box->reset();
-    return TRUE;
+    return true;
     }
 
 bool Workspace::startWalkThroughDesktops()
@@ -1195,8 +1195,8 @@ void Workspace::closeTabBox()
     keys->suspend( false );
     disable_shortcuts_keys->suspend( false );
     client_keys->suspend( false );
-    tab_grab = FALSE;
-    control_grab = FALSE;
+    tab_grab = false;
+    control_grab = false;
     }
 
 /*!

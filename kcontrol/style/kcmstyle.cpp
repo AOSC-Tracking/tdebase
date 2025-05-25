@@ -163,12 +163,12 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	hbLayout = new TQHBoxLayout( KDialog::spacingHint(), "hbLayout" );
 
 	cbStyle = new KComboBox( gbWidgetStyle, "cbStyle" );
-	cbStyle->setEditable( FALSE );
+	cbStyle->setEditable( false );
 	hbLayout->addWidget( cbStyle );
 
 	pbConfigStyle = new TQPushButton( i18n("Con&figure..."), gbWidgetStyle );
 	pbConfigStyle->setSizePolicy( TQSizePolicy::Maximum, TQSizePolicy::Minimum );
-	pbConfigStyle->setEnabled( FALSE );
+	pbConfigStyle->setEnabled( false );
 	hbLayout->addWidget( pbConfigStyle );
 
 	gbWidgetStyleLayout->addLayout( hbLayout );
@@ -227,7 +227,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	containerLayout = new TQGridLayout( containerFrame, 1, 1,	// rows, columns
 		KDialog::marginHint(), KDialog::spacingHint() );
 
-	comboComboEffect = new TQComboBox( FALSE, containerFrame );
+	comboComboEffect = new TQComboBox( false, containerFrame );
 	comboComboEffect->insertItem( i18n("Disable") );
 	comboComboEffect->insertItem( i18n("Animate") );
 	lblComboEffect = new TQLabel( i18n("Combobo&x effect:"), containerFrame );
@@ -235,7 +235,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	containerLayout->addWidget( lblComboEffect, 0, 0 );
 	containerLayout->addWidget( comboComboEffect, 0, 1 );
 
-	comboTooltipEffect = new TQComboBox( FALSE, containerFrame );
+	comboTooltipEffect = new TQComboBox( false, containerFrame );
 	comboTooltipEffect->insertItem( i18n("Disable") );
 	comboTooltipEffect->insertItem( i18n("Animate") );
 	comboTooltipEffect->insertItem( i18n("Fade") );
@@ -244,7 +244,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	containerLayout->addWidget( lblTooltipEffect, 1, 0 );
 	containerLayout->addWidget( comboTooltipEffect, 1, 1 );
 
-	comboRubberbandEffect = new TQComboBox( FALSE, containerFrame );
+	comboRubberbandEffect = new TQComboBox( false, containerFrame );
 	comboRubberbandEffect->insertItem( i18n("Disable") );
 	comboRubberbandEffect->insertItem( i18n("Make translucent") );
 	lblRubberbandEffect = new TQLabel( i18n("&Rubberband effect:"), containerFrame );
@@ -252,7 +252,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	containerLayout->addWidget( lblRubberbandEffect, 2, 0 );
 	containerLayout->addWidget( comboRubberbandEffect, 2, 1 );
 	
-	comboMenuEffect = new TQComboBox( FALSE, containerFrame );
+	comboMenuEffect = new TQComboBox( false, containerFrame );
 	comboMenuEffect->insertItem( i18n("Disable") );
 	comboMenuEffect->insertItem( i18n("Animate") );
 	comboMenuEffect->insertItem( i18n("Fade") );
@@ -262,7 +262,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	containerLayout->addWidget( lblMenuEffect, 3, 0 );
 	containerLayout->addWidget( comboMenuEffect, 3, 1 );
 
-	comboMenuHandle = new TQComboBox( FALSE, containerFrame );
+	comboMenuHandle = new TQComboBox( false, containerFrame );
 	comboMenuHandle->insertItem( i18n("Disable") );
 	comboMenuHandle->insertItem( i18n("Application Level") );
 //	comboMenuHandle->insertItem( i18n("Enable") );
@@ -291,7 +291,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 
 	menuPreview = new MenuPreview( menuContainer, /* opacity */ 90, MenuPreview::Blend );
 
-	comboMenuEffectType = new TQComboBox( FALSE, menuContainer );
+	comboMenuEffectType = new TQComboBox( false, menuContainer );
 	comboMenuEffectType->insertItem( i18n("Software Tint") );
 	comboMenuEffectType->insertItem( i18n("Software Blend") );
 #ifdef HAVE_XRENDER
@@ -353,7 +353,7 @@ KCMStyle::KCMStyle( TQWidget* parent, const char* name )
 	
 	TQHBoxLayout* box2 = new TQHBoxLayout( dummy, 0, KDialog::spacingHint() );
 	lbl = new TQLabel( i18n("Text pos&ition:"), dummy );
-	comboToolbarIcons = new TQComboBox( FALSE, dummy );
+	comboToolbarIcons = new TQComboBox( false, dummy );
 	comboToolbarIcons->insertItem( i18n("Icons Only") );
 	comboToolbarIcons->insertItem( i18n("Text Only") );
 	comboToolbarIcons->insertItem( i18n("Text Alongside Icons") );
@@ -697,11 +697,11 @@ bool KCMStyle::findStyle( const TQString& str, int& combobox_item )
 		if ( cbStyle->text(i) == name )
 		{
 			combobox_item = i;
-			return TRUE;
+			return true;
 		}
 	}
 
-	return FALSE;
+	return false;
 }
 
 
