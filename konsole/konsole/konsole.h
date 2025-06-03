@@ -247,6 +247,7 @@ private slots:
   void slotTabSelectColor();
   void slotTabResetColor();
   void slotTabCloseSession();
+  void slotTabCloseSession(TQWidget*);
   void slotTabToggleMonitor();
   void slotTabToggleMasterMode();
   void slotTabbarContextMenu(const TQPoint &);
@@ -448,6 +449,7 @@ private:
   bool        b_matchTabWinTitle:1;
   bool        b_mouseWheelScroll:1;
   bool        b_menuAccelerators:1;
+  bool        b_showTabCloseIconHover:1;
 
   unsigned int m_histSize;
   int m_separator_id;

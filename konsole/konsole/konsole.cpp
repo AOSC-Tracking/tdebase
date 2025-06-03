@@ -280,6 +280,7 @@ Konsole::Konsole(const char* name, int histon, bool menubaron, bool tabbaron, bo
 ,b_sessionShortcutsEnabled(false)
 ,b_sessionShortcutsMapped(false)
 ,b_matchTabWinTitle(false)
+,b_showTabCloseIconHover(false)
 ,m_histSize(DEFAULT_HISTORY_SIZE)
 ,m_separator_id(-1)
 ,m_newSessionButton(0)
@@ -944,6 +945,7 @@ void Konsole::makeTabWidget()
   tabwidget->setAutomaticResizeTabs(b_autoResizeTabs);
   tabwidget->setTabCloseActivatePrevious(true);
   tabwidget->setMouseWheelScroll(b_mouseWheelScroll);
+  tabwidget->setHoverCloseButton(b_showTabCloseIconHover);
 
   if (n_tabbar==TabTop)
     tabwidget->setTabPosition(TQTabWidget::Top);
@@ -959,6 +961,8 @@ void Konsole::makeTabWidget()
                      TQ_SLOT(slotTabContextMenu(TQWidget*, const TQPoint &)));
   connect(tabwidget, TQ_SIGNAL(contextMenu(const TQPoint &)),
                      TQ_SLOT(slotTabbarContextMenu(const TQPoint &)));
+  connect(tabwidget, TQ_SIGNAL(closeRequest( TQWidget * )),
+                     TQ_SLOT(slotTabCloseSession( TQWidget * )));
 
   if (tdeApp->authorize("shell_access")) {
     connect(tabwidget, TQ_SIGNAL(mouseDoubleClick()), TQ_SLOT(newSession()));
@@ -979,7 +983,6 @@ void Konsole::makeTabWidget()
     m_removeSessionButton->setEnabled(false);
     connect(m_removeSessionButton, TQ_SIGNAL(clicked()), TQ_SLOT(confirmCloseCurrentSession()));
     tabwidget->setCornerWidget( m_removeSessionButton, BottomRight );
-
   }
 }
 
@@ -1413,6 +1416,11 @@ void Konsole::slotTabCloseSession()
   confirmCloseCurrentSession(m_contextMenuSession);
 }
 
+void Konsole::slotTabCloseSession(TQWidget * w)
+{
+  confirmCloseCurrentSession(sessions.at( tabwidget->indexOf( w ) ));
+}
+
 void Konsole::slotTabbarContextMenu(const TQPoint & pos)
 {
    if (!m_menuCreated)
@@ -1655,6 +1663,7 @@ void Konsole::readProperties(TDEConfig* config, const TQString &schema, bool glo
      b_xonXoff = config->readBoolEntry("XonXoff",false);
      b_matchTabWinTitle = config->readBoolEntry("MatchTabWinTitle",false);
      b_mouseWheelScroll = config->readBoolEntry("TabsCycleWheel",true);
+     b_showTabCloseIconHover = config->readBoolEntry("ShowCloseTabButtonWithHover",false);
      b_menuAccelerators = config->readBoolEntry("MenuAccelerators",false);
      config->setGroup("UTMP");
      b_addToUtmp = config->readBoolEntry("AddToUtmp",true);
@@ -1760,6 +1769,7 @@ void Konsole::applySettingsToGUI()
       updateRMBMenu();
    }
    updateKeytabMenu();
+   tabwidget->setHoverCloseButton( b_showTabCloseIconHover );
    tabwidget->setAutomaticResizeTabs( b_autoResizeTabs );
 }
 

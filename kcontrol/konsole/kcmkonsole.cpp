@@ -72,6 +72,7 @@ KCMKonsole::KCMKonsole(TQWidget * parent, const char *name, const TQStringList&)
     connect(dialog->line_spacingSB,TQ_SIGNAL(valueChanged(int)), TQ_SLOT( changed() ));
     connect(dialog->matchTabWinTitleCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
     connect(dialog->tabsCycleWheelCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->showCloseTabButtonWithHover,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
     connect(dialog->menuAcceleratorsCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
     connect(dialog->metaAsAltModeCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
     connect(dialog->realTransparency,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
@@ -100,6 +101,7 @@ void KCMKonsole::load(bool useDefaults)
     dialog->bidiCB->setChecked(bidiOrig);
     dialog->matchTabWinTitleCB->setChecked(config.readBoolEntry("MatchTabWinTitle",false));
     dialog->tabsCycleWheelCB->setChecked(config.readBoolEntry("TabsCycleWheel",true));
+    dialog->showCloseTabButtonWithHover->setChecked(config.readBoolEntry("ShowCloseTabButtonWithHover",false));
     dialog->menuAcceleratorsCB->setChecked(config.readBoolEntry("MenuAccelerators",false));
     dialog->warnCB->setChecked(config.readBoolEntry("WarnQuit",true));
     dialog->ctrldragCB->setChecked(config.readBoolEntry("CtrlDrag",true));
@@ -143,6 +145,7 @@ void KCMKonsole::save()
     config.writeEntry("EnableBidi", bidiNew);
     config.writeEntry("MatchTabWinTitle", dialog->matchTabWinTitleCB->isChecked());
     config.writeEntry("TabsCycleWheel", dialog->tabsCycleWheelCB->isChecked());
+    config.writeEntry("ShowCloseTabButtonWithHover", dialog->showCloseTabButtonWithHover->isChecked());
     config.writeEntry("MenuAccelerators", dialog->menuAcceleratorsCB->isChecked());
     config.writeEntry("WarnQuit", dialog->warnCB->isChecked());
     config.writeEntry("CtrlDrag", dialog->ctrldragCB->isChecked());

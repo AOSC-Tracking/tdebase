@@ -160,13 +160,21 @@
                             </widget>
                             <widget class="TQCheckBox" row="11" column="0" rowspan="1" colspan="3">
                                 <property name="name">
+                                    <cstring>showCloseTabButtonWithHover</cstring>
+                                </property>
+                                <property name="text">
+                                  <string>&amp;Show close button instead of shell icon with hover</string>
+                                </property>
+                            </widget>
+                            <widget class="TQCheckBox" row="12" column="0" rowspan="1" colspan="3">
+                                <property name="name">
                                     <cstring>menuAcceleratorsCB</cstring>
                                 </property>
                                 <property name="text">
                                   <string>Enable main &amp;menu accelerator keys</string>
                                 </property>
                             </widget>
-                            <widget class="TQCheckBox" row="12" column="0" rowspan="1" colspan="3">
+                            <widget class="TQCheckBox" row="13" column="0" rowspan="1" colspan="3">
                               <property name="name">
                                 <cstring>metaAsAltModeCB</cstring>
                               </property>
@@ -174,7 +182,7 @@
                                 <string>Handle Meta &amp;key as Alt Key</string>
                               </property>
                             </widget>
-			    <widget class="TQCheckBox" row="13" column="0" rowspan="1" colspan="3">
+			    <widget class="TQCheckBox" row="14" column="0" rowspan="1" colspan="3">
                               <property name="name">
                                 <cstring>realTransparency</cstring>
                               </property>
@@ -182,7 +190,7 @@
                                 <string>Use &amp;real transparency</string>
                               </property>
                             </widget>
-                            <widget class="TQLabel" row="14" column="0" rowspan="1" colspan="2">
+                            <widget class="TQLabel" row="15" column="0" rowspan="1" colspan="2">
                               <property name="name">
                                 <cstring>TextLabel1_4</cstring>
                               </property>
@@ -201,7 +209,7 @@
                                 <cstring>line_spacingSB</cstring>
                               </property>
                             </widget>
-                            <spacer row="13" column="3">
+                            <spacer row="14" column="3">
                               <property name="name">
                                 <cstring>Spacer3</cstring>
                               </property>
@@ -218,7 +226,7 @@
                                 </size>
                               </property>
                             </spacer>
-                            <widget class="KIntNumInput" row="14" column="2">
+                            <widget class="KIntNumInput" row="15" column="2">
                                 <property name="name">
                                     <cstring>line_spacingSB</cstring>
                                 </property>
@@ -237,7 +245,7 @@
                                     <number>8</number>
                                 </property>
                             </widget>
-                            <spacer row="12" column="3">
+                            <spacer row="13" column="3">
                                 <property name="name">
                                     <cstring>Spacer2</cstring>
                                 </property>
@@ -254,7 +262,7 @@
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="TQLabel" row="15" column="0" rowspan="1" colspan="2">
+                            <widget class="TQLabel" row="16" column="0" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>SilenceLabel</cstring>
                                 </property>
@@ -273,7 +281,7 @@
                                     <cstring>silence_secondsSB</cstring>
                                 </property>
                             </widget>
-                            <widget class="KIntNumInput" row="15" column="2">
+                            <widget class="KIntNumInput" row="16" column="2">
                                 <property name="name">
                                     <cstring>silence_secondsSB</cstring>
                                 </property>
@@ -292,7 +300,7 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="TQLabel" row="16" column="0" colspan="3">
+                            <widget class="TQLabel" row="17" column="0" colspan="3">
                                 <property name="name">
                                     <cstring>TextLabel1_3</cstring>
                                 </property>
@@ -303,7 +311,7 @@
                                     <cstring>word_connectorLE</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQLineEdit" row="17" column="0" colspan="3">
+                            <widget class="TQLineEdit" row="18" column="0" colspan="3">
                                 <property name="name">
                                     <cstring>word_connectorLE</cstring>
                                 </property>
