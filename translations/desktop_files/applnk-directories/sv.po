@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Simon Stockhaus <simon.stockhaus.95@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-06-09 03:01+0000\n"
+"Last-Translator: Simon Stockhaus <simon.stockhaus.95@gmail.com>\n"
+"Language-Team: Swedish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/applnk-directories/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: .directory:2
@@ -38,27 +39,27 @@ msgstr "Webbutveckling"
 #: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
 #: kde-utilities.directory:4
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #. Name
 #: kde-editors.directory:4 tde-editors.directory:4
 msgid "Editors"
-msgstr "Editorer"
+msgstr "Redigerare"
 
 #. Name
 #: kde-edu-languages.directory:4
 msgid "Languages"
-msgstr ""
+msgstr "Språk"
 
 #. Name
 #: kde-edu-mathematics.directory:4
 msgid "Mathematics"
-msgstr ""
+msgstr "Matematik"
 
 #. Name
 #: kde-edu-miscellaneous.directory:4
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Övrigt"
 
 #. Name
 #: kde-edu-science.directory:4 tde-science.directory:5
@@ -134,9 +135,8 @@ msgstr "Utbildning"
 
 #. Name
 #: tde-games-logic.directory:4
-#, fuzzy
 msgid "Logic Games"
-msgstr "Spel som liknar Rogue"
+msgstr "Logikspel"
 
 #. Name
 #: tde-games-roguelikes.directory:4
@@ -160,9 +160,8 @@ msgstr "Terminalprogram"
 
 #. Name
 #: tde-internet.directory:4
-#, fuzzy
 msgid "Internet"
-msgstr "Internet och nätverk"
+msgstr "Internet"
 
 #. Name
 #: tde-main.directory:5
@@ -176,9 +175,8 @@ msgstr "Fler program"
 
 #. Name
 #: tde-multimedia.directory:4
-#, fuzzy
 msgid "Multimedia"
-msgstr "Ljud och multimedia"
+msgstr "Multimedia"
 
 #. Name
 #. Comment
@@ -209,7 +207,7 @@ msgstr "Hårdvara"
 #. Name
 #: tde-settings-information.directory:4
 msgid "Device Informations"
-msgstr ""
+msgstr "Enhetsinformation"
 
 #. Name
 #: tde-settings-looknfeel.directory:4
@@ -276,12 +274,12 @@ msgstr "Demonstration av skärmsläckare"
 #. Name
 #: tde-system-su.directory:5
 msgid "SuperUser"
-msgstr ""
+msgstr "Superanvändare"
 
 #. Name
 #: tde-system.directory:4
 msgid "System"
-msgstr ""
+msgstr "System"
 
 #. Name
 #: tde-unknown.directory:4
