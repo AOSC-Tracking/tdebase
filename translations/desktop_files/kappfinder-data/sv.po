@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2025-06-09 23:14+0000\n"
+"PO-Revision-Date: 2025-06-12 23:45+0000\n"
 "Last-Translator: Simon Stockhaus <simon.stockhaus.95@gmail.com>\n"
 "Language-Team: Swedish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kappfinder-data/sv/>\n"
@@ -332,13 +332,12 @@ msgstr "Same Gnome"
 #. Name
 #: Games/Board/Xgammon.desktop:2
 msgid "Xgammon"
-msgstr ""
+msgstr "X-backgammon"
 
 #. Name
 #: Games/Board/xboard.desktop:2
-#, fuzzy
 msgid "Xboard"
-msgstr "X clipboard"
+msgstr "X-schack"
 
 #. GenericName
 #: Games/Board/xboard.desktop:3
