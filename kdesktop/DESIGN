@@ -124,3 +124,16 @@ kdesktop_lock to kdesktop communication:
    - TTIN: the lock process is ready. This is sent after the process has been created/respawned
    - USR2: the lock/screensaver has been activated
    - USR1: the lock/screensaver has been unlocked/stopped
+
+Communication is handled by the screen saver engine defined in 'lockeng.{h,cpp}'.
+The engine is split into two parts, the 'SaverEngine' running in the GUI thread and
+the 'SaverEngineEventHandler' running in a separate thread and eventloop.
+The 'SaverEngine' handles communication with X11, DCOP and DBUS while the
+'SaverEngineEventHandler' handles communication with the actual lock process.
+Several actions require cooperation of the two parts, so in various methods
+there will be inter-thread calls (using timers or by emitting signals) to
+trigger the other side remaining logic.
+This complex design is necessary to avoid blocking the main GUI application event loop,
+which has several tasks to manage and therefore can't affort to wait in a suspended state.
+This was previously leading to deadlock when DCOP calls where executed on the secondary
+thread/eventloop, for example when changing desktop while the lock process was restarting.
