@@ -71,7 +71,7 @@ static TDECmdLineOptions options[] =
 };
 
 bool argb_visual = false;
-KDesktopApp *myApp = NULL;
+KDesktopApp *myApp = nullptr;
 
 // -----------------------------------------------------------------------------
 
@@ -251,7 +251,7 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
         else
             XCloseDisplay( dpy );
     }
-    if( myApp == NULL )
+    if (!myApp)
         myApp = new KDesktopApp;
 #else
     myApp = new KDesktopApp;
@@ -259,9 +259,6 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
     myApp->disableSessionManagement(); // Do SM, but don't restart.
 
     KDesktopSettings::instance(kdesktop_name + "rc");
-
-    bool x_root_hack = args->isSet("x-root");
-    bool wait_for_kded = args->isSet("waitforkded");
 
     // This MUST be created before any widgets are created
     SaverEngine saver;
@@ -279,16 +276,15 @@ extern "C" TDE_EXPORT int kdemain( int argc, char **argv )
        myApp->config()->reparseConfiguration();
     }
 
-    // for the KDE-already-running check in starttde
-    TDESelectionOwner kde_running( "_KDE_RUNNING", 0 );
-    kde_running.claim( false );
+    // for the TDE-already-running check in starttde
+    TDESelectionOwner tde_running( "_KDE_RUNNING", 0 );
+    tde_running.claim( false );
 
+    bool x_root_hack = args->isSet("x-root");
+    bool wait_for_kded = args->isSet("waitforkded");
     KDesktop desktop( &saver, x_root_hack, wait_for_kded );
 
     args->clear();
-
     myApp->dcopClient()->setDefaultObject( "KDesktopIface" );
-
-	
     return myApp->exec();
 }

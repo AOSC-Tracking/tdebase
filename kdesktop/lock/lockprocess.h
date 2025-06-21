@@ -106,9 +106,6 @@ class LockProcess : public TQWidget
 
 		TDECryptographicCardDevice* cryptographicCardDevice();
 
-	signals:
-		void terminateHelperThread();
-
 	public slots:
 		void quitSaver();
 		void preparePopup();

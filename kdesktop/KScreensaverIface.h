@@ -12,11 +12,10 @@ public:
   KScreensaverIface() : DCOPObject("KScreensaverIface") {}
 
 k_dcop:
-  /** Lock the screen now even if the screensaver does not lock by default. */
+  /** Lock the screen now even if the screensaver does not lock by default */
   virtual void lock() = 0;
 
-  /** Save the screen now.  If the user has locking enabled, the screen is
-   * locked also. */
+  /** Start the screensaver now. If the user has locking enabled, the screen is locked also */
   virtual void save() = 0;
 
   /** Quit the screensaver if it is running */
@@ -29,22 +28,23 @@ k_dcop:
    * Enable/disable the screensaver
    * returns true if the action succeeded
    */
-  virtual bool enable( bool e ) = 0;
+  virtual bool enable(bool e) = 0;
 
   /** Is the screen currently blanked? */
   virtual bool isBlanked() = 0;
 
-  /** Reload the screensaver configuration. */
+  /** Reload the screensaver configuration */
   virtual void configure() = 0;
 
-  /** Only blank the screen (and possibly lock).  Do not use a custom
-   * screen saver in the interest of saving battery.
+  /**
+   * Set the screensaver to blank (and possibly lock).
+   * This method does not actually start the screensaver.
    */
-  virtual void setBlankOnly( bool blankOnly ) = 0;
+  virtual void setBlankOnly(bool blankOnly) = 0;
 
   /***
    * @internal
-  */
+   */
   virtual void saverLockReady() = 0;
 };
 
