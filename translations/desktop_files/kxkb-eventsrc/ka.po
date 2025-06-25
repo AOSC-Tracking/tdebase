@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 20:15+0000\n"
-"PO-Revision-Date: 2024-11-27 06:10+0000\n"
+"POT-Creation-Date: 2025-04-03 18:15+0000\n"
+"PO-Revision-Date: 2025-06-25 07:59+0000\n"
 "Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
 "Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kxkb-events/ka/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Comment
 #: eventsrc:3
@@ -34,9 +34,8 @@ msgstr "კლავიატურის განლაგება გად�
 
 #. Name
 #: eventsrc:11
-#, fuzzy
 msgid "Keyboard layout switching error"
-msgstr "კლავიატურის განლაგების გადართვა"
+msgstr "კლავიატურის განლაგების გადართვის შეცდომა"
 
 #. Comment
 #: eventsrc:12
