@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Andrei Stepanov <adem4ik@gmail.com>, 2024.
+# Andrei Stepanov <adem4ik@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2024-05-11 01:02+0000\n"
+"PO-Revision-Date: 2025-06-29 05:58+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdeioslave-desktop-files/ru/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: cgi/kcmcgi/kcmcgi.desktop:9
@@ -373,7 +373,7 @@ msgstr ""
 #. Name
 #: media/services/media_eject.desktop:10
 msgid "Eject"
-msgstr "Извлечь CD"
+msgstr "Извлечь"
 
 #. Name
 #: media/services/media_lock.desktop:10
@@ -388,7 +388,7 @@ msgstr "Подключить"
 #. Name
 #: media/services/media_realfolder.desktop:10
 msgid "Open Medium System Folder"
-msgstr "Открыть системную папку"
+msgstr "Открыть системную папку носителя"
 
 #. Name
 #: media/services/media_safelyremove.desktop:10
