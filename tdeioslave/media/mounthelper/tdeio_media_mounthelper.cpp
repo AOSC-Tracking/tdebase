@@ -50,7 +50,7 @@ const Medium MountHelper::findMedium(const TQString &device)
 	DCOPReply reply = mediamanager.call("properties", device);
 	if (!reply.isValid())
 	{
-		m_errorStr = i18n("The TDE mediamanager is not running.\n");
+		m_errorStr = i18n("The TDE mediamanager is not running.");
 		return Medium(TQString::null, TQString::null, TQString::null);
 	}
 	const Medium &medium = Medium::create(reply);
