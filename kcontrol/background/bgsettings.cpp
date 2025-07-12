@@ -23,7 +23,7 @@
 #include <tdeapplication.h>
 #include <kdebug.h>
 #include <tdeglobalsettings.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <krandomsequence.h>
 #include <konq_defaults.h>
@@ -84,9 +84,9 @@ void KBackgroundPattern::init(bool force_rw)
     m_File = m_pDirs->findResource("dtop_pattern", m_Name + ".desktop");
     if (force_rw || m_File.isEmpty()) {
         m_File = m_pDirs->saveLocation("dtop_pattern") + m_Name + ".desktop";
-        m_pConfig = new KSimpleConfig(m_File);
+        m_pConfig = new TDESimpleConfig(m_File);
     } else
-        m_pConfig = new KSimpleConfig(m_File);
+        m_pConfig = new TDESimpleConfig(m_File);
 
     m_pConfig->setGroup("KDE Desktop Pattern");
 
@@ -251,10 +251,10 @@ void KBackgroundProgram::init(bool force_rw)
     m_File = m_pDirs->findResource("dtop_program", m_Name + ".desktop");
     if (force_rw || m_File.isEmpty()) {
         m_File = m_pDirs->saveLocation("dtop_program") + m_Name + ".desktop";
-        m_pConfig = new KSimpleConfig(m_File);
+        m_pConfig = new TDESimpleConfig(m_File);
         m_bReadOnly = false;
     } else {
-        m_pConfig = new KSimpleConfig(m_File);
+        m_pConfig = new TDESimpleConfig(m_File);
         m_bReadOnly = (m_File != locateLocal("dtop_program", m_Name + ".desktop"));
     }
     m_pConfig->setGroup("KDE Desktop Program");

@@ -1433,7 +1433,7 @@ void KonqIconViewWidget::slotSaveIconPositions()
   if ( !m_bDesktop )
     return; // Currently not available in Konqueror
   kdDebug(1214) << "KonqIconViewWidget::slotSaveIconPositions" << endl;
-  KSimpleConfig dotDirectory( m_dotDirectoryPath );
+  TDESimpleConfig dotDirectory( m_dotDirectoryPath );
   TQIconViewItem *it = firstItem();
   if ( !it )
     return; // No more icons. Maybe we're closing and they've been removed already

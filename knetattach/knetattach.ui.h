@@ -181,7 +181,7 @@ void KNetAttach::finished()
 
 	TQString path = TDEGlobal::dirs()->saveLocation("remote_entries");
 	path += name + ".desktop";
-	KSimpleConfig desktopFile(path, false);
+	TDESimpleConfig desktopFile(path, false);
 	desktopFile.setGroup("Desktop Entry");
 	desktopFile.writeEntry("Icon", "server");
 	desktopFile.writeEntry("Name", name);

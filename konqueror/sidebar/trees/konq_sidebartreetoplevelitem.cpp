@@ -35,7 +35,7 @@ void KonqSidebarTreeTopLevelItem::init()
     TQString desktopFile = m_path;
     if ( isTopLevelGroup() )
         desktopFile += "/.directory";
-    KSimpleConfig cfg( desktopFile, true );
+    TDESimpleConfig cfg( desktopFile, true );
     cfg.setDesktopGroup();
     m_comment = cfg.readEntry( "Comment" );
 }
@@ -189,7 +189,7 @@ void KonqSidebarTreeTopLevelItem::rename( const TQString & name )
     TQString desktopFile = m_path;
     if ( isTopLevelGroup() )
         desktopFile += "/.directory";
-    KSimpleConfig cfg( desktopFile );
+    TDESimpleConfig cfg( desktopFile );
     cfg.setDesktopGroup();
     cfg.writeEntry( "Name", name );
     cfg.sync();

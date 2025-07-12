@@ -22,7 +22,7 @@
 #include <tdestandarddirs.h>
 #include <tdeapplication.h>
 #include <kservicegroup.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <tqfile.h>
@@ -869,14 +869,14 @@ bool SaverEngineEventHandler::restartLockProcess()
 
 		// Create SAK process only if SAK is enabled
 		struct stat st;
-		KSimpleConfig *config;
+		TDESimpleConfig *config;
 		if (stat(KDE_CONFDIR "/tdm/tdmdistrc" , &st) == 0)
 		{
-			config = new KSimpleConfig(TQString::fromLatin1(KDE_CONFDIR "/tdm/tdmdistrc"));
+			config = new TDESimpleConfig(TQString::fromLatin1(KDE_CONFDIR "/tdm/tdmdistrc"));
 		}
 		else
 		{
-			config = new KSimpleConfig(TQString::fromLatin1(KDE_CONFDIR "/tdm/tdmrc"));
+			config = new TDESimpleConfig(TQString::fromLatin1(KDE_CONFDIR "/tdm/tdmrc"));
 		}
 		config->setGroup("X-:*-Greeter");
 		bool useSAKProcess = false;

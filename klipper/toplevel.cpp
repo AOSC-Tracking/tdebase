@@ -41,7 +41,7 @@
 #include <tdemessagebox.h>
 #include <ksavefile.h>
 #include <tdestandarddirs.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kstringhandler.h>
 #include <ksystemtray.h>
 #include <kurldrag.h>

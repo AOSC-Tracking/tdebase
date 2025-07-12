@@ -26,7 +26,7 @@
 #include <configdialog.h>
 #include <tdeaboutdata.h>
 
-class KSimpleConfig;
+class TDESimpleConfig;
 class KCMDnssd: public ConfigDialog
 {
 	TQ_OBJECT
@@ -45,7 +45,7 @@ private:
 	bool saveMdnsd();
 	TQMap<TQString,TQString> mdnsdLines;
 	bool m_wdchanged;
-	KSimpleConfig* domain;
+	TDESimpleConfig* domain;
 	bool m_enableZeroconfChanged;
 };
 

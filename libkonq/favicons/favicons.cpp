@@ -29,7 +29,7 @@
 #include <kdatastream.h> // DO NOT REMOVE, otherwise bool marshalling breaks
 #include <kicontheme.h>
 #include <kimageio.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <tdeio/job.h>
 
@@ -47,7 +47,7 @@ struct FaviconsModulePrivate
     };
     TQMap<TDEIO::Job *, DownloadInfo> downloads;
     TQStringList failedDownloads;
-    KSimpleConfig *config;
+    TDESimpleConfig *config;
     TQPtrList<TDEIO::Job> killJobs;
     TDEIO::MetaData metaData;
     TQString faviconsDir;
@@ -66,7 +66,7 @@ FaviconsModule::FaviconsModule(const TQCString &obj)
     d->metaData.insert("UseCache", "false");
     d->metaData.insert("cookies", "none");
     d->metaData.insert("no-auth", "true");
-    d->config = new KSimpleConfig(locateLocal("data", "konqueror/faviconrc"));
+    d->config = new TDESimpleConfig(locateLocal("data", "konqueror/faviconrc"));
     d->killJobs.setAutoDelete(true);
     d->faviconsCache.setAutoDelete(true);
 }

@@ -184,7 +184,7 @@ void KonsoleFontSelectAction::slotActivated(int index) {
 }
 
 template class TQPtrDict<TESession>;
-template class TQIntDict<KSimpleConfig>;
+template class TQIntDict<TDESimpleConfig>;
 template class TQPtrDict<TDERadioAction>;
 
 #define DEFAULT_HISTORY_SIZE 1000
@@ -317,7 +317,7 @@ Konsole::Konsole(const char* name, int histon, bool menubaron, bool tabbaron, bo
   if (currentSize != size())
      defaultSize = size();
 
-  KSimpleConfig *co;
+  TDESimpleConfig *co;
   if (!type.isEmpty())
     setDefaultSession(type+".desktop");
   co = defaultSession();
@@ -1487,7 +1487,7 @@ void Konsole::slotSaveSessionsProfile()
     if ( TQFile::exists( path ) )
       TQFile::remove( path );
 
-    KSimpleConfig cfg( path );
+    TDESimpleConfig cfg( path );
     savePropertiesInternal(&cfg,1);
     saveMainWindowSettings(&cfg);
   }
@@ -2797,7 +2797,7 @@ void Konsole::allowPrevNext()
   notifySessionState(se,NOTIFYNORMAL);
 }
 
-KSimpleConfig *Konsole::defaultSession()
+TDESimpleConfig *Konsole::defaultSession()
 {
   if (!m_defaultSession) {
     TDEConfig * config = TDEGlobal::config();
@@ -2810,7 +2810,7 @@ KSimpleConfig *Konsole::defaultSession()
 void Konsole::setDefaultSession(const TQString &filename)
 {
   delete m_defaultSession;
-  m_defaultSession = new KSimpleConfig(locate("appdata", filename), true /* read only */);
+  m_defaultSession = new TDESimpleConfig(locate("appdata", filename), true /* read only */);
   m_defaultSession->setDesktopGroup();
   b_showstartuptip = m_defaultSession->readBoolEntry("Tips", true);
 
@@ -2819,13 +2819,13 @@ void Konsole::setDefaultSession(const TQString &filename)
 
 void Konsole::newSession(const TQString &pgm, const TQStrList &args, const TQString &term, const TQString &icon, const TQString &title, const TQString &cwd)
 {
-  KSimpleConfig *co = defaultSession();
+  TDESimpleConfig *co = defaultSession();
   newSession(co, pgm, args, term, icon, title, cwd);
 }
 
 TQString Konsole::newSession()
 {
-  KSimpleConfig *co = defaultSession();
+  TDESimpleConfig *co = defaultSession();
   return newSession(co, TQString::null, TQStrList());
 }
 
@@ -2845,7 +2845,7 @@ void Konsole::newSession(int i)
     return;
   }
 
-  KSimpleConfig* co = no2command.find(i);
+  TDESimpleConfig* co = no2command.find(i);
   if (co) {
     newSession(co);
     resetScreenSessions();
@@ -2868,7 +2868,7 @@ void Konsole::newSessionTabbar(int i)
     return;
   }
 
-  KSimpleConfig* co = no2command.find(i);
+  TDESimpleConfig* co = no2command.find(i);
   if (co) {
     newSession(co);
     resetScreenSessions();
@@ -2877,15 +2877,15 @@ void Konsole::newSessionTabbar(int i)
 
 TQString Konsole::newSession(const TQString &type)
 {
-  KSimpleConfig *co;
+  TDESimpleConfig *co;
   if (type.isEmpty())
      co = defaultSession();
   else
-     co = new KSimpleConfig(locate("appdata", type + ".desktop"), true /* read only */);
+     co = new TDESimpleConfig(locate("appdata", type + ".desktop"), true /* read only */);
   return newSession(co);
 }
 
-TQString Konsole::newSession(KSimpleConfig *co, TQString program, const TQStrList &args,
+TQString Konsole::newSession(TDESimpleConfig *co, TQString program, const TQStrList &args,
                             const TQString &_term,const TQString &_icon,
                             const TQString &_title, const TQString &_cwd)
 {
@@ -3048,7 +3048,7 @@ void Konsole::newSession(const TQString& sURL, const TQString& title)
 
    KURL url = KURL(sURL);
    if ((url.protocol() == "file") && (url.hasPath())) {
-     KSimpleConfig *co = defaultSession();
+     TDESimpleConfig *co = defaultSession();
      path = url.path();
      newSession(co, TQString::null, TQStrList(), TQString::null, TQString::null,
                 title.isEmpty() ? path : title, path);
@@ -3433,11 +3433,11 @@ static void insertItemSorted(TDEPopupMenu *menu, const TQIconSet &iconSet, const
 
 void Konsole::addSessionCommand(const TQString &path)
 {
-  KSimpleConfig* co;
+  TDESimpleConfig* co;
   if (path.isEmpty())
-    co = new KSimpleConfig(locate("appdata", "shell.desktop"), true /* read only */);
+    co = new TDESimpleConfig(locate("appdata", "shell.desktop"), true /* read only */);
   else
-    co = new KSimpleConfig(path,true);
+    co = new TDESimpleConfig(path,true);
   co->setDesktopGroup();
   TQString typ = co->readEntry("Type");
   TQString txt = co->readEntry("Name");
@@ -3518,7 +3518,7 @@ void Konsole::createSessionMenus()
     return;
   }
 
-  KSimpleConfig *cfg = no2command[SESSION_NEW_SHELL_ID];
+  TDESimpleConfig *cfg = no2command[SESSION_NEW_SHELL_ID];
   TQString txt = cfg->readEntry("Name");
   TQString icon = cfg->readEntry("Icon", "konsole");
   insertItemSorted(m_tabbarSessionsCommands, SmallIconSet(icon),
@@ -3536,7 +3536,7 @@ void Konsole::createSessionMenus()
   m_session->insertSeparator();
   m_tabbarSessionsCommands->insertSeparator();
 
-  TQIntDictIterator<KSimpleConfig> it( no2command );
+  TQIntDictIterator<TDESimpleConfig> it( no2command );
   for ( ; it.current(); ++it ) {
     if ( it.currentKey() == SESSION_NEW_SHELL_ID )
       continue;
@@ -3567,7 +3567,7 @@ void Konsole::addScreenSession(const TQString &path, const TQString &socket)
 {
   KTempFile *tmpFile = new KTempFile();
   tmpFile->setAutoDelete(true);
-  KSimpleConfig *co = new KSimpleConfig(tmpFile->name());
+  TDESimpleConfig *co = new TDESimpleConfig(tmpFile->name());
   co->setDesktopGroup();
   co->writeEntry("Name", socket);
   TQString txt = i18n("Screen is a program controlling screens!", "Screen at %1").arg(socket);

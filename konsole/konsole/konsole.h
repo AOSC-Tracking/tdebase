@@ -28,7 +28,7 @@
 
 #include <tdemainwindow.h>
 #include <kdialogbase.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <keditcl.h>
 
 #include <twinmodule.h>
@@ -257,8 +257,8 @@ private slots:
 
   void slotSetEncoding();
 private:
-  KSimpleConfig *defaultSession();
-  TQString newSession(KSimpleConfig *co, TQString pgm = TQString::null, const TQStrList &args = TQStrList(),
+  TDESimpleConfig *defaultSession();
+  TQString newSession(TDESimpleConfig *co, TQString pgm = TQString::null, const TQStrList &args = TQStrList(),
                      const TQString &_term = TQString::null, const TQString &_icon = TQString::null,
                      const TQString &_title = TQString::null, const TQString &_cwd = TQString::null);
   void readProperties(TDEConfig *config, const TQString &schema, bool globalConfigOnly);
@@ -298,9 +298,9 @@ private:
   TQPtrDict<TDERadioAction> session2action;
   TQPtrList<TESession> sessions;
 
-  TQIntDict<KSimpleConfig> no2command;
+  TQIntDict<TDESimpleConfig> no2command;
 
-  KSimpleConfig* m_defaultSession;
+  TDESimpleConfig* m_defaultSession;
   TQString m_defaultSessionFilename;
 
   KTabWidget* tabwidget;

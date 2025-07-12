@@ -32,7 +32,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 class KLineEdit;
 class KPasswordEdit;
-class KSimpleConfig;
+class TDESimpleConfig;
 class TQGridLayout;
 class TQLabel;
 
@@ -84,7 +84,7 @@ class KPamGreeter : public TQObject, public KGreeterPlugin {
 	KLineEdit *loginEdit;
         TQWidget* m_parentWidget;
         TQValueList<KPasswordEdit*> authEdit;
-	KSimpleConfig *stsFile;
+	TDESimpleConfig *stsFile;
         KdmThemer *m_themer;
 	TQString fixedUser, curUser;
 	Function func;

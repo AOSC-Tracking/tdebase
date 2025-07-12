@@ -34,7 +34,7 @@
 #include <tdelocale.h>
 #include <tdelistview.h>
 #include <kipc.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <dcopclient.h>
 #include <tdestyle.h>
 #include <kicontheme.h>
@@ -187,8 +187,8 @@ void TDEStylePage::saveColors(bool curSettings){
 
 	////////////////////////////////////////////////////
 	// KDE-1.x support
-	KSimpleConfig *tdeconfig =
-	new KSimpleConfig( TQDir::homeDirPath() + "/.tderc" );
+	TDESimpleConfig *tdeconfig =
+	new TDESimpleConfig( TQDir::homeDirPath() + "/.tderc" );
 	tdeconfig->setGroup( "General" );
 	tdeconfig->writeEntry("background", toSave->background );
 	tdeconfig->writeEntry("selectBackground", toSave->selectBackground );
@@ -363,7 +363,7 @@ void TDEStylePage::getColors(colorSet *set, bool colorfile ){
 			set->colorFile=locate("colors","EveX.kcsrc");
 		}
 		set->contrast=7;
-		config = new KSimpleConfig(set->colorFile, true);
+		config = new TDESimpleConfig(set->colorFile, true);
 		config->setGroup("Color Scheme");
 		kdDebug() << "TDEStylePage::getColors(): schemefile: " << set->colorFile << endl;
                 deleteConfig = true;

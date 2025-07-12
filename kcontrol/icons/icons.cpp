@@ -105,8 +105,8 @@ TDEIconConfig::TDEIconConfig(TQWidget *parent, const char *name)
 
     top->activate();
 
-    mpSystrayConfig = new KSimpleConfig( TQString::fromLatin1( "systemtray_panelappletrc" ));
-    mpKickerConfig = new KSimpleConfig( TQString::fromLatin1( "kickerrc" ));
+    mpSystrayConfig = new TDESimpleConfig( TQString::fromLatin1( "systemtray_panelappletrc" ));
+    mpKickerConfig = new TDESimpleConfig( TQString::fromLatin1( "kickerrc" ));
 
     init();
     read();

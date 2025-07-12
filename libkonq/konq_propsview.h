@@ -172,7 +172,7 @@ private:
   // save-view-properties-locally mode, otherwise to the global config
   // It is set to 0L to mark it as "needs to be constructed".
   // This is to be used for SAVING only.
-  // Can be a TDEConfig or a KSimpleConfig
+  // Can be a TDEConfig or a TDESimpleConfig
   TDEConfigBase * m_currentConfig;
 
   // If this is not a "default properties" instance (but one used by a view)

@@ -167,7 +167,7 @@ void SessionEditor::loadAllSession(TQString currentFile)
 
     TQString name = (*it);
 
-    KSimpleConfig* co = new KSimpleConfig(name,true);
+    TDESimpleConfig* co = new TDESimpleConfig(name,true);
     co->setDesktopGroup();
     TQString sesname = co->readEntry("Name",i18n("Unnamed"));
     delete co;
@@ -187,7 +187,7 @@ void SessionEditor::readSession(int num)
 {
     int i,counter;
     TQString str;
-    KSimpleConfig* co;
+    TDESimpleConfig* co;
 
     if(sesMod) {
         disconnect(sessionList, TQ_SIGNAL(highlighted(int)), this, TQ_SLOT(readSession(int)));
@@ -201,7 +201,7 @@ void SessionEditor::readSession(int num)
     if( sessionList->item(num) )
     {
         removeButton->setEnabled( TQFileInfo ( ((SessionListBoxText *)sessionList->item(num))->filename() ).isWritable () );
-        co = new KSimpleConfig( ((SessionListBoxText *)sessionList->item(num))->filename(),true);
+        co = new TDESimpleConfig( ((SessionListBoxText *)sessionList->item(num))->filename(),true);
 
         co->setDesktopGroup();
         str = co->readEntry("Name");
@@ -328,7 +328,7 @@ void SessionEditor::saveCurrent()
   if (fullpath[0] != '/')
     fullpath = TDEGlobal::dirs()->saveLocation("data", "konsole/") + fullpath;
 
-  KSimpleConfig* co = new KSimpleConfig(fullpath);
+  TDESimpleConfig* co = new TDESimpleConfig(fullpath);
   co->setDesktopGroup();
   co->writeEntry("Type","KonsoleApplication");
   co->writeEntry("Name",nameLine->text());

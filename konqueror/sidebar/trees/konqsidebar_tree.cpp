@@ -3,7 +3,7 @@
 #include "konq_sidebartree.h"
 #include <kdebug.h>
 #include <tdestandarddirs.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kinputdialog.h>
 #include <kiconloader.h>
 #include <tdelistviewsearchline.h>
@@ -17,7 +17,7 @@
 KonqSidebar_Tree::KonqSidebar_Tree(TDEInstance *instance,TQObject *parent,TQWidget *widgetParent, TQString &desktopName_, const char* name):
                    KonqSidebarPlugin(instance,parent,widgetParent,desktopName_,name)
 	{
-		KSimpleConfig ksc(desktopName_);
+		TDESimpleConfig ksc(desktopName_);
 		ksc.setGroup("Desktop Entry");
 		int virt= ( (ksc.readEntry("X-TDE-TreeModule","")=="Virtual") ?VIRT_Folder:VIRT_Link);
 		if (virt==1) desktopName_=ksc.readEntry("X-TDE-RelURL","");
@@ -139,7 +139,7 @@ extern "C"
 	  TQStringList names;
 	  for (TQStringList::ConstIterator it=list.begin();it!=list.end();++it)
 	  {
-		KSimpleConfig sc(*it);
+		TDESimpleConfig sc(*it);
 		sc.setGroup("Desktop Entry");
 		names<<sc.readEntry("Name");
 	  }
@@ -150,7 +150,7 @@ extern "C"
 		{
 			int id=names.findIndex( item );
 			if (id==-1) return false;
-			KSimpleConfig ksc2(*list.at(id));
+			TDESimpleConfig ksc2(*list.at(id));
 			ksc2.setGroup("Desktop Entry");
 		        map->insert("Type","Link");
 			map->insert("Icon",ksc2.readEntry("Icon"));

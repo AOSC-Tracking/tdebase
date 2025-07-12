@@ -21,7 +21,7 @@
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <tdestandarddirs.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdemessagebox.h>
 #include <kseparator.h>
 #include <dcopclient.h>
@@ -258,7 +258,7 @@ void KKeyModule::slotKeyChange()
 
 /*void KKeyModule::slotSave( )
 {
-    KSimpleConfig config(*sFileList->at( sList->currentItem() ) );
+    TDESimpleConfig config(*sFileList->at( sList->currentItem() ) );
     //  global=true is necessary in order to
     //  let both 'Global Shortcuts' and 'Shortcut Sequences' be
     //  written to the same scheme file.
@@ -281,7 +281,7 @@ void KKeyModule::readScheme( int index )
   else {
     TDEConfigBase* config = 0;
     if( index == 0 )	config = new TDEConfig( "kdeglobals" );
-    //else		config = new KSimpleConfig( *sFileList->at( index ), true );
+    //else		config = new TDESimpleConfig( *sFileList->at( index ), true );
 
     actions.readActions( (index == 0) ? KeySet : KeyScheme, config );
     kc->listSync();
@@ -394,8 +394,8 @@ void KKeyModule::readScheme( int index )
      sList->setCurrentItem( exists );
   }
 
-  KSimpleConfig *config =
-    new KSimpleConfig( sFile );
+  TDESimpleConfig *config =
+    new TDESimpleConfig( sFile );
 
   config->setGroup( KeyScheme );
   config->writeEntry( "Name", sName );
@@ -449,7 +449,7 @@ void KKeyModule::readScheme( int index )
     //if( r.search( *it ) != -1 )
     //   continue;
 
-    KSimpleConfig config( *it, true );
+    TDESimpleConfig config( *it, true );
     // TODO: Put 'Name' in "Settings" group
     config.setGroup( KeyScheme );
     TQString str = config.readEntry( "Name" );
@@ -496,7 +496,7 @@ void KKeyModule::init()
   keys->readActions( "Global Keys" );
 
   {
-    KSimpleConfig cfg( "kdeglobals" );
+    TDESimpleConfig cfg( "kdeglobals" );
     cfg.deleteGroup( "Global Keys" );
   }
 

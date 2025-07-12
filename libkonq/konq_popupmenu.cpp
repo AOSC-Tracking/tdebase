@@ -459,7 +459,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
                       || (m_sMimeType == "media/builtin-printers")
                       || (m_sMimeType == "media/builtin-trash")
                       || (m_sMimeType == "media/builtin-webbrowser")) ) {
-            KSimpleConfig cfg( firstPopupURL.path(), true );
+            TDESimpleConfig cfg( firstPopupURL.path(), true );
             cfg.setDesktopGroup();
             isTrashLink = ( cfg.readEntry("Type") == "Link" && cfg.readEntry("URL") == "trash:/" );
         }
@@ -599,7 +599,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
     if ( isCurrentTrash )
     {
         act = new TDEAction( i18n( "&Empty Trash Bin" ), "emptytrash", 0, this, TQ_SLOT( slotPopupEmptyTrashBin() ), &m_ownActions, "empytrash" );
-        KSimpleConfig trashConfig( "trashrc", true );
+        TDESimpleConfig trashConfig( "trashrc", true );
         trashConfig.setGroup( "Status" );
         act->setEnabled( !trashConfig.readBoolEntry( "Empty", true ) );
         addAction( act );
@@ -662,7 +662,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         // get builtin services, like mount/unmount
         s.builtin = KDEDesktopMimeType::builtinServices( urlForServiceMenu );
         const TQString path = urlForServiceMenu.path();
-        KSimpleConfig cfg( path, true );
+        TDESimpleConfig cfg( path, true );
         cfg.setDesktopGroup();
         const TQString priority = cfg.readEntry("X-TDE-Priority");
         const TQString submenuName = cfg.readEntry( "X-TDE-Submenu" );
@@ -684,7 +684,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         if (isDirectory && isSingleLocal)
         {
             TQString dotDirectoryFile = urlForServiceMenu.path(1).append(".directory");
-            KSimpleConfig cfg( dotDirectoryFile, true );
+            TDESimpleConfig cfg( dotDirectoryFile, true );
             cfg.setDesktopGroup();
 
             if (KIOSKAuthorizedAction(cfg))
@@ -704,7 +704,7 @@ void KonqPopupMenu::setup(KonqPopupFlags kpf)
         const TQStringList::ConstIterator eEnd = entries.end();
         for (; eIt != eEnd; ++eIt )
         {
-            KSimpleConfig cfg( *eIt, true );
+            TDESimpleConfig cfg( *eIt, true );
             cfg.setDesktopGroup();
 
             if (!KIOSKAuthorizedAction(cfg))

@@ -45,7 +45,7 @@
 #include <tdemessagebox.h>
 #include <tdeprocess.h>
 #include <krichtextlabel.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <kurlrequester.h>
 #include <libtdemid/deviceman.h>

@@ -21,7 +21,7 @@
 #include <kpushbutton.h>
 #include <kseparator.h>
 #include <tdestandarddirs.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdeglobalsettings.h>
 #include <tdeconfig.h>
 #include <kiconloader.h>
@@ -987,7 +987,7 @@ void PasswordDlg::attemptCardLogin() {
 #endif
 
 	// Make sure card logins are enabled before attempting one
-	KSimpleConfig *systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/ldap/ldapconfigrc" ));
+	TDESimpleConfig *systemconfig = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/ldap/ldapconfigrc" ));
 	systemconfig->setGroup(NULL);
 	bool enabled = systemconfig->readBoolEntry("EnablePKCS11Login", false);
 	delete systemconfig;

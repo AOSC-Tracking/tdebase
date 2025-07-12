@@ -22,7 +22,7 @@ Boston, MA 02110-1301, USA.
 #include <config.h>
 
 #include <tdecmdlineargs.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdelocale.h>
 
 #include <tqfile.h>
@@ -49,7 +49,7 @@ static bool properties_inited = false;
 
 MyApplication::MyApplication( const char *conf )
 	: TDEApplication(),
-	  renderer( 0, new KSimpleConfig( TQFile::decodeName( conf ) ) )
+	  renderer( 0, new TDESimpleConfig( TQFile::decodeName( conf ) ) )
 {
 	connect( &timer, TQ_SIGNAL(timeout()), TQ_SLOT(slotTimeout()) );
 	connect( &renderer, TQ_SIGNAL(imageDone( int )), this, TQ_SLOT(renderDone()) );

@@ -28,7 +28,7 @@
 #include <private/tqucomextra_p.h>
 
 #include <tdelocale.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <kdebug.h>
 #include <kiconloader.h>
@@ -211,7 +211,7 @@ void addBackEnd::activatedAddMenu(int id)
 				if (!myFile.isEmpty())
 				{
 					kdDebug() <<"trying to save to file: "<<myFile << endl;
-					KSimpleConfig scf(myFile,false);
+					TDESimpleConfig scf(myFile,false);
 					scf.setGroup("Desktop Entry");
 					for (TQMap<TQString,TQString>::ConstIterator it = map.begin(); it != map.end(); ++it) {
 						kdDebug() <<"writing:"<<it.key()<<" / "<<it.data()<<endl;
@@ -349,7 +349,7 @@ void Sidebar_Widget::addWebSideBar(const KURL& url, const TQString& /*name*/) {
 	// Go through list to see which ones exist.  Check them for the URL
 	TQStringList files = TQDir(list).entryList("websidebarplugin*.desktop");
 	for (TQStringList::Iterator it = files.begin(); it != files.end(); ++it){
-		KSimpleConfig scf(list + *it, false);
+		TDESimpleConfig scf(list + *it, false);
 		scf.setGroup("Desktop Entry");
 		if (scf.readPathEntry("URL", TQString::null) == url.url()) {
 			// We already have this one!
@@ -363,7 +363,7 @@ void Sidebar_Widget::addWebSideBar(const KURL& url, const TQString& /*name*/) {
 	TQString myFile = findFileName(&tmpl,m_universalMode,m_currentProfile);
 
 	if (!myFile.isEmpty()) {
-		KSimpleConfig scf(myFile, false);
+		TDESimpleConfig scf(myFile, false);
 		scf.setGroup("Desktop Entry");
 		scf.writeEntry("Type", "Link");
 		scf.writePathEntry("URL", url.url());
@@ -438,7 +438,7 @@ void Sidebar_Widget::initialCopy()
 		return; //oups;
 
 	int nVersion=-1;
-	KSimpleConfig lcfg(m_path+".version");
+	TDESimpleConfig lcfg(m_path+".version");
 	int lVersion=lcfg.readNumEntry("Version",0);
 
 
@@ -451,7 +451,7 @@ void Sidebar_Widget::initialCopy()
 
 	        if ( !dirtree_dir.isEmpty() && dirtree_dir != m_path )
         	{
-			KSimpleConfig gcfg(dirtree_dir+".version");
+			TDESimpleConfig gcfg(dirtree_dir+".version");
 			int gversion = gcfg.readNumEntry("Version", 1);
 			nVersion=(nVersion>gversion)?nVersion:gversion;
 			if (lVersion >= gversion)
@@ -504,7 +504,7 @@ void Sidebar_Widget::buttonPopupActivate(int id)
 			kdDebug()<<"New Icon Name:"<<iconname<<endl;
 			if (!iconname.isEmpty())
 			{
-				KSimpleConfig ksc(m_path+m_currentButton->file);
+				TDESimpleConfig ksc(m_path+m_currentButton->file);
 				ksc.setGroup("Desktop Entry");
 				ksc.writeEntry("Icon",iconname);
 				ksc.sync();
@@ -518,7 +518,7 @@ void Sidebar_Widget::buttonPopupActivate(int id)
                         dlg->fileDialog()->setMode( KFile::Directory );
 			if (dlg->exec())
 			{
-				KSimpleConfig ksc(m_path+m_currentButton->file);
+				TDESimpleConfig ksc(m_path+m_currentButton->file);
 				ksc.setGroup("Desktop Entry");
                                 if ( !dlg->selectedURL().isValid())
                                 {
@@ -560,7 +560,7 @@ void Sidebar_Widget::buttonPopupActivate(int id)
 			if(ok)
 			{
 				// Write the name in the .desktop file of this side button.
-				KSimpleConfig ksc(m_path+m_currentButton->file);
+				TDESimpleConfig ksc(m_path+m_currentButton->file);
 				ksc.setGroup("Desktop Entry");
 				ksc.writeEntry("Name", name, true, false, true /*localized*/ );
 				ksc.sync();
@@ -815,11 +815,11 @@ bool Sidebar_Widget::addButton(const TQString &desktoppath,int pos)
 	int lastbtn = m_buttons.count();
 	m_buttons.resize(m_buttons.size()+1);
 
-  	KSimpleConfig *confFile;
+  	TDESimpleConfig *confFile;
 
 	kdDebug() << "addButton:" << (m_path+desktoppath) << endl;
 
-	confFile = new KSimpleConfig(m_path+desktoppath,true);
+	confFile = new TDESimpleConfig(m_path+desktoppath,true);
 	confFile->setGroup("Desktop Entry");
 
     	TQString icon = confFile->readEntry("Icon");
@@ -943,8 +943,8 @@ KParts::BrowserExtension *Sidebar_Widget::getExtension()
 bool Sidebar_Widget::createView( ButtonInfo *data)
 {
 	bool ret = true;
-	KSimpleConfig *confFile;
-	confFile = new KSimpleConfig(data->file,true);
+	TDESimpleConfig *confFile;
+	confFile = new TDESimpleConfig(data->file,true);
 	confFile->setGroup("Desktop Entry");
 
 	data->dock = m_area->createDockWidget(confFile->readEntry("Name",i18n("Unknown")),0);

@@ -76,7 +76,7 @@ KURL *decodeImgDrop(TQDropEvent *e, TQWidget *wdg)
     return 0;
 }
 
-KSimpleConfig *config;
+TDESimpleConfig *config;
 
 TDModule::TDModule(TQWidget *parent, const char *name, const TQStringList &)
   : TDECModule(TDMFactory::instance(), parent, name)
@@ -175,10 +175,10 @@ TDModule::TDModule(TQWidget *parent, const char *name, const TQStringList &)
 
   struct stat st;
   if( stat( KDE_CONFDIR "/tdm/tdmdistrc" ,&st ) == 0) {
-    config = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
+    config = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
   }
   else {
-    config = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
+    config = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
   }
 
   TQVBoxLayout *top = new TQVBoxLayout(this);

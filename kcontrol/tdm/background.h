@@ -14,7 +14,7 @@
 #include <tqwidget.h>
 
 
-class KSimpleConfig;
+class TDESimpleConfig;
 class BGDialog;
 class TDEGlobalBackgroundSettings;
 class TQCheckBox;
@@ -42,7 +42,7 @@ private:
 
     TQCheckBox *m_pCBEnable;
     TQLabel *m_pMLabel;
-    KSimpleConfig *m_simpleConf;
+    TDESimpleConfig *m_simpleConf;
     BGDialog *m_background;
 };
 

@@ -146,7 +146,7 @@ void KNewMenu::parseFiles()
             // If a desktop file, then read the name from it.
             // Otherwise (or if no name in it?) use file name
             if ( KDesktopFile::isDesktopFile( filePath ) ) {
-                KSimpleConfig config( filePath, true );
+                TDESimpleConfig config( filePath, true );
                 config.setDesktopGroup();
                 text = config.readEntry("Name");
                 (*templ).icon = config.readEntry("Icon");
@@ -333,7 +333,7 @@ void KNewMenu::slotFillTemplates()
                 s_templatesList->prepend( e );
             else
             {
-                KSimpleConfig config( *it, true );
+                TDESimpleConfig config( *it, true );
                 config.setDesktopGroup();
 
                 // tricky solution to ensure that TextFile is at the beginning

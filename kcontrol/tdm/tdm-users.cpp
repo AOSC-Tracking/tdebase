@@ -43,7 +43,7 @@
 #include <sys/stat.h>
 
 
-extern KSimpleConfig *config;
+extern TDESimpleConfig *config;
 
 TDMUsersWidget::TDMUsersWidget(TQWidget *parent, const char *name)
     : TQWidget(parent, name)

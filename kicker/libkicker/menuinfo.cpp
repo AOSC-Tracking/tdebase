@@ -27,7 +27,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqwidget.h>
 
 #include <tdeapplication.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <klibloader.h>
 #include <tdestandarddirs.h>
 #include <kpanelmenu.h>
@@ -35,7 +35,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 MenuInfo::MenuInfo(const TQString& desktopFile)
 {
-    KSimpleConfig df(locate("data", TQString::fromLatin1("kicker/menuext/%1").arg(desktopFile)));
+    TDESimpleConfig df(locate("data", TQString::fromLatin1("kicker/menuext/%1").arg(desktopFile)));
     df.setGroup("Desktop Entry");
 
     TQStringList list = df.readListEntry("X-TDE-AuthorizeAction");

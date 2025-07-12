@@ -50,7 +50,7 @@
 #include <tdestandarddirs.h>
 
 #include <unistd.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <string>
 #include <stdio.h>
 #include <tqstring.h>
@@ -64,7 +64,7 @@
 typedef KGenericFactory<KDisplayConfig, TQWidget> KDisplayCFactory;
 K_EXPORT_COMPONENT_FACTORY( kcm_displayconfig, KDisplayCFactory("kcmdisplayconfig") )
 
-KSimpleConfig *systemconfig;
+TDESimpleConfig *systemconfig;
 
 TQPoint moveTQRectOutsideTQRect(TQRect base, TQRect movable, int fallback_level = 0) {
 	TQPoint final_result;
@@ -752,11 +752,11 @@ KDisplayConfig::KDisplayConfig(TQWidget *parent, const char *name, const TQStrin
 
 	TQVBoxLayout *layout = new TQVBoxLayout(this, 0, KDialog::spacingHint());
 	if (getuid() != 0) {
-		systemconfig = new KSimpleConfig( locateLocal("config", "tdedisplay/", true) + "tdedisplayconfigrc" );
+		systemconfig = new TDESimpleConfig( locateLocal("config", "tdedisplay/", true) + "tdedisplayconfigrc" );
 		systemconfig->setFileWriteMode(0600);
 	}
 	else {
-		systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdedisplay/tdedisplayconfigrc" ));
+		systemconfig = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdedisplay/tdedisplayconfigrc" ));
 		systemconfig->setFileWriteMode(0644);
 	}
 

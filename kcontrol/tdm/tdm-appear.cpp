@@ -51,7 +51,7 @@
 
 #include "config.h"
 
-extern KSimpleConfig *config;
+extern TDESimpleConfig *config;
 
 #define TSAK_LOCKFILE "/tmp/tdesocket-global/tsak.lock"
 
@@ -307,7 +307,7 @@ void TDMAppearanceWidget::loadLanguageList(KLanguageButton *combo)
     int index = fpath.findRev('/');
     TQString nid = fpath.mid(index + 1);
 
-    KSimpleConfig entry(*it);
+    TDESimpleConfig entry(*it);
     entry.setGroup(TQString::fromLatin1("KCM Locale"));
     TQString name = entry.readEntry(TQString::fromLatin1("Name"), i18n("without name"));
     combo->insertLanguage(nid, name, TQString::fromLatin1("l10n/"), TQString::null);
@@ -321,7 +321,7 @@ void TDMAppearanceWidget::loadColorSchemes(KBackedComboBox *combo)
       findAllResources("data", "tdedisplay/color-schemes/*.kcsrc", false, true);
   for (TQStringList::ConstIterator it = list.begin(); it != list.end(); ++it)
   {
-    KSimpleConfig config(*it, true);
+    TDESimpleConfig config(*it, true);
     config.setGroup("Color Scheme");
 
     TQString str;
@@ -342,7 +342,7 @@ void TDMAppearanceWidget::loadGuiStyles(KBackedComboBox *combo)
       findAllResources("data", "tdestyle/themes/*.themerc", false, true);
   for (TQStringList::ConstIterator it = list.begin(); it != list.end(); ++it)
   {
-    KSimpleConfig config(*it, true);
+    TDESimpleConfig config(*it, true);
 
     if (!(config.hasGroup("KDE") && config.hasGroup("Misc")))
 	continue;

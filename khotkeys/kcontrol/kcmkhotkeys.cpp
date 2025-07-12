@@ -32,7 +32,7 @@
 #include <kdebug.h>
 #include <tdemessagebox.h>
 #include <tdeglobal.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdefiledialog.h>
 #include <dcopref.h>
 #include <klibloader.h>
@@ -285,7 +285,7 @@ void Module::import()
         i18n( "Select File with Actions to Be Imported" ));
     if( file.isEmpty())
         return;
-    KSimpleConfig cfg( file, true );
+    TDESimpleConfig cfg( file, true );
     if( !settings.import( cfg, true ))
         {
         KMessageBox::error( topLevelWidget(),

@@ -42,7 +42,7 @@
 #include <kgenericfactory.h>
 
 #include <unistd.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <string>
 #include <stdio.h>
 #include <tqstring.h>
@@ -55,8 +55,8 @@ using namespace std;
 typedef KGenericFactory<KICCConfig, TQWidget> KICCCFactory;
 K_EXPORT_COMPONENT_FACTORY( kcm_iccconfig, KICCCFactory("kcmiccconfig") )
 
-KSimpleConfig *config;
-KSimpleConfig *systemconfig;
+TDESimpleConfig *config;
+TDESimpleConfig *systemconfig;
 
 /**** KICCConfig ****/
 
@@ -66,12 +66,12 @@ KICCConfig::KICCConfig(TQWidget *parent, const char *name, const TQStringList &)
 
   TQVBoxLayout *layout = new TQVBoxLayout(this, KDialog::marginHint(), KDialog::spacingHint());
   if (getuid() != 0) {
-      config = new KSimpleConfig( TQString::fromLatin1( "kiccconfigrc" ));
+      config = new TDESimpleConfig( TQString::fromLatin1( "kiccconfigrc" ));
   }
   else {
       config = NULL;
   }
-  systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kicc/kiccconfigrc" ));
+  systemconfig = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/kicc/kiccconfigrc" ));
 
   TDEAboutData *about =
   new TDEAboutData(I18N_NOOP("kcmiccconfig"), I18N_NOOP("TDE Color Profile Control Module"),

@@ -39,7 +39,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <tdecmdlineargs.h>
 #include <tdecrash.h>
 #include <tdestandarddirs.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdelocale.h>
 #include <kdebug.h>
 #ifdef WITH_XRANDR
@@ -193,8 +193,6 @@ xIOErr( Display * )
 	exit( EX_RESERVER_DPY );
 }
 
-//KSimpleConfig *iccconfig;
-
 void
 checkSAK(GreeterApp* app)
 {
@@ -306,7 +304,7 @@ kg_main( const char *argv0 )
 	// Load up the systemwide ICC profile
 	TQString iccConfigFile = TQString(KDE_CONFDIR);
 	iccConfigFile += "/kicc/kiccconfigrc";
-	KSimpleConfig iccconfig(iccConfigFile, true);
+	TDESimpleConfig iccconfig(iccConfigFile, true);
 	if (iccconfig.readBoolEntry("EnableICC", false) == true) {
 		TQString iccCommand = TDEGlobal::dirs()->findExe("dispwin");
 		if (iccCommand.isEmpty())
@@ -346,7 +344,7 @@ kg_main( const char *argv0 )
 
 	_colorScheme = locate( "data", "tdedisplay/color-schemes/" + _colorScheme + ".kcsrc" );
 	if (!_colorScheme.isEmpty()) {
-		KSimpleConfig config( _colorScheme, true );
+		TDESimpleConfig config( _colorScheme, true );
 		config.setGroup( "Color Scheme" );
 		app->setPalette( app->createApplicationPalette( &config, 7 ) );
 	}

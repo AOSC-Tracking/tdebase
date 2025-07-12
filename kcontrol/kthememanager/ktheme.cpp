@@ -37,7 +37,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 #include <kipc.h>
 #include <tdelocale.h>
 #include <kservice.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <ktar.h>
 #include <tdestyle.h>
@@ -535,7 +535,7 @@ void KTheme::apply()
         TDEConfig * colorConf = TDEGlobal::config();
 
         TQString sCurrentScheme = locateLocal("data", "tdedisplay/color-schemes/thememgr.kcsrc");
-        KSimpleConfig *colorScheme = new KSimpleConfig( sCurrentScheme );
+        TDESimpleConfig *colorScheme = new TDESimpleConfig( sCurrentScheme );
         colorScheme->setGroup("Color Scheme" );
 
         for ( uint i = 0; i < colorList.count(); i++ )
@@ -657,7 +657,7 @@ void KTheme::apply()
     if ( !fontsElem.isNull() )
     {
         TDEConfig * fontsConf = TDEGlobal::config();
-        TDEConfig * kde1xConf = new KSimpleConfig( TQDir::homeDirPath() + "/.tderc" );
+        TDEConfig * kde1xConf = new TDESimpleConfig( TQDir::homeDirPath() + "/.tderc" );
         kde1xConf->setGroup( "General" );
 
         TQDomNodeList fontList = fontsElem.childNodes();

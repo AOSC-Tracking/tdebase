@@ -33,7 +33,7 @@
 
 class KDirLister;
 class KonqSettings;
-class KSimpleConfig;
+class TDESimpleConfig;
 class TDEAccel;
 class KShadowEngine;
 class KDesktopShadowSettings;
@@ -205,8 +205,8 @@ private:
     void refreshTrashIcon();
 
     static TQRect desktopRect();
-    static void saveIconPosition(KSimpleConfig *config, int x, int y);
-    static void readIconPosition(KSimpleConfig *config, int &x, int &y);
+    static void saveIconPosition(TDESimpleConfig *config, int x, int y);
+    static void readIconPosition(TDESimpleConfig *config, int &x, int &y);
 
     void showFreeSpaceOverlay(KFileIVI*  item);
 
@@ -243,7 +243,7 @@ private:
     TQStringList m_desktopDirs;
 
     /** The desktop's .directory, used for storing icon positions */
-    KSimpleConfig *m_dotDirectory;
+    TDESimpleConfig *m_dotDirectory;
 
     /** Position of last deleted icon - used when renaming a file */
     TQPoint m_lastDeletedIconPos;

@@ -30,14 +30,14 @@
 #include <tqwhatsthis.h>
 
 #include <kdialog.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdefontrequester.h>
 #include <tdelocale.h>
 
 #include "tdm-font.h"
 
 
-extern KSimpleConfig *config;
+extern TDESimpleConfig *config;
 
 TDMFontWidget::TDMFontWidget(TQWidget *parent, const char *name)
   : TQWidget(parent, name)

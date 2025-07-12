@@ -29,7 +29,7 @@
 #include <klibloader.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 
 #include <tqvalidator.h>
@@ -80,7 +80,7 @@ void KateSessionMenu::initialize()
   if (TDEGlobal::dirs()->exists(configFile))
   {
     // Read new style configuration (from TDE R14.1.0)
-    KSimpleConfig *config = new KSimpleConfig(configFile, true);
+    TDESimpleConfig *config = new TDESimpleConfig(configFile, true);
     config->setGroup("Sessions list");
     int sessionsCount = config->readNumEntry("Sessions count", 0);
     for (int i = 0;  i < sessionsCount;  ++i)
@@ -89,7 +89,7 @@ void KateSessionMenu::initialize()
       if (!urlStr.isEmpty() && TDEGlobal::dirs()->exists(urlStr))
       {
         // Filter out empty URLs or non existing sessions
-        KSimpleConfig *sessionConfig = new KSimpleConfig(urlStr, true);
+        TDESimpleConfig *sessionConfig = new TDESimpleConfig(urlStr, true);
         sessionConfig->setGroup("General");
         // Session general properties
         TQString sessionName = sessionConfig->readEntry("Name", i18n("Unnamed"));
@@ -102,7 +102,7 @@ void KateSessionMenu::initialize()
     TQStringList list = TDEGlobal::dirs()->findAllResources( "data", "kate/sessions/*.katesession", false, true);
     for (TQStringList::ConstIterator it = list.begin(); it != list.end(); ++it)
     {
-      KSimpleConfig config( *it, true );
+      TDESimpleConfig config( *it, true );
       config.setGroup( "General" );
       m_sessions.append( config.readEntry( "Name" ) );
     }

@@ -125,7 +125,7 @@ protected:
     bool        mHideActiveWindowsFromSaver;
     bool        mHideCancelButton;
 
-    KSimpleConfig* mTDMConfig;
+    TDESimpleConfig* mTDMConfig;
 };
 
 #endif

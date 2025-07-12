@@ -91,8 +91,8 @@ private:
 	int last_known_y;
 
 	TDEPopupMenu* m_menu;
-	KSimpleConfig *r_config;
-	KSimpleConfig *t_config;
+	TDESimpleConfig *r_config;
+	TDESimpleConfig *t_config;
 
 private slots:
 	void _quit();

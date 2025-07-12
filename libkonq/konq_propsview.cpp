@@ -32,7 +32,7 @@
 #include <kinstance.h>
 #include <assert.h>
 
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 
 #include "konq_sort_constants.h"
 
@@ -173,7 +173,7 @@ TDEConfigBase * KonqPropsView::currentConfig()
         assert ( !isDefaultProperties() );
 
         if (!dotDirectory.isEmpty())
-            m_currentConfig = new KSimpleConfig( dotDirectory );
+            m_currentConfig = new TDESimpleConfig( dotDirectory );
         // the "else" is when we want to save locally but this is a remote URL -> no save
     }
     return m_currentConfig;
@@ -230,7 +230,7 @@ bool KonqPropsView::enterDir( const KURL & dir )
   if (dotDirExists)
   {
     //kdDebug(1203) << "Found .directory file" << endl;
-    KSimpleConfig * config = new KSimpleConfig( dotDirectory, true );
+    TDESimpleConfig * config = new TDESimpleConfig( dotDirectory, true );
     config->setGroup("URL properties");
 
     m_iIconSize = config->readNumEntry( "IconSize", m_iIconSize );
@@ -290,7 +290,7 @@ void KonqPropsView::setSaveViewPropertiesLocally( bool value )
     //kdDebug(1203) << "KonqPropsView::setSaveViewPropertiesLocally " << value << endl;
 
     if ( m_bSaveViewPropertiesLocally )
-        delete m_currentConfig; // points to a KSimpleConfig
+        delete m_currentConfig; // points to a TDESimpleConfig
 
     m_bSaveViewPropertiesLocally = value;
     m_currentConfig = 0L; // mark as dirty

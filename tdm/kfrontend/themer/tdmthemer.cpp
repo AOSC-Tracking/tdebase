@@ -31,7 +31,7 @@
 #include <kiconloader.h>
 #include <kimageeffect.h>
 #include <tdelocale.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kdebug.h>
 
 #include <tqfile.h>
@@ -62,7 +62,7 @@ KdmThemer::KdmThemer( const TQString &_filename, const TQString &mode, TQWidget 
 	// read the XML file and create DOM tree
 	TQString filename = _filename;
 	if (!::access( TQFile::encodeName( filename + "/GdmGreeterTheme.desktop" ), R_OK )) {
-		KSimpleConfig cfg( filename + "/GdmGreeterTheme.desktop" );
+		TDESimpleConfig cfg( filename + "/GdmGreeterTheme.desktop" );
 		cfg.setGroup( "GdmGreeterTheme" );
 		filename += '/' + cfg.readEntry( "Greeter" );
 	}

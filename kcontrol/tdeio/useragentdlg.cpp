@@ -36,7 +36,7 @@
 #include <tdelocale.h>
 #include <tdelistview.h>
 #include <tdemessagebox.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdeio/http_slave_defaults.h>
 
 #include "ksaveioconfig.h"
@@ -186,7 +186,7 @@ void UserAgentDlg::save()
   if (!deleteList.isEmpty())
   {
      // Remove entries from local file.
-     KSimpleConfig cfg("tdeio_httprc");
+     TDESimpleConfig cfg("tdeio_httprc");
      for ( TQStringList::Iterator it = deleteList.begin();
            it != deleteList.end(); ++it )
      {

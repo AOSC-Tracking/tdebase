@@ -33,7 +33,7 @@
 #include <kdebug.h>
 #include <tdeglobalsettings.h>
 #include <dcopref.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 
 #include <tdmtsak.h>
@@ -374,12 +374,12 @@ int main( int argc, char **argv )
 		TDEGlobal::locale()->insertCatalogue("libdmctl");
 
 		struct stat st;
-		KSimpleConfig* tdmconfig;
+		TDESimpleConfig* tdmconfig;
 		if( stat( KDE_CONFDIR "/tdm/tdmdistrc" , &st ) == 0) {
-			tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
+			tdmconfig = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
 		}
 		else {
-			tdmconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
+			tdmconfig = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
 		}
 		tdmconfig->setGroup("X-:*-Greeter");
 

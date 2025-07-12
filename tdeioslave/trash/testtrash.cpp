@@ -372,7 +372,7 @@ static void checkInfoFile( const TQString& infoPath, const TQString& origFilePat
     TQFileInfo info( infoPath );
     assert( info.exists() );
     assert( info.isFile() );
-    KSimpleConfig infoFile( info.absFilePath(), true );
+    TDESimpleConfig infoFile( info.absFilePath(), true );
     if ( !infoFile.hasGroup( "Trash Info" ) )
         kdFatal() << "no Trash Info group in " << info.absFilePath() << endl;
     infoFile.setGroup( "Trash Info" );
@@ -476,7 +476,7 @@ void TestTrash::trashUmlautFileFromHome()
 
 void TestTrash::testTrashNotEmpty()
 {
-    KSimpleConfig cfg( "trashrc", true );
+    TDESimpleConfig cfg( "trashrc", true );
     assert( cfg.hasGroup( "Status" ) );
     cfg.setGroup( "Status" );
     assert( cfg.readBoolEntry( "Empty", true ) == false );
@@ -1179,7 +1179,7 @@ void TestTrash::emptyTrash()
     bool ok = TDEIO::NetAccess::synchronousRun( job, 0 );
     assert( ok );
 
-    KSimpleConfig cfg( "trashrc", true );
+    TDESimpleConfig cfg( "trashrc", true );
     assert( cfg.hasGroup( "Status" ) );
     cfg.setGroup( "Status" );
     assert( cfg.readBoolEntry( "Empty", false ) == true );

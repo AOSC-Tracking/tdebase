@@ -21,7 +21,7 @@
 #define TRASHIMPL_H
 
 #include <tdeio/jobclasses.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 
 #include <tqstring.h>
 #include <tqdatetime.h>
@@ -172,7 +172,7 @@ private:
     mutable bool m_trashDirectoriesScanned;
     int m_mibEnum;
 
-    KSimpleConfig m_config;
+    TDESimpleConfig m_config;
 
     // We don't cache any data related to the trashed files.
     // Another tdeioslave could change that behind our feet.

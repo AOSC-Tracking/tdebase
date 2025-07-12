@@ -54,7 +54,7 @@
 #include <kkeydialog.h>
 #include <tdelistbox.h>
 #include <tdelocale.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kstdaction.h>
 #include <tdestandarddirs.h>
 #include <twin.h>

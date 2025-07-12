@@ -23,7 +23,7 @@
 
 #include <tdeapplication.h>
 #include <kiconloader.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 
 #include "findmenu.h"
@@ -52,7 +52,7 @@ void FindMenu::initialize()
 
   mConfigList.clear();
   for ( TQStringList::ConstIterator it = list.begin(); it != list.end(); ++it ) {
-    KSimpleConfig config( *it, true );
+    TDESimpleConfig config( *it, true );
     config.setDesktopGroup();
 
     mConfigList.append( *it );
@@ -69,7 +69,7 @@ void FindMenu::slotExec( int pos )
 
   tdeApp->propagateSessionManager();
 
-  KSimpleConfig config(app, true);
+  TDESimpleConfig config(app, true);
   config.setDesktopGroup();
   if (tdeApp && config.readEntry("Type") == "Link")
   {

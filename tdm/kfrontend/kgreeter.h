@@ -37,7 +37,7 @@ class KdmThemer;
 class KdmItem;
 
 class TDEListView;
-class KSimpleConfig;
+class TDESimpleConfig;
 
 class TQLabel;
 class TQPushButton;
@@ -125,7 +125,7 @@ class KGreeter : public KGDialog, public KGVerifyHandler {
 	virtual void pluginSetup();
 	void setPrevWM( int );
 
-	KSimpleConfig *stsFile;
+	TDESimpleConfig *stsFile;
 	UserListView *userView;
 	TQStringList *userList;
 	TQPopupMenu *sessMenu;

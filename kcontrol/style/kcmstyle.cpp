@@ -51,7 +51,7 @@
 #include <klibloader.h>
 #include <tdelistview.h>
 #include <tdemessagebox.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestyle.h>
 #include <tdestandarddirs.h>
 
@@ -745,7 +745,7 @@ void KCMStyle::loadStyle( TDEConfig& config )
 	TQStringList list = TDEGlobal::dirs()->findAllResources("themes", "*.themerc", true, true);
 	for (TQStringList::iterator it = list.begin(); it != list.end(); ++it)
 	{
-		KSimpleConfig config( *it, true );
+		TDESimpleConfig config( *it, true );
 		if ( !(config.hasGroup("KDE") && config.hasGroup("Misc")) )
 			continue;
 

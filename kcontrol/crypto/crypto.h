@@ -34,7 +34,7 @@
 #include <tqvbuttongroup.h>
 
 #include <tdecmodule.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 
 class TQGridLayout;
 class TQVButtonGroup;
@@ -354,7 +354,7 @@ private:
   TQLabel *cHash;
 
   TDEConfig *config;
-  KSimpleConfig *policies, *pcerts, *authcfg;
+  TDESimpleConfig *policies, *pcerts, *authcfg;
   TDEConfig *cacfg;
 
   bool ___lehack;       // to hack around a lineedit problem

@@ -24,7 +24,7 @@
 #include <tdeapplication.h>
 #include <kdebug.h>
 #include <ksavefile.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 
 #include <zlib.h>
@@ -594,7 +594,7 @@ bool KonqHistoryManager::loadFallback()
 	return false;
 
     KonqHistoryEntry *entry;
-    KSimpleConfig config( file );
+    TDESimpleConfig config( file );
     config.setGroup("History");
     TQStringList items = config.readListEntry( "CompletionItems" );
     TQStringList::Iterator it = items.begin();

@@ -184,7 +184,7 @@ void TDEHTMLSearchConfig::loadLanguages()
 
   for (TQStringList::ConstIterator it = langs.begin(); it != langs.end(); ++it)
     {
-      KSimpleConfig entry(*it);
+      TDESimpleConfig entry(*it);
       entry.setGroup(TQString::fromLatin1("KCM Locale"));
       TQString name = entry.readEntry(TQString::fromLatin1("Name"), TDEGlobal::locale()->translate("without name"));
 

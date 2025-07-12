@@ -25,7 +25,7 @@
 #include <tqtimer.h>
 
 // TDE
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdecmdlineargs.h>
 #include <tdeapplication.h>
 #include <tdeaboutdata.h>
@@ -122,7 +122,7 @@ bool TDESynDaemon::touchpadEnabled()
     // We can't read from our own TouchpadSettings
     // as it contains the currently applied value
     // so we revert to this
-    KSimpleConfig cfg("kcminputrc");
+    TDESimpleConfig cfg("kcminputrc");
     cfg.setGroup("Touchpad");
     return cfg.readBoolEntry("Enabled", true);
 }

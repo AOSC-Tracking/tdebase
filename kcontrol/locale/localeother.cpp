@@ -28,7 +28,7 @@
 
 #include <kdialog.h>
 #include <tdelocale.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 
 #include "localeother.h"
@@ -79,7 +79,7 @@ void TDELocaleConfigOther::save()
   TDEConfig *config = TDEGlobal::config();
   TDEConfigGroupSaver saver(config, "Locale");
 
-  KSimpleConfig ent(locate("locale",
+  TDESimpleConfig ent(locate("locale",
                            TQString::fromLatin1("l10n/%1/entry.desktop")
                            .arg(m_locale->country())), true);
   ent.setGroup("KCM Locale");

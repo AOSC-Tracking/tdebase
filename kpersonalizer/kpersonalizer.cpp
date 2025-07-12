@@ -25,7 +25,7 @@
 #include <tqtimer.h>
 #include <tqcursor.h>
 
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdeglobal.h>
 #include <tdeglobalsettings.h>
 #include <tdestandarddirs.h>

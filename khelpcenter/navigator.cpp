@@ -39,7 +39,7 @@
 
 #include <tdeaction.h>
 #include <tdeapplication.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>

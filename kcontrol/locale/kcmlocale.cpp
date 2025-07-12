@@ -36,7 +36,7 @@
 #include <tdeprocess.h>
 #include <kiconloader.h>
 #include <klanguagebutton.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 
 #include "kcmlocale.h"
@@ -299,7 +299,7 @@ void TDELocaleConfig::loadLanguageList()
       menu_index = -2; // first entries should _not_ be sorted
       continue;
     }
-    KSimpleConfig entry(*it);
+    TDESimpleConfig entry(*it);
     entry.setGroup("KCM Locale");
     TQString name = entry.readEntry("Name",
                                    m_locale->translate("without name"));
@@ -346,7 +346,7 @@ void TDELocaleConfig::loadCountryList()
     if (index != -1)
       tag.truncate(index);
 
-    KSimpleConfig entry(*it);
+    TDESimpleConfig entry(*it);
     entry.setGroup("KCM Locale");
     TQString name = entry.readEntry("Name",
                                    m_locale->translate("without name"));
@@ -367,7 +367,7 @@ void TDELocaleConfig::loadCountryList()
   for ( TQStringList::ConstIterator it = countrylist.begin();
         it != countrylist.end(); ++it )
   {
-    KSimpleConfig entry(*it);
+    TDESimpleConfig entry(*it);
     entry.setGroup("KCM Locale");
     TQString name = entry.readEntry("Name",
                                    m_locale->translate("without name"));
@@ -403,7 +403,7 @@ void TDELocaleConfig::readLocale(const TQString &path, TQString &name,
     .arg(sub)
     .arg(path);
 
-  KSimpleConfig entry(locate("locale", filepath));
+  TDESimpleConfig entry(locate("locale", filepath));
   entry.setGroup("KCM Locale");
   name = entry.readEntry("Name");
 
@@ -505,7 +505,7 @@ TQStringList TDELocaleConfig::languageList() const
                             TQString::fromLatin1("l10n/%1/entry.desktop")
                             .arg(m_locale->country()));
 
-  KSimpleConfig entry(fileName);
+  TDESimpleConfig entry(fileName);
   entry.setGroup("KCM Locale");
 
   return entry.readListEntry("Languages");

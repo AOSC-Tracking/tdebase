@@ -279,7 +279,7 @@ void NotifierSettings::save()
 		delete a;
 	}
 	
-	KSimpleConfig config( "medianotifierrc" );
+	TDESimpleConfig config( "medianotifierrc" );
 	config.setGroup( "Auto Actions" );
 	
 	TQMap<TQString,NotifierAction*>::iterator auto_it = m_autoMimetypesMap.begin();

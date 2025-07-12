@@ -88,7 +88,7 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
 		last_known_y = currentScreen()->currentPixelHeight();
 	}
 
-	t_config = new KSimpleConfig("kiccconfigrc");
+	t_config = new TDESimpleConfig("kiccconfigrc");
 
 	TQString cur_profile;
 	cur_profile = getCurrentProfile();
@@ -108,7 +108,7 @@ KRandRSystemTray::KRandRSystemTray(TQWidget* parent, const char *name)
  * result is written to the KDE configfile.
  */
 void KRandRSystemTray::_quit (){
-	r_config = new KSimpleConfig("tderandrtrayrc");
+	r_config = new TDESimpleConfig("tderandrtrayrc");
 
 	TQString tmp1 = i18n ("Start KRandRTray automatically when you log in?");
 	int tmp2 = KMessageBox::questionYesNo ( 0, tmp1, i18n("Question"), i18n("Start Automatically"), i18n("Do Not Start"));

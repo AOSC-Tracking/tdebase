@@ -74,7 +74,7 @@ TQRect KDIconView::desktopRect()
 
 // -----------------------------------------------------------------------------
 
-void KDIconView::saveIconPosition(KSimpleConfig *config, int x, int y)
+void KDIconView::saveIconPosition(TDESimpleConfig *config, int x, int y)
 {
   // save the icon position in absolute coordinates
   config->writeEntry("Xabs", x);
@@ -90,7 +90,7 @@ void KDIconView::saveIconPosition(KSimpleConfig *config, int x, int y)
 
 // -----------------------------------------------------------------------------
 
-void KDIconView::readIconPosition(KSimpleConfig *config, int &x, int &y)
+void KDIconView::readIconPosition(TDESimpleConfig *config, int &x, int &y)
 {
   // check if we have the position for the current desktop size
   TQRect desk = desktopRect();
@@ -226,7 +226,7 @@ void KDIconView::initDotDirectories()
 
     delete m_dotDirectory;
 
-    m_dotDirectory = new KSimpleConfig( dotFileName );
+    m_dotDirectory = new TDESimpleConfig( dotFileName );
     // If we don't allow editable desktop icons, empty m_dotDirectory
     if (!m_bEditableDesktopIcons)
     {
@@ -248,7 +248,7 @@ void KDIconView::initDotDirectories()
 
         if (TQFile::exists(localDotFileName))
         {
-           KSimpleConfig dotDir(localDotFileName, true); // Read only
+           TDESimpleConfig dotDir(localDotFileName, true); // Read only
 
            TQStringList groups = dotDir.groupList();
            TQStringList::ConstIterator gIt = groups.begin();
@@ -906,7 +906,7 @@ bool KDIconView::deleteGlobalDesktopFiles()
         // Web Browser		kfmclient openBrowser %u		Application	TDE;
 
         if ( isDesktopFile(fItem) ) {
-            KSimpleConfig cfg( fItem->url().path(), true );
+            TDESimpleConfig cfg( fItem->url().path(), true );
             cfg.setDesktopGroup();
             if ( cfg.readEntry( "X-Trinity-BuiltIn" ) == "true" ) {
                 removeBuiltinIcon(cfg.readEntry( "Name" ));
@@ -1062,7 +1062,7 @@ bool KDIconView::makeFriendlyText( KFileIVI *fileIVI )
 
     if ( !desktopFile.isEmpty() )
     {
-        KSimpleConfig cfg( desktopFile, true );
+        TDESimpleConfig cfg( desktopFile, true );
         cfg.setDesktopGroup();
         if (cfg.readBoolEntry("Hidden")) {
             return false;
@@ -1145,7 +1145,7 @@ void KDIconView::slotNewItems( const KFileItemList & entries )
   if (m_nextItemPos.isNull() && !m_dotDirectory)  {
       // Not found, we'll need to save the new pos
       kdDebug(1214)<<"Neither a  drop position stored nor m_dotDirectory set"<<endl;
-      m_dotDirectory = new KSimpleConfig( dotDirectoryPath(), true );
+      m_dotDirectory = new TDESimpleConfig( dotDirectoryPath(), true );
       // recursion
       slotNewItems( entries );
       delete m_dotDirectory;
@@ -1406,7 +1406,7 @@ void KDIconView::refreshTrashIcon()
         KFileIVI * fileIVI = static_cast<KFileIVI *>(it);
         KFileItem* item = fileIVI->item();
         if ( isDesktopFile( item ) ) {
-            KSimpleConfig cfg( item->url().path(), true );
+            TDESimpleConfig cfg( item->url().path(), true );
             cfg.setDesktopGroup();
             if ( cfg.readEntry( "Type" ) == "Link" &&
                  cfg.readEntry( "URL" ) == "trash:/" ) {

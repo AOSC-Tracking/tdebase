@@ -29,7 +29,7 @@
 #include <tqlayout.h>
 #include <tqwhatsthis.h>
 
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <karrowbutton.h>
 #include <klineedit.h>
 #include <tdelocale.h>
@@ -39,7 +39,7 @@
 #include "tdm-shut.h"
 #include "kbackedcombobox.h"
 
-extern KSimpleConfig *config;
+extern TDESimpleConfig *config;
 
 
 TDMSessionsWidget::TDMSessionsWidget(TQWidget *parent, const char *name)

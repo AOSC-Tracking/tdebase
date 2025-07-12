@@ -17,7 +17,7 @@
 
 template <class TQString, class T> class TQMap;
 class TDEStandardDirs;
-class KSimpleConfig;
+class TDESimpleConfig;
 class TDEConfig;
 class TQString;
 class TQImage;
@@ -66,7 +66,7 @@ private:
     TQString m_Name, m_Comment;
     TQString m_Pattern, m_File;
     TDEStandardDirs *m_pDirs;
-    KSimpleConfig *m_pConfig;
+    TDESimpleConfig *m_pConfig;
 };
 
 
@@ -137,7 +137,7 @@ private:
     TQString m_PreviewCommand, m_Comment;
     TQString m_Executable, m_File;
     TDEStandardDirs *m_pDirs;
-    KSimpleConfig *m_pConfig;
+    TDESimpleConfig *m_pConfig;
 };
 
 

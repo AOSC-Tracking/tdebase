@@ -31,7 +31,7 @@
 #include <tdestandarddirs.h>
 #include <kservice.h>
 #include <tdelocale.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #undef Unsorted
 #include <kipc.h>
 
@@ -419,7 +419,7 @@ void IconThemesConfig::save()
   if (!selected)
      return;
 
-  KSimpleConfig *config = new KSimpleConfig("kdeglobals", false);
+  TDESimpleConfig *config = new TDESimpleConfig("kdeglobals", false);
   config->setGroup("Icons");
   config->writeEntry("Theme", m_themeNames[selected->text(0)]);
   delete config;

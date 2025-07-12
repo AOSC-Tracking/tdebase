@@ -18,7 +18,7 @@
 
 #include <tdecmodule.h>
 #include <kdialogbase.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 
 class TQCheckBox;
 class TQColor;
@@ -107,8 +107,8 @@ private:
     TDEIconTheme *mpTheme;
     TDEIconLoader *mpLoader;
     TDEConfig *mpConfig;
-    KSimpleConfig *mpSystrayConfig;
-    KSimpleConfig *mpKickerConfig;
+    TDESimpleConfig *mpSystrayConfig;
+    TDESimpleConfig *mpKickerConfig;
 
     typedef TQLabel *QLabelPtr;
     QLabelPtr mpPreview[3];

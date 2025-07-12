@@ -422,7 +422,7 @@
     <include location="global" impldecl="in implementation">kiconloader.h</include>
     <include location="global" impldecl="in implementation">tdelocale.h</include>
     <include location="global" impldecl="in implementation">tdeglobalsettings.h</include>
-    <include location="global" impldecl="in implementation">ksimpleconfig.h</include>
+    <include location="global" impldecl="in implementation">tdesimpleconfig.h</include>
     <include location="global" impldecl="in implementation">tdeapplication.h</include>
     <include location="global" impldecl="in implementation">tdestandarddirs.h</include>
     <include location="global" impldecl="in implementation">kdirnotify_stub.h</include>

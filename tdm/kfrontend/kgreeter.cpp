@@ -50,7 +50,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <tdestandarddirs.h>
 #include <kseparator.h>
 #include <tdelistview.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kstringhandler.h>
 #include <kdebug.h>
 #include <kdialog.h>
@@ -201,7 +201,7 @@ KGreeter::KGreeter( bool framed )
   , showInfoMessages( true )
   , closingDown( false )
 {
-	stsFile = new KSimpleConfig( _stsFile );
+	stsFile = new TDESimpleConfig( _stsFile );
 	stsFile->setGroup( "PrevUser" );
 
 	if (_userList) {
@@ -615,7 +615,7 @@ KGreeter::insertSessions()
 		TQStringList ents = TQDir( *dit ).entryList();
 		for (TQStringList::ConstIterator it = ents.begin(); it != ents.end(); ++it)
 		  if ((*it).endsWith( ".desktop" ) && !(*it).endsWith("admin.desktop")) {
-				KSimpleConfig dsk( TQString( *dit ).append( '/' ).append( *it ) );
+				TDESimpleConfig dsk( TQString( *dit ).append( '/' ).append( *it ) );
 				dsk.setGroup( "Desktop Entry" );
 				putSession( (*it).left( (*it).length() - 8 ),
 				            dsk.readEntry( "Name" ),
@@ -871,7 +871,7 @@ void KGreeter::cryptographicCardInserted(TDECryptographicCardDevice* cdevice) {
 	return;
 #endif
 	// Make sure card logins are enabled before attempting one
-	KSimpleConfig *systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/ldap/ldapconfigrc" ));
+	TDESimpleConfig *systemconfig = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/ldap/ldapconfigrc" ));
 	systemconfig->setGroup(NULL);
 	bool enabled = systemconfig->readBoolEntry("EnablePKCS11Login", false);
 	delete systemconfig;

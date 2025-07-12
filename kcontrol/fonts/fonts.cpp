@@ -29,7 +29,7 @@
 #include <tdemessagebox.h>
 #include <knuminput.h>
 #include <tdeprocio.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <stdlib.h>
 
@@ -186,7 +186,7 @@ void FontUseItem::writeFont()
     config->setGroup(_rcgroup);
     config->writeEntry(_rckey, font(), true, true);
   } else {
-    config = new KSimpleConfig(locateLocal("config", _rcfile));
+    config = new TDESimpleConfig(locateLocal("config", _rcfile));
     config->setGroup(_rcgroup);
     config->writeEntry(_rckey, font());
     config->sync();
@@ -744,7 +744,7 @@ void TDEFonts::save()
   }
 
   // KDE-1.x support
-  KSimpleConfig* config = new KSimpleConfig( TQDir::homeDirPath() + "/.tderc" );
+  TDESimpleConfig* config = new TDESimpleConfig( TQDir::homeDirPath() + "/.tderc" );
   config->setGroup( "General" );
   for ( FontUseItem* i = fontUseList.first(); i; i = fontUseList.next() ) {
       if("font"==i->rcKey())

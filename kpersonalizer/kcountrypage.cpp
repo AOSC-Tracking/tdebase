@@ -20,7 +20,7 @@
 #include <tqmap.h>
 
 #include <tdeapplication.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdelocale.h>
 #include <kdebug.h>
 #include <tdestandarddirs.h>
@@ -85,7 +85,7 @@ void KCountryPage::loadCountryList(KLanguageButton *combo) {
 	TQMap<TQString,TQString> regionnames;
 
 	for ( TQStringList::ConstIterator it = regionfiles.begin(); it != regionfiles.end(); ++it ) {
-		KSimpleConfig entry(*it);
+		TDESimpleConfig entry(*it);
 		entry.setGroup(TQString::fromLatin1("KCM Locale"));
 		TQString name = entry.readEntry(TQString::fromLatin1("Name"), i18n("without name"));
 
@@ -112,7 +112,7 @@ void KCountryPage::loadCountryList(KLanguageButton *combo) {
 	countrylist.sort();
 
 	for ( TQStringList::ConstIterator it = countrylist.begin(); it != countrylist.end(); ++it ) {
-		KSimpleConfig entry(*it);
+		TDESimpleConfig entry(*it);
 		entry.setGroup(TQString::fromLatin1("KCM Locale"));
 		TQString name = entry.readEntry(TQString::fromLatin1("Name"), i18n("without name"));
 		TQString submenu = '-' + entry.readEntry("Region");
@@ -181,7 +181,7 @@ bool KCountryPage::save(KLanguageButton *comboCountry, KLanguageButton *comboLan
 }
 
 void KCountryPage::setLangForCountry(const TQString &country) {
-	KSimpleConfig ent(locate("locale", "l10n/" + country + "/entry.desktop"), true);
+	TDESimpleConfig ent(locate("locale", "l10n/" + country + "/entry.desktop"), true);
 	ent.setGroup(TQString::fromLatin1("KCM Locale"));
 	langs = ent.readListEntry(TQString::fromLatin1("Languages"));
 

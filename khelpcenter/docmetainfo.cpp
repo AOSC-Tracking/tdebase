@@ -3,7 +3,7 @@
 #include <kdebug.h>
 #include <tdestandarddirs.h>
 #include <tdelocale.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 
 #include "htmlsearch.h"
 
@@ -112,7 +112,7 @@ TQString DocMetaInfo::languageName( const TQString &langcode )
 
   kdDebug() << "-- langcode: " << langcode << " cfgfile: " << cfgfile << endl;
   
-  KSimpleConfig cfg( cfgfile );
+  TDESimpleConfig cfg( cfgfile );
   cfg.setGroup( "KCM Locale" );
   TQString name = cfg.readEntry( "Name", langcode );
   

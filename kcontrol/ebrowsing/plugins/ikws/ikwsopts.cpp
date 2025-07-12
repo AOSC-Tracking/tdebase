@@ -38,7 +38,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <kservice.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <ktrader.h>
 
@@ -274,7 +274,7 @@ void FilterOptions::save()
         }
       }
 
-      KSimpleConfig service(path + name + ".desktop");
+      TDESimpleConfig service(path + name + ".desktop");
       service.setGroup("Desktop Entry");
       service.writeEntry("Type", "Service");
       service.writeEntry("X-TDE-ServiceTypes", "SearchProvider");
@@ -304,7 +304,7 @@ void FilterOptions::save()
           TQFile::remove(matches[0]);
           continue;
       }
-      KSimpleConfig service(path + *it + ".desktop");
+      TDESimpleConfig service(path + *it + ".desktop");
       service.setGroup("Desktop Entry");
       service.writeEntry("Type", "Service");
       service.writeEntry("X-TDE-ServiceTypes", "SearchProvider");

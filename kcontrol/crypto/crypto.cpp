@@ -308,9 +308,9 @@ TQString whatstr;
 
   // no need to parse kdeglobals.
   config = new TDEConfig("cryptodefaults", false, false);
-  policies = new KSimpleConfig("ksslpolicies", false);
-  pcerts = new KSimpleConfig("ksslcertificates", false);
-  authcfg = new KSimpleConfig("ksslauthmap", false);
+  policies = new TDESimpleConfig("ksslpolicies", false);
+  pcerts = new TDESimpleConfig("ksslcertificates", false);
+  authcfg = new TDESimpleConfig("ksslauthmap", false);
 
 #ifdef HAVE_SSL
   SSLv3Box = new TQListView(tabSSL, "v3ciphers");

@@ -101,7 +101,7 @@ KateSession::KateSession(const KateSession &session, const TQString &newSessionN
   createFilename();
   if (session.m_config)
   {
-    m_config = new KSimpleConfig(m_filename);
+    m_config = new TDESimpleConfig(m_filename);
     session.m_config->copyTo(m_filename, m_config);
     m_config->sync();
   }
@@ -139,7 +139,7 @@ void KateSession::load(bool includeGUIInfo)
   if (TDEGlobal::dirs()->exists(m_filename))
   {
     // Create config object if the session file already exists
-    m_config = new KSimpleConfig(m_filename, m_readOnly);
+    m_config = new TDESimpleConfig(m_filename, m_readOnly);
     m_config->setGroup(KS_GENERAL);
     // Session general properties
     m_sessionName = m_config->readEntry(KS_NAME, i18n(KS_UNNAMED));
@@ -211,7 +211,7 @@ void KateSession::save(bool saveGUIInfo, bool setReadOnly)
   // save session config info
   if (!m_config)
   {
-    m_config = new KSimpleConfig(m_filename);
+    m_config = new TDESimpleConfig(m_filename);
   }
 
   if (m_config->hasGroup(KS_GENERAL))
@@ -342,7 +342,7 @@ KateSessionManager::KateSessionManager() :
   if (TDEGlobal::dirs()->exists(m_configFile))
   {
     // Read new style configuration (from TDE R14.1.0)
-    m_config = new KSimpleConfig(m_configFile);
+    m_config = new TDESimpleConfig(m_configFile);
     m_config->setGroup(KSM_SESSIONS_LIST);
     sessionsCount = m_config->readNumEntry(KSM_SESSIONS_COUNT, 0);
     m_lastSessionId = m_config->readNumEntry(KSM_LAST_SESSION_ID, INVALID_SESSION);
@@ -503,7 +503,7 @@ void KateSessionManager::saveConfig(bool saveSessions)
   
   if (!m_config)
   {
-    m_config = new KSimpleConfig(m_configFile);
+    m_config = new TDESimpleConfig(m_configFile);
   }
   if (m_config->hasGroup(KSM_SESSIONS_LIST))
   {

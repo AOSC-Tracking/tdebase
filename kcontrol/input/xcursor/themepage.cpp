@@ -24,7 +24,7 @@
 #include <tdeaboutdata.h>
 #include <tdestandarddirs.h>
 #include <tdelistview.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdeglobalsettings.h>
 #include <kdialog.h>
 #include <tdemessagebox.h>
@@ -343,7 +343,7 @@ void ThemePage::insertTheme( const TQString &path )
 	TQString desc   = defaultThemeDescription( name );
 	TQString sample = "left_ptr";
 
-	KSimpleConfig c( path + "/index.theme", true ); // Open read-only
+	TDESimpleConfig c( path + "/index.theme", true ); // Open read-only
 	c.setGroup( "Icon Theme" );
 
 	// Don't insert the theme if it's hidden.
@@ -429,7 +429,7 @@ bool ThemePage::isCursorTheme( const TQString &theme, const int depth ) const
 			// Parse the index.theme file if one exists
 			if ( haveIndexFile )
 			{
-				KSimpleConfig c( indexfile, true ); // Open read-only
+				TDESimpleConfig c( indexfile, true ); // Open read-only
 				c.setGroup( "Icon Theme" );
 				inherit = c.readListEntry( "Inherits" );
 			}
@@ -493,7 +493,7 @@ void ThemePage::insertThemes()
 			// Parse the index.theme file if the theme has one.
 			if ( haveIndexFile )
 			{
-				KSimpleConfig c( indexfile, true );
+				TDESimpleConfig c( indexfile, true );
 				c.setGroup( "Icon Theme" );
 
 				// Skip this theme if it's hidden.

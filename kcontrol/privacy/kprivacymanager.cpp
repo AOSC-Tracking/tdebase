@@ -22,7 +22,7 @@
 #include <tdeapplication.h>
 #include <dcopclient.h>
 #include <tdeconfig.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdeprocess.h>
 #include <tdeglobal.h>
 #include <tdeapplication.h>

@@ -32,12 +32,12 @@
 #include <tqheader.h>
 
 #include <kdialog.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdelocale.h>
 
 #include "tdm-conv.h"
 
-extern KSimpleConfig *config;
+extern TDESimpleConfig *config;
 
 TDMConvenienceWidget::TDMConvenienceWidget(TQWidget *parent, const char *name)
     : TQWidget(parent, name)

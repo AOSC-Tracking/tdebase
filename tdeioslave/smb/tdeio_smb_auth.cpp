@@ -32,7 +32,7 @@
 #include "tdeio_smb.h"
 #include "tdeio_smb_internal.h"
 
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tqdir.h>
 #include <stdlib.h>
 
@@ -163,7 +163,7 @@ bool SMBSlave::auth_initialize_smbc()
     if(m_initialized_smbc == false)
     {
         kdDebug(TDEIO_SMB) << "smbc_init call" << endl;
-        KSimpleConfig cfg( "tdeioslaverc", true );
+        TDESimpleConfig cfg( "tdeioslaverc", true );
 
         cfg.setGroup( "SMB" );
         int debug_level = cfg.readNumEntry( "DebugLevel", 0 );

@@ -38,7 +38,7 @@
 #include <tdeprocess.h>
 #include <klineedit.h>
 #include <kpassdlg.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdeapplication.h>
 #include <tdemessagebox.h>
 
@@ -65,7 +65,7 @@ KCMDnssd::KCMDnssd(TQWidget *parent, const char *name, const TQStringList&)
 		else if (getenv("TDESU_USER")!=0) tabs->removePage(tab); 
 	addConfig(DNSSD::Configuration::self(),this);
 	// it is host-wide setting so it has to be in global config file
-	domain = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdednssdrc" ));
+	domain = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdednssdrc" ));
 	domain->setGroup("publishing");
 	load();
 	connect(hostedit,TQ_SIGNAL(textChanged(const TQString&)),this,TQ_SLOT(wdchanged()));

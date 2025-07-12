@@ -35,7 +35,7 @@
 #include <tdeapplication.h>
 #include <tdestandarddirs.h>
 #include <kprotocolinfo.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kstaticdeleter.h>
 
 #include "kuriikwsfiltereng.h"
@@ -449,7 +449,7 @@ void KURISearchFilterEngine::loadConfig()
   // contains the sycoca based search provider configuration (malte).
   // TODO: Remove in KDE 4 !!! This has been here a sufficient amount of time...
   {
-    KSimpleConfig oldConfig(tdeApp->dirs()->saveLocation("config") + TQString(name()) + "rc");
+    TDESimpleConfig oldConfig(tdeApp->dirs()->saveLocation("config") + TQString(name()) + "rc");
     oldConfig.setGroup("General");
 
     if (oldConfig.hasKey("SearchEngines"))
@@ -498,7 +498,7 @@ void KURISearchFilterEngine::loadConfig()
           delete provider;
         }
 
-        KSimpleConfig desktop(tdeApp->dirs()->saveLocation("services", "searchproviders/") + name + ".desktop");
+        TDESimpleConfig desktop(tdeApp->dirs()->saveLocation("services", "searchproviders/") + name + ".desktop");
         desktop.setGroup("Desktop Entry");
         desktop.writeEntry("Type", "Service");
         desktop.writeEntry("X-TDE-ServiceTypes", "SearchProvider");

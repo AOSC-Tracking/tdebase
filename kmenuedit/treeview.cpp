@@ -37,7 +37,7 @@
 #include <tdestandarddirs.h>
 #include <kinputdialog.h>
 #include <tdelocale.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <kdesktopfile.h>

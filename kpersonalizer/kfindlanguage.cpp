@@ -21,7 +21,7 @@
 #include <tqstringlist.h>
 #include <tqmap.h>
 
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdeglobal.h>
 #include <tdestandarddirs.h>
 #include <tdelocale.h>
@@ -54,7 +54,7 @@ KFindLanguage::KFindLanguage() {
 	}
 
 	// get the users primary Languages
-	KSimpleConfig ent(locate("locale", TQString::fromLatin1("l10n/%1/entry.desktop").arg(m_country)), true);
+	TDESimpleConfig ent(locate("locale", TQString::fromLatin1("l10n/%1/entry.desktop").arg(m_country)), true);
 	ent.setGroup("KCM Locale");
 	TQStringList langs = ent.readListEntry("Languages");
 	if (langs.isEmpty())
@@ -77,7 +77,7 @@ KFindLanguage::KFindLanguage() {
 	langlist += alllang;
 
 	for ( TQStringList::ConstIterator it = langlist.begin();	it != langlist.end(); ++it ) {
-		KSimpleConfig entry(*it);
+		TDESimpleConfig entry(*it);
 		entry.setGroup("KCM Locale");
 		TQString name = entry.readEntry("Name", i18n("without name"));
 

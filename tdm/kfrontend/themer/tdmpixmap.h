@@ -27,7 +27,7 @@
 //#include <tqrect.h>
 #include <tqpixmap.h>
 
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 
 /*

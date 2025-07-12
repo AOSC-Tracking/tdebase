@@ -33,7 +33,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <kopenwith.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <ktrader.h>
 #include <kurlrequester.h>
@@ -425,7 +425,7 @@ ComponentChooser::ComponentChooser(TQWidget *parent, const char *name):
 	TQStringList services=TDEGlobal::dirs()->findAllResources( "data","kcm_componentchooser/*.desktop",false,true,dummy);
 	for (TQStringList::Iterator it=services.begin();it!=services.end();++it)
 	{
-		KSimpleConfig cfg(*it);
+		TDESimpleConfig cfg(*it);
 		ServiceChooser->insertItem(new MyListBoxItem(cfg.readEntry("Name",i18n("Unknown")),(*it)));
 
 	}
@@ -443,7 +443,7 @@ void ComponentChooser::slotServiceSelected(TQListBoxItem* it) {
 	if (somethingChanged) {
 		if (KMessageBox::questionYesNo(this,i18n("<qt>You changed the default component of your choice. Do you want to save that change now?</qt>"),TQString::null,KStdGuiItem::save(),KStdGuiItem::discard())==KMessageBox::Yes) save();
 	}
-	KSimpleConfig cfg(static_cast<MyListBoxItem*>(it)->File);
+	TDESimpleConfig cfg(static_cast<MyListBoxItem*>(it)->File);
 
 	ComponentDescription->setText(cfg.readEntry("Comment",i18n("No description available")));
 	ComponentDescription->setMinimumSize(ComponentDescription->sizeHint());
@@ -534,7 +534,7 @@ void ComponentChooser::load() {
 				configWidget->tqt_cast( "CfgPlugin" ) );
 		if( plugin )
 		{
-			KSimpleConfig cfg(latestEditedService);
+			TDESimpleConfig cfg(latestEditedService);
 			plugin->load( &cfg );
 		}
 	}
@@ -547,7 +547,7 @@ void ComponentChooser::save() {
 				configWidget->tqt_cast( "CfgPlugin" ) );
 		if( plugin )
 		{
-			KSimpleConfig cfg(latestEditedService);
+			TDESimpleConfig cfg(latestEditedService);
 			plugin->save( &cfg );
 		}
 	}

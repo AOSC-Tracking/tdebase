@@ -44,7 +44,7 @@
 
 #include <unistd.h>
 #include <kpassdlg.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <string>
 #include <stdio.h>
 #include <tqstring.h>
@@ -59,8 +59,8 @@ using namespace std;
 typedef KGenericFactory<TDEHWManager, TQWidget> TDEHWManagerFactory;
 K_EXPORT_COMPONENT_FACTORY( kcm_hwmanager, TDEHWManagerFactory("kcmhwmanager") )
 
-KSimpleConfig *config;
-KSimpleConfig *systemconfig;
+TDESimpleConfig *config;
+TDESimpleConfig *systemconfig;
 
 /**** TDEHWManager ****/
 
@@ -68,8 +68,8 @@ TDEHWManager::TDEHWManager(TQWidget *parent, const char *name, const TQStringLis
   : TDECModule(TDEHWManagerFactory::instance(), parent, name)
 {
 	TQVBoxLayout *layout = new TQVBoxLayout(this, KDialog::marginHint(), KDialog::spacingHint());
-	config = new KSimpleConfig( TQString::fromLatin1( "hwmanagerrc" ));
-	systemconfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdehw/hwmanagerrc" ));
+	config = new TDESimpleConfig( TQString::fromLatin1( "hwmanagerrc" ));
+	systemconfig = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdehw/hwmanagerrc" ));
 
 	TDEAboutData *about =
 	new TDEAboutData(I18N_NOOP("kcmhwmanager"), I18N_NOOP("TDE Device Manager"), 0,

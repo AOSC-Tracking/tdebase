@@ -1081,7 +1081,7 @@ void KonqViewManager::saveViewProfile( const TQString & fileName, const TQString
   if ( TQFile::exists( path ) )
     TQFile::remove( path );
 
-  KSimpleConfig cfg( path );
+  TDESimpleConfig cfg( path );
   cfg.setGroup( "Profile" );
   if ( !profileName.isEmpty() )
       cfg.writePathEntry( "Name", profileName );

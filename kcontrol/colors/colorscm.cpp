@@ -371,8 +371,8 @@ void KColorScheme::save()
     cfg->sync();
 
     // KDE-1.x support
-    KSimpleConfig *config =
-    new KSimpleConfig( TQDir::homeDirPath() + "/.tderc" );
+    TDESimpleConfig *config =
+    new TDESimpleConfig( TQDir::homeDirPath() + "/.tderc" );
     config->setGroup( "General" );
     config->writeEntry("background", cs->back );
     config->writeEntry("selectBackground", cs->select );
@@ -443,7 +443,7 @@ void KColorScheme::slotSave( )
     KColorSchemeEntry *entry = mSchemeList->at(sList->currentItem()-nSysSchemes);
     if (!entry) return;
     sCurrentScheme = entry->path;
-    KSimpleConfig *config = new KSimpleConfig(sCurrentScheme );
+    TDESimpleConfig *config = new TDESimpleConfig(sCurrentScheme );
     int i = sCurrentScheme.findRev('/');
     if (i >= 0)
       sCurrentScheme = sCurrentScheme.mid(i+1);
@@ -561,7 +561,7 @@ void KColorScheme::slotAdd()
     else
     {
        sFile = TDEGlobal::dirs()->saveLocation("data", "tdedisplay/color-schemes/") + sFile + ".kcsrc";
-       KSimpleConfig *config = new KSimpleConfig(sFile);
+       TDESimpleConfig *config = new TDESimpleConfig(sFile);
        config->setGroup( "Color Scheme");
        config->writeEntry("Name", sName);
        delete config;
@@ -595,7 +595,7 @@ void KColorScheme::slotImport()
 	else
 	{
 		TQString sFile = location + file.fileName( false );
-		KSimpleConfig *config = new KSimpleConfig(sFile);
+		TDESimpleConfig *config = new TDESimpleConfig(sFile);
 		config->setGroup( "Color Scheme");
 		TQString sName = config->readEntry("Name", i18n("Untitled Theme"));
 		delete config;
@@ -798,7 +798,7 @@ void KColorScheme::readScheme( int index )
       KColorSchemeEntry *entry = mSchemeList->at(sList->currentItem()-nSysSchemes);
       if (!entry) return;
       sCurrentScheme = entry->path;
-      config = new KSimpleConfig(sCurrentScheme, true);
+      config = new TDESimpleConfig(sCurrentScheme, true);
       config->setGroup("Color Scheme");
       int i = sCurrentScheme.findRev('/');
       if (i >= 0)
@@ -865,7 +865,7 @@ void KColorScheme::readSchemeNames()
 
     // And add them
     for (TQStringList::ConstIterator it = list.begin(); it != list.end(); ++it) {
-       KSimpleConfig *config = new KSimpleConfig(*it);
+       TDESimpleConfig *config = new TDESimpleConfig(*it);
        config->setGroup("Color Scheme");
        TQString str = config->readEntry("Name");
        if (str.isEmpty()) {

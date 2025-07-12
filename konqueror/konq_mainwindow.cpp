@@ -844,7 +844,7 @@ bool KonqMainWindow::openView( TQString serviceType, const KURL &_url, KonqView 
           if ( f.open(IO_ReadOnly) )
             {
               f.close();
-              KSimpleConfig config( urlDotDir.path(), true );
+              TDESimpleConfig config( urlDotDir.path(), true );
               config.setGroup( "URL properties" );
               HTMLAllowed = config.readBoolEntry( "HTMLAllowed", m_bHTMLAllowed );
               serviceName = config.readEntry( "ViewMode", serviceName );
@@ -1253,7 +1253,7 @@ void KonqMainWindow::slotCreateNewWindow( const KURL &url, const KParts::URLArgs
     }
 
     TQString profileName = TQString::fromLatin1( url.isLocalFile() ? "konqueror/profiles/filemanagement" : "konqueror/profiles/webbrowsing" );
-    KSimpleConfig cfg( locate( "data", profileName ), true );
+    TDESimpleConfig cfg( locate( "data", profileName ), true );
     cfg.setGroup( "Profile" );
 
     if ( windowArgs.x != -1 )
@@ -1714,7 +1714,7 @@ void KonqMainWindow::slotViewModeToggle( bool toggle )
       u.addPath(".directory");
       if ( u.isLocalFile() )
       {
-          KSimpleConfig config( u.path() ); // if we have no write access, just drop it
+          TDESimpleConfig config( u.path() ); // if we have no write access, just drop it
           config.setGroup( "URL properties" );
           config.writeEntry( "ViewMode", modeName );
           config.sync();
@@ -1740,7 +1740,7 @@ void KonqMainWindow::showHTML( KonqView * _view, bool b, bool _activateView )
       u.addPath(".directory");
       if ( u.isLocalFile() )
       {
-          KSimpleConfig config( u.path() ); // No checks for access
+          TDESimpleConfig config( u.path() ); // No checks for access
           config.setGroup( "URL properties" );
           config.writeEntry( "HTMLAllowed", b );
           config.sync();
@@ -2980,7 +2980,7 @@ void KonqMainWindow::slotRemoveLocalProperties()
       if ( f.open(IO_ReadWrite) )
       {
           f.close();
-          KSimpleConfig config( u.path() );
+          TDESimpleConfig config( u.path() );
           config.deleteGroup( "URL properties" ); // Bye bye
           config.sync();
           // TODO: Notify the view...

@@ -39,7 +39,7 @@
 #include <tdelocale.h>
 #include <tdemessagebox.h>
 #include <tdeshortcutlist.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <dcopref.h>
 
@@ -282,7 +282,7 @@ void ShortcutsModule::readSchemeNames()
 		//if( r.search( *it ) != -1 )
 		//   continue;
 
-		KSimpleConfig config( *it, true );
+		TDESimpleConfig config( *it, true );
 		config.setGroup( "Settings" );
 		TQString str = config.readEntry( "Name" );
 
@@ -324,7 +324,7 @@ void ShortcutsModule::slotSelectScheme( int )
 		m_pkcSequence->syncToConfig( "Global Shortcuts", 0, true );
 		m_pkcApplication->syncToConfig( "Shortcuts", 0, false );
 	} else {
-		KSimpleConfig config( sFilename );
+		TDESimpleConfig config( sFilename );
 		config.setGroup( "Settings" );
 		//m_sBaseSchemeFile = config.readEntry( "Name" );
 
@@ -427,7 +427,7 @@ void ShortcutsModule::slotSaveSchemeAs()
 		m_pcbSchemes->setCurrentItem( iScheme );
 	}
 
-	KSimpleConfig *config = new KSimpleConfig( sFile );
+	TDESimpleConfig *config = new TDESimpleConfig( sFile );
 
 	config->setGroup( "Settings" );
 	config->writeEntry( "Name", sName );
@@ -442,7 +442,7 @@ void ShortcutsModule::slotSaveSchemeAs()
 void ShortcutsModule::saveScheme()
 {
 	TQString sFilename = m_rgsSchemeFiles[ m_pcbSchemes->currentItem() ];
-	KSimpleConfig config( sFilename );
+	TDESimpleConfig config( sFilename );
 
 	m_pkcGeneral->commitChanges();
 	m_pkcSequence->commitChanges();

@@ -34,7 +34,7 @@
 #include <tdeio/global.h>
 #include <tdestandarddirs.h>
 #include <tdelocale.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kseparator.h>
 #include <kpushbutton.h>
 
@@ -49,7 +49,7 @@ KonqProfileMap KonqProfileDlg::readAllProfiles()
   {
     TQFileInfo info( *pIt );
     TQString profileName = TDEIO::decodeFileName( info.baseName() );
-    KSimpleConfig cfg( *pIt, true );
+    TDESimpleConfig cfg( *pIt, true );
     if ( cfg.hasGroup( "Profile" ) )
     {
       cfg.setGroup( "Profile" );
@@ -211,7 +211,7 @@ void KonqProfileDlg::slotItemRenamed( TQListViewItem * item )
     if ( it != m_mapEntries.end() )
     {
       TQString fileName = it.data();
-      KSimpleConfig cfg( fileName );
+      TDESimpleConfig cfg( fileName );
       cfg.setGroup( "Profile" );
       cfg.writeEntry( "Name", newName );
       cfg.sync();

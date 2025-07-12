@@ -33,7 +33,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeio/netaccess.h>
 #include <tdestandarddirs.h>
 #include <kservice.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 
 #include "global.h"
 #include "kickerSettings.h"
@@ -161,7 +161,7 @@ int maxButtonDim()
     int maxDim;
     //return (2 * KickerSettings::iconMargin()) + TDEIcon::SizeLarge;
 
-    KSimpleConfig *kickerconfig = new KSimpleConfig( TQString::fromLatin1( "kickerrc" ));
+    TDESimpleConfig *kickerconfig = new TDESimpleConfig( TQString::fromLatin1( "kickerrc" ));
     kickerconfig->setGroup("General");
     maxDim = (2 * KickerSettings::iconMargin()) + kickerconfig->readNumEntry("panelIconWidth", TDEIcon::SizeLarge);;
     delete kickerconfig;

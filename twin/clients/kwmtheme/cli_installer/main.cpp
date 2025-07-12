@@ -1,7 +1,7 @@
 #include <tqfile.h>
 #include <tqdir.h>
 #include <tdeapplication.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdeglobal.h>
 #include <kdebug.h>
 #include <tdestandarddirs.h>
@@ -67,7 +67,7 @@ int main(int argc, char **argv)
         TQDir().mkdir(localDirStr);
 
     TQFileInfo fi(f);
-    KSimpleConfig input(fi.absFilePath());
+    TDESimpleConfig input(fi.absFilePath());
     srcStr = fi.dirPath(true) + "/";
     TDEConfig *output = TDEGlobal::config();
     input.setGroup("Window Border");

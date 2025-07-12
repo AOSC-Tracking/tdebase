@@ -21,7 +21,7 @@
 #include <tqtextview.h>
 #include <tqmap.h>
 
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 #include <tdeapplication.h>
 #include <tdelocale.h>
@@ -309,9 +309,9 @@ void KOSPage::writeKeyEntrys(TQString keyfile){
 	kdDebug() << "KOSPage::writeKeyEntrys()" << endl;
 
 	// load the given .kksrc - file
-	KSimpleConfig* scheme = new KSimpleConfig(keyfile, true);
+	TDESimpleConfig* scheme = new TDESimpleConfig(keyfile, true);
 	// load the default .kksrc - file
-	KSimpleConfig* defScheme = new KSimpleConfig(locate("keys", "trinity.kksrc"), true);
+	TDESimpleConfig* defScheme = new TDESimpleConfig(locate("keys", "trinity.kksrc"), true);
 
 	// we need the entries from the default - file, so we can compare with them
 	TQMap<TQString, TQString> defMap = defScheme->entryMap("Global Shortcuts");

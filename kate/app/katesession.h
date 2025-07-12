@@ -22,7 +22,7 @@
 #include "katemain.h"
 
 #include <kdialogbase.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <ksharedptr.h>
 #include <tdeaction.h>
 
@@ -145,7 +145,7 @@ class KateSession
 		TQString       m_filename;
 		bool           m_readOnly;
 		TQStringList   m_documents;           // document URLs
-		KSimpleConfig *m_config;              // session config
+		TDESimpleConfig *m_config;            // session config
 
 };
 //END KateSession
@@ -464,20 +464,20 @@ class KateSessionManager : public TQObject
 		 * @param sessionId the id of the session to save
 		 * @param saveGUIInfo if true, save also the information about the GUI elements
 		 * @param setReadOnly necessary to save a session that has to be turned to read only
-     * @emit sessionSaved
-     */
+		 * @emit sessionSaved
+		 */
 		void saveSession(int sessionId, bool saveGUIInfo, bool setReadOnly = false);
 
 
-		TQString m_baseDir;       					// folder where session files are stored
-		TQString m_configFile;     					// file where the session list config is stored
+		TQString m_baseDir;                 // folder where session files are stored
+		TQString m_configFile;              // file where the session list config is stored
 		int m_activeSessionId;              // id of the active session
-    int m_lastSessionId;                // id of the last active session before closing Kate
+		int m_lastSessionId;                // id of the last active session before closing Kate
 		TQPtrList<KateSession> m_sessions;  // session list
-		KSimpleConfig *m_config;        		// session manager config
+		TDESimpleConfig *m_config;          // session manager config
 		int m_startupOption;                // session option on Kate startup
 		int m_switchOption;                 // session option on session switch or Kate shutdown
-		
+
 		static KateSessionManager *ksm_instance;  // the only KateSessionManager instance
 };
 //END KateSessionManager

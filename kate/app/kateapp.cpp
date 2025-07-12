@@ -39,7 +39,7 @@
 #include <klibloader.h>
 #include <tdemessagebox.h>
 #include <tdelocale.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestartupinfo.h>
 
 #include <tqfile.h>

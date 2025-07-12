@@ -39,7 +39,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <konq_operations.h>
 #include <tdeprocess.h>
 #include <krun.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kstringhandler.h>
 #include <kurldrag.h>
 
@@ -189,7 +189,7 @@ void PanelBrowserMenu::initialize()
             // parse .directory if it does exist
             if (TQFile::exists(path + "/.directory")) {
 
-                KSimpleConfig c(path + "/.directory", true);
+                TDESimpleConfig c(path + "/.directory", true);
                 c.setDesktopGroup();
                 TQString iconPath = c.readEntry("Icon");
 
@@ -239,7 +239,7 @@ void PanelBrowserMenu::initialize()
             // .desktop files
             if(KDesktopFile::isDesktopFile(path))
             {
-                KSimpleConfig c(path, true);
+                TDESimpleConfig c(path, true);
                 c.setDesktopGroup();
                 title = c.readEntry("Name", title);
 

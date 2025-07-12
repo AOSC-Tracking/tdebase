@@ -37,7 +37,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdelocale.h>
 #include <krun.h>
 #include <kshell.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 
 #include "konsole_mnu.h"
@@ -113,7 +113,7 @@ void KonsoleMenu::initialize()
            continue;
         }
 
-        KSimpleConfig conf(*it, true /* read only */);
+        TDESimpleConfig conf(*it, true /* read only */);
         conf.setDesktopGroup();
         TQString text = conf.readEntry("Name");
 
@@ -207,7 +207,7 @@ void KonsoleMenu::initialize()
         TQFileInfo info(*pIt);
         TQString profileName = TDEIO::decodeFileName(info.baseName());
         TQString niceName = profileName;
-        KSimpleConfig cfg(*pIt, true);
+        TDESimpleConfig cfg(*pIt, true);
         if (cfg.hasGroup("Profile"))
         {
             cfg.setGroup("Profile");

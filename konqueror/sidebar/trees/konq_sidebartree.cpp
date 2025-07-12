@@ -93,7 +93,7 @@ void KonqSidebarTree::loadModuleFactories()
 
   for (TQStringList::ConstIterator it=list.begin();it!=list.end();++it)
   {
-    KSimpleConfig ksc(*it);
+    TDESimpleConfig ksc(*it);
     ksc.setGroup("Desktop Entry");
     TQString name    = ksc.readEntry("X-TDE-TreeModule");
     TQString libName = ksc.readEntry("X-TDE-TreeModule-Lib");
@@ -610,7 +610,7 @@ void KonqSidebarTree::scanDir( KonqSidebarTreeItem *parent, const TQString &path
 				// Version 7 includes update of network places
 				const int currentVersion = 7;
 				TQString key = TQString::fromLatin1("X-TDE-DirTreeVersionNumber");
-				KSimpleConfig versionCfg( path + "/.directory" );
+				TDESimpleConfig versionCfg( path + "/.directory" );
 				int versionNumber = versionCfg.readNumEntry( key, 0 );
 				kdDebug(1201) << "KonqSidebarTree::scanDir found version " << versionNumber << endl;
 				if ( versionNumber < currentVersion )
@@ -720,7 +720,7 @@ void KonqSidebarTree::loadTopLevelGroup( KonqSidebarTreeItem *parent, const TQSt
     if ( TQFile::exists( dotDirectoryFile ) )
     {
         kdDebug(1201) << "Reading the .directory" << endl;
-        KSimpleConfig cfg( dotDirectoryFile, true );
+        TDESimpleConfig cfg( dotDirectoryFile, true );
         cfg.setDesktopGroup();
         name = cfg.readEntry( "Name", name );
         icon = cfg.readEntry( "Icon", icon );

@@ -36,7 +36,7 @@
 #include "tdeprocess.h"
 #include <kpropertiesdialog.h>
 #include <krun.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdestandarddirs.h>
 
 #include <tdeaction.h>
@@ -188,7 +188,7 @@ HwDeviceSystemTray::~HwDeviceSystemTray()
  */
 void HwDeviceSystemTray::quitApp()
 {
-	KSimpleConfig *config = new KSimpleConfig("tdehwdevicetrayrc");
+	TDESimpleConfig *config = new TDESimpleConfig("tdehwdevicetrayrc");
 
 	TQString tmp1 = i18n("Start device monitor automatically when you log in?");
 	int tmp2 = KMessageBox::questionYesNo(0, tmp1, i18n("Question"), i18n("Start Automatically"), i18n("Do Not Start"));

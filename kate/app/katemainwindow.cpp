@@ -65,7 +65,7 @@
 #include <kmimetype.h>
 #include <kopenwith.h>
 #include <tdepopupmenu.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kstatusbar.h>
 #include <kstdaction.h>
 #include <tdestandarddirs.h>

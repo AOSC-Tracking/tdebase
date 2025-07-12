@@ -40,7 +40,7 @@
 #include <tdelocale.h>
 #include <tdetoolbar.h>
 #include <tdemessagebox.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kstdaction.h>
 #include <tdestandarddirs.h>
 #include <tdeglobalsettings.h>

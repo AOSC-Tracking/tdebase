@@ -63,7 +63,7 @@ KonqSideBarWebModule::KonqSideBarWebModule(TDEInstance *instance, TQObject *pare
 
 	_desktopName = desktopName;
 
-	KSimpleConfig ksc(_desktopName);
+	TDESimpleConfig ksc(_desktopName);
 	ksc.setGroup("Desktop Entry");
         reloadTimeout = ksc.readNumEntry("Reload", 0);
 	_url = ksc.readPathEntry("URL");
@@ -102,7 +102,7 @@ void KonqSideBarWebModule::setAutoReload(){
 	if( dlg.exec() == TQDialog::Accepted ) {
 		int msec = ( mins->value() * 60 + secs->value() ) * 1000;
 		reloadTimeout = msec;
-		KSimpleConfig ksc(_desktopName);
+		TDESimpleConfig ksc(_desktopName);
 		ksc.setGroup("Desktop Entry");
 		ksc.writeEntry("Reload", reloadTimeout);	
 		reload();
@@ -147,7 +147,7 @@ void KonqSideBarWebModule::loadFavicon() {
 	if (!icon.isEmpty()) {
 		emit setIcon(icon);
 
-		KSimpleConfig ksc(_desktopName);
+		TDESimpleConfig ksc(_desktopName);
 		ksc.setGroup("Desktop Entry");
 		if (icon != ksc.readPathEntry("Icon")) {
 			ksc.writePathEntry("Icon", icon);
@@ -165,7 +165,7 @@ void KonqSideBarWebModule::setTitle(const TQString& title) {
 	if (!title.isEmpty()) {
 		emit setCaption(title);
 
-		KSimpleConfig ksc(_desktopName);
+		TDESimpleConfig ksc(_desktopName);
 		ksc.setGroup("Desktop Entry");
 		if (title != ksc.readPathEntry("Name")) {
 			ksc.writePathEntry("Name", title);

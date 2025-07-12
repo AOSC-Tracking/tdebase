@@ -43,7 +43,7 @@
 #include <tdeprocess.h>
 #include <kservicegroup.h>
 #include <tdestandarddirs.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 
 #include <X11/Xlib.h>
 #include "scrnsave.h"
@@ -84,10 +84,10 @@ KScreenSaver::KScreenSaver(TQWidget *parent, const char *name, const TQStringLis
 
     struct stat st;
     if( stat( KDE_CONFDIR "/tdm/tdmdistrc" , &st ) == 0) {
-			mTDMConfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
+			mTDMConfig = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmdistrc" ));
 		}
 		else {
-			mTDMConfig = new KSimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
+			mTDMConfig = new TDESimpleConfig( TQString::fromLatin1( KDE_CONFDIR "/tdm/tdmrc" ));
 		}
 		mTDMConfig->setGroup("X-:*-Greeter");
 

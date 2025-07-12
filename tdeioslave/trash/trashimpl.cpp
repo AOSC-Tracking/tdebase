@@ -251,7 +251,7 @@ bool TrashImpl::createInfo( const TQString& origPath, int& trashId, TQString& fi
         return false;
     }
 
-    // Contents of the info file. We could use KSimpleConfig, but that would
+    // Contents of the info file. We could use TDESimpleConfig, but that would
     // mean closing and reopening fd, i.e. opening a race condition...
     TQCString info = "[Trash Info]\n";
     info += "Path=";
@@ -620,7 +620,7 @@ bool TrashImpl::infoForFile( int trashId, const TQString& fileId, TrashedFileInf
 
 bool TrashImpl::readInfoFile( const TQString& infoPath, TrashedFileInfo& info, int trashId )
 {
-    KSimpleConfig cfg( infoPath, true );
+    TDESimpleConfig cfg( infoPath, true );
     if ( !cfg.hasGroup( "Trash Info" ) ) {
         error( TDEIO::ERR_CANNOT_OPEN_FOR_READING, infoPath );
         return false;

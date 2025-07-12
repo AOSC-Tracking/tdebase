@@ -28,7 +28,7 @@
 #include <tqcombobox.h>
 #include <tqlayout.h>
 
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdeapplication.h>
 #include <tdelocale.h>
 #include <kdebug.h>

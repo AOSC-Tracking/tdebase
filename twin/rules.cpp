@@ -14,7 +14,7 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <tdeconfig.h>
 #include <tqregexp.h>
 #include <tdetempfile.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tqfile.h>
 
 #ifndef KCMRULES
@@ -75,7 +75,7 @@ Rules::Rules( const TQString& str, bool temporary )
         f->writeBlock( s.data(), s.length());
         }
     file.close();
-    KSimpleConfig cfg( file.name());
+    TDESimpleConfig cfg( file.name());
     readFromCfg( cfg );
     if( description.isEmpty())
         description = "temporary";

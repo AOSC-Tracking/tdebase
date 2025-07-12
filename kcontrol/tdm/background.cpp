@@ -34,10 +34,10 @@
 #include "../background/bgdialog.h"
 #include "background.h"
 #include <tqcheckbox.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <kdialog.h>
 
-extern KSimpleConfig *config;
+extern TDESimpleConfig *config;
 
 KBackground::KBackground(TQWidget *parent, const char *name)
     : TQWidget(parent, name)
@@ -51,7 +51,7 @@ KBackground::KBackground(TQWidget *parent, const char *name)
 		" This is done by running some program (possibly xsetroot) in the script"
 		" specified in the Setup= option in tdmrc (usually Xsetup).") );
     config->setGroup( "X-*-Greeter" );
-    m_simpleConf=new KSimpleConfig(config->readEntry( "BackgroundCfg",KDE_CONFDIR "/tdm/backgroundrc" ) );
+    m_simpleConf=new TDESimpleConfig(config->readEntry( "BackgroundCfg",KDE_CONFDIR "/tdm/backgroundrc" ) );
     m_background = new BGDialog( this, m_simpleConf, false );
 
     connect(m_background, TQ_SIGNAL(changed(bool)), TQ_SIGNAL(changed(bool)));

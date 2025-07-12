@@ -40,7 +40,7 @@
 #include <dirent.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 
 // for multihead
 extern int kdesktop_screen_number;
@@ -234,7 +234,7 @@ void testLocalInstallation()
         (void)TDEIO::NetAccess::synchronousRun( job, 0 );
 
         // OK the only thing missing is to convert the icon position...
-        KSimpleConfig cfg( locateLocal("appdata", "IconPositions") );
+        TDESimpleConfig cfg( locateLocal("appdata", "IconPositions") );
         if ( cfg.hasGroup( "IconPosition::Trash" ) && !cfg.hasGroup( "IconPosition::trash.desktop" ) ) {
             const TQMap<TQString, TQString> entries = cfg.entryMap( "IconPosition::Trash" );
             cfg.setGroup( "IconPosition::trash.desktop" );

@@ -536,7 +536,7 @@ void BGDialog::loadWallpaperFilesList() {
    TQStringList hiddenfiles;
    for (TQStringList::ConstIterator it = lst.begin(); it != lst.end(); ++it)
    {
-      KSimpleConfig fileConfig(*it);
+      TDESimpleConfig fileConfig(*it);
       fileConfig.setGroup("Wallpaper");
 
       int slash = (*it).findRev('/') + 1;

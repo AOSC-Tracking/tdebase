@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <krun.h>
 #include <tdestandarddirs.h>
 #include <tdeio/global.h>
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 
 #include <tqregexp.h>
 #include <tqfileinfo.h>
@@ -65,7 +65,7 @@ void KonquerorProfilesMenu::initialize()
       TQFileInfo info( *pIt );
       TQString profileName = TDEIO::decodeFileName( info.baseName() );
       TQString niceName=profileName;
-      KSimpleConfig cfg( *pIt, true );
+      TDESimpleConfig cfg( *pIt, true );
       if ( cfg.hasGroup( "Profile" ) )
       {
          cfg.setGroup( "Profile" );

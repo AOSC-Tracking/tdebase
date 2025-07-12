@@ -24,7 +24,7 @@
 #include <tqsettings.h>
 #include <tqfont.h>
 
-#include <ksimpleconfig.h>
+#include <tdesimpleconfig.h>
 #include <tdeglobal.h>
 #include <tdestandarddirs.h>
 #include <tdelocale.h>

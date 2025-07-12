@@ -34,7 +34,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 class KComboBox;
 class KLineEdit;
 class KPasswordEdit;
-class KSimpleConfig;
+class TDESimpleConfig;
 class TQGridLayout;
 class TQLabel;
 class KdmThemer;
@@ -89,7 +89,7 @@ class KWinbindGreeter : public TQObject, public KGreeterPlugin {
 	KComboBox *domainCombo;
 	KLineEdit *loginEdit;
 	KPasswordEdit *passwdEdit, *passwd1Edit, *passwd2Edit;
-	KSimpleConfig *stsFile;
+	TDESimpleConfig *stsFile;
 	TQString fixedDomain, fixedUser, curUser;
 	TQStringList allUsers, mDomainListing;
 	TDEProcIO* m_domainLister;
