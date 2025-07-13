@@ -51,8 +51,8 @@ public:
 	
 private:
 	TQValueList<NotifierServiceAction*> listServices( const TQString &mimetype = TQString() ) const;
-	bool shouldLoadActions( KDesktopFile &desktop, const TQString &mimetype ) const;
-	TQValueList<NotifierServiceAction*> loadActions( KDesktopFile &desktop ) const;
+	bool shouldLoadActions( TDEDesktopFile &desktop, const TQString &mimetype ) const;
+	TQValueList<NotifierServiceAction*> loadActions( TDEDesktopFile &desktop ) const;
 
 	TQStringList m_supportedMimetypes;
 	TQValueList<NotifierAction*> m_actions;

@@ -20,7 +20,7 @@
 #include <tqdir.h>
 
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kdirwatch.h>
 #include <kinstance.h>
 #include <kinputdialog.h>
@@ -145,7 +145,7 @@ void KNewMenu::parseFiles()
             TQString templatePath;
             // If a desktop file, then read the name from it.
             // Otherwise (or if no name in it?) use file name
-            if ( KDesktopFile::isDesktopFile( filePath ) ) {
+            if ( TDEDesktopFile::isDesktopFile( filePath ) ) {
                 TDESimpleConfig config( filePath, true );
                 config.setDesktopGroup();
                 text = config.readEntry("Name");
@@ -260,9 +260,9 @@ void KNewMenu::fillMenu()
                     {
                         linkApp = act;
                     }
-                    else if ( KDesktopFile::isDesktopFile( entry.templatePath ) )
+                    else if ( TDEDesktopFile::isDesktopFile( entry.templatePath ) )
                     {
-                        KDesktopFile df( entry.templatePath );
+                        TDEDesktopFile df( entry.templatePath );
                         if(df.readType() == "FSDevice")
                             act->plug( d->m_menuDev->popupMenu() );
                         else
@@ -388,9 +388,9 @@ void KNewMenu::slotNewFile()
     }
     m_isURLDesktopFile = false;
     TQString name;
-    if ( KDesktopFile::isDesktopFile( entry.templatePath ) )
+    if ( TDEDesktopFile::isDesktopFile( entry.templatePath ) )
     {
-	KDesktopFile df( entry.templatePath );
+	TDEDesktopFile df( entry.templatePath );
     	//kdDebug(1203) <<  df.readType() << endl;
     	if ( df.readType() == "Link" )
     	{
@@ -505,7 +505,7 @@ void KNewMenu::slotResult( TDEIO::Job * job )
                 // destURL is the original destination for the new file.
                 // But in case of a renaming (due to a conflict), the real path is in m_destPath
                 kdDebug(1203) << " destURL=" << destURL.path() << " " << " d->m_destPath=" << d->m_destPath << endl;
-                KDesktopFile df( d->m_destPath );
+                TDEDesktopFile df( d->m_destPath );
                 df.writeEntry( "Icon", KProtocolInfo::icon( KURL(m_linkURL).protocol() ) );
                 df.writePathEntry( "URL", m_linkURL );
                 df.sync();

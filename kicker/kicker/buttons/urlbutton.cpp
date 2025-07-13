@@ -24,7 +24,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqtooltip.h>
 #include <tqfile.h>
 
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdefileitem.h>
 #include <konq_operations.h>
 #include <kicontheme.h>
@@ -71,7 +71,7 @@ void URLButton::initialize( const TQString& _url )
     if (!url.isLocalFile() || !url.path().endsWith(".desktop"))
     {
        TQString file = KickerLib::newDesktopFile(url);
-       KDesktopFile df(file);
+       TDEDesktopFile df(file);
        df.writeEntry("Encoding", "UTF-8");
        df.writeEntry("Type","Link");
        df.writeEntry("Name", url.prettyURL());
@@ -107,9 +107,9 @@ void URLButton::saveConfig( TDEConfigGroup& config ) const
 void URLButton::setToolTip()
 {
     if (fileItem->isLocalFile()
-        && KDesktopFile::isDesktopFile(fileItem->url().path()))
+        && TDEDesktopFile::isDesktopFile(fileItem->url().path()))
     {
-        KDesktopFile df(fileItem->url().path());
+        TDEDesktopFile df(fileItem->url().path());
 
         if (df.readComment().isEmpty())
         {
@@ -145,7 +145,7 @@ void URLButton::dropEvent(TQDropEvent *ev)
     if(KURLDrag::decode(ev, execList)){
         KURL url( fileItem->url() );
         if(!execList.isEmpty())  {
-             if (KDesktopFile::isDesktopFile(url.path())){
+             if (TDEDesktopFile::isDesktopFile(url.path())){
                 TDEApplication::startServiceByDesktopPath(url.path(), execList.toStringList(),
                                                         0, 0, 0, "", true);
              }

@@ -22,7 +22,7 @@
 #include <kdebug.h>
 #include <tdeglobalsettings.h>
 #include <tdestandarddirs.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kservice.h>
 #include <tdelocale.h>
 
@@ -140,7 +140,7 @@ KURL RemoteImpl::findBaseURL(const TQString &filename) const
 	TQString file = findDesktopFile(filename);
 	if (!file.isEmpty())
 	{
-		KDesktopFile desktop(file, true);
+		TDEDesktopFile desktop(file, true);
 		return desktop.readURL();
 	}
 	
@@ -219,7 +219,7 @@ void RemoteImpl::createEntry(TDEIO::UDSEntry &entry,
 	kdDebug(1220) << "RemoteImpl::createEntry" << endl;
 
 	TQString desktopPath(directory + file);
-	KDesktopFile desktop(desktopPath, true);
+	TDEDesktopFile desktop(desktopPath, true);
 
 	kdDebug(1220) << "path = " << directory << file << endl;
 
@@ -289,7 +289,7 @@ bool RemoteImpl::renameFolders(const TQString &src, const TQString &dest,
 		bool res = dir.rename(src+".desktop", dest+".desktop");
 		if (res)
 		{
-			KDesktopFile desktop(directory+dest+".desktop");
+			TDEDesktopFile desktop(directory+dest+".desktop");
 			desktop.writeEntry("Name", dest);
 		}
 		return res;

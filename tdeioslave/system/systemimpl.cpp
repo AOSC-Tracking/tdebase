@@ -22,7 +22,7 @@
 #include <kdebug.h>
 #include <tdeglobalsettings.h>
 #include <tdestandarddirs.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 
 #include <tqapplication.h>
 #include <tqeventloop.h>
@@ -169,7 +169,7 @@ KURL SystemImpl::findBaseURL(const TQString &filename) const
 		{
 			if (*name==filename+".desktop")
 			{
-				KDesktopFile desktop(*dirpath+filename+".desktop", true);
+				TDEDesktopFile desktop(*dirpath+filename+".desktop", true);
 				if ( desktop.readURL().isEmpty() )
 				{
 					KURL url;
@@ -226,7 +226,7 @@ TQString SystemImpl::readPathINL(TQString filename)
 		line = s.readLine();
 	}
  	if (isPathExpanded == false) {
-		KDesktopFile desktop(filename, true);
+		TDEDesktopFile desktop(filename, true);
 		return desktop.readPath();
 	}
 	else {
@@ -240,7 +240,7 @@ void SystemImpl::createEntry(TDEIO::UDSEntry &entry,
 {
 	kdDebug() << "SystemImpl::createEntry" << endl;
 
-	KDesktopFile desktop(directory+file, true);
+	TDEDesktopFile desktop(directory+file, true);
 
 	kdDebug() << "path = " << directory << file << endl;
 

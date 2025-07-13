@@ -24,7 +24,7 @@
 #include <tdestandarddirs.h>
 #include <tdeapplication.h>
 #include <dcopclient.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdelocale.h>
 #include <tdeaccel.h>
 #include <kservice.h>

@@ -40,7 +40,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <dcopclient.h>
 #include <tdeconfig.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeglobal.h>
 #include <kicker.h>
 #include <tdestandarddirs.h>
@@ -387,7 +387,7 @@ void ExtensionContainer::showPanelMenu( const TQPoint& globalPos )
 
     if (!_opMnu)
     {
-        KDesktopFile f(TDEGlobal::dirs()->findResource("extensions", _info.desktopFile()));
+        TDEDesktopFile f(TDEGlobal::dirs()->findResource("extensions", _info.desktopFile()));
         _opMnu = new PanelExtensionOpMenu(f.readName(),
                                           m_extension ? m_extension->actions() : 0,
                                           this);

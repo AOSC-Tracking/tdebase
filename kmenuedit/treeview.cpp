@@ -40,7 +40,7 @@
 #include <tdesimpleconfig.h>
 #include <kdebug.h>
 #include <kiconloader.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeaction.h>
 #include <tdemessagebox.h>
 #include <tdeapplication.h>
@@ -316,7 +316,7 @@ void TreeView::fill()
     TQApplication::restoreOverrideCursor();
 }
 
-TQString TreeView::findName(KDesktopFile *df, bool deleted)
+TQString TreeView::findName(TDEDesktopFile *df, bool deleted)
 {
     TQString name = df->readName();
     if (deleted)
@@ -340,7 +340,7 @@ TQString TreeView::findName(KDesktopFile *df, bool deleted)
                 continue;
              }
 
-             KDesktopFile df2(*it);
+             TDEDesktopFile df2(*it);
              name = df2.readName();
 
              if (!name.isEmpty() && (name != "empty"))
@@ -692,10 +692,10 @@ static TQString createDesktopFile(const TQString &file, TQString *menuId, TQStri
    return result;
 }
 
-static KDesktopFile *copyDesktopFile(MenuEntryInfo *entryInfo, TQString *menuId, TQStringList *excludeList)
+static TDEDesktopFile *copyDesktopFile(MenuEntryInfo *entryInfo, TQString *menuId, TQStringList *excludeList)
 {
    TQString result = createDesktopFile(entryInfo->file(), menuId, excludeList);
-   KDesktopFile *df = entryInfo->desktopFile()->copyTo(result);
+   TDEDesktopFile *df = entryInfo->desktopFile()->copyTo(result);
    df->deleteEntry("Categories"); // Don't set any categories!
    
    return df;
@@ -749,8 +749,8 @@ void TreeView::slotDropped (TQDropEvent * e, TQListViewItem *parent, TQListViewI
 
      TQString menuId;
      TQString result = createDesktopFile(path, &menuId, &m_newMenuIds);
-     KDesktopFile orig_df(path);
-     KDesktopFile *df = orig_df.copyTo(result);
+     TDEDesktopFile orig_df(path);
+     TDEDesktopFile *df = orig_df.copyTo(result);
      df->deleteEntry("Categories"); // Don't set any categories!
 
      KService *s = new KService(df);
@@ -869,7 +869,7 @@ void TreeView::slotDropped (TQDropEvent * e, TQListViewItem *parent, TQListViewI
       {
 
          // Need to copy file and then add it
-         KDesktopFile *df = copyDesktopFile(entryInfo, &menuId, &m_newMenuIds); // Duplicate
+         TDEDesktopFile *df = copyDesktopFile(entryInfo, &menuId, &m_newMenuIds); // Duplicate
 //UNDO-ACTION: NEW_MENU_ID (menuId)
 
          KService *s = new KService(df);
@@ -1030,7 +1030,7 @@ void TreeView::newsubmenu()
    folderInfo->hidden = false;
    folderInfo->setDirty();
 
-   KDesktopFile *df = new KDesktopFile(file);
+   TDEDesktopFile *df = new TDEDesktopFile(file);
    df->writeEntry("Name", folderInfo->caption);
    df->writeEntry("Icon", folderInfo->icon);
    df->sync();
@@ -1073,7 +1073,7 @@ void TreeView::newitem()
 
    file = createDesktopFile(file, &menuId, &m_newMenuIds); // Create
 
-   KDesktopFile *df = new KDesktopFile(file);
+   TDEDesktopFile *df = new TDEDesktopFile(file);
    df->writeEntry("Name", caption);
    df->writeEntry("Type", "Application");
 
@@ -1314,7 +1314,7 @@ void TreeView::paste()
       if (command == COPY_FILE)
       {
          // Need to copy file and then add it
-         KDesktopFile *df = copyDesktopFile(entryInfo, &menuId, &m_newMenuIds); // Duplicate
+         TDEDesktopFile *df = copyDesktopFile(entryInfo, &menuId, &m_newMenuIds); // Duplicate
 
          KService *s = new KService(df);
          s->setMenuId(menuId);

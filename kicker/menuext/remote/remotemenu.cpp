@@ -24,7 +24,7 @@
 #include <tdestandarddirs.h>
 #include <krun.h>
 #include <kiconloader.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kservice.h>
 
 #include <tqpixmap.h>
@@ -97,7 +97,7 @@ void RemoteMenu::initialize()
             {
                 names_found.append(*name);
                 TQString filename = *dirpath+*name;
-                KDesktopFile desktop(filename);
+                TDEDesktopFile desktop(filename);
                 id = insertItem(SmallIcon(desktop.readIcon()), desktop.readName());
                 m_desktopMap[id] = filename;
             }

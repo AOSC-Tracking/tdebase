@@ -33,7 +33,7 @@
 #include <tdeaction.h>
 #include <tdeapplication.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kdirnotify_stub.h>
 #include <tdeglobalsettings.h>
 #include <kiconloader.h>
@@ -390,7 +390,7 @@ void KonqSidebarTree::addURL(KonqSidebarTreeTopLevelItem* item, const KURL & url
        TQString filename = findUniqueFilename(path, name);
        destUrl.setPath(filename);
 
-       KDesktopFile cfg(filename);
+       TDEDesktopFile cfg(filename);
        cfg.writeEntry("Encoding", "UTF-8");
        cfg.writeEntry("Type","Link");
        cfg.writeEntry("URL", url.url());
@@ -755,7 +755,7 @@ void KonqSidebarTree::loadTopLevelGroup( KonqSidebarTreeItem *parent, const TQSt
 
 void KonqSidebarTree::loadTopLevelItem( KonqSidebarTreeItem *parent,  const TQString &filename )
 {
-    KDesktopFile cfg( filename, true );
+    TDEDesktopFile cfg( filename, true );
     cfg.setDollarExpansion(true);
 
     TQFileInfo inf( filename );

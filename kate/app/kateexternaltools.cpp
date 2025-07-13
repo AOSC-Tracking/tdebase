@@ -92,7 +92,7 @@ bool KateExternalTool::checkExec()
   if ( tryexec.isEmpty() )
     tryexec = command.section( " ", 0, 0, TQString::SectionSkipEmpty );
 
-  // NOTE this code is modified taken from kdesktopfile.cpp, from KDesktopFile::tryExec()
+  // NOTE this code is modified taken from tdedesktopfile.cpp, from TDEDesktopFile::tryExec()
   if (!tryexec.isEmpty()) {
     if (tryexec[0] == '/') {
       if (::access(TQFile::encodeName(tryexec), R_OK | X_OK))

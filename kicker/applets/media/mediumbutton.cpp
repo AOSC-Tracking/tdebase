@@ -30,7 +30,7 @@
 #include <tdemessagebox.h>
 #include <kmimetype.h>
 #include <tdelocale.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <krun.h>
 #include <tdeglobalsettings.h>
 #include <kcursor.h>

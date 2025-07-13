@@ -20,7 +20,7 @@
 #include <tdeio/job.h>
 #include <tdeio/netaccess.h>
 #include <tdestandarddirs.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeglobalsettings.h>
 #include <tdeapplication.h>
 #include <tdeprocess.h>
@@ -145,7 +145,7 @@ static void copyDesktopLinks()
     TQString desktopPath = realDesktopPath();
 
     for (TQStringList::ConstIterator it = list.begin(); it != list.end(); it++) {
-        KDesktopFile desk( *it );
+        TDEDesktopFile desk( *it );
         if (desk.readBoolEntry("Hidden"))
            continue;
         copyFile( *it, desktopPath );
@@ -213,13 +213,13 @@ void testLocalInstallation()
     if ( emptyDesktop || firstTimeWithNewTrash || installNewTrashi18n ) {
         TQString oldIcon, oldEmptyIcon;
         if ( trashDesktopExists ) {
-            KDesktopFile trashDesktop( trashDesktopPath, true );
+            TDEDesktopFile trashDesktop( trashDesktopPath, true );
             oldIcon = trashDesktop.readIcon();
             oldEmptyIcon = trashDesktop.readEntry( "EmptyIcon" );
         }
         copyFile( locate( "data", "kdesktop/directory.trash" ), trashDesktopPath );
         if ( trashDesktopExists ) {
-            KDesktopFile trashDesktop( trashDesktopPath );
+            TDEDesktopFile trashDesktop( trashDesktopPath );
             trashDesktop.writeEntry( "Icon", oldIcon );
             trashDesktop.writeEntry( "EmptyIcon", oldEmptyIcon );
             trashDesktop.sync();

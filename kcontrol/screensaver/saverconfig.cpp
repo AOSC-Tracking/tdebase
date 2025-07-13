@@ -1,4 +1,4 @@
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdelocale.h>
 
 #include "saverconfig.h"
@@ -9,7 +9,7 @@ SaverConfig::SaverConfig()
 
 bool SaverConfig::read(const TQString &file)
 {
-    KDesktopFile config(file, true);
+    TDEDesktopFile config(file, true);
     if( !config.tryExec())
       return false;
     mExec = config.readPathEntry("Exec");

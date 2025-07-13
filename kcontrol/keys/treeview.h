@@ -26,7 +26,7 @@
 
 class TQPopupMenu;
 class TDEActionCollection;
-class KDesktopFile;
+class TDEDesktopFile;
 
 class AppTreeItem : public TDEListViewItem
 {

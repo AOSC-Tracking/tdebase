@@ -24,7 +24,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqdragobject.h>
 #include <tqtooltip.h>
 
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdelocale.h>
 #include <kiconeffect.h>
 #include <kicontheme.h>
@@ -92,7 +92,7 @@ void ServiceButton::loadServiceFromId(const TQString &id)
        _id = locate("appdata", id.mid(1));
        if (!_id.isEmpty())
        {
-          KDesktopFile df(_id, true);
+          TDEDesktopFile df(_id, true);
           _service = new KService(&df);
        }
     }

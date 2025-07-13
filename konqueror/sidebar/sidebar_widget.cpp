@@ -43,7 +43,7 @@
 #include <kurlrequesterdlg.h>
 #include <kinputdialog.h>
 #include <tdefiledialog.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeapplication.h>
 #include "konqsidebar.h"
 
@@ -88,9 +88,9 @@ void addBackEnd::aboutToShowAddMenu()
 
 	for (TQStringList::Iterator it = list.begin(); it != list.end(); ++it, i++ )
 	{
-		KDesktopFile *confFile;
+		TDEDesktopFile *confFile;
 
-		confFile = new KDesktopFile(*it, true);
+		confFile = new TDEDesktopFile(*it, true);
 		if (! confFile->tryExec()) {
 			delete confFile;
 			i--;

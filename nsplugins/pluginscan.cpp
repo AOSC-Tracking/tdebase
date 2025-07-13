@@ -47,7 +47,7 @@
 #include <klibloader.h>
 #include <tdeconfig.h>
 #include <tdecrash.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kservicetype.h>
 #include <kmimetype.h>
 #include <tdecmdlineargs.h>
@@ -112,7 +112,7 @@ TDEConfig *infoConfig = 0;
 
 bool isPluginMimeType( TQString fname )
 {
-    KDesktopFile cfg( fname, true );
+    TDEDesktopFile cfg( fname, true );
     cfg.setDesktopGroup();
     return cfg.hasKey( "X-TDE-nsplugin" );
 }

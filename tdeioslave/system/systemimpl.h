@@ -22,7 +22,7 @@
 
 #include <tdeio/global.h>
 #include <tdeio/job.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kurl.h>
 #include <dcopobject.h>
 

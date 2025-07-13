@@ -11,7 +11,7 @@
 #include <tdeapplication.h>
 #include <kcursor.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kipc.h>
 #include <klineedit.h>
 #include <tdelistview.h>
@@ -362,7 +362,7 @@ bool FileTypesView::sync( TQValueList<TypesListItem *>& itemsModified )
     loc = m_ptr->desktopEntryPath();
     loc = locateLocal("mime", loc);
 
-    KDesktopFile config(loc, false, "mime");
+    TDEDesktopFile config(loc, false, "mime");
     config.writeEntry("Type", "MimeType");
     config.writeEntry("MimeType", m_ptr->name());
     config.writeEntry("Hidden", true);

@@ -29,7 +29,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kiconloader.h>
 #include <kmimetype.h>
 #include <tdelocale.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeglobalsettings.h>
 #include <tdeapplication.h>
 #include <kurldrag.h>
@@ -67,7 +67,7 @@ void RecentDocsMenu::initialize() {
 	char alreadyPresentInMenu;
 	TQStringList previousEntries;
 	for (TQStringList::ConstIterator it = _fileList.begin(); it != _fileList.end(); ++it) {
-		KDesktopFile f(*it, true /* read only */);
+		TDEDesktopFile f(*it, true /* read only */);
 
 		// Make sure this entry is not already present in the menu
 		alreadyPresentInMenu = 0;
@@ -128,7 +128,7 @@ void RecentDocsMenu::mouseMoveEvent(TQMouseEvent* e) {
 	if (id < 0)
 		return;
 
-	KDesktopFile f(_fileList[id], true /* read only */);
+	TDEDesktopFile f(_fileList[id], true /* read only */);
 
 	KURL url ( f.readURL() );
 

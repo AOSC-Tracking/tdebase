@@ -22,7 +22,7 @@
 #include "dirtree_item.h"
 #include <kdebug.h>
 #include <kprotocolinfo.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdemessagebox.h>
 #include <kiconloader.h>
 #include <kdirlister.h>
@@ -76,7 +76,7 @@ void KonqSidebarDirTreeModule::addTopLevelItem( KonqSidebarTreeTopLevelItem * it
     if(m_topLevelItem) // We can handle only one at a time !
         kdError() << "KonqSidebarDirTreeModule::addTopLevelItem: Impossible, we can have only one toplevel item !" << endl;
 
-    KDesktopFile cfg( item->path(), true );
+    TDEDesktopFile cfg( item->path(), true );
     cfg.setDollarExpansion(true);
 
     KURL targetURL;

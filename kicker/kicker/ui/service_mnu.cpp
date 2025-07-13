@@ -33,7 +33,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeapplication.h>
 #include <tdestandarddirs.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeglobalsettings.h>
 #include <kiconloader.h>
 #include <tdelocale.h>
@@ -672,7 +672,7 @@ void PanelServiceMenu::slotContextMenu(int selected)
 
     KURL src,dest;
     TDEIO::CopyJob *job;
-    KDesktopFile *df;
+    TDEDesktopFile *df;
 
     switch (selected) {
         case AddItemToDesktop:
@@ -718,7 +718,7 @@ void PanelServiceMenu::slotContextMenu(int selected)
             dest.setPath( TDEGlobalSettings::desktopPath() );
 	    dest.setFileName( g->caption() );
 
-	    df = new KDesktopFile( dest.path() );
+	    df = new TDEDesktopFile( dest.path() );
             df->writeEntry( "Icon", g->icon() );
             df->writePathEntry( "URL", "programs:/"+g->name() );
 	    df->writeEntry( "Name", g->caption() );

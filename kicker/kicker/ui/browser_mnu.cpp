@@ -26,7 +26,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <tdeapplication.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kdirwatch.h>
 #include <tdefileitem.h>
 #include <tdeglobal.h>
@@ -237,7 +237,7 @@ void PanelBrowserMenu::initialize()
             bool mimecheck = false;
 
             // .desktop files
-            if(KDesktopFile::isDesktopFile(path))
+            if(TDEDesktopFile::isDesktopFile(path))
             {
                 TDESimpleConfig c(path, true);
                 c.setDesktopGroup();

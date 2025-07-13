@@ -25,7 +25,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqdragobject.h>
 
 #include <tdeconfig.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeapplication.h>
 #include <tdeglobal.h>
 #include <krun.h>
@@ -174,11 +174,11 @@ void NonKDEAppButton::dropEvent(TQDropEvent *ev)
              ++it)
         {
             const KURL &url(*it);
-            if (KDesktopFile::isDesktopFile(url.path()))
+            if (TDEDesktopFile::isDesktopFile(url.path()))
             {
                 // this URL is actually a .desktop file, so let's grab
                 // the URL it actually points to ...
-                KDesktopFile deskFile(url.path());
+                TDEDesktopFile deskFile(url.path());
                 deskFile.setDesktopGroup();
 
                 // ... and add it to the exec string

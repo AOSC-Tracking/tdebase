@@ -34,7 +34,7 @@
 #include <kbookmarkmanager.h>
 
 #include <kurldrag.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 
 TQString KEBMacroCommand::affectedBookmarks() const
 {
@@ -665,7 +665,7 @@ KEBMacroCommand* CmdGen::insertMimeSource(
                     urlBks << KBookmark::standaloneBookmark((*uit).prettyURL(), (*uit));
                     continue;
                 }
-                KDesktopFile df((*uit).path(), true);
+                TDEDesktopFile df((*uit).path(), true);
                 TQString title = df.readName();
                 KURL url(df.readURL());
                 if (title.isNull())

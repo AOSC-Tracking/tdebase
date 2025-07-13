@@ -30,7 +30,7 @@
 #include <tdeapplication.h>
 #include <tdeglobal.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdelocale.h>
 #include <tdelistview.h>
 #include <kipc.h>
@@ -117,21 +117,21 @@ void TDEStylePage::saveStyle(bool curSettings){
 void TDEStylePage::saveKWin(bool curSettings){
 	TQString twin = origKWinStyle;
 	if(curSettings) {
-		KDesktopFile* kdf = 0L;
+		TDEDesktopFile* kdf = 0L;
 		TDEStandardDirs* kstd = TDEGlobal::dirs();
 		if (cde->isSelected() && twin_cde_exist)
-			kdf = new KDesktopFile(kstd->findResource("data", "twin/cde.desktop"));
+			kdf = new TDEDesktopFile(kstd->findResource("data", "twin/cde.desktop"));
 		else if (win->isSelected() && twin_win_exist)
-			kdf = new KDesktopFile(kstd->findResource("data", "twin/redmond.desktop"));
+			kdf = new TDEDesktopFile(kstd->findResource("data", "twin/redmond.desktop"));
 		else if (platinum->isSelected() && twin_system_exist)
-			kdf = new KDesktopFile(kstd->findResource("data", "twin/system.desktop"));
+			kdf = new TDEDesktopFile(kstd->findResource("data", "twin/system.desktop"));
 		else if (keramik->isSelected() && twin_keramik_exist)
-			kdf = new KDesktopFile(kstd->findResource("data", "twin/keramik.desktop"));
+			kdf = new TDEDesktopFile(kstd->findResource("data", "twin/keramik.desktop"));
 		else if (kde->isSelected()) {
 			if (twin_plastik_exist && (TQColor::numBitPlanes() > 8))
-				kdf = new KDesktopFile(kstd->findResource("data", "twin/plastik.desktop"));
+				kdf = new TDEDesktopFile(kstd->findResource("data", "twin/plastik.desktop"));
 			else if (twin_quartz_exist)
-				kdf = new KDesktopFile(kstd->findResource("data", "twin/quartz.desktop"));
+				kdf = new TDEDesktopFile(kstd->findResource("data", "twin/quartz.desktop"));
 		}
 
 		if (kdf) {

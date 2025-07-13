@@ -50,7 +50,7 @@
 #include <tdeprocio.h>
 #include <kcharsets.h>
 #include <kdialog.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kprotocolinfo.h>
 #include <kservicegroup.h>
 
@@ -279,7 +279,7 @@ void Navigator::insertAppletDocs( NavigatorItem *topItem )
 void Navigator::createItemFromDesktopFile( NavigatorItem *topItem,
                                            const TQString &file )
 {
-    KDesktopFile desktopFile( file );
+    TDEDesktopFile desktopFile( file );
     TQString docPath = desktopFile.readDocPath();
     if ( !docPath.isNull() ) {
       // First parameter is ignored if second is an absolute path

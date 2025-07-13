@@ -23,7 +23,7 @@
 #include <tdeapplication.h>
 #include <kbuttonbox.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeglobal.h>
 #include <kiconloader.h>
 #include <tdelocale.h>
@@ -202,7 +202,7 @@ void TopLevel::slotScan()
     if (found)
        continue; 
 
-    KDesktopFile desktop( *it, true );
+    TDEDesktopFile desktop( *it, true );
 
     // copy over the desktop file, if exists
     if ( scanDesktopFile( mAppCache, *it, mDestDir ) ) {

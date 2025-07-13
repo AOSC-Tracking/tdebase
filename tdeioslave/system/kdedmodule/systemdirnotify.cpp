@@ -22,7 +22,7 @@
 #include <tdelocale.h>
 #include <tdeglobal.h>
 #include <tdestandarddirs.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 
 #include <kdirnotify_stub.h>
 
@@ -65,7 +65,7 @@ void SystemDirNotify::init()
 		{
 			if (!names_found.contains(*name))
 			{
-				KDesktopFile desktop(*dirpath+*name, true);
+				TDEDesktopFile desktop(*dirpath+*name, true);
 
 				TQString system_name = *name;
 				system_name.truncate(system_name.length()-8);

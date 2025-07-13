@@ -1284,7 +1284,7 @@ void KMenu::initialize()
     for (TQStringList::ConstIterator it = favs.begin(); it != favs.end(); ++it)
     {
        if ((*it)[0]=='/') {
-          KDesktopFile df((*it),true);
+          TDEDesktopFile df((*it),true);
           TQString url = df.readURL();
           if (!KURL(url).isLocalFile() || TQFile::exists(url.replace("file://",TQString())))
             m_favoriteView->insertItem(df.readIcon(),df.readName(),df.readGenericName(), url, nId++, index++);
@@ -2789,7 +2789,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
         m_popupPath.icon = kitem->icon();
 
         if (m_popupPath.path.startsWith(locateLocal("data", TQString::fromLatin1("RecentDocuments/")))) {
-               KDesktopFile df(m_popupPath.path,true);
+               TDEDesktopFile df(m_popupPath.path,true);
                m_popupPath.path=df.readURL();
         }
     }
@@ -2822,7 +2822,7 @@ void KMenu::slotContextMenuRequested( TQListViewItem * item, const TQPoint & pos
             {
                 if ((*it)[0]=='/')
                 {
-                    KDesktopFile df((*it),true);
+                    TDEDesktopFile df((*it),true);
                     if (df.readURL().replace("file://",TQString())==m_popupPath.path)
                         break;
                 }
@@ -2954,7 +2954,7 @@ void KMenu::slotContextMenu(int selected)
                 job->setDefaultPermissions( true );
  	    }
             else {
-		KDesktopFile* df = new KDesktopFile( newDesktopFile(KURL(m_popupPath.path), TDEGlobalSettings::desktopPath() ) );
+		TDEDesktopFile* df = new TDEDesktopFile( newDesktopFile(KURL(m_popupPath.path), TDEGlobalSettings::desktopPath() ) );
 		df->writeEntry("GenericName", m_popupPath.description);
 		df->writeEntry( "Icon", m_popupPath.icon );
 		df->writePathEntry( "URL", m_popupPath.path );
@@ -2997,7 +2997,7 @@ void KMenu::slotContextMenu(int selected)
 
 	case AddMenuToDesktop: {
 	    accept();
-	    KDesktopFile *df = new KDesktopFile( newDesktopFile(KURL("programs:/"+m_popupPath.menuPath),TDEGlobalSettings::desktopPath()));
+	    TDEDesktopFile *df = new TDEDesktopFile( newDesktopFile(KURL("programs:/"+m_popupPath.menuPath),TDEGlobalSettings::desktopPath()));
             df->writeEntry( "Icon", m_popupPath.icon );
             df->writePathEntry( "URL", "programs:/"+m_popupPath.menuPath );
 	    df->writeEntry( "Name", m_popupPath.title );
@@ -3025,14 +3025,14 @@ void KMenu::slotContextMenu(int selected)
                TQStringList::Iterator it;
                for (it = favs.begin(); it != favs.end(); ++it) {
                   if ((*it)[0]=='/') {
-                     KDesktopFile df((*it),true);
+                     TDEDesktopFile df((*it),true);
                      if (df.readURL().replace("file://",TQString())==m_popupPath.path)
                         break;
                   }
                }
                if (it==favs.end()) {
                  TQString file = KickerLib::newDesktopFile(m_popupPath.path);
-                 KDesktopFile df(file);
+                 TDEDesktopFile df(file);
                  df.writeEntry("Encoding", "UTF-8");
                  df.writeEntry("Type","Link");
                  df.writeEntry("Name", m_popupPath.title);
@@ -3067,7 +3067,7 @@ void KMenu::slotContextMenu(int selected)
             else {
                for (TQStringList::Iterator it = favs.begin(); it != favs.end(); ++it) {
                   if ((*it)[0]=='/') {
-                     KDesktopFile df((*it),true);
+                     TDEDesktopFile df((*it),true);
                      if (df.readURL().replace("file://",TQString())==m_popupPath.path) {
 			TQFile::remove((*it));
                         favs.erase(it);
@@ -3311,7 +3311,7 @@ void KMenu::searchActionClicked(TQListViewItem* item)
    list << "kurisearchfilter" << "kuriikwsfilter";
 
    if( !KURIFilter::self()->filterURI(data, list) ) {
-       KDesktopFile file("searchproviders/google.desktop", true, "services");
+       TDEDesktopFile file("searchproviders/google.desktop", true, "services");
        data.setData(file.readEntry("Query").replace("\\{@}", m_kcommand->currentText()));
    }
 
@@ -3420,7 +3420,7 @@ void KMenu::slotFavoritesMoved( TQListViewItem* item, TQListViewItem* /*afterFir
         {
             if ((*it)[0]=='/')
             {
-                KDesktopFile df((*it),true);
+                TDEDesktopFile df((*it),true);
                 if (df.readURL().replace("file://",TQString())==kitem->path())
                 {
                     addFav = *it;
@@ -3445,7 +3445,7 @@ void KMenu::slotFavoritesMoved( TQListViewItem* item, TQListViewItem* /*afterFir
         {
             if ((*it)[0]=='/' && !kafterNow->service())
             {
-                KDesktopFile df((*it),true);
+                TDEDesktopFile df((*it),true);
                 if (df.readURL().replace("file://",TQString())==kafterNow->path())
                 {
                     kdDebug() << "insert after " << kafterNow->path() << endl;
@@ -3615,7 +3615,7 @@ void KMenu::slotFavDropped(TQDropEvent * ev, TQListViewItem *after )
         {
             TQString uri = item.m_path;
             if (uri.startsWith(locateLocal("data", TQString::fromLatin1("RecentDocuments/")))) {
-               KDesktopFile df(uri,true);
+               TDEDesktopFile df(uri,true);
                uri=df.readURL();
             }
 
@@ -3624,7 +3624,7 @@ void KMenu::slotFavDropped(TQDropEvent * ev, TQListViewItem *after )
             {
                 if ((*it)[0]=='/')
                 {
-                    KDesktopFile df((*it),true);
+                    TDEDesktopFile df((*it),true);
                     if (df.readURL().replace("file://",TQString())==uri)
                         break;
                 }
@@ -3632,7 +3632,7 @@ void KMenu::slotFavDropped(TQDropEvent * ev, TQListViewItem *after )
             if (it==favs.end())
             {
                 TQString file = KickerLib::newDesktopFile(uri);
-                KDesktopFile df(file);
+                TDEDesktopFile df(file);
                 df.writeEntry("Encoding", "UTF-8");
                 df.writeEntry("Type","Link");
                 df.writeEntry("Name", item.m_title);
@@ -3666,7 +3666,7 @@ void KMenu::slotFavDropped(TQDropEvent * ev, TQListViewItem *after )
             {
                 if ((*it)[0]=='/')
                 {
-                    KDesktopFile df((*it),true);
+                    TDEDesktopFile df((*it),true);
                     if (df.readURL().replace("file://",TQString())==text)
                         break;
                 }
@@ -3677,7 +3677,7 @@ void KMenu::slotFavDropped(TQDropEvent * ev, TQListViewItem *after )
                 KURL kurl(text);
 
                 TQString file = KickerLib::newDesktopFile(text);
-                KDesktopFile df(file);
+                TDEDesktopFile df(file);
                 df.writeEntry("Encoding", "UTF-8");
                 df.writeEntry("Type","Link");
                 df.writeEntry("Name", item->name());

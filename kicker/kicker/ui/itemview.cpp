@@ -837,7 +837,7 @@ KMenuItem* ItemView::insertDocumentItem(const TQString& s, int nId, int nIndex, 
 
 KMenuItem* ItemView::insertRecentlyItem(const TQString& s, int nId, int nIndex)
 {
-    KDesktopFile f(s, true /* read only */);
+    TDEDesktopFile f(s, true /* read only */);
 
     KMenuItem* newItem = findItem(nId);
 
@@ -1056,7 +1056,7 @@ TQDragObject * ItemView::dragObject()
          TQString uri = kitem->path();
 
          if (uri.startsWith(locateLocal("data", TQString::fromLatin1("RecentDocuments/")))) {
-             KDesktopFile df(uri,true);
+             TDEDesktopFile df(uri,true);
              uri=df.readURL();
          }
 
@@ -1153,9 +1153,9 @@ bool KMenuItemDrag::decode(const TQMimeSource* e, KMenuItemInfo& item)
                 TQString url = *it;
                 kdDebug () << "Url " << url << endl;
                 item.m_path = KURL( url ).path();
-                if ( KDesktopFile::isDesktopFile( item.m_path ) )
+                if ( TDEDesktopFile::isDesktopFile( item.m_path ) )
                 {
-                    KDesktopFile df( item.m_path, true );
+                    TDEDesktopFile df( item.m_path, true );
                     item.m_description = df.readGenericName();
                     item.m_icon = df.readIcon();
                     item.m_title = df.readName();
@@ -1215,13 +1215,13 @@ bool FavoritesItemView::acceptDrag (TQDropEvent* event) const
             TQString uri = item.m_path;
 
             if (uri.startsWith(locateLocal("data", TQString::fromLatin1("RecentDocuments/")))) {
-               KDesktopFile df(uri,true);
+               TDEDesktopFile df(uri,true);
                uri=df.readURL();
             }
 
             for (it = favs.begin(); it != favs.end(); ++it) {
                 if ((*it)[0]=='/') {
-                    KDesktopFile df((*it),true);
+                    TDEDesktopFile df((*it),true);
                     if (df.readURL().replace("file://",TQString())==uri)
                         break;
                 }
@@ -1243,7 +1243,7 @@ bool FavoritesItemView::acceptDrag (TQDropEvent* event) const
             TQStringList::Iterator it;
             for (it = favs.begin(); it != favs.end(); ++it) {
                 if ((*it)[0]=='/') {
-                    KDesktopFile df((*it),true);
+                    TDEDesktopFile df((*it),true);
                     if (df.readURL().replace("file://",TQString())==text)
                         break;
                 }

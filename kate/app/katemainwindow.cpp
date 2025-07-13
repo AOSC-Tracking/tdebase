@@ -71,7 +71,7 @@
 #include <tdestandarddirs.h>
 #include <ktrader.h>
 #include <kurldrag.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <khelpmenu.h>
 #include <tdemultitabbar.h>
 #include <ktip.h>

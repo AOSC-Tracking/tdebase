@@ -31,7 +31,7 @@
 #include <tdeapplication.h>
 #include <kbuttonbox.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kdialog.h>
 #include <kgenericfactory.h>
 #include <tdelistview.h>
@@ -156,8 +156,8 @@ void KDEDConfig::load( bool useDefaults ) {
 	CheckListItem* clitem;
 	for ( TQStringList::ConstIterator it = files.begin(); it != files.end(); ++it ) {
 
-		if ( KDesktopFile::isDesktopFile( *it ) ) {
-			KDesktopFile file( *it, true, "services" );
+		if ( TDEDesktopFile::isDesktopFile( *it ) ) {
+			TDEDesktopFile file( *it, true, "services" );
 
 			if ( file.readBoolEntry("X-TDE-Kded-autoload") ) {
 				clitem = new CheckListItem(_lvStartup, TQString::null);
@@ -194,7 +194,7 @@ void KDEDConfig::save() {
 
 	for ( TQStringList::ConstIterator it = files.begin(); it != files.end(); ++it ) {
 
-		if ( KDesktopFile::isDesktopFile( *it ) ) {
+		if ( TDEDesktopFile::isDesktopFile( *it ) ) {
 
 			TDEConfig file( *it, false, false, "services" );
 			file.setGroup("Desktop Entry");

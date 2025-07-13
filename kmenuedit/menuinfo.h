@@ -142,7 +142,7 @@ public:
 class MenuEntryInfo : public MenuInfo
 {
 public:
-    MenuEntryInfo(const KService::Ptr &_service, KDesktopFile *_df = 0) 
+    MenuEntryInfo(const KService::Ptr &_service, TDEDesktopFile *_df = 0) 
      : service(_service), df(_df), 
        shortcutLoaded(false), shortcutDirty(false), dirty(_df != 0), hidden(false)
     {
@@ -174,14 +174,14 @@ public:
     
     void save();
 
-    KDesktopFile *desktopFile();
+    TDEDesktopFile *desktopFile();
 
 public:
     TQString caption;
     TQString description;
     TQString icon;
     KService::Ptr service;
-    KDesktopFile *df;
+    TDEDesktopFile *df;
     TDEShortcut shortCut;
     bool shortcutLoaded;
     bool shortcutDirty;

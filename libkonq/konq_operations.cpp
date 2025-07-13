@@ -42,7 +42,7 @@
 #include <kipc.h>
 #include <kdebug.h>
 #include <tdefileitem.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kurldrag.h>
 #include <tdeglobalsettings.h>
 #include <kimageio.h>
@@ -428,7 +428,7 @@ void KonqOperations::asyncDrop( const KFileItem * destItem )
       || (destItem->mimetype() == "media/builtin-webbrowser") )
     {
         // Local .desktop file. What type ?
-        KDesktopFile desktopFile( m_destURL.path() );
+        TDEDesktopFile desktopFile( m_destURL.path() );
         if ( desktopFile.hasApplicationType() )
         {
             TQString error;
@@ -503,7 +503,7 @@ void KonqOperations::doFileCopy()
         bool local = (*it).isLocalFile();
         if ( KProtocolInfo::supportsDeleting( *it ) && (!local || TQFileInfo((*it).directory()).isWritable() ))
             mlst.append(*it);
-        if ( local && KDesktopFile::isDesktopFile((*it).path()))
+        if ( local && TDEDesktopFile::isDesktopFile((*it).path()))
             isDesktopFile = true;
         if ( local && (*it).path().startsWith(TDEGlobalSettings::desktopPath()))
             itemIsOnDesktop = true;

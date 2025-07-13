@@ -237,7 +237,7 @@ void TOM::initializeRecentDocs()
          * TODO: make the number of visible items configurable?
          */
 
-        KDesktopFile f(*it, true /* read only */);
+        TDEDesktopFile f(*it, true /* read only */);
         m_recentDocsMenu->insertItem(DesktopIcon(f.readIcon(), TDEIcon::SizeMedium),
                                      f.readName().replace('&', "&&"), id);
         ++id;

@@ -20,7 +20,7 @@
 */
 
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeglobal.h>
 #include <tdestandarddirs.h>
 
@@ -50,7 +50,7 @@ void copyFile( const TQString &inFileName, const TQString &outFileName )
 bool scanDesktopFile( TQPtrList<AppLnkCache> &appCache, const TQString &templ,
                       TQString destDir )
 {
-  KDesktopFile desktop( templ, true );
+  TDEDesktopFile desktop( templ, true );
 
   // find out where to put the .desktop files
   TQString destName;

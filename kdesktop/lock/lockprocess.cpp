@@ -800,7 +800,7 @@ void LockProcess::readSaver()
 
 		bool opengl = tdeApp->authorize("opengl_screensavers");
 		bool manipulatescreen = tdeApp->authorize("manipulatescreen_screensavers");
-		KDesktopFile config(file, true);
+		TDEDesktopFile config(file, true);
 		if (config.readEntry("X-TDE-Type").utf8() != 0) {
 			TQString saverType = config.readEntry("X-TDE-Type").utf8();
 			TQStringList saverTypes = TQStringList::split(";", saverType);

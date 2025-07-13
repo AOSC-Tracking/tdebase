@@ -188,7 +188,7 @@ TQDomElement MenuFile::findMenu(TQDomElement elem, const TQString &menuName, boo
    
 static TQString entryToDirId(const TQString &path)
 {
-   // See also KDesktopFile::locateLocal
+   // See also TDEDesktopFile::locateLocal
    TQString local;
    if (path.startsWith("/"))
    {

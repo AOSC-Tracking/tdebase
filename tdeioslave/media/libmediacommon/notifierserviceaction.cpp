@@ -23,7 +23,7 @@
 #include <tqfile.h>
 #include <tqfileinfo.h>
 #include <tdestandarddirs.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdelocale.h>
 
 NotifierServiceAction::NotifierServiceAction()
@@ -150,7 +150,7 @@ bool NotifierServiceAction::supportsMimetype(const TQString &mimetype) const
 void NotifierServiceAction::save() const
 {
 	TQFile::remove( m_filePath );
-	KDesktopFile desktopFile(m_filePath);
+	TDEDesktopFile desktopFile(m_filePath);
 
 	desktopFile.setGroup(TQString("Desktop Action ") + m_service.m_strName);
 	desktopFile.writeEntry(TQString("Icon"), m_service.m_strIcon);

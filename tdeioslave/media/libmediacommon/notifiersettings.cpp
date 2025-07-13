@@ -20,7 +20,7 @@
 #include "notifiersettings.h"
 
 #include <tdeglobal.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdestandarddirs.h>
 #include <tqdir.h>
 #include <tqfile.h>
@@ -298,7 +298,7 @@ void NotifierSettings::save()
 	}
 }
 
-TQValueList<NotifierServiceAction*> NotifierSettings::loadActions( KDesktopFile &desktop ) const
+TQValueList<NotifierServiceAction*> NotifierSettings::loadActions( TDEDesktopFile &desktop ) const
 {
 	desktop.setDesktopGroup();
 
@@ -328,7 +328,7 @@ TQValueList<NotifierServiceAction*> NotifierSettings::loadActions( KDesktopFile 
 }
 
 
-bool NotifierSettings::shouldLoadActions( KDesktopFile &desktop, const TQString &mimetype ) const
+bool NotifierSettings::shouldLoadActions( TDEDesktopFile &desktop, const TQString &mimetype ) const
 {
 	desktop.setDesktopGroup();
 
@@ -386,7 +386,7 @@ TQValueList<NotifierServiceAction*> NotifierSettings::listServices( const TQStri
 		{
 			TQString filename = *dir_it + *entry_it;
 			
-			KDesktopFile desktop( filename, true );
+			TDEDesktopFile desktop( filename, true );
 			
 			if ( shouldLoadActions(desktop, mimetype) )
 			{

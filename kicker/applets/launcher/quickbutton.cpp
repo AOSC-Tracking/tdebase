@@ -32,7 +32,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdeactionclasses.h>
 #include <kickertip.h>
 #include <tdelocale.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <krun.h>
 #include <kiconeffect.h>
 #include <tdeglobalsettings.h>

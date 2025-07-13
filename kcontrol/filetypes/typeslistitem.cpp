@@ -21,7 +21,7 @@
 #include <kdebug.h>
 #include <kiconloader.h>
 #include <tdestandarddirs.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kstaticdeleter.h>
 
 #include "typeslistitem.h"

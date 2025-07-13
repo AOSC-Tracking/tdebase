@@ -25,7 +25,7 @@
 #include <tdestandarddirs.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <krandomsequence.h>
 #include <kdebug.h>
 #include <tdecmdlineargs.h>
@@ -166,7 +166,7 @@ int main(int argc, char *argv[])
                         howoften = 0;
                 }
 
-		KDesktopFile saver(tempSaverFileList[i], true);
+		TDEDesktopFile saver(tempSaverFileList[i], true);
                 if (!saver.tryExec())
                     continue;
 		TQString saverType = saver.readEntry("X-TDE-Type");
@@ -203,7 +203,7 @@ int main(int argc, char *argv[])
 	int indx = rnd.getLong(saverFileList.count());
 	TQString filename = *(saverFileList.at(indx));
 
-	KDesktopFile config(filename, true);
+	TDEDesktopFile config(filename, true);
 
 	TQString cmd;
 	if (windowId && config.hasActionGroup("InWindow"))

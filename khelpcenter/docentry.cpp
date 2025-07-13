@@ -2,7 +2,7 @@
 #include <tqfileinfo.h>
 
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kurl.h>
 #include <tdestandarddirs.h>
 #include <tdeapplication.h>
@@ -204,7 +204,7 @@ bool DocEntry::isDirectory() const
 
 bool DocEntry::readFromFile( const TQString &fileName )
 {
-  KDesktopFile file( fileName );
+  TDEDesktopFile file( fileName );
 
   mName = file.readName();
   mSearch = file.readEntry( "X-DOC-Search" );

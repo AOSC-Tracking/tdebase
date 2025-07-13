@@ -47,7 +47,7 @@
 #include <kcolorbutton.h>
 #include <kcombobox.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdestandarddirs.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>
@@ -409,9 +409,9 @@ void KWinDecorationModule::findDecorations()
 			for (TQFileInfoListIterator it(*d.entryInfoList()); it.current(); ++it)
 			{
 				TQString filename(it.current()->absFilePath());
-				if (KDesktopFile::isDesktopFile(filename))
+				if (TDEDesktopFile::isDesktopFile(filename))
 				{
-					KDesktopFile desktopFile(filename);
+					TDEDesktopFile desktopFile(filename);
 					TQString libName = desktopFile.readEntry("X-TDE-Library");
 
 					if (!libName.isEmpty() && libName.startsWith("twin_") || libName.startsWith("twin3_"))

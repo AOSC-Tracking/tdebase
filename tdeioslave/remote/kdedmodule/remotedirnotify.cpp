@@ -22,7 +22,7 @@
 #include <tdelocale.h>
 #include <tdeglobal.h>
 #include <tdestandarddirs.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 
 #include <kdirnotify_stub.h>
 

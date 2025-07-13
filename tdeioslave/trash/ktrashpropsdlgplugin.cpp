@@ -35,7 +35,7 @@
 #include <tqradiobutton.h>
 #include <tqspinbox.h>
 
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kgenericfactory.h>
 #include <tdeglobal.h>
 #include <kiconloader.h>
@@ -63,7 +63,7 @@ KTrashPropsDlgPlugin::KTrashPropsDlgPlugin( KPropertiesDialog *dialog, const cha
 		if (!KPropsDlgPlugin::isDesktopFile(item))
 			return;
 
-		KDesktopFile deskFile( itemUrl.path(), true /* readonly */ );
+		TDEDesktopFile deskFile( itemUrl.path(), true /* readonly */ );
 		if ( deskFile.readURL() != "trash:/" )
 			return;
 	}

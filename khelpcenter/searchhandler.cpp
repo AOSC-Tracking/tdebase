@@ -24,7 +24,7 @@
 #include "prefs.h"
 #include "docentry.h"
 
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeprocess.h>
 #include <kdebug.h>
 #include <tdemessagebox.h>
@@ -44,7 +44,7 @@ SearchHandler *SearchHandler::initFromFile( const TQString &filename )
 {
   SearchHandler *handler = new SearchHandler;
 
-  KDesktopFile file( filename );
+  TDEDesktopFile file( filename );
 
   handler->mSearchCommand = file.readEntry( "SearchCommand" );
   handler->mSearchUrl = file.readEntry( "SearchUrl" );

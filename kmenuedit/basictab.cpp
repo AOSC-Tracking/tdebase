@@ -34,7 +34,7 @@
 #include <klineedit.h>
 #include <tdemessagebox.h>
 #include <kicondialog.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kurlrequester.h>
 #include <tdefiledialog.h>
 #include <kcombobox.h>
@@ -337,7 +337,7 @@ void BasicTab::setEntryInfo(MenuEntryInfo *entryInfo)
        return;
     }
 
-    KDesktopFile *df = entryInfo->desktopFile();
+    TDEDesktopFile *df = entryInfo->desktopFile();
 
     _nameEdit->setText(df->readName());
     _descriptionEdit->setText(df->readGenericName());
@@ -398,7 +398,7 @@ void BasicTab::apply()
         _menuEntryInfo->setDescription(_descriptionEdit->text());
         _menuEntryInfo->setIcon(_iconButton->icon());
 
-        KDesktopFile *df = _menuEntryInfo->desktopFile();
+        TDEDesktopFile *df = _menuEntryInfo->desktopFile();
         df->writeEntry("Comment", _commentEdit->text());
         if (_systrayCB->isChecked())
           df->writePathEntry("Exec", _execEdit->lineEdit()->text().prepend("ksystraycmd "));

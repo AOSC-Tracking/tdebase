@@ -22,7 +22,7 @@
 #include "tdeglobalsettings.h"
 #include <tdeglobal.h>
 #include <kservicetype.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kdebug.h>
 #include <assert.h>
 #include <tqfontmetrics.h>

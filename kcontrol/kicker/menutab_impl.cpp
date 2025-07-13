@@ -29,7 +29,7 @@
 #include <dcopref.h>
 #include <tdeapplication.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kiconloader.h>
 #include <tdelistview.h>
 #include <tdelocale.h>
@@ -150,7 +150,7 @@ void MenuTab::load( bool useDefaults )
         TQStringList av = d.entryList();
         for (TQStringList::ConstIterator it=av.begin(); it!=av.end(); ++it)
         {
-            KDesktopFile df(d.absFilePath(*it), true);
+            TDEDesktopFile df(d.absFilePath(*it), true);
             menuItem = new kSubMenuItem(m_subMenus,
                                         df.readName(),
                                         *it,

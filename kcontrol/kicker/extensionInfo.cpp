@@ -19,7 +19,7 @@
 #include <tqapplication.h>
 
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdelocale.h>
 
 #include "extensionInfo.h"
@@ -54,7 +54,7 @@ void ExtensionInfo::load()
     }
     else
     {
-        KDesktopFile df(_desktopFile);
+        TDEDesktopFile df(_desktopFile);
         _name = df.readName();
         _resizeable = df.readBoolEntry("X-TDE-PanelExt-Resizeable", _resizeable);
 

@@ -38,7 +38,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdestandarddirs.h>
 #include <kurl.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kiconloader.h>
 #include <kmimetype.h>
 #include <tdeprocess.h>
@@ -1322,7 +1322,7 @@ void ContainerArea::dropEvent(TQDropEvent *ev)
             {
                 // a local desktop file being dragged from an external program.
                 // Make a copy first.
-                KDesktopFile df(url.path());
+                TDEDesktopFile df(url.path());
                 KURL newUrl;
                 newUrl.setPath(KickerLib::copyDesktopFile(url));
                 if (df.readType() == "Link")

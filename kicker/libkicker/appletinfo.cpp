@@ -22,7 +22,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ******************************************************************/
 
 #include <tqfileinfo.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <tdeapplication.h>
 
 #include "appletinfo.h"
@@ -53,7 +53,7 @@ AppletInfo::AppletInfo( const TQString& deskFile, const TQString& configFile, co
             break;
     }
 
-    KDesktopFile df(m_desktopFile, true, resource);
+    TDEDesktopFile df(m_desktopFile, true, resource);
 
     // set the appletssimple attributes
     setName(df.readName());

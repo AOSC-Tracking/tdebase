@@ -29,7 +29,7 @@
 
 class TQPopupMenu;
 class TDEActionCollection;
-class KDesktopFile;
+class TDEDesktopFile;
 class MenuFile;
 class MenuFolderInfo;
 class MenuEntryInfo;
@@ -133,7 +133,7 @@ protected:
     void del(TreeItem *, bool deleteInfo);
     void fill();
     void fillBranch(MenuFolderInfo *folderInfo, TreeItem *parent);
-    TQString findName(KDesktopFile *df, bool deleted);
+    TQString findName(TDEDesktopFile *df, bool deleted);
 
     void closeAllItems(TQListViewItem *item);
 

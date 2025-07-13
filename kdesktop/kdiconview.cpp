@@ -27,7 +27,7 @@
 #include <tdeapplication.h>
 #include <kcolordrag.h>
 #include <kdebug.h>
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <kdirlister.h>
 #include <tdeglobalsettings.h>
 #include <kpropertiesdialog.h>
@@ -914,7 +914,7 @@ bool KDIconView::deleteGlobalDesktopFiles()
             }
         }
 
-        KDesktopFile df(desktopPath + fItem->url().fileName());
+        TDEDesktopFile df(desktopPath + fItem->url().fileName());
         df.writeEntry("Hidden", true);
         df.sync();
 
@@ -1578,7 +1578,7 @@ void KDIconView::slotClipboardDataChanged()
 
 void KDIconView::renameDesktopFile(const TQString &path, const TQString &name)
 {
-    KDesktopFile cfg( path, false );
+    TDEDesktopFile cfg( path, false );
 
     // if we don't have the desktop entry group, then we assume that
     // it's not a config file (and we don't nuke it!)

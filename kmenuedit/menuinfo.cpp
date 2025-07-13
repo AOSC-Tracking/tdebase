@@ -22,7 +22,7 @@
 
 #include <tqregexp.h>
 
-#include <kdesktopfile.h>
+#include <tdedesktopfile.h>
 #include <khotkeys.h>
 #include <tdestandarddirs.h>
 
@@ -191,7 +191,7 @@ void MenuFolderInfo::save(MenuFile *menuFile)
 
    if (dirty)
    {
-      TQString local = KDesktopFile::locateLocal(directoryFile);
+      TQString local = TDEDesktopFile::locateLocal(directoryFile);
 
       TDEConfig *df = 0;
       if (directoryFile != local)
@@ -305,11 +305,11 @@ MenuEntryInfo::~MenuEntryInfo()
    delete df;
 }
 
-KDesktopFile *MenuEntryInfo::desktopFile()
+TDEDesktopFile *MenuEntryInfo::desktopFile()
 {
    if (!df)
    {
-      df = new KDesktopFile(service->desktopEntryPath());
+      df = new TDEDesktopFile(service->desktopEntryPath());
    }
    return df;
 }
@@ -323,7 +323,7 @@ void MenuEntryInfo::setDirty()
    TQString local = locateLocal("xdgdata-apps", service->menuId());
    if (local != service->desktopEntryPath())
    {
-      KDesktopFile *oldDf = desktopFile();
+      TDEDesktopFile *oldDf = desktopFile();
       df = oldDf->copyTo(local);
       df->setDesktopGroup();
       delete oldDf;
