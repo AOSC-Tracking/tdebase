@@ -151,14 +151,6 @@ Atom kde_wm_system_modal_notification = 0;
 Atom kde_wm_transparent_to_desktop = 0;
 Atom kde_wm_transparent_to_black = 0;
 
-static void segv_handler(int)
-{
-	kdError(KDESKTOP_DEBUG_ID) << "A fatal exception was encountered."
-		<< " Trapping and ignoring it so as not to compromise desktop security..."
-		<< kdBacktrace() << endl;
-	sleep(1);
-}
-
 extern Atom tqt_wm_state;
 extern bool trinity_desktop_lock_use_system_modal_dialogs;
 extern bool trinity_desktop_lock_delay_screensaver_start;
@@ -166,6 +158,7 @@ extern bool trinity_desktop_lock_use_sak;
 extern bool trinity_desktop_lock_hide_active_windows;
 extern bool trinity_desktop_lock_hide_cancel_button;
 extern bool trinity_desktop_lock_forced;
+extern bool trinity_desktop_lock_failed_grab;
 
 extern LockProcess* trinity_desktop_lock_process;
 
@@ -175,6 +168,21 @@ extern pid_t kdesktop_pid;
 extern TQXLibWindowList trinity_desktop_lock_hidden_window_list;
 
 bool trinity_desktop_lock_autohide_lockdlg = true;
+
+static void segv_handler(int)
+{
+	// Try to send a USR1 signal to kdesktop to make sure it does not get
+	// stuck into an `Engaging` state in case kdesktop_lock crashes.
+	// This prevents the locking mechanism from becaming unresponsive
+	// in case of exceptions.
+	kill(kdesktop_pid, SIGUSR1);
+
+	kdError(KDESKTOP_DEBUG_ID) << "A fatal exception was encountered."
+		<< " Trapping and ignoring it so as not to compromise desktop security..."
+		<< kdBacktrace() << endl;
+
+	sleep(1);
+}
 
 #define ENABLE_CONTINUOUS_LOCKDLG_DISPLAY \
 if (!mForceContinualLockDisplayTimer->isActive()) mForceContinualLockDisplayTimer->start(100, false); \
@@ -234,7 +242,9 @@ LockProcess::LockProcess()
 	m_notifyReadyRequested(false),
 	m_loginCardDevice(NULL),
 	m_maskWidget(NULL),
-	m_saverRootWindow(0)
+	m_saverRootWindow(0),
+	mControlPipeHandler(nullptr),
+	mControlPipeHandlerThread(nullptr)
 {
 #ifdef KEEP_MOUSE_UNGRABBED
 	setNFlags(WX11DisableMove|WX11DisableClose|WX11DisableShade|WX11DisableMinimize|WX11DisableMaximize);
@@ -331,8 +341,6 @@ LockProcess::~LockProcess()
 	mControlPipeHandler->terminateThread();
 	mControlPipeHandlerThread->wait();
 	delete mControlPipeHandler;
-// 	delete mControlPipeHandlerThread;
-
 	if (resizeTimer != NULL) {
 		resizeTimer->stop();
 		delete resizeTimer;
@@ -412,9 +420,7 @@ void LockProcess::init(bool child, bool useBlankOnly)
 	}
 #endif
 
-#if (TQT_VERSION-0 >= 0x030200) // XRANDR support
 	connect( kapp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized()));
-#endif
 
 	if (!trinity_desktop_lock_use_system_modal_dialogs) {
 		setWFlags((WFlags)WX11BypassWM);
@@ -438,6 +444,12 @@ void LockProcess::init(bool child, bool useBlankOnly)
 	TQObject::connect(mControlPipeHandler, TQ_SIGNAL(processCommand(TQString)), this, TQ_SLOT(processInputPipeCommand(TQString)));
 	TQTimer::singleShot(0, mControlPipeHandler, TQ_SLOT(run()));
 	mControlPipeHandlerThread->start();
+	// If the lock process terminates before 'mControlPipeHandler::run()' has been called, the
+	// 'mControlPipeHandlerThread' thread would not terminate and the lock process would have a
+	// dirty exit, potentially leaving 'kdesktop' in a dirty state that prevents the lock from
+	// working correctly till 'kdesktop' is killed and restarted. By forcing a call to 'processEvents()'
+	// we make sure to handle pending timer events and execute the required call
+	kapp->processEvents();
 }
 
 static int signal_pipe[2];
@@ -566,7 +578,7 @@ bool LockProcess::lock()
 	m_startupStatusDialog->setStatusMessage(i18n("Securing desktop session").append("..."));
 	m_startupStatusDialog->show();
 	m_startupStatusDialog->setActiveWindow();
-	tqApp->processEvents();
+	kapp->processEvents();
 #endif
 
 	if (startSaver(true)) {
@@ -722,7 +734,7 @@ bool LockProcess::runSecureDialog()
 	m_startupStatusDialog->setStatusMessage(i18n("Securing desktop session").append("..."));
 	m_startupStatusDialog->show();
 	m_startupStatusDialog->setActiveWindow();
-	tqApp->processEvents();
+	kapp->processEvents();
 #endif
 
 	mInSecureDialog = true;
@@ -1343,6 +1355,7 @@ bool LockProcess::startSaver(bool notify_ready)
 	if (!child_saver && !grabInput())
 	{
 		kdWarning(KDESKTOP_DEBUG_ID) << "LockProcess::startSaver() grabInput() failed!!!!" << endl;
+		trinity_desktop_lock_failed_grab = true;
 		return false;
 	}
 	mBusy = false;
@@ -2308,7 +2321,7 @@ bool LockProcess::x11Event(XEvent *event)
 		&& event->xkey.window != mDialogs.first()->winId()) {
 		XEvent ev2 = *event;
 		ev2.xkey.window = ev2.xkey.subwindow = mDialogs.first()->winId();
-		tqApp->x11ProcessEvent( &ev2 );
+		kapp->x11ProcessEvent( &ev2 );
 		return true;
 	}
 
@@ -2963,7 +2976,7 @@ void LockProcess::saverReady() {
 // Control pipe handler
 //
 ControlPipeHandlerObject::ControlPipeHandlerObject() : TQObject() {
-	mParent = NULL;
+	mParent = nullptr;
 	mRunning = false;
 	mTerminate = false;
 	mThreadID = 0L;
@@ -2987,7 +3000,7 @@ void ControlPipeHandlerObject::run(void) {
 	int display_number = atoi(TQString(XDisplayString(tqt_xdisplay())).replace(":","").ascii());
 
 	if (display_number < 0) {
-		printf("[kdesktop_lock] Warning: unable to create control socket.  Interactive logon modules may not function properly.\n");
+		printf("[kdesktop_lock] Warning: unable to create control socket. Interactive logon modules may not function properly.\n");
 		mRunning = false;
 		TQApplication::eventLoop()->exit(-1);
 		return;
@@ -3018,7 +3031,7 @@ void ControlPipeHandlerObject::run(void) {
 	}
 
 	if (!mParent->mPipeOpen) {
-		printf("[kdesktop_lock] Warning: unable to create control socket '%s'.  Interactive logon modules may not function properly.\n", fifo_file);
+		printf("[kdesktop_lock] Warning: unable to create control socket '%s'. Interactive logon modules may not function properly.\n", fifo_file);
 		mRunning = false;
 		TQApplication::eventLoop()->exit(-1);
 		return;

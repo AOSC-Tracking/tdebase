@@ -108,7 +108,7 @@ SaverEngine::SaverEngine()
 	mSignalAction.sa_flags = 0;
 	sigaction(SIGUSR2, &mSignalAction, 0L);
 
-	// handle SIGTTIN
+	// handle SIGTTIN (as custom user signal rather than its inherent meaning)
 	mSignalAction.sa_handler= sigttin_handler;
 	sigemptyset(&(mSignalAction.sa_mask));
 	sigaddset(&(mSignalAction.sa_mask), SIGTTIN);

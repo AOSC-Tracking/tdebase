@@ -64,8 +64,10 @@ bool trinity_desktop_lock_use_sak = false;
 bool trinity_desktop_lock_hide_active_windows = false;
 bool trinity_desktop_lock_hide_cancel_button = false;
 bool trinity_desktop_lock_forced = false;
+// This is a temporary variable used till a fix for the grab issue is prepared
+bool trinity_desktop_lock_failed_grab = false;
 
-LockProcess* trinity_desktop_lock_process = NULL;
+LockProcess* trinity_desktop_lock_process = nullptr;
 
 bool signalled_forcelock;
 bool signalled_dontlock;
@@ -88,17 +90,17 @@ static void sigusr2_handler(int)
 	signalled_dontlock = true;
 }
 
-static void sigusr3_handler(int)
+static void sigwinch_handler(int)
 {
 	signalled_securedialog = true;
 }
 
-static void sigusr4_handler(int)
+static void sigttin_handler(int)
 {
 	signalled_blank = true;
 }
 
-static void sigusr5_handler(int)
+static void sigttou_handler(int)
 {
 	signalled_run = true;
 }
@@ -220,6 +222,19 @@ void restore_hidden_override_redirect_windows() {
 	}
 }
 
+static void shutdown_lock_process(bool unclean)
+{
+	if (unclean)
+	{
+		// Send a USR1 signal to kdesktop to make sure it does not get stuck into
+		// an `Engaging` state in case kdesktop_lock activation failed. This prevents
+		// the locking mechanism from becaming unresponsive in case of exceptions.
+		kill(kdesktop_pid, SIGUSR1);
+	}
+	delete trinity_desktop_lock_process;
+	trinity_desktop_lock_process = nullptr;
+}
+
 // -----------------------------------------------------------------------------
 
 int main( int argc, char **argv )
@@ -236,9 +251,9 @@ int main( int argc, char **argv )
 
 	XSetErrorHandler(trapXErrors);
 
-	MyApp* app = NULL;
+	MyApp *app = nullptr;
 
-	while (1 == 1) {
+	while (true) {
 		sigset_t new_mask;
 		sigset_t orig_mask;
 
@@ -261,7 +276,7 @@ int main( int argc, char **argv )
 
 		if (TDEGlobalSettings::isMultiHead()) {
 			Display *dpy = XOpenDisplay(NULL);
-			if (! dpy) {
+			if (!dpy) {
 				fprintf(stderr,
 					"%s: FATAL ERROR: couldn't open display '%s'\n",
 					argv[0], XDisplayName(NULL));
@@ -303,14 +318,11 @@ int main( int argc, char **argv )
 					}
 				}
 
-				env.sprintf("DISPLAY=%s.%d", display_name.data(),
-					kdesktop_screen_number);
+				env.sprintf("DISPLAY=%s.%d", display_name.data(), kdesktop_screen_number);
 				kdDebug() << "env " << env << endl;
 
 				if (putenv(strdup(env.data()))) {
-					fprintf(stderr,
-						"%s: WARNING: unable to set DISPLAY environment variable\n",
-						argv[0]);
+					fprintf(stderr, "%s: WARNING: unable to set DISPLAY environment variable\n", argv[0]);
 					perror("putenv()");
 				}
 			}
@@ -410,20 +422,20 @@ int main( int argc, char **argv )
 			sigaddset(&(act.sa_mask), SIGUSR2);
 			act.sa_flags = 0;
 			sigaction(SIGUSR2, &act, 0L);
-			// handle SIGWINCH (an ersatz SIGUSR3)
-			act.sa_handler= sigusr3_handler;
+			// handle SIGWINCH (as custom user signal rather than its inherent meaning)
+			act.sa_handler= sigwinch_handler;
 			sigemptyset(&(act.sa_mask));
 			sigaddset(&(act.sa_mask), SIGWINCH);
 			act.sa_flags = 0;
 			sigaction(SIGWINCH, &act, 0L);
-			// handle SIGTTIN (an ersatz SIGUSR4)
-			act.sa_handler= sigusr4_handler;
+			// handle SIGTTIN (as custom user signal rather than its inherent meaning)
+			act.sa_handler= sigttin_handler;
 			sigemptyset(&(act.sa_mask));
 			sigaddset(&(act.sa_mask), SIGTTIN);
 			act.sa_flags = 0;
 			sigaction(SIGTTIN, &act, 0L);
-			// handle SIGTTOU (an ersatz SIGUSR5)
-			act.sa_handler= sigusr5_handler;
+			// handle SIGTTOU (as custom user signal rather than its inherent meaning)
+			act.sa_handler= sigttou_handler;
 			sigemptyset(&(act.sa_mask));
 			sigaddset(&(act.sa_mask), SIGTTOU);
 			act.sa_flags = 0;
@@ -506,8 +518,9 @@ int main( int argc, char **argv )
 			trinity_desktop_lock_process->setParent(parent_connection);
 		}
 
+		trinity_desktop_lock_failed_grab = false;
 		bool rt;
-		if( (((!child) && (args->isSet( "forcelock" ))) || signalled_forcelock)) {
+		if( (!child && args->isSet( "forcelock" )) || signalled_forcelock) {
 			rt = trinity_desktop_lock_process->lock();
 		}
 		else if( child || (args->isSet( "dontlock" ) || signalled_dontlock)) {
@@ -519,25 +532,40 @@ int main( int argc, char **argv )
 				rt = trinity_desktop_lock_process->runSecureDialog();
 			}
 			else {
+				shutdown_lock_process(true);
 				return 1;
 			}
 		}
 		else {
 			rt = trinity_desktop_lock_process->defaultSave();
 		}
+
+		// Make sure to handle all pending responses from the X server.
+		// If we don't do this, in case of failed activation of the saver/lock screen,
+		// we will end up in a dirty state and the screen lock will no longer hide the windows
+		// on the screen due to 'm_rootPixmap' failing to load the background image.
+		// This is caused by a 'XConvertSelection' request in 'TDESharedPixmap::loadFromShared'
+		// not being handled and causing the corresponding property to become unusuable in X for
+		// subsequent lock requests.
+		XSync(tqt_xdisplay(), False);
+		app->processEvents();
+
 		if (!rt) {
-			return 0;
+			shutdown_lock_process(true);
+			return (trinity_desktop_lock_failed_grab ? 0 : 12);
 		}
 
 		if (!in_internal_mode) {
 			trinity_desktop_lock_hidden_window_list.clear();
 			int ret = app->exec();
 			restore_hidden_override_redirect_windows();
+			shutdown_lock_process(false);
 			return ret;
 		}
 		else {
 			if (kill(kdesktop_pid, 0) < 0) {
 				// The controlling kdesktop process probably died.  Commit suicide...
+				shutdown_lock_process(true);
 				return 12;
 			}
 			trinity_desktop_lock_hidden_window_list.clear();
@@ -545,11 +573,11 @@ int main( int argc, char **argv )
 			restore_hidden_override_redirect_windows();
 			if (kill(kdesktop_pid, SIGUSR1) < 0) {
 				// The controlling kdesktop process probably died.  Commit suicide...
+				shutdown_lock_process(true);
 				return 12;
 			}
 
-			delete trinity_desktop_lock_process;
-			trinity_desktop_lock_process = NULL;
+			shutdown_lock_process(false);
 
 			// FIXME
 			// We should not have to return (restart) at all,
