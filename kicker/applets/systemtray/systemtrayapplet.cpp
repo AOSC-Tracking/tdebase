@@ -978,7 +978,7 @@ void SystemTrayApplet::layoutTray()
     if (orientation() == TQt::Vertical)
     {
         int iconWidth = maxIconWidth() + m_iconMargin * 2; // +2 for the margins that implied by the layout
-        heightWidth = width() - m_iconMargin * 2;
+        heightWidth = width();
         // to avoid nbrOfLines=0 we ensure heightWidth >= iconWidth!
         heightWidth = heightWidth < iconWidth ? iconWidth : heightWidth;
         nbrOfLines = heightWidth / iconWidth;
@@ -1055,7 +1055,7 @@ void SystemTrayApplet::layoutTray()
     else // horizontal
     {
         int iconHeight = maxIconHeight() + m_iconMargin * 2; // +2 for the margins that implied by the layout
-        heightWidth = height() - m_iconMargin * 2;
+        heightWidth = height();
         heightWidth = heightWidth < iconHeight ? iconHeight : heightWidth; // to avoid nbrOfLines=0
         nbrOfLines = heightWidth / iconHeight;
 
