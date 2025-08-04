@@ -67,8 +67,6 @@ bool trinity_desktop_lock_forced = false;
 // This is a temporary variable used till a fix for the grab issue is prepared
 bool trinity_desktop_lock_failed_grab = false;
 
-LockProcess* trinity_desktop_lock_process = nullptr;
-
 bool signalled_forcelock;
 bool signalled_dontlock;
 bool signalled_securedialog;
@@ -220,19 +218,6 @@ void restore_hidden_override_redirect_windows() {
 		Window win = *it;
 		XRaiseWindow(tqt_xdisplay(), win);
 	}
-}
-
-static void shutdown_lock_process(bool unclean)
-{
-	if (unclean)
-	{
-		// Send a USR1 signal to kdesktop to make sure it does not get stuck into
-		// an `Engaging` state in case kdesktop_lock activation failed. This prevents
-		// the locking mechanism from becaming unresponsive in case of exceptions.
-		kill(kdesktop_pid, SIGUSR1);
-	}
-	delete trinity_desktop_lock_process;
-	trinity_desktop_lock_process = nullptr;
 }
 
 // -----------------------------------------------------------------------------
@@ -396,7 +381,7 @@ int main( int argc, char **argv )
 		tdmconfig->setGroup("X-:*-Greeter");
 
 		// Create new LockProcess, which also spawns threads inheriting the blocked signal mask
-		trinity_desktop_lock_process = new LockProcess;
+		LockProcess lock_process;
 
 		// Unblock reception of all signals in this thread
 		sigprocmask(SIG_UNBLOCK, &new_mask, NULL);
@@ -510,34 +495,33 @@ int main( int argc, char **argv )
 			trinity_desktop_lock_forced = true;
 		}
 
-		trinity_desktop_lock_process->init(child, (args->isSet( "blank" ) || signalled_blank));
+		lock_process.init(child, (args->isSet( "blank" ) || signalled_blank));
 		if (!child) {
-			trinity_desktop_lock_process->setChildren(child_sockets);
+			lock_process.setChildren(child_sockets);
 		}
 		else {
-			trinity_desktop_lock_process->setParent(parent_connection);
+			lock_process.setParent(parent_connection);
 		}
 
 		trinity_desktop_lock_failed_grab = false;
 		bool rt;
 		if( (!child && args->isSet( "forcelock" )) || signalled_forcelock) {
-			rt = trinity_desktop_lock_process->lock();
+			rt = lock_process.lock();
 		}
 		else if( child || (args->isSet( "dontlock" ) || signalled_dontlock)) {
-			rt = trinity_desktop_lock_process->dontLock();
+			rt = lock_process.dontLock();
 		}
 		else if( child || (args->isSet( "securedialog" ) || signalled_securedialog)) {
 			int retcode = tde_sak_verify_calling_process();
 			if (retcode == 0) {
-				rt = trinity_desktop_lock_process->runSecureDialog();
+				rt = lock_process.runSecureDialog();
 			}
 			else {
-				shutdown_lock_process(true);
 				return 1;
 			}
 		}
 		else {
-			rt = trinity_desktop_lock_process->defaultSave();
+			rt = lock_process.defaultSave();
 		}
 
 		// Make sure to handle all pending responses from the X server.
@@ -551,7 +535,6 @@ int main( int argc, char **argv )
 		app->processEvents();
 
 		if (!rt) {
-			shutdown_lock_process(true);
 			return (trinity_desktop_lock_failed_grab ? 0 : 12);
 		}
 
@@ -559,13 +542,11 @@ int main( int argc, char **argv )
 			trinity_desktop_lock_hidden_window_list.clear();
 			int ret = app->exec();
 			restore_hidden_override_redirect_windows();
-			shutdown_lock_process(false);
 			return ret;
 		}
 		else {
 			if (kill(kdesktop_pid, 0) < 0) {
 				// The controlling kdesktop process probably died.  Commit suicide...
-				shutdown_lock_process(true);
 				return 12;
 			}
 			trinity_desktop_lock_hidden_window_list.clear();
@@ -573,11 +554,8 @@ int main( int argc, char **argv )
 			restore_hidden_override_redirect_windows();
 			if (kill(kdesktop_pid, SIGUSR1) < 0) {
 				// The controlling kdesktop process probably died.  Commit suicide...
-				shutdown_lock_process(true);
 				return 12;
 			}
-
-			shutdown_lock_process(false);
 
 			// FIXME
 			// We should not have to return (restart) at all,
