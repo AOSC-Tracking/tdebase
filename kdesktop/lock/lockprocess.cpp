@@ -160,8 +160,6 @@ extern bool trinity_desktop_lock_hide_cancel_button;
 extern bool trinity_desktop_lock_forced;
 extern bool trinity_desktop_lock_failed_grab;
 
-extern LockProcess* trinity_desktop_lock_process;
-
 extern bool argb_visual;
 extern pid_t kdesktop_pid;
 
@@ -171,12 +169,6 @@ bool trinity_desktop_lock_autohide_lockdlg = true;
 
 static void segv_handler(int)
 {
-	// Try to send a USR1 signal to kdesktop to make sure it does not get
-	// stuck into an `Engaging` state in case kdesktop_lock crashes.
-	// This prevents the locking mechanism from becaming unresponsive
-	// in case of exceptions.
-	kill(kdesktop_pid, SIGUSR1);
-
 	kdError(KDESKTOP_DEBUG_ID) << "A fatal exception was encountered."
 		<< " Trapping and ignoring it so as not to compromise desktop security..."
 		<< kdBacktrace() << endl;
@@ -456,12 +448,10 @@ static int signal_pipe[2];
 
 static void sigterm_handler(int)
 {
-	if ((!trinity_desktop_lock_process) || (!trinity_desktop_lock_process->inSecureDialog())) {
-		// Exit uncleanly
-		char tmp = 'U';
-		if (::write( signal_pipe[1], &tmp, 1) == -1) {
-			// Error handler to shut up gcc warnings
-		}
+	// Exit uncleanly
+	char tmp = 'U';
+	if (::write( signal_pipe[1], &tmp, 1) == -1) {
+		// Error handler to shut up gcc warnings
 	}
 }
 
@@ -564,9 +554,11 @@ void LockProcess::signalPipeSignal()
 		startLock();
 	}
 	else if( tmp == 'U' ) {
-		// Exit uncleanly
-		quitSaver();
-		exit(1);
+		if (!inSecureDialog()) {
+			// Exit uncleanly
+			quitSaver();
+			exit(1);
+		}
 	}
 }
 
@@ -1383,7 +1375,8 @@ bool LockProcess::startSaver(bool notify_ready)
 		slotPaintBackground(rootWinSnapShot);
 	}
 
-	if (((!(trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced)) && (!mInSecureDialog)) && (mHackStartupEnabled || mOverrideHackStartupEnabled)) {
+	if (!(trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced) && !mInSecureDialog &&
+	        (mHackStartupEnabled || mOverrideHackStartupEnabled)) {
 		if (argb_visual) {
 			setTransparentBackgroundARGB();
 		}
@@ -1410,7 +1403,7 @@ bool LockProcess::startSaver(bool notify_ready)
 		}
 	}
 
-	if (mInSecureDialog == false) {
+	if (!mInSecureDialog) {
 		if (trinity_desktop_lock_delay_screensaver_start && trinity_desktop_lock_forced && trinity_desktop_lock_use_system_modal_dialogs) {
 			ENABLE_CONTINUOUS_LOCKDLG_DISPLAY
 			if (mHackStartupEnabled) mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
@@ -1804,19 +1797,17 @@ void LockProcess::displayLockDialogIfNeeded()
 		m_startupStatusDialog->closeSMDialog();
 		m_startupStatusDialog = NULL;
 	}
-	if (!mInSecureDialog) {
-		if (trinity_desktop_lock_use_system_modal_dialogs) {
-			if (!mBusy) {
-				mBusy = true;
-				if (mLocked) {
-					if (checkPass()) {
-						mClosingWindows = true;
-						stopSaver();
-						kapp->quit();
-					}
+	if (!mInSecureDialog && trinity_desktop_lock_use_system_modal_dialogs) {
+		if (!mBusy) {
+			mBusy = true;
+			if (mLocked) {
+				if (checkPass()) {
+					mClosingWindows = true;
+					stopSaver();
+					kapp->quit();
 				}
-				mBusy = false;
 			}
+			mBusy = false;
 		}
 	}
 }
@@ -2218,7 +2209,7 @@ bool LockProcess::x11Event(XEvent *event)
 						mHackDelayStartupTimer->start(mHackDelayStartupTimeout, true);
 					}
 				}
-				if ((!mLocked) && (!mInSecureDialog)) {
+				if (!mLocked && !mInSecureDialog) {
 					stopSaver();
 					kapp->quit();
 				}

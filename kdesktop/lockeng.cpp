@@ -732,16 +732,16 @@ void SaverEngineEventHandler::lockCompleted()
 {
 	kdDebug(1204) << "SaverEngineEventHandler: lock completed" << endl;
 
-	if (trinity_lockeng_sak_available)
-	{
-		startSAKProcess();
-	}
 	if (m_state == Waiting)
 	{
 		return;
 	}
 
 	m_state = Waiting;
+	if (trinity_lockeng_sak_available)
+	{
+		startSAKProcess();
+	}
 	TQTimer::singleShot(0, m_saverEngine, TQ_SLOT(stopLockProcessGUI()));
 }
 
@@ -797,6 +797,9 @@ void SaverEngineEventHandler::saveScreen()
 
 void SaverEngineEventHandler::slotLockProcessExited()
 {
+	// Clean up status after the lock process has exited
+	lockCompleted();
+
 	m_lockProcessRestarting = true;
 
 	bool abnormalExit = false;
