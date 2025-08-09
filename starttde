@@ -3,6 +3,15 @@
 #  DEFAULT TRINITY STARTUP SCRIPT
 #
 
+# Paths and environment variables in this script must match the expected
+# directory locations found in tdelibs/tdecore/tdestandarddirs.h and
+# tdestandarddirs.cpp.
+
+# Until TDE supports being installed in /usr, part of this script is
+# intended to avoid potential conflicts with KDE.
+
+# Within this script use full path names to all binaries, scripts, etc.
+
 # This block might not be appropriate for all systems.
 # It should work for command line logins but graphical
 # login managers might already source these files.
@@ -15,7 +24,7 @@ if [ -r $HOME/.xprofile ]; then
   . $HOME/.xprofile
 fi
 
-# Some functions to parse and check path correctly ...
+# Function to check PATH.
 # Usage: is_in_path PATH /usr/bin
 is_in_path() {
   var="$1"; search="$2";
@@ -27,6 +36,7 @@ is_in_path() {
   return 1
 }
 
+# Function to check TDE directory is in PATH in the correct order.
 # Usage: is_before_in_path ENV_VAR var before_var
 # Return 0 if 'var' is before 'before_var' in 'ENV_VAR', 1 otherwise
 is_before_in_path() {
@@ -40,6 +50,7 @@ is_before_in_path() {
   return 1
 }
 
+# Function to place TDE directory in PATH in the correct order.
 # Usage: place_before_in_path PATH /opt/trinity/games /usr/games
 place_before_in_path() {
   var="$1"; insert="$2";
@@ -56,6 +67,7 @@ place_before_in_path() {
   fi
 }
 
+# Function to remove TDE directory from PATH.
 # Usage: remove_from_path PATH /opt/trinity/games
 remove_from_path() {
   var="$1"; remove="$2";
@@ -77,22 +89,18 @@ is_newer() {
   return 1
 }
 
+# echo messages should appear in the user's .xsession-errors log.
 echo "[starttde] Starting starttde." 1>&2
 echo "[starttde] This script is $0" 1>&2
 
-# Avoid any possible conflict with KDE4. Therefore within this script
-# use full path names to all binaries used.
-
 # The binaries for TDE are located in the same place as this script.
-# To determine that location use the following method rather than presuming
-# the existence of $TDEDIR. That environment variable might not be
-# defined or defined to point to KDE4 binaries.
+# To determine that location use the following method rather than
+# presuming the existence of $TDEDIR. That environment variable might
+# not be defined or defined to point to KDE binaries.
 BIN_DIR=""
-
-# Let's check if this script is called from the Debian alternatives
+# Check if this script is called from the Debian alternatives.
 # See: https://wiki.debian.org/DebianAlternatives
-if [ "$(readlink -- "$0")" = "/etc/alternatives/x-session-manager" ]
-then
+if [ "$(readlink -- "$0")" = "/etc/alternatives/x-session-manager" ]; then
   # Check if it is not a dangling symlink
   if [ -L "/etc/alternatives/x-session-manager" ] && \
      [ -e "/etc/alternatives/x-session-manager" ]
@@ -131,9 +139,9 @@ if kcheckrunning >/dev/null 2>&1; then
 fi
 
 # Set the background color.
-# The standard X background is nasty, causing moire effects and exploding
-# people's heads. We use colours from the standard TDE palette for those with
-# palettised displays.
+# The standard X background is nasty, causing moire effects and
+# exploding people's heads. We use colours from the standard TDE palette
+# for those with palettised displays.
 if test -z "$XDM_MANAGED" || echo "$XDM_MANAGED" | grep ",auto" > /dev/null; then
   xsetroot -solid "#618DCC" # sky blue
 fi
@@ -141,9 +149,10 @@ fi
 # Unset this for Darwin since it will screw up TDE's dynamic-loading.
 unset DYLD_FORCE_FLAT_NAMESPACE
 
-# Check whether prelinking is enabled. If yes, then exporting TDE_IS_PRELINKED improves
-# loading TDE. The $TDE_IS_PRELINKED variable might already be set on some systems
-# through /etc/profile.d. Therefore first check whether the variable exists.
+# Check whether prelinking is enabled. If yes, then exporting
+# TDE_IS_PRELINKED improves loading TDE. The $TDE_IS_PRELINKED variable
+# might already be set on some systems through /etc/profile.d. Therefore
+# first check whether the variable exists.
 if [ "$TDE_IS_PRELINKED" = "" ]; then
   if [ -r /etc/default/prelink ]; then
     . /etc/default/prelink
@@ -157,17 +166,17 @@ fi
 
 # Boot sequence:
 #
-# tdeinit is used to fork off processes which improves memory usage
-# and startup time.
+# tdeinit is used to fork processes to improve memory usage and
+# startup time.
 #
-# * tdeinit starts the dcopserver and tdelauncher first.
-# * Then kded is started. kded is responsible for keeping the sycoca
-#   database up to date. When an up to date database is present it goes
+# * tdeinit first starts dcopserver and tdelauncher.
+# * Then kded is started, which is responsible for keeping the sycoca
+#   database up to date. When the database is updated the process goes
 #   into the background and the startup continues.
-# * Then tdeinit starts kcminit. kcminit performs initialisation of
-#   certain devices according to the user's settings
-#
-# * Then ksmserver is started which takes control of the rest of the startup sequence.
+# * Then tdeinit starts kcminit. kcminit initializes devices according
+#   to the user's settings.
+# * Then ksmserver starts and takes control of the remainder of the
+#   startup sequence.
 
 # The user's personal TDE directory usually is $HOME/.trinity.
 # This setting may be overridden by setting $TDEHOME. When migrating profiles
@@ -195,23 +204,24 @@ else
   echo "[starttde] Set TDEHOME to $TDEHOME." 1>&2
 fi
 
-# tdesu needs something to find root's TDE profile. Set the TDEROOTHOME variable
-# here as last resort. /root/.trinity is a safe presumption. If an admin wants
-# a different location then set the TDEROOTHOME variable elsewhere.
+# tdesu needs something to find root's TDE profile. Set the TDEROOTHOME
+# variable here as a last resort. /root/.trinity is a safe presumption.
+# If an admin wants a different location then set the TDEROOTHOME variable
+# elsewhere.
 if [ "$TDEROOTHOME" = "" ]; then
   export TDEROOTHOME=/root/.trinity
   echo "[starttde] Setting TDEROOTHOME to $TDEROOTHOME."
 fi
 
-# Modify the following environment variables only as necessary.
-
+# Modify the PATH environment variable only as necessary.
 if ! is_in_path PATH "$TDEDIR/games" ; then
   # Respect the traditional path order. Don't blindly place $TDEDIR/games
   # first in the path. Only place $TDEDIR/games before /usr/games. If packagers
   # are adding $TDEDIR/games elsewhere, then they need to ensure the traditional
   # search patch is respected.
-  # Is there a way we can check that $TDEDIR/games is always placed only just before
-  # /usr/games in the search path?
+  # This order is consistent with tdelibs/tdesu/stub.cpp.
+  # FIXME: Is there a way to check that $TDEDIR/games is always placed only
+  # just before /usr/games in the search path?
   if is_in_path PATH "/usr/games"; then
     place_before_in_path PATH "$TDEDIR/games" "/usr/games"
   else
@@ -219,13 +229,15 @@ if ! is_in_path PATH "$TDEDIR/games" ; then
   fi
 fi
 
+# Modify the PATH environment variable only as necessary.
 if ! is_in_path PATH "$TDEDIR/bin" ; then
-  # Respect the traditional path order. Don't blindly place $TDEDIR/bin
-  # first in the path. Only place $TDEDIR/bin before /usr/bin. This order is
-  # consistent with tdelibs/tdesu/stub.cpp. If packagers are adding $TDEDIR/bin
-  # elsewhere, then they need to ensure the traditional search patch is respected.
-  # Is there a way we can check that $TDEDIR/bin is always placed only just before
-  # /usr/bin in the search path?
+  # Respect the traditional path order. Don't blindly place $TDEDIR/bin first
+  # in the path. Only place $TDEDIR/bin before /usr/bin. If packagers are adding
+  # $TDEDIR/bin elsewhere, then they need to ensure the traditional search patch
+  # is respected.
+  # This order is consistent with tdelibs/tdesu/stub.cpp.
+  # FIXME: Is there a way to check that $TDEDIR/bin is always placed only just
+  # before /usr/bin in the search path?
   if is_in_path PATH "/usr/bin"; then
     place_before_in_path PATH "$TDEDIR/bin" "/usr/bin"
   else
@@ -233,17 +245,18 @@ if ! is_in_path PATH "$TDEDIR/bin" ; then
   fi
 fi
 
+# Modify the MANPATH environment variable only as necessary.
 if [ -x /usr/bin/manpath ]; then
-  if [ "`manpath 2>/dev/null | grep \"$TDEDIR/share/man\"`" = "" ]; then
+  if [ "$(manpath 2>/dev/null | grep "$TDEDIR/share/man")" = "" ]; then
     export MANPATH=$TDEDIR/share/man:$MANPATH
   fi
 else
-  if [ "`echo $MANPATH | grep \"$TDEDIR/share/man\"`" = "" ]; then
+  if [ "$(echo $MANPATH | grep "$TDEDIR/share/man")" = "" ]; then
     export MANPATH=$TDEDIR/share/man:$MANPATH
   fi
 fi
 
-
+# Set the XDG_CONFIG_DIRS environment variable.
 if [ "$XDG_CONFIG_DIRS" = "" ]; then
   if [ -d /etc/xdg ]; then
     XDG_CONFIG_DIRS=/etc/xdg
@@ -267,7 +280,7 @@ elif [ -d $TDEDIR/tde/xdg ]; then
   TDE_XDG_DIR="$TDEDIR/tde/xdg"
 fi
 if [ -d $TDE_XDG_DIR ]; then
-  if [ "`echo $XDG_CONFIG_DIRS | grep \"$TDE_XDG_DIR\"`" = "" ]; then
+  if [ "$(echo $XDG_CONFIG_DIRS | grep "$TDE_XDG_DIR")" = "" ]; then
     if [ "$XDG_CONFIG_DIRS" = "" ]; then
       XDG_CONFIG_DIRS=$TDE_XDG_DIR
     else
@@ -291,10 +304,11 @@ echo "[starttde] XDG_CONFIG_DIRS: $XDG_CONFIG_DIRS" 1>&2
 # set in $TDEDIRS are intended to override data files found in $TDEDIR. Those additional
 # directories should be placed before $TDEDIR and before /usr/share.
 if [ "$TDEDIR" != "/usr" ] && [ -d $TDEDIR/share ]; then
-  # If '/usr/share' is not already there, we include it at the last position.
+  # Include '/usr/share' only if missing and only at the last position.
   if ! is_in_path XDG_DATA_DIRS "/usr/share"; then
+    # If XDG_DATA_DIRS is empty then avoid a leading ':'.
     if [ "$XDG_DATA_DIRS" = "" ]; then
-      XDG_DATA_DIRS=/usr/share    # In case XDG_DATA_DIRS is empty, to avoid a leading :
+      XDG_DATA_DIRS=/usr/share
     else
       XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share
     fi
@@ -302,7 +316,7 @@ if [ "$TDEDIR" != "/usr" ] && [ -d $TDEDIR/share ]; then
   # If '/usr/local/share' is not already there, we include it before '/usr/share'
   if ! is_in_path XDG_DATA_DIRS "/usr/local/share"; then
     place_before_in_path XDG_DATA_DIRS "/usr/local/share" "/usr/share"
-  fi  
+  fi
 
   # Ensure that $TDEDIR/share is always before '/usr/local/share' and '/usr/share'.
   if ! is_in_path XDG_DATA_DIRS "$TDEDIR/share" ||
@@ -330,24 +344,24 @@ fi
 
 echo "[starttde] XDG_DATA_DIRS: $XDG_DATA_DIRS" 1>&2
 
-test -n "$TDEHOME" && tdehome=`echo "$TDEHOME" | sed "s,^~/,$HOME/,"`
+test -n "$TDEHOME" && tdehome=$(echo "$TDEHOME" | sed "s,^~/,$HOME/,")
 
 # Allow interested applications, such as the Plasma control wrapper,
 # to know that this is a Trinity desktop and not a KDE one.
 export DESKTOP_SESSION=trinity
 
-# Create profile directory.
+# If necessary create the profile directory.
 if [ ! -d "$tdehome" ]; then
   echo "[starttde] Creating $tdehome" 1>&2
   mkdir -m 700 -p "$tdehome"
 fi
 if [ -d "$tdehome" ]; then
   # Run some R14 updates.
-  R14_UPDATED="`$TDEDIR/bin/kreadconfig --file kdeglobals --group "R14 XDG Updates" --key Updated --default false`"
-  R14_VERSION="`$TDEDIR/bin/kreadconfig --file kdeglobals --group "R14 XDG Updates" --key Version --default 0`"
+  R14_UPDATED="$($TDEDIR/bin/kreadconfig --file kdeglobals --group "R14 XDG Updates" --key Updated --default false)"
+  R14_VERSION="$($TDEDIR/bin/kreadconfig --file kdeglobals --group "R14 XDG Updates" --key Version --default 0)"
   if [ -e $TDEDIR/bin/r14-xdg-update ]; then
     # Script version index is used to allow automatic rerun
-    R14_SCRIPT="`sed -n "s/SCRIPT_VERSION=\([0-9]*\)/\1/p" $TDEDIR/bin/r14-xdg-update`"
+    R14_SCRIPT="$(sed -n "s/SCRIPT_VERSION=\([0-9]*\)/\1/p" $TDEDIR/bin/r14-xdg-update)"
   else
     R14_SCRIPT=0
   fi
@@ -367,7 +381,7 @@ if [ -d "$tdehome" ]; then
 fi
 
 # Get current font DPI configuration
-CUR_ForceFontDPI="`$TDEDIR/bin/kreadconfig --file kcmfonts --group General --key forceFontDPI --default 0`"
+CUR_ForceFontDPI="$($TDEDIR/bin/kreadconfig --file kcmfonts --group General --key forceFontDPI --default 0)"
 CUR_ForceFontDPIEnable=false
 [ $CUR_ForceFontDPI -gt 0 ] && CUR_ForceFontDPIEnable=true
 unset CUR_ForceFontDPI
@@ -393,7 +407,8 @@ unset CUR_ForceFontDPIEnable
 if test $? -ne 0; then
   xmessage -center -geometry 500x100 "Could not start tdestartupconfig. Check your installation."
 fi
-# $tdehome/share/config/startupconfig should exist but avoid script failure if not.
+# $tdehome/share/config/startupconfig should exist but avoid script
+# failure if not.
 if [ -r "$tdehome/share/config/startupconfig" ]; then
   . "$tdehome/share/config/startupconfig"
 fi
@@ -410,7 +425,7 @@ EOF
   fi
 fi
 
-# XCursor mouse theme needs to be applied here to work even for kded or ksmserver.
+# An XCursor mouse theme is needed to work with kded or ksmserver.
 if test -n "$kcminputrc_mouse_cursortheme" -o -n "$kcminputrc_mouse_cursorsize" ; then
   kapplymousetheme "$kcminputrc_mouse_cursortheme" "$kcminputrc_mouse_cursorsize"
   if test $? -eq 10; then
@@ -494,6 +509,8 @@ fi
 
 # Configuration of the gtk_qt_engine if not already set.
 
+# Is the kgtk package installed? KGtk is a hack to allow some software
+# to use the TDE file picker dialog.
 if test -n "$TDEDIRS"; then
   tdedirs_first=${TDEDIRS%%:*}
   TGTK_RC_ENGINE=$tdedirs_first/share/kgtk/gtk-qt-engine.rc.sh
@@ -504,39 +521,39 @@ else
   TGTK_RC_TDE1=$TDEDIR/share/kgtk/.gtkrc-2.0-kde4
   TGTK_RC_TDE2=$TDEDIR/share/kgtk/.gtkrc-2.0-kde-kde4
 fi
-
 if [ ! -e "$tdehome/env/gtk-qt-engine.rc.sh" ] && [ -e $TGTK_RC_ENGINE ]; then
  mkdir -p "$tdehome/env"
  cp -f $TGTK_RC_ENGINE "$tdehome/env"
  chmod 755 "$tdehome/env/gtk-qt-engine.rc.sh"
 fi
 
-if [ ! -e $HOME/.gtkrc-2.0-kde4 ] && [ -e $TGTK_RC_TDE1 ]
-then
+if [ ! -e $HOME/.gtkrc-2.0-kde4 ] && [ -e $TGTK_RC_TDE1 ]; then
  cp -f $TGTK_RC_TDE1 $HOME
 fi
-
-if [ ! -e $HOME/.gtkrc-2.0-kde-kde4 ] && [ -e $TGTK_RC_TDE2 ]
-then
+if [ ! -e $HOME/.gtkrc-2.0-kde-kde4 ] && [ -e $TGTK_RC_TDE2 ]; then
  cp -f $TGTK_RC_TDE2 $HOME
 fi
 
 # Source scripts found in <localprefix>/env/*.sh and <prefixes>/env/*.sh
 # (where <localprefix> is $TDEHOME or ~/.trinity, and <prefixes> is where TDE is installed)
 #
-# This is where you can define environment variables that will be available to
-# all TDE programs. That is where to run agents using for example, eval `ssh-agent`
-# or eval `gpg-agent --daemon`.
-# Note: if you do that, you should also put "ssh-agent -k" as a shutdown script.
-# (Read the end of this script for running shutdown scripts).
-# For anything else (that doesn't set env vars, or that needs a window manager),
-# better use the Autostart folder.
+# # This is where to define environment variables that will be
+# available to all TDE programs. For example, this is where to run
+# agents using eval $(ssh-agent) or eval $(gpg-agent --daemon).
+# Note: when doing that also include "ssh-agent -k" as a shutdown
+# script. (Read the end of this script for running shutdown
+# scripts). For anything else that doesn't set env vars, or needs a
+# window manager, best to use the TDE Autostart folder.
 
-exepath=`tde-config --path exe | tr : '\n'`
+exepath=$(tde-config --path exe | tr : '\n')
 
-for prefix in `echo "$exepath" | sed -n -e 's,/bin[^/]*/,/env/,p'`; do
+for prefix in $(echo "$exepath" | sed -n -e 's,/bin[^/]*/,/env/,p'); do
+  echo "[starttde] Looking for sh scripts in $prefix" 1>&2
   for file in "$prefix"*.sh; do
-    test -r "$file" && . "$file"
+    if [ -r "$file" ]; then
+      echo "[starttde] Sourcing $file" 1>&2
+      . "$file"
+    fi
   done
 done
 
@@ -547,9 +564,9 @@ done
 # There are two system directories. These belong to the administrator.
 # There are two user directories, where the user may add her own fonts.
 #
-# The 'override' versions are for fonts that should come first in the list,
-# i.e. if you have a font in your 'override' directory, it will be used in
-# preference to any other.
+# The 'override' versions are for fonts that should come first in the
+# list. That is, if you have a font in your 'override' directory, it
+# will be used in preference to any other.
 #
 # The preference order looks like this:
 # user override, system override, X, user, system.
@@ -568,8 +585,8 @@ if test -r "$tde_fontpaths" ; then
   savifs=$IFS
   IFS="
 "
-  for fpath in `grep -v '^[   ]*#' < "$tde_fontpaths"` ; do
-    rfpath=`echo $fpath | sed "s:^~:$HOME:g"`
+  for fpath in $(grep -v '^[   ]*#' < "$tde_fontpaths") ; do
+    rfpath=$(echo $fpath | sed "s:^~:$HOME:g")
     if test -s "$rfpath"/fonts.dir; then
       xset fp+ "$rfpath"
       if test "$rfpath" = "$usr_fdir"; then
@@ -617,9 +634,9 @@ if [ "$TGTK_PRELOAD" != "" ]; then
   export LD_PRELOAD=$TGTK_PRELOAD:$TGTK_NSPR_PRELOAD$LD_PRELOAD
 fi
 
-# We run mkfontdir on the user's font dirs (if we have permission) to pick
-# up any new fonts they may have installed. If mkfontdir fails, we still
-# add the user's dirs to the font path, as they might simply have been made
+# Run mkfontdir on the user's font dirs (if we have permission) to find
+# any new fonts they may have installed. If mkfontdir fails, we still add
+# the user's dirs to the font path, as they might simply have been made
 # read-only by the administrator, for whatever reason.
 
 # Only do usr_fdir and usr_odir if they are *not* listed in fontpaths.
@@ -639,12 +656,13 @@ xset fp rehash
 # especially necessary on slow machines, where starting TDE takes one or two
 # minutes until anything appears on the screen.
 #
-# If the user has overwritten fonts, the cursor font may be different now
-# so don't move this up.
+# If the user has overwritten fonts, the cursor font may be different
+# now so don't move this up.
 #
 xsetroot -cursor_name left_ptr
 
-# Get Ghostscript to look into user's TDE fonts dir for additional Fontmap.
+# Get Ghostscript to look into user's TDE fonts dir for additional
+# Fontmap.
 if test -n "$GS_LIB" ; then
   GS_LIB=$usr_fdir:$GS_LIB
   export GS_LIB
@@ -654,11 +672,11 @@ else
 fi
 
 # Link "tmp" "socket" and "cache" resources to directory in $TMP.
-# Creates:
-# - a directory $TMP/tde-$USER and is linked from $TDEHOME/tmp-$HOSTNAME to it.
-# - a directory $TMP/tdesocket-$USER and is linked from $TDEHOME/socket-$HOSTNAME to it.
-# - a directory /var/tmp/tdecache-$USER and is linked from $TDEHOME/cache-$HOSTNAME to it.
-# Note: temporary locations can be overridden through the TDETMP and TDEVARTMP
+# Create:
+# $TMP/tde-$USER linked from $TDEHOME/tmp-$HOSTNAME.
+# $TMP/tdesocket-$USER linked from $TDEHOME/socket-$HOSTNAME.
+# /var/tmp/tdecache-$USER linked from $TDEHOME/cache-$HOSTNAME.
+# Temporary locations may be overridden through the TDETMP and TDEVARTMP
 # environment variables.
 for resource in tmp cache socket; do
   if ! lnusertemp $resource >/dev/null; then
@@ -699,7 +717,7 @@ fi
 # Detect any running Xorg composition managers.
 $TDEDIR/bin/kdetcompmgr
 
-# Run KPersonalizer before the session if this is the first login.
+# Run KPersonalizer before the session if this is the first TDE login.
 if test "$kpersonalizerrc_general_firstlogin" = "true"; then
   if [ ! -x $TDEDIR/bin/kpersonalizer ]; then
     echo "[starttde] kpersonalizer not found! Please install in order to properly configure your user profile." 1>&2
@@ -722,7 +740,8 @@ fi
 $TDEDIR/bin/tdeinit_displayconfig
 EXIT_CODE="$?"
 
-# Remove moodin cache if we have a new wallpaper installed, jriddell. Distro-specific.
+# Remove moodin cache if there is new wallpaper installed.
+# jriddell; distro-specific.
 if [ -d "$tdehome/share/apps/ksplash/cache/Moodin/kubuntu" ]; then
   if is_newer /usr/share/wallpapers/kubuntu-wallpaper.png \
               "$tdehome/share/apps/ksplash/cache/Moodin/kubuntu/"
@@ -730,7 +749,7 @@ if [ -d "$tdehome/share/apps/ksplash/cache/Moodin/kubuntu" ]; then
     rm -rf "$tdehome/share/apps/ksplash/cache/Moodin/kubuntu/"
   fi
 fi
-# The is_newer function will no longer be used, so we unset it
+# The 'is_newer' function will no longer be used, so unset
 unset is_newer
 
 if test -z "$dl"; then
@@ -749,12 +768,13 @@ if test -z "$dl"; then
   esac
 fi
 
-# Mark that full TDE session is running (for example, Konqueror preloading works only
-# with full TDE running). The TDE_FULL_SESSION property can be detected by
-# any X client connected to the same X session, even if not launched
-# directly from the TDE session but for example, using "ssh -X", tdesu. $TDE_FULL_SESSION
-# however guarantees that the application is launched in the same environment
-# like the TDE session and that for example, TDE utilities/libraries are available.
+# Mark that full TDE session is running (for example, Konqueror
+# preloading works only with full TDE running). The TDE_FULL_SESSION
+# property can be detected by any X client connected to the same X
+# session, even if not launched directly from the TDE session but for
+# example, using "ssh -X", tdesu. $TDE_FULL_SESSION guarantees the
+# application is launched in the same environment like the TDE session
+# and that for example, TDE utilities/libraries are available.
 # The matching tests are:
 #   For $TDE_FULL_SESSION:
 #     if test -n "$TDE_FULL_SESSION"; then ... whatever
@@ -763,18 +783,19 @@ fi
 #     if test $? -eq 0; then ... whatever
 #
 # Additionally there is $TDE_SESSION_UID with the uid of the user
-# running the TDE session. It should be rarely needed (for example,
-# after sudo to prevent desktop-wide functionality in the new user's kded).
-#
+# running the TDE session. That rarely should be needed (for example,
+# after sudo to prevent desktop-wide functionality in the new user's
+# kded).
+
 TDE_FULL_SESSION=true
 export TDE_FULL_SESSION
 xprop -root -f TDE_FULL_SESSION 8s -set TDE_FULL_SESSION true
 echo "[starttde] TDE_FULL_SESSION: $TDE_FULL_SESSION" 1>&2
-TDE_SESSION_UID=`id -u`
+TDE_SESSION_UID=$(id -u)
 export TDE_SESSION_UID
 echo "[starttde] TDE_SESSION_UID: $TDE_SESSION_UID" 1>&2
 
-# We set LD_BIND_NOW to increase the efficiency of tdeinit.
+# Set LD_BIND_NOW to increase the efficiency of tdeinit.
 # tdeinit unsets this variable before loading applications.
 LD_BIND_NOW=true $TDEDIR/bin/start_tdeinit_wrapper --new-startup +kcminit_startup
 if test $? -ne 0; then
@@ -784,16 +805,16 @@ if test $? -ne 0; then
 fi
 echo "[starttde] tdeinit started successfully." 1>&2
 
-# Finally, give the session control to the session manager.
-# See tdebase/ksmserver for the description of the rest of the startup sequence.
-# When set, the TDEWM environment variable will be used as Trinity's
-# window manager instead of twin.
-# When TDEWM is not set, ksmserver will ensure twin is started.
+# Finally, give the session control to the session manager. Refer to
+# tdebase/ksmserver for the description of the remainder of the startup
+# sequence. When set, the TDEWM environment variable will be used as
+# Trinity's window manager instead of twin. When TDEWM is not set then
+# ksmserver will ensure twin is started.
 # kwrapper is used to reduce startup time and memory usage.
-# kwrapper does not return useful error codes such as the exit code of ksmserver.
-# We only check for 255, which means the ksmserver process could not be
-# started. Any problems thereafter, for example, ksmserver failing to initialize,
-# will remain undetected.
+# kwrapper does not return useful error codes such as the exit code of
+# ksmserver. Thus only check for 255, which means ksmserver could not
+# start. Any problems thereafter, for example, ksmserver failing to
+# initialize, remain undetected.
 # tdeinit_phase1 is still experimental.
 $TDEDIR/bin/tdeinit_phase1
 EXIT_CODE="$?"
@@ -818,7 +839,7 @@ echo "[starttde] Shutting down Trinity..." 1>&2
 $TDEDIR/bin/tdeinit_shutdown
 $TDEDIR/bin/dcopserver_shutdown --wait
 $TDEDIR/bin/artsshell -q terminate
-# KDE4 support.
+# KDE 4 support.
 if [ -f /usr/bin/kdeinit4_shutdown ]; then
   /usr/bin/kde4 kdeinit4_shutdown 2>/dev/null
 fi
@@ -832,8 +853,8 @@ echo "[starttde] Running Trinity shutdown scripts..." 1>&2
 # Presumed is $TDEDIRS/bin exists. Create $TDEDIRS/bin even when
 # only using the shutdown directory or this snippet will fail to find
 # that shutdown directory.
-for prefix in `echo "$exepath" | sed -n -e 's,/bin[^/]*/,/shutdown/,p'`; do
-  for file in `ls "$prefix" 2> /dev/null | egrep -v '(~|\.bak)$'`; do
+for prefix in $(echo "$exepath" | sed -n -e 's,/bin[^/]*/,/shutdown/,p'); do
+  for file in $(ls "$prefix" 2> /dev/null | egrep -v '(~|\.bak)$'); do
     if [ -x "${prefix}${file}" ]; then
       echo "[starttde] Running ${prefix}${file}." 1>&2
       sh ${prefix}${file}
