@@ -205,43 +205,43 @@ fi
 
 # Modify the following environment variables only as necessary.
 
-  if ! is_in_path PATH "$TDEDIR/games" ; then
-    # Respect the traditional path order. Don't blindly place $TDEDIR/games
-    # first in the path. Only place $TDEDIR/games before /usr/games. If packagers
-    # are adding $TDEDIR/games elsewhere, then they need to ensure the traditional
-    # search patch is respected.
-    # Is there a way we can check that $TDEDIR/games is always placed only just before
-    # /usr/games in the search path?
-    if is_in_path PATH "/usr/games"; then
-      place_before_in_path PATH "$TDEDIR/games" "/usr/games"
-    else
-      export PATH=$TDEDIR/games:$PATH
-    fi
-  fi
-
-  if ! is_in_path PATH "$TDEDIR/bin" ; then
-    # Respect the traditional path order. Don't blindly place $TDEDIR/bin
-    # first in the path. Only place $TDEDIR/bin before /usr/bin. This order is
-    # consistent with tdelibs/tdesu/stub.cpp. If packagers are adding $TDEDIR/bin
-    # elsewhere, then they need to ensure the traditional search patch is respected.
-    # Is there a way we can check that $TDEDIR/bin is always placed only just before
-    # /usr/bin in the search path?
-    if is_in_path PATH "/usr/bin"; then
-      place_before_in_path PATH "$TDEDIR/bin" "/usr/bin"
-    else
-      export PATH=$TDEDIR/bin:$PATH
-    fi
-  fi
-
-  if [ -x /usr/bin/manpath ]; then
-    if [ "`manpath 2>/dev/null | grep \"$TDEDIR/share/man\"`" = "" ]; then
-      export MANPATH=$TDEDIR/share/man:$MANPATH
-    fi
+if ! is_in_path PATH "$TDEDIR/games" ; then
+  # Respect the traditional path order. Don't blindly place $TDEDIR/games
+  # first in the path. Only place $TDEDIR/games before /usr/games. If packagers
+  # are adding $TDEDIR/games elsewhere, then they need to ensure the traditional
+  # search patch is respected.
+  # Is there a way we can check that $TDEDIR/games is always placed only just before
+  # /usr/games in the search path?
+  if is_in_path PATH "/usr/games"; then
+    place_before_in_path PATH "$TDEDIR/games" "/usr/games"
   else
-    if [ "`echo $MANPATH | grep \"$TDEDIR/share/man\"`" = "" ]; then
-      export MANPATH=$TDEDIR/share/man:$MANPATH
-    fi
+    export PATH=$TDEDIR/games:$PATH
   fi
+fi
+
+if ! is_in_path PATH "$TDEDIR/bin" ; then
+  # Respect the traditional path order. Don't blindly place $TDEDIR/bin
+  # first in the path. Only place $TDEDIR/bin before /usr/bin. This order is
+  # consistent with tdelibs/tdesu/stub.cpp. If packagers are adding $TDEDIR/bin
+  # elsewhere, then they need to ensure the traditional search patch is respected.
+  # Is there a way we can check that $TDEDIR/bin is always placed only just before
+  # /usr/bin in the search path?
+  if is_in_path PATH "/usr/bin"; then
+    place_before_in_path PATH "$TDEDIR/bin" "/usr/bin"
+  else
+    export PATH=$TDEDIR/bin:$PATH
+  fi
+fi
+
+if [ -x /usr/bin/manpath ]; then
+  if [ "`manpath 2>/dev/null | grep \"$TDEDIR/share/man\"`" = "" ]; then
+    export MANPATH=$TDEDIR/share/man:$MANPATH
+  fi
+else
+  if [ "`echo $MANPATH | grep \"$TDEDIR/share/man\"`" = "" ]; then
+    export MANPATH=$TDEDIR/share/man:$MANPATH
+  fi
+fi
 
 
 if [ "$XDG_CONFIG_DIRS" = "" ]; then
