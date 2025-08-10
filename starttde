@@ -4,8 +4,8 @@
 #
 
 # Paths and environment variables in this script must match the expected
-# directory locations found in tdelibs/tdecore/kstandarddirs.h and
-# kstandarddirs.cpp.
+# directory locations found in tdelibs/tdecore/tdestandarddirs.h and
+# tdestandarddirs.cpp.
 
 # Until TDE supports being installed in /usr, part of this script is
 # intended to avoid potential conflicts with KDE.
@@ -67,7 +67,7 @@ place_before_in_path() {
   fi
 }
 
-# Function to remove TDE directory in PATH.
+# Function to remove TDE directory from PATH.
 # Usage: remove_from_path PATH /opt/trinity/games
 remove_from_path() {
   var="$1"; remove="$2";
