@@ -64,7 +64,7 @@
 #include <tqfile.h>
 #include <tqregexp.h>
 
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <tdecmdlineargs.h>

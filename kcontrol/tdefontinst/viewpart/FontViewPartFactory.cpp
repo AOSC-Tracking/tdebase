@@ -30,7 +30,7 @@
 #include "FontViewPart.h"
 #include <kdebug.h>
 #include <tdeaboutdata.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <assert.h>
 
 extern "C"

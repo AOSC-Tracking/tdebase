@@ -29,7 +29,7 @@
 #include <tqfile.h>
 #include <iostream>
 #include <ktrader.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <assert.h>
 
 #include <ksimpleconfig.h>

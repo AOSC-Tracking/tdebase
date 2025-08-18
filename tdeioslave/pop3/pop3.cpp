@@ -52,7 +52,7 @@ extern "C" {
 #include <tqregexp.h>
 
 #include <kdebug.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdelocale.h>
 #include <kmdcodec.h>
 #include <tdeprotocolmanager.h>

@@ -22,7 +22,7 @@
 #include <kdebug.h>
 #include <kdesktopfile.h>
 #include <kdirwatch.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <kinputdialog.h>
 #include <tdelocale.h>
 #include <tdemessagebox.h>

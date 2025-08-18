@@ -24,7 +24,7 @@
 #include <kbugreport.h>
 #include <tdeaboutapplication.h>
 #include <tdemessagebox.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdeaction.h>
 #include <twin.h>
 #include <kiconloader.h>

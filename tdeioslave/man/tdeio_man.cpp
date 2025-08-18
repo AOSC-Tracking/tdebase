@@ -32,7 +32,7 @@
 #include <tqregexp.h>
 
 #include <kdebug.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdeglobal.h>
 #include <kstandarddirs.h>
 #include <kprocess.h>

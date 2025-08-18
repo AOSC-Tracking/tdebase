@@ -21,7 +21,7 @@
 
 #include <tdecmdlineargs.h>
 #include <tdeglobal.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdelocale.h>
 #include <kstandarddirs.h>
 

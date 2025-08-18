@@ -44,7 +44,7 @@
 #include <tqwhatsthis.h>
 #include <tqcombobox.h>
 
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <kdebug.h>
 #include <kdialogbase.h>
 #include <kglobalaccel.h>

@@ -56,7 +56,7 @@
 #include <tqdir.h>
 #include <tqdatastream.h>
 #include <tqregexp.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <klargefile.h>
 #include <tdetempfile.h>
 #include <tdesu/su.h>

@@ -15,7 +15,7 @@
 #include <tqdir.h>
 #include <tqregexp.h>
 
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <kdebug.h>
 #include <tdeglobal.h>
 #include <tdelocale.h>

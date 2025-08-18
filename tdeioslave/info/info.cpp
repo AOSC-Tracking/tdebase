@@ -11,7 +11,7 @@
 #include <kprocess.h>
 #include <kstandarddirs.h>
 #include <kiconloader.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdelocale.h>
 
 #include "info.h"

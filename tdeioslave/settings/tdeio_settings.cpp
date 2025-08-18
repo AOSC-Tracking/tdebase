@@ -18,7 +18,7 @@
 */
 
 #include <tdeio/slavebase.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <kdebug.h>
 #include <tqtextstream.h>
 #include <tdelocale.h>

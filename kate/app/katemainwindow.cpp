@@ -45,7 +45,7 @@
 #include "../interfaces/toolviewmanager.h"
 
 #include <dcopclient.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdeaboutdata.h>
 #include <tdeaction.h>
 #include <tdecmdlineargs.h>

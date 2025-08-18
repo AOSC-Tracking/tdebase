@@ -13,7 +13,7 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <dcopclient.h>
 #include <tdeconfig.h>
 #include <kdebug.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <kstandarddirs.h>
 
 int main( int argc, char* argv[] )

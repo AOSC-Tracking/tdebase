@@ -49,7 +49,7 @@
 // KDE includes
 //--------------
 #include <kdebug.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdeio/global.h>
 #include <tdeio/slavebase.h>
 #include <kurl.h>
