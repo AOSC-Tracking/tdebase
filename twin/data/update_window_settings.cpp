@@ -12,7 +12,7 @@ License. See the file "COPYING" for the exact licensing terms.
 
 #include <netwm_def.h>
 #include <tdeconfig.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <dcopclient.h>
 
 struct SessionInfo

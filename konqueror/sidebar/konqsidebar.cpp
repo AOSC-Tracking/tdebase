@@ -79,7 +79,7 @@ void KonqSidebar::customEvent(TQCustomEvent* ev)
 // notable exception of the TDEAboutData data
 #include <tdeaboutdata.h>
 #include <tdelocale.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 
 TDEInstance*  KonqSidebarFactory::s_instance = 0L;
 TDEAboutData* KonqSidebarFactory::s_about = 0L;

@@ -25,7 +25,7 @@
 #include <tdeaboutdata.h>
 #include <tdeglobal.h>
 #include <tdeconfig.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdestartupinfo.h>
 #include <dcopclient.h>
 #include <dcopref.h>

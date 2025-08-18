@@ -10,7 +10,7 @@
 #include <netinet/in.h>
 
 #include <kdebug.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdelocale.h>
 
 #ifdef HAVE_SASL_SASL_H //prefer libsasl2

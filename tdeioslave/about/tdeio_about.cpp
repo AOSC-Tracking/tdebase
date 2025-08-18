@@ -22,7 +22,7 @@
 
 #include <stdlib.h>
 #include <tqstring.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <kurl.h>
 
 using namespace TDEIO;

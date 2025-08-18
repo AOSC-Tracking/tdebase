@@ -63,7 +63,7 @@
 
 #include <kdebug.h>
 #include <tdemessagebox.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdeglobal.h>
 #include <tdestandarddirs.h>
 #include <tdelocale.h>

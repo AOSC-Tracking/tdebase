@@ -61,7 +61,7 @@ using KioSMTP::TransactionState;
 #include <tdeemailsettings.h>
 #include <ksock.h>
 #include <kdebug.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdeio/connection.h>
 #include <tdeio/slaveinterface.h>
 #include <tdelocale.h>

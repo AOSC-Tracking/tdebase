@@ -18,7 +18,7 @@
 
 #define PARTITION "/dev/hda11"
 
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <kdebug.h>
 #include <tdelocale.h>
 #include <tdeconfig.h>

@@ -12,7 +12,7 @@
 #include <tdeglobal.h>
 #include <kurl.h>
 #include <kdebug.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <ktar.h>
 #include <kzip.h>
 #include <kar.h>

@@ -49,7 +49,7 @@
 #include <tqdir.h>
 
 #include <kdebug.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdelocale.h>
 
 #include <tdeio/global.h>

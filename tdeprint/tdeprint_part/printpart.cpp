@@ -23,7 +23,7 @@
 #include <tdeprint/kiconselectaction.h>
 #include <tdeaction.h>
 #include <tdelocale.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <kiconloader.h>
 #include <tdeaboutdata.h>
 #include <kdebug.h>

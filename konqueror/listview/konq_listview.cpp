@@ -46,7 +46,7 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 
 #include <konq_sort_constants.h>
 

@@ -15,7 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "konqsidebartest.moc"
-#include <kinstance.h>
+#include <tdeinstance.h>
 
 extern "C"
 {

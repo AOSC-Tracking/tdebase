@@ -23,7 +23,7 @@
 
 #include <kdebug.h>
 #include <tdelocale.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdeglobal.h>
 
 #include "ikwsopts.h"

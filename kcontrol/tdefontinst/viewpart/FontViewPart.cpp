@@ -45,7 +45,7 @@
 #include <tqstringlist.h>
 #include <tqtimer.h>
 #include <tdeio/netaccess.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdemessagebox.h>
 #include <knuminput.h>
 #include <kstdaction.h>

@@ -26,7 +26,7 @@
 #include <tdelocale.h>
 
 #include <tqdir.h>
-#include <kinstance.h>
+#include <tdeinstance.h>
 
 class KonqDirPart;
 

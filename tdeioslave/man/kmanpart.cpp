@@ -20,7 +20,7 @@
 #include "kmanpart.h"
 #include <tqstring.h>
 
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <tdeglobal.h>
 #include <kdebug.h>
 #include <tdelocale.h>

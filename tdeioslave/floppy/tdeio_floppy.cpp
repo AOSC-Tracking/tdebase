@@ -42,7 +42,7 @@
 
 #include "tdeio_floppy.h"
 
-#include <kinstance.h>
+#include <tdeinstance.h>
 #include <kdebug.h>
 #include <tdeio/global.h>
 #include <tdelocale.h>
