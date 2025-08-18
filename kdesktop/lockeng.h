@@ -144,7 +144,6 @@ private slots:
 	// in 'SaverEngineEventHandler' to complete the remaining X11 part of the actions
 	void activateSaverOrLockGUI();
 	void lockProcessFullyActivatedGUI();
-	void lockProcessWaitingGUI();
 	void lockScreenGUI();
 	void stopLockProcessGUI();
 
