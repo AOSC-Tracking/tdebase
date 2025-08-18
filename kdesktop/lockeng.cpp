@@ -502,28 +502,6 @@ void SaverEngine::lockProcessFullyActivatedGUI()
 	}
 }
 
-void SaverEngine::lockProcessWaitingGUI()
-{
-	emitDCOPSignal("KDE_stop_screensaver()", TQByteArray());
-	if (mEnabled)
-	{
-		if (mXAutoLock)
-		{
-			mXAutoLock->start();
-		}
-		XForceScreenSaver(tqt_xdisplay(), ScreenSaverReset);
-		XSetScreenSaver(tqt_xdisplay(), mTimeout + 10, mXInterval, PreferBlanking, mXExposures);
-	}
-	processLockTransactions();
-
-	if (systemdSession && systemdSession->canSend())
-	{
-		TQValueList<TQT_DBusData> params;
-		params << TQT_DBusData::fromBool(false);
-		TQT_DBusMessage reply = systemdSession->sendWithReply("SetIdleHint", params);
-	}
-}
-
 // XAutoLock has detected the required idle time.
 void SaverEngine::idleTimeout()
 {
@@ -764,7 +742,7 @@ void SaverEngineEventHandler::lockProcessExited()
 	}
 
 	m_state = Waiting;
-	TQTimer::singleShot(0, m_saverEngine, TQ_SLOT(lockProcessWaitingGUI()));
+	TQTimer::singleShot(0, m_saverEngine, TQ_SLOT(stopLockProcessGUI()));
 }
 
 void SaverEngineEventHandler::lockProcessFullyActivated()
