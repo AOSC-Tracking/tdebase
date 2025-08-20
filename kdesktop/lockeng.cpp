@@ -63,7 +63,7 @@ static void sigusr1_handler(int)
 {
 	if (gbl_saverEngineEventHandler)
 	{
-		gbl_saverEngineEventHandler->lockProcessExited();
+		gbl_saverEngineEventHandler->lockCompleted();
 	}
 }
 
@@ -71,7 +71,7 @@ static void sigusr2_handler(int)
 {
 	if (gbl_saverEngineEventHandler)
 	{
-		gbl_saverEngineEventHandler->lockProcessFullyActivated();
+		gbl_saverEngineEventHandler->lockFullyActivated();
 	}
 }
 
@@ -79,7 +79,7 @@ static void sigttin_handler(int)
 {
 	if (gbl_saverEngineEventHandler)
 	{
-		gbl_saverEngineEventHandler->lockProcessReady();
+		gbl_saverEngineEventHandler->lockReady();
 	}
 }
 
@@ -728,9 +728,9 @@ void SaverEngineEventHandler::terminateLockProcess()
 	m_lockProcess.detach(); // don't kill it if we crash
 }
 											
-void SaverEngineEventHandler::lockProcessExited()
+void SaverEngineEventHandler::lockCompleted()
 {
-	kdDebug(1204) << "SaverEngineEventHandler: lock exited" << endl;
+	kdDebug(1204) << "SaverEngineEventHandler: lock completed" << endl;
 
 	if (trinity_lockeng_sak_available)
 	{
@@ -745,13 +745,13 @@ void SaverEngineEventHandler::lockProcessExited()
 	TQTimer::singleShot(0, m_saverEngine, TQ_SLOT(stopLockProcessGUI()));
 }
 
-void SaverEngineEventHandler::lockProcessFullyActivated()
+void SaverEngineEventHandler::lockFullyActivated()
 {
 	m_state = Saving;
 	TQTimer::singleShot(0, m_saverEngine, TQ_SLOT(lockProcessFullyActivatedGUI()));
 }
 
-void SaverEngineEventHandler::lockProcessReady()
+void SaverEngineEventHandler::lockReady()
 {
 	m_saverProcessReady = true;
 }

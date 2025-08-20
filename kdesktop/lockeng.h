@@ -196,9 +196,9 @@ public:
 
 	SaverState getState() const { return m_state; }
 
-	void lockProcessExited();
-	void lockProcessFullyActivated();
-	void lockProcessReady();
+	void lockCompleted();
+	void lockFullyActivated();
+	void lockReady();
 	void terminateLockProcess();
 
 public slots:
