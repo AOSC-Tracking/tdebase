@@ -251,8 +251,8 @@ unsigned long strlcpy(char*, const char*, unsigned long);
 // tdm, kcontrol
 #cmakedefine WITH_XRANDR "@WITH_XRANDR@"
 
-// tsak
-#cmakedefine BUILD_TSAK "@BUILD_TSAK@"
+// kdesktop, tdm
+#cmakedefine WITH_TSAK 1
 
 // Defined when wanting ksmserver shutdown debugging timing markers in .xsession-errors
 #cmakedefine BUILD_PROFILE_SHUTDOWN 1

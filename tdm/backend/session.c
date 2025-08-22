@@ -581,7 +581,7 @@ ManageSession( struct display *d )
 	}
 
 	int start_tsak = 0;
-#ifdef BUILD_TSAK
+#ifdef WITH_TSAK
   start_tsak = d->useSAK;
 #endif
   if (start_tsak) {

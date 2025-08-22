@@ -880,7 +880,7 @@ bool SaverEngineEventHandler::restartLockProcess()
 		}
 		config->setGroup("X-:*-Greeter");
 		bool useSAKProcess = false;
-#ifdef BUILD_TSAK
+#ifdef WITH_TSAK
 		useSAKProcess = config->readBoolEntry("UseSAK", false) && KDesktopSettings::useTDESAK();
 #endif
 		if (useSAKProcess)

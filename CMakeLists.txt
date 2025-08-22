@@ -119,6 +119,7 @@ option( WITH_SENSORS "Enable lm_sensors support (ksysguard)" ${WITH_ALL_OPTIONS}
 option( WITH_TDEHWLIB "Enable TDE hardware library support" ${WITH_ALL_OPTIONS} )
 option( WITH_UPOWER "Enable UPOWER support" ${WITH_ALL_OPTIONS} )
 option( WITH_ELFICON "Enable ELF embedded metadata support" ${WITH_ALL_OPTIONS} )
+option( WITH_TSAK "Enable Secure Attention Key support via tsak" ${WITH_ALL_OPTIONS} )
 option( WITH_GCC_VISIBILITY "Enable fvisibility and fvisibility-inlines-hidden" ${WITH_ALL_OPTIONS} )
 option( WITH_XKB_TRANSLATIONS "Use translations for xkb messages provided by xkeyboard-config" ON )
 
@@ -157,6 +158,7 @@ option( WITH_XKB_TRANSLATIONS "Use translations for xkb messages provided by xke
 # WITH_PCRE2        affects twin/compton-tde
 # WITH_SUDO_TDESU_BACKEND affects tdesu
 # WITH_SUDO_KONSOLE_SUPER_USER_COMMAND affects launching Konsole super user sessions
+# WITH_TSAK         affects kdesktop tdm
 # WITH_XKB_TRANSLATIONS affects kxkb
 
 # NOTE: WITH_SHADOW and WITH_PAM shouldn't be set concurrently

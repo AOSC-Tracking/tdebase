@@ -220,7 +220,7 @@ kg_main( const char *argv0 )
 	TDEProcess *dcop = 0;
 	TDEProcess *twin = 0;
 
-#ifdef BUILD_TSAK
+#ifdef WITH_TSAK
 	trinity_desktop_lock_use_sak = _useSAK;
 #else
 	trinity_desktop_lock_use_sak = false;

@@ -479,7 +479,7 @@ int main( int argc, char **argv )
 		trinity_desktop_lock_use_system_modal_dialogs = !KDesktopSettings::useUnmanagedLockWindows();
 		trinity_desktop_lock_delay_screensaver_start = KDesktopSettings::delaySaverStart();
 		if (trinity_desktop_lock_use_system_modal_dialogs) {
-#ifdef BUILD_TSAK
+#ifdef WITH_TSAK
 			trinity_desktop_lock_use_sak = tdmconfig->readBoolEntry("UseSAK", false) && KDesktopSettings::useTDESAK();
 #else
 			trinity_desktop_lock_use_sak = false;

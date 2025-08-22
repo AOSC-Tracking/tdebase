@@ -56,14 +56,13 @@ tde_add_kpart( kgreet_winbind AUTOMOC
 )
 
 
-
 endif( BUILD_TDM )
 
 
 ##### dmctl (static) ############################
 
 if( BUILD_KICKER OR BUILD_KDESKTOP OR BUILD_TDM OR 
-    BUILD_KSMSERVER OR BUILD_TDEIOSLAVES )
+    BUILD_KSMSERVER OR BUILD_TDEIOSLAVES OR BUILD_TSAK )
 
   tde_add_library( dmctl STATIC_PIC
     SOURCES dmctl.cpp
@@ -71,6 +70,7 @@ if( BUILD_KICKER OR BUILD_KDESKTOP OR BUILD_TDM OR
   )
 
 endif( )
+
 
 ##### tdmtsak (executable) #######################
 
