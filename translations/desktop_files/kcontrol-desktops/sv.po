@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Simon Stockhaus <simon.stockhaus.95@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-08-25 00:28+0000\n"
+"Last-Translator: Simon Stockhaus <simon.stockhaus.95@gmail.com>\n"
+"Language-Team: Swedish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kcontrol-desktop-files/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -180,14 +181,13 @@ msgstr "Filhanterare"
 
 #. Comment
 #: componentchooser/componentservices/kcm_filemanager.desktop:3
-#, fuzzy
 msgid ""
 "This service allows you to configure your default file manager. All TDE "
 "applications which invoke a file manager application should honor this "
 "setting."
 msgstr ""
 "Den här tjänsten låter dig anpassa din förvalda terminalemulator. Alla TDE-"
-"program som startar ett terminalprogram ska använda den här inställningen"
+"program som startar ett terminalprogram ska använda den här inställningen."
 
 #. Name
 #: componentchooser/componentservices/kcm_kemail.desktop:1
@@ -202,7 +202,7 @@ msgid ""
 "this setting."
 msgstr ""
 "Den här tjänsten låter dig anpassa förvald e-postklient. Alla TDE-program "
-"som behöver använda e-postklient ska använda den här inställningen"
+"som behöver använda e-postklient ska använda den här inställningen."
 
 #. Name
 #: componentchooser/componentservices/kcm_terminal.desktop:1
@@ -217,7 +217,7 @@ msgid ""
 "setting."
 msgstr ""
 "Den här tjänsten låter dig anpassa din förvalda terminalemulator. Alla TDE-"
-"program som startar ett terminalprogram ska använda den här inställningen"
+"program som startar ett terminalprogram ska använda den här inställningen."
 
 #. Name
 #: crypto/crypto.desktop:10
@@ -267,18 +267,17 @@ msgstr "Anpassa bildskärm"
 #. Name
 #: displayconfig/displayconfig.desktop:12
 msgid "Monitor & Display"
-msgstr ""
+msgstr "Bildskärmar"
 
 #. Comment
 #: displayconfig/displayconfig.desktop:14
-#, fuzzy
 msgid "Configure display"
-msgstr "Anpassa tjänstupptäckt"
+msgstr "Anpassa skärmar"
 
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
 msgid "monitor;resolution;display;"
-msgstr ""
+msgstr "skärm;upplösning;display;"
 
 #. Name
 #: dnssd/kcm_tdednssd.desktop:18
@@ -327,7 +326,7 @@ msgstr "Sökmotor"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
 msgid "Acronym Database"
-msgstr ""
+msgstr "Akronymdatabas"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
@@ -336,9 +335,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
-#, fuzzy
 msgid "Alexa"
-msgstr "Alexa webbadress"
+msgstr "Alexa"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
@@ -1314,7 +1312,7 @@ msgstr "Flera bildskärmar"
 #. Comment
 #: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
 msgid "Monitor hardware devices from the system tray"
-msgstr ""
+msgstr "Övervaka hårdvaruenheter från systemfältet"
 
 #. Name
 #: hwmanager/hwmanager.desktop:11
@@ -1331,22 +1329,22 @@ msgstr "Anpassa webbläsarens beteende"
 #. Keywords
 #: hwmanager/hwmanager.desktop:15
 msgid "hardware;devices;manager;"
-msgstr ""
+msgstr "hårdvara;enheter;hanterare;"
 
 #. Comment
 #: iccconfig/iccconfig.desktop:14
 msgid "Configure display ICC color profile"
-msgstr ""
+msgstr "Anpassa skärmens ICC-färgprofil"
 
 #. Keywords
 #: iccconfig/iccconfig.desktop:16
 msgid "ICC;display;color;profile;"
-msgstr ""
+msgstr "ICC;skärm;färg;profil;"
 
 #. Name
 #: iccconfig/iccconfig.desktop:18
 msgid "Color Profile"
-msgstr ""
+msgstr "Färgprofil"
 
 #. Name
 #: icons/icons.desktop:12
@@ -1460,7 +1458,7 @@ msgstr ""
 #. Name
 #: info/opengl.desktop:13
 msgid "OpenGL"
-msgstr ""
+msgstr "OpenGL"
 
 #. Comment
 #: info/opengl.desktop:15
@@ -1494,7 +1492,7 @@ msgstr "Partitioner;Hårddisk;HD;Systeminformation;"
 #. Name
 #: info/pci.desktop:12
 msgid "PCI"
-msgstr ""
+msgstr "PCI"
 
 #. Comment
 #: info/pci.desktop:14
@@ -1525,7 +1523,7 @@ msgstr "Processor;CPU;FPU;MHz;Systeminformation;"
 #. Name
 #: info/scsi.desktop:12
 msgid "SCSI"
-msgstr ""
+msgstr "SCSI"
 
 #. Comment
 #: info/scsi.desktop:14
@@ -1591,7 +1589,7 @@ msgstr ""
 #. Name
 #: input/touchpad.desktop:13
 msgid "Touchpad"
-msgstr ""
+msgstr "Pekplatta"
 
 #. Comment
 #: input/touchpad.desktop:14
@@ -1673,7 +1671,7 @@ msgstr ""
 #. Name
 #: kicker/kicker_config.desktop:11
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #. Comment
 #: kicker/kicker_config.desktop:13 kicker/kicker_config_arrangement.desktop:13
@@ -1935,7 +1933,7 @@ msgstr "konqueror;återanvändning;förladdning;"
 #. Name
 #: konsole/kcmkonsole.desktop:10
 msgid "Konsole"
-msgstr ""
+msgstr "Konsole"
 
 #. Comment
 #: konsole/kcmkonsole.desktop:12
@@ -2272,7 +2270,7 @@ msgstr "Teckensnittsvisning"
 #. Name
 #: tdeio/cache.desktop:12
 msgid "Cache"
-msgstr ""
+msgstr "Cache"
 
 #. Comment
 #: tdeio/cache.desktop:14
