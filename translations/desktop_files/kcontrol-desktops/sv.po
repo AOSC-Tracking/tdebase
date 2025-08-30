@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-07 20:11+0000\n"
-"PO-Revision-Date: 2025-08-25 00:28+0000\n"
+"POT-Creation-Date: 2024-09-08 18:11+0000\n"
+"PO-Revision-Date: 2025-08-30 19:11+0000\n"
 "Last-Translator: Simon Stockhaus <simon.stockhaus.95@gmail.com>\n"
 "Language-Team: Swedish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/sv/>\n"
@@ -1305,9 +1305,8 @@ msgstr ""
 #. Name
 #: hwmanager/hwdevicetray-autostart.desktop:4 hwmanager/hwdevicetray.desktop:2
 #: hwmanager/hwdevicetray.desktop:4
-#, fuzzy
 msgid "Device Monitor"
-msgstr "Flera bildskärmar"
+msgstr "Enhetsövervakare"
 
 #. Comment
 #: hwmanager/hwdevicetray-autostart.desktop:6 hwmanager/hwdevicetray.desktop:6
@@ -1316,15 +1315,13 @@ msgstr "Övervaka hårdvaruenheter från systemfältet"
 
 #. Name
 #: hwmanager/hwmanager.desktop:11
-#, fuzzy
 msgid "Device Manager"
-msgstr "Tjänsthanterare"
+msgstr "Enhetshanterare"
 
 #. Comment
 #: hwmanager/hwmanager.desktop:13
-#, fuzzy
 msgid "Configure hardware devices"
-msgstr "Anpassa webbläsarens beteende"
+msgstr "Konfigurera hårdvaruenheter"
 
 #. Keywords
 #: hwmanager/hwmanager.desktop:15
@@ -1506,9 +1503,8 @@ msgstr "PCI;PCI-enheter;PCI-buss;Systeminformation;"
 
 #. Name
 #: info/processor.desktop:12
-#, fuzzy
 msgid "Processor"
-msgstr "Processorinformation"
+msgstr "Processor"
 
 #. Comment
 #: info/processor.desktop:14
@@ -1593,20 +1589,17 @@ msgstr "Pekplatta"
 
 #. Comment
 #: input/touchpad.desktop:14
-#, fuzzy
 msgid "Touchpad settings"
-msgstr "Anpassa mus"
+msgstr "Anpassa pekplatta"
 
 #. Keywords
 #: input/touchpad.desktop:15
-#, fuzzy
 msgid ""
 "Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
 "Click;mapping;right handed;left handed;"
 msgstr ""
-"Mus;Musacceleration;Muströskel;Musknappar;Val;Markörutseende;"
-"Inmatningsenheter;Knapptolkning;klickning;ikoner;respons;Pekare;Drag;"
-"Dubbelklick;Tolkning;högerhänt;vänsterhänt;"
+"Pekplatta;Knacka för att klicka;Mus;Musknappar;Inmatningsenheter;"
+"Tangentmappning;Tryck;Klick;mappning;högerhänt;vänsterhänt;"
 
 #. Name
 #: joystick/joystick.desktop:12
@@ -1909,21 +1902,18 @@ msgstr ""
 
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
-#, fuzzy
 msgid "User Interface"
-msgstr "Nätverksgränssnitt"
+msgstr "Användargränssnitt"
 
 #. Comment
 #: konqhtml/tdehtml_userinterface.desktop:13
-#, fuzzy
 msgid "Configure user interface options"
-msgstr "Anpassa webbcacheinställningar"
+msgstr "Anpassa gränssnittsinställningar"
 
 #. Keywords
 #: konqhtml/tdehtml_userinterface.desktop:15
-#, fuzzy
 msgid "konqueror;kfm;user;interface;tabbed;browsing;"
-msgstr "konqueror;återanvändning;förladdning;"
+msgstr "konqueror;kfm;användare;gränssnitt;flikar;bläddring;"
 
 #. Name
 #: konsole/kcmkonsole.desktop:10
@@ -2083,7 +2073,7 @@ msgstr "ändra storlek;rotera;skärm;färg;djup;storlek;horisontell;vertikal;"
 #. Name
 #: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
 msgid "TDERandRTray"
-msgstr ""
+msgstr "TDERandRTray"
 
 #. GenericName
 #: randr/tderandrtray-autostart.desktop:4 randr/tderandrtray.desktop:4
