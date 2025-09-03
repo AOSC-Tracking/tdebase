@@ -346,9 +346,27 @@ echo "[starttde] XDG_DATA_DIRS: $XDG_DATA_DIRS" 1>&2
 
 test -n "$TDEHOME" && tdehome=$(echo "$TDEHOME" | sed "s,^~/,$HOME/,")
 
-# Allow interested applications, such as the Plasma control wrapper,
-# to know that this is a Trinity desktop and not a KDE one.
+# Help non-TDE software identify the desktop environment.
+#
+# DESKTOP_SESSION is considered legacy but retained for backwards
+# compatibility.
 export DESKTOP_SESSION=trinity
+# XDG_CURRENT_DESKTOP is considered the correct way to identify desktop
+# environments. This is the variable xdg-utils uses although xdg-utils
+# does not explicitly support TDE. Acceptable desktop identifiers are found in
+# Appendix B of the Desktop Menu Specification:
+# https://specifications.freedesktop.org/menu-spec/latest/apb.html
+# Note: The variable should be already set by most modern DMs (including TDM
+# since R14.0.12), but when launching TDE manually via startx, it's unlikely to
+# be defined, so set it here. Also note that the variable is allowed to contain
+# multiple colon-separated identifiers.
+if [ -n "$XDG_CURRENT_DESKTOP" ]; then
+  echo "[starttde] Setting XDG_CURRENT_DESKTOP=TDE" 1>&2
+  export XDG_CURRENT_DESKTOP=TDE
+elif ! is_in_path XDG_CURRENT_DESKTOP "TDE"; then
+  echo "[starttde] Setting XDG_CURRENT_DESKTOP=TDE:$XDG_CURRENT_DESKTOP" 1>&2
+  export XDG_CURRENT_DESKTOP=TDE:$XDG_CURRENT_DESKTOP
+fi
 
 # If necessary create the profile directory.
 if [ ! -d "$tdehome" ]; then
