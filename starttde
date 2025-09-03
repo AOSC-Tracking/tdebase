@@ -185,6 +185,12 @@ fi
 # $HOME/.kde might point to KDE4 profile settings. The existence of KDE4
 # does not mean all people are using KDE4.
 
+# FIXME
+# For $TDEHOME to be more XDG compliant, a suitable location is within
+# $XDG_CONFIG_DIR, which defaults to $HOME/.config. To be XDG compliant,
+# TDEHOME_DEFAULT should be $HOME/.config/trinity or $HOME/.config/tde.
+# Probably requires editing lnusertemp.c.
+
 if [ "$TDEHOME" != "" ]; then
   echo "[starttde] TDEHOME is preset to $TDEHOME." 1>&2
   export TDEHOME=$TDEHOME
@@ -316,7 +322,10 @@ if [ "$TDEDIR" != "/usr" ] && [ -d $TDEDIR/share ]; then
     place_before_in_path XDG_DATA_DIRS "/usr/local/share" "/usr/share"
   fi
 
-  # Ensure that $TDEDIR/share is always before '/usr/local/share' and '/usr/share'.
+  # FIXME
+  # This snippet does not seem correct. Seems /usr/local should have priority
+  # over $TDEDIR/share and $TDEDIR/share priority over $TDEDIR/share.
+  # Ensure $TDEDIR/share is before '/usr/local/share' and 'c.
   if ! is_in_path XDG_DATA_DIRS "$TDEDIR/share" ||
      is_before_in_path XDG_DATA_DIRS "/usr/local/share" "$TDEDIR/share" ||
      is_before_in_path XDG_DATA_DIRS "/usr/share" "$TDEDIR/share"; then
@@ -454,6 +463,8 @@ if test -n "$kcminputrc_mouse_cursortheme" -o -n "$kcminputrc_mouse_cursorsize" 
   fi
 fi
 
+# FIXME
+# Add a comment explaining what the following block is doing.
 if test "$kcmrandrrc_display_applyonstartup" = "true"; then
   # 4 screens is hopefully enough.
   for scrn in 0 1 2 3; do
@@ -523,6 +534,31 @@ if test "$kcmfonts_general_forcefontdpienable" = "true"; then
   rm $tmpfile
 fi
 
+# =============================================================
+# FIXME.
+# The kde4 suffix is outdated with KDE 5 and 6 in production.
+
+# FIXME.
+# While not directly affected here in this script, the C++ code for
+# populating gtk-qt-engine.rc.sh and .gtkrc-2.0-kde-kde4 should
+# check if the user has existing GTK RC files rather than creating new
+# files in the user's $HOME environment. The environment variables
+# GTK_RC_FILES and GTK2_RC_FILES provide that help. (There are no
+# similar environment variables for GTK3 or GTK4.)
+
+# FIXME.
+# Using the kgtk package is helpful for GTK and GTK2 software, but for
+# GTK3 and GTK4 the approach for supporting alternate file picker
+# dialogs is the XDG portal front-end service. After the support is
+# added the environment needs to provide GTK_USE_PORTAL=1 for GTK 3/4
+# software to use the TDE file picker dialog. Some admins might want to
+# globally set GTK_USE_PORTAL in /etc/profile.d and some might want to
+# leave that choice to the user. In that latter case something in
+# $TDEHOME/env seems appropriate, which could be sourced here.
+
+# FIXME.
+# Remove the long '===' separators after all FIXME issues are resolved.
+
 # Configuration of the gtk_qt_engine if not already set.
 
 # Is the kgtk package installed? KGtk is a hack to allow some software
@@ -543,12 +579,21 @@ if [ ! -e "$tdehome/env/gtk-qt-engine.rc.sh" ] && [ -e $TGTK_RC_ENGINE ]; then
  chmod 755 "$tdehome/env/gtk-qt-engine.rc.sh"
 fi
 
+# FIXME.
+# Dumping files into $HOME clutters the user's home directory. Since
+# TDE has a dedicated $TDEHOME location for config files, $TDEHOME/env/
+# would be a more palatable place to store such files. If moving these
+# files to $TDEHOME/env/, then update this section to move the user's
+# old files to the new location. Respective C++ files need to be updated
+# to find the new location.
+
 if [ ! -e $HOME/.gtkrc-2.0-kde4 ] && [ -e $TGTK_RC_TDE1 ]; then
  cp -f $TGTK_RC_TDE1 $HOME
 fi
 if [ ! -e $HOME/.gtkrc-2.0-kde-kde4 ] && [ -e $TGTK_RC_TDE2 ]; then
  cp -f $TGTK_RC_TDE2 $HOME
 fi
+# =============================================================
 
 # Source scripts found in <localprefix>/env/*.sh and <prefixes>/env/*.sh
 # (where <localprefix> is $TDEHOME or ~/.trinity, and <prefixes> is where TDE is installed)
@@ -687,6 +732,9 @@ else
   export GS_LIB
 fi
 
+# FIXME
+# Should these directories be moved to $HOME/.cache? Probably requires
+# editing lnusertemp.c.
 # Link "tmp" "socket" and "cache" resources to directory in $TMP.
 # Create:
 # $TMP/tde-$USER linked from $TDEHOME/tmp-$HOSTNAME.
@@ -831,7 +879,9 @@ echo "[starttde] tdeinit started successfully." 1>&2
 # ksmserver. Thus only check for 255, which means ksmserver could not
 # start. Any problems thereafter, for example, ksmserver failing to
 # initialize, remain undetected.
-# tdeinit_phase1 is still experimental.
+# FIXME.
+# How long will tdeinit_phase1 be considered experimental?
+# tdeinit_phase1 is considered experimental.
 $TDEDIR/bin/tdeinit_phase1
 EXIT_CODE="$?"
 # If tdeinit_phase1 should cause problems, here is the old way:
@@ -857,8 +907,27 @@ $TDEDIR/bin/dcopserver_shutdown --wait
 $TDEDIR/bin/artsshell -q terminate
 # KDE 4 support.
 if [ -f /usr/bin/kdeinit4_shutdown ]; then
+  # FIXME
+  # Is this command correct? Should the command be:
+  # /usr/bin/kdeinit4_shutdown
   /usr/bin/kde4 kdeinit4_shutdown 2>/dev/null
 fi
+# FIXME
+# KDE 5 support.
+#if [ -f /usr/bin/kdeinit5_shutdown ]; then
+  # FIXME
+  # Is this command correct? Should the command be:
+  # /usr/bin/kdeinit6_shutdown
+#  /usr/bin/kde5 kdeinit5_shutdown 2>/dev/null
+#fi
+# FIXME
+# KDE 6 support.
+#if [ -f /usr/bin/kdeinit6_shutdown ]; then
+  # FIXME
+  # Is this command correct? Should the command be:
+  # /usr/bin/kdeinit6_shutdown
+#  /usr/bin/kde6 kdeinit6_shutdown 2>/dev/null
+#fi
 
 echo "[starttde] Running Trinity shutdown scripts..." 1>&2
 
