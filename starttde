@@ -214,18 +214,23 @@ if [ "$TDEROOTHOME" = "" ]; then
 fi
 
 # Modify the PATH environment variable only as necessary.
-if ! is_in_path PATH "$TDEDIR/games" ; then
-  # Respect the traditional path order. Don't blindly place $TDEDIR/games
-  # first in the path. Only place $TDEDIR/games before /usr/games. If packagers
-  # are adding $TDEDIR/games elsewhere, then they need to ensure the traditional
-  # search patch is respected.
-  # This order is consistent with tdelibs/tdesu/stub.cpp.
-  # FIXME: Is there a way to check that $TDEDIR/games is always placed only
-  # just before /usr/games in the search path?
-  if is_in_path PATH "/usr/games"; then
-    place_before_in_path PATH "$TDEDIR/games" "/usr/games"
-  else
-    export PATH=$TDEDIR/games:$PATH
+if [ -d /usr/games -o -d "$TDEDIR/games" ] || is_in_path PATH "/usr/games"; then
+  # Some distributions (e.g. Gentoo) don't use a separate directory for games.
+  # So don't add it to PATH unless there are any indications that in might be
+  # actually needed.
+  if ! is_in_path PATH "$TDEDIR/games" ; then
+    # Respect the traditional path order. Don't blindly place $TDEDIR/games
+    # first in the path. Only place $TDEDIR/games before /usr/games. If packagers
+    # are adding $TDEDIR/games elsewhere, then they need to ensure the traditional
+    # search patch is respected.
+    # This order is consistent with tdelibs/tdesu/stub.cpp.
+    # FIXME: Is there a way to check that $TDEDIR/games is always placed only
+    # just before /usr/games in the search path?
+    if is_in_path PATH "/usr/games"; then
+      place_before_in_path PATH "$TDEDIR/games" "/usr/games"
+    else
+      export PATH=$TDEDIR/games:$PATH
+    fi
   fi
 fi
 
