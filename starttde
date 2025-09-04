@@ -178,30 +178,14 @@ fi
 # * Then ksmserver starts and takes control of the remainder of the
 #   startup sequence.
 
-# The user's personal TDE directory usually is $HOME/.trinity.
-# This setting may be overridden by setting $TDEHOME. When migrating profiles
-# must be careful here because $HOME/.kde was used commonly in the pre-KDE4
-# days for the user's TDE profile, but now with KDE4 common on systems,
-# $HOME/.kde might point to KDE4 profile settings. The existence of KDE4
-# does not mean all people are using KDE4.
-
-if [ "$TDEHOME" != "" ]; then
-  echo "[starttde] TDEHOME is preset to $TDEHOME." 1>&2
-  export TDEHOME=$TDEHOME
-else
-  # $TDEHOME is NOT already preset in the environment. Try to help.
-  # This might be overkill but does provide flexibility.
-  # This script and kstandardirs.h and kstandardirs.cpp must match.
-  # The latter two must be edited/patched before compiling.
-  echo "[starttde] TDEHOME is not set." 1>&2
-  # Default value: $HOME/.trinity. Most users will use this.
+# The user's personal TDE directory usually is $HOME/.trinity. This setting
+# may be overridden by setting $TDEHOME.
+if [ "$TDEHOME" = "" ]; then
+  # Note: the default for TDEHOME must match the one in tdestandarddirs.h
+  echo "[starttde] Setting TDEHOME to $TDEHOME." 1>&2
   export TDEHOME=$HOME/.trinity
-
-  if [ ! -d $HOME/.trinity ] && [ ! -f /usr/bin/kde4-config ] && [ "$TDEDIR" = "/usr" ] && [ -d $HOME/.kde ]; then
-    # Looks like Trinity is installed and not playing second fiddle to KDE4.
-    export TDEHOME=$HOME/.kde
-  fi
-  echo "[starttde] Set TDEHOME to $TDEHOME." 1>&2
+else
+  echo "[starttde] TDEHOME is preset to $TDEHOME." 1>&2
 fi
 
 # tdesu needs something to find root's TDE profile. Set the TDEROOTHOME
