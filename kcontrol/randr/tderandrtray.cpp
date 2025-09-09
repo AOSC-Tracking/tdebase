@@ -195,15 +195,15 @@ void KRandRSystemTray::reloadDisplayConfiguration()
 				if (RR_Disconnected == randr_screen_info->outputs[i]->info->connection) {
 					continue;
 				}
-	
+
 				// Activate this output
 				randr_screen_info->cur_crtc = randr_screen_info->outputs[i]->cur_crtc;
 				randr_screen_info->cur_output = randr_screen_info->outputs[i];
 				randr_screen_info->cur_output->auto_set = 1;
 				randr_screen_info->cur_output->off_set = 0;
 				output_auto (randr_screen_info, randr_screen_info->cur_output);
-				i=main_low_apply(randr_screen_info);
-		
+				main_low_apply(randr_screen_info);
+
 				if (randr_screen_info->outputs[i]->cur_crtc) {
 					// Output successfully activated!
 					set_primary_output(randr_screen_info, randr_screen_info->cur_output->id);
@@ -879,7 +879,7 @@ void KRandRSystemTray::slotOutputChanged(int parameter)
 		randr_screen_info->cur_output->auto_set = 1;
  		randr_screen_info->cur_output->off_set = 0;
 		output_auto (randr_screen_info, randr_screen_info->cur_output);
-		i=main_low_apply(randr_screen_info);
+		main_low_apply(randr_screen_info);
 
 		if (!randr_screen_info->outputs[parameter]->cur_crtc) {
 			output_name = randr_screen_info->outputs[parameter]->info->name;
@@ -894,7 +894,7 @@ void KRandRSystemTray::slotOutputChanged(int parameter)
 			randr_screen_info->cur_output->auto_set = 0;
 			randr_screen_info->cur_output->off_set = 1;
 			output_off(randr_screen_info, randr_screen_info->cur_output);
-			i=main_low_apply(randr_screen_info);
+			main_low_apply(randr_screen_info);
 
 			findPrimaryDisplay();
 			refresh();
