@@ -279,6 +279,8 @@ if [ "$XDG_CONFIG_DIRS" != "" ]; then
   export XDG_CONFIG_DIRS
 fi
 
+echo "[starttde] XDG_CONFIG_DIRS: $XDG_CONFIG_DIRS" 1>&2
+
 # Explicitly set $XDG_DATA_DIRS only when Trinity is not installed in /usr.
 # Explicitly declaring $XDG_DATA_DIRS will override the default search path of /usr/share.
 # Explicitly declaring $XDG_DATA_DIRS will override $TDEDIRS, which must then be
