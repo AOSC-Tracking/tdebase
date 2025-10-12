@@ -487,21 +487,21 @@ void SystemTrayApplet::orientationChange( Orientation /*orientation*/ )
 }
 
 void SystemTrayApplet::iconSizeChanged() {
-	loadSettings();
-	updateVisibleWins();
-	layoutTray();
+    loadSettings();
+    updateVisibleWins();
+    layoutTray();
 
-	TrayEmbedList::iterator emb = m_shownWins.begin();
-	while (emb != m_shownWins.end()) {
-		(*emb)->setFixedSize(m_iconSize, m_iconSize);
-		++emb;
-	}
+    TrayEmbedList::iterator emb = m_shownWins.begin();
+    while (emb != m_shownWins.end()) {
+        (*emb)->setFixedSize(m_iconSize, m_iconSize);
+        ++emb;
+    }
 
-	emb = m_hiddenWins.begin();
-	while (emb != m_hiddenWins.end()) {
-		(*emb)->setFixedSize(m_iconSize, m_iconSize);
-		++emb;
-	}
+    emb = m_hiddenWins.begin();
+    while (emb != m_hiddenWins.end()) {
+        (*emb)->setFixedSize(m_iconSize, m_iconSize);
+        ++emb;
+    }
 }
 
 void SystemTrayApplet::loadSettings()
@@ -514,7 +514,7 @@ void SystemTrayApplet::loadSettings()
     conf->reparseConfiguration();
     conf->setGroup("General");
 
-    if (conf->readBoolEntry("ShowPanelFrame", false) || m_showFrame)	// Does ShowPanelFrame even exist?
+    if (conf->readBoolEntry("ShowPanelFrame", false) || m_showFrame) // Does ShowPanelFrame even exist?
     {
         setFrameStyle(Panel | Sunken);
     }
@@ -1190,43 +1190,43 @@ void TrayEmbed::setBackground()
 
 void TrayEmbed::ensureBackgroundSet()
 {
-	XWindowAttributes winprops;
-	XGetWindowAttributes(x11Display(), embeddedWinId(), &winprops);
-	if (winprops.depth == 32) {
-		// This is a nasty little hack to make sure that tray icons / applications which do not match our QXEmbed native depth are still displayed properly,
-		// i.e without irritating white/grey borders where the tray icon's transparency is supposed to be...
-		// Essentially it converts a 24 bit Xlib Pixmap to a 32 bit Xlib Pixmap
+    XWindowAttributes winprops;
+    XGetWindowAttributes(x11Display(), embeddedWinId(), &winprops);
+    if (winprops.depth == 32) {
+        // This is a nasty little hack to make sure that tray icons / applications which do not match our QXEmbed native depth are still displayed properly,
+        // i.e without irritating white/grey borders where the tray icon's transparency is supposed to be...
+        // Essentially it converts a 24 bit Xlib Pixmap to a 32 bit Xlib Pixmap
 
-		TQPixmap bg(width(), height());
+        TQPixmap bg(width(), height());
 
-		// Get the RGB background image
-		bg.fill(parentWidget(), pos());
-		TQImage bgImage = bg.convertToImage();
+        // Get the RGB background image
+        bg.fill(parentWidget(), pos());
+        TQImage bgImage = bg.convertToImage();
 
-		// Create the ARGB pixmap
-		Pixmap argbpixmap = XCreatePixmap(x11Display(), embeddedWinId(), width(), height(), 32);
-		GC gc;
-		gc = XCreateGC(x11Display(), embeddedWinId(), 0, 0);
-		int w = bgImage.width();
-		int h = bgImage.height();
-		for (int y = 0; y < h; ++y) {
-			TQRgb *ls = (TQRgb *)bgImage.scanLine( y );
-			for (int x = 0; x < w; ++x) {
-				TQRgb l = ls[x];
-				int r = int( tqRed( l ) );
-				int g = int( tqGreen( l ) );
-				int b = int( tqBlue( l ) );
-				int a = int( tqAlpha( l ) );
-				XSetForeground(x11Display(), gc, (a << 24) | (r << 16) | (g << 8) | b );
-				XDrawPoint(x11Display(), argbpixmap, gc, x, y);
-			}
-		}
-		XFlush(x11Display());
-		XSetWindowBackgroundPixmap(x11Display(), embeddedWinId(), argbpixmap);
-		XFreePixmap(x11Display(), argbpixmap);
-		XFreeGC(x11Display(), gc);
+        // Create the ARGB pixmap
+        Pixmap argbpixmap = XCreatePixmap(x11Display(), embeddedWinId(), width(), height(), 32);
+        GC gc;
+        gc = XCreateGC(x11Display(), embeddedWinId(), 0, 0);
+        int w = bgImage.width();
+        int h = bgImage.height();
+        for (int y = 0; y < h; ++y) {
+            TQRgb *ls = (TQRgb *)bgImage.scanLine( y );
+            for (int x = 0; x < w; ++x) {
+                TQRgb l = ls[x];
+                int r = int( tqRed( l ) );
+                int g = int( tqGreen( l ) );
+                int b = int( tqBlue( l ) );
+                int a = int( tqAlpha( l ) );
+                XSetForeground(x11Display(), gc, (a << 24) | (r << 16) | (g << 8) | b );
+                XDrawPoint(x11Display(), argbpixmap, gc, x, y);
+            }
+        }
+        XFlush(x11Display());
+        XSetWindowBackgroundPixmap(x11Display(), embeddedWinId(), argbpixmap);
+        XFreePixmap(x11Display(), argbpixmap);
+        XFreeGC(x11Display(), gc);
 
-		// Repaint
-		XClearArea(x11Display(), embeddedWinId(), 0, 0, 0, 0, True);
-	}
+        // Repaint
+        XClearArea(x11Display(), embeddedWinId(), 0, 0, 0, 0, True);
+    }
 }
