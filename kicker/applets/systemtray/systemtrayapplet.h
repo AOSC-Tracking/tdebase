@@ -120,8 +120,10 @@ private:
     int m_iconSize;
     bool m_showClockInTray;
     TQCheckBox *m_showClockSettingCB;
-    uint m_iconMargin;
+    int m_iconMargin;
     TQSpinBox *m_iconMarginSB;
+    int m_iconSpacing;
+    TQSpinBox *m_iconSpacingSB;
     TQGridLayout* m_layout;
 };
 

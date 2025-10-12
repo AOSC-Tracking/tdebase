@@ -38,6 +38,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tqpainter.h>
 #include <tqimage.h>
 #include <tqlayout.h>
+#include <tqwhatsthis.h>
 
 #include <dcopclient.h>
 #include <tdeapplication.h>
@@ -91,6 +92,8 @@ SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int ac
     m_showClockSettingCB(nullptr),
     m_iconMargin(1),
     m_iconMarginSB(nullptr),
+    m_iconSpacing(1),
+    m_iconSpacingSB(nullptr),
     m_layout(nullptr)
 {
     DCOPObject::setObjId("SystemTrayApplet");
@@ -257,16 +260,18 @@ void SystemTrayApplet::preferences()
     connect(m_settingsDialog, TQ_SIGNAL(okClicked()), this, TQ_SLOT(applySettings()));
     connect(m_settingsDialog, TQ_SIGNAL(finished()), this, TQ_SLOT(settingsDialogFinished()));
 
-    TQGrid *settingsGrid = m_settingsDialog->makeGridMainWidget( 3, TQt::Vertical);
+    TQWidget *settingsWidget = m_settingsDialog->makeMainWidget();
+    TQVBoxLayout *settingsLayout = new TQVBoxLayout(settingsWidget);
 
-    m_showClockSettingCB = new TQCheckBox(i18n("Show Clock in Tray"), settingsGrid);
+    m_showClockSettingCB = new TQCheckBox(i18n("Show clock in tray"), settingsWidget);
     m_showClockSettingCB->setChecked(m_showClockInTray);
+    settingsLayout->addWidget(m_showClockSettingCB);
+    settingsLayout->setSpacing(m_settingsDialog->spacingHint());
 
-    //m_iconSelector = new TDEActionSelector(m_settingsDialog);
-    m_iconSelector = new TDEActionSelector(settingsGrid);
+    m_iconSelector = new TDEActionSelector(settingsWidget);
     m_iconSelector->setAvailableLabel(i18n("Hidden icons:"));
     m_iconSelector->setSelectedLabel(i18n("Visible icons:"));
-    //m_settingsDialog->setMainWidget(m_iconSelector);
+    settingsLayout->addWidget(m_iconSelector);
 
     TQListBox *hiddenListBox = m_iconSelector->availableListBox();
     TQListBox *shownListBox = m_iconSelector->selectedListBox();
@@ -293,12 +298,37 @@ void SystemTrayApplet::preferences()
         }
     }
 
-    TQHBox *hbox = new TQHBox(settingsGrid);
-    hbox->setSizePolicy(TQSizePolicy::Maximum, TQSizePolicy::Maximum);
-    TQLabel *iconMarginL = new TQLabel(i18n("Icon margin: "), hbox);
-    m_iconMarginSB = new TQSpinBox(0, 20, 1, hbox);
+    TQGridLayout *marginGrid = new TQGridLayout(2, 3);
+    marginGrid->setSpacing(m_settingsDialog->spacingHint());
+    marginGrid->setColStretch(2,1); // last empty column operates as a spacer
+
+    TQLabel *iconMarginL = new TQLabel(i18n("Icon &margin:"), settingsWidget);
+    m_iconMarginSB = new TQSpinBox(0, 20, 1, settingsWidget);
     m_iconMarginSB->setSuffix(i18n(" px"));
     m_iconMarginSB->setValue(m_iconMargin);
+    iconMarginL->setBuddy(m_iconMarginSB);
+    TQWhatsThis::add(iconMarginL, i18n( "Preferred margin between icons in the system tray and outer border.<br>"
+                                        "Note that the actual margins can be either larger (in case there is "
+                                        "extra free space on the panel) or smaller (in case the panel is "
+                                        "not able to fit a single row).") );
+
+    marginGrid->addWidget(iconMarginL, 0, 0);
+    marginGrid->addWidget(m_iconMarginSB, 0, 1);
+
+    TQLabel *iconSpacingL = new TQLabel(i18n("Icon &spacing:"), settingsWidget);
+    m_iconSpacingSB = new TQSpinBox(0, 20, 1, settingsWidget);
+    m_iconSpacingSB->setSuffix(i18n(" px"));
+    m_iconSpacingSB->setValue(m_iconSpacing);
+    iconSpacingL->setBuddy(m_iconSpacingSB);
+    TQWhatsThis::add(iconSpacingL, i18n( "Minimal spacing between adjacent icons in the system tray.<br>"
+                                         "Note that the actual spacing can be larger (in case there is "
+                                         "extra free space on the panel).") );
+
+
+    marginGrid->addWidget(iconSpacingL, 1, 0);
+    marginGrid->addWidget(m_iconSpacingSB, 1, 1);
+
+    settingsLayout->addLayout(marginGrid);
 
     m_settingsDialog->show();
 }
@@ -319,6 +349,7 @@ void SystemTrayApplet::applySettings()
 
     m_showClockInTray = m_showClockSettingCB->isChecked();
     m_iconMargin = m_iconMarginSB->value();
+    m_iconSpacing = m_iconSpacingSB->value();
 
     TDEConfig *conf = config();
 
@@ -369,6 +400,7 @@ void SystemTrayApplet::applySettings()
     conf->setGroup("System Tray");
     conf->writeEntry("ShowClockInTray", m_showClockInTray);
     conf->writeEntry("IconMargin", m_iconMargin);
+    conf->writeEntry("IconSpacing", m_iconSpacing);
 
     conf->sync();
 
@@ -530,6 +562,7 @@ void SystemTrayApplet::loadSettings()
     m_iconSize = conf->readNumEntry("systrayIconWidth", 22);
     m_showClockInTray = conf->readNumEntry("ShowClockInTray", false);
     m_iconMargin = conf->readNumEntry("IconMargin", 1);
+    m_iconSpacing = conf->readNumEntry("IconSpacing", 1);
 }
 
 void SystemTrayApplet::systemTrayWindowAdded( WId w )
@@ -810,7 +843,7 @@ int SystemTrayApplet::maxIconHeight() const
     int largest = m_iconSize;
 
     TrayEmbedList::const_iterator lastEmb = m_shownWins.end();
-    for (TrayEmbedList::const_iterator emb = m_shownWins.begin(); emb != m_shownWins.end(); ++emb)
+    for (TrayEmbedList::const_iterator emb = m_shownWins.begin(); emb != lastEmb; ++emb)
     {
         if (*emb == 0)
         {
@@ -934,20 +967,10 @@ void SystemTrayApplet::layoutTray()
 {
     setUpdatesEnabled(false);
 
-    int iconCount = m_shownWins.count();
-
-    if (m_showHidden)
-    {
-        iconCount += m_hiddenWins.count();
-    }
-
-    /* heightWidth = height or width in pixels (depends on orientation())
-     * nbrOfLines = number of rows or cols (depends on orientation())
-     * line = what line to draw an icon in */
-    int i = 0, line, nbrOfLines, heightWidth;
+    int i = 0;
     bool showExpandButton = m_expandButton && m_expandButton->isVisibleTo(this);
     delete m_layout;
-    m_layout = new TQGridLayout(this, 1, 1, 0, m_iconMargin);
+    m_layout = new TQGridLayout(this, 1, 1, m_iconMargin, m_iconSpacing);
 
     if (m_expandButton)
     {
@@ -966,22 +989,28 @@ void SystemTrayApplet::layoutTray()
     int col = 0;
 
     //
-    // The margin and spacing specified in the layout implies that:
-    // [-- m_iconMargin pixels --] [-- first icon --] [-- m_iconMargin pixels --] ... [-- m_iconMargin pixels --] [-- last icon --] [-- m_iconMargin pixels --]
+    // The margin and spacing specified in the layout implies that it looks like:
     //
-    // So, if we say that iconWidth is the icon width plus the m_iconMargin pixels spacing, then the available width for the icons
-    // is the widget width minus m_iconMargin pixels margin. Forgetting these m_iconMargin pixels broke the layout algorithm in KDE <= 3.5.9.
+    // [-- m_iconMargin px --] [-- first icon --] [-- m_iconSpacing px --] ... [-- m_iconSpacing px --] [-- last icon --] [-- m_iconMargin px --]
     //
-    // This fix makes the workarounds in the heightForWidth() and widthForHeight() methods unneeded.
+    // So, the panel size with this layout should conform to the relation:
     //
+    //   panelSize == iconSize*nbrOfLines + 2*m_iconMargin + (nbrOfLines-1)*m_iconSpacing.
+    //
+    // Solving it for number of lines we get:
+    //
+    //                  panelSize - 2*m_iconMargin + m_iconSpacing
+    //   nbrOfLines =  --------------------------------------------
+    //                           iconSize + m_iconSpacing
 
     if (orientation() == TQt::Vertical)
     {
-        int iconWidth = maxIconWidth() + m_iconMargin * 2; // +2 for the margins that implied by the layout
-        heightWidth = width() - m_iconMargin * 2;
-        // to avoid nbrOfLines=0 we ensure heightWidth >= iconWidth!
-        heightWidth = heightWidth < iconWidth ? iconWidth : heightWidth;
-        nbrOfLines = heightWidth / iconWidth;
+        int nbrOfLines = (width() - 2*m_iconMargin + m_iconSpacing) /
+                         (maxIconWidth() + m_iconSpacing);
+        if (nbrOfLines < 1) {
+            nbrOfLines = 1;  // avoid nbrOfLines==0 or negative (in case m_iconMargin is unreasonably large)
+            m_layout->setMargin( (width() - maxIconWidth()) / 2); // also adjust the margins, so the icons won't get shifted beyond visibility
+        }
 
         m_layout->addMultiCellWidget(m_leftSpacer,
                                      0, 0,
@@ -1004,7 +1033,7 @@ void SystemTrayApplet::layoutTray()
             for (TrayEmbedList::const_iterator emb = m_hiddenWins.begin();
                  emb != lastEmb; ++emb)
             {
-                line = i % nbrOfLines;
+                int line = i % nbrOfLines;
                 (*emb)->show();
                 m_layout->addWidget((*emb), col, line,
                                     TQt::AlignHCenter | TQt::AlignVCenter);
@@ -1022,7 +1051,7 @@ void SystemTrayApplet::layoutTray()
         for (TrayEmbedList::const_iterator emb = m_shownWins.begin();
              emb != lastEmb; ++emb)
         {
-            line = i % nbrOfLines;
+            int line = i % nbrOfLines;
             (*emb)->show();
             m_layout->addWidget((*emb), col, line,
                                 TQt::AlignHCenter | TQt::AlignVCenter);
@@ -1054,10 +1083,12 @@ void SystemTrayApplet::layoutTray()
     }
     else // horizontal
     {
-        int iconHeight = maxIconHeight() + m_iconMargin * 2; // +2 for the margins that implied by the layout
-        heightWidth = height() - m_iconMargin * 2;
-        heightWidth = heightWidth < iconHeight ? iconHeight : heightWidth; // to avoid nbrOfLines=0
-        nbrOfLines = heightWidth / iconHeight;
+        int nbrOfLines = (height() - 2*m_iconMargin + m_iconSpacing) /
+                         (maxIconHeight() + m_iconSpacing);
+        if (nbrOfLines < 1) {
+            nbrOfLines = 1;  // avoid nbrOfLines==0 or negative (in case m_iconMargin is unreasonably large)
+            m_layout->setMargin( (height() - maxIconHeight()) / 2); // also adjust the margins, so the icons won't shift beyond viability
+        }
 
         m_layout->addMultiCellWidget(m_leftSpacer,
                                      0, nbrOfLines - 1,
@@ -1079,7 +1110,7 @@ void SystemTrayApplet::layoutTray()
             TrayEmbedList::const_iterator lastEmb = m_hiddenWins.end();
             for (TrayEmbedList::const_iterator emb = m_hiddenWins.begin(); emb != lastEmb; ++emb)
             {
-                line = i % nbrOfLines;
+                int line = i % nbrOfLines;
                 (*emb)->show();
                 m_layout->addWidget((*emb), line, col,
                                     TQt::AlignHCenter | TQt::AlignVCenter);
@@ -1097,7 +1128,7 @@ void SystemTrayApplet::layoutTray()
         for (TrayEmbedList::const_iterator emb = m_shownWins.begin();
              emb != lastEmb; ++emb)
         {
-            line = i % nbrOfLines;
+            int line = i % nbrOfLines;
             (*emb)->show();
             m_layout->addWidget((*emb), line, col,
                                 TQt::AlignHCenter | TQt::AlignVCenter);
