@@ -1,30 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# giovanni <assecoibalcu@yahoo.it>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2025-10-13 15:51+0000\n"
+"Last-Translator: giovanni <assecoibalcu@yahoo.it>\n"
+"Language-Team: Interlingua <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kcontrol-desktop-files/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: access/kaccess.desktop:3
 msgid "Accessibility Tool"
-msgstr ""
+msgstr "Instrumento de Accessibilitate"
 
 #. Name
 #: access/kcmaccess.desktop:12
 msgid "Accessibility"
-msgstr ""
+msgstr "Accessibilitate"
 
 #. Comment
 #: access/kcmaccess.desktop:14
@@ -59,7 +60,7 @@ msgstr ""
 #. Name
 #: background/background.desktop:12
 msgid "Background"
-msgstr ""
+msgstr "Fundo"
 
 #. Comment
 #: background/background.desktop:14
@@ -76,7 +77,7 @@ msgstr ""
 #. Name
 #: bell/bell.desktop:13
 msgid "System Bell"
-msgstr ""
+msgstr "Campana de systema"
 
 #. Comment
 #: bell/bell.desktop:15
@@ -91,12 +92,12 @@ msgstr ""
 #. Name
 #: clock/clock.desktop:13
 msgid "Date & Time"
-msgstr ""
+msgstr "Date & Tempore"
 
 #. Comment
 #: clock/clock.desktop:15
 msgid "Date and time settings"
-msgstr ""
+msgstr "Preferentias de Data e Tempore"
 
 #. Keywords
 #: clock/clock.desktop:17
@@ -106,12 +107,12 @@ msgstr ""
 #. Name
 #: colors/colors.desktop:12
 msgid "Colors"
-msgstr ""
+msgstr "Colores"
 
 #. Comment
 #: colors/colors.desktop:14
 msgid "Color settings"
-msgstr ""
+msgstr "Preferentias de color"
 
 #. Keywords
 #: colors/colors.desktop:16
@@ -152,7 +153,7 @@ msgstr ""
 #. Name
 #: componentchooser/componentservices/kcm_browser.desktop:1
 msgid "Web Browser"
-msgstr ""
+msgstr "Navigator Web"
 
 #. Comment
 #: componentchooser/componentservices/kcm_browser.desktop:3
@@ -165,7 +166,7 @@ msgstr ""
 #: componentchooser/componentservices/kcm_filemanager.desktop:1
 #: konq/filebrowser.desktop:12
 msgid "File Manager"
-msgstr ""
+msgstr "Gerente de File"
 
 #. Comment
 #: componentchooser/componentservices/kcm_filemanager.desktop:3
@@ -178,7 +179,7 @@ msgstr ""
 #. Name
 #: componentchooser/componentservices/kcm_kemail.desktop:1
 msgid "Email Client"
-msgstr ""
+msgstr "Cliente de E-Posta"
 
 #. Comment
 #: componentchooser/componentservices/kcm_kemail.desktop:3
@@ -191,7 +192,7 @@ msgstr ""
 #. Name
 #: componentchooser/componentservices/kcm_terminal.desktop:1
 msgid "Terminal Emulator"
-msgstr ""
+msgstr "Emulator de terminal"
 
 #. Comment
 #: componentchooser/componentservices/kcm_terminal.desktop:3
@@ -204,7 +205,7 @@ msgstr ""
 #. Name
 #: crypto/crypto.desktop:10
 msgid "Crypto"
-msgstr ""
+msgstr "Crypto"
 
 #. Comment
 #: crypto/crypto.desktop:12
@@ -221,27 +222,27 @@ msgstr ""
 #. Name
 #: css/kcmcss.desktop:12
 msgid "Stylesheets"
-msgstr ""
+msgstr "Stylesheets (Folios de stilo)"
 
 #. Comment
 #: css/kcmcss.desktop:14
 msgid "Configure the stylesheets used to render web pages"
-msgstr ""
+msgstr "Configura le folios de stilo usate pro render paginas web"
 
 #. Keywords
 #: css/kcmcss.desktop:16
 msgid "CSS;HTML;style;stylesheet;accessibility;"
-msgstr ""
+msgstr "CSS,HTML,stilo,folio de stilo,accessibilitate;"
 
 #. Name
 #: display/display.desktop:11
 msgid "Display"
-msgstr ""
+msgstr "Monstrator"
 
 #. Comment
 #: display/display.desktop:13
 msgid "Display Settings"
-msgstr ""
+msgstr "Preferentias de monstrator"
 
 #. Name
 #: displayconfig/displayconfig.desktop:12
@@ -251,7 +252,7 @@ msgstr ""
 #. Comment
 #: displayconfig/displayconfig.desktop:14
 msgid "Configure display"
-msgstr ""
+msgstr "Configura Monstrator"
 
 #. Keywords
 #: displayconfig/displayconfig.desktop:16
@@ -271,7 +272,7 @@ msgstr ""
 #. Name
 #: ebrowsing/ebrowsing.desktop:12
 msgid "Web Shortcuts"
-msgstr ""
+msgstr "Vias Breve de web"
 
 #. Comment
 #: ebrowsing/ebrowsing.desktop:14
@@ -298,12 +299,12 @@ msgstr ""
 #. Comment
 #: ebrowsing/plugins/ikws/searchprovider.desktop:4
 msgid "Search Engine"
-msgstr ""
+msgstr "Motor de cerca"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
 msgid "Acronym Database"
-msgstr ""
+msgstr "Base de Datos Acronym"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
@@ -354,7 +355,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
 msgid "All Music Guide"
-msgstr ""
+msgstr "All Music Guide"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
@@ -364,7 +365,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:3
 msgid "KDE App Search"
-msgstr ""
+msgstr "Cerca de KDE App"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:6
@@ -384,7 +385,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
 msgid "Debian Backports Search"
-msgstr ""
+msgstr "Cerca de Debian Backports"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
@@ -416,7 +417,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/call.desktop:5
 msgid "QRZ.com Callsign Database"
-msgstr ""
+msgstr "QRZ.com base de datos Callsign"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/call.desktop:6
@@ -439,7 +440,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
 msgid "CiteSeer: Scientific Literature Digital Library"
-msgstr ""
+msgstr "CiteSeer: Libreria Digital de litteratura Scientific"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
@@ -450,6 +451,8 @@ msgstr ""
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:3
 msgid "CPAN - Comprehensive Perl Archive Network"
 msgstr ""
+"CPAN - Comprehensive Perl Archive Network (Rete Comprehensive de Archivo de "
+"Perl)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
@@ -461,6 +464,8 @@ msgstr ""
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:3
 msgid "CTAN - Comprehensive TeX Archive Network"
 msgstr ""
+"CTAN - Comprehensive TeX Archive Network (Rete Comprehensive de Archivo de "
+"TeX)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:4
@@ -472,7 +477,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:3
 msgid "CTAN Catalog"
-msgstr ""
+msgstr "Catalogo CTAN"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:4
@@ -483,7 +488,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
 msgid "Debian BTS Bug Search"
-msgstr ""
+msgstr "Cerca de Bug Debian BTS"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:4
@@ -493,7 +498,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:5
 msgid "dict.cc Translation: German to English"
-msgstr ""
+msgstr "dict.cc Traduction: Germano a Anglese"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:6
@@ -504,7 +509,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:3
 msgid "LEO - Translate Between German and French"
-msgstr ""
+msgstr "LEO - Traducer inter Germano e Francese"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/de2fr.desktop:6
@@ -515,7 +520,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/deb.desktop:3
 msgid "Debian Package Search"
-msgstr ""
+msgstr "Cerca de Pacchetto Debian"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/deb.desktop:4
@@ -525,7 +530,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:3
 msgid "Open Directory"
-msgstr ""
+msgstr "Aperi directorio"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
@@ -535,7 +540,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
 msgid "DocBook - The Definitive Guide"
-msgstr ""
+msgstr "DocBook - Le Guida Definitive"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:6
@@ -545,7 +550,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/doi.desktop:5
 msgid "Digital Object Identifier"
-msgstr ""
+msgstr "Identificator de Objecto Digital"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/doi.desktop:6
@@ -555,12 +560,12 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:5
 msgid "dict.cc Translation: English to German"
-msgstr ""
+msgstr "dict.cc Traduction: Anglese a Germano"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:5
 msgid "WordReference.com Translation: English to Spanish"
-msgstr ""
+msgstr "WordReference.com Traduction: Anglese a Espaniol"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:6
@@ -570,7 +575,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:5
 msgid "WordReference.com Translation: English to French"
-msgstr ""
+msgstr "WordReference.com Traduction: Anglese a Francese"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:6
@@ -580,7 +585,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:5
 msgid "WordReference.com Translation: English to Italian"
-msgstr ""
+msgstr "WordReference.com Traduction: Anglese a Italiano"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:6
@@ -590,7 +595,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:5
 msgid "WordReference.com Translation: Spanish to English"
-msgstr ""
+msgstr "WordReference.com Traduction: Espaniol a Anglese"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:6
@@ -610,7 +615,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:3
 msgid "Feedster"
-msgstr ""
+msgstr "Feedster"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
@@ -621,6 +626,8 @@ msgstr ""
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
 msgid "Free On-Line Dictionary of Computing"
 msgstr ""
+"Free On-Line Dictionary of Computing (Dictionario gratuite in linea de "
+"Computatores)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
@@ -630,12 +637,12 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
 msgid "LEO - Translate Between French and German"
-msgstr ""
+msgstr "LEO - Traduce inter Francese e Germano"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:5
 msgid "WordReference.com Translation: French to English"
-msgstr ""
+msgstr "WordReference.com Traduction: Francese a Anglese"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:6
@@ -645,12 +652,12 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:3
 msgid "FreeDB"
-msgstr ""
+msgstr "FreeDB"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:6
 msgid "http://www.freedb.org/freedb_search.php?words=\\{@}"
-msgstr ""
+msgstr "http://www.freedb.org/freedb_search.php?words=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:3
@@ -675,7 +682,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:3
 msgid "FSF/UNESCO Free Software Directory"
-msgstr ""
+msgstr "FSF/UNESCO Free Software Directory (Directorio de software libere)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:6
@@ -685,7 +692,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
 msgid "Google"
-msgstr ""
+msgstr "Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:6
@@ -695,7 +702,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:3
 msgid "Google Advanced Search"
-msgstr ""
+msgstr "Google Advanced Search : cerca avantiate de Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:4
@@ -710,7 +717,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
 msgid "Google Groups"
-msgstr ""
+msgstr "Google Groups : Gruppos de Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:6
@@ -720,7 +727,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:3
 msgid "Google Image Search"
-msgstr ""
+msgstr "Google Image Search : cerca de Imagine de Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:6
@@ -730,7 +737,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:3
 msgid "Google (I'm Feeling Lucky)"
-msgstr ""
+msgstr "Google (Io sente me fortunate)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_lucky.desktop:6
@@ -743,7 +750,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
 msgid "Google Movies"
-msgstr ""
+msgstr "Google Movies"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:6
@@ -753,7 +760,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:3
 msgid "Google News"
-msgstr ""
+msgstr "Google News - Novas de Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_news.desktop:6
@@ -773,7 +780,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:5
 msgid "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
-msgstr ""
+msgstr "Grande Dictionario del Linguage Catalan (GRan Enciclopèdia  Catalana)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:6
@@ -793,27 +800,27 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
 msgid "HyperDictionary.com"
-msgstr ""
+msgstr "HyperDictionary.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
 msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
-msgstr ""
+msgstr "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:3
 msgid "HyperDictionary.com Thesaurus"
-msgstr ""
+msgstr "HyperDictionary.com Thesauro"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:6
 msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
-msgstr ""
+msgstr "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
 msgid "Internet Movie Database"
-msgstr ""
+msgstr "Base de datos  Internet Movie"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:6
@@ -823,7 +830,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:5
 msgid "WordReference.com Translation: Italian to English"
-msgstr ""
+msgstr "WordReference.com Traduction: Italiano a Anglese"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:6
@@ -833,7 +840,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:3
 msgid "Ask Jeeves"
-msgstr ""
+msgstr "Ask Jeeves"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:6
@@ -855,7 +862,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kde.desktop:5
 msgid "KDE API Documentation"
-msgstr ""
+msgstr "Documentation de KDE API"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kde.desktop:6
@@ -875,7 +882,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
 msgid "LEO-Translate"
-msgstr ""
+msgstr "LEO-Traduce"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:6
@@ -905,7 +912,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
 msgid "MetaCrawler"
-msgstr ""
+msgstr "MetaCrawler"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:6
@@ -918,7 +925,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
 msgid "Microsoft Developer Network Search"
-msgstr ""
+msgstr "Microsoft Developer Network Search"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:6
@@ -931,7 +938,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:3
 msgid "Netcraft"
-msgstr ""
+msgstr "Netcraft"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:6
@@ -941,7 +948,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:2
 msgid "Telephonebook Search Provider"
-msgstr ""
+msgstr "Fornitor de cerca Telephonebook"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:6
@@ -956,7 +963,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:2
 msgid "Teletekst Search Provider"
-msgstr ""
+msgstr "Fornitor de cerca Teletekst"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:6
@@ -966,7 +973,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
 msgid "OpenPGP Key Search"
-msgstr ""
+msgstr "Cerca de clave OpenPGP"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
@@ -976,7 +983,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
 msgid "PHP Search"
-msgstr ""
+msgstr "Cerca PHP"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
@@ -986,7 +993,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/python.desktop:5
 msgid "Python Reference Manual"
-msgstr ""
+msgstr "Manual de referentia de Python"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/python.desktop:6
@@ -1009,7 +1016,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:5
 msgid "Qt3 Online Documentation"
-msgstr ""
+msgstr "Documentation in linea de Qt3"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:6
@@ -1019,7 +1026,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rae.desktop:5
 msgid "Dictionary of the Spanish Academy (RAE)"
-msgstr ""
+msgstr "Dictionario del Academia Espaniol (RAE)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rae.desktop:6
@@ -1031,7 +1038,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
 msgid "IETF Requests for Comments"
-msgstr ""
+msgstr "IETF Requestas pro Commentos"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:4
@@ -1041,7 +1048,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:3
 msgid "RPM-Find"
-msgstr ""
+msgstr "RPM-Find"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rpmfind.desktop:6
@@ -1051,7 +1058,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:3
 msgid "Ruby Application Archive"
-msgstr ""
+msgstr "Archivo de application de Ruby"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:6
@@ -1073,7 +1080,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
 msgid "SourceForge"
-msgstr ""
+msgstr "SourceForge"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:4
@@ -1085,7 +1092,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
 msgid "Technorati"
-msgstr ""
+msgstr "Technorati"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:6
@@ -1095,7 +1102,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:3
 msgid "Technorati Tags"
-msgstr ""
+msgstr "Technorati Etiquettas"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:6
@@ -1105,7 +1112,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:3
 msgid "Merriam-Webster Thesaurus"
-msgstr ""
+msgstr "Merriam-Webster Thesauro"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:6
@@ -1115,7 +1122,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:4
 msgid "TV Tome"
-msgstr ""
+msgstr "TV Tome"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:6
@@ -1125,7 +1132,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:5
 msgid "U.S. Patent Database"
-msgstr ""
+msgstr "U.S. Patent Database"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:6
@@ -1133,6 +1140,8 @@ msgid ""
 "http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
 "&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
 msgstr ""
+"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\"
+"{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
@@ -1150,7 +1159,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/voila.desktop:3
 msgid "Voila"
-msgstr ""
+msgstr "Voila"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/voila.desktop:6
@@ -1162,7 +1171,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/webster.desktop:3
 msgid "Merriam-Webster Dictionary"
-msgstr ""
+msgstr "Merriam-Webster Dictionario"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/webster.desktop:6
@@ -1183,7 +1192,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:3
 msgid "Wikipedia - The Free Encyclopedia"
-msgstr ""
+msgstr "Wikipedia - Le Encyclopedia Libere e Gratuite"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:6
@@ -1193,7 +1202,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:3
 msgid "Wiktionary - The Free Dictionary"
-msgstr ""
+msgstr "Wiktionary - Le Dictionario Libere e Gratuite"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:6
@@ -1203,7 +1212,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:5
 msgid "WordReference.com English Dictionary"
-msgstr ""
+msgstr "WordReference.com Dictionario Anglese"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:6
@@ -1238,28 +1247,29 @@ msgstr ""
 #. Name
 #: filetypes/filetypes.desktop:12
 msgid "File Associations"
-msgstr ""
+msgstr "Associationes de file"
 
 #. Comment
 #: filetypes/filetypes.desktop:14
 msgid "Configure file associations"
-msgstr ""
+msgstr "Configura associationes de file"
 
 #. Keywords
 #: filetypes/filetypes.desktop:16
 msgid "Filetypes;File Associations;Mime Types;File Patterns;Files;Pattern;"
 msgstr ""
+"Typos de file,Associationes de file,Typos Mime,Patronos de File,Files,Patrono"
 
 #. Name
 #: fonts/fonts.desktop:12 konqhtml/tdehtml_fonts.desktop:11
 #: tdefontinst/tdeio/fonts.desktop:5
 msgid "Fonts"
-msgstr ""
+msgstr "Fonts"
 
 #. Comment
 #: fonts/fonts.desktop:14
 msgid "Font settings"
-msgstr ""
+msgstr "Preferentias de font"
 
 #. Keywords
 #: fonts/fonts.desktop:16
@@ -1313,12 +1323,12 @@ msgstr ""
 #. Name
 #: iccconfig/iccconfig.desktop:18
 msgid "Color Profile"
-msgstr ""
+msgstr "Profilo de Color"
 
 #. Name
 #: icons/icons.desktop:12
 msgid "Icons"
-msgstr ""
+msgstr "Icones"
 
 #. Comment
 #: icons/icons.desktop:14
@@ -1348,7 +1358,7 @@ msgstr ""
 #. Name
 #: info/devices.desktop:13
 msgid "Devices"
-msgstr ""
+msgstr "Dispositivos"
 
 #. Comment
 #: info/devices.desktop:15
@@ -1378,17 +1388,17 @@ msgstr ""
 #. Name
 #: info/interrupts.desktop:13
 msgid "Interrupts"
-msgstr ""
+msgstr "Interruptiones"
 
 #. Comment
 #: info/interrupts.desktop:15
 msgid "Interrupt information"
-msgstr ""
+msgstr "Information de Interrupt"
 
 #. Keywords
 #: info/interrupts.desktop:17
 msgid "Interrupts;IRQ;System Information;"
-msgstr ""
+msgstr "Interruptiones,IRQ,Information de systema"
 
 #. Name
 #: info/ioports.desktop:13
@@ -1408,12 +1418,12 @@ msgstr ""
 #. Name
 #: info/memory.desktop:12
 msgid "Memory"
-msgstr ""
+msgstr "Memoria"
 
 #. Comment
 #: info/memory.desktop:14
 msgid "Memory information"
-msgstr ""
+msgstr "Information de memoria"
 
 #. Keywords
 #: info/memory.desktop:16
@@ -1425,12 +1435,12 @@ msgstr ""
 #. Name
 #: info/opengl.desktop:13
 msgid "OpenGL"
-msgstr ""
+msgstr "OpenGL"
 
 #. Comment
 #: info/opengl.desktop:15
 msgid "OpenGL information"
-msgstr ""
+msgstr "Information de OpenGL"
 
 #. Keywords
 #: info/opengl.desktop:17
@@ -1438,6 +1448,8 @@ msgid ""
 "OpenGL;DRI;GLX;3D;VideoCard;Hardware Acceleration;Graphics;X;X11;Xserver;X-"
 "Server;XFree86;Display;"
 msgstr ""
+"OpenGL,DRI,GLX,3D,Scheda video,Acceleration "
+"hardware,Graphiches,X,X11,XServer,Servitor de X,XFree86,Monstrator"
 
 #. Name
 #: info/partitions.desktop:13
@@ -1457,22 +1469,22 @@ msgstr ""
 #. Name
 #: info/pci.desktop:12
 msgid "PCI"
-msgstr ""
+msgstr "PCI"
 
 #. Comment
 #: info/pci.desktop:14
 msgid "PCI information"
-msgstr ""
+msgstr "Information de PCI"
 
 #. Keywords
 #: info/pci.desktop:16
 msgid "PCI;PCI-Devices;PCI-Bus;System Information;"
-msgstr ""
+msgstr "PCI,Dispositivos PCI,Bus PCI,Information de systema"
 
 #. Name
 #: info/processor.desktop:12
 msgid "Processor"
-msgstr ""
+msgstr "Processor"
 
 #. Comment
 #: info/processor.desktop:14
@@ -1487,7 +1499,7 @@ msgstr ""
 #. Name
 #: info/scsi.desktop:12
 msgid "SCSI"
-msgstr ""
+msgstr "SCSI"
 
 #. Comment
 #: info/scsi.desktop:14
@@ -1502,7 +1514,7 @@ msgstr ""
 #. Name
 #: info/sound.desktop:12
 msgid "Sound"
-msgstr ""
+msgstr "Sono"
 
 #. Comment
 #: info/sound.desktop:14
@@ -1517,22 +1529,23 @@ msgstr ""
 #. Name
 #: info/xserver.desktop:12
 msgid "X-Server"
-msgstr ""
+msgstr "Servitor  X"
 
 #. Comment
 #: info/xserver.desktop:14
 msgid "X-Server information"
-msgstr ""
+msgstr "Information de Servitor X"
 
 #. Keywords
 #: info/xserver.desktop:16
 msgid "X;X-Server;XServer;XFree86;Display;VideoCard;System Information;"
 msgstr ""
+"X,Servitor-X,SXerver,XFree86,Monstrator,Scheda video,Information de systema"
 
 #. Name
 #: input/mouse.desktop:13
 msgid "Mouse"
-msgstr ""
+msgstr "Mus"
 
 #. Comment
 #: input/mouse.desktop:15
@@ -1550,12 +1563,12 @@ msgstr ""
 #. Name
 #: input/touchpad.desktop:13
 msgid "Touchpad"
-msgstr ""
+msgstr "Touchpad"
 
 #. Comment
 #: input/touchpad.desktop:14
 msgid "Touchpad settings"
-msgstr ""
+msgstr "Preferentias de Touchpad (pannello tactile)"
 
 #. Keywords
 #: input/touchpad.desktop:15
@@ -1603,7 +1616,7 @@ msgstr ""
 #. Name
 #: keys/keys.desktop:12
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Vias breve de claviero"
 
 #. Comment
 #: keys/keys.desktop:14
@@ -1620,7 +1633,7 @@ msgstr ""
 #. Name
 #: kicker/kicker_config.desktop:11
 msgid "Layout"
-msgstr ""
+msgstr "Disposition"
 
 #. Comment
 #: kicker/kicker_config.desktop:13 kicker/kicker_config_arrangement.desktop:13
@@ -1642,7 +1655,7 @@ msgstr ""
 #. Name
 #: kicker/kicker_config_appearance.desktop:11 konq/fileappearance.desktop:11
 msgid "Appearance"
-msgstr ""
+msgstr "Apparentia"
 
 #. Comment
 #: kicker/kicker_config_appearance.desktop:13
@@ -1652,7 +1665,7 @@ msgstr ""
 #. Name
 #: kicker/kicker_config_arrangement.desktop:11
 msgid "Arrangement"
-msgstr ""
+msgstr "Collocation:"
 
 #. Name
 #: kicker/kicker_config_hiding.desktop:11
@@ -1667,7 +1680,7 @@ msgstr ""
 #. Name
 #: kicker/kicker_config_menus.desktop:11
 msgid "Menus"
-msgstr ""
+msgstr "Minus"
 
 #. Comment
 #: kicker/kicker_config_menus.desktop:13
@@ -1677,7 +1690,7 @@ msgstr ""
 #. Name
 #: kicker/panel.desktop:10
 msgid "Panels"
-msgstr ""
+msgstr "Pannellos"
 
 #. Comment
 #: kicker/panel.desktop:12
@@ -1687,7 +1700,7 @@ msgstr ""
 #. Name
 #: knotify/kcmnotify.desktop:11
 msgid "System Notifications"
-msgstr ""
+msgstr "Notificationes de Systema"
 
 #. Comment
 #: knotify/kcmnotify.desktop:13
@@ -1717,7 +1730,7 @@ msgstr ""
 #. Name
 #: konq/desktopbehavior.desktop:12 konq/filebehavior.desktop:11
 msgid "Behavior"
-msgstr ""
+msgstr "Comportamento"
 
 #. Comment
 #: konq/desktopbehavior.desktop:14
@@ -1734,7 +1747,7 @@ msgstr ""
 #. Name
 #: konq/desktoppath.desktop:11
 msgid "Paths"
-msgstr ""
+msgstr "Percursos"
 
 #. Comment
 #: konq/desktoppath.desktop:13
@@ -1794,12 +1807,12 @@ msgstr ""
 #. Name
 #: konqhtml/tdehtml_behavior.desktop:11
 msgid "Web Behavior"
-msgstr ""
+msgstr "Comportamento de Web"
 
 #. Comment
 #: konqhtml/tdehtml_behavior.desktop:13
 msgid "Configure the browser behavior"
-msgstr ""
+msgstr "Configura le comportamento de web"
 
 #. Keywords
 #: konqhtml/tdehtml_behavior.desktop:15
@@ -1811,12 +1824,12 @@ msgstr ""
 #. Name
 #: konqhtml/tdehtml_filter.desktop:10
 msgid "AdBlocK Filters"
-msgstr ""
+msgstr "Filtros AdBlock"
 
 #. Comment
 #: konqhtml/tdehtml_filter.desktop:12
 msgid "Configure Konqueror AdBlocK filters"
-msgstr ""
+msgstr "Configura le filtros AdBlock de Konqueror"
 
 #. Comment
 #: konqhtml/tdehtml_fonts.desktop:13
@@ -1832,12 +1845,12 @@ msgstr ""
 #. Name
 #: konqhtml/tdehtml_java_js.desktop:11
 msgid "Java & JavaScript"
-msgstr ""
+msgstr "Java & JavaScript"
 
 #. Comment
 #: konqhtml/tdehtml_java_js.desktop:13
 msgid "Configure the behavior of Java and JavaScript"
-msgstr ""
+msgstr "Configura le comportamento de Java e JavaScript"
 
 #. Keywords
 #: konqhtml/tdehtml_java_js.desktop:15
@@ -1847,7 +1860,7 @@ msgstr ""
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
 msgid "User Interface"
-msgstr ""
+msgstr "Interfacie de usator"
 
 #. Comment
 #: konqhtml/tdehtml_userinterface.desktop:13
@@ -1862,7 +1875,7 @@ msgstr ""
 #. Name
 #: konsole/kcmkonsole.desktop:10
 msgid "Konsole"
-msgstr ""
+msgstr "Konsole"
 
 #. Comment
 #: konsole/kcmkonsole.desktop:12
@@ -1904,7 +1917,7 @@ msgstr ""
 #. Name
 #: launch/kcmlaunch.desktop:12
 msgid "Launch Feedback"
-msgstr ""
+msgstr "Retorno de lanceamento"
 
 #. Comment
 #: launch/kcmlaunch.desktop:14
@@ -1944,23 +1957,23 @@ msgstr ""
 #. Name
 #: nics/nic.desktop:12
 msgid "Network Interfaces"
-msgstr ""
+msgstr "Interfacies de rete"
 
 #. Comment
 #: nics/nic.desktop:14
 msgid "Network interface information"
-msgstr ""
+msgstr "Information de interfacie de rete"
 
 #. Name
 #: performance/kcmkonqyperformance.desktop:11
 #: performance/kcmperformance.desktop:11
 msgid "Performance"
-msgstr ""
+msgstr "Prestation"
 
 #. Comment
 #: performance/kcmkonqyperformance.desktop:13
 msgid "Configure settings that can improve Konqueror performance"
-msgstr ""
+msgstr "Configura preferentias que pote meliorar le prestation de Konqueror"
 
 #. Keywords
 #: performance/kcmkonqyperformance.desktop:15
@@ -2025,12 +2038,12 @@ msgstr ""
 #. Name
 #: samba/smbstatus.desktop:12
 msgid "Samba Status"
-msgstr ""
+msgstr "Stato de Samba"
 
 #. Comment
 #: samba/smbstatus.desktop:14
 msgid "Samba status monitor"
-msgstr ""
+msgstr "Monitor de stato de Samba"
 
 #. Keywords
 #: samba/smbstatus.desktop:16
@@ -2040,7 +2053,7 @@ msgstr ""
 #. Name
 #: screensaver/screensaver.desktop:12
 msgid "Screen Saver"
-msgstr ""
+msgstr "Salvator de schermo"
 
 #. Comment
 #: screensaver/screensaver.desktop:14
@@ -2055,7 +2068,7 @@ msgstr ""
 #. Name
 #: smartcard/smartcard.desktop:11
 msgid "Smartcards"
-msgstr ""
+msgstr "Smartcards"
 
 #. Comment
 #: smartcard/smartcard.desktop:13
@@ -2070,7 +2083,7 @@ msgstr ""
 #. Name
 #: smserver/kcmsmserver.desktop:12
 msgid "Session Manager"
-msgstr ""
+msgstr "Gerente de session"
 
 #. Comment
 #: smserver/kcmsmserver.desktop:14
@@ -2085,7 +2098,7 @@ msgstr ""
 #. Name
 #: spellchecking/spellchecking.desktop:11
 msgid "Spell Checker"
-msgstr ""
+msgstr "Controlator Orthographic"
 
 #. Comment
 #: spellchecking/spellchecking.desktop:13
@@ -2100,7 +2113,7 @@ msgstr ""
 #. Name
 #: style/style.desktop:13
 msgid "Style"
-msgstr ""
+msgstr "Stilo"
 
 #. Comment
 #: style/style.desktop:15
@@ -2117,7 +2130,7 @@ msgstr ""
 #. Name
 #: taskbar/kcmtaskbar.desktop:11
 msgid "Taskbar"
-msgstr ""
+msgstr "Barra de Carga"
 
 #. Comment
 #: taskbar/kcmtaskbar.desktop:13
@@ -2132,12 +2145,12 @@ msgstr ""
 #. Name
 #: tdefontinst/installfont.desktop:6
 msgid "Install"
-msgstr ""
+msgstr "Installa"
 
 #. Name
 #: tdefontinst/kcmfontinst/kcmfontinst.desktop:14
 msgid "Font Installer"
-msgstr ""
+msgstr "Installator de Font"
 
 #. Comment
 #: tdefontinst/kcmfontinst/kcmfontinst.desktop:16
@@ -2172,7 +2185,7 @@ msgstr ""
 #. Name
 #: tdefontinst/thumbnail/fontthumbnail.desktop:3
 msgid "Font Files"
-msgstr ""
+msgstr "Files de font"
 
 #. Name
 #: tdefontinst/viewpart/tdefontview.desktop:2
@@ -2189,7 +2202,7 @@ msgstr ""
 #. Name
 #: tdeio/cache.desktop:12
 msgid "Cache"
-msgstr ""
+msgstr "Cache"
 
 #. Comment
 #: tdeio/cache.desktop:14
@@ -2204,12 +2217,12 @@ msgstr ""
 #. Name
 #: tdeio/cookies.desktop:12
 msgid "Cookies"
-msgstr ""
+msgstr "Cookies"
 
 #. Comment
 #: tdeio/cookies.desktop:14
 msgid "Configure the way cookies work"
-msgstr ""
+msgstr "Configura le modo de functionar del cookies"
 
 #. Keywords
 #: tdeio/cookies.desktop:16
@@ -2235,6 +2248,8 @@ msgstr ""
 #: tdeio/netpref.desktop:2
 msgid "Configure generic network preferences, like timeout values"
 msgstr ""
+"Configura le preferentia de rete generic, como valores pro expirationes de "
+"tempore"
 
 #. Keywords
 #: tdeio/netpref.desktop:5
@@ -2244,17 +2259,17 @@ msgstr ""
 #. Name
 #: tdeio/netpref.desktop:6
 msgid "Connection Preferences"
-msgstr ""
+msgstr "Preferentias de connexion"
 
 #. Name
 #: tdeio/proxy.desktop:12
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #. Comment
 #: tdeio/proxy.desktop:14
 msgid "Configure the proxy servers used"
-msgstr ""
+msgstr "Configura le servitores de proxy usate"
 
 #. Keywords
 #: tdeio/proxy.desktop:16
@@ -2360,7 +2375,7 @@ msgstr "UADescritpion (Wget 1.11.4)"
 #. Name
 #: tdeio/useragent.desktop:12
 msgid "Browser Identification"
-msgstr ""
+msgstr "Identification de Navigator"
 
 #. Comment
 #: tdeio/useragent.desktop:14
@@ -2392,7 +2407,7 @@ msgstr ""
 #. Name
 #: usbview/kcmusb.desktop:10
 msgid "USB Devices"
-msgstr ""
+msgstr "Dispositivos USB"
 
 #. Comment
 #: usbview/kcmusb.desktop:12
