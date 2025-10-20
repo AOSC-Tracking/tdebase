@@ -1163,6 +1163,8 @@ void SystemTrayApplet::layoutTray()
     setBackground();
 
     updateClockGeometry();
+
+    update();
 }
 
 void SystemTrayApplet::paletteChange(const TQPalette & /* oldPalette */)
