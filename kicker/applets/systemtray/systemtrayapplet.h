@@ -124,7 +124,7 @@ private:
     TQSpinBox *m_iconMarginSB;
     int m_iconSpacing;
     TQSpinBox *m_iconSpacingSB;
-    TQGridLayout* m_layout;
+    TQLayout* m_layout;
 };
 
 class TrayEmbed : public QXEmbed
