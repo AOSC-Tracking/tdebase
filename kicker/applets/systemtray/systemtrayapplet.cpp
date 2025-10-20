@@ -93,8 +93,7 @@ SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int ac
     m_iconMargin(1),
     m_iconMarginSB(nullptr),
     m_iconSpacing(1),
-    m_iconSpacingSB(nullptr),
-    m_layout(nullptr)
+    m_iconSpacingSB(nullptr)
 {
     DCOPObject::setObjId("SystemTrayApplet");
     loadSettings();
@@ -968,8 +967,6 @@ void SystemTrayApplet::layoutTray()
 
     int i = 0;
     bool showExpandButton = m_expandButton && m_expandButton->isVisibleTo(this);
-    delete m_layout;
-    m_layout = new TQGridLayout(this, 1, 1, m_iconMargin, m_iconSpacing);
 
     if (m_expandButton)
     {
@@ -981,6 +978,32 @@ void SystemTrayApplet::layoutTray()
         {
             m_expandButton->setFixedSize(m_expandButton->sizeHint().width(), height() - 4);
         }
+    }
+
+    // delete and recreate the tray layout from scratch
+    delete layout();
+
+    TQBoxLayout *mainLayout;
+
+    if (orientation() == TQt::Vertical) {
+        mainLayout = new TQVBoxLayout(this);
+    } else {
+        mainLayout = new TQHBoxLayout(this);
+    }
+
+    mainLayout->addWidget(m_leftSpacer);
+
+    if (showExpandButton) {
+        mainLayout->addWidget(m_expandButton, TQt::AlignHCenter | TQt::AlignVCenter);
+    }
+
+    TQGridLayout *iconLayout = new TQGridLayout(mainLayout, 1, 1, m_iconSpacing);
+    iconLayout->setMargin(m_iconMargin);
+
+    mainLayout->addWidget(m_rightSpacer);
+
+    if (m_clockApplet) {
+        mainLayout->addWidget(m_clockApplet);
     }
 
     // col = column or row, depends on orientation(),
@@ -1008,22 +1031,7 @@ void SystemTrayApplet::layoutTray()
                          (maxIconWidth() + m_iconSpacing);
         if (nbrOfLines < 1) {
             nbrOfLines = 1;  // avoid nbrOfLines==0 or negative (in case m_iconMargin is unreasonably large)
-            m_layout->setMargin( (width() - maxIconWidth()) / 2); // also adjust the margins, so the icons won't get shifted beyond visibility
-        }
-
-        m_layout->addMultiCellWidget(m_leftSpacer,
-                                     0, 0,
-                                     0, nbrOfLines - 1,
-                                     TQt::AlignHCenter | TQt::AlignVCenter);
-        col = 1;
-
-        if (showExpandButton)
-        {
-            m_layout->addMultiCellWidget(m_expandButton,
-                                         1, 1,
-                                         0, nbrOfLines - 1,
-                                         TQt::AlignHCenter | TQt::AlignVCenter);
-            col = 2;
+            iconLayout->setMargin( (width() - maxIconWidth()) / 2); // also adjust the margins, so the icons won't get shifted beyond visibility
         }
 
         if (m_showHidden)
@@ -1034,7 +1042,7 @@ void SystemTrayApplet::layoutTray()
             {
                 int line = i % nbrOfLines;
                 (*emb)->show();
-                m_layout->addWidget((*emb), col, line,
+                iconLayout->addWidget((*emb), col, line,
                                     TQt::AlignHCenter | TQt::AlignVCenter);
 
                 if ((line + 1) == nbrOfLines)
@@ -1052,7 +1060,7 @@ void SystemTrayApplet::layoutTray()
         {
             int line = i % nbrOfLines;
             (*emb)->show();
-            m_layout->addWidget((*emb), col, line,
+            iconLayout->addWidget((*emb), col, line,
                                 TQt::AlignHCenter | TQt::AlignVCenter);
 
             if ((line + 1) == nbrOfLines)
@@ -1063,22 +1071,6 @@ void SystemTrayApplet::layoutTray()
             ++i;
         }
 
-        m_layout->addMultiCellWidget(m_rightSpacer,
-                                     col, col,
-                                     0, nbrOfLines - 1,
-                                     TQt::AlignHCenter | TQt::AlignVCenter);
-
-        if (m_clockApplet) {
-            if (m_showClockInTray)
-                m_clockApplet->show();
-            else
-                m_clockApplet->hide();
-
-            m_layout->addMultiCellWidget(m_clockApplet,
-                                     col+1, col+1,
-                                     0, nbrOfLines - 1,
-                                     TQt::AlignHCenter | TQt::AlignVCenter);
-        }
     }
     else // horizontal
     {
@@ -1086,22 +1078,7 @@ void SystemTrayApplet::layoutTray()
                          (maxIconHeight() + m_iconSpacing);
         if (nbrOfLines < 1) {
             nbrOfLines = 1;  // avoid nbrOfLines==0 or negative (in case m_iconMargin is unreasonably large)
-            m_layout->setMargin( (height() - maxIconHeight()) / 2); // also adjust the margins, so the icons won't shift beyond viability
-        }
-
-        m_layout->addMultiCellWidget(m_leftSpacer,
-                                     0, nbrOfLines - 1,
-                                     0, 0,
-                                     TQt::AlignHCenter | TQt::AlignVCenter);
-        col = 1;
-
-        if (showExpandButton)
-        {
-            m_layout->addMultiCellWidget(m_expandButton,
-                                         0, nbrOfLines - 1,
-                                         1, 1,
-                                         TQt::AlignHCenter | TQt::AlignVCenter);
-            col = 2;
+            iconLayout->setMargin( (height() - maxIconHeight()) / 2); // also adjust the margins, so the icons won't shift beyond viability
         }
 
         if (m_showHidden)
@@ -1111,7 +1088,7 @@ void SystemTrayApplet::layoutTray()
             {
                 int line = i % nbrOfLines;
                 (*emb)->show();
-                m_layout->addWidget((*emb), line, col,
+                iconLayout->addWidget((*emb), line, col,
                                     TQt::AlignHCenter | TQt::AlignVCenter);
 
                 if ((line + 1) == nbrOfLines)
@@ -1129,7 +1106,7 @@ void SystemTrayApplet::layoutTray()
         {
             int line = i % nbrOfLines;
             (*emb)->show();
-            m_layout->addWidget((*emb), line, col,
+            iconLayout->addWidget((*emb), line, col,
                                 TQt::AlignHCenter | TQt::AlignVCenter);
 
             if ((line + 1) == nbrOfLines)
@@ -1139,23 +1116,13 @@ void SystemTrayApplet::layoutTray()
 
             ++i;
         }
+    }
 
-        m_layout->addMultiCellWidget(m_rightSpacer,
-                                     0, nbrOfLines - 1,
-                                     col, col,
-                                     TQt::AlignHCenter | TQt::AlignVCenter);
-
-        if (m_clockApplet) {
-            if (m_showClockInTray)
-                m_clockApplet->show();
-            else
-                m_clockApplet->hide();
-
-            m_layout->addMultiCellWidget(m_clockApplet,
-                                         0, nbrOfLines - 1,
-                                         col+1, col+1,
-                                         TQt::AlignHCenter | TQt::AlignVCenter);
-        }
+    if (m_clockApplet) {
+        if (m_showClockInTray)
+            m_clockApplet->show();
+        else
+            m_clockApplet->hide();
     }
 
     setUpdatesEnabled(true);
