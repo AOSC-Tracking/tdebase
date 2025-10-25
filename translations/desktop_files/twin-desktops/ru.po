@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Andrei Stepanov <adem4ik@gmail.com>, 2024.
+# Alexander Golubev <fatzer2@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-04 18:14+0000\n"
-"PO-Revision-Date: 2024-05-13 16:01+0000\n"
-"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
+"PO-Revision-Date: 2025-10-26 04:17+0000\n"
+"Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/twin-desktop-files/ru/>\n"
 "Language: ru\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: kcmtwin/showdesktop.desktop:4
@@ -85,7 +86,7 @@ msgid ""
 "aerosnap;"
 msgstr ""
 "window behavior;windows;frame;titlebar;borders;corners;active "
-"borders;aerosnap;поведение;окна;границы;углы;активные границы;"
+"borders;aerosnap;поведение;окна;поведение окон;границы;углы;активные границы;"
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
@@ -143,12 +144,12 @@ msgstr ""
 #. Name
 #: kcmtwin/twinoptions/twinoptions.desktop:11
 msgid "Window Behavior"
-msgstr "Поведение окна"
+msgstr "Поведение окон"
 
 #. Comment
 #: kcmtwin/twinoptions/twinoptions.desktop:13
 msgid "Configure the window behavior"
-msgstr "Настройка поведения браузера"
+msgstr "Настройка поведения окон"
 
 #. Keywords
 #: kcmtwin/twinoptions/twinoptions.desktop:15
@@ -157,8 +158,8 @@ msgid ""
 "titlebar;doubleclick;"
 msgstr ""
 "focus;placement;window behavior;animation;raise;auto "
-"raise;windows;frame;titlebar;doubleclick;фокус;размещение;поведение "
-"окна;анимация;окна;рамка;панель заголовка;двойной щелчок;"
+"raise;windows;frame;titlebar;doubleclick;фокус;размещение;поведение;"
+"поведение окон;анимация;окна;рамка;панель заголовка;двойной щелчок;"
 
 #. Name
 #: kcmtwin/twinoptions/twintranslucency.desktop:11
@@ -192,8 +193,8 @@ msgid ""
 "rules;"
 msgstr ""
 "size;position;state;window behavior;windows;specific;workarounds;remember;rul"
-"es;размер;положение;состояние;поведение окна;окна;специфические;обходные "
-"пути;запоминание;правила;"
+"es;размер;положение;состояние;поведение;окна;поведение окон;специфические;"
+"обходные пути;запоминание;правила;"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:2
