@@ -839,10 +839,6 @@ echo "[starttde] Shutting down Trinity..." 1>&2
 $TDEDIR/bin/tdeinit_shutdown
 $TDEDIR/bin/dcopserver_shutdown --wait
 $TDEDIR/bin/artsshell -q terminate
-# KDE 4 support.
-if [ -f /usr/bin/kdeinit4_shutdown ]; then
-  /usr/bin/kde4 kdeinit4_shutdown 2>/dev/null
-fi
 
 echo "[starttde] Running Trinity shutdown scripts..." 1>&2
 
