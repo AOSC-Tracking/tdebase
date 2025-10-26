@@ -1,13 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Andrei Stepanov <adem4ik@gmail.com>, 2024, 2025.
+# Alexander Golubev <fatzer2@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2025-06-29 05:58+0000\n"
-"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
+"PO-Revision-Date: 2025-10-26 04:17+0000\n"
+"Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdeioslave-desktop-files/ru/>\n"
 "Language: ru\n"
@@ -31,7 +32,7 @@ msgstr "Настройка CGI TDEIO slave"
 #. Keywords
 #: cgi/kcmcgi/kcmcgi.desktop:13
 msgid "CGI;TDEIO;Slave;Paths;"
-msgstr ""
+msgstr "CGI;TDEIO;Slave;Paths;Пути"
 
 #. Name
 #: home/kdedmodule/homedirnotify.desktop:4
@@ -40,14 +41,15 @@ msgstr "Уведомление о смене базового адреса KDED"
 
 #. Comment
 #: home/kdedmodule/homedirnotify.desktop:6
-#, fuzzy
 msgid "Provides change notification for user's home folder ($HOME)"
-msgstr "Отслеживание изменений в сетевых папках"
+msgstr ""
+"Предоставляет уведомления об изменениях в домашнем каталоге пользователя "
+"($HOME)"
 
 #. Name
 #: man/kmanpart.desktop:4
 msgid "KManPart"
-msgstr ""
+msgstr "KManPart"
 
 #. Comment
 #: man/kmanpart.desktop:6
@@ -97,12 +99,12 @@ msgstr "Чистый DVD"
 #. Comment
 #: media/mimetypes/bluray_encrypted_locked.desktop:7
 msgid "Encrypted Locked BLURAY"
-msgstr ""
+msgstr "Зашифрованный заблокированный диск BLURAY"
 
 #. Comment
 #: media/mimetypes/bluray_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked BLURAY"
-msgstr ""
+msgstr "Зашифрованный разблокированный диск BLURAY"
 
 #. Comment
 #: media/mimetypes/bluray_mounted.desktop:6
@@ -132,12 +134,12 @@ msgstr "Неподключённая камера"
 #. Comment
 #: media/mimetypes/cd-r_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-R"
-msgstr ""
+msgstr "Зашифрованный заблокированный CD-R"
 
 #. Comment
 #: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-R"
-msgstr ""
+msgstr "Зашифрованный разблокированный CD-R"
 
 #. Comment
 #: media/mimetypes/cd-r_mounted.desktop:6
@@ -152,12 +154,12 @@ msgstr "Отмонтированный CD (с возможностью запи�
 #. Comment
 #: media/mimetypes/cd-rw_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-RW"
-msgstr ""
+msgstr "Зашифрованный заблокированный CD-RW"
 
 #. Comment
 #: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-RW"
-msgstr ""
+msgstr "Зашифрованный разблокированный CD-RW"
 
 #. Comment
 #: media/mimetypes/cd-rw_mounted.desktop:6
@@ -172,12 +174,12 @@ msgstr "Отмонтированный CD (с возможностью запи�
 #. Comment
 #: media/mimetypes/cdrom_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-ROM"
-msgstr ""
+msgstr "Зашифрованный заблокированный CD-ROM"
 
 #. Comment
 #: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-ROM"
-msgstr ""
+msgstr "Зашифрованный разблокированный CD-ROM"
 
 #. Comment
 #: media/mimetypes/cdrom_mounted.desktop:6
@@ -192,12 +194,12 @@ msgstr "Отмонтированный CD"
 #. Comment
 #: media/mimetypes/dvd_encrypted_locked.desktop:7
 msgid "Encrypted Locked DVD"
-msgstr ""
+msgstr "Зашифрованный заблокированный DVD"
 
 #. Comment
 #: media/mimetypes/dvd_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked DVD"
-msgstr ""
+msgstr "Зашифрованный разблокированный DVD"
 
 #. Comment
 #: media/mimetypes/dvd_mounted.desktop:6
@@ -241,15 +243,13 @@ msgstr "Камера"
 
 #. Comment
 #: media/mimetypes/hdd_encrypted_locked.desktop:7
-#, fuzzy
 msgid "Encrypted Locked Hard Disk Volume"
-msgstr "Смонтированный раздел жёсткого диска"
+msgstr "Зашифрованный заблокированный раздел жёсткого диска"
 
 #. Comment
 #: media/mimetypes/hdd_encrypted_unlocked.desktop:7
-#, fuzzy
 msgid "Encrypted Unlocked Hard Disk Volume"
-msgstr "Отмонтированный раздел жёсткого диска"
+msgstr "Зашифрованный разблокированный раздел жёсткого диска"
 
 #. Comment
 #: media/mimetypes/hdd_mounted.desktop:6
@@ -264,19 +264,17 @@ msgstr "Отмонтированный раздел жёсткого диска"
 #. Comment
 #: media/mimetypes/mycomputer.desktop:6
 msgid "My Computer"
-msgstr ""
+msgstr "Мой компьютер"
 
 #. Comment
 #: media/mimetypes/mydocuments.desktop:6
-#, fuzzy
 msgid "My Documents"
-msgstr "Документы"
+msgstr "Мои документы"
 
 #. Comment
 #: media/mimetypes/mynetworkplaces.desktop:6
-#, fuzzy
 msgid "My Network Places"
-msgstr "Сетевые ресурсы"
+msgstr "Мои сетевые ресурсы"
 
 #. Comment
 #: media/mimetypes/nfs_mounted.desktop:6
@@ -291,19 +289,17 @@ msgstr "Отмонтированный ресурс NFS"
 #. Comment
 #: media/mimetypes/printers.desktop:6
 msgid "Printers"
-msgstr ""
+msgstr "Принтеры"
 
 #. Comment
 #: media/mimetypes/removable_encrypted_locked.desktop:7
-#, fuzzy
 msgid "Encrypted Locked Removable Medium"
-msgstr "Смонтированный внешний диск"
+msgstr "Зашифрованный заблокированный внешний диск"
 
 #. Comment
 #: media/mimetypes/removable_encrypted_unlocked.desktop:7
-#, fuzzy
 msgid "Encrypted Unlocked Removable Medium"
-msgstr "Отмонтированный внешний диск"
+msgstr "Зашифрованный разблокированный внешний диск"
 
 #. Comment
 #: media/mimetypes/removable_mounted.desktop:6
@@ -328,7 +324,7 @@ msgstr "Отмонтированный ресурс сети Microsoft"
 #. Comment
 #: media/mimetypes/svcd.desktop:6
 msgid "Super Video CD"
-msgstr ""
+msgstr "Super Video CD"
 
 #. Comment
 #. Name
@@ -339,14 +335,13 @@ msgstr "Корзина"
 
 #. Comment
 #: media/mimetypes/vcd.desktop:6
-#, fuzzy
 msgid "Video CD"
-msgstr "DVD с видео"
+msgstr "Video CD"
 
 #. Comment
 #: media/mimetypes/webbrowser.desktop:6
 msgid "Web Browser"
-msgstr ""
+msgstr "Веб-браузер"
 
 #. Comment
 #: media/mimetypes/zip_mounted.desktop:6
@@ -378,7 +373,7 @@ msgstr "Извлечь"
 #. Name
 #: media/services/media_lock.desktop:10
 msgid "Lock"
-msgstr ""
+msgstr "Заблокировать"
 
 #. Name
 #: media/services/media_mount.desktop:10
@@ -398,7 +393,7 @@ msgstr "Безопасно извлечь"
 #. Name
 #: media/services/media_unlock.desktop:10
 msgid "Unlock"
-msgstr ""
+msgstr "Разблокировать"
 
 #. Name
 #: media/services/media_unmount.desktop:10
@@ -477,11 +472,12 @@ msgstr "Проверка изменения локальных файлов"
 
 #. Comment
 #: system/kdedmodule/systemdirnotify.desktop:6
-#, fuzzy
 msgid ""
 "Provides change notification for folders monitored by the system:/ tdeio "
 "plugin"
-msgstr "Отслеживание изменений в сетевых папках"
+msgstr ""
+"Предоставляет уведомления об изменениях в каталогах отслеживаемых в tdeio-"
+"плагине system:/"
 
 #. Comment
 #: system/mimetypes/system_directory.desktop:6
@@ -533,6 +529,7 @@ msgstr "Свойства мусора"
 #: trash/kcmtrash.desktop:15
 msgid "trash;properties;size;limits;delete"
 msgstr ""
+"trash;properties;size;limits;delete;корзина;свойства;размер;лимиты;удалить"
 
 #. Name
 #: trash/tdefile-plugin/tdefile_trash.desktop:4

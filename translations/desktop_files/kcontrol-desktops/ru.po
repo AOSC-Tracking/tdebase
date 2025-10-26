@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-07 20:11+0000\n"
-"PO-Revision-Date: 2025-07-21 06:11+0000\n"
+"PO-Revision-Date: 2025-10-26 04:17+0000\n"
 "Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
@@ -1786,6 +1786,9 @@ msgid ""
 "konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
 "behavior;behaviour;memory usage;Home URL;"
 msgstr ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;файловый менеджер;советы;отдельное "
+"окно;создание окон;поведение;использование памяти;домашняя страница;"
 
 #. Name
 #: konq/desktoppath.desktop:11
@@ -1826,6 +1829,11 @@ msgid ""
 "behavior;behaviour;memory usage;Home URL;network operations;progress dialog;"
 "trash can;delete;confirmation;"
 msgstr ""
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;network operations;progress dialog;"
+"trash can;delete;confirmation;файловый менеджер;советы;отдельное окно;"
+"создание окон;поведение;использование памяти;домашняя страница;сетевые "
+"операции;ход выполнения;диалог хода выполнения;корзина;удалить;подтверждение;"
 
 #. Comment
 #: konq/filebrowser.desktop:14
