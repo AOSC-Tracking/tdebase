@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # blu.256 <mavridisf@gmail.com>, 2022.
-# Alexander Golubev <fatzer2@gmail.com>, 2024.
+# Alexander Golubev <fatzer2@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 18:11+0000\n"
-"PO-Revision-Date: 2024-03-02 05:44+0000\n"
+"PO-Revision-Date: 2025-11-02 15:58+0000\n"
 "Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/color-schemes/ru/>\n"
@@ -15,9 +15,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: AtlasGreen.kcsrc:3
@@ -32,7 +32,7 @@ msgstr "BeOS"
 #. Name
 #: BlackOnWhite.kcsrc:2
 msgid "High Contrast Black Text"
-msgstr "Высококонтрастный чёрный текст"
+msgstr "Высококонтрастная — чёрный текст"
 
 #. Name
 #: BlueSlate.kcsrc:3
@@ -57,7 +57,7 @@ msgstr "Красная пустыня"
 #. Name
 #: Different.kcsrc:2
 msgid "Different"
-msgstr ""
+msgstr "Иной"
 
 #. Name
 #: DigitalCDE.kcsrc:3
@@ -77,42 +77,42 @@ msgstr "Человек"
 #. Name
 #: Jewels-Amethyst.kcsrc:2
 msgid "Jewels - Amethyst"
-msgstr ""
+msgstr "Самоцветы — Аметист"
 
 #. Name
 #: Jewels-Aquamarine.kcsrc:2
 msgid "Jewels - Aquamarine"
-msgstr ""
+msgstr "Самоцветы — Аквамарин"
 
 #. Name
 #: Jewels-Carbon.kcsrc:2
 msgid "Jewels - Carbon"
-msgstr ""
+msgstr "Самоцветы — Углерод"
 
 #. Name
 #: Jewels-Citrin.kcsrc:2
 msgid "Jewels - Citrin"
-msgstr ""
+msgstr "Самоцветы — Цитрин"
 
 #. Name
 #: Jewels-Emerald.kcsrc:2
 msgid "Jewels - Emerald"
-msgstr ""
+msgstr "Самоцветы — Изумруд"
 
 #. Name
 #: Jewels-Ruby.kcsrc:2
 msgid "Jewels - Ruby"
-msgstr ""
+msgstr "Самоцветы — Рубин"
 
 #. Name
 #: Jewels-Sapphire.kcsrc:2
 msgid "Jewels - Sapphire"
-msgstr ""
+msgstr "Самоцветы — Сапфир"
 
 #. Name
 #: Jewels-Topaz.kcsrc:2
 msgid "Jewels - Topaz"
-msgstr ""
+msgstr "Самоцветы — Топаз"
 
 #. Name
 #: KDEOne.kcsrc:2
@@ -147,7 +147,7 @@ msgstr "Last.fm"
 #. Name
 #: Lila.kcsrc:2
 msgid "Lila"
-msgstr ""
+msgstr "Лила"
 
 #. Name
 #: Lizard.kcsrc:2
@@ -172,7 +172,7 @@ msgstr "Тусклый серый"
 #. Name
 #: Pinkie.kcsrc:2
 msgid "Pinkie"
-msgstr ""
+msgstr "Пинки"
 
 #. Name
 #: Plastik.kcsrc:2
@@ -187,7 +187,7 @@ msgstr "Платина"
 #. Name
 #: PointReyesGreen.kcsrc:2
 msgid "Point Reyes Green"
-msgstr "Зелёный из Point Reyes"
+msgstr "Зелёный Поинт Рейс"
 
 #. Name
 #: Pumpkin.kcsrc:3
@@ -197,22 +197,22 @@ msgstr "Тыква"
 #. Name
 #: Seasons-Autumn.kcsrc:2
 msgid "Seasons - Autumn"
-msgstr ""
+msgstr "Сезоны — Осень"
 
 #. Name
 #: Seasons-Spring.kcsrc:2
 msgid "Seasons - Spring"
-msgstr ""
+msgstr "Сезоны — Весна"
 
 #. Name
 #: Seasons-Summer.kcsrc:2
 msgid "Seasons - Summer"
-msgstr ""
+msgstr "Сезоны — Лето"
 
 #. Name
 #: Seasons-Winter.kcsrc:2
 msgid "Seasons - Winter"
-msgstr ""
+msgstr "Сезоны — Зима"
 
 #. Name
 #: Sienna.kcsrc:2
@@ -242,7 +242,7 @@ msgstr "WedgieWeb"
 #. Name
 #: WhiteOnBlack.kcsrc:2
 msgid "High Contrast White Text"
-msgstr "Высококонтрастный белый текст"
+msgstr "Высококонтрастная — белый текст"
 
 #. Name
 #: Windows2000.kcsrc:2
@@ -262,4 +262,4 @@ msgstr "Редмонд XP"
 #. Name
 #: YellowOnBlue.kcsrc:2
 msgid "High Contrast Yellow on Blue"
-msgstr "Высококонтрастный жёлтый на синем"
+msgstr "Высококонтрастная — жёлтый на синем"
