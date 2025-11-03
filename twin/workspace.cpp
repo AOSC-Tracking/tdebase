@@ -22,9 +22,11 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <tqpainter.h>
 #include <tqbitmap.h>
 #include <tqclipboard.h>
+#include <tqfile.h>
 #include <tdemenubar.h>
 #include <tdeprocess.h>
 #include <tdeglobalaccel.h>
+#include <tdestandarddirs.h>
 #include <dcopclient.h>
 #include <kipc.h>
 
@@ -76,47 +78,28 @@ bool supportsCompMgr()
     return damageExt && compositeExt && xfixesExt;
 }
 
+TQString compositorPIDFile () {
+    return locateLocal("tmp", TQString("compton-tde.").append(getenv("DISPLAY")).append(".pid"));
+}
+
 pid_t getCompositorPID() {
     // Attempt to load the compton-tde pid file
-    char *filename;
-    const char *pidfile = "compton-tde.pid";
-    char uidstr[sizeof(uid_t)*8+1];
-    sprintf(uidstr, "%d", getuid());
-    int n = strlen(P_tmpdir)+strlen(uidstr)+strlen(pidfile)+3;
-    filename = (char*)malloc(n*sizeof(char)+1);
-    memset(filename,0,n);
-    strcat(filename, P_tmpdir);
-    strcat(filename, "/.");
-    strcat(filename, uidstr);
-    strcat(filename, "-");
-    strcat(filename, pidfile);
+    pid_t rv = 0;
+    TQFile pidFile(compositorPIDFile());
 
-    // Now that we did all that by way of introduction...read the file!
-    FILE *pFile;
-    char buffer[255];
-    pFile = fopen(filename, "r");
-    pid_t kompmgrpid = 0;
-    if (pFile)
-        {
-        printf("[twin-workspace] Using '%s' as compton-tde pidfile\n\n", filename);
-        // obtain file size
-        fseek (pFile , 0 , SEEK_END);
-        unsigned long lSize = ftell (pFile);
-        if (lSize > 254)
-            lSize = 254;
-        rewind (pFile);
-        size_t result = fread (buffer, 1, lSize, pFile);
-        fclose(pFile);
-        if (result > 0)
-            {
-            kompmgrpid = atoi(buffer);
-            }
+    if (pidFile.open(IO_ReadOnly)) {
+        bool ok;
+        TQString pidStr;
+
+        pidFile.readLine(pidStr, 21);
+        rv = pidStr.toInt(&ok);
+
+        if (!ok) {
+            return 0;
         }
+    }
 
-    free(filename);
-    filename = NULL;
-
-    return kompmgrpid;
+    return rv;
 }
 
 // Rikkus: This class is too complex. It needs splitting further.
@@ -273,9 +256,8 @@ Workspace::Workspace( bool restore )
 
     if (options->useTranslucency)
         {
-        kompmgr = new TDEProcess;
-        connect(kompmgr, TQ_SIGNAL(receivedStderr(TDEProcess*, char*, int)), TQ_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
-        *kompmgr << TDE_COMPOSITOR_BINARY;
+        createKompmgrProcess();
+
         if (kompmgrpid)
             {
             if (kill(kompmgrpid, 0) < 0)
@@ -1137,44 +1119,7 @@ void Workspace::slotReconfigure()
         bool tmp = options->useTranslucency;
 
         // If compton-tde is already running, sending SIGUSR2 will force a reload of its settings
-        // Attempt to load the compton-tde pid file
-        char *filename;
-        const char *pidfile = "compton-tde.pid";
-        char uidstr[sizeof(uid_t)*8+1];
-        sprintf(uidstr, "%d", getuid());
-        int n = strlen(P_tmpdir)+strlen(uidstr)+strlen(pidfile)+3;
-        filename = (char*)malloc(n*sizeof(char)+1);
-        memset(filename,0,n);
-        strcat(filename, P_tmpdir);
-        strcat(filename, "/.");
-        strcat(filename, uidstr);
-        strcat(filename, "-");
-        strcat(filename, pidfile);
-
-        // Now that we did all that by way of introduction...read the file!
-        FILE *pFile;
-        char buffer[255];
-        pFile = fopen(filename, "r");
-        int kompmgrpid = 0;
-        if (pFile)
-            {
-            printf("[twin-workspace] Using '%s' as compton-tde pidfile\n\n", filename);
-            // obtain file size
-            fseek (pFile , 0 , SEEK_END);
-            unsigned long lSize = ftell (pFile);
-            if (lSize > 254)
-                lSize = 254;
-            rewind (pFile);
-            size_t result = fread (buffer, 1, lSize, pFile);
-            fclose(pFile);
-            if (result > 0)
-                {
-                kompmgrpid = atoi(buffer);
-                }
-            }
-
-        free(filename);
-        filename = NULL;
+        pid_t kompmgrpid = getCompositorPID();
 
         if (tmp)
             {
@@ -1187,9 +1132,7 @@ void Workspace::slotReconfigure()
                 stopKompmgr();
                 if (!kompmgr)
                     {
-                    kompmgr = new TDEProcess;
-                    connect(kompmgr, TQ_SIGNAL(receivedStderr(TDEProcess*, char*, int)), TQ_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
-                    *kompmgr << TDE_COMPOSITOR_BINARY;
+                    createKompmgrProcess();
                     }
                 TQTimer::singleShot( 200, this, TQ_SLOT(startKompmgr()) ); // wait some time to ensure system's ready for restart
                 }
@@ -2951,6 +2894,14 @@ void Workspace::helperDialog( const TQString& message, const Client* c )
 
 
 // kompmgr stuff
+
+void Workspace::createKompmgrProcess()
+{
+    kompmgr = new TDEProcess;
+    connect(kompmgr, TQ_SIGNAL(receivedStderr(TDEProcess*, char*, int)), TQ_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
+    *kompmgr << TDE_COMPOSITOR_BINARY;
+    *kompmgr << "--write-pid-path" << compositorPIDFile();
+}
 
 void Workspace::startKompmgr()
 {
