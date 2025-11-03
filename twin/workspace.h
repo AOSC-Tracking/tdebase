@@ -432,6 +432,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
 
     private:
         void init();
+        void createKompmgrProcess();
         void initShortcuts();
         void readShortcuts();
         void initDesktopPopup();
