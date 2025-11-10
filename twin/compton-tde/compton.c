@@ -157,33 +157,10 @@ void delete_pid_file()
 
 void handle_siguser (int sig)
 {
-    int uidnum;
     if (sig == SIGTERM) {
         delete_pid_file();
         exit(0);
-    }
-    if (sig == SIGUSR1) {
-        char newuid[1024];
-#ifndef NDEBUG
-        printf("Enter the new user ID:\n"); fflush(stdout);
-#endif
-        char *eof;
-        newuid[0] = '\0';
-        newuid[sizeof(newuid)-1] = '\0';
-        eof = fgets(newuid, sizeof(newuid), stdin);
-        uidnum = atoi(newuid);
-#ifndef NDEBUG
-        printf("Setting compton-tde process uid to %d...\n", uidnum); fflush(stdout);
-#endif
-
-        delete_pid_file();
-        setuid(uidnum);
-        write_pid_file(getpid());
-    }
-    else {
-        uidnum = getuid();
-    }
-    if ((sig == SIGUSR1) || (sig == SIGUSR2)) {
+    } else if (sig == SIGUSR1) {
         /* force redetection of the configuration file location */
         if (ps_g->o.config_file) {
           free(ps_g->o.config_file);
@@ -8556,7 +8533,6 @@ main(int argc, char **argv) {
   usr_action.sa_mask = block_mask;
   usr_action.sa_flags = 0;
   sigaction(SIGUSR1, &usr_action, NULL);
-  sigaction(SIGUSR2, &usr_action, NULL);
   sigaction(SIGTERM, &usr_action, NULL);
 
   // Main loop
