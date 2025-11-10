@@ -255,7 +255,7 @@ TDE_EXPORT int kdemain( int argc, char * argv[] )
     if (! restored) 
         {
         // we only do the multihead fork if we are not restored by the session
-	// manager, since the session manager will register multiple twins,
+        // manager, since the session manager will register multiple twins,
         // one for each screen...
         TQCString multiHead = getenv("TDE_MULTIHEAD");
         if (multiHead.lower() == "true") 
@@ -284,18 +284,18 @@ TDE_EXPORT int kdemain( int argc, char * argv[] )
                 {
                 for (int i = 0; i < number_of_screens; i++ ) 
                     {
-		    // if execution doesn't pass by here, then twin
-		    // acts exactly as previously
+                    // if execution doesn't pass by here, then twin
+                    // acts exactly as previously
                     if ( i != KWinInternal::screen_number && fork() == 0 ) 
                         {
                         KWinInternal::screen_number = i;
-			// break here because we are the child process, we don't
-			// want to fork() anymore
+                        // break here because we are the child process, we don't
+                        // want to fork() anymore
                         break;
                         }
                     }
-		// in the next statement, display_name shouldn't contain a screen
-		//   number. If it had it, it was removed at the "pos" check
+                // in the next statement, display_name shouldn't contain a screen
+                //   number. If it had it, it was removed at the "pos" check
                 envir.sprintf("DISPLAY=%s.%d", display_name.data(), KWinInternal::screen_number);
 
                 if (putenv( strdup(envir.data())) ) 
