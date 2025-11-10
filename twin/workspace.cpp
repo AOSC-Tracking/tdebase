@@ -551,7 +551,7 @@ Workspace::~Workspace()
          it != stacking_order.end();
          ++it )
         {
-	// only release the window
+        // only release the window
         (*it)->releaseWindow( true );
         // No removeClient() is called, it does more than just removing.
         // However, remove from some lists to e.g. prevent performTransiencyCheck()
@@ -657,7 +657,7 @@ void Workspace::addClient( Client* c, allowed_t )
     if( c->isDesktop())
         {
         raiseClient( c );
-	// if there's no active client, make this desktop the active one
+        // if there's no active client, make this desktop the active one
         if( activeClient() == NULL && should_get_focus.count() == 0 )
             activateClient( findDesktop( true, currentDesktop()));
         }
@@ -2090,34 +2090,34 @@ void Workspace::slotGrabWindow()
         {
         TQPixmap snapshot = TQPixmap::grabWindow( active_client->frameId() );
 
-	//No XShape - no work.
+        //No XShape - no work.
         if( Shape::available())
             {
-	    //As the first step, get the mask from XShape.
+            //As the first step, get the mask from XShape.
             int count, order;
             XRectangle* rects = XShapeGetRectangles( tqt_xdisplay(), active_client->frameId(),
                                                      ShapeBounding, &count, &order);
-	    //The ShapeBounding region is the outermost shape of the window;
-	    //ShapeBounding - ShapeClipping is defined to be the border.
-	    //Since the border area is part of the window, we use bounding
-	    // to limit our work region
+            //The ShapeBounding region is the outermost shape of the window;
+            //ShapeBounding - ShapeClipping is defined to be the border.
+            //Since the border area is part of the window, we use bounding
+            // to limit our work region
             if (rects)
                 {
-		//Create a TQRegion from the rectangles describing the bounding mask.
+                //Create a TQRegion from the rectangles describing the bounding mask.
                 TQRegion contents;
                 for (int pos = 0; pos < count; pos++)
                     contents += TQRegion(rects[pos].x, rects[pos].y,
                                         rects[pos].width, rects[pos].height);
                 XFree(rects);
 
-		//Create the bounding box.
+                //Create the bounding box.
                 TQRegion bbox(0, 0, snapshot.width(), snapshot.height());
 
-		//Get the masked away area.
+                //Get the masked away area.
                 TQRegion maskedAway = bbox - contents;
                 TQMemArray<TQRect> maskedAwayRects = maskedAway.rects();
 
-		//Construct a bitmap mask from the rectangles
+                //Construct a bitmap mask from the rectangles
                 TQBitmap mask( snapshot.width(), snapshot.height());
                 TQPainter p(&mask);
                 p.fillRect(0, 0, mask.width(), mask.height(), TQt::color1);
