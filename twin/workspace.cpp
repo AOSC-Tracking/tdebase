@@ -1118,14 +1118,14 @@ void Workspace::slotReconfigure()
         {
         bool tmp = options->useTranslucency;
 
-        // If compton-tde is already running, sending SIGUSR2 will force a reload of its settings
+        // If compton-tde is already running, sending SIGUSR1 will force a reload of its settings
         pid_t kompmgrpid = getCompositorPID();
 
         if (tmp)
             {
             if (kompmgrpid)
                 {
-                kill(kompmgrpid, SIGUSR2);
+                kill(kompmgrpid, SIGUSR1);
                 }
             else
                 {
@@ -2981,7 +2981,7 @@ void Workspace::kompmgrReloadSettings()
     if (!kompmgr || !kompmgr->isRunning()) {
         return;
     }
-    kompmgr->kill(SIGUSR2);
+    kompmgr->kill(SIGUSR1);
 }
 
 bool Workspace::kompmgrIsRunning()
