@@ -66,7 +66,7 @@
 // TDE specific options
 // #define USE_ENV_HOME 1
 #define WRITE_PID_FILE 1
-#define _TDE_COMP_MGR_VERSION_ 3.00
+#define _TDE_COMP_MGR_VERSION_ "3.00"
 #if defined(HAVE_LIBCONFIG_OLD_API)
 #define CONFIG_LIBCONFIG_LEGACY 1
 #endif
