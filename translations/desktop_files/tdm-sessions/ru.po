@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Alexander Golubev <fatzer2@gmail.com>, 2022.
+# Alexander Golubev <fatzer2@gmail.com>, 2022, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: 2022-02-14 23:01+0000\n"
+"PO-Revision-Date: 2025-11-02 15:58+0000\n"
 "Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdm-sessions/ru/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: tde.desktop.cmake:7
@@ -35,7 +35,7 @@ msgstr ""
 #. Name
 #: 9wm.desktop:6
 msgid "9WM"
-msgstr ""
+msgstr "9WM"
 
 #. Comment
 #: 9wm.desktop:8
@@ -45,17 +45,17 @@ msgstr "Эмуляция оконного менеджера Plan 9"
 #. Name
 #: admin.desktop:7
 msgid "admin"
-msgstr ""
+msgstr "Администрирование"
 
 #. Comment
 #: admin.desktop:9
 msgid "Yast Admin Session"
-msgstr ""
+msgstr "Сессия администратора Yast"
 
 #. Name
 #: aewm++.desktop:6
 msgid "AEWM++"
-msgstr ""
+msgstr "AEWM++"
 
 #. Comment
 #: aewm++.desktop:8
@@ -64,12 +64,12 @@ msgid ""
 "partial GNOME support"
 msgstr ""
 "Минимальный оконный менеджер на основе AEWM, имеющий частичную поддержку "
-"GNOME."
+"GNOME"
 
 #. Name
 #: aewm.desktop:6
 msgid "AEWM"
-msgstr ""
+msgstr "AEWM"
 
 #. Comment
 #: aewm.desktop:8
@@ -79,7 +79,7 @@ msgstr "Минимальный оконный менеджер"
 #. Name
 #: afterstep.desktop:6
 msgid "AfterStep"
-msgstr ""
+msgstr "AfterStep"
 
 #. Comment
 #: afterstep.desktop:8
@@ -89,7 +89,7 @@ msgstr "Оконный менеджер на основе FVWM, повторяю
 #. Name
 #: amaterus.desktop:6
 msgid "AMATERUS"
-msgstr ""
+msgstr "AMATERUS"
 
 #. Comment
 #: amaterus.desktop:8
@@ -99,7 +99,7 @@ msgstr "Оконный менеджер на основе GTK+ c функцие�
 #. Name
 #: amiwm.desktop:6
 msgid "AmiWM"
-msgstr ""
+msgstr "AmiWM"
 
 #. Comment
 #: amiwm.desktop:8
@@ -109,7 +109,7 @@ msgstr "Оконный менеджер в стиле Amiga"
 #. Name
 #: asclassic.desktop:6
 msgid "ASClassic"
-msgstr ""
+msgstr "ASClassic"
 
 #. Comment
 #: asclassic.desktop:8
@@ -119,7 +119,7 @@ msgstr "AfterStep Classic, оконный менеджер на основе Aft
 #. Name
 #: blackbox.desktop:6
 msgid "Blackbox"
-msgstr ""
+msgstr "Blackbox"
 
 #. Comment
 #: blackbox.desktop:8
@@ -129,7 +129,7 @@ msgstr "Быстрый и лёгкий оконный менеджер"
 #. Name
 #: cde.desktop:6
 msgid "CDE"
-msgstr ""
+msgstr "CDE"
 
 #. Comment
 #: cde.desktop:8
@@ -141,17 +141,19 @@ msgstr "Common Desktop Environment, промышленный стандарт р
 #. Name
 #: ctwm.desktop:6
 msgid "CTWM"
-msgstr ""
+msgstr "CTWM"
 
 #. Comment
 #: ctwm.desktop:8
 msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
-msgstr "Claude's Tab Window Manager - улучшенная версия TWM"
+msgstr ""
+"Claude's Tab Window Manager — улучшенная версия TWM с виртуальными рабочими "
+"столами и т.п."
 
 #. Name
 #: cwwm.desktop:6
 msgid "CWWM"
-msgstr ""
+msgstr "CWWM"
 
 #. Comment
 #: cwwm.desktop:8
@@ -161,7 +163,7 @@ msgstr "ChezWam Window Manager - минимальный оконный мене�
 #. Name
 #: enlightenment.desktop:6
 msgid "Enlightenment"
-msgstr ""
+msgstr "Enlightenment"
 
 #. Comment
 #: enlightenment.desktop:8
@@ -171,7 +173,7 @@ msgstr "Многофункциональный, поддерживающий т�
 #. Name
 #: evilwm.desktop:6
 msgid "EvilWM"
-msgstr ""
+msgstr "EvilWM"
 
 #. Comment
 #: evilwm.desktop:8
@@ -181,7 +183,7 @@ msgstr "Минимальный оконный менеджер, основанн
 #. Name
 #: fluxbox.desktop:6
 msgid "Fluxbox"
-msgstr ""
+msgstr "Fluxbox"
 
 #. Comment
 #: fluxbox.desktop:8
@@ -191,7 +193,7 @@ msgstr "Настраиваемый оконный менеджер, основа
 #. Name
 #: flwm.desktop:6
 msgid "FLWM"
-msgstr ""
+msgstr "FLWM"
 
 #. Comment
 #: flwm.desktop:8
@@ -201,7 +203,7 @@ msgstr "Быстрый и лёгкий оконный менеджер, осно
 #. Name
 #: fvwm.desktop:6
 msgid "FVWM"
-msgstr ""
+msgstr "FVWM"
 
 #. Comment
 #: fvwm.desktop:8 fvwm2.desktop:8
@@ -213,12 +215,12 @@ msgstr ""
 #. Name
 #: fvwm2.desktop:6
 msgid "FVWM2"
-msgstr ""
+msgstr "FVWM2"
 
 #. Name
 #: fvwm95.desktop:6
 msgid "FVWM95"
-msgstr ""
+msgstr "FVWM95"
 
 #. Comment
 #: fvwm95.desktop:8
@@ -228,7 +230,7 @@ msgstr "Клон FVWM в стиле Windows 95"
 #. Name
 #: gnome.desktop:6
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #. Comment
 #: gnome.desktop:8
@@ -242,7 +244,7 @@ msgstr ""
 #. Name
 #: golem.desktop:6
 msgid "Golem"
-msgstr ""
+msgstr "Golem"
 
 #. Comment
 #: golem.desktop:8
@@ -252,7 +254,7 @@ msgstr "Лёгкий оконный менеджер"
 #. Name
 #: icewm.desktop:6
 msgid "IceWM"
-msgstr ""
+msgstr "IceWM"
 
 #. Comment
 #: icewm.desktop:8
@@ -262,7 +264,7 @@ msgstr "Оконный менеджер в стиле Windows95-OS/2-Motif"
 #. Name
 #: ion.desktop:6
 msgid "Ion"
-msgstr ""
+msgstr "Ion"
 
 #. Comment
 #: ion.desktop:8
@@ -292,7 +294,7 @@ msgstr "Окружение рабочего стола от команды KDE"
 #. Name
 #: larswm.desktop:6
 msgid "LarsWM"
-msgstr ""
+msgstr "LarsWM"
 
 #. Comment
 #: larswm.desktop:8
@@ -302,7 +304,7 @@ msgstr "Оконный менеджер на основе 9wm"
 #. Name
 #: lwm.desktop:6
 msgid "LWM"
-msgstr ""
+msgstr "LWM"
 
 #. Comment
 #: lwm.desktop:8
@@ -312,7 +314,7 @@ msgstr "Облегчённый, не настраиваемый простой �
 #. Name
 #: matchbox.desktop:6
 msgid "Matchbox"
-msgstr ""
+msgstr "Matchbox"
 
 #. Comment
 #: matchbox.desktop:8
@@ -322,7 +324,7 @@ msgstr "Оконный менеджер для мобильных устройс
 #. Name
 #: metacity.desktop:6
 msgid "Metacity"
-msgstr ""
+msgstr "Metacity"
 
 #. Comment
 #: metacity.desktop:8
@@ -332,7 +334,7 @@ msgstr "Лёгкий оконный менеджер на основе GTK2"
 #. Name
 #: mwm.desktop:6
 msgid "MWM"
-msgstr ""
+msgstr "MWM"
 
 #. Comment
 #: mwm.desktop:8
@@ -342,7 +344,7 @@ msgstr "Оконный менеджер Motif"
 #. Name
 #: olvwm.desktop:6
 msgid "OLVWM"
-msgstr ""
+msgstr "OLVWM"
 
 #. Comment
 #: olvwm.desktop:8
@@ -355,7 +357,7 @@ msgstr ""
 #. Name
 #: olwm.desktop:6
 msgid "OLWM"
-msgstr ""
+msgstr "OLWM"
 
 #. Comment
 #: olwm.desktop:8
@@ -365,7 +367,7 @@ msgstr "Традиционный оконный менеджер системы 
 #. Name
 #: openbox.desktop:6
 msgid "Openbox"
-msgstr ""
+msgstr "Openbox"
 
 #. Comment
 #: openbox.desktop:8
@@ -375,7 +377,7 @@ msgstr "Лёгкий оконный менеджер, основанный на 
 #. Name
 #: oroborus.desktop:6
 msgid "Oroborus"
-msgstr ""
+msgstr "Oroborus"
 
 #. Comment
 #: oroborus.desktop:8
@@ -385,7 +387,7 @@ msgstr "Лёгкий оконный менеджер, поддерживающи
 #. Name
 #: phluid.desktop:6
 msgid "Phluid"
-msgstr ""
+msgstr "Phluid"
 
 #. Comment
 #: phluid.desktop:8
@@ -395,7 +397,7 @@ msgstr "Оконный менеджер на основе imlib2"
 #. Name
 #: pwm.desktop:6
 msgid "PWM"
-msgstr ""
+msgstr "PWM"
 
 #. Comment
 #: pwm.desktop:8
@@ -407,7 +409,7 @@ msgstr ""
 #. Name
 #: qvwm.desktop:6
 msgid "QVWM"
-msgstr ""
+msgstr "QVWM"
 
 #. Comment
 #: qvwm.desktop:8
@@ -417,7 +419,7 @@ msgstr "Оконный менеджер в стиле Windows 95"
 #. Name
 #: ratpoison.desktop:6
 msgid "Ratpoison"
-msgstr ""
+msgstr "Ratpoison"
 
 #. Comment
 #: ratpoison.desktop:8
@@ -437,7 +439,7 @@ msgstr "Минимальный, но настраиваемый оконный �
 #. Name
 #: sawfish.desktop:6
 msgid "Sawfish"
-msgstr ""
+msgstr "Sawfish"
 
 #. Comment
 #: sawfish.desktop:8
@@ -448,7 +450,7 @@ msgstr "Расширяемый скриптами Lisp наподобие Emacs 
 #. Name
 #: twm.desktop:6
 msgid "TWM"
-msgstr ""
+msgstr "TWM"
 
 #. Comment
 #: twm.desktop:8
@@ -458,7 +460,7 @@ msgstr "Традиционный оконный менеджер системы 
 #. Name
 #: ude.desktop:6
 msgid "UDE"
-msgstr ""
+msgstr "UDE"
 
 #. Comment
 #: ude.desktop:8
@@ -468,7 +470,7 @@ msgstr "UNIX Desktop Environment"
 #. Name
 #: vtwm.desktop:6
 msgid "VTWM"
-msgstr ""
+msgstr "VTWM"
 
 #. Comment
 #: vtwm.desktop:8
@@ -478,7 +480,7 @@ msgstr "Вариант TWM, имеющий виртуальные экраны �
 #. Name
 #: w9wm.desktop:6
 msgid "W9WM"
-msgstr ""
+msgstr "W9WM"
 
 #. Comment
 #: w9wm.desktop:8
@@ -491,7 +493,7 @@ msgstr ""
 #. Name
 #: waimea.desktop:6
 msgid "Waimea"
-msgstr ""
+msgstr "Waimea"
 
 #. Comment
 #: waimea.desktop:8
@@ -501,7 +503,7 @@ msgstr "Настраиваемый оконный менеджер, основа
 #. Name
 #: wm2.desktop:6
 msgid "WM2"
-msgstr ""
+msgstr "WM2"
 
 #. Comment
 #: wm2.desktop:8
@@ -510,9 +512,8 @@ msgstr "Маленький, не настраиваемый оконный ме�
 
 #. Name
 #: wmaker.desktop:6
-#, fuzzy
 msgid "WindowMaker"
-msgstr "Традиционный оконный менеджер системы X11"
+msgstr "WindowMaker"
 
 #. Comment
 #: wmaker.desktop:8
@@ -522,7 +523,7 @@ msgstr "Простой оконный менеджер, воспроизводя
 #. Name
 #: xfce.desktop:6
 msgid "XFce"
-msgstr ""
+msgstr "XFce"
 
 #. Comment
 #: xfce.desktop:8
@@ -534,7 +535,7 @@ msgstr "\"Не содержащая холестерина\" рабочая ср
 #. Name
 #: xfce4.desktop:6
 msgid "XFce 4"
-msgstr ""
+msgstr "XFce 4"
 
 #. Comment
 #: xfce4.desktop:8

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 18:11+0000\n"
-"PO-Revision-Date: 2025-08-21 14:59+0000\n"
+"PO-Revision-Date: 2025-11-03 18:25+0000\n"
 "Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
 "Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/color-schemes/es_AR/>\n"
@@ -192,7 +192,7 @@ msgstr "Verde Point Reyes"
 #. Name
 #: Pumpkin.kcsrc:3
 msgid "Pumpkin"
-msgstr "Calabaza"
+msgstr "Zapallo"
 
 #. Name
 #: Seasons-Autumn.kcsrc:2
