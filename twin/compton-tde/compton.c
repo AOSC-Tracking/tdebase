@@ -100,8 +100,6 @@ session_t *ps_g = NULL;
 struct sigaction usr_action;
 sigset_t block_mask;
 
-int my_exit_code = 3;
-
 void write_pid_file(pid_t pid)
 {
 #ifdef WRITE_PID_FILE
@@ -155,29 +153,12 @@ void delete_pid_file()
     free(filename);
     filename = NULL;
 #endif
-
-#if WORK_AROUND_FGLRX
-    if ((my_exit_code == 3) && (restartOnSigterm)) {
-        printf("compton-tde lost connection to X server, restarting...\n"); fflush(stdout);
-        sleep(1);
-        char me[2048];
-#ifdef Q_OS_SOLARIS
-        int chars = readlink("/proc/self/path/a.out", me, sizeof(me));
-#else /* default */
-        int chars = readlink("/proc/self/exe", me, sizeof(me));
-#endif /* self exe */
-        me[chars] = 0;
-        me[2047] = 0;
-	execl(me, basename(me), (char*)NULL);
-    }
-#endif
 }
 
 void handle_siguser (int sig)
 {
     int uidnum;
     if (sig == SIGTERM) {
-        my_exit_code=0;
         delete_pid_file();
         exit(0);
     }
@@ -195,9 +176,7 @@ void handle_siguser (int sig)
         printf("Setting compton-tde process uid to %d...\n", uidnum); fflush(stdout);
 #endif
 
-        my_exit_code=4;
         delete_pid_file();
-        my_exit_code=3;
         setuid(uidnum);
         write_pid_file(getpid());
     }
@@ -6571,7 +6550,7 @@ get_cfg(session_t *ps, int argc, char *const *argv, bool first_pass) {
       case 'h':
         usage(0);
         break;
-      case 'v': fprintf (stderr, "%s v%-3.2f\n", argv[0], _TDE_COMP_MGR_VERSION_); my_exit_code=0; exit (0);
+      case 'v': fprintf (stderr, "%s v%s\n", argv[0], _TDE_COMP_MGR_VERSION_); exit (0);
       case 'd':
       case 'S':
       case 314:
