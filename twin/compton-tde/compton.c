@@ -95,63 +95,6 @@ const static char *background_props_str[] = {
 /// which could not have a pointer to current session passed in.
 session_t *ps_g = NULL;
 
-// === Execution control ===
-
-void write_pid_file(pid_t pid)
-{
-#ifdef WRITE_PID_FILE
-    const char *filename;
-    const char *pidfile = "compton-tde.pid";
-    char uidstr[sizeof(uid_t)*8+1];
-    sprintf(uidstr, "%d", getuid());
-    int n = strlen(P_tmpdir)+strlen(uidstr)+strlen(pidfile)+3;
-    filename = (char*)malloc(n*sizeof(char)+1);
-    memset(filename,0,n);
-    strcat(filename, P_tmpdir);
-    strcat(filename, "/.");
-    strcat(filename, uidstr);
-    strcat(filename, "-");
-    strcat(filename, pidfile);
-
-    /* now that we did all that by way of introduction...write the file! */
-    FILE *pFile;
-    char buffer[255];
-    sprintf(buffer, "%d", pid);
-    pFile = fopen(filename, "w");
-    if (pFile) {
-        fwrite(buffer,1,strlen(buffer), pFile);
-        fclose(pFile);
-    }
-
-    free(filename);
-    filename = NULL;
-#endif
-}
-
-void delete_pid_file()
-{
-#ifdef WRITE_PID_FILE
-    const char *filename;
-    const char *pidfile = "compton-tde.pid";
-    char uidstr[sizeof(uid_t)*8+1];
-    sprintf(uidstr, "%d", getuid());
-    int n = strlen(P_tmpdir)+strlen(uidstr)+strlen(pidfile)+3;
-    filename = (char*)malloc(n*sizeof(char)+1);
-    memset(filename,0,n);
-    strcat(filename, P_tmpdir);
-    strcat(filename, "/.");
-    strcat(filename, uidstr);
-    strcat(filename, "-");
-    strcat(filename, pidfile);
-
-    /* now that we did all that by way of introduction...delete the file! */
-    unlink(filename);
-
-    free(filename);
-    filename = NULL;
-#endif
-}
-
 // === Fading ===
 
 /**
