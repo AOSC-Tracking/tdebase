@@ -91,8 +91,8 @@ const static char *background_props_str[] = {
 // === Global variables ===
 
 /// Pointer to current session, as a global variable. Only used by
-/// <code>error()</code> and <code>reset_enable()</code>, which could not
-/// have a pointer to current session passed in.
+/// <code>xerror()</code>, <code>unlink_pid_file</code> and signal handlers,
+/// which could not have a pointer to current session passed in.
 session_t *ps_g = NULL;
 
 // === Execution control ===
@@ -5652,6 +5652,9 @@ fork_after(session_t *ps) {
   return success;
 }
 
+static void
+unlink_pid_file();
+
 /**
  * Write PID to a file.
  */
@@ -5669,7 +5672,39 @@ write_pid(session_t *ps) {
   fprintf(f, "%ld\n", (long) getpid());
   fclose(f);
 
+  // Schedule the remove of the pid file even if the process exited prematurely
+  static bool is_unlink_registeres=false;
+  if(!is_unlink_registeres) { // avoid calling it second time if the process is being reset
+    atexit(unlink_pid_file);
+    is_unlink_registeres = true;
+  }
+
   return true;
+}
+
+/**
+ * Remove the pid file on exit
+ */
+static void
+unlink_pid_file() {
+  session_t * const ps = ps_g;
+  if (!ps || !ps->o.write_pid_path) {
+    return;
+  }
+  // check that the file still contains our pid as a safety precaution,
+  // that another process didn't already overtook it
+  long pid = -1;
+  FILE *f = fopen(ps->o.write_pid_path, "r");
+  if (f) {
+    (void) fscanf(f, "%ld", &pid); //< void to avoid warning about unused result
+    fclose(f);
+  }
+
+  if (pid != getpid()) {
+    return;
+  }
+
+  unlink(ps->o.write_pid_path);
 }
 
 /**
@@ -8345,6 +8380,8 @@ session_destroy(session_t *ps) {
   free(ps->shadow_corner);
   free(ps->shadow_top);
   free(ps->gaussian_map);
+
+  unlink_pid_file();
 
   free(ps->o.config_file);
   free(ps->o.write_pid_path);
