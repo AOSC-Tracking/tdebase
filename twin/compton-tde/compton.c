@@ -97,9 +97,6 @@ session_t *ps_g = NULL;
 
 // === Execution control ===
 
-struct sigaction usr_action;
-sigset_t block_mask;
-
 void write_pid_file(pid_t pid)
 {
 #ifdef WRITE_PID_FILE
@@ -153,37 +150,6 @@ void delete_pid_file()
     free(filename);
     filename = NULL;
 #endif
-}
-
-void handle_siguser (int sig)
-{
-    if (sig == SIGTERM) {
-        delete_pid_file();
-        exit(0);
-    } else if (sig == SIGUSR1) {
-        /* force redetection of the configuration file location */
-        if (ps_g->o.config_file) {
-          free(ps_g->o.config_file);
-          ps_g->o.config_file = NULL;
-        }
-
-        get_cfg(ps_g, 0, 0, false); /* reload the configuration file */
-
-        /* set background/shadow picture using the new settings */
-        ps_g->cshadow_picture = solid_picture(ps_g, true, 1, ps_g->o.shadow_red, ps_g->o.shadow_green, ps_g->o.shadow_blue);
-
-        /* regenerate shadows using the new settings */
-        ps_g->gaussian_map = make_gaussian_map(ps_g->o.shadow_radius);
-        presum_gaussian(ps_g, ps_g->gaussian_map);
-
-        init_alpha_picts(ps_g);
-        init_filters(ps_g);
-
-        /* Force update for all mapped windows */
-        for (win *w = ps_g->list; w; w = w->next) {
-            win_on_wtype_change(ps_g, w);
-        }
-    }
 }
 
 // === Fading ===
@@ -7610,6 +7576,9 @@ mainloop(session_t *ps) {
   }
 #endif
 
+  if (ps->terminate)
+      exit(0);
+
   if (ps->reset)
     return false;
 
@@ -7824,6 +7793,7 @@ session_init(session_t *ps_old, int argc, char **argv) {
     .ignore_head = NULL,
     .ignore_tail = NULL,
     .reset = false,
+    .terminate = false,
 
     .expose_rects = NULL,
     .size_expose = 0,
@@ -8519,6 +8489,18 @@ reset_enable(int __attribute__((unused)) signum) {
 }
 
 /**
+ * Turn on the program terminate flag.
+ *
+ * This will result in compton gracefully terminating after next paint.
+ */
+static void
+terminate_enable(int __attribute__((unused)) signum) {
+  session_t * const ps = ps_g;
+
+  ps->terminate = true;
+}
+
+/**
  * The function that everybody knows.
  */
 int
@@ -8527,13 +8509,19 @@ main(int argc, char **argv) {
   // correctly
   setlocale(LC_ALL, "");
 
-  // Initialize signal handlers
-  sigfillset(&block_mask);
-  usr_action.sa_handler = handle_siguser;
-  usr_action.sa_mask = block_mask;
-  usr_action.sa_flags = 0;
-  sigaction(SIGUSR1, &usr_action, NULL);
-  sigaction(SIGTERM, &usr_action, NULL);
+  // Set up SIGUSR1 signal handler to reset program and SIGTERM to graciously terminate it
+  {
+    sigset_t block_mask;
+    sigemptyset(&block_mask);
+    struct sigaction action= {
+      .sa_handler = reset_enable,
+      .sa_mask = block_mask,
+      .sa_flags = 0
+    };
+    sigaction(SIGUSR1, &action, NULL);
+    action.sa_handler = terminate_enable;
+    sigaction(SIGTERM, &action, NULL);
+  }
 
   // Main loop
   session_t *ps_old = ps_g;
@@ -8543,10 +8531,6 @@ main(int argc, char **argv) {
       printf_errf("(): Failed to create new session.");
       return 1;
     }
-
-    /* Under no circumstances should these two lines EVER be moved earlier in main() than this point */
-    atexit(delete_pid_file);
-    write_pid_file(getpid());
 
     session_run(ps_g);
     ps_old = ps_g;
