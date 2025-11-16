@@ -933,6 +933,8 @@ typedef struct _session_t {
   XFixed *blur_kerns_cache[MAX_BLUR_PASS];
   /// Reset program after next paint.
   bool reset;
+  /// Gracefully terminate the program.
+  bool terminate;
 
   // === Expose event related ===
   /// Pointer to an array of <code>XRectangle</code>-s of exposed region.
