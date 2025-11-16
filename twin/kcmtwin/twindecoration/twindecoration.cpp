@@ -455,7 +455,7 @@ void KWinDecorationModule::createThirdPartyWMList()
 	TQString wmExecutable;
 	TQStringList wmNames;
 	TQStringList wmAvailableNames;
-	wmNames << TQString("kwin ").append(i18n("(KDE4's window manager)")) << TQString("compiz ").append(i18n("(Compiz Effects Manager)")) << TQString("icewm ").append(i18n("(Simple, fast window manager)"));
+	wmNames << TQString("kwin ").append(i18n("(KDE's window manager)")) << TQString("compiz ").append(i18n("(Compiz Effects Manager)")) << TQString("icewm ").append(i18n("(Simple, fast window manager)"));
 	wmNames.sort();
 	wmNames.prepend(TQString("twin ").append(i18n("(Default TDE window manager)")));
 	for (it = wmNames.begin(); it != wmNames.end(); ++it)
