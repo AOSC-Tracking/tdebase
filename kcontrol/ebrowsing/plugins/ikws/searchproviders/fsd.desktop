@@ -4,3 +4,4 @@ Name=FSF/UNESCO Free Software Directory
 X-TDE-ServiceTypes=SearchProvider
 Keys=fsd
 Query=http://directory.fsf.org/search/?query=\\{@}
+Category=Software

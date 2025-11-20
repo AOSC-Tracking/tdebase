@@ -1,6 +1,0 @@
-[Desktop Entry]
-Keys=ctan_cat
-Name=CTAN Catalog
-Query=http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}
-X-TDE-ServiceTypes=SearchProvider
-Type=Service

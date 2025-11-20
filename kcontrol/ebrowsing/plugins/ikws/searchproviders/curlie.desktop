@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Curlie
+X-TDE-ServiceTypes=SearchProvider
+Keys=dmoz,curlie
+Query=https://curlie.org/search?q=\\{@}
+Charset=utf8
+Category=Web

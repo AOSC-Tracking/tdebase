@@ -2,6 +2,7 @@
 Hidden=false
 Keys=amg
 Name=All Music Guide
-Query=http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}
+Query=https://www.allmusic.com/search/all/\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Music

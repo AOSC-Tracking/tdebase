@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Freshmeat
-X-TDE-ServiceTypes=SearchProvider
-Keys=fm,freshmeat
-Query=http://freshmeat.net/search/?q=\\{@}

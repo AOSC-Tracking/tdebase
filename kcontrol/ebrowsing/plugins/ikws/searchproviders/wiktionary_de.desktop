@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wiktionary (German) - The Free Dictionary
+X-TDE-ServiceTypes=SearchProvider
+Keys=wkde,wiktde
+Query=http://de.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Dictionaries

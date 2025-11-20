@@ -1,8 +1,0 @@
-[Desktop Entry]
-Charset=
-Hidden=false
-Keys=kde
-Name=KDE API Documentation
-Query=http://api.kde.org/classmapper.php?class=\\{@}
-X-TDE-ServiceTypes=SearchProvider
-Type=Service

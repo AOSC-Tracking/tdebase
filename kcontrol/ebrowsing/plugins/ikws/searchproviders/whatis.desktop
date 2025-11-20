@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Whatis Query
-X-TDE-ServiceTypes=SearchProvider
-Keys=wi,whatis
-Query=http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}

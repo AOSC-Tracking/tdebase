@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Github
+X-TDE-ServiceTypes=SearchProvider
+Keys=gh,github
+Query=https://github.com/search?q=\\{@}&type=repositories
+Category=Software

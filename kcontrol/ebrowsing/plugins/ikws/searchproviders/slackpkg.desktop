@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=slackpkg
+Name=Slackware Package Search
+Query=https://packages.slackware.com/?search=\\{@}
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Software

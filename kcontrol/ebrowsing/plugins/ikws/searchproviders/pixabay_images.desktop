@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Pixabay Images
+X-TDE-ServiceTypes=SearchProvider
+Keys=pxb,pixabay
+Query=https://pixabay.com/images/search/\\{@}/
+Charset=utf8
+Category=Images

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Pixabay Videos
+X-TDE-ServiceTypes=SearchProvider
+Keys=pxbv,pixabayvideos
+Query=https://pixabay.com/videos/search/\\{@}/
+Charset=utf8
+Category=Videos

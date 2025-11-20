@@ -4,3 +4,4 @@ Name=Google Image Search
 X-TDE-ServiceTypes=SearchProvider
 Keys=ggi,images
 Query=http://images.google.com/images?q=\\{@}
+Category=Images

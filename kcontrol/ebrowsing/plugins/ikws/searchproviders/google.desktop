@@ -5,3 +5,4 @@ X-TDE-ServiceTypes=SearchProvider
 Keys=gg,google
 Query=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Charset=utf8
+Category=Web

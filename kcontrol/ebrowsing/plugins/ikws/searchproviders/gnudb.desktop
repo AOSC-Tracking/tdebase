@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=GnuDB
+X-TDE-ServiceTypes=SearchProvider
+Keys=gnudb
+Query=https://gnudb.org/search/\\{@}
+Charset=utf8
+Category=Music

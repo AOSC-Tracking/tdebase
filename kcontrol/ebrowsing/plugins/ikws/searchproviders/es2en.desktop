@@ -1,8 +1,7 @@
 [Desktop Entry]
-Charset=
-Hidden=false
 Keys=es2en
 Name=WordReference.com Translation: Spanish to English
 Query=http://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Dictionaries

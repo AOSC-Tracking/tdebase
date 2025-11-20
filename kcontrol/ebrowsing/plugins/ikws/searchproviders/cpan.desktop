@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=cpan
 Name=CPAN - Comprehensive Perl Archive Network
-Query=http://search.cpan.org/search?mode=\\{mode,2,"dist"}&query=\\{query,q,1}
+Query=https://metacpan.org/search?size=20&q=\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Development

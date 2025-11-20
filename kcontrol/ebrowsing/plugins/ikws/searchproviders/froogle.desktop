@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Froogle
-X-TDE-ServiceTypes=SearchProvider
-Keys=froogle
-Query=http://froogle.google.com/froogle?q=\\{@}

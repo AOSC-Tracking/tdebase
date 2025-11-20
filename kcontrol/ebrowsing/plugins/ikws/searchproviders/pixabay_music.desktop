@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Pixabay Music
+X-TDE-ServiceTypes=SearchProvider
+Keys=pxbm,pixabaymusic
+Query=https://pixabay.com/music/search/\\{@}/
+Charset=utf8
+Category=Music

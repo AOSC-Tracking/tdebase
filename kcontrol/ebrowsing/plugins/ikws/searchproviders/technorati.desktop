@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Technorati
-X-TDE-ServiceTypes=SearchProvider
-Keys=tr,technorati
-Query=http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}
-Charset=utf8

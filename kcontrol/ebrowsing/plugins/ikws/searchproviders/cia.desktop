@@ -1,7 +1,0 @@
-[Desktop Entry]
-Hidden=false
-Keys=cia
-Name=CIA World Factbook
-Query=http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww.cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky
-X-TDE-ServiceTypes=SearchProvider
-Type=Service

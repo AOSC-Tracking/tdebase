@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=DuckDuckGo
+X-TDE-ServiceTypes=SearchProvider
+Keys=dd,ddg,duckduckgo
+Query=https://duckduckgo.com/?q=\\{@}
+Charset=utf8
+Category=Web

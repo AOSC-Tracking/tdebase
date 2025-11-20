@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=KDE Store
+X-TDE-ServiceTypes=SearchProvider
+Keys=kdestore
+Query=https://store.kde.org/find?search=\\{@}
+Category=Software

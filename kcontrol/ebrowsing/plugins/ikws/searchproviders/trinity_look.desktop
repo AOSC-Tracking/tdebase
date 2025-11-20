@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Trinity Look
+X-TDE-ServiceTypes=SearchProvider
+Keys=trinitylook,tdelook
+Query=https://www.trinity-look.org/find?search=\\{@}
+Category=Software

@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=AltaVista
-X-TDE-ServiceTypes=SearchProvider
-Keys=av,altavista
-Query=http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}

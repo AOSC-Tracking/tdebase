@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Kagi Assistant (paid)
+X-TDE-ServiceTypes=SearchProvider
+Keys=kga,kagiassistant
+Query=https://kagi.com/assistant/?q=\\{@}
+Charset=utf8
+Category=Web

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Pexels
+X-TDE-ServiceTypes=SearchProvider
+Keys=px,pexels
+Query=https://www.pexels.com/search/\\{@}/
+Charset=utf8
+Category=Images

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=dev1pkg,devuanpkg
+Name=Devuan Package Search
+Query=https://pkginfo.devuan.org/cgi-bin/policy-query.html?c=package&q=\\{@}
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Software

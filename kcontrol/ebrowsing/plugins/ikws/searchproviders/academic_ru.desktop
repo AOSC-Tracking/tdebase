@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Academic Russian Dictionaries
+X-TDE-ServiceTypes=SearchProvider
+Keys=acru,academicru
+Query=https://dic.academic.ru/searchall.php?SWord=\\{@}&from=ru&to=xx&did=&stype=
+Category=Dictionaries

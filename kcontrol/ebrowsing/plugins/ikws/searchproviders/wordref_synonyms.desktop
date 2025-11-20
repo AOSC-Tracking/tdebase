@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=wrsyn,wordrefsynonyms
+Name=WordReference.com English Synonyms
+Query=https://www.wordreference.com/synonyms/\\{@}
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Dictionaries

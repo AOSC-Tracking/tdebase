@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=KataTudo
-X-TDE-ServiceTypes=SearchProvider
-Keys=kt,katatudo
-Query=http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar
-Charset=utf8

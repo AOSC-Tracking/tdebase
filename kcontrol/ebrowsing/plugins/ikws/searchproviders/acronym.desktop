@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Acronym Database
-X-TDE-ServiceTypes=SearchProvider
-Keys=ad,acro,acronym
-Query=http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}

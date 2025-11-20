@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=aur
+Name=Arch User Repository (AUR) Package Search
+Query=https://aur.archlinux.org/packages?K=\\{@}
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Software

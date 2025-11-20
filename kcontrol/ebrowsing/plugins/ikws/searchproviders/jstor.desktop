@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=JSTOR
+X-TDE-ServiceTypes=SearchProvider
+Keys=jstor
+Query=https://www.jstor.org/action/doBasicSearch?Query=\\{@}&so=rel
+Charset=utf8
+Category=Academic

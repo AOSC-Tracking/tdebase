@@ -5,3 +5,4 @@ X-TDE-ServiceTypes=SearchProvider
 Keys=ggmovie
 Query=http://www.google.com/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8
 Charset=utf8
+Category=Movies

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wiktionary (Chinese) - The Free Dictionary
+X-TDE-ServiceTypes=SearchProvider
+Keys=wtzh,wiktzh
+Query=http://zh.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Dictionaries

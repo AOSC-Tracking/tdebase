@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=OpenStreetMap
+X-TDE-ServiceTypes=SearchProvider
+Keys=osm,openstreetmap
+Query=https://www.openstreetmap.org/search?query=\\{@}
+Category=Maps

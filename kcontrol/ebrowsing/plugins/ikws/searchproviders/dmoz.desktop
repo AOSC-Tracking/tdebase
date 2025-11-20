@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Open Directory
-X-TDE-ServiceTypes=SearchProvider
-Keys=dmoz,odp
-Query=http://search.dmoz.org/cgi-bin/search?search=\\{@}

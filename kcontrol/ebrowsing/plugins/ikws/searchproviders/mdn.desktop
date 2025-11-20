@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=MDN Web Docs
+X-TDE-ServiceTypes=SearchProvider
+Keys=mdn
+Query=https://developer.mozilla.org/search?q=\\{@}
+Category=Development

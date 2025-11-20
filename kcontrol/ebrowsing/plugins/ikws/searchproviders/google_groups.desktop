@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Google Groups
-X-TDE-ServiceTypes=SearchProvider
-Keys=ggg,groups,dj,deja
-Query=http://groups.google.com/groups?oi=djq&as_q=\\{@}

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=StartPage
+X-TDE-ServiceTypes=SearchProvider
+Keys=sp,startpage
+Query=https://www.startpage.com/sp/search?query=\\{@}&cat=web
+Charset=utf8
+Category=Web

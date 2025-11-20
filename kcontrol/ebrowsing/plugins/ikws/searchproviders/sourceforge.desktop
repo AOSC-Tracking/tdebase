@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=sf,sourceforge
 Name=SourceForge
-Query=http://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query=https://sourceforge.net/directory/?q=\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Software

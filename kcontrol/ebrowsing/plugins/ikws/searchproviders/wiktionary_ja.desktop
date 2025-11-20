@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wiktionary (Japanese) - The Free Dictionary
+X-TDE-ServiceTypes=SearchProvider
+Keys=wtja,wiktja
+Query=http://ja.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Dictionaries

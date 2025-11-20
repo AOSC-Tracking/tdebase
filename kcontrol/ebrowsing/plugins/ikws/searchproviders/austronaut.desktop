@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=AustroNaut
-X-TDE-ServiceTypes=SearchProvider
-Keys=austro,austronaut
-Query=http://austronaut.at/page.php?begriff=\\{@}&wo=at

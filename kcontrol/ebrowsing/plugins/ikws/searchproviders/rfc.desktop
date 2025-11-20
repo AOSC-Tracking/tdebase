@@ -4,3 +4,4 @@ Name=IETF Requests for Comments
 Query=http://www.ietf.org/rfc/rfc\\{@}.txt
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Development

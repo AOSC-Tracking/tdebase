@@ -1,91 +1,129 @@
 # List generated with ls -1 *.desktop | sed -e 's/^/\t\t/;s/$/ \\/'
 services_DATA = \
-		acronym.desktop \
-		alexa.desktop \
-		alexa_url.desktop \
-		alltheweb.desktop \
-		altavista.desktop \
+		academic_en.desktop \
+		academic_ru.desktop \
 		amg.desktop \
-		appsy.desktop \
-		austronaut.desktop \
-		backports.desktop \
+		archpkg.desktop \
+		archwiki.desktop \
+		arxiv.desktop \
+		ask.desktop \
+		aur.desktop \
+		baidu.desktop \
+		bing.desktop \
+		brave.desktop \
 		bugft.desktop \
 		bugno.desktop \
-		call.desktop \
-		cia.desktop \
+		chatgpt.desktop \
 		citeseer.desktop \
+		codeberg.desktop \
 		cpan.desktop \
-		ctan_cat.desktop \
+		cppreference.desktop \
 		ctan.desktop \
+		ctan_file.desktop \
+		curlie.desktop \
 		dbug.desktop \
 		de2en.desktop \
 		de2fr.desktop \
 		deb.desktop \
-		dmoz.desktop \
+		devuanpkg.desktop \
 		docbook.desktop \
 		doi.desktop \
+		duckduckgo.desktop \
+		duckduckgo_html.desktop \
+		duckduckgo_lite.desktop \
+		ecosia.desktop \
 		en2de.desktop \
 		en2es.desktop \
 		en2fr.desktop \
 		en2it.desktop \
 		es2en.desktop \
 		excite.desktop \
-		feedster.desktop \
 		foldoc.desktop \
 		fr2de.desktop \
 		fr2en.desktop \
-		freedb.desktop \
-		freshmeat.desktop \
-		froogle.desktop \
 		fsd.desktop \
+		gentoopkg.desktop \
+		gentoowiki.desktop \
+		github.desktop \
+		gnudb.desktop \
 		google_advanced.desktop \
 		google.desktop \
-		google_groups.desktop \
 		google_images.desktop \
 		google_lucky.desktop \
+		google_maps.desktop \
 		google_movie.desktop \
 		google_news.desktop \
-		gracenote.desktop \
+		google_scholar.desktop \
 		grec.desktop \
-		hotbot.desktop \
 		hyperdictionary.desktop \
-		hyperdictionary_thesaurus.desktop \
 		imdb.desktop \
 		it2en.desktop \
-		jeeves.desktop \
-		kde.desktop \
-		kde_websvn.desktop \
-		katatudo.desktop \
+		jstor.desktop \
+		kde_store.desktop \
 		leo.desktop \
+		linuxquestions.desktop \
 		lycos.desktop \
-		mamma.desktop \
+		mdn.desktop \
 		metacrawler.desktop \
 		msdn.desktop \
-		netcraft.desktop \
-		nl-telephone.desktop \
-		nl-teletekst.desktop \
+		mw.desktop \
+		mw_thesaurus.desktop \
+		openstreetmap.desktop \
+		pexels.desktop \
 		pgpkeys.desktop \
 		php.desktop \
-		python.desktop \
-		qt.desktop \
+		pixabay_images.desktop \
+		pixabay_music.desktop \
+		pixabay_sfx.desktop \
+		pixabay_videos.desktop \
+		pkgs-org.desktop \
+		pling.desktop \
+		python2.desktop \
+		python3.desktop \
 		qt3.desktop \
+		qt4.desktop \
+		qt5.desktop \
+		qt6.desktop \
+		qwant.desktop \
 		rae.desktop \
 		rfc.desktop \
 		rpmfind.desktop \
-		ruby_application_archive.desktop \
-		seek.desktop \
+		slackpkg.desktop \
 		sourceforge.desktop \
-		technorati.desktop \
-		technoratitags.desktop \
-		thesaurus.desktop \
-		tvtome.desktop \
-		uspto.desktop \
-		vivisimo.desktop \
-		voila.desktop \
-		webster.desktop \
-		whatis.desktop \
-		wikipedia.desktop \
-		wiktionary.desktop \
-		wordref.desktop
+		srht.desktop \
+		startpage.desktop \
+		tdeapidocs.desktop \
+		tdegw.desktop \
+		tdewiki.desktop \
+		tmdb.desktop \
+		tqt.desktop \
+		trinity_look.desktop \
+		urbandic.desktop \
+		wiby.desktop \
+		wikimedia_commons.desktop \
+		wikipedia_de.desktop \
+		wikipedia_el.desktop \
+		wikipedia_en.desktop \
+		wikipedia_es.desktop \
+		wikipedia_fr.desktop \
+		wikipedia_it.desktop \
+		wikipedia_ja.desktop \
+		wikipedia_pl.desktop \
+		wikipedia_ru.desktop \
+		wikipedia_zh.desktop \
+		wiktionary_de.desktop \
+		wiktionary_el.desktop \
+		wiktionary_en.desktop \
+		wiktionary_es.desktop \
+		wiktionary_fr.desktop \
+		wiktionary_it.desktop \
+		wiktionary_ja.desktop \
+		wiktionary_pl.desktop \
+		wiktionary_ru.desktop \
+		wiktionary_zh.desktop \
+		wordref.desktop \
+		wordref_synonyms.desktop \
+		yahoo.desktop \
+		yandex.desktop
 
 servicesdir = $(kde_servicesdir)/searchproviders

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=The Movie Database (TMDB)
+X-TDE-ServiceTypes=SearchProvider
+Keys=tmdb
+Query=https://www.themoviedb.org/search?query=\\{@}
+Category=Movies

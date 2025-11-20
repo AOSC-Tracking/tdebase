@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=KDE App Search
-X-TDE-ServiceTypes=SearchProvider
-Keys=apps,appsy
-Query=http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

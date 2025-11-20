@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wiktionary (French) - The Free Dictionary
+X-TDE-ServiceTypes=SearchProvider
+Keys=wtfr,wiktfr
+Query=http://fr.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Dictionaries

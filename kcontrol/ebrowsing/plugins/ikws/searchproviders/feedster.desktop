@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Feedster
-X-TDE-ServiceTypes=SearchProvider
-Keys=blog,rss,feedster
-Query=http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8
-Charset=utf8

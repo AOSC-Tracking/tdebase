@@ -1,8 +1,7 @@
 [Desktop Entry]
-Charset=
-Hidden=false
-Keys=wordref
+Keys=wr,wordref
 Name=WordReference.com English Dictionary
-Query=http://www.wordreference.com/english/definition.asp?en=\\{@}
+Query=https://www.wordreference.com/definition/\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Dictionaries

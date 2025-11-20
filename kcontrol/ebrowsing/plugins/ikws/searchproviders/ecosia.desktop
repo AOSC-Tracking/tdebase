@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Ecosia
+X-TDE-ServiceTypes=SearchProvider
+Keys=ec,ecosia
+Query=https://www.ecosia.org/search?q=\\{@}
+Charset=utf8
+Category=Web

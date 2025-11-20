@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=archpkg
+Name=Arch Package Search
+Query=https://archlinux.org/packages/?q=\\{@}
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Software

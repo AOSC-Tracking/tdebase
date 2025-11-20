@@ -1,8 +1,7 @@
 [Desktop Entry]
-Charset=
-Hidden=false
 Keys=rae
 Name=Dictionary of the Spanish Academy (RAE)
-Query=http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}&FORMATO=ampliado
+Query=https://dle.rae.es/\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Dictionaries

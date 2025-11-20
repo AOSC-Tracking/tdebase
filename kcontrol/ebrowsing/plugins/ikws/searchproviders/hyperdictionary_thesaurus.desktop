@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=HyperDictionary.com Thesaurus
-X-TDE-ServiceTypes=SearchProvider
-Keys=hdt,hd-ths,hd-thesaurus
-Query=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

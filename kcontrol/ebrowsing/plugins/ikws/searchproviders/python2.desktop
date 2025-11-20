@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=py2,python2
+Name=Python 2 Reference Manual
+Query=https://docs.python.org/2/search.html?q=\\{@}
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Development

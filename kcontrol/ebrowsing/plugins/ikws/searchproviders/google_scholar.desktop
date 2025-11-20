@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Google Scholar
+X-TDE-ServiceTypes=SearchProvider
+Keys=ggs,googlescholar
+Query=http://scholar.google.com/scholar?q=\\{@}&ie=UTF-8&oe=UTF-8
+Charset=utf8
+Category=Academic

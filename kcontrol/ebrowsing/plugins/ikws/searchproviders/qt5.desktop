@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=qt5
+Name=Qt 5.15 LTS Online Documentation
+Query=https://doc.qt.io/archives/qt-5.15/\\{@}.html
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Development

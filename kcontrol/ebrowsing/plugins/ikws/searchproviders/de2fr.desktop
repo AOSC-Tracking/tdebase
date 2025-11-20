@@ -4,3 +4,4 @@ Name=LEO - Translate Between German and French
 X-TDE-ServiceTypes=SearchProvider
 Keys=de2fr
 Query=http://dict.leo.org/?lp=frde&search=\\{@}
+Category=Dictionaries

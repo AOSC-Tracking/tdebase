@@ -1,8 +1,0 @@
-[Desktop Entry]
-Charset=
-Hidden=false
-Keys=qrz,call
-Name=QRZ.com Callsign Database
-Query=http://www.qrz.com/database?callsign=\\{@}
-X-TDE-ServiceTypes=SearchProvider
-Type=Service

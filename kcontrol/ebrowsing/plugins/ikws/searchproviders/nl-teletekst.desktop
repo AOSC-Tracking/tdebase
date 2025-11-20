@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Teletekst Search Provider
-Type=Service
-X-TDE-ServiceTypes=SearchProvider
-Keys=tt,teletekst
-Query=http://teletekst.nos.nl/gif/\\{@}-01.html

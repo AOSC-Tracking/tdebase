@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Academic English Dictionaries
+X-TDE-ServiceTypes=SearchProvider
+Keys=acen,academicen
+Query=https://en-academic.com/searchall.php?SWord=\\{@}&from=en&to=xx&did=&stype=
+Category=Dictionaries

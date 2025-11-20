@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Technorati Tags
-X-TDE-ServiceTypes=SearchProvider
-Keys=tags,tag,technoratitags
-Query=http://technorati.com/tag/\\{@}?sourceid=kde-search
-Charset=utf8

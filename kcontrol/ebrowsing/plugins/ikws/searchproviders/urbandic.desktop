@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Urban Dictionary
+X-TDE-ServiceTypes=SearchProvider
+Keys=ud,urbandic
+Query=https://www.urbandictionary.com/define.php?term=\\{@}
+Charset=utf8
+Category=Dictionaries
