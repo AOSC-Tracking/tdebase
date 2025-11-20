@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=TDE API docs
+X-TDE-ServiceTypes=SearchProvider
+Keys=api,tdeapi
+Query=https://duckduckgo.com/?sites=https%3A%2F%2Fwww.trinitydesktop.org%2Fdocs%2Ftrinity&q=\\{@}&ia=web
+Category=Development

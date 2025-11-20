@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wiktionary (Russian) - The Free Dictionary
+X-TDE-ServiceTypes=SearchProvider
+Keys=wtru,wiktru
+Query=http://ru.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Dictionaries

@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=bug,bugno,bugnr
-Name=TDE Bug Database Bug Number Search
+Name=Old TDE Bugzilla Bug Number Search
 Query=http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Development

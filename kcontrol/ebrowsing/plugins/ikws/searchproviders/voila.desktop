@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Voila
-X-TDE-ServiceTypes=SearchProvider
-Keys=voila
-Query=http://search.ke.voila.fr/S/voila?lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}

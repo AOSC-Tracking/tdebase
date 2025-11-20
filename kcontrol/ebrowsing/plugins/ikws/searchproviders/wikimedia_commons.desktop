@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wikimedia Commons
+X-TDE-ServiceTypes=SearchProvider
+Keys=wikicommons,wmc
+Query=https://commons.wikimedia.org/w/index.php?search=\\{@}&title=Special%3AMediaSearch&type=image
+Charset=utf8
+Category=Images

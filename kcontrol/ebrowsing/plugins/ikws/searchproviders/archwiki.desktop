@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Arch Wiki
+X-TDE-ServiceTypes=SearchProvider
+Keys=arch,archwiki
+Query=https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=\\{@}
+Category=Software

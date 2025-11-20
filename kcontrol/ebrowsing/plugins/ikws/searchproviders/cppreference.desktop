@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=CPPReference
+X-TDE-ServiceTypes=SearchProvider
+Keys=cpp,cppref
+Query=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}&ia=web
+Category=Development

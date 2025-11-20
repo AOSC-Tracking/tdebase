@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=tqt
+Name=TQt Online Documentation
+Query=https://trinitydesktop.org/docs/qt3/\\{@}.html
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Development

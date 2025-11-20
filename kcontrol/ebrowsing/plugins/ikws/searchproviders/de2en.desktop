@@ -6,3 +6,4 @@ Name=dict.cc Translation: German to English
 Query=http://www.dict.cc/?s=\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Dictionaries

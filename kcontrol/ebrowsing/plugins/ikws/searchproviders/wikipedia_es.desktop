@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wikipedia (Spanish) - The Free Encyclopedia
+X-TDE-ServiceTypes=SearchProvider
+Keys=wes,wpes
+Query=http://es.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Web

@@ -5,3 +5,4 @@ X-TDE-ServiceTypes=SearchProvider
 Keys=ggn,googlenews
 Query=http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Charset=utf8
+Category=News

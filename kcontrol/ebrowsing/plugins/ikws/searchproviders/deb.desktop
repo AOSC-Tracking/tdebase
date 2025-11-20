@@ -1,6 +1,7 @@
 [Desktop Entry]
-Keys=deb
+Keys=deb,debianpkg
 Name=Debian Package Search
 Query=http://packages.debian.org/\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Software

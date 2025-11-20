@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Codeberg
+X-TDE-ServiceTypes=SearchProvider
+Keys=cb,codeberg
+Query=https://codeberg.org/explore/repos?q=\\{@}&only_show_relevant=0
+Category=Software

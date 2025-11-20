@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Yandex
+X-TDE-ServiceTypes=SearchProvider
+Keys=ya,yandex
+Query=https://yandex.com/search/?text=\\{@}
+Charset=utf8
+Category=Web

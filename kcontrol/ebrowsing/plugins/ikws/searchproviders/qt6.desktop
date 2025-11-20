@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=qt,qt5
+Name=Qt 6 Online Documentation
+Query=https://doc.qt.io/qt-6/\\{@}.html
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Development

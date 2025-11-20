@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Pling
+X-TDE-ServiceTypes=SearchProvider
+Keys=pling
+Query=https://www.pling.com/find?search=\\{@}
+Category=Software

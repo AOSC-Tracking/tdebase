@@ -4,3 +4,4 @@ Name=Debian BTS Bug Search
 Query=http://bugs.debian.org/\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Development

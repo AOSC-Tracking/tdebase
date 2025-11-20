@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wikipedia (Chinese) - The Free Encyclopedia
+X-TDE-ServiceTypes=SearchProvider
+Keys=wzh,wpzh
+Query=http://zh.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Web

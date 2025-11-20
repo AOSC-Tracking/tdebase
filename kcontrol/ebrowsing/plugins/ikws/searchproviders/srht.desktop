@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Sourcehut
+X-TDE-ServiceTypes=SearchProvider
+Keys=srht,sourcehut
+Query=https://sr.ht/projects?search=\\{@}&sort=recently-updated
+Category=Software

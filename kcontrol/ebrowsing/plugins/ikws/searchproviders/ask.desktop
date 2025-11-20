@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Ask.com
+X-TDE-ServiceTypes=SearchProvider
+Keys=ask,jeeves
+Query=https://www.ask.com/web?q=\\{@}
+Category=Web

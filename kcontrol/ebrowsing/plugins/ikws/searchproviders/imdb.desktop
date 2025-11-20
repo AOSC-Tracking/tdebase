@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
-Name=Internet Movie Database
+Name=Internet Movie Database (IMDb)
 X-TDE-ServiceTypes=SearchProvider
 Keys=imdb
-Query=http://imdb.com/Find?\\{@}
+Query=https://www.imdb.com/find/?q=\\{@}
+Category=Movies

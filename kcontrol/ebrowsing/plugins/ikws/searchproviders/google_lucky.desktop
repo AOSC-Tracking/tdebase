@@ -5,3 +5,4 @@ X-TDE-ServiceTypes=SearchProvider
 Keys=ggl,gglucky
 Query=http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8
 Charset=utf8
+Category=Web

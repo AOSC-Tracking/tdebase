@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Ruby Application Archive
-X-TDE-ServiceTypes=SearchProvider
-Keys=raa
-Query=http://raa.ruby-lang.org/search.rhtml?search=\\{@}

@@ -4,3 +4,4 @@ Name=RPM-Find
 X-TDE-ServiceTypes=SearchProvider
 Keys=rf,rpmfind
 Query=http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Category=Software

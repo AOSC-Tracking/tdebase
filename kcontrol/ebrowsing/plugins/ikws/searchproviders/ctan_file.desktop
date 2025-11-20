@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=ctan
+Name=CTAN File Name Search - Comprehensive TeX Archive Network
+Query=https://ctan.org/search?phrase=\\{@}&ext=true&_PKG=&_AUTHORS=&_TOPICS=&_FILES=&FILES=on&_PORTAL=&max=16
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Development

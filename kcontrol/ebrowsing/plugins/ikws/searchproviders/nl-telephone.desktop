@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Telephonebook Search Provider
-Type=Service
-X-TDE-ServiceTypes=SearchProvider
-Keys=telnl,telefoon
-Query=http://www.detelefoongids.nl/tginl.dll?action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2=\\{1}&name=&initials=&city=\\{2}&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity=\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid=

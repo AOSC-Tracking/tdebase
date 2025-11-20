@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wikipedia (Polish) - The Free Encyclopedia
+X-TDE-ServiceTypes=SearchProvider
+Keys=wpl,wppl
+Query=http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Web

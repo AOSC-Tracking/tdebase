@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Merriam-Webster Dictionary
+X-TDE-ServiceTypes=SearchProvider
+Keys=mw,merriamwebster
+Query=https://www.merriam-webster.com/dictionary/\\{@}
+Category=Dictionaries

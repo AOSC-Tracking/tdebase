@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Pixabay Sound Effects
+X-TDE-ServiceTypes=SearchProvider
+Keys=pxbsfx,pixabaysfx
+Query=https://pixabay.com/sound-effects/search/\\{@}/
+Charset=utf8
+Category=Music

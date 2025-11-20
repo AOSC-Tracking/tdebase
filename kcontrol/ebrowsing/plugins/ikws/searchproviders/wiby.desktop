@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wiby
+X-TDE-ServiceTypes=SearchProvider
+Keys=wiby
+Query=https://wiby.me/?q=\\{@}
+Charset=utf8
+Category=Web

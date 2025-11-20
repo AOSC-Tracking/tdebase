@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=php
 Name=PHP Search
-Query=http://www.php.net/search.php?show=\\{mode,"manual"}&pattern=\\{@}
+Query=https://www.php.net/search.php?q=\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Development

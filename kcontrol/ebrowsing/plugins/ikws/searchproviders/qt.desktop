@@ -1,8 +1,0 @@
-[Desktop Entry]
-Charset=
-Hidden=false
-Keys=qt
-Name=Latest Qt Online Documentation
-Query=http://doc.trolltech.com/latest/\\{@}.html
-X-TDE-ServiceTypes=SearchProvider
-Type=Service

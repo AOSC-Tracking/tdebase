@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=ChatGPT
+X-TDE-ServiceTypes=SearchProvider
+Keys=chatgpt,cgpt
+Query=https://chat.openai.com/?prompt=\\{@}
+Category=Web

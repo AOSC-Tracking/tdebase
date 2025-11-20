@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=arxiv
+Name=ArXiv
+Query=https://arxiv.org/search/?query=\\{terms,@}&searchtype=\\{type,"all"}
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Academic

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Brave
+X-TDE-ServiceTypes=SearchProvider
+Keys=brave
+Query=https://search.brave.com/search?q=\\{@}&source=web
+Charset=utf8
+Category=Web

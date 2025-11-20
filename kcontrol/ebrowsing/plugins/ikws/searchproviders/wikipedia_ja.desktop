@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wikipedia (Japanese) - The Free Encyclopedia
+X-TDE-ServiceTypes=SearchProvider
+Keys=wja,wpja
+Query=http://ja.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Web

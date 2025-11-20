@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wiktionary (Greek) - The Free Dictionary
+X-TDE-ServiceTypes=SearchProvider
+Keys=wtel,wiktpel
+Query=http://el.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Dictionaries

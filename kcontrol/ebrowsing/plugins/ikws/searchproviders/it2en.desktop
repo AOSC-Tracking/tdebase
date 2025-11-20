@@ -1,8 +1,7 @@
 [Desktop Entry]
-Charset=
-Hidden=false
 Keys=it2en
 Name=WordReference.com Translation: Italian to English
 Query=http://www.wordreference.com/it/en/translation.asp?iten=\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Dictionaries

@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Alexa
-X-TDE-ServiceTypes=SearchProvider
-Keys=al,alexa
-Query=http://info.alexa.com/search?q=\\{@}

@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Netcraft
-X-TDE-ServiceTypes=SearchProvider
-Keys=nc,netcraft
-Query=http://uptime.netcraft.com/up/graph?site=\\{@}

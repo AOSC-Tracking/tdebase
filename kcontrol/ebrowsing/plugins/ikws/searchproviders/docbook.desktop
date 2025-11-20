@@ -1,8 +1,7 @@
 [Desktop Entry]
-Charset=
-Hidden=false
-Keys=db,docbook
+Keys=docbook
 Name=DocBook - The Definitive Guide
-Query=http://www.docbook.org/tdg/en/html/\\{1}.html
+Query=http://tdg.docbook.org/tdg/4.5/\\{1}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Development

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wikipedia (French) - The Free Encyclopedia
+X-TDE-ServiceTypes=SearchProvider
+Keys=wfr,wpfr
+Query=http://fr.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Web

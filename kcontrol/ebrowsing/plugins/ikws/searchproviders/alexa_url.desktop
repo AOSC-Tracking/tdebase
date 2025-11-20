@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=Alexa URL
-X-TDE-ServiceTypes=SearchProvider
-Keys=alu,url
-Query=http://info.alexa.com/data/details?url=\\{@}

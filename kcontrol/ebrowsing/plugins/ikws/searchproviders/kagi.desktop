@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Kagi (paid)
+X-TDE-ServiceTypes=SearchProvider
+Keys=kg,kagi
+Query=https://kagi.com/search?q=\\{@}
+Charset=utf8
+Category=Web

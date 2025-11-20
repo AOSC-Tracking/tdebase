@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Google Maps
+X-TDE-ServiceTypes=SearchProvider
+Keys=ggmaps,googlemaps
+Query=https://www.google.com/maps/search/\\{@}
+Charset=utf8
+Category=Maps

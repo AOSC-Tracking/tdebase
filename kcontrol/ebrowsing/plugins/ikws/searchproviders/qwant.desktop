@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Qwant
+X-TDE-ServiceTypes=SearchProvider
+Keys=qw,qwant
+Query=https://www.qwant.com/?q=\\{@}&t=web
+Charset=utf8
+Category=Web

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Trinity Gitea Workspace
+X-TDE-ServiceTypes=SearchProvider
+Keys=tgw,tdegw
+Query=https://mirror.git.trinitydesktop.org/gitea/explore/repos?q=\\{@}
+Category=Development

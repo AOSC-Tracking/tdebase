@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=FreeDB
-X-TDE-ServiceTypes=SearchProvider
-Keys=fdb,freedb
-Query=http://www.freedb.org/freedb_search.php?words=\\{@}
-Charset=utf8

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=Gentoo Wiki
+X-TDE-ServiceTypes=SearchProvider
+Keys=gentoo,gentoowiki
+Query=https://wiki.gentoo.org/index.php?title=Special%3ASearch&search=\\{@}
+Category=Software

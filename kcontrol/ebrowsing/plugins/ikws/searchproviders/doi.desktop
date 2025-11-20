@@ -1,8 +1,7 @@
 [Desktop Entry]
-Charset=
-Hidden=false
 Keys=doi
 Name=Digital Object Identifier
 Query=http://dx.doi.org/\\{@}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Academic

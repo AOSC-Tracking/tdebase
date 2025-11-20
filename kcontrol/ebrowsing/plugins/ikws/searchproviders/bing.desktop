@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Bing
+X-TDE-ServiceTypes=SearchProvider
+Keys=bing
+Query=https://www.bing.com/search?q=\\{@}
+Charset=utf8
+Category=Web

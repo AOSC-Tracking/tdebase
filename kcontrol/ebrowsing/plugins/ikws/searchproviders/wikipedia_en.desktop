@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Wikipedia (English) - The Free Encyclopedia
+X-TDE-ServiceTypes=SearchProvider
+Keys=w,wp,wen,wpen
+Query=http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Charset=utf8
+Category=Web

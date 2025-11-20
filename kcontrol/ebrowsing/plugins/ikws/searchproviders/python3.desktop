@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=py,py3,python,python3
+Name=Python 3 Reference Manual
+Query=https://docs.python.org/3/search.html?q=\\{@}
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Development

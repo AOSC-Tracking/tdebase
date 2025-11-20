@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=bugft
-Name=KDE Bug Database Fulltext Search
+Name=Old TDE Bugzilla Fulltext Search
 Query=http://bugs.trinitydesktop.org/simple_search.cgi?id=\\{1}+\\{2}+\\{3}+\\{4}+\\{5}+\\{6}+\\{7}+\\{8}+\\{9}
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Development

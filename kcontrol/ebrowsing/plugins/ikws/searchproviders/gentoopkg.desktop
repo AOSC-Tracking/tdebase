@@ -1,0 +1,7 @@
+[Desktop Entry]
+Keys=gentoopkg
+Name=Gentoo Package Search
+Query=https://packages.gentoo.org/packages/search?q=\\{@}
+X-TDE-ServiceTypes=SearchProvider
+Type=Service
+Category=Software

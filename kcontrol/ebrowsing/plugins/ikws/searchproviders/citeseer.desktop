@@ -1,8 +1,7 @@
 [Desktop Entry]
-Charset=
-Hidden=false
-Keys=cite,cs
+Keys=citeseer,cs
 Name=CiteSeer: Scientific Literature Digital Library
-Query=http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1
+Query=https://citeseer.ist.psu.edu/search_result?query=\\{@}&pdf=true
 X-TDE-ServiceTypes=SearchProvider
 Type=Service
+Category=Academic

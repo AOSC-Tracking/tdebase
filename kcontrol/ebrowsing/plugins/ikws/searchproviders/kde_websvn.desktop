@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Service
-Name=KDE WebSVN
-X-TDE-ServiceTypes=SearchProvider
-Keys=websvn,tdesvn,ksvn,kvs
-Query=http://websvn.kde.org/\\{@}

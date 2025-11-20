@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=DuckDuckGo Lite
+X-TDE-ServiceTypes=SearchProvider
+Keys=ddl,ddgl,duckduckgolite
+Query=https://lite.duckduckgo.com/lite/?q=\\{@}
+Charset=utf8
+Category=Web

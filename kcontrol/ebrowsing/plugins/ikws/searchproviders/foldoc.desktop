@@ -2,5 +2,6 @@
 Type=Service
 Name=Free On-Line Dictionary of Computing
 X-TDE-ServiceTypes=SearchProvider
-Keys=fd,foldoc
-Query=http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}
+Keys=foldoc
+Query=https://foldoc.org/\\{@}
+Category=Dictionaries

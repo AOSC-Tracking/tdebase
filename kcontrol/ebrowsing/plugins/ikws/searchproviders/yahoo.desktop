@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Yahoo
+X-TDE-ServiceTypes=SearchProvider
+Keys=yh,yahoo
+Query=https://search.yahoo.com/search?p=\\{@}&ei=UTF-8
+Charset=utf8
+Category=Web

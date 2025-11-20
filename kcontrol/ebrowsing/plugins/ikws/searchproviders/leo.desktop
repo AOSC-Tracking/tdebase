@@ -4,3 +4,4 @@ Name=LEO-Translate
 X-TDE-ServiceTypes=SearchProvider
 Keys=leo
 Query=http://dict.leo.org/?search=\\{@}
+Category=Dictionaries

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=TDE Wiki
+X-TDE-ServiceTypes=SearchProvider
+Keys=tdewiki
+Query=https://wiki.trinitydesktop.org/index.php?title=Special%3ASearch&search=\\{@}
+Category=Software

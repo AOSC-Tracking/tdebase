@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+Name=Baidu
+X-TDE-ServiceTypes=SearchProvider
+Keys=bd,baidu
+Query=https://www.baidu.com/s?wd=\\{@}
+Charset=utf8
+Category=Web

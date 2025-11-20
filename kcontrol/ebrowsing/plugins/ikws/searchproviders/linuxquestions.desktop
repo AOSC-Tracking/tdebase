@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+Name=LinuxQuestions.org
+X-TDE-ServiceTypes=SearchProvider
+Keys=lq
+Query=https://www.linuxquestions.org/questions/search.php?query=\\{@}&do=process
+Category=Software

@@ -3,4 +3,5 @@ Type=Service
 Name=Lycos
 X-TDE-ServiceTypes=SearchProvider
 Keys=lycos,ly
-Query=http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}
+Query=https://search.lycos.com/web/?q=\\{@}
+Category=Web
