@@ -21,33 +21,48 @@
 #define __SEARCHPROVIDER_H___
 
 #include <kservice.h>
+#include <tqmap.h>
 
-class SearchProvider 
+typedef TQMap<TQString, TQString> SearchCategoryMap;
+
+class SearchProvider
 {
 public:
     SearchProvider() : m_dirty(false) {};
     SearchProvider(const KService::Ptr service);
 
-    const TQString &desktopEntryName() const { return m_desktopEntryName; }
-    const TQString &name() const { return m_name; }
-    const TQString &query() const { return m_query; }
-    const TQStringList &keys() const { return m_keys; }
-    const TQString &charset() const { return m_charset; }
+    const TQString& desktopEntryName() const { return m_desktopEntryName; }
+    const TQString& name() const { return m_name; }
+    const TQString& query() const { return m_query; }
+    const TQStringList& keys() const { return m_keys; }
+    const TQString& charset() const { return m_charset; }
+    const TQString& category() const { return m_category; }
     bool isDirty() const { return m_dirty; }
 
     void setName(const TQString &);
     void setQuery(const TQString &);
     void setKeys(const TQStringList &);
     void setCharset(const TQString &);
+    void setCategory(const TQString &);
 
     static SearchProvider *findByDesktopName(const TQString &);
     static SearchProvider *findByKey(const TQString &);
+
+    static const TQString& searchCategoryName(const TQString& category);
+    static const TQString& searchCategoryKey(const TQString& displayName);
+
+    static SearchCategoryMap searchCategories;
+
+private:
+    void initSearchCategories();
+
 private:
     TQString m_desktopEntryName;
     TQString m_name;
     TQString m_query;
     TQStringList m_keys;
     TQString m_charset;
+    TQString m_category;
 
     bool m_dirty;
 };

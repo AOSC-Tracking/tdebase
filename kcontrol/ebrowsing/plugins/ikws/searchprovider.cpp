@@ -16,9 +16,12 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <tdelocale.h>
 #include <ktrader.h>
 
 #include "searchprovider.h"
+
+SearchCategoryMap SearchProvider::searchCategories;
 
 SearchProvider::SearchProvider(const KService::Ptr service)
                : m_dirty(false)
@@ -28,6 +31,27 @@ SearchProvider::SearchProvider(const KService::Ptr service)
     m_query = service->property("Query").toString();
     m_keys = service->property("Keys").toStringList();
     m_charset = service->property("Charset").toString();
+    m_category = service->property("Category", TQVariant::String).toString();
+
+    if (!searchCategories.count())
+    {
+        initSearchCategories();
+    }
+}
+
+void SearchProvider::initSearchCategories()
+{
+    searchCategories["Web"]          = i18n("Web Search");
+    searchCategories["Dictionaries"] = i18n("Dictionaries");
+    searchCategories["Images"]       = i18n("Images");
+    searchCategories["Music"]        = i18n("Music");
+    searchCategories["Video"]        = i18n("Video");
+    searchCategories["Software"]     = i18n("Software");
+    searchCategories["Movies"]       = i18n("Movies");
+    searchCategories["Development"]  = i18n("Development");
+    searchCategories["Academic"]     = i18n("Academic");
+    searchCategories["Maps"]         = i18n("Maps");
+    searchCategories["Misc"]         = i18n("Miscellaneous");
 }
 
 void SearchProvider::setName(const TQString &name)
@@ -62,6 +86,15 @@ void SearchProvider::setCharset(const TQString &charset)
     m_dirty = true;
 }
 
+void SearchProvider::setCategory(const TQString &category)
+{
+    if (m_category == category)
+        return;
+
+    m_category = searchCategoryKey(category);
+    m_dirty = true;
+}
+
 SearchProvider *SearchProvider::findByDesktopName(const TQString &name)
 {
     KService::Ptr service =
@@ -76,3 +109,22 @@ SearchProvider *SearchProvider::findByKey(const TQString &key)
     return providers.count() ? new SearchProvider(providers[0]) : 0;
 }
 
+const TQString& SearchProvider::searchCategoryName(const TQString& category)
+{
+    auto it = searchCategories.find(category);
+    if (it != searchCategories.end())
+    {
+        return it.data();
+    }
+    return category;
+}
+
+const TQString& SearchProvider::searchCategoryKey(const TQString& displayName)
+{
+    SearchCategoryMap::Iterator it;
+    for (it = searchCategories.begin(); it != searchCategories.end(); ++it)
+    {
+        if (it.data() == displayName) return it.key();
+    }
+    return displayName; // user-defined key
+}

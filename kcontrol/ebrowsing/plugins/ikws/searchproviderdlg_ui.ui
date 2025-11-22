@@ -27,7 +27,7 @@
                 <string>Enter the human readable name of the search provider here.</string>
             </property>
         </widget>
-        <widget class="TQLabel" row="6" column="0">
+        <widget class="TQLabel" row="8" column="0">
             <property name="name">
                 <cstring>lbCharset</cstring>
             </property>
@@ -109,14 +109,36 @@ Recommended is \{@}, since it removes all query variables (name=value) from the 
 &lt;/qt&gt;</string>
             </property>
         </widget>
-        <widget class="KComboBox" row="7" column="0">
+        <widget class="KComboBox" row="9" column="0">
             <property name="name">
                 <cstring>cbCharset</cstring>
             </property>
             <property name="whatsThis" stdset="0">
                 <string>Select the character set that will be used to encode your search query.</string>
             </property>
-        </widget>
+          </widget>
+          <widget class="TQLabel" row="6" column="0">
+            <property name="name">
+              <cstring>lbCategory</cstring>
+            </property>
+            <property name="text">
+              <string>&amp;Category:</string>
+            </property>
+            <property name="buddy" stdset="0">
+              <cstring>cbCategory</cstring>
+            </property>
+            <property name="whatsThis" stdset="0">
+              <string>Select the category the search engine will be grouped under.</string>
+            </property>
+          </widget>
+          <widget class="KComboBox" row="7" column="0">
+            <property name="name">
+              <cstring>cbCategory</cstring>
+            </property>
+            <property name="whatsThis" stdset="0">
+              <string>Select the category the search engine will be grouped under.</string>
+            </property>
+          </widget>
     </grid>
 </widget>
 <customwidgets>
@@ -125,6 +147,7 @@ Recommended is \{@}, since it removes all query variables (name=value) from the 
     <tabstop>leName</tabstop>
     <tabstop>leQuery</tabstop>
     <tabstop>leShortcut</tabstop>
+    <tabstop>cbCategory</tabstop>
     <tabstop>cbCharset</tabstop>
 </tabstops>
 <layoutdefaults spacing="6" margin="11"/>

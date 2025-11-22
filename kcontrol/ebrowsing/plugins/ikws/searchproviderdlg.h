@@ -30,7 +30,8 @@ class SearchProviderDialog : public KDialogBase
     TQ_OBJECT
 
 public:
-    SearchProviderDialog(SearchProvider *provider, TQWidget *parent = 0, const char *name = 0);
+    SearchProviderDialog(SearchProvider *provider, const TQString &category = TQString::null,
+                         TQWidget *parent = nullptr, const char *name = nullptr);
 
     SearchProvider *provider() { return m_provider; }
 
