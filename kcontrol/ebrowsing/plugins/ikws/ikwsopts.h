@@ -29,6 +29,7 @@
 class FilterOptionsUI;
 class SearchProvider;
 class SearchProviderItem;
+class CategoryItem;
 
 class FilterOptions : public TDECModule
 {
@@ -43,11 +44,17 @@ public:
     void defaults();
     TQString quickHelp() const;
 
+protected:
+    const TQString& getCurrentCategory();
+
 protected slots:
     void configChanged();
     void checkFavoritesChanged();
 
     void setWebShortcutState();
+    void setCategoriesShown(bool shown);
+
+    void adjustColumns();
 
     void addSearchProvider();
     void changeSearchProvider();
@@ -64,6 +71,7 @@ private:
     // these are marked as deleted in the user's homedirectory
     // on save if a global service file exists for it.
     TQStringList m_deletedProviders;
+    TQMap <TQString, CategoryItem*> m_categories;
     TQMap <TQString, TQString> m_defaultEngineMap;
     TQStringList m_favoriteEngines;
 

@@ -49,6 +49,30 @@
 #include "searchproviderdlg.h"
 
 
+class CategoryItem : public TQListViewItem
+{
+  public:
+    CategoryItem(TQListView *parent, TQString category)
+    : TQListViewItem(parent), m_category(category)
+    {
+      if (category.isNull())
+          m_category = "Misc";
+
+      setText(0, displayName());
+    }
+
+    const TQString& key() const { return m_category; }
+
+    const TQString& displayName() const
+    {
+        return SearchProvider::searchCategoryName(m_category);
+    }
+
+  private:
+    TQString m_category;
+};
+
+
 class SearchProviderItem : public TQCheckListItem
 {
 public:
@@ -84,7 +108,7 @@ FilterOptions::FilterOptions(TDEInstance *instance, TQWidget *parent, const char
     m_dlg = new FilterOptionsUI (this);
     mainLayout->addWidget(m_dlg);
 
-    m_dlg->lvSearchProviders->header()->setLabel(0, SmallIconSet("bookmark"),i18n("Name"));
+    m_dlg->lvSearchProviders->header()->setLabel(0, SmallIconSet("bookmark"), i18n("Name"));
     m_dlg->lvSearchProviders->setSorting(0);
 
     // Load the options
@@ -123,7 +147,7 @@ void FilterOptions::load( bool useDefaults )
     TQString defaultSearchEngine = config.readEntry("DefaultSearchEngine");
 
     m_favoriteEngines.clear();
-    m_favoriteEngines << "google" << "google_groups" << "google_news" << "webster" << "dmoz" << "wikipedia";
+    m_favoriteEngines << "duckduckgo" << "wikipedia_en";
     m_favoriteEngines = config.readListEntry("FavoriteSearchEngines", m_favoriteEngines);
 
     const TDETrader::OfferList services = TDETrader::self()->query("SearchProvider");
@@ -151,6 +175,8 @@ void FilterOptions::load( bool useDefaults )
             TQ_SLOT(setWebShortcutState()));
     connect(m_dlg->cbEnableShortcuts, TQ_SIGNAL(clicked()), this,
             TQ_SLOT(configChanged()));
+    connect(m_dlg->cbCategories, TQ_SIGNAL(toggled(bool)), this,
+            TQ_SLOT(setCategoriesShown(bool)));
 
     connect(m_dlg->lvSearchProviders, TQ_SIGNAL(selectionChanged(TQListViewItem *)),
            this, TQ_SLOT(updateSearchProvider()));
@@ -166,6 +192,10 @@ void FilterOptions::load( bool useDefaults )
            this, TQ_SLOT(checkFavoritesChanged()));
     connect(m_dlg->lvSearchProviders, TQ_SIGNAL(clicked(TQListViewItem *)),
            this, TQ_SLOT(checkFavoritesChanged()));
+    connect(m_dlg->lvSearchProviders, TQ_SIGNAL(expanded(TQListViewItem *)),
+           this, TQ_SLOT(adjustColumns()));
+    connect(m_dlg->lvSearchProviders, TQ_SIGNAL(collapsed(TQListViewItem *)),
+           this, TQ_SLOT(adjustColumns()));
 
 
     connect(m_dlg->cmbDefaultEngine, TQ_SIGNAL(activated(const TQString &)), this,
@@ -177,6 +207,8 @@ void FilterOptions::load( bool useDefaults )
     connect(m_dlg->pbChange, TQ_SIGNAL(clicked()), this, TQ_SLOT(changeSearchProvider()));
     connect(m_dlg->pbDelete, TQ_SIGNAL(clicked()), this, TQ_SLOT(deleteSearchProvider()));
 
+    adjustColumns();
+    updateSearchProvider();
     emit changed( useDefaults );
 }
 
@@ -230,8 +262,7 @@ void FilterOptions::save()
   for (TQListViewItemIterator it(m_dlg->lvSearchProviders); it.current(); ++it)
   {
     SearchProviderItem *item = dynamic_cast<SearchProviderItem *>(it.current());
-
-    Q_ASSERT(item);
+    if (!item) continue;
 
     SearchProvider *provider = item->provider();
 
@@ -281,6 +312,7 @@ void FilterOptions::save()
       service.writeEntry("Name", provider->name());
       service.writeEntry("Query", provider->query(), true, false, true);
       service.writeEntry("Keys", provider->keys());
+      service.writeEntry("Category", provider->category());
       service.writeEntry("Charset", provider->charset());
 
       // we might be overwriting a hidden entry
@@ -342,8 +374,7 @@ void FilterOptions::checkFavoritesChanged()
   for (TQListViewItemIterator it(m_dlg->lvSearchProviders); it.current(); ++it)
   {
     SearchProviderItem *item = dynamic_cast<SearchProviderItem *>(it.current());
-
-    Q_ASSERT(item);
+    if (!item) continue;
 
     if (item->isOn())
       currentFavoriteEngines << item->provider()->desktopEntryName();
@@ -368,26 +399,138 @@ void FilterOptions::setWebShortcutState()
   m_dlg->cmbDefaultEngine->setEnabled (use_keywords);
 }
 
+void FilterOptions::adjustColumns()
+{
+    m_dlg->lvSearchProviders->adjustColumn(1);
+    m_dlg->lvSearchProviders->adjustColumn(2);
+}
+
+void FilterOptions::setCategoriesShown(bool shown)
+{
+    if (shown)
+    {
+        m_dlg->lvSearchProviders->removeColumn(2);
+    }
+    else
+    {
+        m_dlg->lvSearchProviders->addColumn(i18n("Category"));
+        adjustColumns();
+    }
+
+    // Move search provider items between the list root and the appropriate
+    // category items.
+    TQListViewItemIterator it(m_dlg->lvSearchProviders);
+    while (it.current())
+    {
+        SearchProviderItem *sp = dynamic_cast<SearchProviderItem*>(it.current());
+        ++it;
+
+        if (!sp) continue;
+
+        TQString category = sp->provider()->category();
+
+        if (shown)
+        {
+            if (sp->depth() > 0) continue;
+
+            if (!m_categories.contains(category))
+            {
+                m_categories[category] = new CategoryItem(m_dlg->lvSearchProviders, category);
+            }
+
+            m_dlg->lvSearchProviders->takeItem(sp);
+            m_categories[category]->insertItem(sp);
+        }
+        else
+        {
+            if (sp->depth() < 1) continue;
+
+            sp->parent()->takeItem(sp);
+            m_dlg->lvSearchProviders->insertItem(sp);
+
+            sp->setText(2, category);
+        }
+    }
+
+    // Delete category items if no longer needed
+    if (!shown)
+    {
+        TQListViewItem *item = m_dlg->lvSearchProviders->firstChild();
+        TQListViewItem *next;
+        do
+        {
+            next = item->nextSibling();
+            if (dynamic_cast<CategoryItem *>(item))
+                delete item;
+        }
+        while (item = next);
+        m_categories.clear();
+    }
+
+    m_dlg->lvSearchProviders->adjustColumn(0);
+    m_dlg->lvSearchProviders->setTreeStepSize(shown ? 20 : 0);
+    m_dlg->lvSearchProviders->sort();
+}
+
+const TQString& FilterOptions::getCurrentCategory()
+{
+    TQListViewItem *item = m_dlg->lvSearchProviders->currentItem();
+    if (!item) return TQString::null;
+
+    CategoryItem *cat = dynamic_cast<CategoryItem*>(item);
+    if (cat) return cat->key();
+
+    SearchProviderItem *sp = dynamic_cast<SearchProviderItem*>(item);
+    if (sp) return sp->provider()->category();
+
+    return TQString::null;
+}
+
 void FilterOptions::addSearchProvider()
 {
-  SearchProviderDialog dlg(0, this);
-  if (dlg.exec())
-  {
-      m_dlg->lvSearchProviders->setSelected(displaySearchProvider(dlg.provider()), true);
-      configChanged();
-  }
+    SearchProviderDialog dlg(0, getCurrentCategory(), this);
+    if (dlg.exec())
+    {
+        m_dlg->lvSearchProviders->setSelected(displaySearchProvider(dlg.provider()), true);
+        configChanged();
+    }
 }
 
 void FilterOptions::changeSearchProvider()
 {
   SearchProviderItem *item = dynamic_cast<SearchProviderItem *>(m_dlg->lvSearchProviders->currentItem());
-  Q_ASSERT(item);
+  if (!item) return;
 
-  SearchProviderDialog dlg(item->provider(), this);
+  SearchProviderDialog dlg(item->provider(), item->provider()->category(), this);
 
   if (dlg.exec())
   {
     m_dlg->lvSearchProviders->setSelected(displaySearchProvider(dlg.provider()), true);
+
+    if (m_dlg->cbCategories->isChecked())
+    {
+        // check if we need to move the item to another category
+        CategoryItem *category = static_cast<CategoryItem*>(item->parent());
+
+        if (category->key() != dlg.provider()->category())
+        {
+            TQString c = dlg.provider()->category();
+            if (!m_categories.contains(c))
+            {
+                m_categories[c] = new CategoryItem(m_dlg->lvSearchProviders, c);
+            }
+            CategoryItem *newCategory = m_categories[c];
+
+            category->takeItem(item);
+            newCategory->insertItem(item);
+
+            if (category->childCount() < 1)
+            {
+                delete category;
+            }
+        }
+    }
+
     configChanged();
   }
 }
@@ -395,7 +538,7 @@ void FilterOptions::changeSearchProvider()
 void FilterOptions::deleteSearchProvider()
 {
   SearchProviderItem *item = dynamic_cast<SearchProviderItem *>(m_dlg->lvSearchProviders->currentItem());
-  Q_ASSERT(item);
+  if (!item) return;
 
   // Update the combo box to go to None if the fallback was deleted.
   int current = m_dlg->cmbDefaultEngine->currentItem();
@@ -428,14 +571,15 @@ void FilterOptions::deleteSearchProvider()
 
 void FilterOptions::updateSearchProvider()
 {
-  m_dlg->pbChange->setEnabled(m_dlg->lvSearchProviders->currentItem());
-  m_dlg->pbDelete->setEnabled(m_dlg->lvSearchProviders->currentItem());
+  SearchProviderItem *item = dynamic_cast<SearchProviderItem*>(m_dlg->lvSearchProviders->currentItem());
+  m_dlg->pbChange->setEnabled(item);
+  m_dlg->pbDelete->setEnabled(item);
 }
 
 SearchProviderItem *FilterOptions::displaySearchProvider(SearchProvider *p, bool fallback)
 {
   // Show the provider in the list.
-  SearchProviderItem *item = 0L;
+  SearchProviderItem *item = nullptr;
 
   TQListViewItemIterator it(m_dlg->lvSearchProviders);
 
@@ -444,7 +588,6 @@ SearchProviderItem *FilterOptions::displaySearchProvider(SearchProvider *p, bool
     if (it.current()->text(0) == p->name())
     {
       item = dynamic_cast<SearchProviderItem *>(it.current());
-      Q_ASSERT(item);
       break;
     }
   }
@@ -458,6 +601,17 @@ SearchProviderItem *FilterOptions::displaySearchProvider(SearchProvider *p, bool
     int totalCount = m_dlg->cmbDefaultEngine->count();
 
     item = new SearchProviderItem(m_dlg->lvSearchProviders, p);
+
+    if (m_dlg->cbCategories->isChecked())
+    {
+        if (!m_categories.contains(p->category()))
+        {
+            m_categories[p->category()] = new CategoryItem(m_dlg->lvSearchProviders, p->category());
+        }
+
+        m_dlg->lvSearchProviders->takeItem(item);
+        m_categories[p->category()]->insertItem(item);
+    }
 
     if (m_favoriteEngines.find(p->desktopEntryName())!=m_favoriteEngines.end())
        item->setOn(true);

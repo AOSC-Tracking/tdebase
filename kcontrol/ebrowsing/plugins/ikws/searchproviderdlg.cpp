@@ -33,17 +33,19 @@
 #include "searchproviderdlg.h"
 #include "searchprovider.h"
 
-SearchProviderDialog::SearchProviderDialog(SearchProvider *provider,
+SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, const TQString& category,
                                            TQWidget *parent, const char *name)
-                     :KDialogBase(parent, name, true, TQString::null, Ok|Cancel),
-                      m_provider(provider)
+                     : KDialogBase(parent, name, true, TQString::null, Ok|Cancel),
+                       m_provider(provider)
 {
     m_dlg = new SearchProviderDlgUI (this);
     setMainWidget(m_dlg);
 
     enableButtonSeparator(true);
 
-    m_dlg->leQuery->setMinimumWidth(kapp->fontMetrics().maxWidth() * 40);
+    m_dlg->leQuery->setMinimumWidth(kApp->fontMetrics().maxWidth() * 16);
+    m_dlg->cbCategory->setDuplicatesEnabled(false);
+    m_dlg->cbCategory->setEditable(true);
 
     connect(m_dlg->leName, TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT(slotChanged()));
     connect(m_dlg->leQuery, TQ_SIGNAL(textChanged(const TQString &)), TQ_SLOT(slotChanged()));
@@ -54,12 +56,19 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider,
     charsets.prepend(i18n("Default"));
     m_dlg->cbCharset->insertStringList(charsets);
 
+    m_dlg->cbCategory->insertStringList(SearchProvider::searchCategories.values());
+    if (!category.isNull())
+    {
+        m_dlg->cbCategory->setCurrentText(SearchProvider::searchCategoryName(category));
+    }
+
     if (m_provider)
     {
         setPlainCaption(i18n("Modify Search Provider"));
         m_dlg->leName->setText(m_provider->name());
         m_dlg->leQuery->setText(m_provider->query());
         m_dlg->leShortcut->setText(m_provider->keys().join(","));
+        m_dlg->cbCategory->setCurrentText(SearchProvider::searchCategoryName(m_provider->category()));
         m_dlg->cbCharset->setCurrentItem(m_provider->charset().isEmpty() ? 0 : charsets.findIndex(m_provider->charset()));
         m_dlg->leName->setEnabled(false);
         m_dlg->leQuery->setFocus();
@@ -95,6 +104,7 @@ void SearchProviderDialog::slotOk()
     m_provider->setQuery(m_dlg->leQuery->text().stripWhiteSpace());
     m_provider->setKeys(TQStringList::split(",", m_dlg->leShortcut->text().stripWhiteSpace()));
     m_provider->setCharset(m_dlg->cbCharset->currentItem() ? m_dlg->cbCharset->currentText() : TQString::null);
+    m_provider->setCategory(m_dlg->cbCategory->currentText());
     KDialog::accept();
 }
 
