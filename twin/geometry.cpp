@@ -1915,12 +1915,12 @@ void Client::changeMaximize( bool vertical, bool horizontal, bool adjust )
     TQRect clientArea = workspace()->clientArea( MaximizeArea, this );
 
     // save sizes for restoring, if maximalizing
-    if( !activeTiled && !adjust && !( y() == clientArea.top() && height() == clientArea.height()))
+    if( !adjust && !( y() == clientArea.top() && height() == clientArea.height()))
         {
         geom_restore.setTop( y());
         geom_restore.setHeight( height());
         }
-    if( !activeTiled && !adjust && !( x() == clientArea.left() && width() == clientArea.width()))
+    if( !adjust && !( x() == clientArea.left() && width() == clientArea.width()))
         {
         geom_restore.setLeft( x());
         geom_restore.setWidth( width());
