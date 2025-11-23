@@ -63,7 +63,7 @@ inline int tde_sak_verify_calling_process()
 	printf("Parent executable name and full path is: %s\n", procparent.ascii());
 #endif
 
-	TQString tdeBinaryPath = TQString(KDE_BINDIR "/");
+	TQString tdeBinaryPath = TQString(TDE_BINDIR "/");
 #ifdef DEBUG
 	printf("The TDE binary path is: %s\n", tdeBinaryPath.ascii());
 #endif
@@ -121,7 +121,7 @@ inline int tde_sak_verify_calling_process()
 			printf("Environment is: %s\n", tdeinitEnvironment.ascii());
 #endif
 
-			if ((tdeinitCommand == "kdesktop [tdeinit]") && (tdeinitEnvironment.startsWith(KDE_BINDIR))) {
+			if ((tdeinitCommand == "kdesktop [tdeinit]") && (tdeinitEnvironment.startsWith(TDE_BINDIR))) {
 				authorized = true;
 			}
 			else {

@@ -229,9 +229,9 @@ KDE_EXPAND_MAKEVAR(KDE_CONFDIR, kde_confdir)
 AC_DEFINE_UNQUOTED(KDE_CONFDIR, "$KDE_CONFDIR", [KDE's configuration directory])
 KDE_EXPAND_MAKEVAR(KDE_DATADIR, kde_datadir)
 AC_DEFINE_UNQUOTED(KDE_DATADIR, "$KDE_DATADIR", [KDE's static data directory])
-KDE_EXPAND_MAKEVAR(KDE_BINDIR, kde_bindir)
-AC_DEFINE_UNQUOTED(KDE_BINDIR, "$KDE_BINDIR", [KDE's binaries directory])
-AC_SUBST(KDE_BINDIR)
+KDE_EXPAND_MAKEVAR(TDE_BINDIR, kde_bindir)
+AC_DEFINE_UNQUOTED(TDE_BINDIR, "$TDE_BINDIR", [TDE's binaries directory])
+AC_SUBST(TDE_BINDIR)
 
 dnl libart is used by tdm, kcontrol and thumbnails code in tdeioslaves
 KDE_FIND_PATH(libart2-config, LIBART_CONFIG, [${prefix}/bin ${exec_prefix}/bin /usr/local/bin /opt/local/bin], [

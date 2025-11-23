@@ -182,7 +182,7 @@ unsigned long strlcpy(char*, const char*, unsigned long);
 
 // tdm
 #cmakedefine XBINDIR "@XBINDIR@"
-#define KDE_BINDIR "@TDE_BIN_DIR@"
+#define TDE_BINDIR "@TDE_BIN_DIR@"
 #define KDE_DATADIR "@TDE_DATA_DIR@"
 #define KDE_CONFDIR "@TDE_CONFIG_DIR@"
 
