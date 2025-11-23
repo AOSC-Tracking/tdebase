@@ -585,7 +585,7 @@ ManageSession( struct display *d )
   start_tsak = d->useSAK;
 #endif
   if (start_tsak) {
-		if (system(KDE_BINDIR "/tsak checkdeps") != 0) {
+		if (system(TDE_BINDIR "/tsak checkdeps") != 0) {
 			start_tsak = 0;
 		}
 	}
@@ -593,7 +593,7 @@ ManageSession( struct display *d )
 		int ret_pid = fork();
 		if (ret_pid == 0) {
 			// Child process
-			system(KDE_BINDIR "/tsak");
+			system(TDE_BINDIR "/tsak");
 			exit(0);
 		}
 	}

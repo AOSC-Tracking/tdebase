@@ -252,7 +252,7 @@ TDMAppearanceWidget::TDMAppearanceWidget(TQWidget *parent, const char *name)
   hbox2->setColStretch(1, 1);
   hbox2->addWidget(sakbox, 1, 0);
   if (getuid() == 0 && config->checkConfigFilesWritable( true )) {
-    if (system(KDE_BINDIR "/tsak checkdeps") != 0) {
+    if (system(TDE_BINDIR "/tsak checkdeps") != 0) {
       sakbox->setEnabled(false);
       sakwarning = new TQLabel( i18n("Secure Attention Key support is not available on your system.  Please check for the presence of evdev and uinput."), group );
       hbox2->addWidget(sakwarning, 2, 0);
@@ -494,7 +494,7 @@ void TDMAppearanceWidget::save()
 
   // Enable/disable tsak as needed
   if (sakbox->isChecked()) {
-    system(KDE_BINDIR "/tsak");
+    system(TDE_BINDIR "/tsak");
   }
   else {
     // Get PID
