@@ -2645,7 +2645,7 @@ Key: Preloader
 Type: string
 Default: ""
 User: greeter-c
-Instance: */TDE_BINDIR "/preloadkde"
+Instance: */TDE_BINDIR "/preloadtde"
 Comment: &
 Description:
  A program to run while the greeter is visible. It is supposed to preload
