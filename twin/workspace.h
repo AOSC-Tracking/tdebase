@@ -665,6 +665,10 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         friend class Client;
 
         //kompmgr
+        TDEProcess* kompmgr;
+        TDESelectionOwner* kompmgr_selection;
+        bool allowKompmgrRestart;
+
         TQSlider *transSlider;
         TQPushButton *transButton;
         // not used yet
