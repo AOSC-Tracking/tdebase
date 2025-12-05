@@ -54,14 +54,9 @@ namespace KWinInternal
 {
 
 extern int screen_number;
+extern bool disable_twin_composition_manager;
 
 Workspace *Workspace::_self = 0;
-
-TDEProcess* kompmgr = 0;
-TDESelectionOwner* kompmgr_selection;
-
-bool allowKompmgrRestart = true;
-extern bool disable_twin_composition_manager;
 
 bool supportsCompMgr()
 {
@@ -163,7 +158,10 @@ Workspace::Workspace( bool restore )
     topmenu_space( NULL ),
     set_active_client_recursion( 0 ),
     block_stacking_updates( 0 ),
-    forced_global_mouse_grab( false )
+    forced_global_mouse_grab( false ),
+    kompmgr( NULL ),
+    kompmgr_selection( NULL ),
+    allowKompmgrRestart( true )
     {
     _self = this;
     mgr = new PluginMgr;
