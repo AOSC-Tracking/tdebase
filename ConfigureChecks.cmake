@@ -13,7 +13,7 @@
 #################################################
 
 # required stuff
-tde_setup_architecture_flags( )
+tde_setup_compiler_flags( )
 
 include(TestBigEndian)
 test_big_endian(WORDS_BIGENDIAN)
