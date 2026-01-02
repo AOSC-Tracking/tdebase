@@ -313,7 +313,7 @@ public:
   static bool isPreloaded() { return s_preloaded; }
   static void setPreloadedWindow( KonqMainWindow* );
   static KonqMainWindow* preloadedWindow() { return s_preloadedWindow; }
-  
+
   void toggleReloadStopButton(bool isStop);
 
   TQString currentTitle() const;
@@ -391,6 +391,7 @@ public slots:
   void slotHome(TDEAction::ActivationReason, TQt::ButtonState state);
   void slotGoSystem();
   void slotGoApplications();
+  void slotGoDesktop();
   void slotGoMedia();
   void slotGoNetworkFolders();
   void slotGoSettings();
