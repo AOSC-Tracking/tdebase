@@ -2225,7 +2225,7 @@ unsigned int Workspace::sendFakedMouseEvent( TQPoint pos, WId w, MouseEmulation 
             e.xmotion.y_root = pos.y();
             e.xmotion.state = state;
             e.xmotion.is_hint = NotifyNormal;
-            XSendEvent( tqt_xdisplay(), w, TRUE, ButtonMotionMask, &e );
+            XSendEvent( tqt_xdisplay(), w, true, ButtonMotionMask, &e );
             }
         else
             {
@@ -2241,7 +2241,7 @@ unsigned int Workspace::sendFakedMouseEvent( TQPoint pos, WId w, MouseEmulation 
             e.xbutton.y_root = pos.y();
             e.xbutton.state = state;
             e.xbutton.button = button;
-            XSendEvent( tqt_xdisplay(), w, TRUE, ButtonPressMask, &e );
+            XSendEvent( tqt_xdisplay(), w, true, ButtonPressMask, &e );
 
             if ( type == EmuPress )
                 {

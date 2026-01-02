@@ -203,7 +203,7 @@ void KDesktopConfig::save()
   info.setNumberOfDesktops(_numInput->value());
   info.activate();
 
-  XSync(tqt_xdisplay(), FALSE);
+  XSync(tqt_xdisplay(), false);
 
   int konq_screen_number = 0;
   if (tqt_xdisplay())

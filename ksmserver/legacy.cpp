@@ -289,7 +289,7 @@ static TQCString getQCStringProperty(WId w, Atom prop)
     unsigned char *data = 0;
     TQCString result = "";
     status = XGetWindowProperty( tqt_xdisplay(), w, prop, 0, 10000,
-                                 FALSE, XA_STRING, &type, &format,
+                                 false, XA_STRING, &type, &format,
                                  &nitems, &extra, &data );
     if ( status == Success) {
 	if( data )
@@ -309,7 +309,7 @@ static TQStringList getQStringListProperty(WId w, Atom prop)
     TQStringList result;
 
     status = XGetWindowProperty( tqt_xdisplay(), w, prop, 0, 10000,
-                                 FALSE, XA_STRING, &type, &format,
+                                 false, XA_STRING, &type, &format,
                                  &nitems, &extra, &data );
     if ( status == Success) {
 	if (!data)
@@ -375,7 +375,7 @@ WId KSMServer::windowWmClientLeader(WId w)
     unsigned char *data = 0;
     Window result = w;
     status = XGetWindowProperty( tqt_xdisplay(), w, wm_client_leader, 0, 10000,
-                                 FALSE, XA_WINDOW, &type, &format,
+                                 false, XA_WINDOW, &type, &format,
                                  &nitems, &extra, &data );
     if (status  == Success ) {
         if (data && nitems > 0)
