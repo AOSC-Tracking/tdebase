@@ -795,7 +795,7 @@ void Client::animateMinimizeOrUnminimize( bool minimize )
             area2 = area;
             }
         XFlush(tqt_xdisplay());
-        XSync( tqt_xdisplay(), FALSE );
+        XSync( tqt_xdisplay(), false );
         diff = t.elapsed();
         if (diff > step)
             diff = step;
@@ -2532,7 +2532,7 @@ Window Client::staticWmClientLeader(WId w)
     Window result = w;
     XErrorHandler oldHandler = XSetErrorHandler(nullErrorHandler);
     status = XGetWindowProperty( tqt_xdisplay(), w, atoms->wm_client_leader, 0, 10000,
-                                 FALSE, XA_WINDOW, &type, &format,
+                                 false, XA_WINDOW, &type, &format,
                                  &nitems, &extra, &data );
     XSetErrorHandler(oldHandler);
     if (status  == Success )

@@ -103,7 +103,7 @@ Atoms::Atoms()
     
     assert( n <= max );
 
-    XInternAtoms( tqt_xdisplay(), names, n, FALSE, atoms_return );
+    XInternAtoms( tqt_xdisplay(), names, n, false, atoms_return );
     for (int i = 0; i < n; i++ )
         *atoms[i] = atoms_return[i];
     }

@@ -1359,7 +1359,7 @@ Client* Workspace::previousStaticClient( Client* c ) const
 
 bool Workspace::establishTabBoxGrab()
     {
-    if( XGrabKeyboard( tqt_xdisplay(), root, FALSE,
+    if( XGrabKeyboard( tqt_xdisplay(), root, false,
         GrabModeAsync, GrabModeAsync, get_tqt_x_time()) != GrabSuccess )
         return false;
     // Don't try to establish a global mouse grab using XGrabPointer, as that would prevent
