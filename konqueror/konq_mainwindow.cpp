@@ -1928,6 +1928,11 @@ void KonqMainWindow::slotGoSystem()
   openURL( 0L, KURL( "system:/" ) );
 }
 
+void KonqMainWindow::slotGoDesktop()
+{
+    openURL( 0L, KURL( TDEGlobalSettings::desktopPath() ) );
+}
+
 void KonqMainWindow::slotGoApplications()
 {
   openURL( 0L, KURL( "programs:/" ) );
@@ -3885,6 +3890,7 @@ void KonqMainWindow::initActions()
 
   (void) new TDEAction( i18n( "S&ystem" ), "computer", 0, this, TQ_SLOT( slotGoSystem() ), actionCollection(), "go_system" );
   (void) new TDEAction( i18n( "App&lications" ), "kmenu", 0, this, TQ_SLOT( slotGoApplications() ), actionCollection(), "go_applications" );
+  (void) new TDEAction( i18n( "&Desktop" ), "desktop", 0, this, TQ_SLOT( slotGoDesktop() ), actionCollection(), "go_desktop" );
   (void) new TDEAction( i18n( "&Storage Media" ), "computer", 0, this, TQ_SLOT( slotGoMedia() ), actionCollection(), "go_media" );
   (void) new TDEAction( i18n( "&Network Folders" ), "network", 0, this, TQ_SLOT( slotGoNetworkFolders() ), actionCollection(), "go_network_folders" );
   (void) new TDEAction( i18n( "Sett&ings" ), "kcontrol", 0, this, TQ_SLOT( slotGoSettings() ), actionCollection(), "go_settings" );
@@ -4527,9 +4533,10 @@ void KonqMainWindow::disableActionsNoView()
     m_pamBookmarks->setEnabled( true );
     static const char* const s_enActions[] = { "new_window", "duplicate_window", "open_location",
                                          "toolbar_url_combo", "clear_location", "animated_logo",
-                                         "konqintro", "go_most_often", "go_applications", "go_dirtree",
-                                         "go_trash", "go_settings", "go_network_folders", "go_autostart",
-                                         "go_url", "go_media", "go_history", "options_configure_extensions", 0 };
+                                         "konqintro", "go_most_often", "do_desktop", "go_applications",
+                                         "go_dirtree", "go_trash", "go_settings", "go_network_folders",
+                                         "go_autostart", "go_url", "go_media", "go_history",
+                                         "options_configure_extensions", 0 };
     for ( int i = 0 ; s_enActions[i] ; ++i )
     {
         TDEAction * act = action(s_enActions[i]);

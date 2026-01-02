@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="Konqueror" version="59">
+<gui name="Konqueror" version="60">
 <MenuBar>
  <Menu name="file" noMerge="1"><text>&amp;Location</text>
   <Action name="new_window"/>
@@ -54,6 +54,7 @@
   <Separator/>
   <Action name="go_system"/>
   <Action name="go_applications"/>
+  <Action name="go_desktop"/>
   <Action name="go_network_folders"/>
   <Action name="go_settings"/>
   <Action name="go_media"/>
