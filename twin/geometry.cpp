@@ -1379,7 +1379,7 @@ void Client::sendSyntheticConfigureNotify()
     c.border_width = 0;
     c.above = None;
     c.override_redirect = 0;
-    XSendEvent( tqt_xdisplay(), c.event, true, StructureNotifyMask, (XEvent*)&c );
+    XSendEvent( tqt_xdisplay(), c.event, True, StructureNotifyMask, (XEvent*)&c );
     }
 
 const TQPoint Client::calculateGravitation( bool invert, int gravity ) const

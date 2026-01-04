@@ -50,7 +50,7 @@ void KDesktopApp::initCmBackground()
     XSelectInput (tqt_xdisplay(), tqt_xrootwin(), PropertyChangeMask);
 
     if (XGetWindowProperty (tqt_xdisplay(), tqt_xrootwin(), m_cmBackground,
-                            0, 1, false,  XA_CARDINAL, &type, &format, &num,
+                            0, 1, False,  XA_CARDINAL, &type, &format, &num,
                             &rest, &data) == Success && num)
     {
         if (type == XA_CARDINAL)
@@ -73,7 +73,7 @@ bool KDesktopApp::x11EventFilter (XEvent * xevent)
         Bool supported = false;
         
         if (XGetWindowProperty (tqt_xdisplay(), tqt_xrootwin(), m_cmBackground,
-                            0, 1, false,  XA_CARDINAL, &type, &format, &num,
+                            0, 1, False,  XA_CARDINAL, &type, &format, &num,
                             &rest, &data) == Success && num)
         {
             if (type == XA_CARDINAL)
