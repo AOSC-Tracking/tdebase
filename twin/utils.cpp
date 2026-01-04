@@ -90,7 +90,7 @@ void Motif::readFlags( WId w, bool& noborder, bool& resize, bool& move,
     unsigned char* data;
     MwmHints* hints = 0;
     if ( XGetWindowProperty( tqt_xdisplay(), w, atoms->motif_wm_hints, 0, 5,
-                             false, atoms->motif_wm_hints, &type, &format,
+                             False, atoms->motif_wm_hints, &type, &format,
                              &length, &after, &data ) == Success ) 
         {
         if ( data )
@@ -196,7 +196,7 @@ TQCString getStringProperty(WId w, Atom prop, char separator)
     TQCString result = "";
     KXErrorHandler handler; // ignore errors
     status = XGetWindowProperty( tqt_xdisplay(), w, prop, 0, 10000,
-                                 false, XA_STRING, &type, &format,
+                                 False, XA_STRING, &type, &format,
                                  &nitems, &extra, &data );
     if ( status == Success) 
         {
