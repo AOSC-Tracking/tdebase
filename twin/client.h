@@ -321,6 +321,12 @@ class Client : public TQObject, public KDecorationDefines
         void cancelAutoRaise();
         void destroyClient();
         void checkActiveModal();
+
+    // some helpful constants for setOpacity() and related functions
+        struct Opacity { enum : uint {
+            Opaque      = 0xFFFFFFFF  //< Fully opaque window
+        }; };
+
         void setOpacity(bool translucent, uint opacity = 0);
         void setShadowSize(uint shadowSize);
         void updateOpacity();
