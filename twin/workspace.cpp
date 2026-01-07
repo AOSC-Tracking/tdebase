@@ -605,6 +605,10 @@ void Workspace::addClient( Client* c, allowed_t )
             c->setOpacity(options->translucentDocks, options->dockOpacity);
             }
         }
+    else
+        {
+        c->updateOpacity();
+        }
 
     if (c->isMenu() || c->isTopMenu())
         {

@@ -120,7 +120,7 @@ Client::Client( Workspace *ws )
         border_right( 0 ),
         border_top( 0 ),
         border_bottom( 0 ),
-        opacity_( 0 ),
+        opacity_( Opacity::Opaque ),
         demandAttentionKNotifyTimer( NULL ),
         activeMaximizing(false),
         activeTiled(false)
