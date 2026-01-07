@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Alexander Golubev <fatzer2@gmail.com>, 2021, 2022, 2024, 2025.
+# Alexander Golubev <fatzer2@gmail.com>, 2021, 2022, 2024, 2025, 2026.
 # Andrei Stepanov <adem4ik@gmail.com>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2025-10-26 04:17+0000\n"
+"PO-Revision-Date: 2026-01-07 14:34+0000\n"
 "Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
@@ -317,6 +317,9 @@ msgid ""
 "Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet Filters;"
 "Network;Search Engines;Shortcuts;"
 msgstr ""
+"Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet "
+"Filters;Network;Search Engines;Shortcuts;Веб-сокращения;Просмотр "
+"веб;Интернет;Ключевые слова;Фильтры;Поисковые системы;Сокращения;"
 
 #. Name
 #: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
@@ -341,18 +344,17 @@ msgstr "База данных акронимов"
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
 msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
-msgstr ""
+msgstr "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
 msgid "Alexa"
-msgstr ""
+msgstr "Алекса"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
-#, fuzzy
 msgid "http://info.alexa.com/search?q=\\{@}"
-msgstr "http://images.google.com/images?q=\\{@}&hl=ru&ie=UTF-8&oe=UTF-8"
+msgstr "http://info.alexa.com/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
