@@ -652,21 +652,22 @@ bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalP
                 {
                 if (opacity_ < Opacity::Opaque - Opacity::MouseStep)
                     {
-                    setOpacity(true, opacity_ + Opacity::MouseStep);
                     custom_opacity = true;
+                    setOpacity(true, opacity_ + Opacity::MouseStep);
                     }
                 else
                     {
-                    setOpacity(false, Opacity::Opaque);
-                    custom_opacity = false;
+                    if (defaultOpacity() == Opacity::Opaque)
+                        custom_opacity = false;
+                    setOpacity(true, Opacity::Opaque);
                     }
                 }
             break;
         case Options::MouseOpacityLess:
             if (opacity_ > 0)
                 {
-                setOpacity(true, (opacity_ > Opacity::MouseStep) ? opacity_ - Opacity::MouseStep : Opacity::Transparent);
                 custom_opacity = true;
+                setOpacity(true, (opacity_ > Opacity::MouseStep) ? opacity_ - Opacity::MouseStep : Opacity::Transparent);
                 }
             break;
         case Options::MouseNothing:
