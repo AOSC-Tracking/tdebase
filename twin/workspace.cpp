@@ -3084,13 +3084,24 @@ void Workspace::handleKompmgrOutput( TDEProcess* , char *buffer, int buflen)
         }
 }
 
+uint Workspace::percentToUint(int percent) {
+    if(percent < 0) {
+        return 0;
+    } else if (percent<100) {
+        // the same as "percent / 100.0 * 0xffffffff" but avoids FP arithmetics and overflows
+        return (0xffffffff/100) * (uint) percent + (0xffffffff % 100) * percent / 100;
+    } else {
+        return 0xffffffff;
+    }
+}
+
 void Workspace::setOpacity(unsigned long winId, unsigned int opacityPercent)
 {
     if (opacityPercent > 100) opacityPercent = 100;
     for( ClientList::ConstIterator it = stackingOrder().begin(); it != stackingOrder().end(); it++ )
         if (winId == (*it)->window())
             {
-            (*it)->setOpacity(opacityPercent < 100, (unsigned int)((opacityPercent/100.0)*0xFFFFFFFF));
+            (*it)->setOpacity(opacityPercent < 100, percentToUint(opacityPercent));
             return;
             }
 }

@@ -538,6 +538,8 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         static const char* windowTypeToTxt( NET::WindowType type );
         static NET::WindowType txtToWindowType( const char* txt );
         static bool sessionInfoWindowTypeMatch( Client* c, SessionInfo* info );
+        /// A small helper which proportionally converts value in range 0-100 into 0-0xffffffff
+        static uint percentToUint(int percent);
 
         Client* active_client;
         Client* last_active_client;

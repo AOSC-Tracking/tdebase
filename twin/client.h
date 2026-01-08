@@ -324,11 +324,14 @@ class Client : public TQObject, public KDecorationDefines
 
     // some helpful constants for setOpacity() and related functions
         struct Opacity { enum : uint {
+            Transparent = 0,          //< Completely transparent window
+            MouseStep   = 0xCCCCCCC,  //< A single step when changing opacity with mouse wheel
             Opaque      = 0xFFFFFFFF  //< Fully opaque window
         }; };
 
         void setOpacity(bool translucent, uint opacity = 0);
         void setShadowSize(uint shadowSize);
+        uint defaultOpacity();
         void updateOpacity();
         void updateShadowSize();
         bool hasCustomOpacity(){return custom_opacity;}

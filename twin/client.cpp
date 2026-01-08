@@ -2801,9 +2801,9 @@ void Client::setOpacity(bool translucent, uint opacity)
         return; // xcompmgr does not like non solid desktops and the user could set it accidently by mouse scrolling
 //     tqWarning("setting opacity for %d",tqt_xdisplay());
     //rule out activated translulcency with 100% opacity
-    if (!translucent || opacity ==  0xFFFFFFFF)
+    if (!translucent || opacity == Opacity::Opaque)
         {
-        opacity_ = 0xFFFFFFFF;
+        opacity_ = Opacity::Opaque;
         XDeleteProperty (tqt_xdisplay(), frameId(), atoms->net_wm_window_opacity);
         XDeleteProperty (tqt_xdisplay(), window(), atoms->net_wm_window_opacity); // ??? frameId() is necessary for visible changes, window() is the winId() that would be set by apps - we set both to be sure the app knows what's currently displayd
         }
@@ -2825,161 +2825,90 @@ void Client::setShadowSize(uint shadowSize)
     XChangeProperty(tqt_xdisplay(), frameId(), atoms->net_wm_window_shadow, XA_CARDINAL, 32, PropModeReplace, (unsigned char *) &data, 1L);
     }
 
+uint Client::defaultOpacity()
+    {
+    if (isActive())
+        {
+        if( ruleOpacityActive() )
+            return rule_opacity_active;
+        else
+            return options->translucentActiveWindows ? options->activeWindowOpacity : Opacity::Opaque;
+        }
+    else
+        {
+        if( ruleOpacityInactive() )
+            return rule_opacity_inactive;
+        else
+            return options->translucentInactiveWindows && !(keepAbove() && options->keepAboveAsActive) ?
+                      options->inactiveWindowOpacity
+                    : Opacity::Opaque;
+        }
+    }
+
 void Client::updateOpacity()
 // extra syncscreen flag allows to avoid double syncs when active state changes (as it will usually change for two windows)
     {
     if (!(isNormalWindow() || isDialog() || isUtility() )|| custom_opacity)
         return;
-    if (isActive())
+    uint opacity = defaultOpacity();
+    setOpacity(true, opacity);
+
+    if (isBMP())
+    // beep-media-player, only undecorated windows (gtk2 xmms, xmms doesn't work with compmgr at all - s.e.p. :P )
         {
-        if( ruleOpacityActive() )
-            setOpacity(rule_opacity_active < 0xFFFFFFFF, rule_opacity_active);
-        else
-            setOpacity(options->translucentActiveWindows, options->activeWindowOpacity);
-        if (isBMP())
-        // beep-media-player, only undecorated windows (gtk2 xmms, xmms doesn't work with compmgr at all - s.e.p. :P )
+        ClientList tmpGroupMembers = group()->members();
+        ClientList groupMembers;
+        groupMembers.append(this);
+        tmpGroupMembers.remove(this);
+        ClientList::Iterator it = tmpGroupMembers.begin();
+        while (it != tmpGroupMembers.end())
+        // search for next attached and not activated client and repeat if found
             {
-            ClientList tmpGroupMembers = group()->members();
-            ClientList activeGroupMembers;
-            activeGroupMembers.append(this);
-            tmpGroupMembers.remove(this);
-            ClientList::Iterator it = tmpGroupMembers.begin();
-            while (it != tmpGroupMembers.end())
-            // search for next attached and not activated client and repeat if found
+            if ((*it) != this && (*it)->isBMP())
+            // potential "to activate" client found
                 {
-                if ((*it) != this && (*it)->isBMP())
-                // potential "to activate" client found
-                    {
 //                     tqWarning("client found");
-                    if ((*it)->touches(this)) // first test, if the new client touches the just activated one
-                        {
-//                         tqWarning("found client touches me");
-                        if( ruleOpacityActive() )
-                            (*it)->setOpacity(rule_opacity_active < 0xFFFFFFFF, rule_opacity_active);
-                        else
-                            (*it)->setOpacity(options->translucentActiveWindows, options->activeWindowOpacity);
-//                         tqWarning("activated, search restarted (1)");
-                        (*it)->setShadowSize(options->activeWindowShadowSize);
-                        activeGroupMembers.append(*it);
-                        tmpGroupMembers.remove(it);
-                        it = tmpGroupMembers.begin(); // restart, search next client
-                        continue;
-                        }
-                    else
-                        { // pot. client does not touch c, so we have to search if it touches some other activated client
-                        bool found = false;
-                        for( ClientList::ConstIterator it2 = activeGroupMembers.begin(); it2 != activeGroupMembers.end(); it2++ )
-                            {
-                            if ((*it2) != this && (*it2) != (*it) && (*it)->touches(*it2))
-                                {
-//                                 tqWarning("found client touches other active client");
-                                if( ruleOpacityActive() )
-                                    (*it)->setOpacity(rule_opacity_active < 0xFFFFFFFF, rule_opacity_active);
-                                else
-                                    (*it)->setOpacity(options->translucentActiveWindows, options->activeWindowOpacity);
-                                (*it)->setShadowSize(options->activeWindowShadowSize);
-                                activeGroupMembers.append(*it);
-                                tmpGroupMembers.remove(it);
-                                it = tmpGroupMembers.begin(); // reset potential client search
-                                found = true;
-//                                 tqWarning("activated, search restarted (2)");
-                                break; // skip this loop
-                                }
-                            }
-                        if (found) continue;
-                        }
-                    }
-                    it++;
-                }
-            }
-        else if (isNormalWindow())
-        // activate dependend minor windows as well
-            {
-            for( ClientList::ConstIterator it = group()->members().begin(); it != group()->members().end(); it++ )
-                if ((*it)->isDialog() || (*it)->isUtility())
+                if ((*it)->touches(this)) // first test, if the new client touches the just activated one
                     {
-                    if( (*it)->ruleOpacityActive() )
-                        (*it)->setOpacity((*it)->ruleOpacityActive() < 0xFFFFFFFF, (*it)->ruleOpacityActive());
-                    else
-                        (*it)->setOpacity(options->translucentActiveWindows, options->activeWindowOpacity);
+//                         tqWarning("found client touches me");
+                    (*it)->setOpacity(true, opacity);
+//                         tqWarning("(de)activated, search restarted (1)");
+                    (*it)->setShadowSize(options->activeWindowShadowSize);
+                    groupMembers.append(*it);
+                    tmpGroupMembers.remove(it);
+                    it = tmpGroupMembers.begin(); // restart, search next client
+                    continue;
                     }
+                else
+                    { // pot. client does not touch c, so we have to search if it touches some other activated client
+                    bool found = false;
+                    for( ClientList::ConstIterator it2 = groupMembers.begin(); it2 != groupMembers.end(); it2++ )
+                        {
+                        if ((*it2) != this && (*it2) != (*it) && (*it)->touches(*it2))
+                            {
+//                                 tqWarning("found client touches other active client");
+                            (*it)->setOpacity(true, opacity);
+                            (*it)->setShadowSize(isActive() ? options->activeWindowShadowSize : options->inactiveWindowShadowSize);
+                            groupMembers.append(*it);
+                            tmpGroupMembers.remove(it);
+                            it = tmpGroupMembers.begin(); // reset potential client search
+                            found = true;
+//                                 tqWarning("(de)activated, search restarted (2)");
+                            break; // skip this loop
+                            }
+                        }
+                    if (found) continue;
+                    }
+                }
+                it++;
             }
         }
-    else
+    else if (isNormalWindow())
+    // activate/deactivate dependend minor windows as well
         {
-        if( ruleOpacityInactive() )
-            setOpacity(rule_opacity_inactive < 0xFFFFFFFF, rule_opacity_inactive);
-        else
-            setOpacity(options->translucentInactiveWindows && !(keepAbove() && options->keepAboveAsActive),
-                    options->inactiveWindowOpacity);
-        // deactivate dependend minor windows as well
-        if (isBMP())
-        // beep-media-player, only undecorated windows (gtk2 xmms, xmms doesn't work with compmgr at all - s.e.p. :P )
-            {
-            ClientList tmpGroupMembers = group()->members();
-            ClientList inactiveGroupMembers;
-            inactiveGroupMembers.append(this);
-            tmpGroupMembers.remove(this);
-            ClientList::Iterator it = tmpGroupMembers.begin();
-            while ( it != tmpGroupMembers.end() )
-            // search for next attached and not activated client and repeat if found
-                {
-                if ((*it) != this && (*it)->isBMP())
-                // potential "to activate" client found
-                    {
-//                     tqWarning("client found");
-                    if ((*it)->touches(this)) // first test, if the new client touches the just activated one
-                        {
-//                         tqWarning("found client touches me");
-                        if( (*it)->ruleOpacityInactive() )
-                            (*it)->setOpacity((*it)->ruleOpacityInactive() < 0xFFFFFFFF, (*it)->ruleOpacityInactive());
-                        else
-                            (*it)->setOpacity(options->translucentInactiveWindows && !((*it)->keepAbove() && options->keepAboveAsActive), options->inactiveWindowOpacity);
-                        (*it)->setShadowSize(options->inactiveWindowShadowSize);
-//                         tqWarning("deactivated, search restarted (1)");
-                        inactiveGroupMembers.append(*it);
-                        tmpGroupMembers.remove(it);
-                        it = tmpGroupMembers.begin(); // restart, search next client
-                        continue;
-                        }
-                    else // pot. client does not touch c, so we have to search if it touches some other activated client
-                        {
-                        bool found = false;
-                        for( ClientList::ConstIterator it2 = inactiveGroupMembers.begin(); it2 != inactiveGroupMembers.end(); it2++ )
-                            {
-                            if ((*it2) != this && (*it2) != (*it) && (*it)->touches(*it2))
-                                {
-//                                 tqWarning("found client touches other inactive client");
-                                if( (*it)->ruleOpacityInactive() )
-                                    (*it)->setOpacity((*it)->ruleOpacityInactive() < 0xFFFFFFFF, (*it)->ruleOpacityInactive());
-                                else
-                                    (*it)->setOpacity(options->translucentInactiveWindows && !((*it)->keepAbove() && options->keepAboveAsActive), options->inactiveWindowOpacity);
-                                (*it)->setShadowSize(options->inactiveWindowShadowSize);
-//                                 tqWarning("deactivated, search restarted (2)");
-                                inactiveGroupMembers.append(*it);
-                                tmpGroupMembers.remove(it);
-                                it = tmpGroupMembers.begin(); // reset potential client search
-                                found = true;
-                                break; // skip this loop
-                                }
-                            }
-                            if (found) continue;
-                        }
-                    }
-                    it++;
-                }
-            }
-        else if (isNormalWindow())
-            {
-            for( ClientList::ConstIterator it = group()->members().begin(); it != group()->members().end(); it++ )
-                if ((*it)->isUtility()) //don't deactivate dialogs...
-                    {
-                    if( (*it)->ruleOpacityInactive() )
-                        (*it)->setOpacity((*it)->ruleOpacityInactive() < 0xFFFFFFFF, (*it)->ruleOpacityInactive());
-                    else
-                        (*it)->setOpacity(options->translucentInactiveWindows && !((*it)->keepAbove() && options->keepAboveAsActive), options->inactiveWindowOpacity);
-                    }
-            }
+        for( ClientList::ConstIterator it = group()->members().begin(); it != group()->members().end(); it++ )
+            if ((*it)->isUtility() || ((*it)->isDialog() && isActive() )) // note: don't deactivate dialogs...
+                (*it)->setOpacity(true, opacity);
         }
     }
 
@@ -3034,7 +2963,7 @@ uint Client::opacity()
 
 int Client::opacityPercentage()
     {
-    return int(100*((double)opacity_/0xffffffff));
+    return opacity_ / ( 0xffffffff / 100 );
     }
 
 bool Client::touches(const Client* c)
