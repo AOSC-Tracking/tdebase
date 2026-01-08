@@ -332,6 +332,8 @@ class Client : public TQObject, public KDecorationDefines
         void setOpacity(bool translucent, uint opacity = 0);
         void setShadowSize(uint shadowSize);
         uint defaultOpacity();
+        /// Returns default opacity for an active or inactive window depending on the argument
+        uint defaultOpacity(bool active);
         void updateOpacity();
         void updateShadowSize();
         bool hasCustomOpacity(){return custom_opacity;}

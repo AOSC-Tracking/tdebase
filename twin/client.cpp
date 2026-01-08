@@ -2801,8 +2801,8 @@ void Client::setOpacity(bool translucent, uint opacity)
         return; // xcompmgr does not like non solid desktops and the user could set it accidently by mouse scrolling
 //     tqWarning("setting opacity for %d",tqt_xdisplay());
     //rule out activated translulcency with 100% opacity
-    if (!translucent || opacity == Opacity::Opaque)
-        {
+    if ((!translucent || opacity == Opacity::Opaque) && !custom_opacity)
+        { // Note: if it is custom_opacity we want to keep the properties in case of WM restart
         opacity_ = Opacity::Opaque;
         XDeleteProperty (tqt_xdisplay(), frameId(), atoms->net_wm_window_opacity);
         XDeleteProperty (tqt_xdisplay(), window(), atoms->net_wm_window_opacity); // ??? frameId() is necessary for visible changes, window() is the winId() that would be set by apps - we set both to be sure the app knows what's currently displayd
@@ -2827,7 +2827,12 @@ void Client::setShadowSize(uint shadowSize)
 
 uint Client::defaultOpacity()
     {
-    if (isActive() || (keepAbove() && options->keepAboveAsActive))
+    return defaultOpacity(isActive() || (keepAbove() && options->keepAboveAsActive));
+    }
+
+uint Client::defaultOpacity(bool active)
+    {
+    if (active)
         {
         if( ruleOpacityActive() )
             return rule_opacity_active;
@@ -2941,7 +2946,15 @@ bool Client::getWindowOpacity() //query translucency settings from X, returns tr
     if (result == Success && data && format == 32 )
         {
         opacity_ = *reinterpret_cast< long* >( data );
-        custom_opacity = true;
+        // Don't set custom_opacity flag during initialization if the opacity looks like what it
+        // supposed to be for the given type of window. As in a such case it is likely set by us
+        // and the WM is just restarting
+        if ( !(Workspace::self()->initializing()
+               && (   opacity_ == defaultOpacity(/*active*/ false)
+                   || opacity_ == defaultOpacity(/*active*/ true) ) ) )
+            {
+            custom_opacity = true;
+            }
 //         setOpacity(opacity_ < 0xFFFFFFFF, opacity_);
         XFree ((char*)data);
         return true;
