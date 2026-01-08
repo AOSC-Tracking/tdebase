@@ -417,7 +417,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void updateActiveBorders();
         void tileCurrentWindowToBorder(int position);
         // kompmgr
-        void setPopupClientOpacity(int v);
+        void setPopupClientTransparancy(int v);
         void resetClientOpacity();
         void setTransButtonText(int value);
         void unblockKompmgrRestart();

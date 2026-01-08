@@ -224,7 +224,7 @@ void Client::releaseWindow( bool on_shutdown )
     deleting = true;
     workspace()->discardUsedWindowRules( this, true ); // remove ForceTemporarily rules
     StackingUpdatesBlocker blocker( workspace());
-    if (!custom_opacity) setOpacity(false);
+    if (!custom_opacity) setOpacity(Opacity::Opaque);
     if (moveResizeMode)
        leaveMoveResize();
     removeShadow();
@@ -2795,26 +2795,24 @@ void Client::cancelAutoRaise()
     autoRaiseTimer = 0;
     }
 
-void Client::setOpacity(bool translucent, uint opacity)
+void Client::setOpacity(uint opacity)
     {
     if (isDesktop())
         return; // xcompmgr does not like non solid desktops and the user could set it accidently by mouse scrolling
 //     tqWarning("setting opacity for %d",tqt_xdisplay());
-    //rule out activated translulcency with 100% opacity
-    if ((!translucent || opacity == Opacity::Opaque) && !custom_opacity)
+    if (opacity == Opacity::Opaque && !custom_opacity)
         { // Note: if it is custom_opacity we want to keep the properties in case of WM restart
-        opacity_ = Opacity::Opaque;
         XDeleteProperty (tqt_xdisplay(), frameId(), atoms->net_wm_window_opacity);
         XDeleteProperty (tqt_xdisplay(), window(), atoms->net_wm_window_opacity); // ??? frameId() is necessary for visible changes, window() is the winId() that would be set by apps - we set both to be sure the app knows what's currently displayd
         }
     else{
         if(opacity == opacity_)
             return;
-        opacity_ = opacity;
         long data = opacity; // 32bit XChangeProperty needs long
         XChangeProperty(tqt_xdisplay(), frameId(), atoms->net_wm_window_opacity, XA_CARDINAL, 32, PropModeReplace, (unsigned char *) &data, 1L);
         XChangeProperty(tqt_xdisplay(), window(), atoms->net_wm_window_opacity, XA_CARDINAL, 32, PropModeReplace, (unsigned char *) &data, 1L);
         }
+        opacity_ = opacity;
     }
 
 void Client::setShadowSize(uint shadowSize)
@@ -2854,7 +2852,7 @@ void Client::updateOpacity()
     if (!(isNormalWindow() || isDialog() || isUtility() )|| custom_opacity)
         return;
     uint opacity = defaultOpacity();
-    setOpacity(true, opacity);
+    setOpacity(opacity);
 
     if (isBMP())
     // beep-media-player, only undecorated windows (gtk2 xmms, xmms doesn't work with compmgr at all - s.e.p. :P )
@@ -2874,7 +2872,7 @@ void Client::updateOpacity()
                 if ((*it)->touches(this)) // first test, if the new client touches the just activated one
                     {
 //                         tqWarning("found client touches me");
-                    (*it)->setOpacity(true, opacity);
+                    (*it)->setOpacity(opacity);
 //                         tqWarning("(de)activated, search restarted (1)");
                     (*it)->setShadowSize(options->activeWindowShadowSize);
                     groupMembers.append(*it);
@@ -2890,7 +2888,7 @@ void Client::updateOpacity()
                         if ((*it2) != this && (*it2) != (*it) && (*it)->touches(*it2))
                             {
 //                                 tqWarning("found client touches other active client");
-                            (*it)->setOpacity(true, opacity);
+                            (*it)->setOpacity(opacity);
                             (*it)->setShadowSize(isActive() ? options->activeWindowShadowSize : options->inactiveWindowShadowSize);
                             groupMembers.append(*it);
                             tmpGroupMembers.remove(it);
@@ -2911,7 +2909,7 @@ void Client::updateOpacity()
         {
         for( ClientList::ConstIterator it = group()->members().begin(); it != group()->members().end(); it++ )
             if ((*it)->isUtility() || ((*it)->isDialog() && isActive() )) // note: don't deactivate dialogs...
-                (*it)->setOpacity(true, opacity);
+                (*it)->setOpacity(opacity);
         }
     }
 
@@ -2955,7 +2953,7 @@ bool Client::getWindowOpacity() //query translucency settings from X, returns tr
             {
             custom_opacity = true;
             }
-//         setOpacity(opacity_ < 0xFFFFFFFF, opacity_);
+//         setOpacity(opacity_);
         XFree ((char*)data);
         return true;
         }

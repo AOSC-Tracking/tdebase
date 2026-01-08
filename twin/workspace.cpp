@@ -602,7 +602,7 @@ void Workspace::addClient( Client* c, allowed_t )
         if (!c->hasCustomOpacity()) // this xould be done slightly more efficient, but we want to support the topDock in future
             {
             c->setShadowSize(options->dockShadowSize);
-            c->setOpacity(options->translucentDocks, options->dockOpacity);
+            c->setOpacity(options->translucentDocks ? options->dockOpacity : Client::Opacity::Opaque);
             }
         }
     else
@@ -3101,7 +3101,7 @@ void Workspace::setOpacity(unsigned long winId, unsigned int opacityPercent)
     for( ClientList::ConstIterator it = stackingOrder().begin(); it != stackingOrder().end(); it++ )
         if (winId == (*it)->window())
             {
-            (*it)->setOpacity(opacityPercent < 100, percentToUint(opacityPercent));
+            (*it)->setOpacity(percentToUint(opacityPercent));
             return;
             }
 }

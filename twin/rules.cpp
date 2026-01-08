@@ -902,12 +902,16 @@ void Client::checkAndSetInitialRuledOpacity()
         rule_opacity_inactive = 0;
 
     return;
-        
+
     if( isDock() )
      //workaround for docks, as they don't have active/inactive settings and don't aut, therefore we take only the active one...
         {
-        uint tmp = rule_opacity_active ? rule_opacity_active : options->dockOpacity;
-        setOpacity(tmp < 0xFFFFFFFF && (rule_opacity_active || options->translucentDocks), tmp);
+        if (rule_opacity_active)
+            setOpacity(rule_opacity_active);
+        else if(options->translucentDocks)
+            setOpacity(options->dockOpacity);
+        else
+            setOpacity(Opacity::Opaque);
         }
     else
         updateOpacity();

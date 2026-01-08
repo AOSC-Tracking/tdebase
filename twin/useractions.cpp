@@ -116,7 +116,7 @@ TQPopupMenu* Workspace::clientPopup()
             connect(transButton, TQ_SIGNAL(clicked()), TQ_SLOT(resetClientOpacity()));
             connect(transButton, TQ_SIGNAL(clicked()), trans_popup, TQ_SLOT(hide()));
             connect(transSlider, TQ_SIGNAL(valueChanged(int)), TQ_SLOT(setTransButtonText(int)));
-            connect(transSlider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setPopupClientOpacity(int)));
+            connect(transSlider, TQ_SIGNAL(valueChanged(int)), this, TQ_SLOT(setPopupClientTransparancy(int)));
 //             connect(transSlider, TQ_SIGNAL(sliderReleased()), trans_popup, TQ_SLOT(hide()));
             trans_popup->insertItem(transBox);
             popup->insertItem(i18n("&Opacity"), trans_popup );
@@ -143,11 +143,11 @@ TQPopupMenu* Workspace::clientPopup()
     }
     
 //sets the transparency of the client to given value(given by slider)
-void Workspace::setPopupClientOpacity(int value)
+void Workspace::setPopupClientTransparancy(int value)
     {
     active_popup_client->setCustomOpacityFlag(true);
     int opacityPercent = 100 - value;
-    active_popup_client->setOpacity(true, percentToUint(opacityPercent));
+    active_popup_client->setOpacity(percentToUint(opacityPercent));
     }
 
 void Workspace::setTransButtonText(int value)
@@ -653,21 +653,21 @@ bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalP
                 if (opacity_ < Opacity::Opaque - Opacity::MouseStep)
                     {
                     custom_opacity = true;
-                    setOpacity(true, opacity_ + Opacity::MouseStep);
+                    setOpacity(opacity_ + Opacity::MouseStep);
                     }
                 else
                     {
                     if (defaultOpacity() == Opacity::Opaque)
                         custom_opacity = false;
-                    setOpacity(true, Opacity::Opaque);
+                    setOpacity(Opacity::Opaque);
                     }
                 }
             break;
         case Options::MouseOpacityLess:
-            if (opacity_ > 0)
+            if (opacity_ > Opacity::Transparent)
                 {
                 custom_opacity = true;
-                setOpacity(true, (opacity_ > Opacity::MouseStep) ? opacity_ - Opacity::MouseStep : Opacity::Transparent);
+                setOpacity((opacity_ > Opacity::MouseStep) ? opacity_ - Opacity::MouseStep : Opacity::Transparent);
                 }
             break;
         case Options::MouseNothing:

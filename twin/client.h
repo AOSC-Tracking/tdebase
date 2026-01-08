@@ -329,7 +329,7 @@ class Client : public TQObject, public KDecorationDefines
             Opaque      = 0xFFFFFFFF  //< Fully opaque window
         }; };
 
-        void setOpacity(bool translucent, uint opacity = 0);
+        void setOpacity(uint opacity);
         void setShadowSize(uint shadowSize);
         uint defaultOpacity();
         /// Returns default opacity for an active or inactive window depending on the argument

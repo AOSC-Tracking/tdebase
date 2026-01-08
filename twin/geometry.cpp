@@ -2362,7 +2362,7 @@ bool Client::startMoveResize()
     if (rules()->checkMoveResizeMode( options->moveMode ) == Options::Opaque)
     {
         savedOpacity_ = opacity_;
-        setOpacity(options->translucentMovingWindows, options->movingWindowOpacity);
+        setOpacity(options->translucentMovingWindows ? options->movingWindowOpacity : Opacity::Opaque);
     }
 
     if ( ( isMove() && rules()->checkMoveResizeMode( options->moveMode ) != Options::Opaque )
@@ -2429,7 +2429,7 @@ void Client::leaveMoveResize()
 {
     // rule out non opaque windows from useless translucency settings, maybe resizes?
     if (rules()->checkMoveResizeMode( options->moveMode ) == Options::Opaque)
-        setOpacity(true, savedOpacity_);
+        setOpacity(savedOpacity_);
     if ((isResize() && options->removeShadowsOnResize) || (isMove() && options->removeShadowsOnMove))
         updateShadowSize();
     clearbound();

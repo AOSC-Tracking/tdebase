@@ -864,7 +864,7 @@ void Client::setActive( bool act, bool updateOpacity_)
     if (isModal() && transientFor())
     {
         if (!act) transientFor()->updateOpacity();
-        else if (!transientFor()->custom_opacity) transientFor()->setOpacity(options->translucentActiveWindows, options->activeWindowOpacity);
+        else if (!transientFor()->custom_opacity) transientFor()->setOpacity(options->translucentActiveWindows ? options->activeWindowOpacity : Opacity::Opaque);
     }
     updateShadowSize();
 
