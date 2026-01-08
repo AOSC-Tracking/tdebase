@@ -26,7 +26,7 @@ License. See the file "COPYING" for the exact licensing terms.
 #include <tdemenubar.h>
 #include <kprocess.h>
 #include <kglobalaccel.h>
-#include <tdestandarddirs.h>
+#include <kstandarddirs.h>
 #include <dcopclient.h>
 #include <kipc.h>
 
