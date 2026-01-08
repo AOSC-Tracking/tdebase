@@ -2827,7 +2827,7 @@ void Client::setShadowSize(uint shadowSize)
 
 uint Client::defaultOpacity()
     {
-    if (isActive())
+    if (isActive() || (keepAbove() && options->keepAboveAsActive))
         {
         if( ruleOpacityActive() )
             return rule_opacity_active;
@@ -2839,9 +2839,7 @@ uint Client::defaultOpacity()
         if( ruleOpacityInactive() )
             return rule_opacity_inactive;
         else
-            return options->translucentInactiveWindows && !(keepAbove() && options->keepAboveAsActive) ?
-                      options->inactiveWindowOpacity
-                    : Opacity::Opaque;
+            return options->translucentInactiveWindows ? options->inactiveWindowOpacity : Opacity::Opaque;
         }
     }
 
