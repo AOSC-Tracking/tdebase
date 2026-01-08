@@ -146,8 +146,8 @@ TQPopupMenu* Workspace::clientPopup()
 void Workspace::setPopupClientOpacity(int value)
     {
     active_popup_client->setCustomOpacityFlag(true);
-    value = 100 - value;
-    value<100?active_popup_client->setOpacity(true, (uint)((value/100.0)*0xffffffff)):active_popup_client->setOpacity(false,0xffffffff);
+    int opacityPercent = 100 - value;
+    active_popup_client->setOpacity(true, percentToUint(opacityPercent));
     }
 
 void Workspace::setTransButtonText(int value)
@@ -648,16 +648,16 @@ bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalP
             workspace()->windowToNextDesktop( this );
             break;
         case Options::MouseOpacityMore:
-            if (opacity_ < 0xFFFFFFFF)
+            if (opacity_ < Opacity::Opaque)
                 {
-                if (opacity_ < 0xF3333333)
+                if (opacity_ < Opacity::Opaque - Opacity::MouseStep)
                     {
-                    setOpacity(true, opacity_ + 0xCCCCCCC);
+                    setOpacity(true, opacity_ + Opacity::MouseStep);
                     custom_opacity = true;
                     }
                 else
                     {
-                    setOpacity(false, 0xFFFFFFFF);
+                    setOpacity(false, Opacity::Opaque);
                     custom_opacity = false;
                     }
                 }
@@ -665,7 +665,7 @@ bool Client::performMouseCommand( Options::MouseCommand command, TQPoint globalP
         case Options::MouseOpacityLess:
             if (opacity_ > 0)
                 {
-                setOpacity(true, (opacity_ > 0xCCCCCCC) ? opacity_ - 0xCCCCCCC : 0);
+                setOpacity(true, (opacity_ > Opacity::MouseStep) ? opacity_ - Opacity::MouseStep : Opacity::Transparent);
                 custom_opacity = true;
                 }
             break;
