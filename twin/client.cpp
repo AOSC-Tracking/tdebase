@@ -2241,11 +2241,6 @@ void Client::takeFocus( allowed_t )
     if ( rules()->checkAcceptFocus( input ))
         {
         XSetInputFocus( tqt_xdisplay(), window(), RevertToPointerRoot, get_tqt_x_time() );
-        // Work around opacity bug
-        bool activePrev = active;
-        active = true;
-        updateOpacity();
-        active = activePrev;
         }
     if ( Ptakefocus )
         {
