@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Alexander Golubev <fatzer2@gmail.com>, 2021, 2022, 2024, 2025, 2026.
-# Andrei Stepanov <adem4ik@gmail.com>, 2023, 2024, 2025.
+# Andrei Stepanov <adem4ik@gmail.com>, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2026-01-07 14:34+0000\n"
-"Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
+"PO-Revision-Date: 2026-01-10 03:19+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
 "Language: ru\n"
@@ -1761,7 +1761,7 @@ msgstr ""
 #. Name
 #: konq/desktop.desktop:11
 msgid "Multiple Desktops"
-msgstr "Вирт. рабочие столы"
+msgstr "Рабочие столы"
 
 #. Comment
 #: konq/desktop.desktop:13
