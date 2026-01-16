@@ -50,7 +50,6 @@
 
 #include "prtypes.h"
 /* Copied from xp_core.h */
-/* removed #ifdef for hpux defined in /usr/include/model.h */
 #ifndef XP_MAC
 #ifndef _INT16
 #define _INT16

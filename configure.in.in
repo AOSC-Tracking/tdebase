@@ -24,10 +24,6 @@ AC_CHECK_HEADER(pty.h)
 AC_CHECK_FUNC(ptsname,,)
 
 
-dnl Checks for Alib on HP-UX (added by deller, Apr 29 1999)
-AC_CHECK_LIB(Alib, main, [LIBALIB="-lAlib"]) dnl HP-UX network audio server
-AC_SUBST(LIBALIB)
-
 dnl Checks for RPC functions
 AC_CHECK_FUNC(clnttcp_create, , [
   AC_CHECK_LIB(nsl, clnttcp_create, [LIBRPC="-lnsl"])])

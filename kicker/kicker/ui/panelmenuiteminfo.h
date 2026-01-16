@@ -39,19 +39,19 @@ class PanelMenuItemInfo
             : m_recvr(0), m_id(-1) {}
 
         PanelMenuItemInfo(const TQString& iconName, const TQString& visibleName, const TQObject* recvr, const TQCString& slot, int id = -1)
-            : m_icon(iconName), m_name(visibleName), m_slot_(slot), m_recvr(recvr), m_id(id) {}
+            : m_icon(iconName), m_name(visibleName), m_slot(slot), m_recvr(recvr), m_id(id) {}
 
         PanelMenuItemInfo(const TQString& iconName, const TQString& visibleName, int id = -1)
             : m_icon(iconName), m_name(visibleName), m_recvr(0), m_id(id) {}
 
         PanelMenuItemInfo(const PanelMenuItemInfo& c)
-            : m_icon(c.m_icon), m_name(c.m_name), m_slot_(c.m_slot_), m_recvr(c.m_recvr), m_id(c.m_id) {}
+            : m_icon(c.m_icon), m_name(c.m_name), m_slot(c.m_slot), m_recvr(c.m_recvr), m_id(c.m_id) {}
 
         PanelMenuItemInfo& operator=(const PanelMenuItemInfo& c)
         {
             m_icon = c.m_icon;
             m_name = c.m_name;
-            m_slot_ = c.m_slot_;
+            m_slot = c.m_slot;
             m_recvr = c.m_recvr;
             m_id = c.m_id;
             return *this;
@@ -76,16 +76,16 @@ class PanelMenuItemInfo
         {
             if (!m_icon.isEmpty() && m_icon != "unknown")
             {
-                if (m_recvr && !m_slot_.isEmpty())
+                if (m_recvr && !m_slot.isEmpty())
                 {
-                    return menu->insertItem(SmallIconSet(m_icon), m_name, m_recvr, m_slot_, 0, m_id);
+                    return menu->insertItem(SmallIconSet(m_icon), m_name, m_recvr, m_slot, 0, m_id);
                 }
 
                 return menu->insertItem(SmallIconSet(m_icon), m_name, m_id);
             }
-            else if (m_recvr && !m_slot_.isEmpty())
+            else if (m_recvr && !m_slot.isEmpty())
             {
-                return menu->insertItem(m_name, m_recvr, m_slot_, 0, m_id);
+                return menu->insertItem(m_name, m_recvr, m_slot, 0, m_id);
             }
 
             return menu->insertItem(m_name, m_id);
@@ -94,7 +94,7 @@ class PanelMenuItemInfo
     private:
         TQString m_icon;
         TQString m_name;
-        TQCString m_slot_; // HPUX namespace is polluted with m_slot
+        TQCString m_slot;
         const TQObject* m_recvr;
         int m_id;
 };

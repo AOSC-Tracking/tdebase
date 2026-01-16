@@ -915,8 +915,7 @@ now.
 				developed by &HP;. PCL started off in version 1 as a simple
 				command set for ASCII printing; now,
 				in its versions PCL6 and PCL-X, it is capable of printing graphics
-				and color  -- mdash; but outside the &Microsoft; &Windows; realm and &HP-UX; 
-				(&HP;'s own brand of &UNIX;), it is not commonly used...</para>
+				and color  -- mdash; but outside the &Microsoft; &Windows; realm</para>
                                 <glossseealso otherterm="gloss-escp">ESC/P</glossseealso>
                                 <glossseealso otherterm="gloss-hpgl">&HP;/GL</glossseealso>
                                 <glossseealso otherterm="gloss-pdl">PDL</glossseealso>

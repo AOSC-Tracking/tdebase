@@ -2,10 +2,6 @@
  * info_aix.cpp
  *
  * Reza Arbab <arbab@austin.ibm.com>
- *
- * GetInfo_Partitions() and its helpers (get_fs_usage, fs_adjust_blocks)
- * taken from info_hpux.cpp.  
- *
  */
 
 #include <cf.h>
@@ -411,7 +407,7 @@ static long fs_adjust_blocks(long blocks, int fromsize, int tosize)
 #define CONVERT_BLOCKS(b) fs_adjust_blocks ((b), fsd.f_bsize, 512)
 
 static int get_fs_usage (char *path, long *l_total, long *l_avail)
-{   struct statfs fsd;    /* 4.3BSD, SunOS 4, HP-UX, AIX.  */
+{   struct statfs fsd;    /* 4.3BSD, SunOS 4, AIX.  */
     unsigned long fsu_blocks,fsu_bfree,fsu_bavail;
 
    *l_total = *l_avail = 0;

@@ -44,10 +44,6 @@ from the copyright holder.
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#if 0 /*def USG; this was hpux once upon a time */
-# define NEED_UTSNAME
-#endif
-
 #ifdef NEED_UTSNAME
 # include <sys/utsname.h>
 #endif
