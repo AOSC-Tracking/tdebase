@@ -1423,12 +1423,6 @@ to</phrase></textobject>
 <para>This option specifies a broadcast address to be used.  By
 default, browsing information is broadcast to all active
 interfaces.</para>
-
-<note>
-<para>&HP-UX; 10.20 and earlier do not properly handle broadcast
-unless you have a Class A, B, C or D netmask (&ie;, there is no
-<acronym>CIDR</acronym> support).</para>
-</note>
 </listitem>
 </varlistentry>
 

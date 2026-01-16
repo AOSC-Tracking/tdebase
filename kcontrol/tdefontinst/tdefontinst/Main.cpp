@@ -102,7 +102,7 @@ KFI::CXConfig * getXCfg(bool root)
     {
         //
         // Try to determine location for X and xfs config files...
-        // ...note on some systems (Solaris and HP-UX) only the xfs file will be found
+        // ...note on some systems (Solaris) only the xfs file will be found
         bool          xfs=false;
         KFI::CXConfig *xcfg=NULL;
         TQString       xConfigFile=getFile(TQFile::encodeName(constXConfigFiles[0]), constXConfigFiles),

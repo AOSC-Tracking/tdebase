@@ -52,7 +52,7 @@ from the copyright holder.
 # include <netdnet/dnetdb.h>
 #endif
 
-#if (defined(_POSIX_SOURCE) && !defined(_AIX) && !defined(__QNX__)) || defined(__hpux) || defined(__svr4__) /* XXX */
+#if (defined(_POSIX_SOURCE) && !defined(_AIX) && !defined(__QNX__)) || defined(__svr4__)
 # define NEED_UTSNAME
 # include <sys/utsname.h>
 #endif
@@ -515,7 +515,7 @@ writeAddr( int family, int addr_length, char *addr,
 static void
 DefineLocal( FILE *file, Xauth *auth, int *ok )
 {
-#if !defined(NEED_UTSNAME) || defined(__hpux)
+#if !defined(NEED_UTSNAME)
 	char displayname[100];
 #endif
 #ifdef NEED_UTSNAME
@@ -534,7 +534,7 @@ DefineLocal( FILE *file, Xauth *auth, int *ok )
 
 #ifdef NEED_UTSNAME
 
-	/* hpux:
+	/*
 	 * Why not use gethostname()?  Well, at least on my system, I've had to
 	 * make an ugly kernel patch to get a name longer than 8 characters, and
 	 * uname() lets me access to the whole string (it smashes release, you
@@ -545,17 +545,12 @@ DefineLocal( FILE *file, Xauth *auth, int *ok )
 	           file, auth, ok );
 #endif
 
-#if !defined(NEED_UTSNAME) || defined(__hpux)
+#if !defined(NEED_UTSNAME)
 	/* _AIX:
 	 * In _AIX, _POSIX_SOURCE is defined, but uname gives only first
 	 * field of hostname. Thus, we use gethostname instead.
 	 */
 
-	/*
-	 * For HP-UX, HP's Xlib expects a fully-qualified domain name, which
-	 * is achieved by using gethostname().  For compatability, we must
-	 * also still create the entry using uname() above.
-	 */
 	displayname[0] = 0;
 	if (!gethostname( displayname, sizeof(displayname) ))
 		displayname[sizeof(displayname) - 1] = 0;
@@ -934,7 +929,7 @@ DefineSelf( int fd, int file, int auth, int *ok )
 
 	struct sockaddr_in *inetaddr;
 
-	/* hpux:
+	/*
 	 * Why not use gethostname()?  Well, at least on my system, I've had to
 	 * make an ugly kernel patch to get a name longer than 8 characters, and
 	 * uname() lets me access to the whole string (it smashes release, you

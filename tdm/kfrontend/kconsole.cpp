@@ -33,8 +33,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include <sys/ioctl.h>
 
 #ifdef HAVE_TERMIOS_H
-/* for HP-UX (some versions) the extern C is needed, and for other
-   platforms it doesn't hurt */
 extern "C" {
 #include <termios.h>
 }
@@ -43,12 +41,6 @@ extern "C" {
 /* needed at least on AIX */
 #include <termio.h>
 #endif
-
-#if defined (_HPUX_SOURCE)
-#define _TERMIOS_INCLUDED
-#include <bsdtty.h>
-#endif
-
 
 #include "kconsole.h"
 #include "tdmconfig.h"

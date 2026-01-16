@@ -4,11 +4,7 @@
 #include <X11/Xlib.h>
 #include <X11/Xlibint.h>
 
-#ifdef __hpux
-#include <dl.h>
-#else
 #include <dlfcn.h>
-#endif
 
 #define XP_UNIX 1
 #include "sdk/npupp.h"
@@ -28,26 +24,13 @@ NP_Initialize_t *gNP_Initialize = NULL;
 NP_Shutdown_t *gNP_Shutdown = NULL;
 NP_GetValue_t *gNP_GetValue = NULL;
 
-#ifdef __hpux
-shl_t gLib;
-#else
 void *gLib = 0L;
-#endif
 FILE *ef = 0L;
 
 #define DEB fprintf
 
 static
 void UnloadPlugin() {
-#ifdef __hpux
-   if (gLib) {
-		DEB( ef, "-> UnloadPlugin\n" );
-      shl_unload(gLib);
-		DEB( ef, "<- UnloadPlugin\n" );
-               
-      gLib=0L;
-   }
-#else
 	if ( gLib )	{
 		DEB( ef, "-> UnloadPlugin\n" );
 		dlclose( gLib );
@@ -57,7 +40,6 @@ void UnloadPlugin() {
 		
 		if (ef) fclose( ef );
 	}
-#endif
 }
 
 static
@@ -70,17 +52,6 @@ void LoadPlugin() {
 		setvbuf( ef, NULL, _IONBF, 0 );
 		DEB( ef, "-> LoadPlugin\n" );
 		
-#ifdef __hpux
-                gLib = shl_load("/tmp/plugin.so", BIND_IMMEDIATE, 0L);
-                if (shl_findsym(&gLib, "/tmp/plugin.so", (short) TYPE_PROCEDURE, (void *) &gNP_GetMIMEDescription))
-                   gNP_GetMIMEDescription = NULL;
-                if (shl_findsym(&gLib, "/tmp/plugin.so", (short) TYPE_PROCEDURE, (void *) &gNP_Initialize))
-                   gNP_Initialize = NULL;
-                if (shl_findsym(&gLib, "/tmp/plugin.so", (short) TYPE_PROCEDURE, (void *) &gNP_Shutdown))
-                   gNP_Shutdown = NULL;
-                if (shl_findsym(&gLib, "/tmp/plugin.so", (short) TYPE_PROCEDURE, (void *) &gNP_GetValue))
-                   gNP_GetValue = NULL;
-#else
 		gLib = dlopen( "/tmp/plugin.so", RTLD_NOW );
 		DEB( ef, "gLib = %x\n", gLib );
 
@@ -88,7 +59,6 @@ void LoadPlugin() {
 		gNP_Initialize = dlsym( gLib, "NP_Initialize" );
 		gNP_Shutdown = dlsym( gLib, "NP_Shutdown" );
 		gNP_GetValue = dlsym( gLib, "NP_GetValue" );
-#endif
 		DEB( ef, "gNP_GetMIMEDescription = %x\n", NP_GetMIMEDescription );
 		DEB( ef, "gNP_Initialize = %x\n", gNP_Initialize );
 		DEB( ef, "gNP_Shutdown = %x\n", gNP_Shutdown );

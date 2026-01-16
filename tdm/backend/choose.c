@@ -60,7 +60,7 @@ from the copyright holder.
 # include <netdir.h>
 #endif
 
-#if !defined(__GNU__) && !defined(__hpux) /* XXX __hpux might be wrong */
+#if !defined(__GNU__)
 # include <net/if.h>
 #endif
 

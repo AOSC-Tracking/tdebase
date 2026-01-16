@@ -53,8 +53,6 @@ static bool	sorting_allowed;	/* is sorting allowed by user ? */
 
 #if defined(__linux__)
 # define DEFAULT_ERRORSTRING TQString::null /* i18n("Maybe the proc-filesystem is not enabled in Linux-Kernel.") */
-#elif defined(__hpux)
-# define DEFAULT_ERRORSTRING TQString::null
 #else
 #define DEFAULT_ERRORSTRING  i18n("Maybe this system is not completely supported yet :-(")
 #endif
@@ -470,8 +468,6 @@ static int GetInfo_ReadfromPipe( TQListView *lBox, const char *FileName, bool Wi
 #include "info_sgi.cpp"
 #elif defined(__FreeBSD__) || defined (__DragonFly__)
 #include "info_fbsd.cpp"
-#elif __hpux
-#include "info_hpux.cpp"
 #elif __NetBSD__
 #include "info_netbsd.cpp"
 #elif __OpenBSD__

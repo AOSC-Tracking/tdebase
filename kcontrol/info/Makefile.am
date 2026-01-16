@@ -7,7 +7,7 @@ endif
 kcm_info_la_SOURCES = main.cpp memory.cpp opengl.cpp
 
 kcm_info_la_LDFLAGS = $(all_libraries) -module -avoid-version -no-undefined $(FRAMEWORK_COREAUDIO)
-kcm_info_la_LIBADD = $(LIBALIB) $(LIB_TDEUI) $(LIBCFG) $(LIBODM) $(LIBKSTAT) $(LIBDEVINFO) $(GLLIB)
+kcm_info_la_LIBADD = $(LIB_TDEUI) $(LIBCFG) $(LIBODM) $(LIBKSTAT) $(LIBDEVINFO) $(GLLIB)
 METASOURCES = AUTO
 
 AM_CPPFLAGS= $(all_includes) $(GLINC)

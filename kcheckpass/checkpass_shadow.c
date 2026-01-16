@@ -35,10 +35,7 @@
 #include <stdlib.h>
 #include <pwd.h>
 #include <crypt.h>
-
-#ifndef __hpux
 #include <shadow.h>
-#endif
 
 AuthReturn Authenticate(const char *method,
         const char *login, char *(*conv) (ConvRequest, const char *))

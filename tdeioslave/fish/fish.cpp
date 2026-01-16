@@ -441,7 +441,7 @@ bool fishProtocol::connectionStart() {
 #endif
 
         int pgrp = getpid();
-#if defined( _AIX) || defined( __hpux)
+#if defined( _AIX)
         tcsetpgrp(0, pgrp);
 #else
         ioctl(0, TIOCSPGRP, (char *)&pgrp);

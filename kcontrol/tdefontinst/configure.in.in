@@ -93,7 +93,6 @@ if test "$KFI_FOUND_FREETYPE" -eq 1; then
             *-*-solaris*) UNAME='Solaris' ;;
             *-*-irix*) UNAME='Irix' ;;
             *-*-aix*) UNAME='AIX' ;;
-            *-*-hpux*) UNAME='HPUX' ;;
             *-*-darwin*) UNAME='Darwin' ;;
             *) UNAME='Unknown' ;;
             esac

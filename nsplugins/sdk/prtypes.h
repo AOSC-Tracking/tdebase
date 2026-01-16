@@ -266,10 +266,8 @@ typedef unsigned char PRUint8;
 ** For these compilers, we have to define PRInt8 as plain 'char'.
 ** Make sure that plain 'char' is indeed signed under these compilers.
 */
-#if (defined(HPUX) && defined(__cplusplus) \
-        && !defined(__GNUC__) && __cplusplus < 199707L) \
-    || (defined(SCO) && defined(__cplusplus) \
-        && !defined(__GNUC__) && __cplusplus == 1L)
+#if defined(SCO) && defined(__cplusplus) \
+        && !defined(__GNUC__) && __cplusplus == 1L
 typedef char PRInt8;
 #else
 typedef signed char PRInt8;

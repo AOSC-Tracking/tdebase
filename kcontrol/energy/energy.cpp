@@ -58,7 +58,7 @@ Status DPMSInfo ( Display *, CARD16 *, BOOL * );
 #endif
 }
 
-#if defined(XIMStringConversionRetrival) || defined (__sun) || defined(__hpux)
+#if defined(XIMStringConversionRetrival) || defined (__sun)
 extern "C" {
 #endif
     Bool DPMSQueryExtension(Display *, int *, int *);
@@ -66,7 +66,7 @@ extern "C" {
     Status DPMSDisable(Display *);
     Bool DPMSGetTimeouts(Display *, CARD16 *, CARD16 *, CARD16 *);
     Bool DPMSSetTimeouts(Display *, CARD16, CARD16, CARD16);
-#if defined(XIMStringConversionRetrival) || defined (__sun) || defined(__hpux)
+#if defined(XIMStringConversionRetrival) || defined (__sun)
 }
 #endif
 #endif

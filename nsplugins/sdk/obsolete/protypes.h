@@ -82,11 +82,6 @@ typedef PRIntn intn;
 #include <sys/types.h>
 #endif
 
-/* model.h on HP-UX defines int8, int16, and int32. */
-#ifdef HPUX
-#include <model.h>
-#endif
-
 /*
  * uint
  */
@@ -146,8 +141,7 @@ typedef PRInt64 int64;
  */
 
 #if !defined(XP_BEOS) && !defined(VMS) \
-    && !defined(_PR_AIX_HAVE_BSD_INT_TYPES) \
-    && !defined(HPUX)
+    && !defined(_PR_AIX_HAVE_BSD_INT_TYPES)
 #if !defined(WIN32) || !defined(_WINSOCK2API_)  /* defines its own "int32" */
 #if !defined(XP_MAC) && !defined(_WIN32) && !defined(XP_OS2) && !defined(NTO)
 typedef PRInt32 int32;
@@ -162,8 +156,7 @@ typedef long int32;
  */
 
 #if !defined(XP_BEOS) && !defined(VMS) \
-    && !defined(_PR_AIX_HAVE_BSD_INT_TYPES) \
-    && !defined(HPUX)
+    && !defined(_PR_AIX_HAVE_BSD_INT_TYPES)
 typedef PRInt16 int16;
 #endif
 
@@ -172,8 +165,7 @@ typedef PRInt16 int16;
  */
 
 #if !defined(XP_BEOS) && !defined(VMS) \
-    && !defined(_PR_AIX_HAVE_BSD_INT_TYPES) \
-    && !defined(HPUX)
+    && !defined(_PR_AIX_HAVE_BSD_INT_TYPES)
 typedef PRInt8 int8;
 #endif
 

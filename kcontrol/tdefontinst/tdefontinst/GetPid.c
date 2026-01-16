@@ -62,7 +62,6 @@
         OpenBSD
         Irix
         Solaris       Tested on Solaris 8 x86 by Torsten Kasch <tk@Genetik.Uni-Bielefeld.DE>
-        HP-UX         Tested on HP-UX B.11.11 U 9000/800
         AIX
         ...else parse output of "ps -eaf"
 
@@ -77,7 +76,7 @@
            gcc GetPid.c -DTEST_GETPID -DOS_Linux -o tst
 
        ...replace OS_Linux with your particular OS type: OS_FreeBSD, OS_NetBSD, OS_Irix, OS_Solaris,
-       OS_HPUX, or OS_AIX
+       or OS_AIX
 
     2. Start a program - such as "vi"
     3. Do a "ps -eaf" to ensure there is *only one* process called "vi"
@@ -336,35 +335,6 @@ unsigned int kfi_getPid(const char *proc, pid_t ppid)
                         pid=psinfo.pr_pid;
 	    }
         closedir(procdir);
-    }
-
-    return error ? 0 : pid;
-}
-
-#elif defined OS_HPUX
-
-#include <sys/pstat.h>
-#define MAX_PROCS 50
-
-unsigned int kfi_getPid(const char *proc, unsigned int ppid)
-{
-    bool              error=false;
-    unsigned int      pid=0;
-    int               i,
-                      count,
-                      idx=0; 
-    struct pst_status pst[MAX_PROCS];
-
-    while((count=pstat_getproc(&pst[0], sizeof(pst[0]), MAX_PROCS, idx)) > 0 && !error)
-    {
-        for (i = 0; i<count && !error; i++) 
-            if(pst[i].pst_ppid==ppid && pst[i].pst_ucomm && 0==strcmp(pst[i].pst_ucomm, proc))
-                if(pid)
-                    error=true;
-                else
-                    pid=pst[i].pst_pid;
-
-        idx=pst[count-1].pst_idx+1;
     }
 
     return error ? 0 : pid;
