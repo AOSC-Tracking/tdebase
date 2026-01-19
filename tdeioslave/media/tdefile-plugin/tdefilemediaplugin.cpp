@@ -101,7 +101,7 @@ KFileMediaPlugin::KFileMediaPlugin(TQObject *parent, const char *name,
 
 bool KFileMediaPlugin::readInfo(KFileMetaInfo &info, uint /*what*/)
 {
-        const Medium medium = askMedium(info);
+	const Medium medium = askMedium(info);
 
 	kdDebug() << "KFileMediaPlugin::readInfo " << medium.id() << endl;
  
@@ -110,6 +110,7 @@ bool KFileMediaPlugin::readInfo(KFileMetaInfo &info, uint /*what*/)
 	TQString mount_point = medium.mountPoint();
 	KURL base_url = medium.prettyBaseURL();
 	TQString device_node = medium.deviceNode();
+	TQString fs_type = medium.fsType();
 
 	KFileMetaInfoGroup group = appendGroup(info, "mediumInfo");
 
@@ -121,6 +122,11 @@ bool KFileMediaPlugin::readInfo(KFileMetaInfo &info, uint /*what*/)
 	if (!device_node.isEmpty())
 	{
 		appendItem(group, "deviceNode", device_node);
+	}
+
+	if (!fs_type.isEmpty())
+	{
+		appendItem(group, "fsType", fs_type);
 	}
 
 	if (!mount_point.isEmpty() && medium.isMounted())
@@ -147,9 +153,9 @@ bool KFileMediaPlugin::readInfo(KFileMetaInfo &info, uint /*what*/)
 				length = 150 * m_used / m_total;
 			}
 
-			appendItem(group, "free", m_free);
-			appendItem(group, "used", m_used);
-			appendItem(group, "total", m_total);
+			appendItem(group, "space_free", m_free);
+			appendItem(group, "space_used", m_used);
+			appendItem(group, "space_total", m_total);
 
 			group = appendGroup(info, "mediumSummary");
 
@@ -195,24 +201,23 @@ void KFileMediaPlugin::addMimeType(const char *mimeType)
 	KFileMimeTypeInfo::GroupInfo *group
 		= addGroupInfo(info, "mediumInfo", i18n("Medium Information"));
 
-	KFileMimeTypeInfo::ItemInfo *item
-		= addItemInfo(group, "free", i18n("Free"), TQVariant::ULongLong);
-	setUnit(item, KFileMimeTypeInfo::Bytes);
-
-	item = addItemInfo(group, "used", i18n("Used"), TQVariant::ULongLong);
-	setUnit(item, KFileMimeTypeInfo::Bytes);
-
-	item = addItemInfo(group, "total", i18n("Total"), TQVariant::ULongLong);
-	setUnit(item, KFileMimeTypeInfo::Bytes);
-
+	KFileMimeTypeInfo::ItemInfo *item;
 	item = addItemInfo(group, "baseURL", i18n("Base URL"), TQVariant::String);
-	item = addItemInfo(group, "mountPoint", i18n("Mount Point"), TQVariant::String);
 	item = addItemInfo(group, "deviceNode", i18n("Device Node"), TQVariant::String);
+	item = addItemInfo(group, "fsType", i18n("File System"), TQVariant::String);
+	item = addItemInfo(group, "mountPoint", i18n("Mount Point"), TQVariant::String);
+
+	item = addItemInfo(group, "space_free", i18n("Free"), TQVariant::ULongLong);
+	setUnit(item, KFileMimeTypeInfo::Bytes);
+
+	item = addItemInfo(group, "space_used", i18n("Used"), TQVariant::ULongLong);
+	setUnit(item, KFileMimeTypeInfo::Bytes);
+
+	item = addItemInfo(group, "space_total", i18n("Total"), TQVariant::ULongLong);
+	setUnit(item, KFileMimeTypeInfo::Bytes);
 
 	group = addGroupInfo(info, "mediumSummary", i18n("Medium Summary"));
-
 	item = addItemInfo(group, "percent", i18n("Usage"), TQVariant::String);
-
 	item = addItemInfo( group, "thumbnail", i18n("Bar Graph"), TQVariant::Image );
 	setHint( item, KFileMimeTypeInfo::Thumbnail );
 }
