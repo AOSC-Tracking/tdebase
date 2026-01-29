@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Alexander Golubev <fatzer2@gmail.com>, 2022, 2024, 2025.
-# Andrei Stepanov <adem4ik@gmail.com>, 2023.
+# Andrei Stepanov <adem4ik@gmail.com>, 2023, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2025-11-02 15:58+0000\n"
-"Last-Translator: Alexander Golubev <fatzer2@gmail.com>\n"
+"PO-Revision-Date: 2026-01-29 12:04+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kappfinder-data/ru/>\n"
 "Language: ru\n"
@@ -506,7 +506,7 @@ msgstr "Эмблема Linux"
 #. Name
 #: Games/defendguin.desktop:3
 msgid "Defendguin"
-msgstr ""
+msgstr "Defendguin"
 
 #. GenericName
 #: Games/defendguin.desktop:4
@@ -749,7 +749,7 @@ msgstr "Клиент электронной почты"
 #. Name
 #: Internet/Faces.desktop:2
 msgid "Faces"
-msgstr ""
+msgstr "Faces"
 
 #. GenericName
 #: Internet/Faces.desktop:3 Internet/coolmail.desktop:3
@@ -759,9 +759,8 @@ msgstr "Извещения о новой почте"
 
 #. Name
 #: Internet/Fetchmailconf.desktop:2
-#, fuzzy
 msgid "Fetchmailconf"
-msgstr "Настройка fetchmail"
+msgstr "Настройка Fetchmail"
 
 #. GenericName
 #: Internet/Fetchmailconf.desktop:3
@@ -781,7 +780,7 @@ msgstr "Обмен мгновенными сообщениями"
 #. Name
 #: Internet/Galeon.desktop:2
 msgid "Galeon"
-msgstr ""
+msgstr "Galeon"
 
 #. GenericName
 #: Internet/Galeon.desktop:3 Internet/Terminal/Links.desktop:3
@@ -795,9 +794,8 @@ msgstr "Веб-браузер"
 
 #. Name
 #: Internet/GnomeICU.desktop:2
-#, fuzzy
 msgid "GNOMEICU"
-msgstr "Календарь GNOME"
+msgstr "GNOMEICU"
 
 #. GenericName
 #: Internet/GnomeICU.desktop:3 Internet/licq.desktop:3
@@ -806,14 +804,13 @@ msgstr "Клиент ICQ"
 
 #. Name
 #: Internet/Netscapemessenger.desktop:2
-#, fuzzy
 msgid "Netscape Messenger"
-msgstr "Обмен мгновенными сообщениями"
+msgstr "Мессенджер Netscape"
 
 #. Name
 #: Internet/Nmapfe.desktop:2
 msgid "Nmapfe"
-msgstr ""
+msgstr "Nmapfe"
 
 #. GenericName
 #: Internet/Nmapfe.desktop:3
@@ -823,7 +820,7 @@ msgstr "Сканер портов"
 #. Name
 #: Internet/Pan.desktop:2
 msgid "Pan"
-msgstr ""
+msgstr "Pan"
 
 #. GenericName
 #: Internet/Pan.desktop:3 Internet/knews.desktop:3
@@ -833,7 +830,7 @@ msgstr "Программа для чтения новостей"
 #. Name
 #: Internet/Sylpheed.desktop:2
 msgid "Sylpheed"
-msgstr ""
+msgstr "Sylpheed"
 
 #. Name
 #: Internet/Terminal/Links.desktop:2
@@ -859,7 +856,7 @@ msgstr "Графический интерфейс BitTorrent"
 #. Name
 #: Internet/Terminal/lftp.desktop:2
 msgid "Lftp"
-msgstr ""
+msgstr "Lftp"
 
 #. GenericName
 #: Internet/Terminal/lftp.desktop:3 Internet/Terminal/ncftp.desktop:3
@@ -874,12 +871,12 @@ msgstr "Mutt"
 #. Name
 #: Internet/Terminal/ncftp.desktop:2
 msgid "NcFTP"
-msgstr ""
+msgstr "NcFTP"
 
 #. Name
 #: Internet/Terminal/pine.desktop:2
 msgid "Pine"
-msgstr ""
+msgstr "Pine"
 
 #. Name
 #: Internet/Terminal/silc.desktop:2
@@ -894,7 +891,7 @@ msgstr "Клиент SILC"
 #. Name
 #: Internet/Terminal/slrn.desktop:2
 msgid "Slrn"
-msgstr ""
+msgstr "Slrn"
 
 #. GenericName
 #: Internet/Terminal/slrn.desktop:3
@@ -909,12 +906,12 @@ msgstr "w3m"
 #. Name
 #: Internet/arena.desktop:2
 msgid "Arena"
-msgstr ""
+msgstr "Арена"
 
 #. Name
 #: Internet/balsa.desktop:2
 msgid "Balsa"
-msgstr ""
+msgstr "Balsa"
 
 #. Name
 #: Internet/btdownloadgui.desktop:2
@@ -924,12 +921,12 @@ msgstr "Графический интерфейс BitTorrent"
 #. Name
 #: Internet/coolmail.desktop:2
 msgid "Coolmail"
-msgstr ""
+msgstr "Coolmail"
 
 #. Name
 #: Internet/dc_gui.desktop:2
 msgid "DCTC GUI"
-msgstr ""
+msgstr "Графический клиент DCTC"
 
 #. GenericName
 #: Internet/dc_gui.desktop:3
@@ -969,12 +966,12 @@ msgstr "gFTP"
 #. Name
 #: Internet/gaim.desktop:2
 msgid "Gaim"
-msgstr ""
+msgstr "Gaim"
 
 #. Name
 #: Internet/gnomemeeting.desktop:2
 msgid "GnomeMeeting"
-msgstr ""
+msgstr "GnomeMeeting"
 
 #. GenericName
 #: Internet/gnomemeeting.desktop:3
@@ -983,15 +980,13 @@ msgstr "Видео конференции"
 
 #. Name
 #: Internet/gnometalk.desktop:2
-#, fuzzy
 msgid "GNOME Talk"
-msgstr "Календарь GNOME"
+msgstr "GNOME Talk"
 
 #. Name
 #: Internet/gtelnet.desktop:2
-#, fuzzy
 msgid "GNOME Telnet"
-msgstr "Сапёр GNOME"
+msgstr "Telnet для GNOME"
 
 #. GenericName
 #: Internet/gtelnet.desktop:3
@@ -1001,7 +996,7 @@ msgstr "Удалённый доступ"
 #. Name
 #: Internet/ickle.desktop:2
 msgid "ickle"
-msgstr ""
+msgstr "ickle"
 
 #. GenericName
 #: Internet/ickle.desktop:3
@@ -1021,7 +1016,7 @@ msgstr "KNews"
 #. Name
 #: Internet/licq.desktop:2
 msgid "Licq"
-msgstr ""
+msgstr "Licq"
 
 #. Name
 #: Internet/mldonkey_gui.desktop:2
@@ -1071,7 +1066,7 @@ msgstr "Wireshark"
 #. Name
 #: Internet/xbiff.desktop:2
 msgid "X Biff"
-msgstr ""
+msgstr "X Biff"
 
 #. Name
 #: Internet/xchat.desktop:2
@@ -1086,17 +1081,17 @@ msgstr "Клиент IRC"
 #. Name
 #: Internet/xfmail.desktop:2
 msgid "XFMail"
-msgstr ""
+msgstr "XFMail"
 
 #. Name
 #: Internet/xftp.desktop:2
 msgid "X FTP"
-msgstr ""
+msgstr "X FTP"
 
 #. Name
 #: Multimedia/Aumix.desktop:2
 msgid "Aumix"
-msgstr ""
+msgstr "Aumix"
 
 #. GenericName
 #: Multimedia/Aumix.desktop:3
@@ -1106,7 +1101,7 @@ msgstr "Аудио микшер"
 #. Name
 #: Multimedia/Grip.desktop:2
 msgid "Grip"
-msgstr ""
+msgstr "Grip"
 
 #. GenericName
 #: Multimedia/Grip.desktop:3
@@ -1121,7 +1116,7 @@ msgstr "MP3 Info"
 #. Name
 #: Multimedia/XMovie.desktop:2
 msgid "XMovie"
-msgstr ""
+msgstr "XMovie"
 
 #. GenericName
 #: Multimedia/XMovie.desktop:3 Multimedia/mplayer.desktop:3
@@ -1133,7 +1128,7 @@ msgstr "Видео плейер"
 #. Name
 #: Multimedia/alevt.desktop:2
 msgid "AleVT"
-msgstr ""
+msgstr "AleVT"
 
 #. GenericName
 #: Multimedia/alevt.desktop:3
@@ -1143,7 +1138,7 @@ msgstr "Программа просмотра VideoText"
 #. Name
 #: Multimedia/alsamixergui.desktop:2
 msgid "AlsaMixerGui"
-msgstr ""
+msgstr "Аудиомикшер для ALSA"
 
 #. GenericName
 #: Multimedia/alsamixergui.desktop:3
@@ -1153,7 +1148,7 @@ msgstr "Интерфейс к микшеру Alsa"
 #. Name
 #: Multimedia/audacity.desktop:2
 msgid "Audacity"
-msgstr ""
+msgstr "Audacity"
 
 #. GenericName
 #: Multimedia/audacity.desktop:3 Multimedia/rezound.desktop:3
@@ -1174,7 +1169,7 @@ msgstr "Видеопроигрыватель AVI"
 #. Name
 #: Multimedia/bcast2000.desktop:2
 msgid "Broadcast 2000"
-msgstr ""
+msgstr "Broadcast 2000"
 
 #. GenericName
 #: Multimedia/bcast2000.desktop:3
@@ -1184,7 +1179,7 @@ msgstr "Интегрированная среда обработки аудио 
 #. Name
 #: Multimedia/enjoympeg.desktop:2
 msgid "EnjoyMPEG"
-msgstr ""
+msgstr "EnjoyMPEG"
 
 #. GenericName
 #: Multimedia/enjoympeg.desktop:3 Multimedia/gtv.desktop:3
@@ -1194,7 +1189,7 @@ msgstr "Проигрыватель MPEG"
 #. Name
 #: Multimedia/gtv.desktop:2
 msgid "GTV"
-msgstr ""
+msgstr "GTV"
 
 #. Name
 #: Multimedia/jazz.desktop:2
@@ -1214,12 +1209,12 @@ msgstr "MPlayer"
 #. Name
 #: Multimedia/mtv.desktop:2
 msgid "MpegTV"
-msgstr ""
+msgstr "MpegTV"
 
 #. Name
 #: Multimedia/ogle.desktop:2
 msgid "Ogle"
-msgstr ""
+msgstr "Ogle"
 
 #. GenericName
 #: Multimedia/ogle.desktop:3
@@ -1228,9 +1223,8 @@ msgstr "Проигрыватель DVD"
 
 #. Name
 #: Multimedia/oqtplayer.desktop:2
-#, fuzzy
 msgid "OQTPlayer"
-msgstr "Проигрыватель DVD"
+msgstr "OQTPlayer"
 
 #. GenericName
 #: Multimedia/oqtplayer.desktop:3
@@ -1239,19 +1233,18 @@ msgstr "Видеопроигрыватель MOV"
 
 #. Name
 #: Multimedia/realplayer.desktop:2
-#, fuzzy
 msgid "RealPlayer"
-msgstr "Видео плейер"
+msgstr "RealPlayer"
 
 #. Name
 #: Multimedia/rezound.desktop:2
 msgid "reZound"
-msgstr ""
+msgstr "reZound"
 
 #. Name
 #: Multimedia/slab.desktop:2
 msgid "Slab"
-msgstr ""
+msgstr "Slab"
 
 #. GenericName
 #: Multimedia/slab.desktop:3
@@ -1261,12 +1254,12 @@ msgstr "Запись звука"
 #. Name
 #: Multimedia/sweep.desktop:2
 msgid "Sweep"
-msgstr ""
+msgstr "Sweep"
 
 #. Name
 #: Multimedia/xawtv.desktop:2
 msgid "XawTV"
-msgstr ""
+msgstr "XawTV"
 
 #. GenericName
 #: Multimedia/xawtv.desktop:3
@@ -1276,7 +1269,7 @@ msgstr "Телевизор"
 #. Name
 #: Multimedia/xcam.desktop:2
 msgid "XCam"
-msgstr ""
+msgstr "XCam"
 
 #. GenericName
 #: Multimedia/xcam.desktop:3
@@ -1311,7 +1304,7 @@ msgstr "Мультимедийный проигрыватель"
 #. Name
 #: Office/Applix.desktop:2
 msgid "Applix"
-msgstr ""
+msgstr "Applix"
 
 #. GenericName
 #: Office/Applix.desktop:3
@@ -1366,7 +1359,7 @@ msgstr "Электронная таблица"
 #. Name
 #: Office/Guppi.desktop:2
 msgid "Guppi"
-msgstr ""
+msgstr "Guppi"
 
 #. Name
 #: Office/Ical.desktop:2
@@ -1381,7 +1374,7 @@ msgstr "Календарь"
 #. Name
 #: Office/WordPerfect.desktop:2
 msgid "WordPerfect"
-msgstr ""
+msgstr "WordPerfect"
 
 #. GenericName
 #: Office/WordPerfect.desktop:3 Office/WordPerfect2000.desktop:3
@@ -1392,7 +1385,7 @@ msgstr "Текстовый процессор"
 #. Name
 #: Office/WordPerfect2000.desktop:2
 msgid "WordPerfect 2000"
-msgstr ""
+msgstr "WordPerfect 2000"
 
 #. Name
 #: Office/XAcc.desktop:2
@@ -1407,7 +1400,7 @@ msgstr "Личная бухгалтерия"
 #. Name
 #: Office/XsLite.desktop:2
 msgid "XsLite"
-msgstr ""
+msgstr "XsLite"
 
 #. Name
 #: Office/abiword.desktop:2
@@ -1426,7 +1419,6 @@ msgstr "Просмотр PDF"
 
 #. Name
 #: Office/gnucash.desktop:2
-#, fuzzy
 msgid "GnuCash"
 msgstr "GnuCash"
 
@@ -1443,7 +1435,7 @@ msgstr "LyX"
 #. Name
 #: Office/mrproject.desktop:2
 msgid "MrProject"
-msgstr ""
+msgstr "MrProject"
 
 #. GenericName
 #: Office/mrproject.desktop:3
@@ -1458,7 +1450,7 @@ msgstr "Адресная книга Netscape"
 #. Name
 #: Office/plan.desktop:2
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #. GenericName
 #: Office/plan.desktop:3
@@ -1467,9 +1459,8 @@ msgstr "Календарь"
 
 #. Name
 #: Office/pybliographic.desktop:2
-#, fuzzy
 msgid "Pybliographic"
-msgstr "Библиографическая база данных"
+msgstr "Pybliographic"
 
 #. GenericName
 #: Office/pybliographic.desktop:3
@@ -1479,7 +1470,7 @@ msgstr "Библиографическая база данных"
 #. Name
 #: Office/scribus.desktop:2
 msgid "Scribus"
-msgstr ""
+msgstr "Scribus"
 
 #. GenericName
 #: Office/scribus.desktop:3
@@ -1544,7 +1535,7 @@ msgstr "Клиент WTS"
 #. Name
 #: System/editres.desktop:2
 msgid "EditXRes"
-msgstr ""
+msgstr "EditXRes"
 
 #. GenericName
 #: System/editres.desktop:3
@@ -1603,7 +1594,7 @@ msgstr "VIM"
 #. Name
 #: Utilities/Editors/lemacs.desktop:2
 msgid "Lucid Emacs"
-msgstr ""
+msgstr "Lucid Emacs"
 
 #. Name
 #: Utilities/Editors/nano.desktop:2
@@ -1642,9 +1633,8 @@ msgstr "Мониторы GNU Krell"
 
 #. Name
 #: Utilities/GnomeWho.desktop:2
-#, fuzzy
 msgid "GNOME Who"
-msgstr "Шахматы GNOME"
+msgstr "GNOME Who"
 
 #. GenericName
 #: Utilities/GnomeWho.desktop:3
@@ -1673,9 +1663,8 @@ msgstr "Утилита закрытия окон"
 
 #. Name
 #: Utilities/XUtilities/Xrefresh.desktop:2
-#, fuzzy
 msgid "X Refresh"
-msgstr "Обновление экрана"
+msgstr "X Refresh"
 
 #. GenericName
 #: Utilities/XUtilities/Xrefresh.desktop:3
@@ -1685,7 +1674,7 @@ msgstr "Обновление экрана"
 #. Name
 #: Utilities/XUtilities/Xtraceroute.desktop:2
 msgid "X Traceroute"
-msgstr ""
+msgstr "X Traceroute"
 
 #. GenericName
 #: Utilities/XUtilities/Xtraceroute.desktop:3
@@ -1695,7 +1684,7 @@ msgstr "Анализатор сетевых маршрутов"
 #. Name
 #: Utilities/XUtilities/xcalc.desktop:2
 msgid "X Calc"
-msgstr ""
+msgstr "X Calc"
 
 #. GenericName
 #: Utilities/XUtilities/xcalc.desktop:3 Utilities/calctool.desktop:3
@@ -1735,7 +1724,7 @@ msgstr "Программа просмотра сообщений консоли"
 #. Name
 #: Utilities/XUtilities/xload.desktop:2
 msgid "X Load"
-msgstr ""
+msgstr "X Load"
 
 #. GenericName
 #: Utilities/XUtilities/xload.desktop:3
@@ -1759,14 +1748,13 @@ msgstr "X-терминал"
 
 #. Name
 #: Utilities/calctool.desktop:2
-#, fuzzy
 msgid "Calctool"
-msgstr "Калькулятор"
+msgstr "Calctool"
 
 #. Name
 #: Utilities/e-notes.desktop:2
 msgid "E-Notes"
-msgstr ""
+msgstr "E-Notes"
 
 #. GenericName
 #: Utilities/e-notes.desktop:3
