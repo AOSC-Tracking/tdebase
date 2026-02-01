@@ -60,7 +60,6 @@
         FreeBSD       Tested on FreeBSD 5.1 by Brian Ledbetter <brian@shadowcom.net>
         NetBSD
         OpenBSD
-        Irix
         Solaris       Tested on Solaris 8 x86 by Torsten Kasch <tk@Genetik.Uni-Bielefeld.DE>
         AIX
         ...else parse output of "ps -eaf"
@@ -75,7 +74,7 @@
 
            gcc GetPid.c -DTEST_GETPID -DOS_Linux -o tst
 
-       ...replace OS_Linux with your particular OS type: OS_FreeBSD, OS_NetBSD, OS_Irix, OS_Solaris,
+       ...replace OS_Linux with your particular OS type: OS_FreeBSD, OS_NetBSD, OS_Solaris,
        or OS_AIX
 
     2. Start a program - such as "vi"
@@ -256,7 +255,7 @@ unsigned int kfi_getPid(const char *proc, unsigned int ppid)
     return error ? 0 : pid;
 }
 
-#elif defined OS_Irix || defined OS_Solaris
+#elif defined OS_Solaris
 
 #include <unistd.h>
 #include <errno.h>

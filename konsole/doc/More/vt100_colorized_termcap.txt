@@ -40,7 +40,7 @@ with my screen in 50 line mode (49 lines + one for my comms
 program's status line).
 
 The system here with my account is a Sparc running Solaris 2.3,
-SunOS 5.3 - but this also works under SGI IRIX and SunOS 4.3.1
+SunOS 5.3 - but this also works under SunOS 4.3.1
 (remote vt-term login).  I use tcsh as my default login shell
 (I'll eventually try out ksh once I have some time :-)
 

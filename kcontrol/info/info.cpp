@@ -464,8 +464,6 @@ static int GetInfo_ReadfromPipe( TQListView *lBox, const char *FileName, bool Wi
 
 #ifdef __linux__
 #include "info_linux.cpp"
-#elif defined(sgi) && sgi
-#include "info_sgi.cpp"
 #elif defined(__FreeBSD__) || defined (__DragonFly__)
 #include "info_fbsd.cpp"
 #elif __NetBSD__

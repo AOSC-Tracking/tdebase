@@ -75,14 +75,6 @@
 #include "ProcessList.h"
 #endif /* OSTYPE_Solaris */
 
-#ifdef OSTYPE_Irix
-#include "LoadAvg.h"
-#include "Memory.h"
-#include "NetDev.h"
-#include "ProcessList.h"
-#include "cpu.h"
-#endif /* OSTYPE_Irix */
-
 #ifdef OSTYPE_OpenBSD
 #include "cpu.h"
 #include "memory.h"
@@ -146,14 +138,6 @@ struct SensorModul SensorModulList[] = {
   { "NetDev", initNetDev, exitNetDev, updateNetDev, NULLVVFUNC, 0, NULLTIME },
   { "ProcessList", initProcessList, exitProcessList, updateProcessList, NULLVVFUNC, 0, NULLTIME },
 #endif /* OSTYPE_Solaris */
-
-#ifdef OSTYPE_Irix
-  { "CpuInfo", initCpuInfo, exitCpuInfo, updateCpuInfo, NULLVVFUNC, 0, NULLTIME },
-  { "LoadAvg", initLoadAvg, exitLoadAvg, updateLoadAvg, NULLVVFUNC, 0, NULLTIME },
-  { "Memory", initMemory, exitMemory, updateMemory, NULLVVFUNC, 0, NULLTIME },
-  { "NetDev", initNetDev, exitNetDev, updateNetDev, NULLVVFUNC, 0, NULLTIME },
-  { "ProcessList", initProcessList, exitProcessList, updateProcessList, NULLVVFUNC, 0, NULLTIME },
-#endif /* OSTYPE_Irix */
 
 #ifdef OSTYPE_OpenBSD
   { "CpuInfo", initCpuInfo, exitCpuInfo, updateCpuInfo, NULLVVFUNC, 0, NULLTIME },
