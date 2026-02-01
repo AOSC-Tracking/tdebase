@@ -39,7 +39,7 @@
 #include <sys/types.h>
 #include <signal.h>
 
-#if defined OS_Irix || defined OS_Solaris
+#if defined OS_Solaris
 extern "C" unsigned int kfi_getPid(const char *proc, pid_t ppid);
 #else
 extern "C" unsigned int kfi_getPid(const char *proc, unsigned int ppid);

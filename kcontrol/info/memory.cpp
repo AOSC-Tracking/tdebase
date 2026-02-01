@@ -449,8 +449,6 @@ void KMemoryWidget::update_Values()
 #include "memory_linux.cpp"
 #elif defined(__APPLE__)
 #include "memory_osx.cpp"
-#elif defined(sgi) && sgi
-#include "memory_sgi.cpp"
 #elif defined(__svr4__) && defined(sun)
 #include "memory_solaris.cpp"
 #elif defined(__FreeBSD__) || defined(__DragonFly__)

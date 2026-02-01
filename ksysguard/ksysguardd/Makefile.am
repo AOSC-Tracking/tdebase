@@ -12,15 +12,12 @@ endif
 if include_ksysguardd_solaris
 solaris_SUBDIR = Solaris
 endif
-if include_ksysguardd_irix
-irix_SUBDIR = Irix
-endif
 if include_ksysguardd_openbsd
 openbsd_SUBDIR = OpenBSD
 endif
 
 SUBDIRS = $(linux_SUBDIR) $(freebsd_SUBDIR) $(netbsd_SUBDIR)\
-	$(solaris_SUBDIR) $(irix_SUBDIR) $(openbsd_SUBDIR)
+	$(solaris_SUBDIR) $(openbsd_SUBDIR)
 
 KSYSGUARDDRCFILE=$(sysconfdir)/ksysguarddrc
 INCLUDES = -DKSYSGUARDDRCFILE="\"$(KSYSGUARDDRCFILE)\"" -DOSTYPE_$(UNAME) -I$(srcdir)/../CContLib -I$(srcdir)/$(UNAME) $(all_includes)
