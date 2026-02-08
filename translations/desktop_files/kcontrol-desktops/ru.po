@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2026-01-30 02:59+0000\n"
+"PO-Revision-Date: 2026-02-09 00:55+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
@@ -1351,6 +1351,10 @@ msgid ""
 "fonts;font size;styles;charsets;character sets;panel;kicker;control panel;"
 "desktops;FileManager;Toolbars;Menu;Window Title;Title;"
 msgstr ""
+"fonts;font size;styles;charsets;character sets;panel;kicker;control "
+"panel;desktops;FileManager;Toolbars;Menu;Window Title;Title;шрифты;размер "
+"шрифта;стили;наборы символов;панель;панель управления;рабочие столы;файловый "
+"менеджер;панели инструментов;меню;заголовок окна;заголовок;"
 
 #. Name
 #: hwmanager/hwdevicetray-autostart.desktop:2
@@ -1413,6 +1417,8 @@ msgstr "Настройка значков"
 #: icons/icons.desktop:16
 msgid "icons;effects;size;hicolor;locolor;"
 msgstr ""
+"значки;иконки;эффекты;размер;контраст;высокий контраст;низкий "
+"контраст;icons;effects;size;hicolor;locolor;"
 
 #. Name
 #: info/cdinfo.desktop:12
@@ -1445,6 +1451,8 @@ msgstr "Сведения о подключенных устройствах"
 #: info/devices.desktop:17
 msgid "dev;Devices;System Information;Information;"
 msgstr ""
+"dev;Devices;System Information;Information;устройства;информация;сведения о "
+"системе;"
 
 #. Name
 #: info/dma.desktop:13
@@ -1459,7 +1467,7 @@ msgstr "Сведения о DMA"
 #. Keywords
 #: info/dma.desktop:17
 msgid "dma;DMA-Channels;System Information;"
-msgstr ""
+msgstr "dma;DMA-Channels;System Information;каналы ПДП;информация;"
 
 #. Name
 #: info/interrupts.desktop:13
@@ -1473,9 +1481,8 @@ msgstr "Сведения о прерываниях"
 
 #. Keywords
 #: info/interrupts.desktop:17
-#, fuzzy
 msgid "Interrupts;IRQ;System Information;"
-msgstr "Сведения о прерываниях"
+msgstr "Interrupts;IRQ;System Information;прерывания;сведения о системе;"
 
 #. Name
 #: info/ioports.desktop:13
@@ -2161,7 +2168,7 @@ msgstr "Настройка хранителя экрана"
 #. Keywords
 #: screensaver/screensaver.desktop:16
 msgid "screensavers;Priority;"
-msgstr ""
+msgstr "screensavers;priority;хранители экрана;заставки;приоритет;"
 
 #. Name
 #: smartcard/smartcard.desktop:11
