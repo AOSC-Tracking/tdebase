@@ -50,6 +50,6 @@ tde_add_kpart( launcher_panelapplet AUTOMOC
       kicker_core-static kicker_buttons-static kicker_ui-static
     -Wl,--end-group
     kickermain-shared tdeutils-shared tdeabc-shared
-  DEPENDENCIES kickermain-shared
+  DEPENDENCIES kickermain-shared kicker+libkicker+kickerSettings.cpp
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

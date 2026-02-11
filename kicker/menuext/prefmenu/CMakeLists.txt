@@ -35,5 +35,6 @@ tde_create_translated_desktop(
 tde_add_kpart( kickermenu_prefmenu AUTOMOC
   SOURCES prefmenu.cpp
   LINK kickermain-shared tdeui-shared
+  DEPENDENCIES kicker+libkicker+kickerSettings.cpp
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

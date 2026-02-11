@@ -43,5 +43,6 @@ set( ${target}_SRCS
 tde_add_kpart( ${target} AUTOMOC
   SOURCES ${${target}_SRCS}
   LINK kickermain-shared taskmanager-shared taskbar-shared
+  DEPENDENCIES kicker+libkicker+kickerSettings.cpp
   DESTINATION ${PLUGIN_INSTALL_DIR}
 )

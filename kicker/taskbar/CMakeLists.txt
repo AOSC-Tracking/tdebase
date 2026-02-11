@@ -40,5 +40,6 @@ tde_add_library( ${target} SHARED AUTOMOC
   SOURCES ${${target}_SRCS}
   VERSION 1.2.0
   LINK kickermain-shared taskmanager-shared
+  DEPENDENCIES kicker+libkicker+kickerSettings.cpp
   DESTINATION ${LIB_INSTALL_DIR}
 )
