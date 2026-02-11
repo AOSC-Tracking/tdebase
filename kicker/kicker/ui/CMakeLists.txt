@@ -54,6 +54,6 @@ set( ${target}_SRCS
 
 tde_add_library( ${target} STATIC_PIC AUTOMOC
   SOURCES ${${target}_SRCS}
-  DEPENDENCIES kicker_core-static
+  DEPENDENCIES kicker_core-static kicker+libkicker+kickerSettings.cpp
   LINK dmctl-static kickoffsearch_interfaces-shared ${TDEHW_LIBRARIES}
 )
