@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-07 20:11+0000\n"
-"PO-Revision-Date: 2026-02-09 00:55+0000\n"
+"PO-Revision-Date: 2026-02-12 16:51+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
@@ -1499,6 +1499,8 @@ msgstr "Сведения о портах ввода/вывода"
 #: info/ioports.desktop:17
 msgid "IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System Information;"
 msgstr ""
+"IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System Information;порты "
+"ввода/вывода;ВВ;в/в;порты;"
 
 #. Name
 #: info/memory.desktop:12
@@ -1516,6 +1518,9 @@ msgid ""
 "Memory;RAM;Virtual memory;Physical memory;Shared memory;Swap;System "
 "Information;"
 msgstr ""
+"Memory;RAM;Virtual memory;Physical memory;Shared memory;Swap;System "
+"Information;память;виртуальная память;физическая память;подкачка;системная "
+"информация;"
 
 #. Name
 #: info/opengl.desktop:13
@@ -1533,6 +1538,9 @@ msgid ""
 "OpenGL;DRI;GLX;3D;VideoCard;Hardware Acceleration;Graphics;X;X11;Xserver;X-"
 "Server;XFree86;Display;"
 msgstr ""
+"OpenGL;DRI;GLX;3D;VideoCard;Hardware Acceleration;Graphics;X;X11;Xserver;X-"
+"Server;XFree86;Display;графическая карта;ускорение;графика;X-сервер;дисплей;"
+"экран;монитор;"
 
 #. Name
 #: info/partitions.desktop:13
@@ -1546,9 +1554,10 @@ msgstr "Сведения о использовании разделов"
 
 #. Keywords
 #: info/partitions.desktop:17
-#, fuzzy
 msgid "Partitions;Harddrive;HD;System Information;"
-msgstr "Сведения о использовании разделов"
+msgstr ""
+"Partitions;Harddrive;HD;System Information;разделы;жёсткий диск;системная "
+"информация;"
 
 #. Name
 #: info/pci.desktop:12
@@ -1564,6 +1573,8 @@ msgstr "Сведения о устройствах PCI"
 #: info/pci.desktop:16
 msgid "PCI;PCI-Devices;PCI-Bus;System Information;"
 msgstr ""
+"PCI;PCI-Devices;PCI-Bus;System Information;устройства PCI;системная "
+"информация;"
 
 #. Name
 #: info/processor.desktop:12
@@ -1577,9 +1588,10 @@ msgstr "Сведения о процессоре"
 
 #. Keywords
 #: info/processor.desktop:16
-#, fuzzy
 msgid "Processor;CPU;FPU;MHz;System Information;"
-msgstr "Сведения о процессоре"
+msgstr ""
+"Processor;CPU;FPU;MHz;System Information;процессор;ЦП;МГц;системная "
+"информация;"
 
 #. Name
 #: info/scsi.desktop:12

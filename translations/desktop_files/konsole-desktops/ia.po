@@ -6,172 +6,175 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-02-12 16:51+0000\n"
+"Last-Translator: giovanni <assecoibalcu@yahoo.it>\n"
+"Language-Team: Interlingua <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/konsole-desktop-files/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: kcmkonsole.desktop:9
 msgid "Console"
-msgstr ""
+msgstr "Console"
 
 #. GenericName
 #: kcmkonsole.desktop:11
 msgid "All Konsole Settings"
-msgstr ""
+msgstr "Omne preferentias de Konsole"
 
 #. Keywords
 #: kcmkonsole.desktop:13
 msgid "konsole;console;terminal;"
-msgstr ""
+msgstr "konsole;console;terminal;"
 
 #. Name
 #: konsole-script.desktop:9 konsole.desktop:9 konsolesu.desktop:10
 msgid "Konsole"
-msgstr ""
+msgstr "Konsole"
 
 #. GenericName
 #: konsole-script.desktop:11 konsole.desktop:11
 msgid "Terminal Program"
-msgstr ""
+msgstr "Programma de terminal"
 
 #. Comment
 #: konsole/x-konsole.desktop:7
 msgid "File to Open a Shell"
-msgstr ""
+msgstr "File per aperir un shell"
 
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
-msgstr ""
+msgstr "Emulator de Terminal"
 
 #. GenericName
 #: konsolesu.desktop:12
 msgid "Terminal Program - Super User Mode"
-msgstr ""
+msgstr "Programma de Terminal - Modo de super usator"
 
 #. Name
 #: kwrited.desktop:2
 msgid "TDE Write Daemon"
-msgstr ""
+msgstr "Demone de Scriptura de TDE"
 
 #. Comment
 #: kwrited.desktop:4
 msgid "Watch for messages from local users sent with write(1) or wall(1)"
-msgstr ""
+msgstr "Observar messages ex usatores local inviate con write(1) o wall(1)"
 
 #. Name
 #: other/linux.desktop:3
 msgid "Linux Console"
-msgstr ""
+msgstr "Console de Linux"
 
 #. Comment
 #: other/linux.desktop:4
 msgid "New Linux Console"
-msgstr ""
+msgstr "Nove Console de Linux"
 
 #. Name
 #: other/mc.desktop:3
 msgid "Midnight Commander"
-msgstr ""
+msgstr "Midnight Commander"
 
 #. Comment
 #: other/mc.desktop:4
 msgid "New Midnight Commander"
-msgstr ""
+msgstr "Nove Midnight Commander"
 
 #. Name
 #: other/screen.desktop:3
 msgid "Screen Session"
-msgstr ""
+msgstr "Session de Screen"
 
 #. Comment
 #: other/screen.desktop:4
 msgid "New Screen Session"
-msgstr ""
+msgstr "Nove Session de Screen"
 
 #. Name
 #. Title0
 #: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
 #: other/5shells:6
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 #. Comment
 #: other/shell.desktop:4
 msgid "New Shell"
-msgstr ""
+msgstr "Nove Shell de Root"
 
 #. Name
 #: other/su.desktop.cmake:3
 msgid "Root Shell"
-msgstr ""
+msgstr "Shell de Root"
 
 #. Comment
 #: other/su.desktop.cmake:4
 msgid "New Root Shell"
-msgstr ""
+msgstr "Nove Shell de Root"
 
 #. Name
 #: other/sumc.desktop.cmake:3
 msgid "Root Midnight Commander"
-msgstr ""
+msgstr "Midnight Commander de Root"
 
 #. Comment
 #: other/sumc.desktop.cmake:4
 msgid "New Root Midnight Commander"
-msgstr ""
+msgstr "Nove Midnight Commander de Root"
 
 #. Name
 #: terminalhere.desktop:6
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
 
 #. Name
 #: terminalhere.desktop:11
 msgid "Open Terminal Here"
-msgstr ""
+msgstr "Aperir terminal ci"
 
 #. Name
 #: other/2shells:2
 msgid "Two consoles"
-msgstr ""
+msgstr "Duo Consoles"
 
 #. Title1
 #: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
 msgid "Shell No. 2"
-msgstr ""
+msgstr "Shell No. 2"
 
 #. Name
 #: other/3shells:2
 msgid "Three consoles"
-msgstr ""
+msgstr "Tres Consoles"
 
 #. Title2
 #: other/3shells:8 other/4shells:8 other/5shells:8
 msgid "Shell No. 3"
-msgstr ""
+msgstr "Shell No. 3"
 
 #. Name
 #: other/4shells:2
 msgid "Four consoles"
-msgstr ""
+msgstr "Quatro Consoles"
 
 #. Title3
 #: other/4shells:9 other/5shells:9
 msgid "Shell No. 4"
-msgstr ""
+msgstr "Shell No. 4"
 
 #. Name
 #: other/5shells:2
 msgid "Five consoles"
-msgstr ""
+msgstr "Cinque Consoles"
 
 #. Title4
 #: other/5shells:10
 msgid "Shell No. 5"
-msgstr ""
+msgstr "Shell No. 5"
