@@ -202,7 +202,6 @@ unsigned long Options::updateSettings()
     menuShadowSize = config->readNumEntry("MenuShadowSize", 1*100);
     removeShadowsOnMove = config->readBoolEntry("RemoveShadowsOnMove", false);
     removeShadowsOnResize = config->readBoolEntry("RemoveShadowsOnResize", false);
-    onlyDecoTranslucent = config->readBoolEntry("OnlyDecoTranslucent",false);
     resetKompmgr = config->readBoolEntry("ResetKompmgr", false);
     if (resetKompmgr)
         config->writeEntry("ResetKompmgr",false);

@@ -304,7 +304,6 @@ private:
   TQCheckBox *removeShadowsOnResize;
   TQCheckBox *removeShadowsOnMove;
   TQGroupBox *sGroup;
-  TQCheckBox *onlyDecoTranslucent;
 //   TQPushButton *xcompmgrButton;
   KIntNumInput *activeWindowOpacity;
   KIntNumInput *inactiveWindowOpacity;
