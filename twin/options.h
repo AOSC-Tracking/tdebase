@@ -361,7 +361,6 @@ class Options : public KDecorationOptions
         uint inactiveWindowShadowSize;
         uint dockShadowSize;
         uint menuShadowSize;
-        bool onlyDecoTranslucent; //< not used; keep for binary compatibility
         bool resetKompmgr;
         bool tabboxOutline;
 
