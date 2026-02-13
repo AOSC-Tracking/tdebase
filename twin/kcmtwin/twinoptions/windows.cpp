@@ -1460,11 +1460,6 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
   TQVBoxLayout *vLay = new TQVBoxLayout (tGroup,KDialog::marginHint(), KDialog::spacingHint());
   vLay->addSpacing(11); // to get the proper gb top offset
 
-  onlyDecoTranslucent = new TQCheckBox(i18n("Apply translucency only to decoration"),tGroup);
-  vLay->addWidget(onlyDecoTranslucent);
-
-  vLay->addSpacing(11);
-
   TQGridLayout *gLay = new TQGridLayout(vLay,4,2,KDialog::spacingHint());
   gLay->setColStretch(1,1);
 
@@ -1648,7 +1643,6 @@ KTranslucencyConfig::KTranslucencyConfig (bool _standAlone, TDEConfig *_config, 
   connect(dockWindowTransparency, TQ_SIGNAL(toggled(bool)), dockWindowOpacity, TQ_SLOT(setEnabled(bool)));
 
   connect(useTranslucency, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
-  connect(onlyDecoTranslucent, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
   connect(activeWindowTransparency, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
   connect(inactiveWindowTransparency, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
   connect(movingWindowTransparency, TQ_SIGNAL(toggled(bool)), TQ_SLOT(changed()));
@@ -1757,7 +1751,6 @@ void KTranslucencyConfig::load( void )
   removeShadowsOnResize->setChecked(config->readBoolEntry("RemoveShadowsOnResize",false));
   dockWindowTransparency->setChecked(config->readBoolEntry("TranslucentDocks",false));
   keepAboveAsActive->setChecked(config->readBoolEntry("TreatKeepAboveAsActive",true));
-  onlyDecoTranslucent->setChecked(config->readBoolEntry("OnlyDecoTranslucent",false));
 
   activeWindowOpacity->setValue(config->readNumEntry("ActiveWindowOpacity",100));
   inactiveWindowOpacity->setValue(config->readNumEntry("InactiveWindowOpacity",75));
@@ -1849,7 +1842,6 @@ void KTranslucencyConfig::save( void )
 
   config->writeEntry("RemoveShadowsOnMove",removeShadowsOnMove->isChecked());
   config->writeEntry("RemoveShadowsOnResize",removeShadowsOnResize->isChecked());
-  config->writeEntry("OnlyDecoTranslucent", onlyDecoTranslucent->isChecked());
   config->writeEntry("ResetKompmgr",resetKompmgr_);
 
   TDEConfig *conf_ = new TDEConfig(TQDir::homeDirPath() + "/.xcompmgrrc");
@@ -1981,7 +1973,6 @@ void KTranslucencyConfig::defaults()
     if (!kompmgrAvailable_)
         return;
   useTranslucency->setChecked(false);
-  onlyDecoTranslucent->setChecked(false);
   activeWindowTransparency->setChecked(false);
   inactiveWindowTransparency->setChecked(false);
   movingWindowTransparency->setChecked(false);

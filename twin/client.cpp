@@ -328,9 +328,6 @@ void Client::updateDecoration( bool check_workspace_pos, bool force )
         XReparentWindow( tqt_xdisplay(), decoration->widget()->winId(), frameId(), 0, 0 );
         decoration->widget()->lower();
         decoration->borders( border_left, border_right, border_top, border_bottom );
-        options->onlyDecoTranslucent ?
-            setDecoHashProperty(border_top, border_right, border_bottom, border_left):
-            unsetDecoHashProperty();
         int save_workarea_diff_x = workarea_diff_x;
         int save_workarea_diff_y = workarea_diff_y;
         move( calculateGravitation( false ));
@@ -387,9 +384,6 @@ void Client::checkBorderSizes()
         border_right != new_right ||
         border_top != new_top ||
         border_bottom != new_bottom)
-    options->onlyDecoTranslucent ?
-       setDecoHashProperty(new_top, new_right, new_bottom, new_left):
-       unsetDecoHashProperty();
     move( calculateGravitation( false ));
     plainResize( sizeForClientSize( clientSize()), ForceGeometrySet );
     checkWorkspacePosition();
@@ -2990,20 +2984,6 @@ bool Client::touches(const Client* c)
         return true;
     return false;
     }
-
-void Client::setDecoHashProperty(uint topHeight, uint rightWidth, uint bottomHeight, uint leftWidth)
-{
-   long data = (topHeight < 255 ? topHeight : 255) << 24 |
-               (rightWidth < 255 ? rightWidth : 255) << 16 |
-               (bottomHeight < 255 ? bottomHeight : 255) << 8 |
-               (leftWidth < 255 ? leftWidth : 255);
-    XChangeProperty(tqt_xdisplay(), frameId(), atoms->net_wm_window_decohash, XA_CARDINAL, 32, PropModeReplace, (unsigned char *) &data, 1L);
-}
-
-void Client::unsetDecoHashProperty()
-{
-   XDeleteProperty( tqt_xdisplay(), frameId(), atoms->net_wm_window_decohash);
-}
 
 #ifndef NDEBUG
 kdbgstream& operator<<( kdbgstream& stream, const Client* cl )

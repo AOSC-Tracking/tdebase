@@ -462,8 +462,6 @@ class Client : public TQObject, public KDecorationDefines
         void ungrabButton( int mod );
         void resetMaximize();
         void resizeDecoration( const TQSize& s );
-        void setDecoHashProperty(uint topHeight, uint rightWidth, uint bottomHeight, uint leftWidth);
-        void unsetDecoHashProperty();
 
         void pingWindow();
         void killProcess( bool ask, Time timestamp = CurrentTime );
