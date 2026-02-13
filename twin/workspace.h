@@ -424,6 +424,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         void restartKompmgr( TDEProcess *proc );
         void handleKompmgrOutput( TDEProcess *proc, char *buffer, int buflen);
         void stopKompmgr();
+        void killKompmgr();
         void kompmgrReloadSettings();
         // end
 
@@ -432,7 +433,6 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
 
     private:
         void init();
-        void createKompmgrProcess();
         void initShortcuts();
         void readShortcuts();
         void initDesktopPopup();
@@ -669,6 +669,7 @@ class Workspace : public TQObject, public KWinInterface, public KDecorationDefin
         //kompmgr
         TDEProcess* kompmgr;
         TDESelectionOwner* kompmgr_selection;
+        TQTimer *kompmgr_kill_timer;
         bool allowKompmgrRestart;
 
         TQSlider *transSlider;

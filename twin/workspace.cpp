@@ -77,10 +77,10 @@ TQString compositorPIDFile () {
     return locateLocal("tmp", TQString("compton-tde.").append(getenv("DISPLAY")).append(".pid"));
 }
 
-pid_t getCompositorPID() {
+pid_t readCompositorPID(const TQString &pidfileFName) {
     // Attempt to load the compton-tde pid file
     pid_t rv = 0;
-    TQFile pidFile(compositorPIDFile());
+    TQFile pidFile(pidfileFName);
 
     if (pidFile.open(IO_ReadOnly)) {
         bool ok;
@@ -92,6 +92,17 @@ pid_t getCompositorPID() {
         if (!ok) {
             return 0;
         }
+    }
+
+    return rv;
+}
+
+pid_t getCompositorPID() {
+    pid_t rv = readCompositorPID(compositorPIDFile());
+
+    // check the process is still running
+    if (kill(rv, 0) != 0) {
+        return 0;
     }
 
     return rv;
@@ -161,6 +172,7 @@ Workspace::Workspace( bool restore )
     forced_global_mouse_grab( false ),
     kompmgr( NULL ),
     kompmgr_selection( NULL ),
+    kompmgr_kill_timer( NULL ),
     allowKompmgrRestart( true )
     {
     _self = this;
@@ -249,38 +261,12 @@ Workspace::Workspace( bool restore )
 
     // start kompmgr - i wanted to put this into main.cpp, but that would prevent dcop support, as long as Application was no dcop_object
 
-    // If compton-tde is already running, send it SIGTERM
-    pid_t kompmgrpid = getCompositorPID();
+    // If compton-tde is already running it's a stale process, send it SIGTERM
+    if (pid_t kompmgrpid = getCompositorPID())
+        kill(kompmgrpid, SIGTERM);
 
     if (options->useTranslucency)
-        {
-        createKompmgrProcess();
-
-        if (kompmgrpid)
-            {
-            if (kill(kompmgrpid, 0) < 0)
-                {
-                // Stale PID file detected; (re)start compositor!
-                startKompmgr();
-                }
-            }
-        else
-            {
-            startKompmgr();
-            }
-        }
-    else if (!disable_twin_composition_manager)
-        {
-
-        if (kompmgrpid)
-            {
-            kill(kompmgrpid, SIGTERM);
-            }
-        else
-            {
-            stopKompmgr();
-            }
-        }
+        startKompmgr();
     }
 
 
@@ -1118,37 +1104,16 @@ void Workspace::slotReconfigure()
 
     if (options->resetKompmgr) // need restart
         {
-        bool tmp = options->useTranslucency;
-
-        // If compton-tde is already running, sending SIGUSR1 will force a reload of its settings
-        pid_t kompmgrpid = getCompositorPID();
-
-        if (tmp)
+        if (options->useTranslucency)
             {
-            if (kompmgrpid)
-                {
-                kill(kompmgrpid, SIGUSR1);
-                }
+            if (kompmgrIsRunning())
+                kompmgrReloadSettings();
             else
-                {
-                stopKompmgr();
-                if (!kompmgr)
-                    {
-                    createKompmgrProcess();
-                    }
                 TQTimer::singleShot( 200, this, TQ_SLOT(startKompmgr()) ); // wait some time to ensure system's ready for restart
-                }
             }
         else
             {
-            if (kompmgrpid)
-                {
-                kill(kompmgrpid, SIGTERM);
-                }
-            else
-                {
-                stopKompmgr();
-                }
+            stopKompmgr();
             }
         }
     }
@@ -2897,14 +2862,6 @@ void Workspace::helperDialog( const TQString& message, const Client* c )
 
 // kompmgr stuff
 
-void Workspace::createKompmgrProcess()
-{
-    kompmgr = new TDEProcess;
-    connect(kompmgr, TQ_SIGNAL(receivedStderr(TDEProcess*, char*, int)), TQ_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
-    *kompmgr << TDE_COMPOSITOR_BINARY;
-    *kompmgr << "--write-pid-path" << compositorPIDFile();
-}
-
 void Workspace::startKompmgr()
 {
     // See if the desktop is loaded yet
@@ -2913,25 +2870,55 @@ void Workspace::startKompmgr()
     unsigned long length, after;
     unsigned char* data_root;
     Atom prop_root;
+    bool retry_later = false;
+    pid_t kompmgrpid;
+
+    if (!kompmgr)
+        {
+        kompmgr = new TDEProcess;
+        connect(kompmgr, TQ_SIGNAL(receivedStderr(TDEProcess*, char*, int)), TQ_SLOT(handleKompmgrOutput(TDEProcess*, char*, int)));
+        *kompmgr << TDE_COMPOSITOR_BINARY;
+        *kompmgr << "--write-pid-path" << compositorPIDFile();
+        }
+    if (!kompmgr_kill_timer)
+        {
+        kompmgr_kill_timer = new TQTimer(this);
+        connect(kompmgr_kill_timer, TQ_SIGNAL(timeout()), this, TQ_SLOT(killKompmgr()));
+        }
+
     prop_root = XInternAtom(tqt_xdisplay(), "_XROOTPMAP_ID", False);
-    if( XGetWindowProperty( tqt_xdisplay(), tqt_xrootwin(), prop_root, 0L, 1L, False, AnyPropertyType, &type, &format, &length, &after, &data_root) == Success && data_root != NULL ) {
-        // Root pixmap is available; OK to load...
-    }
-    else {
+    if( XGetWindowProperty( tqt_xdisplay(), tqt_xrootwin(), prop_root, 0L, 1L, False, AnyPropertyType, &type, &format, &length, &after, &data_root) != Success || data_root == NULL ) {
+        // Root pixmap is not available; try to start compton-tde later
+        retry_later = true;
+        }
+    else if (kompmgrIsRunning())
+        {
+        if (kompmgr_kill_timer->isActive())
+            {
+            // The process is pending to stop but didn't yet; this shouldn't generally happend,
+            // but to be on the safe side kill it now and retry starting later
+            kompmgr_kill_timer->stop();
+            killKompmgr();
+            retry_later = true;
+            }
+        else
+            {
+            kompmgrReloadSettings();
+            return;
+            }
+        }
+    else if ( (kompmgrpid = getCompositorPID()) )
+        {
+        // stale compton-tde process detected; kill it and retry starting again later
+        kill(kompmgrpid, SIGKILL);
+        retry_later = true;
+        }
+    if (retry_later)
+        {
         // Try again a bit later!
         TQTimer::singleShot( 200, this, TQ_SLOT(startKompmgr()) );
         return;
-    }
-    pid_t kompmgrpid = getCompositorPID();
-    if (kompmgrpid && kill(kompmgrpid, 0) >= 0)
-        {
-        // Active PID file detected; do not attempt to restart
-        return;
         }
-    if (!kompmgr || kompmgr->isRunning()) {
-        kompmgrReloadSettings();
-        return;
-    }
     if (!kompmgr->start(TDEProcess::OwnGroup, TDEProcess::Stderr))
     {
         options->useTranslucency = false;
@@ -2963,7 +2950,7 @@ void Workspace::startKompmgr()
 
 void Workspace::stopKompmgr()
 {
-    if (!kompmgr || !kompmgr->isRunning()) {
+    if (!kompmgrIsRunning()) {
         return;
     }
     delete kompmgr_selection;
@@ -2971,16 +2958,34 @@ void Workspace::stopKompmgr()
     kompmgr->disconnect(this, TQ_SLOT(restartKompmgr(TDEProcess*)));
     options->useTranslucency = false;
     if (popup){ delete popup; popup = 0L; } // to add/remove opacity slider
-    kompmgr->kill(SIGKILL);
+    connect(kompmgr, TQ_SIGNAL(processExited(TDEProcess *)), kompmgr_kill_timer, TQ_SLOT());
+    kompmgr->kill(SIGTERM);
+    kompmgr_kill_timer->start(5000, /* sshot */ true);
     TQByteArray ba;
     TQDataStream arg(ba, IO_WriteOnly);
     arg << "";
     kapp->dcopClient()->emitDCOPSignal("default", "kompmgrStopped()", ba);
 }
 
+void Workspace::killKompmgr() {
+    if (!kompmgrIsRunning()) {
+        return;
+    }
+
+    // Since we had to forcefully kill the process it won't have a chance to clean-up after itself;
+    // so do it manually
+    TQString pidfileFName = compositorPIDFile();
+    // To be on the safe side verify that the file belongs to the process we are killing
+    if (readCompositorPID(pidfileFName) == kompmgr->pid()) {
+        TQFile::remove(pidfileFName);
+    }
+
+    kompmgr->kill(SIGKILL);
+}
+
 void Workspace::kompmgrReloadSettings()
 {
-    if (!kompmgr || !kompmgr->isRunning()) {
+    if (!kompmgrIsRunning()) {
         return;
     }
     kompmgr->kill(SIGUSR1);
