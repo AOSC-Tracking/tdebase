@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2026-02-15 09:51+0000\n"
+"PO-Revision-Date: 2026-02-18 17:51+0000\n"
 "Last-Translator: giovanni <assecoibalcu@yahoo.it>\n"
 "Language-Team: Interlingua <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ia/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. Name
 #: access/kaccess.desktop:3
 msgid "Accessibility Tool"
-msgstr "Instrumento de Accessibilitate"
+msgstr "Instrumento de accessibilitate"
 
 #. Name
 #: access/kcmaccess.desktop:12
@@ -1881,6 +1881,9 @@ msgid ""
 "behavior;behaviour;memory usage;Home URL;network operations;progress dialog;"
 "trash can;delete;confirmation;"
 msgstr ""
+"konqueror;gerente de files;kfm;consilioss;fenestra separate; extender "
+"fenestras;comportamento;uso de memoria; URL de initio;operationes de rete; "
+"diálogo de progresso;corbe;deler;confirmation;"
 
 #. Comment
 #: konq/filebrowser.desktop:14
@@ -1901,6 +1904,8 @@ msgstr "Configura como functiona le Vista Preliminar & Meta-Datos de Konqueror"
 #: konq/filepreviews.desktop:15
 msgid "konqueror;filemanager;previews;file previews;maximum size;"
 msgstr ""
+"konqueror;gerente de files;vistas preliminar;vistas preliminar de file;"
+"grandor maxime;"
 
 #. Name
 #: konqhtml/tdehtml_behavior.desktop:11
@@ -1918,6 +1923,8 @@ msgid ""
 "konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;"
 "cursor;links;images;charsets;character sets;encoding;"
 msgstr ""
+"konqueror;kfm;navigator;html;web;www;fonts;color;colores;java;javascript;curs"
+"or;ligaminess;images;charsets;insimul de character;codification;"
 
 #. Name
 #: konqhtml/tdehtml_filter.desktop:10
@@ -1939,6 +1946,8 @@ msgstr "Configura le fonts usate su le paginas web"
 msgid ""
 "konqueror;kfm;browser;html;web;www;fonts;charsets;character sets;encoding;"
 msgstr ""
+"konqueror;kfm;navigator;html;web;www;fonts;insimul de "
+"character;charset;codification;"
 
 #. Name
 #: konqhtml/tdehtml_java_js.desktop:11
@@ -1953,7 +1962,7 @@ msgstr "Configura le comportamento de Java e JavaScript"
 #. Keywords
 #: konqhtml/tdehtml_java_js.desktop:15
 msgid "konqueror;kfm;browser;html;web;www;java;javascript;"
-msgstr ""
+msgstr "konqueror;kfm;navigator;html;web;www;java;javascript;"
 
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
@@ -1968,7 +1977,7 @@ msgstr "Configura le optiones de interfacie de usator"
 #. Keywords
 #: konqhtml/tdehtml_userinterface.desktop:15
 msgid "konqueror;kfm;user;interface;tabbed;browsing;"
-msgstr ""
+msgstr "konqueror;kfm;usator;interfacie;schedas;navigar;"
 
 #. Name
 #: konsole/kcmkonsole.desktop:10
@@ -1986,6 +1995,7 @@ msgid ""
 "konsole;schema;konsole background;colors;background;terminal application;"
 "terminal;"
 msgstr ""
+"konsole;schema;fundo de konsole;colores;fundo;terminal application;terminal;"
 
 #. Name
 #: kthememanager/installktheme.desktop:2
@@ -2000,7 +2010,7 @@ msgstr "Gere themas visual de TDE global"
 #. Keywords
 #: kthememanager/kthememanager.desktop:5
 msgid "themes;look and feel;"
-msgstr ""
+msgstr "themas;apparentia;"
 
 #. Name
 #: kthememanager/kthememanager.desktop:6
@@ -2028,6 +2038,8 @@ msgid ""
 "application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
 "spinning;disk;startup;program;report;"
 msgstr ""
+"application;startar;launcear;occupate;cursor;commentario;mus;punctator;rotar;"
+"spinning;disco;initiar;programma;reportar;"
 
 #. Name
 #: locale/default/entry.desktop:2
@@ -2052,6 +2064,11 @@ msgid ""
 "charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
 "sign;positive;negative;fractional digits;week;week start;"
 msgstr ""
+"linguage;traduction;formato de "
+"numero;numerario;tempore;data;formatos;locale;Pais;charsets;insimuled de "
+"character;Symbolo Decimal;Separator de "
+"milles;symbolo;separator;signar;positive;negative;digitos "
+"fractional;septimana;initio de septimana;"
 
 #. Name
 #: nics/nic.desktop:12
@@ -2179,7 +2196,7 @@ msgstr "Configura supporto de smartcard"
 #. Keywords
 #: smartcard/smartcard.desktop:15
 msgid "Smartcard;PKCS;SSL;reader;smart;card;"
-msgstr ""
+msgstr "Smartcard;PKCS;SSL;lector;smart;carta;"
 
 #. Name
 #: smserver/kcmsmserver.desktop:12
@@ -2195,7 +2212,7 @@ msgstr ""
 #. Keywords
 #: smserver/kcmsmserver.desktop:16
 msgid "ksmserver;session;logout;confirmation;save;restore;"
-msgstr ""
+msgstr "ksmserver;session;clauder session;confirmation;salveguardar;restabilir;"
 
 #. Name
 #: spellchecking/spellchecking.desktop:11
@@ -2230,6 +2247,8 @@ msgstr ""
 msgid ""
 "style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE applications;"
 msgstr ""
+"stilo;stilos;aspecto;widget;icones;barras de "
+"instrumento;texto;evidentiate;apps;applicationes de TDE;"
 
 #. Name
 #: taskbar/kcmtaskbar.desktop:11
@@ -2245,6 +2264,8 @@ msgstr "Configurar le barra de carga selectionate"
 #: taskbar/kcmtaskbar.desktop:15
 msgid "kicker;panel;kpanel;taskbar;startbar;launchbar;windows;"
 msgstr ""
+"kicker;pannello;kpanel;barra de cargas;barra de initiar;barra de "
+"lancear;fenestrass;"
 
 #. Name
 #: tdefontinst/installfont.desktop:6
@@ -2264,7 +2285,7 @@ msgstr "Installar & previsualisar fonts"
 #. Keywords
 #: tdefontinst/kcmfontinst/kcmfontinst.desktop:18
 msgid "font;fonts;installer;truetype;type1;speedo;bitmap;"
-msgstr ""
+msgstr "font;fonts;installator;truetype;type1;speedo;bitmap;"
 
 #. Name
 #: tdefontinst/tdefile-plugin/tdefile_font.desktop:3
@@ -2316,7 +2337,7 @@ msgstr "Configurar preferentias de cache de web"
 #. Keywords
 #: tdeio/cache.desktop:16
 msgid "Cache;History;Browsing History;Ports;Size;"
-msgstr ""
+msgstr "Cache;Chronologia;Navigar Chronologia;Portos;Grandor;"
 
 #. Name
 #: tdeio/cookies.desktop:12
@@ -2331,7 +2352,7 @@ msgstr "Configura le modo de functionar del cookies"
 #. Keywords
 #: tdeio/cookies.desktop:16
 msgid "Cookies;Browsing;Internet;WWW;Network;Policy;Domains;"
-msgstr ""
+msgstr "Cookies;Navigar;Internet;WWW;Rete;Politica;Dominios;"
 
 #. Name
 #: tdeio/lanbrowser.desktop:11
@@ -2346,7 +2367,7 @@ msgstr "Configuration de lisa, reslisa e le ioslaves"
 #. Keywords
 #: tdeio/lanbrowser.desktop:15
 msgid "samba;smb;windows;network;"
-msgstr ""
+msgstr "samba;smb;fenestras;rete;"
 
 #. Comment
 #: tdeio/netpref.desktop:2
@@ -2358,7 +2379,7 @@ msgstr ""
 #. Keywords
 #: tdeio/netpref.desktop:5
 msgid "timeout;iopref;netpref;network preferences;ftp;"
-msgstr ""
+msgstr "timeout;iopref;netpref;preferentias de rete;ftp;"
 
 #. Name
 #: tdeio/netpref.desktop:6
@@ -2378,7 +2399,7 @@ msgstr "Configura le servitores de proxy usate"
 #. Keywords
 #: tdeio/proxy.desktop:16
 msgid "Proxy;Proxy server;Firewall;Squid;proxy;"
-msgstr ""
+msgstr "Proxy;Proxy server;Talia Foco;Squid;proxy;"
 
 #. Name
 #: tdeio/smb.desktop:12
@@ -2397,6 +2418,8 @@ msgid ""
 "SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;"
 "Broadcast;WINS;Share;Login;Passwords;"
 msgstr ""
+"SMB;SAMBA;Cliente de SMB;rete de Windows;LAN;rete;vicinitate;Servitor;Broadca"
+"st;WINS;Share;Accesso;Contrasignos;"
 
 #. Comment
 #: tdeio/uasprovider.desktop:4
@@ -2487,6 +2510,8 @@ msgstr "Configurar le modo que Konqueror reporta se mesme"
 #: tdeio/useragent.desktop:16
 msgid "User Agent;Browser;Internet;WWW;Network;agent;bindings;server;login;"
 msgstr ""
+"Agente de "
+"Usator;Navigator;Internet;WWW;Rete;agente;ligamines;servitor;accesso;"
 
 #. Name
 #: tdm/tdm.desktop:14
@@ -2504,6 +2529,8 @@ msgid ""
 "tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;"
 "fonts;background;wallpapers;sessions;shutdown;restart;"
 msgstr ""
+"tdm;gerente de monstrator;xdm;usatores;accesso;salutationes;Logo;stilos;lingu"
+"age;pais;fonts;fundo;tapetes de papiro;sessiones;shutdown;reinitiar;"
 
 #. Name
 #: usbview/kcmusb.desktop:10
@@ -2528,12 +2555,12 @@ msgstr "Dispositivos IEEE 1394"
 #. Comment
 #: view1394/kcmview1394.desktop:12
 msgid "View the IEEE 1394 devices attached to this computer"
-msgstr ""
+msgstr "Vider le dispositivos IEEE 1394 attachate a iste computator"
 
 #. Keywords
 #: view1394/kcmview1394.desktop:14
 msgid "1394;Firewire;devices;viewer;control;"
-msgstr ""
+msgstr "1394;Firewire;dispositivos;visor;controlo;"
 
 #. Name
 #: xinerama/xinerama.desktop:10
@@ -2543,9 +2570,9 @@ msgstr "Varie monitores"
 #. Comment
 #: xinerama/xinerama.desktop:12
 msgid "Configure TDE for multiple monitors"
-msgstr ""
+msgstr "Configurar TDE per varie monitores"
 
 #. Keywords
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
-msgstr ""
+msgstr "Xinerama;dualis capite;multicapite;monitor;"
