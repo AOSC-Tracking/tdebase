@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-07 20:11+0000\n"
-"PO-Revision-Date: 2026-02-12 16:51+0000\n"
+"PO-Revision-Date: 2026-02-18 17:51+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
@@ -1605,9 +1605,8 @@ msgstr "Сведения о устройствах SCSI"
 
 #. Keywords
 #: info/scsi.desktop:16
-#, fuzzy
 msgid "SCSI;SCSI-Bus;System Information;"
-msgstr "Сведения о устройствах SCSI"
+msgstr "SCSI;SCSI-Bus;System Information;шина SCSI;системная информация;"
 
 #. Name
 #: info/sound.desktop:12
@@ -1623,6 +1622,8 @@ msgstr "Сведения о звуке"
 #: info/sound.desktop:16
 msgid "Sound;Audio;Soundcard;MIDI;OSS;System Information;"
 msgstr ""
+"Sound;Audio;Soundcard;MIDI;OSS;System Information;звук;аудио;звуковая плата;"
+"звуковая карта;системная информация;"
 
 #. Name
 #: info/xserver.desktop:12
@@ -1638,6 +1639,8 @@ msgstr "Сведения об X-сервере"
 #: info/xserver.desktop:16
 msgid "X;X-Server;XServer;XFree86;Display;VideoCard;System Information;"
 msgstr ""
+"X;X-Server;XServer;XFree86;Display;VideoCard;System Information;сервер X;"
+"дисплей;экран;монитор;dидеокарта;cистемная информация;"
 
 #. Name
 #: input/mouse.desktop:13
