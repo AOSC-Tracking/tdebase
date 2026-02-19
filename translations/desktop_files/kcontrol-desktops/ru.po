@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2026-02-18 17:51+0000\n"
+"PO-Revision-Date: 2026-02-20 02:51+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
@@ -1658,6 +1658,12 @@ msgid ""
 "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
 "DoubleClick;mapping;right handed;left handed;"
 msgstr ""
+"Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
+"Shape;Input Devices;Button "
+"Mapping;Click;icons;feedback;Pointers;Drag;DoubleClick;mapping;right handed;"
+"left handed;мышь;ускорение мыши;порог мыши;кнопки мыши;выбор;форма курсора;"
+"входные устройства;соответствие клавиш;щелчок;пиктограммы;обратная "
+"связь;указатели;перетащить;двойной щелчок;отображение;левша;правша;"
 
 #. Name
 #: input/touchpad.desktop:13
@@ -1666,10 +1672,8 @@ msgstr "Touchpad"
 
 #. Comment
 #: input/touchpad.desktop:14
-#, fuzzy
-#| msgid "Mouse settings"
 msgid "Touchpad settings"
-msgstr "Настройка мыши"
+msgstr "Настройки сенсорной панели"
 
 #. Keywords
 #: input/touchpad.desktop:15
@@ -1677,6 +1681,10 @@ msgid ""
 "Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
 "Click;mapping;right handed;left handed;"
 msgstr ""
+"Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button "
+"Mapping;Tap;Click;mapping;right handed;left handed;тачпад;сенсорная панель;"
+"нажатие для щелчка;мышь;кнопки мыши;устройства ввода;назначение "
+"кнопок;нажать;щелчок;привязка;правша;левша;"
 
 #. Name
 #: joystick/joystick.desktop:12
@@ -1691,7 +1699,7 @@ msgstr "Joystick - модуль kcontrol для проверки джойсти�
 #. Keywords
 #: joystick/joystick.desktop:16
 msgid "joystick;gamepad;"
-msgstr ""
+msgstr "joystick;gamepad;джойстик;геймпад;контроллер;"
 
 #. Name
 #: kcontrol/KControl.desktop:8 kcontrol/KControl_NoDisplay.desktop:8
