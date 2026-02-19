@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# giovanni <assecoibalcu@yahoo.it>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-02-20 02:51+0000\n"
+"Last-Translator: giovanni <assecoibalcu@yahoo.it>\n"
+"Language-Team: Interlingua <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/tdeioslave-desktop-files/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: cgi/kcmcgi/kcmcgi.desktop:9
 msgid "CGI Scripts"
-msgstr ""
+msgstr "Scriptos CGI"
 
 #. Comment
 #: cgi/kcmcgi/kcmcgi.desktop:11
@@ -75,142 +76,142 @@ msgstr ""
 #. Comment
 #: media/mimetypes/audiocd.desktop:6
 msgid "Audio CD"
-msgstr ""
+msgstr "CD Audio"
 
 #. Comment
 #: media/mimetypes/blankbluray.desktop:6
 msgid "Blank BLURAY"
-msgstr ""
+msgstr "BLURAY vacue"
 
 #. Comment
 #: media/mimetypes/blankcd.desktop:6
 msgid "Blank CD"
-msgstr ""
+msgstr "CD vacue"
 
 #. Comment
 #: media/mimetypes/blankdvd.desktop:6
 msgid "Blank DVD"
-msgstr ""
+msgstr "DVD vacue"
 
 #. Comment
 #: media/mimetypes/bluray_encrypted_locked.desktop:7
 msgid "Encrypted Locked BLURAY"
-msgstr ""
+msgstr "BLURAY cryptate blocate"
 
 #. Comment
 #: media/mimetypes/bluray_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked BLURAY"
-msgstr ""
+msgstr "BLURAY cryotate disblocate"
 
 #. Comment
 #: media/mimetypes/bluray_mounted.desktop:6
 msgid "Mounted BLURAY"
-msgstr ""
+msgstr "BLURAY montate"
 
 #. Comment
 #: media/mimetypes/bluray_unmounted.desktop:6
 msgid "Unmounted BLURAY"
-msgstr ""
+msgstr "BLURAY dismontate"
 
 #. Comment
 #: media/mimetypes/blurayvideo.desktop:6
 msgid "BLURAY Video Disk"
-msgstr ""
+msgstr "Disco de video BLURAY"
 
 #. Comment
 #: media/mimetypes/camera_mounted.desktop:6
 msgid "Mounted Camera"
-msgstr ""
+msgstr "Cmera montate"
 
 #. Comment
 #: media/mimetypes/camera_unmounted.desktop:6
 msgid "Unmounted Camera"
-msgstr ""
+msgstr "Camera dismontate"
 
 #. Comment
 #: media/mimetypes/cd-r_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-R"
-msgstr ""
+msgstr "CD-R cryptate blocate"
 
 #. Comment
 #: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-R"
-msgstr ""
+msgstr "CD-R cryptate disblocate"
 
 #. Comment
 #: media/mimetypes/cd-r_mounted.desktop:6
 msgid "Mounted CD-R"
-msgstr ""
+msgstr "CD-R montate"
 
 #. Comment
 #: media/mimetypes/cd-r_unmounted.desktop:6
 msgid "Unmounted CD-R"
-msgstr ""
+msgstr "CD-R dismontate"
 
 #. Comment
 #: media/mimetypes/cd-rw_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-RW"
-msgstr ""
+msgstr "CD-RW cryptate blocate"
 
 #. Comment
 #: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-RW"
-msgstr ""
+msgstr "CD-RW cryptate disblocate"
 
 #. Comment
 #: media/mimetypes/cd-rw_mounted.desktop:6
 msgid "Mounted CD-RW"
-msgstr ""
+msgstr "CD-RW montate"
 
 #. Comment
 #: media/mimetypes/cd-rw_unmounted.desktop:6
 msgid "Unmounted CD-RW"
-msgstr ""
+msgstr "CD-RW dismontate"
 
 #. Comment
 #: media/mimetypes/cdrom_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-ROM"
-msgstr ""
+msgstr "CD-ROM criptate blocate"
 
 #. Comment
 #: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-ROM"
-msgstr ""
+msgstr "CD-ROM cryptate disblocate"
 
 #. Comment
 #: media/mimetypes/cdrom_mounted.desktop:6
 msgid "Mounted CD-ROM"
-msgstr ""
+msgstr "CD-ROM montate"
 
 #. Comment
 #: media/mimetypes/cdrom_unmounted.desktop:6
 msgid "Unmounted CD-ROM"
-msgstr ""
+msgstr "CD-ROM dismontate"
 
 #. Comment
 #: media/mimetypes/dvd_encrypted_locked.desktop:7
 msgid "Encrypted Locked DVD"
-msgstr ""
+msgstr "DVD cryptate blocate"
 
 #. Comment
 #: media/mimetypes/dvd_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked DVD"
-msgstr ""
+msgstr "DVD cryptate disblocate"
 
 #. Comment
 #: media/mimetypes/dvd_mounted.desktop:6
 msgid "Mounted DVD"
-msgstr ""
+msgstr "DVD montate"
 
 #. Comment
 #: media/mimetypes/dvd_unmounted.desktop:6
 msgid "Unmounted DVD"
-msgstr ""
+msgstr "DVD dismontate"
 
 #. Comment
 #: media/mimetypes/dvdvideo.desktop:6
 msgid "DVD Video Disk"
-msgstr ""
+msgstr "Disco de video DVD"
 
 #. Comment
 #: media/mimetypes/floppy5_mounted.desktop:6
@@ -235,7 +236,7 @@ msgstr ""
 #. Comment
 #: media/mimetypes/gphoto2camera.desktop:6
 msgid "Camera"
-msgstr ""
+msgstr "Camera"
 
 #. Comment
 #: media/mimetypes/hdd_encrypted_locked.desktop:7
@@ -260,17 +261,17 @@ msgstr ""
 #. Comment
 #: media/mimetypes/mycomputer.desktop:6
 msgid "My Computer"
-msgstr ""
+msgstr "Mi computator"
 
 #. Comment
 #: media/mimetypes/mydocuments.desktop:6
 msgid "My Documents"
-msgstr ""
+msgstr "Mi Documentos"
 
 #. Comment
 #: media/mimetypes/mynetworkplaces.desktop:6
 msgid "My Network Places"
-msgstr ""
+msgstr "Mi Locos de Rete"
 
 #. Comment
 #: media/mimetypes/nfs_mounted.desktop:6
@@ -285,12 +286,12 @@ msgstr ""
 #. Comment
 #: media/mimetypes/printers.desktop:6
 msgid "Printers"
-msgstr ""
+msgstr "Imprimitores"
 
 #. Comment
 #: media/mimetypes/removable_encrypted_locked.desktop:7
 msgid "Encrypted Locked Removable Medium"
-msgstr ""
+msgstr "Medio removibile cryptate blocate"
 
 #. Comment
 #: media/mimetypes/removable_encrypted_unlocked.desktop:7
@@ -327,32 +328,32 @@ msgstr ""
 #: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
 #: trash/kcmtrash.desktop:11
 msgid "Trash"
-msgstr ""
+msgstr "Corbe"
 
 #. Comment
 #: media/mimetypes/vcd.desktop:6
 msgid "Video CD"
-msgstr ""
+msgstr "Video CD"
 
 #. Comment
 #: media/mimetypes/webbrowser.desktop:6
 msgid "Web Browser"
-msgstr ""
+msgstr "Navigator de Web"
 
 #. Comment
 #: media/mimetypes/zip_mounted.desktop:6
 msgid "Mounted Zip Disk"
-msgstr ""
+msgstr "Disco Zip montate"
 
 #. Comment
 #: media/mimetypes/zip_unmounted.desktop:6
 msgid "Unmounted Zip Disk"
-msgstr ""
+msgstr "Disco Zip dismontate"
 
 #. Name
 #: media/propsdlgplugin/media_propsdlgplugin.desktop:6
 msgid "Media Properties Page"
-msgstr ""
+msgstr "Pagina de proprietates de medios"
 
 #. Comment
 #: media/propsdlgplugin/media_propsdlgplugin.desktop:8
@@ -362,47 +363,47 @@ msgstr ""
 #. Name
 #: media/services/media_eject.desktop:10
 msgid "Eject"
-msgstr ""
+msgstr "Ejecular"
 
 #. Name
 #: media/services/media_lock.desktop:10
 msgid "Lock"
-msgstr ""
+msgstr "Blocar"
 
 #. Name
 #: media/services/media_mount.desktop:10
 msgid "Mount"
-msgstr ""
+msgstr "Montar"
 
 #. Name
 #: media/services/media_realfolder.desktop:10
 msgid "Open Medium System Folder"
-msgstr ""
+msgstr "Aperir Dossier de Systema de Medio"
 
 #. Name
 #: media/services/media_safelyremove.desktop:10
 msgid "Safely Remove"
-msgstr ""
+msgstr "Remover in securitate"
 
 #. Name
 #: media/services/media_unlock.desktop:10
 msgid "Unlock"
-msgstr ""
+msgstr "Disblocar"
 
 #. Name
 #: media/services/media_unmount.desktop:10
 msgid "Unmount"
-msgstr ""
+msgstr "Dismontar"
 
 #. Name
 #: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
 msgid "Storage Media"
-msgstr ""
+msgstr "Medios de immagazinage"
 
 #. Comment
 #: media/tdecmodule/media.desktop:12
 msgid "Configure Storage Media"
-msgstr ""
+msgstr "Configurar Medios de Immagazinage"
 
 #. Keywords
 #: media/tdecmodule/media.desktop:14
@@ -412,12 +413,12 @@ msgstr ""
 #. Name
 #: media/tdefile-plugin/tdefile_media.desktop:6
 msgid "Medium Information"
-msgstr ""
+msgstr "Information de medio"
 
 #. Name
 #: remote/kdedmodule/remotedirnotify.desktop:4
 msgid "KDED Remote Base URL Notifier"
-msgstr ""
+msgstr "Notification de URL de Base remote KDED"
 
 #. Comment
 #: remote/kdedmodule/remotedirnotify.desktop:6
@@ -432,91 +433,92 @@ msgstr ""
 #. Comment
 #: smb/x-smb-server.desktop:2
 msgid "Windows Server"
-msgstr ""
+msgstr "Servitor Windows"
 
 #. Comment
 #: smb/x-smb-workgroup.desktop:2
 msgid "Windows Workgroup"
-msgstr ""
+msgstr "Windows Workgroup(Gruppo de labor de Windows)"
 
 #. Name
 #: system/entries/documents.desktop:6
 msgid "Documents Folder"
-msgstr ""
+msgstr "Dossier de documentos"
 
 #. Name
 #: system/entries/home.desktop:6
 msgid "Home Folder"
-msgstr ""
+msgstr "Dossier Domo o de Initio"
 
 #. Name
 #: system/entries/remote.desktop:6
 msgid "Remote Places"
-msgstr ""
+msgstr "Locos remote"
 
 #. Name
 #: system/entries/users.desktop:6
 msgid "Users Folders"
-msgstr ""
+msgstr "Dossieres de usator"
 
 #. Name
 #: system/kdedmodule/systemdirnotify.desktop:4
 msgid "KDED System Base URL Notifier"
-msgstr ""
+msgstr "Notificator de URL de Base de Systema KDED"
 
 #. Comment
 #: system/kdedmodule/systemdirnotify.desktop:6
-#, fuzzy
 msgid ""
 "Provides change notification for folders monitored by the system:/ tdeio "
 "plugin"
-msgstr "Il forni notification de cambio pro dossieres de rete"
+msgstr ""
+"Il forni notification de cambio pro dossieres controlate per le systema:/"
+"tdeio plugin"
 
 #. Comment
 #: system/mimetypes/system_directory.desktop:6
 msgid "System Folder"
-msgstr ""
+msgstr "Dossier de systema"
 
 #. Name
 #: thumbnail/cursorthumbnail.desktop:4
 msgid "Cursor Files"
-msgstr ""
+msgstr "Files de cursor"
 
 #. Name
 #: thumbnail/djvuthumbnail.desktop:4
 msgid "DjVu Files"
-msgstr ""
+msgstr "Files DjVU"
 
 #. Name
 #: thumbnail/exrthumbnail.desktop:4
 msgid "EXR Images"
-msgstr ""
+msgstr "Imagenes EXR"
 
 #. Name
 #: thumbnail/htmlthumbnail.desktop:4
 msgid "HTML Files"
-msgstr ""
+msgstr "Files HTML"
 
 #. Name
 #: thumbnail/imagethumbnail.desktop:4
 msgid "Images"
-msgstr ""
+msgstr "Imagines"
 
 #. Name
 #: thumbnail/textthumbnail.desktop:4
 msgid "Text Files"
-msgstr ""
+msgstr "Files de Texto"
 
 #. Comment
 #: thumbnail/thumbcreator.desktop:5
 msgid "Thumbnail Handler"
-msgstr ""
+msgstr "MAneator de miniatura"
 
 #. Comment
 #. Name
 #: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
 msgid "Trash Properties"
-msgstr ""
+msgstr "Proprietate del corbe"
 
 #. Keywords
 #: trash/kcmtrash.desktop:15
