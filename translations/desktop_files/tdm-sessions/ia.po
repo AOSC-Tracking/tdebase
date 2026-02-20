@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# giovanni <assecoibalcu@yahoo.it>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-02-20 02:51+0000\n"
+"Last-Translator: giovanni <assecoibalcu@yahoo.it>\n"
+"Language-Team: Interlingua <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/tdm-sessions/ia/>\n"
 "Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: tde.desktop.cmake:7
 msgid "TDE"
-msgstr ""
+msgstr "TDE"
 
 #. Comment
 #: tde.desktop.cmake:8
@@ -27,31 +28,33 @@ msgid ""
 "The Trinity Desktop Environment. A powerful Open Source graphical desktop "
 "environment"
 msgstr ""
+"Le Ambiente de Scriptorio Trinity, un potente ambiente de scriptorio graphic "
+"de Fonte Aperite"
 
 #. Name
 #: 9wm.desktop:6
 msgid "9WM"
-msgstr ""
+msgstr "9WM"
 
 #. Comment
 #: 9wm.desktop:8
 msgid "An emulation of the Plan 9 window manager 8-1/2"
-msgstr ""
+msgstr "Un emulation del gerente de fenestra Plan 9 8-1/2"
 
 #. Name
 #: admin.desktop:7
 msgid "admin"
-msgstr ""
+msgstr "admin"
 
 #. Comment
 #: admin.desktop:9
 msgid "Yast Admin Session"
-msgstr ""
+msgstr "Session de Admin de Yast"
 
 #. Name
 #: aewm++.desktop:6
 msgid "AEWM++"
-msgstr ""
+msgstr "AEWM++"
 
 #. Comment
 #: aewm++.desktop:8
@@ -63,17 +66,17 @@ msgstr ""
 #. Name
 #: aewm.desktop:6
 msgid "AEWM"
-msgstr ""
+msgstr "AEWM"
 
 #. Comment
 #: aewm.desktop:8
 msgid "A minimalist window manager"
-msgstr ""
+msgstr "Un gerente de fenestras minimaliste"
 
 #. Name
 #: afterstep.desktop:6
 msgid "AfterStep"
-msgstr ""
+msgstr "AfterStep"
 
 #. Comment
 #: afterstep.desktop:8
@@ -93,7 +96,7 @@ msgstr ""
 #. Name
 #: amiwm.desktop:6
 msgid "AmiWM"
-msgstr ""
+msgstr "AmiWM"
 
 #. Comment
 #: amiwm.desktop:8
@@ -103,7 +106,7 @@ msgstr ""
 #. Name
 #: asclassic.desktop:6
 msgid "ASClassic"
-msgstr ""
+msgstr "ASClassic"
 
 #. Comment
 #: asclassic.desktop:8
