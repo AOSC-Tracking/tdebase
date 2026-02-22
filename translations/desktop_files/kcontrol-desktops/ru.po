@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-08 18:11+0000\n"
-"PO-Revision-Date: 2026-02-20 02:51+0000\n"
+"PO-Revision-Date: 2026-02-22 15:51+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ru/>\n"
@@ -1763,6 +1763,14 @@ msgid ""
 "bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;"
 "applets;startup;highlight;handles;zooming icons;"
 msgstr ""
+"kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;"
+"buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;"
+"bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;"
+"applets;startup;highlight;handles;zooming icons;панель;панель задач;панель "
+"запуска;макет;положение;размер;автоматическое скрытие;скрыть;кнопки;анимация;"
+"фон;темы;кэш меню;кэш;скрытое;скрыть;меню TDE;закладки;предыдущие;последние;"
+"документы;быстрый просмотр;меню навигатора;меню навигации;меню;значки;"
+"апплеты;запуск;выделение;обработка;обработчик;масштабирование значков;"
 
 #. Name
 #: kicker/kicker_config_appearance.desktop:11 konq/fileappearance.desktop:11
@@ -1823,6 +1831,8 @@ msgstr "Настройка системных уведомлений"
 #: knotify/kcmnotify.desktop:15
 msgid "System sounds;Audio;Sound;Notify;Alerts;Notification;"
 msgstr ""
+"Системные звуки;Аудио;Звук;Уведомления;Предупреждения;Уведомления;System "
+"sounds;Audio;Sound;Notify;Alerts;Notification;"
 
 #. Name
 #: konq/desktop.desktop:11
@@ -1838,6 +1848,8 @@ msgstr "Настройка количества виртуальных рабо�
 #: konq/desktop.desktop:15
 msgid "desktop;desktops;number;virtual desktop;"
 msgstr ""
+"desktop;desktops;number;virtual desktop;рабочий стол;рабочие столы;"
+"количество;виртуальный рабочий стол;"
 
 #. Name
 #: konq/desktopbehavior.desktop:12 konq/filebehavior.desktop:11
@@ -1885,6 +1897,9 @@ msgid ""
 "konqueror;filemanager;word wrap;wrap;underline;display;filesize;bytes;font;"
 "color;colour;"
 msgstr ""
+"konqueror;filemanager;word wrap;wrap;underline;display;filesize;bytes;font;"
+"color;colour;файловый менеджер;перенос слов;перенос;подчёркивание;"
+"отображение;размер файла;байты;шрифт;цвет;"
 
 #. Comment
 #: konq/filebehavior.desktop:13
@@ -1907,7 +1922,7 @@ msgstr ""
 #. Comment
 #: konq/filebrowser.desktop:14
 msgid "You can configure Konqueror's file manager mode here"
-msgstr "Настройка режима менеджера файлов "
+msgstr "Вы можете настроить режим файлового менеджера Konqueror здесь"
 
 #. Name
 #: konq/filepreviews.desktop:11
@@ -1921,9 +1936,10 @@ msgstr "Настройка создания миниатюр и показа м�
 
 #. Keywords
 #: konq/filepreviews.desktop:15
-#, fuzzy
 msgid "konqueror;filemanager;previews;file previews;maximum size;"
-msgstr "konqueror;filemanager;paths;desktop;trash;directories;autostart;"
+msgstr ""
+"konqueror;filemanager;previews;file previews;maximum size;файловый менеджер;"
+"предпросмотр;предварительный просмотр файлов;максимальный размер;"
 
 #. Name
 #: konqhtml/tdehtml_behavior.desktop:11
@@ -1941,6 +1957,9 @@ msgid ""
 "konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;"
 "cursor;links;images;charsets;character sets;encoding;"
 msgstr ""
+"konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;"
+"cursor;links;images;charsets;character sets;encoding;браузер;веб;шрифты;"
+"цвета;курсор;ссылки;изображения;наборы символов;кодировка;"
 
 #. Name
 #: konqhtml/tdehtml_filter.desktop:10
@@ -1962,6 +1981,8 @@ msgstr "Настройка шрифтов веб-страниц"
 msgid ""
 "konqueror;kfm;browser;html;web;www;fonts;charsets;character sets;encoding;"
 msgstr ""
+"konqueror;kfm;browser;html;web;www;fonts;charsets;character sets;encoding;"
+"браузер;веб;шрифты;наборы символов;кодировка;"
 
 #. Name
 #: konqhtml/tdehtml_java_js.desktop:11
@@ -1976,7 +1997,7 @@ msgstr "Настройка поведения Java и JavaScript"
 #. Keywords
 #: konqhtml/tdehtml_java_js.desktop:15
 msgid "konqueror;kfm;browser;html;web;www;java;javascript;"
-msgstr ""
+msgstr "konqueror;kfm;browser;html;web;www;java;javascript;браузер;веб;"
 
 #. Name
 #: konqhtml/tdehtml_userinterface.desktop:11
@@ -1998,7 +2019,7 @@ msgstr ""
 #. Name
 #: konsole/kcmkonsole.desktop:10
 msgid "Konsole"
-msgstr "Konsole"
+msgstr "Консоль"
 
 #. Comment
 #: konsole/kcmkonsole.desktop:12
@@ -2011,6 +2032,9 @@ msgid ""
 "konsole;schema;konsole background;colors;background;terminal application;"
 "terminal;"
 msgstr ""
+"konsole;schema;konsole background;colors;background;terminal application;"
+"terminal;консоль;схема;фон консоли;цвета;фон;терминальное приложение;"
+"консольное приложение;терминал;"
 
 #. Name
 #: kthememanager/installktheme.desktop:2
@@ -2025,7 +2049,7 @@ msgstr "Менеджер глобальных визуальных тем TDE"
 #. Keywords
 #: kthememanager/kthememanager.desktop:5
 msgid "themes;look and feel;"
-msgstr ""
+msgstr "themes;look and feel;темы; внешний вид;"
 
 #. Name
 #: kthememanager/kthememanager.desktop:6
@@ -2053,6 +2077,10 @@ msgid ""
 "application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
 "spinning;disk;startup;program;report;"
 msgstr ""
+"application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
+"spinning;disk;startup;program;report;приложение;запуск;загрузка;занят;курсор;"
+"обратная связь;мышь;указатель;вращение;вращающийся;диск;запуск;программа;"
+"отчёт;"
 
 #. Name
 #: locale/default/entry.desktop:2
@@ -2076,6 +2104,12 @@ msgid ""
 "charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
 "sign;positive;negative;fractional digits;week;week start;"
 msgstr ""
+"language;translation;number format;currency;time;date;formats;locale;Country;"
+"charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
+"sign;positive;negative;fractional digits;week;week start;язык;перевод;формат "
+"чисел;валюта;время;дата;форматы;локаль;страна;наборы символов;десятичный "
+"символ;разделитель тысяч;символ;разделитель;знак;положительный;отрицательный;"
+"дробные цифры;неделя;начало недели;"
 
 #. Name
 #: nics/nic.desktop:12
@@ -2114,6 +2148,7 @@ msgstr "Настройка параметров, которые могут по�
 #: performance/kcmperformance.desktop:15
 msgid "performance;speed;memory;improve;"
 msgstr ""
+"performance;speed;memory;improve;производительность;скорость;память;улучшить;"
 
 #. Name
 #: privacy/privacy.desktop:11
@@ -2129,9 +2164,8 @@ msgstr ""
 
 #. Keywords
 #: privacy/privacy.desktop:15
-#, fuzzy
 msgid "Privacy;privacy;"
-msgstr "Конфиденциальность"
+msgstr "Конфиденциальность;приватность;безопасность;Privacy;privacy;"
 
 #. Name
 #: randr/randr.desktop:9
@@ -2177,6 +2211,8 @@ msgstr "Состояние сервера Samba"
 #: samba/smbstatus.desktop:16
 msgid "SMB;SAMBA;Windows network;LAN;System Information;"
 msgstr ""
+"SMB;SAMBA;Windows network;LAN;System Information;сеть Windows;ЛВС;локальная "
+"сеть;системная информация;"
 
 #. Name
 #: screensaver/screensaver.desktop:12
@@ -2206,7 +2242,7 @@ msgstr "Настройка поддержки смарткарт"
 #. Keywords
 #: smartcard/smartcard.desktop:15
 msgid "Smartcard;PKCS;SSL;reader;smart;card;"
-msgstr ""
+msgstr "Smartcard;PKCS;SSL;reader;smart;card;cмарт-карта;считыватель;карта;"
 
 #. Name
 #: smserver/kcmsmserver.desktop:12
@@ -2222,6 +2258,8 @@ msgstr "Настройка диспетчера сеансов"
 #: smserver/kcmsmserver.desktop:16
 msgid "ksmserver;session;logout;confirmation;save;restore;"
 msgstr ""
+"ksmserver;session;logout;confirmation;save;restore;сеанс;выход из системы;"
+"подтверждение;сохранение;восстановление;"
 
 #. Name
 #: spellchecking/spellchecking.desktop:11
@@ -2236,7 +2274,7 @@ msgstr "Настройка проверки орфографии"
 #. Keywords
 #: spellchecking/spellchecking.desktop:15
 msgid "Spell;"
-msgstr ""
+msgstr "Spell;правописание;проверка;орфография;"
 
 #. Name
 #: style/style.desktop:13
@@ -2319,9 +2357,8 @@ msgstr "Файлы шрифтов"
 
 #. Name
 #: tdefontinst/viewpart/tdefontview.desktop:2
-#, fuzzy
 msgid "TDEFontView"
-msgstr "Программа просмотра шрифтов"
+msgstr "TDEFontView"
 
 #. GenericName
 #. Name
@@ -2344,6 +2381,8 @@ msgstr "Настройка кэша"
 #: tdeio/cache.desktop:16
 msgid "Cache;History;Browsing History;Ports;Size;"
 msgstr ""
+"Cache;History;Browsing History;Ports;Size;Кэш;История;История просмотров;"
+"Порты;Размер;"
 
 #. Name
 #: tdeio/cookies.desktop:12
@@ -2359,6 +2398,8 @@ msgstr "Настройка cookies"
 #: tdeio/cookies.desktop:16
 msgid "Cookies;Browsing;Internet;WWW;Network;Policy;Domains;"
 msgstr ""
+"Cookies;Browsing;Internet;WWW;Network;Policy;Domains;куки;просмотр веб-"
+"страниц;интернет;глобальная сеть;паутина;сеть;политика;домены;"
 
 #. Name
 #: tdeio/lanbrowser.desktop:11
@@ -2373,7 +2414,7 @@ msgstr "Настройка lisa, reslisa и ioslaves"
 #. Keywords
 #: tdeio/lanbrowser.desktop:15
 msgid "samba;smb;windows;network;"
-msgstr ""
+msgstr "samba;smb;windows;network;самба;сеть;"
 
 #. Comment
 #: tdeio/netpref.desktop:2
@@ -2384,6 +2425,7 @@ msgstr "Общие свойства сети, такие как значения
 #: tdeio/netpref.desktop:5
 msgid "timeout;iopref;netpref;network preferences;ftp;"
 msgstr ""
+"timeout;iopref;netpref;network preferences;ftp;тайм-аут;настройки сети;"
 
 #. Name
 #: tdeio/netpref.desktop:6
@@ -2404,6 +2446,8 @@ msgstr "Настройка серверов прокси"
 #: tdeio/proxy.desktop:16
 msgid "Proxy;Proxy server;Firewall;Squid;proxy;"
 msgstr ""
+"Proxy;Proxy server;Firewall;Squid;proxy;прокси;прокси-сервер;брандмауэр;"
+"межсетевой экран;файервол;"
 
 #. Name
 #: tdeio/smb.desktop:12
@@ -2421,6 +2465,10 @@ msgid ""
 "SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;"
 "Broadcast;WINS;Share;Login;Passwords;"
 msgstr ""
+"SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;"
+"Broadcast;WINS;Share;Login;Passwords;САМБА;SMB-клиент;сеть Windows;ЛВС;"
+"локальная сеть;cеть;сервер;широковещательная передача;общий доступ;вход в "
+"систему;пароли;"
 
 #. Comment
 #: tdeio/uasprovider.desktop:4
@@ -2511,6 +2559,9 @@ msgstr "Настройка идентификации Konqueror"
 #: tdeio/useragent.desktop:16
 msgid "User Agent;Browser;Internet;WWW;Network;agent;bindings;server;login;"
 msgstr ""
+"User Agent;Browser;Internet;WWW;Network;agent;bindings;server;login;"
+"пользовательский агент;браузер;обозреватель;интернет;глобальная сеть;cеть;"
+"агент;привязки;сервер;вход в систему;"
 
 #. Name
 #: tdm/tdm.desktop:14
@@ -2559,9 +2610,10 @@ msgstr "Просмотр устройств IEEE 1394, подключенных 
 
 #. Keywords
 #: view1394/kcmview1394.desktop:14
-#, fuzzy
 msgid "1394;Firewire;devices;viewer;control;"
-msgstr "USB;devices;viewer;control;утсройства;"
+msgstr ""
+"1394;Firewire;devices;viewer;control;устройства;просмотрщик;управление;"
+"файервол;межсетевой экран;брандмауэр;"
 
 #. Name
 #: xinerama/xinerama.desktop:10
@@ -2577,3 +2629,5 @@ msgstr "Настройка TDE для нескольких мониторов"
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr ""
+"Xinerama;dual head;multihead;monitor;монитор;экран;дисплей;несколько "
+"мониторов;"
