@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: 2026-02-20 02:51+0000\n"
+"PO-Revision-Date: 2026-02-26 18:51+0000\n"
 "Last-Translator: giovanni <assecoibalcu@yahoo.it>\n"
 "Language-Team: Interlingua <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdm-sessions/ia/>\n"
@@ -86,7 +86,7 @@ msgstr ""
 #. Name
 #: amaterus.desktop:6
 msgid "AMATERUS"
-msgstr ""
+msgstr "AMATERUS"
 
 #. Comment
 #: amaterus.desktop:8
@@ -101,7 +101,7 @@ msgstr "AmiWM"
 #. Comment
 #: amiwm.desktop:8
 msgid "The Amiga look-alike window manager"
-msgstr ""
+msgstr "Un gerente de fenestra in stilo de Amiga"
 
 #. Name
 #: asclassic.desktop:6
@@ -111,12 +111,12 @@ msgstr "ASClassic"
 #. Comment
 #: asclassic.desktop:8
 msgid "AfterStep Classic, a window manager based on AfterStep v1.1"
-msgstr ""
+msgstr "AfterStep Classic, un gerente de fenestra basate sur AfterStep v1.1"
 
 #. Name
 #: blackbox.desktop:6
 msgid "Blackbox"
-msgstr ""
+msgstr "Blackbox"
 
 #. Comment
 #: blackbox.desktop:8
@@ -138,7 +138,7 @@ msgstr ""
 #. Name
 #: ctwm.desktop:6
 msgid "CTWM"
-msgstr ""
+msgstr "CTWM"
 
 #. Comment
 #: ctwm.desktop:8
@@ -148,7 +148,7 @@ msgstr ""
 #. Name
 #: cwwm.desktop:6
 msgid "CWWM"
-msgstr ""
+msgstr "CWWM"
 
 #. Comment
 #: cwwm.desktop:8
@@ -158,7 +158,7 @@ msgstr ""
 #. Name
 #: enlightenment.desktop:6
 msgid "Enlightenment"
-msgstr ""
+msgstr "Enlightenment"
 
 #. Comment
 #: enlightenment.desktop:8
@@ -168,7 +168,7 @@ msgstr ""
 #. Name
 #: evilwm.desktop:6
 msgid "EvilWM"
-msgstr ""
+msgstr "EvilWM"
 
 #. Comment
 #: evilwm.desktop:8
@@ -178,7 +178,7 @@ msgstr ""
 #. Name
 #: fluxbox.desktop:6
 msgid "Fluxbox"
-msgstr ""
+msgstr "Fluxbox"
 
 #. Comment
 #: fluxbox.desktop:8
@@ -188,7 +188,7 @@ msgstr ""
 #. Name
 #: flwm.desktop:6
 msgid "FLWM"
-msgstr ""
+msgstr "FLWM"
 
 #. Comment
 #: flwm.desktop:8
@@ -198,7 +198,7 @@ msgstr ""
 #. Name
 #: fvwm.desktop:6
 msgid "FVWM"
-msgstr ""
+msgstr "FVWM"
 
 #. Comment
 #: fvwm.desktop:8 fvwm2.desktop:8
@@ -208,22 +208,22 @@ msgstr ""
 #. Name
 #: fvwm2.desktop:6
 msgid "FVWM2"
-msgstr ""
+msgstr "FVWM2"
 
 #. Name
 #: fvwm95.desktop:6
 msgid "FVWM95"
-msgstr ""
+msgstr "FVWM95"
 
 #. Comment
 #: fvwm95.desktop:8
 msgid "A Windows 95 look-alike derivative of FVWM"
-msgstr ""
+msgstr "Un variante de FVWM de aspecto simile a Windows 95"
 
 #. Name
 #: gnome.desktop:6
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #. Comment
 #: gnome.desktop:8
@@ -235,7 +235,7 @@ msgstr ""
 #. Name
 #: golem.desktop:6
 msgid "Golem"
-msgstr ""
+msgstr "Golem"
 
 #. Comment
 #: golem.desktop:8
