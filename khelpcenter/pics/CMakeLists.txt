@@ -10,4 +10,3 @@
 #################################################
 
 tde_install_icons( khelpcenter )
-tde_install_icons( helpdoc helpbook helpbook_open DESTINATION ${DATA_INSTALL_DIR}/khelpcenter/icons )
