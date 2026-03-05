@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: 2026-02-26 18:51+0000\n"
+"PO-Revision-Date: 2026-03-06 13:51+0000\n"
 "Last-Translator: giovanni <assecoibalcu@yahoo.it>\n"
 "Language-Team: Interlingua <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdm-sessions/ia/>\n"
@@ -62,6 +62,8 @@ msgid ""
 "A minimal window manager based on AEWM, enhanced by virtual desktops and "
 "partial GNOME support"
 msgstr ""
+"Un minime gerente de fenestra basate sur AEWM, meliorate per scriptorios "
+"virtual e supporto partial de GNOME"
 
 #. Name
 #: aewm.desktop:6
@@ -81,7 +83,7 @@ msgstr "AfterStep"
 #. Comment
 #: afterstep.desktop:8
 msgid "A window manager with the NeXTStep look and feel, based on FVWM"
-msgstr ""
+msgstr "Un gerente de fenestra con le apparentia de NeXTStep, basate sur FVWM"
 
 #. Name
 #: amaterus.desktop:6
@@ -92,6 +94,8 @@ msgstr "AMATERUS"
 #: amaterus.desktop:8
 msgid "A GTK+ based window manager with a window grouping feature"
 msgstr ""
+"Un gerente de fenestras basate sur GTK+ con un characteristica de gruppar "
+"fenestra"
 
 #. Name
 #: amiwm.desktop:6
@@ -121,12 +125,12 @@ msgstr "Blackbox"
 #. Comment
 #: blackbox.desktop:8
 msgid "A fast & light window manager"
-msgstr ""
+msgstr "Un gerente de fenestras rapide e legier"
 
 #. Name
 #: cde.desktop:6
 msgid "CDE"
-msgstr ""
+msgstr "CDE"
 
 #. Comment
 #: cde.desktop:8
@@ -134,6 +138,8 @@ msgid ""
 "The Common Desktop Environment, a proprietary industry standard desktop "
 "environment"
 msgstr ""
+"Le Ambiente Commun de Scriptorio (Common Desktop Environment in anglese),un "
+"ambiente de scriptorio standard industrial proprietari"
 
 #. Name
 #: ctwm.desktop:6
@@ -143,7 +149,7 @@ msgstr "CTWM"
 #. Comment
 #: ctwm.desktop:8
 msgid "Claude's Tab Window Manager, TWM enhanced by virtual screens, etc."
-msgstr ""
+msgstr "Claude's Tab Window Manager, TWM meliorate con schermos virtual, etc."
 
 #. Name
 #: cwwm.desktop:6
@@ -154,6 +160,8 @@ msgstr "CWWM"
 #: cwwm.desktop:8
 msgid "The ChezWam Window Manager, a minimalist window manager based on EvilWM"
 msgstr ""
+"Le gerente de fenestra ChezWam, un gerente de fenestra minimaliste basate "
+"sur EvilWM"
 
 #. Name
 #: enlightenment.desktop:6
@@ -164,6 +172,8 @@ msgstr "Enlightenment"
 #: enlightenment.desktop:8
 msgid "An extremely themable very feature-rich window manager"
 msgstr ""
+"Un gerente de fenestras plen de characteristicas e extrememente "
+"personalisabile"
 
 #. Name
 #: evilwm.desktop:6
@@ -173,7 +183,7 @@ msgstr "EvilWM"
 #. Comment
 #: evilwm.desktop:8
 msgid "A minimalist window manager based on AEWM"
-msgstr ""
+msgstr "Un gerente de fenestras minimaliste basate sur AEWM"
 
 #. Name
 #: fluxbox.desktop:6
@@ -184,6 +194,8 @@ msgstr "Fluxbox"
 #: fluxbox.desktop:8
 msgid "A highly configurable and low resource window manager based on Blackbox"
 msgstr ""
+"Un gerente de fenestras basate sur Blackbox altemente configurabile e con "
+"pauc ressources utilisate"
 
 #. Name
 #: flwm.desktop:6
@@ -194,6 +206,8 @@ msgstr "FLWM"
 #: flwm.desktop:8
 msgid "The Fast Light Window Manager, based primarily on WM2"
 msgstr ""
+"Le Fast Light Window Manager (Gerente de Fenestras Legier e Rapide), basate "
+"principalmente sur WM2"
 
 #. Name
 #: fvwm.desktop:6
@@ -204,6 +218,8 @@ msgstr "FVWM"
 #: fvwm.desktop:8 fvwm2.desktop:8
 msgid "A powerful ICCCM-compliant multiple virtual desktop window manager"
 msgstr ""
+"Un potente gerente de fenestras de scriptorio virtual multiple compativile "
+"con ICCCM"
 
 #. Name
 #: fvwm2.desktop:6
@@ -231,6 +247,8 @@ msgid ""
 "The GNU Network Object Model Environment. A complete, free and easy-to-use "
 "desktop environment"
 msgstr ""
+"Le GNU Network Object Model Environment. Un ambiente de scriptorio complete, "
+"libere e facile a usar"
 
 #. Name
 #: golem.desktop:6
@@ -240,27 +258,29 @@ msgstr "Golem"
 #. Comment
 #: golem.desktop:8
 msgid "A lightweight window manager"
-msgstr ""
+msgstr "Un gerente de ventanas legier"
 
 #. Name
 #: icewm.desktop:6
 msgid "IceWM"
-msgstr ""
+msgstr "IceWM"
 
 #. Comment
 #: icewm.desktop:8
 msgid "A Windows 95-OS/2-Motif-like window manager"
-msgstr ""
+msgstr "Un gerente de fenestra de stilo Windows 95-OS/2-Motif"
 
 #. Name
 #: ion.desktop:6
 msgid "Ion"
-msgstr ""
+msgstr "Ion"
 
 #. Comment
 #: ion.desktop:8
 msgid "A keyboard-friendly window manager with tiled windows, based on PWM"
 msgstr ""
+"Un gerente de fenestras \"amico del claviero\" con fenestras tegulate (tiled "
+"windows),basate sur PWM"
 
 #. Name
 #: kde-plasma-safe.desktop:7
@@ -285,57 +305,61 @@ msgstr "Le scriptorio facite per KDE"
 #. Name
 #: larswm.desktop:6
 msgid "LarsWM"
-msgstr ""
+msgstr "LarsWM"
 
 #. Comment
 #: larswm.desktop:8
 msgid "The Lars Window Manager, based on 9WM, supports tiled windows"
 msgstr ""
+"Le Lars Window Manager, basate sur 9WM, supporta fenestras tegulate (tiled "
+"windows)"
 
 #. Name
 #: lwm.desktop:6
 msgid "LWM"
-msgstr ""
+msgstr "LWM"
 
 #. Comment
 #: lwm.desktop:8
 msgid "The Lightweight Window Manager. A non-configurable, bare window manager"
 msgstr ""
+"Le Lightweight Window Manager. Un gerente de fenestras simple non-"
+"configurabile"
 
 #. Name
 #: matchbox.desktop:6
 msgid "Matchbox"
-msgstr ""
+msgstr "Matchbox"
 
 #. Comment
 #: matchbox.desktop:8
 msgid "A window manager for handheld devices"
-msgstr ""
+msgstr "Un gerente de fenestras per dispositivos de mano"
 
 #. Name
 #: metacity.desktop:6
 msgid "Metacity"
-msgstr ""
+msgstr "Metacity"
 
 #. Comment
 #: metacity.desktop:8
 msgid "A lightweight GTK2 based window manager"
-msgstr ""
+msgstr "Un gerente de fenestras legier basate sur GTK2"
 
 #. Name
 #: mwm.desktop:6
 msgid "MWM"
-msgstr ""
+msgstr "MWM"
 
 #. Comment
 #: mwm.desktop:8
 msgid "The Motif Window Manager"
-msgstr ""
+msgstr "Le gerente de fenestras de Motif"
 
 #. Name
 #: olvwm.desktop:6
 msgid "OLVWM"
-msgstr ""
+msgstr "OLVWM"
 
 #. Comment
 #: olvwm.desktop:8
@@ -343,133 +367,140 @@ msgid ""
 "The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
 "desktops"
 msgstr ""
+"Le OpenLook Virtual Window Manager. OLWM meliorate permanear scriptorios "
+"virtual"
 
 #. Name
 #: olwm.desktop:6
 msgid "OLWM"
-msgstr ""
+msgstr "OLWM"
 
 #. Comment
 #: olwm.desktop:8
 msgid "The traditional Open Look Window Manager"
-msgstr ""
+msgstr "Le traditional Open Look Window Manager"
 
 #. Name
 #: openbox.desktop:6
 msgid "Openbox"
-msgstr ""
+msgstr "Openbox"
 
 #. Comment
 #: openbox.desktop:8
 msgid "A lightweight window manager based on Blackbox"
-msgstr ""
+msgstr "Un gerente de fenestras legier basate sur Blackbox"
 
 #. Name
 #: oroborus.desktop:6
 msgid "Oroborus"
-msgstr ""
+msgstr "Oroborus"
 
 #. Comment
 #: oroborus.desktop:8
 msgid "A lightweight themeable window manager"
-msgstr ""
+msgstr "Un gerente de fenestras legier con themas"
 
 #. Name
 #: phluid.desktop:6
 msgid "Phluid"
-msgstr ""
+msgstr "Phluid"
 
 #. Comment
 #: phluid.desktop:8
 msgid "An Imlib2 based window manager"
-msgstr ""
+msgstr "Un gerentede fenestras basate sur Imlib2"
 
 #. Name
 #: pwm.desktop:6
 msgid "PWM"
-msgstr ""
+msgstr "PWM"
 
 #. Comment
 #: pwm.desktop:8
 msgid ""
 "A lightweight window manager able to attach multiple windows to one frame"
 msgstr ""
+"Un gerente de fenestras legier capace a attachar multiple fenestras a un "
+"quadro"
 
 #. Name
 #: qvwm.desktop:6
 msgid "QVWM"
-msgstr ""
+msgstr "QVWM"
 
 #. Comment
 #: qvwm.desktop:8
 msgid "A Windows 95 like window manager"
-msgstr ""
+msgstr "Un gerente de fenestras similar a WIndows 95"
 
 #. Name
 #: ratpoison.desktop:6
 msgid "Ratpoison"
-msgstr ""
+msgstr "Ratpoison"
 
 #. Comment
 #: ratpoison.desktop:8
 msgid "A simple keyboard-only window manager modeled after Screen"
 msgstr ""
+"Un simple gerente de fenestra de solmente claviero modellate secundo Screen"
 
 #. Name
 #: sapphire.desktop:6
 msgid "Sapphire"
-msgstr ""
+msgstr "Sapphire"
 
 #. Comment
 #: sapphire.desktop:8
 msgid "A minimal but configurable window manager"
-msgstr ""
+msgstr "Un gerente de fenestras minime ma configurabile"
 
 #. Name
 #: sawfish.desktop:6
 msgid "Sawfish"
-msgstr ""
+msgstr "Sawfish"
 
 #. Comment
 #: sawfish.desktop:8
 msgid ""
 "An extensible window manager scriptable with an Emacs Lisp-like language"
 msgstr ""
+"Un gerente de fenestra extensibile per lequal es possibile facer scripts in "
+"un linguage similar a Emacs Lisp"
 
 #. Name
 #: twm.desktop:6
 msgid "TWM"
-msgstr ""
+msgstr "TWM"
 
 #. Comment
 #: twm.desktop:8
 msgid "The Tab Window Manager"
-msgstr ""
+msgstr "Le Tab Window Manager"
 
 #. Name
 #: ude.desktop:6
 msgid "UDE"
-msgstr ""
+msgstr "UDE"
 
 #. Comment
 #: ude.desktop:8
 msgid "The UNIX Desktop Environment"
-msgstr ""
+msgstr "Le UNIX Desktop Environment (Ambiente de scriptorio de Unix)"
 
 #. Name
 #: vtwm.desktop:6
 msgid "VTWM"
-msgstr ""
+msgstr "VTWM"
 
 #. Comment
 #: vtwm.desktop:8
 msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
-msgstr ""
+msgstr "Le Virtual Tab Window Manager. TWM meliorate con schermos virtual, etc."
 
 #. Name
 #: w9wm.desktop:6
 msgid "W9WM"
-msgstr ""
+msgstr "W9WM"
 
 #. Comment
 #: w9wm.desktop:8
@@ -477,41 +508,43 @@ msgid ""
 "A window manager based on 9WM, enhanced by virtual screens and keyboard "
 "bindings"
 msgstr ""
+"Un gerente de fenestra basate sur 9WM, meliorate con schermos virtual e vias "
+"breve de claviero"
 
 #. Name
 #: waimea.desktop:6
 msgid "Waimea"
-msgstr ""
+msgstr "Waimea"
 
 #. Comment
 #: waimea.desktop:8
 msgid "A highly customizable window manager based on Blackbox"
-msgstr ""
+msgstr "Un gerente de fenestra altemente personalisabile basate su Blackbox"
 
 #. Name
 #: wm2.desktop:6
 msgid "WM2"
-msgstr ""
+msgstr "WM2"
 
 #. Comment
 #: wm2.desktop:8
 msgid "A small, non-configurable window manager"
-msgstr ""
+msgstr "Un gerente de fenestras parve e non configurabile"
 
 #. Name
 #: wmaker.desktop:6
 msgid "WindowMaker"
-msgstr ""
+msgstr "WindowMaker"
 
 #. Comment
 #: wmaker.desktop:8
 msgid "A simple window manager that resembles the NeXTStep look very closely"
-msgstr ""
+msgstr "Un gerente de fenestras simplice que es multo similar a NeXTStep"
 
 #. Name
 #: xfce.desktop:6
 msgid "XFce"
-msgstr ""
+msgstr "XFce"
 
 #. Comment
 #: xfce.desktop:8
@@ -519,11 +552,13 @@ msgid ""
 "The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
 "of CDE"
 msgstr ""
+"Le Cholesterol Free Desktop Environment. Un ambiente de scriptorio "
+"reminescente de CDE"
 
 #. Name
 #: xfce4.desktop:6
 msgid "XFce 4"
-msgstr ""
+msgstr "XFce 4"
 
 #. Comment
 #: xfce4.desktop:8
@@ -531,3 +566,5 @@ msgid ""
 "The Cholesterol Free Desktop Environment, version 4. A desktop environment "
 "reminiscent of CDE"
 msgstr ""
+"The Cholesterol Free Desktop Environment, version 4. Un ambiente de "
+"scriptorio reminescente de CDE"
