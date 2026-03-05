@@ -33,7 +33,7 @@ class TQCloseEvent;
 class TQDropEvent;
 class TQPopupMenu;
 class TDEGlobalAccel;
-class KWinModule;
+class TWinModule;
 class KBackgroundManager;
 class TQTimer;
 class StartupId;
@@ -97,7 +97,7 @@ public:
 
   void logout( TDEApplication::ShutdownConfirm confirm, TDEApplication::ShutdownType sdtype );
 
-  KWinModule* twinModule() const { return m_pKwinmodule; }
+  TWinModule* twinModule() const { return m_pTWinModule; }
 
   // The action collection of the active widget
   TDEActionCollection *actionCollection();
@@ -194,7 +194,7 @@ private:
 
   TDEGlobalAccel *keys;
 
-  KWinModule* m_pKwinmodule;
+  TWinModule* m_pTWinModule;
 
   KBackgroundManager* bgMgr;
 

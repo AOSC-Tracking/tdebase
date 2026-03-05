@@ -201,7 +201,7 @@ Konsole::Konsole(const char* name, int histon, bool menubaron, bool tabbaron, bo
 ,se_previous(0)
 ,m_initialSession(0)
 ,colors(0)
-,kWinModule(0)
+,tWinModule(0)
 ,menubar(0)
 ,statusbar(0)
 ,m_session_string(i18n("&Session"))
@@ -389,8 +389,8 @@ Konsole::~Konsole()
     delete colors;
     colors=0;
 
-    delete kWinModule;
-    kWinModule = 0;
+    delete tWinModule;
+    tWinModule = 0;
 }
 
 void Konsole::setAutoClose(bool on)

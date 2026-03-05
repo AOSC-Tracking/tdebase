@@ -216,7 +216,7 @@ Workspace::Workspace( bool restore )
     tdeApp->setGlobalMouseTracking( true ); // so that this doesn't mess eventmask on root window later
     // call this before XSelectInput() on the root window
     startup = new TDEStartupInfo(
-        TDEStartupInfo::DisableKWinModule | TDEStartupInfo::AnnounceSilenceChanges, this );
+        TDEStartupInfo::DisableTWinModule | TDEStartupInfo::AnnounceSilenceChanges, this );
 
     // select windowmanager privileges
     XSelectInput(tqt_xdisplay(), root,

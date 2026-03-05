@@ -67,7 +67,7 @@ public:
     KPager(KPagerMainWindow *parent=0, const char *name=0);
     ~KPager();
 
-    class KWinModule *twin() const { return m_winmodule; };
+    class TWinModule *twin() const { return m_winmodule; };
     void updateLayout();
 
     void redrawDesktops();
@@ -110,7 +110,7 @@ protected:
     };
 
 protected:
-    KWinModule *m_winmodule;
+    TWinModule *m_winmodule;
     TQValueList<class Desktop *> m_desktops;
 
     TQIntDict<KWin::WindowInfo> m_windows;

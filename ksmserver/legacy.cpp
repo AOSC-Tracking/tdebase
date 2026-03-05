@@ -87,7 +87,7 @@ void KSMServer::performLegacySessionSave()
     XErrorHandler oldHandler = XSetErrorHandler(winsErrorHandler);
     // Compute set of leader windows that need legacy session management
     // and determine which style (WM_COMMAND or WM_SAVE_YOURSELF)
-    KWinModule module;
+    TWinModule module;
     if( wm_save_yourself == (Atom)None ) {
 	Atom atoms[ 3 ];
 	const char* const names[]

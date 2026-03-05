@@ -59,7 +59,7 @@ TaskManager::TaskManager()
     : TQObject(),
       _active(0),
       _startup_info(0),
-      m_winModule(new KWinModule()),
+      m_winModule(new TWinModule()),
       m_trackGeometry(false)
 {
     TDEGlobal::locale()->insertCatalogue("libtaskmanager");

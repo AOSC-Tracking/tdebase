@@ -299,7 +299,7 @@ void Applet::claimSelection()
         delete selection_watcher;
         selection_watcher = NULL;
         connect( selection, TQ_SIGNAL( lostOwnership()), TQ_SLOT( lostSelection()));
-        module = new KWinModule;
+        module = new TWinModule;
 	connect( module, TQ_SIGNAL( windowAdded( WId )), this, TQ_SLOT( windowAdded( WId )));
 	connect( module, TQ_SIGNAL( activeWindowChanged( WId )),
 	    this, TQ_SLOT( activeWindowChanged( WId )));

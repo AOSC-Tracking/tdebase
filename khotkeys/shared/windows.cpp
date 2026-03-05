@@ -39,7 +39,7 @@ namespace KHotKeys
 
 Windows::Windows( bool enable_signal_P, TQObject* parent_P )
     : TQObject( parent_P ), signals_enabled( enable_signal_P ),
-        twin_module( new KWinModule( this )), _action_window( 0 )
+        twin_module( new TWinModule( this )), _action_window( 0 )
     {
     assert( windows_handler == NULL );
     windows_handler = this;

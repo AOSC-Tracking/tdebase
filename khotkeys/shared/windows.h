@@ -22,7 +22,7 @@
 #include "khotkeysglobal.h"
 
 class TDEConfig;
-class KWinModule;
+class TWinModule;
 
 namespace KHotKeys
 {
@@ -63,7 +63,7 @@ class TDE_EXPORT Windows
         void window_changed_slot( WId window_P, unsigned int flags_P );
     private:
         bool signals_enabled;
-        KWinModule* twin_module;
+        TWinModule* twin_module;
         WId _action_window;
     };
     

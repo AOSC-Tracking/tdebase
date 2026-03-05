@@ -114,7 +114,7 @@ KMiniPager::KMiniPager(const TQString& configFile, Type type, int actions,
 
     setFont( TDEGlobalSettings::taskbarFont() );
 
-    m_twin = new KWinModule(this);
+    m_twin = new TWinModule(this);
     m_activeWindow = m_twin->activeWindow();
     m_curDesk = m_twin->currentDesktop();
 

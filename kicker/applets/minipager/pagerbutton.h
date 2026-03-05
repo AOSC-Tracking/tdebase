@@ -30,7 +30,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "kickertip.h"
 
 class KPixmap;
-class KWinModule;
+class TWinModule;
 class KMiniPager;
 class TDESharedPixmap;
 class TQLineEdit;

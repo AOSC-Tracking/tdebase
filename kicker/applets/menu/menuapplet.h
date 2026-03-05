@@ -39,7 +39,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include <karrowbutton.h>
 
-class KWinModule;
+class TWinModule;
 
 namespace KickerMenuApplet
 {
@@ -145,7 +145,7 @@ private:
      */
     static Atom makeSelectionAtom();
     void updateTopEdgeOffset();
-    KWinModule* module;
+    TWinModule* module;
     
     /**
      * List of all known menus.

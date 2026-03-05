@@ -5,7 +5,7 @@
 #include <twin.h>
 
 class KShellProcess;
-class KWinModule;
+class TWinModule;
 
 /**
  * Provides a system tray icon for a normal window.
@@ -75,7 +75,7 @@ private:
 
   WId win;
   KShellProcess *client;
-  KWinModule *twinmodule;
+  TWinModule *twinmodule;
   TQString errStr;
 
   /** Memorized 'top' position of the window*/

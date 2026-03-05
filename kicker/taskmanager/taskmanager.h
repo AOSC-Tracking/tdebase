@@ -57,7 +57,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #endif
 #endif
 
-class KWinModule;
+class TWinModule;
 class TaskManager;
 
 typedef TQValueList<WId> WindowList;
@@ -66,7 +66,7 @@ typedef TQValueList<WId> WindowList;
  * A dynamic interface to a task (main window).
  *
  * @see TaskManager
- * @see KWinModule
+ * @see TWinModule
  */
 class TDE_EXPORT Task: public TQObject, public TDEShared
 {
@@ -569,7 +569,7 @@ private:
  *
  * @see Task
  * @see Startup
- * @see KWinModule
+ * @see TWinModule
  */
 class TDE_EXPORT TaskManager : public TQObject
 {
@@ -634,7 +634,7 @@ public:
     */
     static bool isOnScreen( int screen, const WId wid );
 
-    KWinModule* winModule() const { return m_winModule; }
+    TWinModule* winModule() const { return m_winModule; }
 
     void setXCompositeEnabled(bool state);
     static bool xCompositeEnabled() { return m_xCompositeEnabled != 0; }
@@ -707,7 +707,7 @@ private:
     WindowList _skiptaskbar_windows;
     Startup::List _startups;
     TDEStartupInfo* _startup_info;
-    KWinModule* m_winModule;
+    TWinModule* m_winModule;
     bool m_trackGeometry;
 
     static TaskManager* m_self;

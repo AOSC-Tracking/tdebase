@@ -45,7 +45,7 @@ DESCRIPTION
 class XKBExtension;
 class XkbRules;
 class TDEGlobalAccel;
-class KWinModule;
+class TWinModule;
 class LayoutMap;
 
 /* This is the main Kxkb class responsible for reading options
@@ -107,7 +107,7 @@ private:
     XkbRules *m_rules;
     KxkbSystemTray *m_tray;
     TDEGlobalAccel *keys;
-    KWinModule* kWinModule;
+    TWinModule* tWinModule;
     bool m_forceSetXKBMap;
 };
 

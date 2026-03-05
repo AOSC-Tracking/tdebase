@@ -110,7 +110,7 @@ SystemTrayApplet::SystemTrayApplet(const TQString& configFile, Type type, int ac
 
     setBackgroundOrigin(AncestorOrigin);
 
-    twin_module = new KWinModule(this);
+    twin_module = new TWinModule(this);
 
     // tdeApp notifies us of settings changes. added to support
     // disabling of frame effect on mouse hover
@@ -156,7 +156,7 @@ void SystemTrayApplet::initialize()
         layoutTray();
     }
 
-    // the KWinModule notifies us when tray windows are added or removed
+    // the TWinModule notifies us when tray windows are added or removed
     connect( twin_module, TQ_SIGNAL( systemTrayWindowAdded(WId) ),
              this, TQ_SLOT( systemTrayWindowAdded(WId) ) );
     connect( twin_module, TQ_SIGNAL( systemTrayWindowRemoved(WId) ),

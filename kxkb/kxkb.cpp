@@ -69,7 +69,7 @@ KXKBApp::KXKBApp(bool allowStyles, bool GUIenabled)
     m_prevWinId(X11Helper::UNKNOWN_WINDOW_ID),
     m_rules(nullptr),
     m_tray(nullptr),
-    kWinModule(nullptr)
+    tWinModule(nullptr)
 {
 	X11Helper::initializeTranslations();
 	XKBExtension *xkb = XKBExtension::the();
@@ -98,7 +98,7 @@ KXKBApp::~KXKBApp()
 	delete m_tray;
 	delete m_rules;
 	delete m_layoutOwnerMap;
-	delete kWinModule;
+	delete tWinModule;
 	delete keys;
 }
 
@@ -130,8 +130,8 @@ void KXKBApp::readSettings()
 
     if (kxkbConfig.m_switchingPolicy == SWITCH_POLICY_GLOBAL)
     {
-        delete kWinModule;
-        kWinModule = nullptr;
+        delete tWinModule;
+        tWinModule = nullptr;
     }
 
     else
@@ -143,13 +143,13 @@ void KXKBApp::readSettings()
             //TODO: find out how to handle that
         }
 
-        if (!kWinModule)
+        if (!tWinModule)
         {
-            kWinModule = new KWinModule(nullptr, KWinModule::INFO_DESKTOP);
-            connect(kWinModule, TQ_SIGNAL(activeWindowChanged(WId)), TQ_SLOT(windowChanged(WId)));
+            tWinModule = new TWinModule(nullptr, TWinModule::INFO_DESKTOP);
+            connect(tWinModule, TQ_SIGNAL(activeWindowChanged(WId)), TQ_SLOT(windowChanged(WId)));
         }
 
-        m_prevWinId = kWinModule->activeWindow();
+        m_prevWinId = tWinModule->activeWindow();
         kdDebug() << "Active window " << m_prevWinId << endl;
     }
 

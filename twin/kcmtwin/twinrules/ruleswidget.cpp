@@ -108,7 +108,7 @@ RulesWidget::RulesWidget( TQWidget* parent, const char* name )
     SETUP( maxsize, force );
     SETUP( strictgeometry, force );
     SETUP( disableglobalshortcuts, force );
-    KWinModule module;
+    TWinModule module;
     int i;
     for( i = 1;
          i <= module.numberOfDesktops();

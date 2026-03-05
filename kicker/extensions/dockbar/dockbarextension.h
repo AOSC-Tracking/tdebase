@@ -28,7 +28,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <kpanelextension.h>
 #include "dockcontainer.h"
 
-class KWinModule;
+class TWinModule;
 
 class DockBarExtension : public KPanelExtension
 {
@@ -61,7 +61,7 @@ protected:
     void mouseReleaseEvent(TQMouseEvent *);
     void mouseMoveEvent(TQMouseEvent *);
 private:
-    KWinModule* twin_module;
+    TWinModule* twin_module;
     DockContainer::Vector containers;
 
     // handle the dragging of applets

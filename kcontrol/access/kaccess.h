@@ -73,7 +73,7 @@ private:
 
   TQTimer *artsBellTimer;
 
-  KWinModule wm;
+  TWinModule wm;
 
   WId _activeWindow;
 

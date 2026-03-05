@@ -427,11 +427,11 @@ void Kicker::clearQuickStartMenu()
     MenuManager::the()->kmenu()->clearRecentMenuItems();
 }
 
-KWinModule* Kicker::twinModule()
+TWinModule* Kicker::twinModule()
 {
     if (!m_twinModule)
     {
-        m_twinModule = new KWinModule();
+        m_twinModule = new TWinModule();
     }
 
     return m_twinModule;

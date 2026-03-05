@@ -26,7 +26,7 @@
 #include <X11/Xlib.h>
 
 class KLibrary;
-class KWinModule;
+class TWinModule;
 class KSMModalDialog;
 class LockProcess;
 #ifdef WITH_TDEHWLIB
@@ -214,7 +214,7 @@ class LockProcess : public TQWidget
 		TQTimer      *hackResumeTimer;
 
 		TDEProcess*   mVkbdProcess;
-		KWinModule* mKWinModule;
+		TWinModule* mTWinModule;
 		struct VkbdWindow {
 			WId id;
 			TQRect rect;

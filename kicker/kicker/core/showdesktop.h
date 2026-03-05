@@ -24,7 +24,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #ifndef __showdesktop_h__
 #define __showdesktop_h__
 
-class KWinModule;
+class TWinModule;
 
 #include <tqvaluevector.h>
 

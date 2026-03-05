@@ -26,7 +26,7 @@ KSysTrayCmd::KSysTrayCmd()
     win(0), client(0), twinmodule(0), top(0), left(0)
 {
   setAlignment( AlignCenter );
-  twinmodule = new KWinModule( this );
+  twinmodule = new TWinModule( this );
   refresh();
 }
 

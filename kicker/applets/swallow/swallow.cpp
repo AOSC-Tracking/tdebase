@@ -48,7 +48,7 @@ template class TQPtrList<SwallowCommand>;
 // init static variables
 SwallowAppList * SwallowApplet::appList = 0L;
 SwallowAppList * SwallowApplet::embeddedList = 0L;
-KWinModule * SwallowApplet::wModule = 0L;
+TWinModule * SwallowApplet::wModule = 0L;
 SwallowApplet * SwallowApplet::self = 0L;
 
 extern "C"
@@ -68,7 +68,7 @@ SwallowApplet::SwallowApplet( const TQString& configFile,
     self = this;
     m_swcList = new SwallowCommandList;
     m_swcList->setAutoDelete( true );
-    wModule = new KWinModule(this);
+    wModule = new TWinModule(this);
     embeddedList = new SwallowAppList;
     embeddedList->setAutoDelete( false );
     appList = new SwallowAppList;

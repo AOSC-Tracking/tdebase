@@ -44,7 +44,7 @@ class TQVBox;
 class QXEmbed;
 class HideButton;
 class TDEConfig;
-class KWinModule;
+class TWinModule;
 class PopupWidgetFilter;
 class PanelExtensionOpMenu;
 class TQColor;

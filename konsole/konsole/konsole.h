@@ -312,7 +312,7 @@ private:
   TQString        s_encodingName;
 
   TQPtrDict<KRootPixmap> rootxpms;
-  KWinModule*    kWinModule;
+  TWinModule*    tWinModule;
 
   KMenuBar*   menubar;
   KStatusBar* statusbar;

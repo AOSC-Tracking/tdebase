@@ -54,7 +54,7 @@ ConfigDialog::~ConfigDialog() {
 // prevent huge size due to long regexps in the action-widget
 void ConfigDialog::show() {
 	if (!isVisible()) {
-		KWinModule module(0, KWinModule::INFO_DESKTOP);
+		TWinModule module(0, TWinModule::INFO_DESKTOP);
 		TQSize s1 = sizeHint();
 		TQSize s2 = module.workArea().size();
 		int w = s1.width();

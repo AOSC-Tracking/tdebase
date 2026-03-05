@@ -46,7 +46,7 @@ class KRootBackingData
 public:
     TQWidget *toplevel;
 #ifdef TQ_WS_X11
-    KWinModule *twin;
+    TWinModule *twin;
 #endif
 };
 
@@ -73,7 +73,7 @@ void KRootBacking::init()
 #ifdef TQ_WS_X11
     connect(m_pPixmap, TQ_SIGNAL(done(bool)), TQ_SLOT(slotDone(bool)));
 
-    d->twin = new KWinModule( this );
+    d->twin = new TWinModule( this );
 #endif
 
     m_bInit = true;

@@ -57,7 +57,7 @@ DockBarExtension::DockBarExtension(const TQString& configFile, Type type,
   : KPanelExtension(configFile, type, actions, parent, name)
 {
     dragging_container = 0;
-    twin_module = new KWinModule(this);
+    twin_module = new TWinModule(this);
     connect( twin_module, TQ_SIGNAL( windowAdded(WId) ), TQ_SLOT( windowAdded(WId) ) );
     setMinimumSize(DockContainer::sz(), DockContainer::sz());
     setSizePolicy(TQSizePolicy::Expanding, TQSizePolicy::Expanding);

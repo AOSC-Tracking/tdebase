@@ -65,7 +65,7 @@ extern KDesktopApp *myApp;
 
 /**** KBackgroundManager ****/
 
-KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* twinModule)
+KBackgroundManager::KBackgroundManager(TQWidget *desktop, TWinModule* twinModule)
     : KBackgroundIface()
 {
     if( !properties_inited )
@@ -86,7 +86,7 @@ KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* twinModule
     m_Serial = 0; m_Hash = 0;
     m_pConfig = TDEGlobal::config();
     m_bExport = m_bCommon = m_bInit = false;
-    m_pKwinmodule = twinModule;
+    m_pTWinModule = twinModule;
     m_pPixmapServer = new KPixmapServer();
     m_xrootpmap = None;
 
@@ -121,11 +121,11 @@ KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* twinModule
     /*Ends here*/
 
 
-    connect(m_pKwinmodule, TQ_SIGNAL(currentDesktopChanged(int)),
+    connect(m_pTWinModule, TQ_SIGNAL(currentDesktopChanged(int)),
 	    TQ_SLOT(slotChangeDesktop(int)));
-    connect(m_pKwinmodule, TQ_SIGNAL(numberOfDesktopsChanged(int)),
+    connect(m_pTWinModule, TQ_SIGNAL(numberOfDesktopsChanged(int)),
 	    TQ_SLOT(slotChangeNumberOfDesktops(int)));
-    connect(m_pKwinmodule, TQ_SIGNAL(currentDesktopViewportChanged(int, const TQPoint&)),
+    connect(m_pTWinModule, TQ_SIGNAL(currentDesktopViewportChanged(int, const TQPoint&)),
             TQ_SLOT(slotChangeViewport(int, const TQPoint&)));
 
 
@@ -133,12 +133,12 @@ KBackgroundManager::KBackgroundManager(TQWidget *desktop, KWinModule* twinModule
     connect( tdeApp->desktop(), TQ_SIGNAL( resized( int )), TQ_SLOT( desktopResized())); // RANDR support
 #endif
 
-    TQSize s(m_pKwinmodule->numberOfViewports(m_pKwinmodule->currentDesktop()));
+    TQSize s(m_pTWinModule->numberOfViewports(m_pTWinModule->currentDesktop()));
     m_numberOfViewports = s.width() * s.height();
     if (m_numberOfViewports < 1) {
         m_numberOfViewports = 1;
     }
-    for (signed j=0;j<(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);j++) {
+    for (signed j=0;j<(m_pTWinModule->numberOfDesktops() * m_numberOfViewports);j++) {
         renderBackground(j);
     }
 }
@@ -258,12 +258,12 @@ void KBackgroundManager::configure()
     slotChangeDesktop(0);
 
     // Redraw all desktops so that applications relying on exported data, e.g. kpager, continue to work properly
-    TQSize s(m_pKwinmodule->numberOfViewports(m_pKwinmodule->currentDesktop()));
+    TQSize s(m_pTWinModule->numberOfViewports(m_pTWinModule->currentDesktop()));
     m_numberOfViewports = s.width() * s.height();
     if (m_numberOfViewports < 1) {
         m_numberOfViewports = 1;
     }
-    for (signed j=0;j<(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);j++) {
+    for (signed j=0;j<(m_pTWinModule->numberOfDesktops() * m_numberOfViewports);j++) {
         renderBackground(j);
     }
 }
@@ -271,7 +271,7 @@ void KBackgroundManager::configure()
 
 int KBackgroundManager::realDesktop()
 {
-    int desk = m_pKwinmodule->currentDesktop();
+    int desk = m_pTWinModule->currentDesktop();
     if (desk) desk--;
     return desk;
 }
@@ -279,7 +279,7 @@ int KBackgroundManager::realDesktop()
 
 int KBackgroundManager::effectiveDesktop()
 {
-    TQSize s(m_pKwinmodule->numberOfViewports(m_pKwinmodule->currentDesktop()));
+    TQSize s(m_pTWinModule->numberOfViewports(m_pTWinModule->currentDesktop()));
     m_numberOfViewports = s.width() * s.height();
 
     if (m_numberOfViewports > 1) {
@@ -287,7 +287,7 @@ int KBackgroundManager::effectiveDesktop()
             return 0;
         }
         else {
-            TQPoint vx(m_pKwinmodule->currentViewport(m_pKwinmodule->currentDesktop()));
+            TQPoint vx(m_pTWinModule->currentViewport(m_pTWinModule->currentDesktop()));
             return (realDesktop() * m_numberOfViewports) + ((vx.x() * vx.y()) - 1);
         }
     }
@@ -302,7 +302,7 @@ int KBackgroundManager::effectiveDesktop()
  */
 void KBackgroundManager::slotChangeNumberOfDesktops(int num)
 {
-    TQSize s(m_pKwinmodule->numberOfViewports(m_pKwinmodule->currentDesktop()));
+    TQSize s(m_pTWinModule->numberOfViewports(m_pTWinModule->currentDesktop()));
     m_numberOfViewports = s.width() * s.height();
     if (m_numberOfViewports < 1) {
         m_numberOfViewports = 1;
@@ -352,7 +352,7 @@ void KBackgroundManager::slotChangeNumberOfDesktops(int num)
 void KBackgroundManager::slotChangeDesktop(int desk)
 {
     resizingDesktop = true;
-    TQSize s(m_pKwinmodule->numberOfViewports(m_pKwinmodule->currentDesktop()));
+    TQSize s(m_pTWinModule->numberOfViewports(m_pTWinModule->currentDesktop()));
     m_numberOfViewports = s.width() * s.height();
     if (m_numberOfViewports < 1) {
         m_numberOfViewports = 1;
@@ -364,8 +364,8 @@ void KBackgroundManager::slotChangeDesktop(int desk)
 	desk--;
 
     // Lazy initialisation of # of desktops
-    if ((unsigned)(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports) >= m_Renderer.size())
-        slotChangeNumberOfDesktops( m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);
+    if ((unsigned)(m_pTWinModule->numberOfDesktops() * m_numberOfViewports) >= m_Renderer.size())
+        slotChangeNumberOfDesktops( m_pTWinModule->numberOfDesktops() * m_numberOfViewports);
 
     int edesk = effectiveDesktop();
     m_Serial++;
@@ -413,7 +413,7 @@ void KBackgroundManager::slotChangeDesktop(int desk)
  */
 void KBackgroundManager::slotChangeViewport(int desk, const TQPoint& viewport)
 {
-    TQSize s(m_pKwinmodule->numberOfViewports(m_pKwinmodule->currentDesktop()));
+    TQSize s(m_pTWinModule->numberOfViewports(m_pTWinModule->currentDesktop()));
     m_numberOfViewports = s.width() * s.height();
     if (m_numberOfViewports < 1) {
         m_numberOfViewports = 1;
@@ -425,8 +425,8 @@ void KBackgroundManager::slotChangeViewport(int desk, const TQPoint& viewport)
         desk--;
 
     // Lazy initialisation of # of desktops
-    if ((unsigned)(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports) >= m_Renderer.size())
-        slotChangeNumberOfDesktops( m_pKwinmodule->numberOfDesktops() * m_numberOfViewports );
+    if ((unsigned)(m_pTWinModule->numberOfDesktops() * m_numberOfViewports) >= m_Renderer.size())
+        slotChangeNumberOfDesktops( m_pTWinModule->numberOfDesktops() * m_numberOfViewports );
 
     int edesk = effectiveDesktop();
     m_Serial++;
@@ -625,7 +625,7 @@ void KBackgroundManager::slotCrossFadeTimeout()
  */
 void KBackgroundManager::slotImageDone(int desk)
 {
-    TQSize s(m_pKwinmodule->numberOfViewports(m_pKwinmodule->currentDesktop()));
+    TQSize s(m_pTWinModule->numberOfViewports(m_pTWinModule->currentDesktop()));
     m_numberOfViewports = s.width() * s.height();
     if (m_numberOfViewports < 1) {
         m_numberOfViewports = 1;
@@ -863,7 +863,7 @@ void KBackgroundManager::slotTimeout()
 int KBackgroundManager::validateDesk(int desk)
 {
     if (desk > (int)m_Renderer.size())
-	slotChangeNumberOfDesktops( m_pKwinmodule->numberOfDesktops() );
+	slotChangeNumberOfDesktops( m_pTWinModule->numberOfDesktops() );
 
     if ( (desk <= 0) || (desk > (int)m_Renderer.size()) )
         return realDesktop();
@@ -1042,12 +1042,12 @@ void KBackgroundManager::desktopResized()
     repaintBackground();
 
     // Redraw all desktops so that applications relying on exported data, e.g. kpager, continue to work properly
-    TQSize s(m_pKwinmodule->numberOfViewports(m_pKwinmodule->currentDesktop()));
+    TQSize s(m_pTWinModule->numberOfViewports(m_pTWinModule->currentDesktop()));
     m_numberOfViewports = s.width() * s.height();
     if (m_numberOfViewports < 1) {
         m_numberOfViewports = 1;
     }
-    for (signed j=0;j<(m_pKwinmodule->numberOfDesktops() * m_numberOfViewports);j++) {
+    for (signed j=0;j<(m_pTWinModule->numberOfDesktops() * m_numberOfViewports);j++) {
         renderBackground(j);
     }
 }

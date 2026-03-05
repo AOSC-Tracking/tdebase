@@ -32,7 +32,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 class KCMultiDialog;
 class KDirWatch;
 class TDEGlobalAccel;
-class KWinModule;
+class TWinModule;
 class PanelKMenu;
 class PanelPopupButton;
 
@@ -72,7 +72,7 @@ k_dcop_signals:
 public:
     static Kicker* the();
     KDirWatch* fileWatcher();
-    KWinModule* twinModule();
+    TWinModule* twinModule();
 
     bool isImmutable() const;
     bool isKioskImmutable() const;
@@ -125,7 +125,7 @@ private:
     static void crashHandler(int signal);
 
     TDEGlobalAccel*  keys;
-    KWinModule*      m_twinModule;
+    TWinModule*      m_twinModule;
     KCMultiDialog*   m_configDialog;
     bool             m_canAddContainers;
     TQPoint          m_insertionPoint;

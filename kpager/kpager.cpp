@@ -187,7 +187,7 @@ KPager::KPager(KPagerMainWindow *parent, const char *name)
     m_windows.setAutoDelete(true); // delete windows info after removal
 
     setBackgroundColor( black );
-    m_winmodule=new KWinModule(this);
+    m_winmodule=new TWinModule(this);
     m_currentDesktop=m_winmodule->currentDesktop();
 
     m_grabWinTimer=new TQTimer(this,"grabWinTimer");

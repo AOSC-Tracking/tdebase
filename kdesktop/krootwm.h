@@ -37,7 +37,7 @@ class SaverEngine;
 class TQPopupMenu;
 class KCMultiDialog;
 class KNewMenu;
-class KWinModule;
+class TWinModule;
 class KBookmarkMenu;
 class KHelpMenu;
 class TDEActionCollection;

@@ -93,7 +93,7 @@ static ModifierKey modifierKeys[] = {
 
 KAccessApp::KAccessApp(bool allowStyles, bool GUIenabled)
   : TDEUniqueApplication(allowStyles, GUIenabled), _artsBellBlocked(false),
-                                                 overlay(0), wm(0, KWinModule::INFO_DESKTOP)
+                                                 overlay(0), wm(0, TWinModule::INFO_DESKTOP)
 {
   _activeWindow = wm.activeWindow();
   connect(&wm, TQ_SIGNAL(activeWindowChanged(WId)), this, TQ_SLOT(activeWindowChanged(WId)));

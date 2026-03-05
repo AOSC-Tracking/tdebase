@@ -436,7 +436,7 @@ void KMiniPagerButton::drawButton(TQPainter *bp)
     // window preview...
     if (m_pager->desktopPreview())
     {
-        KWinModule* twin = m_pager->twin();
+        TWinModule* twin = m_pager->twin();
         KWin::WindowInfo *info = 0;
         int dw = TQApplication::desktop()->width();
         int dh = TQApplication::desktop()->height();

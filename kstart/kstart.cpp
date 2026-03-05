@@ -43,7 +43,7 @@ static bool fullscreen = false;
 static unsigned long state = 0;
 static unsigned long mask = 0;
 static NET::WindowType windowtype = NET::Unknown;
-static KWinModule* twinmodule;
+static TWinModule* twinmodule;
 
 KStart::KStart()
     :TQObject()
@@ -312,7 +312,7 @@ int main( int argc, char *argv[] )
   for(int i=0; i < args->count(); i++)
     proc << args->arg(i);
 
-  twinmodule = new KWinModule;
+  twinmodule = new TWinModule;
 
   desktop = args->getOption( "desktop" ).toInt();
   if ( args->isSet ( "alldesktops")  )

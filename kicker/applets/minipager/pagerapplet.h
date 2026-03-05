@@ -38,7 +38,7 @@ class TQGridLayout;
 class TQTimer;
 
 class TDEProcess;
-class KWinModule;
+class TWinModule;
 class KTextShadowEngine;
 class TDESelectionOwner;
 
@@ -58,7 +58,7 @@ public:
     int heightForWidth(int width) const;
 
     KWin::WindowInfo* info( WId win );
-    KWinModule* twin() { return m_twin; }
+    TWinModule* twin() { return m_twin; }
     KTextShadowEngine* shadowEngine();
 
     void setActive( WId active ) { m_activeWindow = active; }
@@ -131,7 +131,7 @@ private:
     int desktopLayoutY;
     TDESelectionOwner* m_desktopLayoutOwner;
 
-    KWinModule *m_twin;
+    TWinModule *m_twin;
     KTextShadowEngine* m_shadowEngine;
 
     TQPopupMenu *m_contextMenu;

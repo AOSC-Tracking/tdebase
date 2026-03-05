@@ -41,7 +41,7 @@ class TQGridLayout;
 class TQSpinBox;
 class TQCheckBox;
 class TQTimer;
-class KWinModule;
+class TWinModule;
 class TrayEmbed;
 class KDialogBase;
 class TDEActionSelector;
@@ -104,7 +104,7 @@ private:
     TrayEmbedList m_hiddenWins;
     TQStringList m_hiddenIconList;
     TQStringList m_sortOrderIconList;
-    KWinModule *twin_module;
+    TWinModule *twin_module;
     Atom net_system_tray_selection;
     Atom net_system_tray_opcode;
     bool m_showFrame;

@@ -155,7 +155,7 @@ KDesktop::KDesktop( SaverEngine* saver, bool x_root_hack, bool wait_for_kded ) :
   setCaption( "KDE Desktop");
 
   setAcceptDrops(true); // WStyle_Customize seems to disable that
-  m_pKwinmodule = new KWinModule( this );
+  m_pTWinModule = new TWinModule( this );
 
   tdeApp->dcopClient()->setNotifications(true);
   tdeApp->dcopClient()->connectDCOPSignal(kicker_name, kicker_name, "desktopIconsAreaChanged(TQRect, int)",
@@ -245,7 +245,7 @@ KDesktop::initRoot()
 
      // Geert Jansen: backgroundmanager belongs here
      // TODO tell KBackgroundManager if we change widget()
-     bgMgr = new KBackgroundManager( m_pIconView, m_pKwinmodule );
+     bgMgr = new KBackgroundManager( m_pIconView, m_pTWinModule );
      bgMgr->setExport(1);
      connect( bgMgr, TQ_SIGNAL( initDone()), TQ_SLOT( backgroundInitDone()));
      if (!m_bInit)
@@ -286,7 +286,7 @@ KDesktop::initRoot()
 
      // Geert Jansen: backgroundmanager belongs here
      // TODO tell KBackgroundManager if we change widget()
-     bgMgr = new KBackgroundManager( m_pIconView, m_pKwinmodule );
+     bgMgr = new KBackgroundManager( m_pIconView, m_pTWinModule );
      bgMgr->setExport(1);
      connect( bgMgr, TQ_SIGNAL( initDone()), TQ_SLOT( backgroundInitDone()));
 
@@ -347,7 +347,7 @@ void KDesktop::slotNoKicker()
 {
     kdDebug(1204) << "KDesktop::slotNoKicker ... kicker did not respond" << endl;
     // up till now, we got no desktopIconsArea from kicker - probably
-    // it's not running, so use the area from KWinModule
+    // it's not running, so use the area from TWinModule
     TQRect area = twinModule()->workArea(twinModule()->currentDesktop());
     m_pIconView->updateWorkArea(area);
 }

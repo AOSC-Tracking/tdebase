@@ -29,7 +29,7 @@
 class TQBoxLayout;
 class TDEConfig;
 class TDEProcess;
-class KWinModule;
+class TWinModule;
 
 class SwallowApp;
 
@@ -53,7 +53,7 @@ public:
 
     // returns 0L if we don't have a SwallowApplet object yet,
     // but who cares
-    static KWinModule * winModule() { return wModule; }
+    static TWinModule * winModule() { return wModule; }
     static void removeApplet( SwallowApp * );
 
 public: // for KPanelApplet
@@ -78,7 +78,7 @@ private:
     static SwallowApplet *self;
     static SwallowAppList *appList;
     static SwallowAppList *embeddedList;
-    static KWinModule *wModule;
+    static TWinModule *wModule;
 
     SwallowCommandList * m_swcList;
     TQBoxLayout *m_layout;

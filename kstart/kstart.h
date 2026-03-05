@@ -13,7 +13,7 @@
 
 #include <tqobject.h>
 
-class KWinModule;
+class TWinModule;
 
 class KStart: public TQObject {
   TQ_OBJECT

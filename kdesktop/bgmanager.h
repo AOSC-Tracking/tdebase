@@ -24,7 +24,7 @@ class TDEConfig;
 class TQTimer;
 class TQPixmap;
 class TDEPopupMenu;
-class KWinModule;
+class TWinModule;
 class KPixmap;
 class KVirtualBGRenderer;
 class KPixmapServer;
@@ -58,7 +58,7 @@ class KBackgroundManager
     
 
 public:
-    KBackgroundManager(TQWidget *desktop, KWinModule* twinModule);
+    KBackgroundManager(TQWidget *desktop, TWinModule* twinModule);
     ~KBackgroundManager();
 
     void configure();
@@ -129,7 +129,7 @@ private:
     TQPtrVector<KVirtualBGRenderer> m_Renderer;
     TQPtrVector<KBackgroundCacheEntry> m_Cache;
 
-    KWinModule *m_pKwinmodule;
+    TWinModule *m_pTWinModule;
     KPixmapServer *m_pPixmapServer;
     
     unsigned long m_xrootpmap;

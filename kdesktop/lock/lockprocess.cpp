@@ -204,7 +204,7 @@ LockProcess::LockProcess()
 	resizeTimer(NULL),
 	hackResumeTimer(NULL),
 	mVkbdProcess(NULL),
-	mKWinModule(NULL),
+	mTWinModule(NULL),
 	mPipeOpen(false),
 	mPipeOpen_out(false),
 	mInfoMessageDisplayed(false),
@@ -2467,8 +2467,8 @@ void LockProcess::showVkbd()
 	if( run_vkbd ) {
 		mVkbdWindows.clear();
 		mVkbdLastEventWindow = None;
-		mKWinModule = new KWinModule( NULL, KWinModule::INFO_WINDOWS );
-		connect( mKWinModule, TQ_SIGNAL( windowAdded( WId )), TQ_SLOT( windowAdded( WId )));
+		mTWinModule = new TWinModule( NULL, TWinModule::INFO_WINDOWS );
+		connect( mTWinModule, TQ_SIGNAL( windowAdded( WId )), TQ_SLOT( windowAdded( WId )));
 		mVkbdProcess = new TDEProcess;
 		*mVkbdProcess << "xvkbd" << "-compact" << "-geometry" << "-0-0" << "-xdm";
 		mVkbdProcess->start();
@@ -2481,8 +2481,8 @@ void LockProcess::hideVkbd()
 		mVkbdProcess->kill();
 		delete mVkbdProcess;
 		mVkbdProcess = NULL;
-		delete mKWinModule;
-		mKWinModule = NULL;
+		delete mTWinModule;
+		mTWinModule = NULL;
 		mVkbdWindows.clear();
 	}
 }
