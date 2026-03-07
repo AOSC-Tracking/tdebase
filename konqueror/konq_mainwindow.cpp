@@ -5857,14 +5857,6 @@ void KonqMainWindow::resetWindow()
     XChangeProperty( tqt_xdisplay(), winId(), atom, XA_CARDINAL, 32,
 		     PropModeReplace, (unsigned char *) &x_time, 1);
     set_tqt_x_user_time(CurrentTime); // won't have _NET_WM_USER_TIME set
-#if !KDE_IS_VERSION( 3, 2, 90 ) // _KDE_NET_USER_TIME is obsolete
-    static Atom atom2 = XInternAtom( tqt_xdisplay(), "_KDE_NET_USER_TIME", False );
-    timeval tv;
-    gettimeofday( &tv, NULL );
-    unsigned long now = tv.tv_sec * 10 + tv.tv_usec / 100000;
-    XChangeProperty(tqt_xdisplay(), winId(), atom2, XA_CARDINAL,
-                    32, PropModeReplace, (unsigned char *)&now, 1);
-#endif
     static Atom atom3 = XInternAtom( tqt_xdisplay(), "_NET_WM_USER_TIME", False );
     XDeleteProperty( tqt_xdisplay(), winId(), atom3 );
 // Qt remembers the iconic state if the window was withdrawn while on another virtual desktop
