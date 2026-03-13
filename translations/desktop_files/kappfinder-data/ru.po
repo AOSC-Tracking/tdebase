@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2026-01-29 12:04+0000\n"
+"PO-Revision-Date: 2026-03-14 16:55+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kappfinder-data/ru/>\n"
@@ -381,7 +381,7 @@ msgstr "ChessMail"
 #. GenericName
 #: Games/Emulators/cmail.desktop:3
 msgid "Email for Chess"
-msgstr "Сообщение email для шахмат"
+msgstr "Эл. почта для шахмат"
 
 #. Name
 #: Games/Emulators/qmamecat.desktop:2
