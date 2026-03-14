@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Andrei Stepanov <adem4ik@gmail.com>, 2023, 2024.
+# Andrei Stepanov <adem4ik@gmail.com>, 2023, 2024, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-21 18:11+0000\n"
-"PO-Revision-Date: 2024-09-29 19:45+0000\n"
+"PO-Revision-Date: 2026-03-15 18:55+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/klipper-desktop-files/ru/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: copy-full-path.desktop:6
@@ -31,7 +31,7 @@ msgstr "Монитор буфера обмена"
 #. GenericName
 #: klipper.desktop:4
 msgid "Clipboard Tool"
-msgstr "Утилита для буфера обмена"
+msgstr "Утилита буфера обмена"
 
 #. Comment
 #: klipper.desktop:6
