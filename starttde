@@ -113,7 +113,7 @@ fi
 # Assign a default value if 'BIN_DIR' is unset or null
 BIN_DIR="${BIN_DIR:=$(dirname -- "$0")}"
 
-if [ -x ${BIN_DIR}/tde-config ]; then
+if [ -x "${BIN_DIR}/tde-config" ]; then
   TDE_VERSION="$( ${BIN_DIR}/tde-config --version | sed -n 's|^TDE: ||p' )"
   TDEDIR="${BIN_DIR%/bin}"
   echo "[starttde] TDE version is $TDE_VERSION" 1>&2
@@ -124,7 +124,6 @@ else
   echo "[starttde] Exiting."
   exit 1
 fi
-unset BIN_DIR TDE_VERSION
 export TDEDIR
 
 # When the X server dies we get a HUP signal from xinit. We must ignore it
@@ -132,11 +131,12 @@ export TDEDIR
 trap 'echo "[starttde] GOT SIGHUP"' HUP
 
 # Check if a TDE session is already running.
-if kcheckrunning >/dev/null 2>&1; then
+if "${BIN_DIR}/kcheckrunning" >/dev/null 2>&1; then
   echo "[starttde] TDE seems to be already running on this display."
   xmessage -center -geometry 500x100 "TDE seems to be already running on this display." > /dev/null 2>/dev/null
   exit 1
 fi
+unset BIN_DIR TDE_VERSION
 
 # Set the background color.
 # The standard X background is nasty, causing moire effects and
