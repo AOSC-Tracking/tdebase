@@ -1485,8 +1485,9 @@ void KonqViewManager::loadItem( TDEConfig &cfg, KonqFrameContainerBase *parent,
     KonqView *childView = setupView( parent, viewFactory, service, partServiceOffers, appServiceOffers, serviceType, passiveMode, openAfterCurrentPage );
 
     if (!childView->isFollowActive()) childView->setLinkedView( cfg.readBoolEntry( TQString::fromLatin1( "LinkedView" ).prepend( prefix ), false ) );
-    childView->setToggleView( cfg.readBoolEntry( TQString::fromLatin1( "ToggleView" ).prepend( prefix ), false ) );
-    if( !cfg.readBoolEntry( TQString::fromLatin1( "ShowStatusBar" ).prepend( prefix ), true ) )
+    const bool isToggleView = cfg.readBoolEntry( TQString::fromLatin1( "ToggleView" ).prepend( prefix ), false );
+    childView->setToggleView( isToggleView );
+    if( isToggleView || !cfg.readBoolEntry( TQString::fromLatin1( "ShowStatusBar" ).prepend( prefix ), true ) )
       childView->frame()->statusbar()->hide();
 
     if (cfg.readBoolEntry( TQString::fromLatin1( "docContainer" ).prepend( prefix ), false ))
