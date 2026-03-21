@@ -29,7 +29,6 @@
 
 #include "../interfaces/application.h"
 
-#include <tdeversion.h>
 #include <tdecmdlineargs.h>
 #include <dcopclient.h>
 #include <tdeconfig.h>

@@ -21,8 +21,7 @@
 
 #include "khc_indexbuilder.h"
 
-#include "version.h"
-
+#include "tdeversion.h"
 #include <tdeaboutdata.h>
 #include <tdelocale.h>
 #include <tdecmdlineargs.h>
@@ -172,7 +171,7 @@ int main( int argc, char **argv )
 {
   TDEAboutData aboutData( "khc_indexbuilder",
                         I18N_NOOP("KHelpCenter Index Builder"),
-                        HELPCENTER_VERSION,
+                        TDE_VERSION_STRING,
                         I18N_NOOP("The TDE Help Center"),
                         TDEAboutData::License_GPL,
                         I18N_NOOP("(c) 2003, The KHelpCenter developers") );

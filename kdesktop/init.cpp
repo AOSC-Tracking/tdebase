@@ -26,6 +26,7 @@
 #include <kprocess.h>
 #include <tdemessagebox.h>
 #include <tdelocale.h>
+#include <tdeversion.h>
 #include <kdebug.h>
 #include <kdesktopsettings.h>
 

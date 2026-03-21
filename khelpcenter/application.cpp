@@ -20,8 +20,7 @@
 
 #include "application.h"
 #include "mainwindow.h"
-#include "version.h"
-
+#include "tdeversion.h"
 #include <tdecmdlineargs.h>
 #include <tdeaboutdata.h>
 
@@ -61,7 +60,7 @@ static TDECmdLineOptions options[] =
 extern "C" int TDE_EXPORT kdemain( int argc, char **argv )
 {
   TDEAboutData aboutData( "khelpcenter", I18N_NOOP("Trinity Help Center"),
-                        HELPCENTER_VERSION,
+                        TDE_VERSION_STRING,
                         I18N_NOOP("The Trinity Help Center"),
                         TDEAboutData::License_GPL,
                         I18N_NOOP("(c) 1999-2003, The KHelpCenter developers") );
