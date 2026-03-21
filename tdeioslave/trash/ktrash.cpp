@@ -22,6 +22,7 @@
 #include <tdeio/job.h>
 #include <tdecmdlineargs.h>
 #include <tdelocale.h>
+#include <tdeversion.h>
 #include <kdirnotify_stub.h>
 #include <kdebug.h>
 

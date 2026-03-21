@@ -39,6 +39,7 @@
 #include <tdeaboutdata.h>
 #include <tdeglobalsettings.h>
 #include <tdeconfig.h>
+#include "tdeversion.h"
 #include <kdebug.h>
 
 #include "main.h"
@@ -46,8 +47,6 @@
 #include "toplevel.h"
 #include "global.h"
 #include "moduleIface.h"
-
-#include "version.h"
 
 KControlApp::KControlApp()
   : TDEUniqueApplication()
@@ -102,7 +101,7 @@ extern "C" TDE_EXPORT int kdemain(int argc, char *argv[])
 {
   TDELocale::setMainCatalogue("kcontrol");
   TDEAboutData aboutKControl( "kcontrol", I18N_NOOP("Trinity Control Center"),
-    KCONTROL_VERSION, I18N_NOOP("The Trinity Control Center"), TDEAboutData::License_GPL,
+    TDE_VERSION_STRING, I18N_NOOP("The Trinity Control Center"), TDEAboutData::License_GPL,
     I18N_NOOP("(c) 1998-2024, The Trinity Control Center Developers"));
 
   TQCString argv_0 = argv[0];

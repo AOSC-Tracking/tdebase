@@ -30,7 +30,6 @@ DEALINGS IN THE SOFTWARE.
 #include <tqobject.h>
 #include <tqiconset.h>
 #include <netwm_def.h>
-#include <tdeversion.h>
 
 class KDecorationOptionsPrivate;
 class KDecorationBridge;
