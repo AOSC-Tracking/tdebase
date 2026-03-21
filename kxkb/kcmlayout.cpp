@@ -337,25 +337,16 @@ void LayoutConfig::initUI(bool modified) {
 	{
 		TQString option = *it;
 		TQString optionKey = option.mid(0, option.find(':'));
-		TQString optionName = m_rules->options()[option];
 
 		if (optionKey == "grp") {
 			foundGrp = true;
 		}
 
-		OptionListItem *item = m_optionGroups[optionKey];
-
-		if (item != NULL) {
-			OptionListItem *child = item->findChildItem( option );
-
-			if ( child )
-				child->setState( TQCheckListItem::On );
-			else
-				kdDebug() << "load: Unknown option: " << option << endl;
-		}
-		else {
-			kdDebug() << "load: Unknown option group: " << optionKey << " of " << option << endl;
-		}
+		OptionListItem *item = itemForOption(option);
+		if ( item )
+			item->setState( TQCheckListItem::On );
+		else
+			kdDebug() << "load: Unknown option: " << option << endl;
 	}
 
 	if (!foundGrp) {
