@@ -1206,7 +1206,12 @@ void KVirtualBGRenderer::initRenderers()
 
     m_bCommonScreen = m_pConfig->readBoolEntry("CommonScreen", _defCommonScreen);
 
-    m_numRenderers = m_bDrawBackgroundPerScreen ? TDEApplication::desktop()->numScreens() : 1;
+    if (m_bDrawBackgroundPerScreen && TDEApplication::desktop()->isVirtualDesktop()) {
+        m_numRenderers = TDEApplication::desktop()->numScreens();
+    } else {
+        m_numRenderers = 1;
+    }
+
     if (m_numRenderers < 2) {
         // Only one screen is currently available; deactivate per-screen rendering but do not overwrite multi-screen settings
         m_bDrawBackgroundPerScreen = false;

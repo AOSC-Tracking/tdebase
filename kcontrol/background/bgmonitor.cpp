@@ -40,12 +40,14 @@
 BGMonitorArrangement::BGMonitorArrangement(TQWidget *parent, const char *name)
     : TQWidget(parent, name)
 {
-    m_pBGMonitor.resize( TQApplication::desktop()->numScreens(), 0l );
+    TQDesktopWidget *desktop = TQApplication::desktop();
+    int numScreens = desktop->isVirtualDesktop() ? TQApplication::desktop()->numScreens() : 1;
+    m_pBGMonitor.reserve(numScreens);
 
-    for (int screen = 0; screen < TQApplication::desktop()->numScreens(); ++screen)
+    for (int screen = 0; screen < numScreens; ++screen)
     {
         BGMonitorLabel * label = new BGMonitorLabel(this);
-        m_pBGMonitor[screen] = label;
+        m_pBGMonitor.push_back(label);
 
         connect( label->monitor(), TQ_SIGNAL(imageDropped(const TQString &)), this, TQ_SIGNAL(imageDropped(const TQString &)) );
     }
@@ -94,7 +96,7 @@ void BGMonitorArrangement::updateArrangement()
     // will set the background preview back to the normal value.
 
     TQRect overallGeometry;
-    for (int screen = 0; screen < TQApplication::desktop()->numScreens(); ++screen)
+    for (size_t screen = 0; screen < m_pBGMonitor.size(); ++screen)
         overallGeometry |= TQApplication::desktop()->screenGeometry(screen);
 
     TQRect expandedOverallGeometry = expandToPreview(overallGeometry);
@@ -109,7 +111,7 @@ void BGMonitorArrangement::updateArrangement()
     m_maxPreviewSize = TQSize(0,0);
     int previousMax = 0;
 
-    for (int screen = 0; screen < TQApplication::desktop()->numScreens(); ++screen)
+    for (int screen = 0; screen <  m_pBGMonitor.size(); ++screen)
     {
         TQPoint topLeft = (TQApplication::desktop()->screenGeometry(screen).topLeft() - overallGeometry.topLeft()) * scale;
         TQPoint expandedTopLeft = expandToPreview(topLeft);
