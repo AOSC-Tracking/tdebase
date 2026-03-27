@@ -36,8 +36,8 @@ class KCrossBGRender;
  * the monitor in kcmdisplay.
  */
 class KBackgroundRenderer:
-	public TQObject,
-	public KBackgroundSettings
+    public TQObject,
+    public KBackgroundSettings
 {
     TQ_OBJECT
 
@@ -65,7 +65,7 @@ public slots:
 signals:
     void imageDone(int desk, int screen);
     void programFailure(int desk, int exitstatus); //Guaranteed either programFailure or 
-    void programSuccess(int desk);                //programSuccess is emitted after imageDone
+    void programSuccess(int desk);                 //programSuccess is emitted after imageDone
 
 private slots:
     void slotBackgroundDone(TDEProcess *);
@@ -75,9 +75,9 @@ private slots:
 private:
     enum { Error, Wait, WaitUpdate, Done };
     enum { Rendering = 1, InitCheck = 2,
-	BackgroundStarted = 4, BackgroundDone = 8,
-	WallpaperStarted = 0x10, WallpaperDone = 0x20,
-	AllDone = 0x40 };
+           BackgroundStarted = 4, BackgroundDone = 8,
+           WallpaperStarted = 0x10, WallpaperDone = 0x20,
+           AllDone = 0x40 };
 
     TQString buildCommand();
     void createTempFile();
