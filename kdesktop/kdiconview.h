@@ -103,6 +103,12 @@ public:
     virtual void setWallpaper(const KURL &url) { emit newWallpaper( url ); }
     void setLastIconPosition( const TQPoint & );
 
+    /**
+     * Reimplemented from TQIconView to cleanup internal data (namely m_paOutstandingFreeSpaceOverlays)
+     */
+    virtual void takeItem( TQIconViewItem *item );
+    virtual void clear();
+
     static KURL desktopURL();
 
     /// KDirNotify interface, for trash:/
