@@ -1467,6 +1467,10 @@ void KDIconView::takeItem( TQIconViewItem *item ) {
 }
 
 void KDIconView::clear() {
+    // stop any running jobs in case there are (they may cause problems in case
+    // of several rapid successive updates)
+    m_dirLister->stop();
+
     m_paOutstandingFreeSpaceOverlays.clear();
 
     KonqIconViewWidget::clear();
