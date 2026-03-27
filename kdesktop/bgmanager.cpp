@@ -606,12 +606,13 @@ void KBackgroundManager::slotCrossFadeTimeout()
         m_crossTimer->stop();
         KPixmap pixm(mNextScreen);
         setPixmap(&pixm, r->hash(), fadeDesk);
+        mOldScreen = TQPixmap();
         return;
     }
     // Reset Timer
     mBenchmark.start();
 
-    TQPixmap dst = crossFade(*mOldScreen, mNextScreen, mAlpha, crossInit);
+    TQPixmap dst = crossFade(mOldScreen, mNextScreen, mAlpha, crossInit);
     KPixmap pixm(dst);
     setPixmap(&pixm, r->hash(), fadeDesk);
 
@@ -658,15 +659,16 @@ void KBackgroundManager::slotImageDone(int desk)
                 mNextScreen = TQPixmap(*pm);
             }
 
+            const TQPixmap *pPix;
             if (m_pDesktop){
-                mOldScreen = const_cast<TQPixmap *>( m_pDesktop->backgroundPixmap() );
+                pPix = m_pDesktop->backgroundPixmap();
             }else{
-                mOldScreen = const_cast<TQPixmap *>(
-                TQApplication::desktop()->screen()->backgroundPixmap() );
+                pPix = TQApplication::desktop()->screen()->backgroundPixmap();
             }
 
             //TODO Find a way to discover if CrossFade effect needs to run
-            if (mOldScreen){
+            if (pPix){
+                mOldScreen = *pPix;
                 crossInit = true;
                 m_crossTimer->start(70);
             } else{

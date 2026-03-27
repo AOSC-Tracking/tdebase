@@ -12,6 +12,7 @@
 
 #include <tqstring.h>
 #include <tqptrvector.h>
+#include <tqpixmap.h>
 
 #include <tqdatetime.h>
 #include <KBackgroundIface.h>
@@ -138,7 +139,7 @@ private:
     TQTimer * m_crossTimer;
     double mAlpha;
     TQPixmap  mNextScreen;
-    TQPixmap  * mOldScreen;
+    TQPixmap  mOldScreen;
     int fadeDesk;
     TQTime mBenchmark;
     bool crossInit;
