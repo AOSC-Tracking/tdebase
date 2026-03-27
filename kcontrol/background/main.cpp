@@ -46,12 +46,12 @@ KBackground::KBackground(TQWidget *parent, const char *name, const TQStringList 
 {
     int screen_number = 0;
     if (tqt_xdisplay())
-	screen_number = DefaultScreen(tqt_xdisplay());
+        screen_number = DefaultScreen(tqt_xdisplay());
     TQCString configname;
     if (screen_number == 0)
-	configname = "kdesktoprc";
+        configname = "kdesktoprc";
     else
-	configname.sprintf("kdesktop-screen-%drc", screen_number);
+        configname.sprintf("kdesktop-screen-%drc", screen_number);
     m_pConfig = new TDEConfig(configname, false, false);
 
     TQVBoxLayout *layout = new TQVBoxLayout(this);
@@ -102,16 +102,16 @@ void KBackground::save()
     // reconfigure kdesktop. kdesktop will notify all clients
     DCOPClient *client = kapp->dcopClient();
     if (!client->isAttached())
-	client->attach();
+        client->attach();
 
     int screen_number = 0;
     if (tqt_xdisplay())
-	screen_number = DefaultScreen(tqt_xdisplay());
+        screen_number = DefaultScreen(tqt_xdisplay());
     TQCString appname;
     if (screen_number == 0)
-	appname = "kdesktop";
+        appname = "kdesktop";
     else
-	appname.sprintf("kdesktop-screen-%d", screen_number);
+        appname.sprintf("kdesktop-screen-%d", screen_number);
 
     client->send(appname, "KBackgroundIface", "configure()", TQString(""));
 }

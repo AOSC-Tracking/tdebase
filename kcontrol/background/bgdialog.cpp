@@ -71,23 +71,23 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
    m_pDirs = TDEGlobal::dirs();
    m_multidesktop = _multidesktop;
    m_previewUpdates = true;
-   
+
    KWinModule *m_twin;
    m_twin = new KWinModule(this);
    m_curDesk = m_twin->currentDesktop();
    TQSize s(m_twin->numberOfViewports(m_twin->currentDesktop()));
    m_useViewports = s.width() * s.height() > 1;
-   
+
    m_numDesks = m_multidesktop ? KWin::numberOfDesktops() : 1;
    m_numViewports = s.width() * s.height();
    m_numScreens = TQApplication::desktop()->numScreens();
-   
+
    TQCString multiHead = getenv("TDE_MULTIHEAD");
-   if (multiHead.lower() == "true") 
+   if (multiHead.lower() == "true")
    {
       m_numScreens = 1;
    }
-   
+
    TQPoint vx(m_twin->currentViewport(m_twin->currentDesktop()));
    int t_eViewport = (vx.x() * vx.y());
    if (t_eViewport < 1) {
@@ -98,11 +98,11 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
    m_desk = m_multidesktop ? KWin::currentDesktop() : 1;
    m_desk = m_multidesktop ? (m_useViewports ? (((m_desk - 1) * m_numViewports) + t_eViewport) : m_desk) : m_desk;
    m_numDesks = m_multidesktop ? (m_useViewports ? (m_numDesks * m_numViewports) : m_numDesks) : m_numDesks;
-   
+
    m_screen = TQApplication::desktop()->screenNumber(this);
    if (m_screen >= (int)m_numScreens)
       m_screen = m_numScreens-1;
-   
+
    m_eDesk = m_pGlobals->commonDeskBackground() ? 0 : m_desk;
    getEScreen();
    m_copyAllDesktops = true;
@@ -121,7 +121,7 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
       m_screen = 0;
       m_eScreen = 0;
    }
-   
+
    connect(m_buttonIdentifyScreens, TQ_SIGNAL(clicked()), TQ_SLOT(slotIdentifyScreens()));
 
    // preview monitor
@@ -131,7 +131,7 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
    {
        // desktop
        connect(m_comboDesktop, TQ_SIGNAL(activated(int)),
-	       TQ_SLOT(slotSelectDesk(int)));
+               TQ_SLOT(slotSelectDesk(int)));
    }
    if (m_numScreens > 1)
    {
@@ -185,26 +185,26 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
 
    // renderers
    m_renderer.resize(m_numDesks+1);
-   
+
    if (m_numScreens > 1)
    {
       for (unsigned i = 0; i < m_numDesks+1; ++i)
       {
          m_renderer[i].resize(m_numScreens+2);
          m_renderer[i].setAutoDelete(true);
-         
+
          int eDesk = i>0 ? i-1 : 0;
-         
+
          // Setup the merged-screen renderer
          KBackgroundRenderer * r = new KBackgroundRenderer(eDesk, 0, false, _config);
          m_renderer[i].insert( 0, r );
          connect( r, TQ_SIGNAL(imageDone(int,int)), TQ_SLOT(slotPreviewDone(int,int)) );
-         
+
          // Setup the common-screen renderer
          r = new KBackgroundRenderer(eDesk, 0, true, _config);
          m_renderer[i].insert( 1, r );
          connect( r, TQ_SIGNAL(imageDone(int,int)), TQ_SLOT(slotPreviewDone(int,int)) );
-         
+
          // Setup the remaining renderers for each screen
          for (unsigned j=0; j < m_numScreens; ++j )
          {
@@ -221,7 +221,7 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
          m_renderer[i].resize(1);
          m_renderer[i].setAutoDelete(true);
       }
-      
+
       // set up the common desktop renderer
       KBackgroundRenderer * r = new KBackgroundRenderer(0, 0, false, _config);
       m_renderer[0].insert(0, r);
@@ -305,7 +305,7 @@ void BGDialog::getEScreen()
       m_eScreen = m_pGlobals->commonScreenBackground() ? 1 : m_screen+2;
    else
       m_eScreen = 0;
-   
+
    if ( m_numScreens == 1 )
       m_eScreen = 0;
    else if ( m_eScreen > int(m_numScreens+1) )
@@ -341,7 +341,7 @@ void BGDialog::load( bool useDefaults )
    m_pGlobals->readSettings();
    m_eDesk = m_pGlobals->commonDeskBackground() ? 0 : m_desk;
    getEScreen();
-   
+
    for (unsigned desk = 0; desk < m_renderer.size(); ++desk)
    {
       unsigned eDesk = desk>0 ? desk-1 : 0;
@@ -351,7 +351,7 @@ void BGDialog::load( bool useDefaults )
          m_renderer[desk][screen]->load( eDesk, eScreen, (screen>0), useDefaults );
       }
    }
-   
+
    m_copyAllDesktops = true;
    m_copyAllScreens = true;
 
@@ -374,28 +374,28 @@ void BGDialog::load( bool useDefaults )
 void BGDialog::save()
 {
    m_pGlobals->writeSettings();
-   
+
    // write out the common desktop or the "Desktop 1" settings
    // depending on which are the real settings
    // they both share Desktop[0] in the config file
    // similar for screen...
-   
+
    for (unsigned desk = 0; desk < m_renderer.size(); ++desk)
    {
       if (desk == 0 && !m_pGlobals->commonDeskBackground())
          continue;
-      
+
       if (desk == 1 && m_pGlobals->commonDeskBackground())
          continue;
-      
+
       for (unsigned screen = 0; screen < m_renderer[desk].size(); ++screen)
       {
          if (screen == 1 && !m_pGlobals->commonScreenBackground())
             continue;
-         
+
          if (screen == 2 && m_pGlobals->commonScreenBackground())
             continue;
-         
+
          m_renderer[desk][screen]->writeSettings();
       }
    }
@@ -405,7 +405,7 @@ void BGDialog::save()
 
 void BGDialog::defaults()
 {
-	load( true );
+   load( true );
    eRenderer()->setWallpaper( eRenderer()->wallpaper() );
 }
 
@@ -474,7 +474,7 @@ void BGDialog::initUI()
          }
       }
    }
-   
+
    // Screens
    for (unsigned i = 0; i < m_numScreens; ++i)
       m_comboScreen->insertItem( i18n("Screen %1").arg(TQString::number(i+1)) );
@@ -541,7 +541,7 @@ void BGDialog::loadWallpaperFilesList() {
 
       int slash = (*it).findRev('/') + 1;
       TQString directory = (*it).left(slash);
-      
+
       TQString imageCaption = fileConfig.readEntry("Name");
       TQString fileName = fileConfig.readEntry("File");
 
@@ -549,7 +549,7 @@ void BGDialog::loadWallpaperFilesList() {
          hiddenfiles.append(directory + fileName);
          continue;
       }
-      
+
       if (imageCaption.isEmpty())
       {
          imageCaption = fileName;
@@ -571,8 +571,8 @@ void BGDialog::loadWallpaperFilesList() {
       canLoadScaleable = true;
 #endif
       if ( fileConfig.readEntry("ImageType") == "pixmap" || canLoadScaleable ) {
-	      papers[lrs] = qMakePair(rs, directory + fileName);
-	      files.append(directory + fileName);
+         papers[lrs] = qMakePair(rs, directory + fileName);
+         files.append(directory + fileName);
       }
    }
 
@@ -671,7 +671,7 @@ void BGDialog::slotWallpaperSelection()
    KImageFilePreview* previewWidget = new KImageFilePreview(&dlg);
    dlg.setPreviewWidget(previewWidget);
 
-   TQStringList mimeTypes = KImageIO::mimeTypes( KImageIO::Reading ); 
+   TQStringList mimeTypes = KImageIO::mimeTypes( KImageIO::Reading );
 #ifdef HAVE_LIBART
    mimeTypes += "image/svg+xml";
 #endif
@@ -843,7 +843,7 @@ void BGDialog::updateUI()
 void BGDialog::slotPreviewDone(int desk_done, int screen_done)
 {
    int currentDesk = (m_eDesk > 0) ? m_eDesk-1 : 0;
-   
+
    if ( desk_done != currentDesk )
       return;
 
@@ -1136,17 +1136,17 @@ void BGDialog::slotSelectScreen(int screen)
          }
       }
    }
-   
+
    if (screen == m_eScreen )
    {
       return; // Nothing to do
    }
 
    m_copyAllScreens = false;
-   
+
    bool drawBackgroundPerScreen = screen > 0;
    bool commonScreenBackground = screen < 2;
-   
+
    // Update drawBackgroundPerScreen
    if (m_eDesk == 0)
    {
@@ -1157,9 +1157,9 @@ void BGDialog::slotSelectScreen(int screen)
    {
       m_pGlobals->setDrawBackgroundPerScreen(m_eDesk-1, drawBackgroundPerScreen);
    }
-   
+
    m_pGlobals->setCommonScreenBackground(commonScreenBackground);
-   
+
    if (screen < 2)
       emit changed(true);
    else

@@ -386,34 +386,34 @@ void KDIconView::start()
 
 void KDIconView::configureMedia()
 {
-	kdDebug(1204) << "***********KDIconView::configureMedia() " <<endl;
-	m_dirLister->setMimeExcludeFilter(m_excludedMedia);
-	m_dirLister->emitChanges();
-	updateContents();
-	if (m_enableMedia) {
-		for (KURL::List::Iterator it1=m_mergeDirs.begin();it1!=m_mergeDirs.end();++it1) {
-			if ((*it1).url()=="media:/") {
-				return;
-			}
-		}
-		m_mergeDirs.append(KURL("media:/"));
-		m_dirLister->openURL(KURL("media:/"), true);
-	}
-	else {
-		for (KURL::List::Iterator it2=m_mergeDirs.begin();it2!=m_mergeDirs.end();++it2) {
-			if ((*it2).url()=="media:/") {
-				delete m_dirLister;
-				m_dirLister=0;
-				start();
-				if (m_mergeDirs.contains(*it2)) {
-					m_mergeDirs.remove(*it2);
-					m_dirLister->stop("media");
-				}
-				return;
-			}
-		}
-		return;
-	}
+    kdDebug(1204) << "***********KDIconView::configureMedia() " <<endl;
+    m_dirLister->setMimeExcludeFilter(m_excludedMedia);
+    m_dirLister->emitChanges();
+    updateContents();
+    if (m_enableMedia) {
+        for (KURL::List::Iterator it1=m_mergeDirs.begin();it1!=m_mergeDirs.end();++it1) {
+            if ((*it1).url()=="media:/") {
+                return;
+            }
+        }
+        m_mergeDirs.append(KURL("media:/"));
+        m_dirLister->openURL(KURL("media:/"), true);
+    }
+    else {
+        for (KURL::List::Iterator it2=m_mergeDirs.begin();it2!=m_mergeDirs.end();++it2) {
+            if ((*it2).url()=="media:/") {
+                delete m_dirLister;
+                m_dirLister=0;
+                start();
+                if (m_mergeDirs.contains(*it2)) {
+                    m_mergeDirs.remove(*it2);
+                    m_dirLister->stop("media");
+                }
+                return;
+            }
+        }
+        return;
+    }
 }
 
 void KDIconView::createActions()
@@ -810,10 +810,10 @@ void KDIconView::fillMediaListView()
     TQString excludedMedia=g_pConfig->readEntry("exclude","media/hdd_mounted,media/hdd_unmounted,media/floppy_unmounted,media/cdrom_unmounted,media/floppy5_unmounted");
     for (; it2 != mimetypes.end(); ++it2) {
        if ( ((*it2)->name().startsWith("media/")) )
-	{
-    	    bool ok=excludedMedia.contains((*it2)->name())==0;
-		new DesktopBehaviorMediaItem (mMediaListView, (*it2)->comment(), (*it2)->name(),ok);
-        }
+       {
+           bool ok=excludedMedia.contains((*it2)->name())==0;
+           new DesktopBehaviorMediaItem (mMediaListView, (*it2)->comment(), (*it2)->name(),ok);
+       }
     }
     delete g_pConfig;
 }
@@ -824,10 +824,10 @@ void KDIconView::saveMediaListView()
     g_pConfig->setGroup( "Media" );
     TQStringList exclude;
     for (DesktopBehaviorMediaItem *it=static_cast<DesktopBehaviorMediaItem *>(mMediaListView->firstChild());
-     	it; it=static_cast<DesktopBehaviorMediaItem *>(it->nextSibling()))
-    	{
-		if (!it->isOn()) exclude << it->mimeType();
-	    }
+         it; it=static_cast<DesktopBehaviorMediaItem *>(it->nextSibling()))
+    {
+        if (!it->isOn()) exclude << it->mimeType();
+    }
     g_pConfig->writeEntry("exclude",exclude);
     g_pConfig->sync();
 
@@ -897,13 +897,13 @@ bool KDIconView::deleteGlobalDesktopFiles()
         }
 
         // Ignore these special files
-        // Name			URL					Type		OnlyShowIn
-        // My Documents		XDG_DOCUMENTS_DIR 	Application	TDE;
-        // My Computer		media:/					Link		TDE;
-        // My Network Places	remote:/				Link		TDE;
-        // Printers		[exec] kjobviewer --all --show %i %m	Application	TDE;
-        // Trash		trash:/					Link		TDE;
-        // Web Browser		kfmclient openBrowser %u		Application	TDE;
+        // Name                 URL                                     Type            OnlyShowIn
+        // My Documents         XDG_DOCUMENTS_DIR       Application     TDE;
+        // My Computer          media:/                                 Link            TDE;
+        // My Network Places    remote:/                                Link            TDE;
+        // Printers             [exec] kjobviewer --all --show %i %m    Application     TDE;
+        // Trash                trash:/                                 Link            TDE;
+        // Web Browser          kfmclient openBrowser %u                Application     TDE;
 
         if ( isDesktopFile(fItem) ) {
             KSimpleConfig cfg( fItem->url().path(), true );
@@ -1346,7 +1346,7 @@ void KDIconView::slotRefreshItems( const KFileItemList & entries )
                 break;
             }
         }
-	if ( !found )
+        if ( !found )
             kdDebug(1204) << "Item not found: " << rit.current()->url().url() << endl;
     }
     if ( bNeedPreviewJob && previewSettings().count() )
@@ -1772,73 +1772,73 @@ void KDIconView::viewportWheelEvent( TQWheelEvent * e )
 
 void KDIconView::updateWorkArea( const TQRect &wr )
 {
-	m_gotIconsArea = true;  // now we have it!
+    m_gotIconsArea = true;  // now we have it!
 
-	if (( iconArea() == wr ) && (m_needDesktopAlign == false)) {
-		// nothing changed; avoid repaint/saveIconPosition ...
-		return;
-	}
+    if (( iconArea() == wr ) && (m_needDesktopAlign == false)) {
+        // nothing changed; avoid repaint/saveIconPosition ...
+        return;
+    }
 
-	TQRect oldArea = iconArea();
-	setIconArea( wr );
+    TQRect oldArea = iconArea();
+    setIconArea( wr );
 
-	kdDebug(1204) << "KDIconView::updateWorkArea wr: " << wr.x() << "," << wr.y() << " " << wr.width() << "x" << wr.height() << endl;
-	kdDebug(1204) << "  oldArea:                     " << oldArea.x() << "," << oldArea.y() << " " << oldArea.width() << "x" << oldArea.height() << endl;
+    kdDebug(1204) << "KDIconView::updateWorkArea wr: " << wr.x() << "," << wr.y() << " " << wr.width() << "x" << wr.height() << endl;
+    kdDebug(1204) << "  oldArea:                     " << oldArea.x() << "," << oldArea.y() << " " << oldArea.width() << "x" << oldArea.height() << endl;
 
-	bool needRepaint = false;
-	TQIconViewItem* item;
-	int dx, dy;
+    bool needRepaint = false;
+    TQIconViewItem* item;
+    int dx, dy;
 
-	dx = wr.left() - oldArea.left();
-	dy = wr.top() - oldArea.top();
+    dx = wr.left() - oldArea.left();
+    dy = wr.top() - oldArea.top();
 
-	if ( dx != 0 || dy != 0 ) {
-		if ( (dx > 0) || (dy > 0) ) {
-			// the iconArea was shifted right/down; less space now
-			for ( item = firstItem(); item; item = item->nextItem() ) {
-				// check if there is any item inside the now unavailable area
-				// If so, we have to move _all_ items
-				// If not, we don't have to move any item (avoids bug:117868)
-				if ( (item->x() < wr.x()) || (item->y() < wr.y()) ) {
-					needRepaint = true;
-					break;
-				}
-			}
-		}
-		else {
-			// the iconArea was shifted left/up; more space now - use it
-			needRepaint = true;
-		}
+    if ( dx != 0 || dy != 0 ) {
+        if ( (dx > 0) || (dy > 0) ) {
+            // the iconArea was shifted right/down; less space now
+            for ( item = firstItem(); item; item = item->nextItem() ) {
+                // check if there is any item inside the now unavailable area
+                // If so, we have to move _all_ items
+                // If not, we don't have to move any item (avoids bug:117868)
+                if ( (item->x() < wr.x()) || (item->y() < wr.y()) ) {
+                    needRepaint = true;
+                    break;
+                }
+            }
+        }
+        else {
+            // the iconArea was shifted left/up; more space now - use it
+            needRepaint = true;
+        }
 
-		if ( needRepaint ) {
-			for ( item = firstItem(); item; item = item->nextItem() ) {
-				item->moveBy( dx, dy );
-			}
-		}
-	}
+        if ( needRepaint ) {
+            for ( item = firstItem(); item; item = item->nextItem() ) {
+                item->moveBy( dx, dy );
+            }
+        }
+    }
 
-	for ( item = firstItem(); item; item = item->nextItem() ) {
-		TQRect r( item->rect() );
-		int dx = 0, dy = 0;
-		if ( r.bottom() > wr.bottom() ) {
-			dy = wr.bottom() - r.bottom() - 1;
-		}
-		if ( r.right() > wr.right() ) {
-			dx = wr.right() - r.right() - 1;
-		}
-		if ( dx != 0 || dy != 0 ) {
-			needRepaint = true;
-			item->moveBy( dx, dy );
-		}
-	}
-	if ( needRepaint ) {
-		viewport()->repaint( false );
-		repaint( false );
-		saveIconPositions();
-	}
+    for ( item = firstItem(); item; item = item->nextItem() ) {
+        TQRect r( item->rect() );
+        int dx = 0, dy = 0;
+        if ( r.bottom() > wr.bottom() ) {
+            dy = wr.bottom() - r.bottom() - 1;
+        }
+        if ( r.right() > wr.right() ) {
+            dx = wr.right() - r.right() - 1;
+        }
+        if ( dx != 0 || dy != 0 ) {
+            needRepaint = true;
+            item->moveBy( dx, dy );
+        }
+    }
+    if ( needRepaint ) {
+        viewport()->repaint( false );
+        repaint( false );
+        saveIconPositions();
+    }
 
-	m_needDesktopAlign = false;
-	lineupIcons();
+    m_needDesktopAlign = false;
+    lineupIcons();
 }
 
 void KDIconView::setupSortKeys()
@@ -1900,51 +1900,51 @@ void KDIconView::setupSortKeys()
 
 bool KDIconView::isFreePosition( const TQIconViewItem *item, const TQRect &currentIconArea ) const
 {
-	TQRect r = item->rect();
-	TQRect area = currentIconArea;
-	if (area.isNull()) area = iconArea();
+    TQRect r = item->rect();
+    TQRect area = currentIconArea;
+    if (area.isNull()) area = iconArea();
 
-	// If the proposed item rect is not contained by the desktop, by definition the item position is not free!
-	if (!area.contains(r, false)) {
-		return false;
-	}
+    // If the proposed item rect is not contained by the desktop, by definition the item position is not free!
+    if (!area.contains(r, false)) {
+        return false;
+    }
 
-	TQIconViewItem *it = firstItem();
-	for (; it; it = it->nextItem() ) {
-		if ( !it->rect().isValid() || it == item ) {
-			continue;
-		}
+    TQIconViewItem *it = firstItem();
+    for (; it; it = it->nextItem() ) {
+        if ( !it->rect().isValid() || it == item ) {
+            continue;
+        }
 
-		if ( it->intersects( r ) ) {
-			return false;
-		}
-	}
+        if ( it->intersects( r ) ) {
+            return false;
+        }
+    }
 
-	return true;
+    return true;
 }
 
 bool KDIconView::isFreePosition( const TQIconViewItem *item, const TQRect& rect, const TQRect& currentIconArea) const
 {
-	TQRect area = currentIconArea;
-	if (area.isNull()) area = iconArea();
+    TQRect area = currentIconArea;
+    if (area.isNull()) area = iconArea();
 
-	// If the proposed item rect is not contained by the desktop, by definition the item position is not free!
-	if (!area.contains(rect, false)) {
-		return false;
-	}
+    // If the proposed item rect is not contained by the desktop, by definition the item position is not free!
+    if (!area.contains(rect, false)) {
+        return false;
+    }
 
-	TQIconViewItem *it = firstItem();
-	for (; it; it = it->nextItem() ) {
-		if ( !rect.isValid() || it == item ) {
-			continue;
-		}
+    TQIconViewItem *it = firstItem();
+    for (; it; it = it->nextItem() ) {
+        if ( !rect.isValid() || it == item ) {
+            continue;
+        }
 
-		if ( it->intersects( rect ) ) {
-			return false;
-		}
-	}
+        if ( it->intersects( rect ) ) {
+            return false;
+        }
+    }
 
-	return true;
+    return true;
 }
 
 void KDIconView::setLastIconPosition( const TQPoint &_pos )
@@ -1954,54 +1954,54 @@ void KDIconView::setLastIconPosition( const TQPoint &_pos )
 
 void KDIconView::moveToFreePosition(TQIconViewItem *item, const TQRect &currentIconArea)
 {
-	bool success = false;
-	// It may be that a file has been renamed. In this case,
-	// m_lastDeletedIconPos is the position to use for this "apparently new" item.
-	// (We rely on deleteItem being now emitted before newItems).
-	if ( !m_lastDeletedIconPos.isNull() ) {
-		// Problem is: I'd like to compare those two file's attributes
-		// (size, creation time, modification time... etc.) but since renaming
-		// is done by kpropsdlg, all of those can have changed (and creation time
-		// is different since the new file is a copy!)
-		kdDebug(1214) << "Moving " << item->text() << " to position of last deleted icon." << endl;
-		item->move( m_lastDeletedIconPos );
-		m_lastDeletedIconPos = TQPoint();
-		return;
-	}
+    bool success = false;
+    // It may be that a file has been renamed. In this case,
+    // m_lastDeletedIconPos is the position to use for this "apparently new" item.
+    // (We rely on deleteItem being now emitted before newItems).
+    if ( !m_lastDeletedIconPos.isNull() ) {
+        // Problem is: I'd like to compare those two file's attributes
+        // (size, creation time, modification time... etc.) but since renaming
+        // is done by kpropsdlg, all of those can have changed (and creation time
+        // is different since the new file is a copy!)
+        kdDebug(1214) << "Moving " << item->text() << " to position of last deleted icon." << endl;
+        item->move( m_lastDeletedIconPos );
+        m_lastDeletedIconPos = TQPoint();
+        return;
+    }
 
-	//try to find a free place to put the item, honouring the m_bVertAlign property
-	TQRect rect=item->rect();
-	if (m_bVertAlign) {
-		kdDebug(1214)<<"moveToFreePosition for vertical alignment"<<endl;
+    //try to find a free place to put the item, honouring the m_bVertAlign property
+    TQRect rect=item->rect();
+    if (m_bVertAlign) {
+        kdDebug(1214)<<"moveToFreePosition for vertical alignment"<<endl;
 
-		rect.moveTopLeft(TQPoint(currentIconArea.x()+spacing(),currentIconArea.y()+spacing()));
-		do {
-			success=false;
-			while (rect.bottom()<(currentIconArea.y()+currentIconArea.height())) {
-				if (!isFreePosition(item,rect,currentIconArea)) {
-					rect.moveBy(0,rect.height()+spacing());
-				}
-				else {
-					success=true;
-					break;
-				}
-			}
+        rect.moveTopLeft(TQPoint(currentIconArea.x()+spacing(),currentIconArea.y()+spacing()));
+        do {
+            success=false;
+            while (rect.bottom()<(currentIconArea.y()+currentIconArea.height())) {
+                if (!isFreePosition(item,rect,currentIconArea)) {
+                    rect.moveBy(0,rect.height()+spacing());
+                }
+                else {
+                    success=true;
+                    break;
+                }
+            }
 
-			if (!success) {
-				rect.moveTopLeft(TQPoint(rect.right()+spacing(),spacing()));
-			}
-			else {
-				break;
-			}
-		} while (item->rect().right()<(currentIconArea.x()+currentIconArea.width()));
+            if (!success) {
+                rect.moveTopLeft(TQPoint(rect.right()+spacing(),spacing()));
+            }
+            else {
+                break;
+            }
+        } while (item->rect().right()<(currentIconArea.x()+currentIconArea.width()));
 
-		if (success) {
-			item->move(rect.x(),rect.y());
-		}
-		else {
-			item->move(width()-spacing()-item->rect().width(),height()-spacing()-item->rect().height());
-		}
-	}
+        if (success) {
+            item->move(rect.x(),rect.y());
+        }
+        else {
+            item->move(width()-spacing()-item->rect().width(),height()-spacing()-item->rect().height());
+        }
+    }
 }
 
 
@@ -2130,9 +2130,9 @@ void KDIconView::saveIconPositions()
 
 void KDIconView::update( const TQString &_url )
 {
-	if (m_dirLister) {
-		m_dirLister->updateDirectory( _url );
-	}
+    if (m_dirLister) {
+        m_dirLister->updateDirectory( _url );
+    }
 }
 
 

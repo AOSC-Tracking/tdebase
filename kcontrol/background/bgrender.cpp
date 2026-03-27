@@ -102,8 +102,8 @@ void KBackgroundRenderer::tile(TQImage& dest, TQRect rect, const TQImage& src)
     int sw = src.width(), sh = src.height();
 
     for (y=offy; y<offy+h; y++)
-	for (x=offx; x<offx+w; x++)
-	    dest.setPixel(x, y, src.pixel(x%sw, y%sh));
+        for (x=offx; x<offx+w; x++)
+            dest.setPixel(x, y, src.pixel(x%sw, y%sh));
 }
 
 
@@ -123,7 +123,7 @@ TQString KBackgroundRenderer::buildCommand()
         cmd = command();
 
     if (cmd.isEmpty())
-	return TQString();
+        return TQString();
 
     while ((pos = cmd.find('%', pos)) != -1) {
 
@@ -177,8 +177,8 @@ int KBackgroundRenderer::doBackground(bool quit)
       bgmode= Flat;
 
     if (quit) {
-	if (bgmode == Program && m_pProc)
-	    m_pProc->kill();
+        if (bgmode == Program && m_pProc)
+            m_pProc->kill();
         return Done;
     }
 
@@ -201,7 +201,7 @@ int KBackgroundRenderer::doBackground(bool quit)
 
     case Flat:
         // this can be tiled correctly without problems
-	m_Background.create( tileWidth, tileHeight, 32);
+        m_Background.create( tileWidth, tileHeight, 32);
         m_Background.fill(colorA().rgb());
         break;
 
@@ -213,18 +213,18 @@ int KBackgroundRenderer::doBackground(bool quit)
         if (file.isEmpty())
             break;
 
-	m_Background.load(file);
-	if (m_Background.isNull())
-	    break;
-	int w = m_Background.width();
-	int h = m_Background.height();
-	if ((w > m_Size.width()) || (h > m_Size.height())) {
-	    w = TQMIN(w, m_Size.width());
-	    h = TQMIN(h, m_Size.height());
-	    m_Background = m_Background.copy(0, 0, w, h);
-	}
-	KImageEffect::flatten(m_Background, colorA(), colorB(), 0);
-	break;
+        m_Background.load(file);
+        if (m_Background.isNull())
+            break;
+        int w = m_Background.width();
+        int h = m_Background.height();
+        if ((w > m_Size.width()) || (h > m_Size.height())) {
+            w = TQMIN(w, m_Size.width());
+            h = TQMIN(h, m_Size.height());
+            m_Background = m_Background.copy(0, 0, w, h);
+        }
+        KImageEffect::flatten(m_Background, colorA(), colorB(), 0);
+        break;
     }
     case Program:
         if (m_State & BackgroundStarted)
@@ -232,9 +232,9 @@ int KBackgroundRenderer::doBackground(bool quit)
         m_State |= BackgroundStarted;
         createTempFile();
 
-	file = buildCommand();
-	if (file.isEmpty())
-	    break;
+        file = buildCommand();
+        if (file.isEmpty())
+            break;
 
         delete m_pProc;
         m_pProc = new KShellProcess;
@@ -247,37 +247,37 @@ int KBackgroundRenderer::doBackground(bool quit)
 
     case HorizontalGradient:
     {
-	TQSize size = m_Size;
+        TQSize size = m_Size;
         // on <16bpp displays the gradient sucks when tiled because of dithering
         if( canTile())
-	    size.setHeight( tileHeight );
-	m_Background = KImageEffect::gradient(size, colorA(), colorB(),
-		KImageEffect::HorizontalGradient, 0);
+            size.setHeight( tileHeight );
+        m_Background = KImageEffect::gradient(size, colorA(), colorB(),
+                       KImageEffect::HorizontalGradient, 0);
         break;
     }
     case VerticalGradient:
     {
-	TQSize size = m_Size;
+        TQSize size = m_Size;
         // on <16bpp displays the gradient sucks when tiled because of dithering
         if( canTile())
-	    size.setWidth( tileWidth );
+            size.setWidth( tileWidth );
         m_Background = KImageEffect::gradient(size, colorA(), colorB(),
-		KImageEffect::VerticalGradient, 0);
+                       KImageEffect::VerticalGradient, 0);
         break;
     }
     case PyramidGradient:
         m_Background = KImageEffect::gradient(m_Size, colorA(), colorB(),
-		KImageEffect::PyramidGradient, 0);
+                       KImageEffect::PyramidGradient, 0);
         break;
 
     case PipeCrossGradient:
         m_Background = KImageEffect::gradient(m_Size, colorA(), colorB(),
-		KImageEffect::PipeCrossGradient, 0);
+                       KImageEffect::PipeCrossGradient, 0);
         break;
 
     case EllipticGradient:
         m_Background = KImageEffect::gradient(m_Size, colorA(), colorB(),
-		KImageEffect::EllipticGradient, 0);
+                       KImageEffect::EllipticGradient, 0);
         break;
     }
 
@@ -302,206 +302,190 @@ int KBackgroundRenderer::doWallpaper(bool quit)
     m_Wallpaper = TQImage();
     if (wpmode != NoWallpaper) {
 wp_load:
-	if (currentWallpaper().isEmpty()) {
-	    wpmode = NoWallpaper;
-	    goto wp_out;
-	}
-	TQString file = m_pDirs->findResource("wallpaper", currentWallpaper());
-	if (file.isEmpty()) {
-	    wpmode = NoWallpaper;
-	    goto wp_out;
-	}
+        if (currentWallpaper().isEmpty()) {
+            wpmode = NoWallpaper;
+            goto wp_out;
+        }
+        TQString file = m_pDirs->findResource("wallpaper", currentWallpaper());
+        if (file.isEmpty()) {
+            wpmode = NoWallpaper;
+            goto wp_out;
+        }
 
         // _Don't_ use KMimeType, as it relies on tdesycoca which we really
         // don't want in krootimage (tdm context).
         //if ( KMimeType::findByPath( file )->is( "image/svg+xml" ) ) {
         if (file.endsWith(".svg") || file.endsWith(".svgz")) {
 #ifdef HAVE_LIBART
-	    // Special stuff for SVG icons
-	    KSVGIconEngine* svgEngine = new KSVGIconEngine();
+            // Special stuff for SVG icons
+            KSVGIconEngine* svgEngine = new KSVGIconEngine();
 
-	    //FIXME
-	    //ksvgiconloader doesn't seem to let us find out the
-	    //ratio of width to height so for the most part we just
-	    //assume it's a square
-	    int svgWidth;
-	    int svgHeight;
-	    switch (wpmode)
-	    {
-	        case Centred:
-	        case CentredAutoFit:
-		    svgHeight = (int)(m_Size.height() * 0.8);
-		    svgWidth = svgHeight;
-	            break;
-	        case Tiled:
-	        case CenterTiled:
-		    svgHeight = (int)(m_Size.height() * 0.5);
-		    svgWidth = svgHeight;
-	            break;
-	        case Scaled:
-		    svgHeight = m_Size.height();
-		    svgWidth = m_Size.width();
-	            break;
-	        case CentredMaxpect:
-		case ScaleAndCrop:
-	        case TiledMaxpect:
-		    svgHeight = m_Size.height();
-		    svgWidth = svgHeight;
-	            break;
-	        case NoWallpaper:
-	        default:
-	            kdWarning() << k_funcinfo << "unknown diagram type" << endl;
-		    svgHeight = m_Size.height();
-		    svgWidth = svgHeight;
-		    break;
-	    }
-	    //FIXME hack due to strangeness with
-	    //background control modules
-	    if ( svgHeight < 200 ) {
-		svgHeight *= 6;
-	        svgWidth *= 6;
-	    }
+            //FIXME
+            //ksvgiconloader doesn't seem to let us find out the
+            //ratio of width to height so for the most part we just
+            //assume it's a square
+            int svgWidth;
+            int svgHeight;
+            switch (wpmode)
+            {
+                case Centred:
+                case CentredAutoFit:
+                    svgHeight = (int)(m_Size.height() * 0.8);
+                    svgWidth = svgHeight;
+                    break;
+                case Tiled:
+                case CenterTiled:
+                    svgHeight = (int)(m_Size.height() * 0.5);
+                    svgWidth = svgHeight;
+                    break;
+                case Scaled:
+                    svgHeight = m_Size.height();
+                    svgWidth = m_Size.width();
+                    break;
+                case CentredMaxpect:
+                case ScaleAndCrop:
+                case TiledMaxpect:
+                    svgHeight = m_Size.height();
+                    svgWidth = svgHeight;
+                    break;
+                case NoWallpaper:
+                default:
+                    kdWarning() << k_funcinfo << "unknown diagram type" << endl;
+                    svgHeight = m_Size.height();
+                    svgWidth = svgHeight;
+                    break;
+            }
+            //FIXME hack due to strangeness with
+            //background control modules
+            if ( svgHeight < 200 ) {
+                svgHeight *= 6;
+                svgWidth *= 6;
+            }
 
-	    if (svgEngine->load(svgWidth, svgHeight, file )) {
-		TQImage *image = svgEngine->image();
-		m_Wallpaper = *image;
-		delete image;
-	    } else {
-		kdWarning() << "failed to load SVG file " << file << endl;
-	    }
+            if (svgEngine->load(svgWidth, svgHeight, file )) {
+                TQImage *image = svgEngine->image();
+                m_Wallpaper = *image;
+                delete image;
+            } else {
+                kdWarning() << "failed to load SVG file " << file << endl;
+            }
 
-	    delete svgEngine;
+            delete svgEngine;
 #else //not libart
-	    kdWarning() << k_funcinfo
-			<< "tried to load SVG file but libart not installed" << endl;
+            kdWarning() << k_funcinfo
+                        << "tried to load SVG file but libart not installed" << endl;
 #endif
-	} else {
-	    m_Wallpaper.load(file);
-	}
-	if (m_Wallpaper.isNull()) {
+        } else {
+            m_Wallpaper.load(file);
+        }
+        if (m_Wallpaper.isNull()) {
             if (discardCurrentWallpaper())
                goto wp_load;
-	    wpmode = NoWallpaper;
-	    goto wp_out;
-	}
-	m_Wallpaper = m_Wallpaper.convertDepth(32, TQt::DiffuseAlphaDither);
+            wpmode = NoWallpaper;
+            goto wp_out;
+        }
+        m_Wallpaper = m_Wallpaper.convertDepth(32, TQt::DiffuseAlphaDither);
 
-	// If we're previewing, scale the wallpaper down to make the preview
-	// look more like the real desktop.
-	if (m_bPreview) {
-	    int xs = m_Wallpaper.width() * m_Size.width() / m_rSize.width();
-	    int ys = m_Wallpaper.height() * m_Size.height() / m_rSize.height();
-	    if ((xs < 1) || (ys < 1))
-	    {
-	       xs = ys = 1;
-	    }
-	    if( m_Wallpaper.size() != TQSize( xs, ys ))
-		m_Wallpaper = m_Wallpaper.smoothScale(xs, ys);
-	}
+        // If we're previewing, scale the wallpaper down to make the preview
+        // look more like the real desktop.
+        if (m_bPreview) {
+            int xs = m_Wallpaper.width() * m_Size.width() / m_rSize.width();
+            int ys = m_Wallpaper.height() * m_Size.height() / m_rSize.height();
+            if ((xs < 1) || (ys < 1))
+            {
+               xs = ys = 1;
+            }
+            if( m_Wallpaper.size() != TQSize( xs, ys ))
+                m_Wallpaper = m_Wallpaper.smoothScale(xs, ys);
+        }
 
-	// HACK: Use KFileMetaInfo only when we're attached to DCOP.
-	// KFileMetaInfo needs tdesycoca and so on, but this code is
-	// used also in krootimage (which in turn is used by tdm).
-	if( kapp->dcopClient()->isAttached()) {
-	    KFileMetaInfo metaInfo(file);
-	    if (metaInfo.isValid() && metaInfo.item("Orientation").isValid()) {
-		switch (metaInfo.item("Orientation").string().toInt()) {
-		    case 2:
-			// Flipped horizontally
-			m_Wallpaper = m_Wallpaper.mirror(true, false);
-			break;
-		    case 3:
-			// Rotated 180 degrees
-			m_Wallpaper = KImageEffect::rotate(m_Wallpaper, KImageEffect::Rotate180);
-			break;
-		    case 4:
-			// Flipped vertically
-			m_Wallpaper = m_Wallpaper.mirror(false, true);
-			break;
-		    case 5:
-			// Rotated 90 degrees & flipped horizontally
-			m_Wallpaper = KImageEffect::rotate(m_Wallpaper, KImageEffect::Rotate90).mirror(true, false);
-			break;
-		    case 6:
-			// Rotated 90 degrees
-			m_Wallpaper = KImageEffect::rotate(m_Wallpaper, KImageEffect::Rotate90);
-			break;
-		    case 7:
-			// Rotated 90 degrees & flipped vertically
-			m_Wallpaper = KImageEffect::rotate(m_Wallpaper, KImageEffect::Rotate90).mirror(false, true);
-			break;
-		    case 8:
-			// Rotated 270 degrees
-			m_Wallpaper = KImageEffect::rotate(m_Wallpaper, KImageEffect::Rotate270);
-			break;
-		    case 1:
-		    default:
-			// Normal or invalid orientation
-			break;
-		}
-	    }
-	}
+        // HACK: Use KFileMetaInfo only when we're attached to DCOP.
+        // KFileMetaInfo needs tdesycoca and so on, but this code is
+        // used also in krootimage (which in turn is used by tdm).
+        if( kapp->dcopClient()->isAttached()) {
+            KFileMetaInfo metaInfo(file);
+            if (metaInfo.isValid() && metaInfo.item("Orientation").isValid()) {
+                switch (metaInfo.item("Orientation").string().toInt()) {
+                    case 2:
+                        // Flipped horizontally
+                        m_Wallpaper = m_Wallpaper.mirror(true, false);
+                        break;
+                    case 3:
+                        // Rotated 180 degrees
+                        m_Wallpaper = KImageEffect::rotate(m_Wallpaper, KImageEffect::Rotate180);
+                        break;
+                    case 4:
+                        // Flipped vertically
+                        m_Wallpaper = m_Wallpaper.mirror(false, true);
+                        break;
+                    case 5:
+                        // Rotated 90 degrees & flipped horizontally
+                        m_Wallpaper = KImageEffect::rotate(m_Wallpaper, KImageEffect::Rotate90).mirror(true, false);
+                        break;
+                    case 6:
+                        // Rotated 90 degrees
+                        m_Wallpaper = KImageEffect::rotate(m_Wallpaper, KImageEffect::Rotate90);
+                        break;
+                    case 7:
+                        // Rotated 90 degrees & flipped vertically
+                        m_Wallpaper = KImageEffect::rotate(m_Wallpaper, KImageEffect::Rotate90).mirror(false, true);
+                        break;
+                    case 8:
+                        // Rotated 270 degrees
+                        m_Wallpaper = KImageEffect::rotate(m_Wallpaper, KImageEffect::Rotate270);
+                        break;
+                    case 1:
+                    default:
+                        // Normal or invalid orientation
+                        break;
+                }
+            }
+        }
     }
 wp_out:
 
     if (m_Background.isNull()) {
-	m_Background.create(8, 8, 32);
-	m_Background.fill(colorA().rgb());
+        m_Background.create(8, 8, 32);
+        m_Background.fill(colorA().rgb());
     }
 
     int retval = Done;
 
-    int w = m_Size.width();	// desktop width/height
+    int w = m_Size.width();         // desktop width/height
     int h = m_Size.height();
 
-    int ww = m_Wallpaper.width();	// wallpaper width/height
+    int ww = m_Wallpaper.width();   // wallpaper width/height
     int wh = m_Wallpaper.height();
 
-    m_WallpaperRect = TQRect();	// to be filled destination rectangle; may exceed desktop!
+    m_WallpaperRect = TQRect();     // to be filled destination rectangle; may exceed desktop!
 
     switch (wpmode)
     {
-	case NoWallpaper:
-	    break;
-	case Centred:
-	    m_WallpaperRect.setRect((w - ww) / 2, (h - wh) / 2, ww, wh);
-	    break;
-	case Tiled:
-	    m_WallpaperRect.setRect(0, 0, w, h);
-	    break;
-	case CenterTiled:
-	    m_WallpaperRect.setCoords(-ww + ((w - ww) / 2) % ww, -wh + ((h - wh) / 2) % wh, w-1, h-1);
-	    break;
-	case Scaled:
-	    ww = w;
-	    wh = h;
-	    if( m_WallpaperRect.size() != TQSize( w, h ))
-		m_Wallpaper = m_Wallpaper.smoothScale( w, h );
-	    m_WallpaperRect.setRect(0, 0, w, h);
-	    break;
+        case NoWallpaper:
+            break;
+        case Centred:
+            m_WallpaperRect.setRect((w - ww) / 2, (h - wh) / 2, ww, wh);
+            break;
+        case Tiled:
+            m_WallpaperRect.setRect(0, 0, w, h);
+            break;
+        case CenterTiled:
+            m_WallpaperRect.setCoords(-ww + ((w - ww) / 2) % ww, -wh + ((h - wh) / 2) % wh, w-1, h-1);
+            break;
+        case Scaled:
+            ww = w;
+            wh = h;
+            if( m_WallpaperRect.size() != TQSize( w, h ))
+                m_Wallpaper = m_Wallpaper.smoothScale( w, h );
+            m_WallpaperRect.setRect(0, 0, w, h);
+            break;
         case CentredAutoFit:
             if( ww <= w && wh <= h ) {
-    	        m_WallpaperRect.setRect((w - ww) / 2, (h - wh) / 2, ww, wh); // like Centred
-	        break;
+                m_WallpaperRect.setRect((w - ww) / 2, (h - wh) / 2, ww, wh); // like Centred
+                break;
             }
             // fall through
-	case CentredMaxpect:
-            {
-              double sx = (double) w / ww;
-              double sy = (double) h / wh;
-              if (sx > sy) {
-                  ww = (int)(sy * ww);
-                  wh = h;
-              } else {
-                  wh = (int)(sx * wh);
-                  ww = w;
-              }
-	      if( m_WallpaperRect.size() != TQSize( ww, wh ))
-                  m_Wallpaper = m_Wallpaper.smoothScale(ww, wh);
-	      m_WallpaperRect.setRect((w - ww) / 2, (h - wh) / 2, ww, wh);
-	      break;
-            }
-	case TiledMaxpect:
+        case CentredMaxpect:
             {
               double sx = (double) w / ww;
               double sy = (double) h / wh;
@@ -514,26 +498,42 @@ wp_out:
               }
               if( m_WallpaperRect.size() != TQSize( ww, wh ))
                   m_Wallpaper = m_Wallpaper.smoothScale(ww, wh);
-	      m_WallpaperRect.setRect(0, 0, w, h);
-	      break;
+              m_WallpaperRect.setRect((w - ww) / 2, (h - wh) / 2, ww, wh);
+              break;
             }
-	 case ScaleAndCrop:
+        case TiledMaxpect:
             {
               double sx = (double) w / ww;
               double sy = (double) h / wh;
               if (sx > sy) {
-	      	  //Case 1: x needs bigger scaling. Lets increase x and leave part of y offscreen
-                  ww = w;
-		  wh=(int)(sx * wh);
+                  ww = (int)(sy * ww);
+                  wh = h;
               } else {
-	          //Case 2: y needs bigger scaling. Lets increase y and leave part of x offscreen
+                  wh = (int)(sx * wh);
+                  ww = w;
+              }
+              if( m_WallpaperRect.size() != TQSize( ww, wh ))
+                  m_Wallpaper = m_Wallpaper.smoothScale(ww, wh);
+              m_WallpaperRect.setRect(0, 0, w, h);
+              break;
+            }
+         case ScaleAndCrop:
+            {
+              double sx = (double) w / ww;
+              double sy = (double) h / wh;
+              if (sx > sy) {
+                  //Case 1: x needs bigger scaling. Lets increase x and leave part of y offscreen
+                  ww = w;
+                  wh=(int)(sx * wh);
+              } else {
+                  //Case 2: y needs bigger scaling. Lets increase y and leave part of x offscreen
                   wh = h;
                   ww = (int)(sy*ww);
               }
               if( m_WallpaperRect.size() != TQSize( ww, wh ))
                   m_Wallpaper = m_Wallpaper.smoothScale(ww, wh);
-	      m_WallpaperRect.setRect((w - ww) / 2, (h - wh) / 2,w, h);
-	      break;
+              m_WallpaperRect.setRect((w - ww) / 2, (h - wh) / 2,w, h);
+              break;
             }
     }
 
@@ -610,10 +610,10 @@ void KBackgroundRenderer::fastWallpaperBlend()
         int ww = m_Wallpaper.width();
         int wh = m_Wallpaper.height();
         for (int y = m_WallpaperRect.top(); y < m_WallpaperRect.bottom(); y += wh) {
-	    for (int x = m_WallpaperRect.left(); x < m_WallpaperRect.right(); x += ww) {
-		bitBlt( &m_Pixmap, x, y, &wp_pixmap, 0, 0, ww, wh );
-	    }
-	}
+            for (int x = m_WallpaperRect.left(); x < m_WallpaperRect.right(); x += ww) {
+                bitBlt( &m_Pixmap, x, y, &wp_pixmap, 0, 0, ww, wh );
+            }
+        }
     }
 }
 
@@ -621,18 +621,18 @@ void KBackgroundRenderer::fastWallpaperBlend()
 void KBackgroundRenderer::fullWallpaperBlend()
 {
     m_Pixmap = TQPixmap();
-    int w = m_Size.width();	// desktop width/height
+    int w = m_Size.width();     // desktop width/height
     int h = m_Size.height();
     // copy background to m_pImage
     if (m_Background.size() == m_Size) {
-	m_Image = m_Background.copy();
+        m_Image = m_Background.copy();
 
-	if (m_Image.depth() < 32)
-	    m_Image = m_Image.convertDepth(32, TQt::DiffuseAlphaDither);
+        if (m_Image.depth() < 32)
+            m_Image = m_Image.convertDepth(32, TQt::DiffuseAlphaDither);
 
     } else {
-	m_Image.create(w, h, 32);
-	tile(m_Image, TQRect(0, 0, w, h), m_Background);
+        m_Image.create(w, h, 32);
+        tile(m_Image, TQRect(0, 0, w, h), m_Background);
     }
 
     // blend wallpaper to destination rectangle of m_pImage
@@ -644,11 +644,11 @@ void KBackgroundRenderer::fullWallpaperBlend()
         int ww = m_Wallpaper.width();
         int wh = m_Wallpaper.height();
         for (int y = m_WallpaperRect.top(); y < m_WallpaperRect.bottom(); y += wh) {
-	    for (int x = m_WallpaperRect.left(); x < m_WallpaperRect.right(); x += ww) {
-		blend(m_Image, TQRect(x, y, ww, wh), m_Wallpaper,
-			TQPoint(-TQMIN(x, 0), -TQMIN(y, 0)), blendFactor);
-	    }
-	}
+            for (int x = m_WallpaperRect.left(); x < m_WallpaperRect.right(); x += ww) {
+                blend(m_Image, TQRect(x, y, ww, wh), m_Wallpaper,
+                        TQPoint(-TQMIN(x, 0), -TQMIN(y, 0)), blendFactor);
+            }
+        }
     }
 
 
@@ -658,58 +658,58 @@ void KBackgroundRenderer::fullWallpaperBlend()
 
       switch( blendMode() ) {
       case HorizontalBlending:
-	KImageEffect::blend( m_Image, m_Background,
-			     KImageEffect::HorizontalGradient,
-			     bal, 100 );
-	break;
+        KImageEffect::blend( m_Image, m_Background,
+                             KImageEffect::HorizontalGradient,
+                             bal, 100 );
+        break;
 
       case VerticalBlending:
-	KImageEffect::blend( m_Image, m_Background,
-			     KImageEffect::VerticalGradient,
-			     100, bal );
-	break;
+        KImageEffect::blend( m_Image, m_Background,
+                             KImageEffect::VerticalGradient,
+                             100, bal );
+        break;
 
       case PyramidBlending:
-	KImageEffect::blend( m_Image, m_Background,
-			     KImageEffect::PyramidGradient,
-			     bal, bal );
-	break;
+        KImageEffect::blend( m_Image, m_Background,
+                             KImageEffect::PyramidGradient,
+                             bal, bal );
+        break;
 
       case PipeCrossBlending:
-	KImageEffect::blend( m_Image, m_Background,
-			     KImageEffect::PipeCrossGradient,
-			     bal, bal );
-	break;
+        KImageEffect::blend( m_Image, m_Background,
+                             KImageEffect::PipeCrossGradient,
+                             bal, bal );
+        break;
 
       case EllipticBlending:
-	KImageEffect::blend( m_Image, m_Background,
-			     KImageEffect::EllipticGradient,
-			     bal, bal );
-	break;
+        KImageEffect::blend( m_Image, m_Background,
+                             KImageEffect::EllipticGradient,
+                             bal, bal );
+        break;
 
       case IntensityBlending:
-	KImageEffect::modulate( m_Image, m_Background, reverseBlending(),
-		    KImageEffect::Intensity, bal, KImageEffect::All );
-	break;
+        KImageEffect::modulate( m_Image, m_Background, reverseBlending(),
+                                KImageEffect::Intensity, bal, KImageEffect::All );
+        break;
 
       case SaturateBlending:
-	KImageEffect::modulate( m_Image, m_Background, reverseBlending(),
-		    KImageEffect::Saturation, bal, KImageEffect::Gray );
-	break;
+        KImageEffect::modulate( m_Image, m_Background, reverseBlending(),
+                                KImageEffect::Saturation, bal, KImageEffect::Gray );
+        break;
 
       case ContrastBlending:
-	KImageEffect::modulate( m_Image, m_Background, reverseBlending(),
-		    KImageEffect::Contrast, bal, KImageEffect::All );
-	break;
+        KImageEffect::modulate( m_Image, m_Background, reverseBlending(),
+                                KImageEffect::Contrast, bal, KImageEffect::All );
+        break;
 
       case HueShiftBlending:
-	KImageEffect::modulate( m_Image, m_Background, reverseBlending(),
-		    KImageEffect::HueShift, bal, KImageEffect::Gray );
-	break;
+        KImageEffect::modulate( m_Image, m_Background, reverseBlending(),
+                                KImageEffect::HueShift, bal, KImageEffect::Gray );
+        break;
 
       case FlatBlending:
         // Already handled
-	break;
+        break;
       }
     }
 }
@@ -724,13 +724,13 @@ void KBackgroundRenderer::blend(TQImage& dst, TQRect dr, const TQImage& src, TQP
     dr &= dst.rect();
 
     for (y = 0; y < dr.height(); y++) {
-	if (dst.scanLine(dr.y() + y) && src.scanLine(soffs.y() + y)) {
-	    TQRgb *b, *d;
-	    for (x = 0; x < dr.width(); x++) {
-		b = reinterpret_cast<TQRgb*>(dst.scanLine(dr.y() + y)
-			+ (dr.x() + x) * sizeof(TQRgb));
+        if (dst.scanLine(dr.y() + y) && src.scanLine(soffs.y() + y)) {
+            TQRgb *b, *d;
+            for (x = 0; x < dr.width(); x++) {
+                b = reinterpret_cast<TQRgb*>(dst.scanLine(dr.y() + y)
+                                             + (dr.x() + x) * sizeof(TQRgb));
                 d = reinterpret_cast<TQRgb*>(const_cast<TQImage&>(src).scanLine(soffs.y() + y)
-			+ (soffs.x() + x) * sizeof(TQRgb));
+                                             + (soffs.x() + x) * sizeof(TQRgb));
                 a = (tqAlpha(*d) * blendFactor) / 100;
                 *b = tqRgb(tqRed(*b) - (((tqRed(*b) - tqRed(*d)) * a) >> 8),
                           tqGreen(*b) - (((tqGreen(*b) - tqGreen(*d)) * a) >> 8),
@@ -813,8 +813,8 @@ void KBackgroundRenderer::render()
     if (!(m_State & BackgroundDone)) {
         ret = doBackground();
         if (ret != Wait)
-	    m_pTimer->start(0, true);
-	return;
+            m_pTimer->start(0, true);
+        return;
     }
 
     // No async wallpaper
@@ -869,7 +869,7 @@ void KBackgroundRenderer::setBusyCursor(bool isBusy) {
 void KBackgroundRenderer::stop()
 {
     if (!(m_State & Rendering))
-	return;
+        return;
 
     doBackground(true);
     doWallpaper(true);
