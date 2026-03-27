@@ -1453,6 +1453,25 @@ void KDIconView::showFreeSpaceOverlay(KFileIVI* item)
     }
 }
 
+void KDIconView::takeItem( TQIconViewItem *item ) {
+    KFileIVI* kItem = static_cast<KFileIVI*>(item);
+
+    // Remove occurrences from items pending procession by slotFreeSpaceOverlayStart()
+    m_paOutstandingFreeSpaceOverlays.findRef(kItem);
+    while(m_paOutstandingFreeSpaceOverlays.current()) {
+        m_paOutstandingFreeSpaceOverlays.remove();
+        m_paOutstandingFreeSpaceOverlays.findNextRef(kItem);
+    }
+
+    KonqIconViewWidget::takeItem(item);
+}
+
+void KDIconView::clear() {
+    m_paOutstandingFreeSpaceOverlays.clear();
+
+    KonqIconViewWidget::clear();
+}
+
 void KDIconView::slotFreeSpaceOverlayStart()
 {
     do
