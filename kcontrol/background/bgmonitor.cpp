@@ -52,6 +52,8 @@ BGMonitorArrangement::BGMonitorArrangement(TQWidget *parent, const char *name)
         connect( label->monitor(), TQ_SIGNAL(imageDropped(const TQString &)), this, TQ_SIGNAL(imageDropped(const TQString &)) );
     }
 
+    connect(desktop, TQ_SIGNAL(resized(int)), TQ_SLOT(updateArrangement()));
+
     parent->setFixedSize(200, 186);
     setFixedSize(200, 186);
     updateArrangement();
@@ -129,6 +131,7 @@ void BGMonitorArrangement::updateArrangement()
         m_pBGMonitor[screen]->setGeometry( TQRect( expandedTopLeft, expandedPreviewSize ) );
         m_pBGMonitor[screen]->updateMonitorGeometry();
     }
+    emit arrangementUpdated();
 }
 
 

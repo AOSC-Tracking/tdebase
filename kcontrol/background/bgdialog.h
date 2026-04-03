@@ -52,7 +52,6 @@ signals:
 
 protected:
    void initUI();
-   void updateUI();
    KBackgroundRenderer * eRenderer();
 
    void setWallpaper(const TQString &);
@@ -60,6 +59,7 @@ protected:
    void loadWallpaperFilesList();
 
 protected slots:
+   void updateUI();
    void slotIdentifyScreens();
    void slotSelectScreen(int screen);
    void slotSelectDesk(int desk);
