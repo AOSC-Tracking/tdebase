@@ -127,6 +127,7 @@ BGDialog::BGDialog(TQWidget* parent, TDEConfig* _config, bool _multidesktop)
    // preview monitor
    m_pMonitorArrangement = new BGMonitorArrangement(m_screenArrangement, "monitor arrangement");
    connect(m_pMonitorArrangement, TQ_SIGNAL(imageDropped(const TQString &)), TQ_SLOT(slotImageDropped(const TQString &)));
+   connect(m_pMonitorArrangement, TQ_SIGNAL(arrangementUpdated()), TQ_SLOT(updateUI()));
    if( m_multidesktop)
    {
        // desktop

@@ -52,10 +52,13 @@ public:
     unsigned numMonitors() const { return m_pBGMonitor.size(); }
 
     BGMonitor * monitor( unsigned screen ) const;
+
+public slots:
     void updateArrangement();
 
 signals:
     void imageDropped(const TQString &);
+    void arrangementUpdated();
 
 protected:
     virtual void resizeEvent( TQResizeEvent * );
