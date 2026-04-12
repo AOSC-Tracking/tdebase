@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-08 18:11+0000\n"
+"POT-Creation-Date: 2026-04-12 18:16+0000\n"
 "PO-Revision-Date: 2024-12-13 07:11+0000\n"
 "Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
 "Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
@@ -38,9 +38,9 @@ msgid ""
 "access;accessibility;deaf;impaired;bell;audible bell;visible bell;Keyboard;"
 "keys;sticky keys;bounce keys;slow keys;mouse navigation;num pad;"
 msgstr ""
-"access;accessibility;deaf;impaired;bell;audible bell;visible "
-"bell;Keyboard;keys;sticky keys;bounce keys;slow keys;mouse navigation;num "
-"pad;წვდომადობა;შშმ;ზარი;კლავიატურა;"
+"access;accessibility;deaf;impaired;bell;audible bell;visible bell;Keyboard;"
+"keys;sticky keys;bounce keys;slow keys;mouse navigation;num pad;წვდომადობა;"
+"შშმ;ზარი;კლავიატურა;"
 
 #. Name
 #: arts/arts.desktop:12
@@ -160,8 +160,8 @@ msgid ""
 msgstr ""
 "default applications;components;component chooser;resources;e-mail;email "
 "client;text editor;instant messenger;terminal emulator;web browser;file "
-"manager;URL;hyperlinks;ჰიპერბმულები;აპლიკაცია;ნაგულისხმევი "
-"აპლიკაცია;კომპონენტები;ტექსტური რედაქტორი;"
+"manager;URL;hyperlinks;ჰიპერბმულები;აპლიკაცია;ნაგულისხმევი აპლიკაცია;"
+"კომპონენტები;ტექსტური რედაქტორი;"
 
 #. Name
 #: componentchooser/componentservices/kcm_browser.desktop:1
@@ -241,8 +241,8 @@ msgid ""
 "Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;"
 "secure;security;"
 msgstr ""
-"Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;secu"
-"re;security;უსაფრთხოება;კრიპტოგრაფია;"
+"Crypto;Krypto;Cryptography;encryption;SSL;https;certificates;ciphers;TLS;"
+"secure;security;უსაფრთხოება;კრიპტოგრაფია;"
 
 #. Name
 #: css/kcmcss.desktop:12
@@ -258,8 +258,8 @@ msgstr "ვებგვერდების რენდერისთვი�
 #: css/kcmcss.desktop:16
 msgid "CSS;HTML;style;stylesheet;accessibility;"
 msgstr ""
-"CSS;HTML;style;stylesheet;accessibility;სტილების ცხრილი;სტილის "
-"ცხრილები;წვდომადობა;"
+"CSS;HTML;style;stylesheet;accessibility;სტილების ცხრილი;სტილის ცხრილები;"
+"წვდომადობა;"
 
 #. Name
 #: display/display.desktop:11
@@ -312,9 +312,8 @@ msgid ""
 "Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet Filters;"
 "Network;Search Engines;Shortcuts;"
 msgstr ""
-"Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet "
-"Filters;Network;Search "
-"Engines;Shortcuts;მალსახმობები;ქსელი;ძებნა;ბრაუზერი;ინტერნეტი;"
+"Enhanced Browsing;Browsing;WWW;Internet;Internet Keywords;Internet Filters;"
+"Network;Search Engines;Shortcuts;მალსახმობები;ქსელი;ძებნა;ბრაუზერი;ინტერნეტი;"
 
 #. Name
 #: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
@@ -332,56 +331,28 @@ msgid "Search Engine"
 msgstr "საძიებო სისტემა"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
-msgid "Acronym Database"
-msgstr "აკრონიმების ბაზა"
+#: ebrowsing/plugins/ikws/searchproviders/academic_en.desktop:3
+#, fuzzy
+#| msgid "WordReference.com English Dictionary"
+msgid "Academic English Dictionaries"
+msgstr "WordReference.com ინგლისური ლექსიკონი"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
-msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
-msgstr "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
-msgid "Alexa"
-msgstr "ალექსა"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
-msgid "http://info.alexa.com/search?q=\\{@}"
-msgstr "http://info.alexa.com/search?q=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
-msgid "Alexa URL"
-msgstr "Alexa-ის ბმული"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
-msgid "http://info.alexa.com/data/details?url=\\{@}"
-msgstr "http://info.alexa.com/data/details?url=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
-msgid "AllTheWeb fast"
-msgstr "AllTheWeb სწრაფი"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/academic_en.desktop:6
 msgid ""
-"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
+"https://en-academic.com/searchall.php?SWord=\\{@}&from=en&to=xx&did=&stype="
 msgstr ""
-"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:3
-msgid "AltaVista"
-msgstr "AltaVista"
+#: ebrowsing/plugins/ikws/searchproviders/academic_ru.desktop:3
+msgid "Academic Russian Dictionaries"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:6
-msgid "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
-msgstr "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/academic_ru.desktop:6
+msgid ""
+"https://dic.academic.ru/searchall.php?SWord=\\{@}&from=ru&to=xx&did=&stype="
+msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
@@ -390,42 +361,115 @@ msgstr "ყველა მუსიკის გიდი"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
-msgid "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
+#, fuzzy
+#| msgid "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
+msgid "https://www.allmusic.com/search/all/\\{@}"
 msgstr "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:3
-msgid "KDE App Search"
-msgstr "KDE-ის აპის ძებნა"
+#: ebrowsing/plugins/ikws/searchproviders/archpkg.desktop:3
+#, fuzzy
+#| msgid "Debian Package Search"
+msgid "Arch Package Search"
+msgstr "Debian-ის პაკეტების ძებნა"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:6
-msgid "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
-msgstr "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:3
-msgid "AustroNaut"
-msgstr "AustroNaut"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:6
-msgid "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
-msgstr "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
-msgid "Debian Backports Search"
-msgstr "ძებნა Debian Backports-ში"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
-msgid "http://www.backports.org/package.php?search=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/archpkg.desktop:4
+#, fuzzy
+#| msgid "http://www.backports.org/package.php?search=\\{@}"
+msgid "https://archlinux.org/packages/?q=\\{@}"
 msgstr "http://www.backports.org/package.php?search=\\{@}"
 
 #. Name
+#: ebrowsing/plugins/ikws/searchproviders/archwiki.desktop:3
+msgid "Arch Wiki"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/archwiki.desktop:6
+#, fuzzy, c-format
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid ""
+"https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=\\{@}"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/arxiv.desktop:3
+msgid "ArXiv"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/arxiv.desktop:4
+msgid "https://arxiv.org/search/?query=\\{terms,@}&searchtype=\\{type,\"all\"}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ask.desktop:3
+#, fuzzy
+#| msgid "GO.com"
+msgid "Ask.com"
+msgstr "GO.com"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ask.desktop:6
+#, fuzzy
+#| msgid "http://www.dict.cc/?s=\\{@}"
+msgid "https://www.ask.com/web?q=\\{@}"
+msgstr "http://www.dict.cc/?s=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/aur.desktop:3
+msgid "Arch User Repository (AUR) Package Search"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/aur.desktop:4
+#, fuzzy
+#| msgid "http://www.backports.org/package.php?search=\\{@}"
+msgid "https://aur.archlinux.org/packages?K=\\{@}"
+msgstr "http://www.backports.org/package.php?search=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/baidu.desktop:3
+msgid "Baidu"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/baidu.desktop:6
+#, fuzzy
+#| msgid "http://www.dict.cc/?s=\\{@}"
+msgid "https://www.baidu.com/s?wd=\\{@}"
+msgstr "http://www.dict.cc/?s=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/bing.desktop:3
+msgid "Bing"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/bing.desktop:6
+#, fuzzy
+#| msgid "http://info.alexa.com/search?q=\\{@}"
+msgid "https://www.bing.com/search?q=\\{@}"
+msgstr "http://info.alexa.com/search?q=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/brave.desktop:3
+msgid "Brave"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/brave.desktop:6
+#, fuzzy
+#| msgid "http://search.excite.com/search.gw?search=\\{@}"
+msgid "https://search.brave.com/search?q=\\{@}&source=web"
+msgstr "http://search.excite.com/search.gw?search=\\{@}"
+
+#. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
-msgid "KDE Bug Database Fulltext Search"
+#, fuzzy
+#| msgid "KDE Bug Database Fulltext Search"
+msgid "Old TDE Bugzilla Fulltext Search"
 msgstr "ძებნა KDE–ის შეცდომებში სრული ტექსტით"
 
 #. Query
@@ -439,7 +483,9 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
-msgid "TDE Bug Database Bug Number Search"
+#, fuzzy
+#| msgid "TDE Bug Database Bug Number Search"
+msgid "Old TDE Bugzilla Bug Number Search"
 msgstr "TDE–ის შეცდომების ძებნა ნომრების მიხედვით"
 
 #. Query
@@ -448,39 +494,38 @@ msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
 msgstr "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/call.desktop:5
-msgid "QRZ.com Callsign Database"
-msgstr "QRZ.com-ის Callsign ბაზა"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/call.desktop:6
-msgid "http://www.qrz.com/database?callsign=\\{@}"
-msgstr "http://www.qrz.com/database?callsign=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:4
-msgid "CIA World Factbook"
-msgstr "CIA-ის მსოფლიო ფაქტები"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:5
-#, c-format
-msgid ""
-"http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
-"cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+#: ebrowsing/plugins/ikws/searchproviders/chatgpt.desktop:3
+msgid "ChatGPT"
 msgstr ""
-"http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
-"cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/chatgpt.desktop:6
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://chat.openai.com/?prompt=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:3
 msgid "CiteSeer: Scientific Literature Digital Library"
 msgstr "CiteSeer: სამეცნიერო ლიტერატორის ციფრული ბიბლიოთეკა"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
-msgid "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:4
+#, fuzzy
+#| msgid "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
+msgid "https://citeseer.ist.psu.edu/search_result?query=\\{@}&pdf=true"
 msgstr "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/codeberg.desktop:3
+msgid "Codeberg"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/codeberg.desktop:6
+msgid "https://codeberg.org/explore/repos?q=\\{@}&only_show_relevant=0"
+msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:3
@@ -489,10 +534,20 @@ msgstr "CPAN - ყოვლისმომცველი Perl-ის არქ�
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
-msgid ""
-"http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
+#, fuzzy
+#| msgid "http://info.alexa.com/search?q=\\{@}"
+msgid "https://metacpan.org/search?size=20&q=\\{@}"
+msgstr "http://info.alexa.com/search?q=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/cppreference.desktop:3
+msgid "CPPReference"
 msgstr ""
-"http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/cppreference.desktop:6
+msgid "https://duckduckgo.com/?sites=cppreference.com&q=\\{@}&ia=web"
+msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:3
@@ -501,24 +556,36 @@ msgstr "CTAN - TeX-ის ყოვლისმომცველი არქ�
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:4
-msgid ""
-"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
-"\\{ at }"
-msgstr ""
-"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename=\\{ "
-"at }"
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://ctan.org/search?phrase=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:3
-msgid "CTAN Catalog"
-msgstr "CTAN კატალოგი"
+#: ebrowsing/plugins/ikws/searchproviders/ctan_file.desktop:3
+#, fuzzy
+#| msgid "CTAN - Comprehensive TeX Archive Network"
+msgid "CTAN File Name Search - Comprehensive TeX Archive Network"
+msgstr "CTAN - TeX-ის ყოვლისმომცველი არქივი"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:4
+#: ebrowsing/plugins/ikws/searchproviders/ctan_file.desktop:4
 msgid ""
-"http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
+"https://ctan.org/search?phrase=\\{@}"
+"&ext=true&_PKG=&_AUTHORS=&_TOPICS=&_FILES=&FILES=on&_PORTAL=&max=16"
 msgstr ""
-"http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/curlie.desktop:3
+msgid "Curlie"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/curlie.desktop:6
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://curlie.org/search?q=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
@@ -537,7 +604,7 @@ msgstr "dict.cc-ის თარგმანი: გერმანულიდ�
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:6
-#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:4
 msgid "http://www.dict.cc/?s=\\{@}"
 msgstr "http://www.dict.cc/?s=\\{@}"
 
@@ -563,77 +630,129 @@ msgid "http://packages.debian.org/\\{@}"
 msgstr "http://packages.debian.org/\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:3
-msgid "Open Directory"
-msgstr "საქაღალდის გახსნა"
+#: ebrowsing/plugins/ikws/searchproviders/devuanpkg.desktop:3
+#, fuzzy
+#| msgid "Debian Package Search"
+msgid "Devuan Package Search"
+msgstr "Debian-ის პაკეტების ძებნა"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
-msgid "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
-msgstr "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/devuanpkg.desktop:4
+msgid "https://pkginfo.devuan.org/cgi-bin/policy-query.html?c=package&q=\\{@}"
+msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:3
 msgid "DocBook - The Definitive Guide"
 msgstr "DocBook - სრული სახელმძღვანელო"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:6
-msgid "http://www.docbook.org/tdg/en/html/\\{1}.html"
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:4
+#, fuzzy
+#| msgid "http://www.docbook.org/tdg/en/html/\\{1}.html"
+msgid "http://tdg.docbook.org/tdg/4.5/\\{1}"
 msgstr "http://www.docbook.org/tdg/en/html/\\{1}.html"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:3
 msgid "Digital Object Identifier"
 msgstr "ციფრული ობიექტის იდენტიფიკატორი"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:4
 msgid "http://dx.doi.org/\\{@}"
 msgstr "http://dx.doi.org/\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo.desktop:3
+msgid "DuckDuckGo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo.desktop:6
+#, fuzzy
+#| msgid "http://imdb.com/Find?\\{@}"
+msgid "https://duckduckgo.com/?q=\\{@}"
+msgstr "http://imdb.com/Find?\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo_html.desktop:3
+msgid "DuckDuckGo HTML"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo_html.desktop:6
+#, fuzzy
+#| msgid "http://images.google.com/images?q=\\{@}"
+msgid "https://html.duckduckgo.com/html/?q=\\{@}"
+msgstr "http://images.google.com/images?q=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo_lite.desktop:3
+msgid "DuckDuckGo Lite"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo_lite.desktop:6
+#, fuzzy
+#| msgid "http://images.google.com/images?q=\\{@}"
+msgid "https://lite.duckduckgo.com/lite/?q=\\{@}"
+msgstr "http://images.google.com/images?q=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ecosia.desktop:3
+msgid "Ecosia"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ecosia.desktop:6
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://www.ecosia.org/search?q=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:3
 msgid "dict.cc Translation: English to German"
 msgstr "dict.cc თარგმანი: ინგლისურიდან გერმანულზე"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:3
 msgid "WordReference.com Translation: English to Spanish"
 msgstr "WordReference.com თარგმანი: ინგლისურიდან ესპანურზე"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:4
 msgid "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
 msgstr "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:3
 msgid "WordReference.com Translation: English to French"
 msgstr "WordReference.com თარგმანი: ინგლისურიდან ფრანგულზე"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:4
 msgid "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
 msgstr "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:3
 msgid "WordReference.com Translation: English to Italian"
 msgstr "WordReference.com თარგმანი: ინგლისურიდან იტალიურზე"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:4
 msgid "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
 msgstr "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:3
 msgid "WordReference.com Translation: Spanish to English"
 msgstr "WordReference.com თარგმანი: ესპანურიდან ინგლისურზე"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:4
 msgid "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
 msgstr "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
 
@@ -644,18 +763,10 @@ msgstr "Excite"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/excite.desktop:6
-msgid "http://search.excite.com/search.gw?search=\\{@}"
+#, fuzzy
+#| msgid "http://search.excite.com/search.gw?search=\\{@}"
+msgid "https://search.excite.com/serp?q=\\{@}"
 msgstr "http://search.excite.com/search.gw?search=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:3
-msgid "Feedster"
-msgstr "Feedster"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
-msgid "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
-msgstr "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
@@ -664,8 +775,10 @@ msgstr "გამოთვლითი ტექნიკის უფასო 
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
-msgid "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
-msgstr "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
+#, fuzzy
+#| msgid "http://dx.doi.org/\\{@}"
+msgid "https://foldoc.org/\\{@}"
+msgstr "http://dx.doi.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
@@ -673,44 +786,14 @@ msgid "LEO - Translate Between French and German"
 msgstr "LEO - თარგმანი ფრანგულსა და გერმანულს შორის"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:3
 msgid "WordReference.com Translation: French to English"
 msgstr "WordReference.com თარგმანი: ფრანგულიდან ინგლისურზე"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:4
 msgid "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
 msgstr "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:3
-msgid "FreeDB"
-msgstr "FreeDB"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:6
-msgid "http://www.freedb.org/freedb_search.php?words=\\{@}"
-msgstr "http://www.freedb.org/freedb_search.php?words=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:3
-msgid "Freshmeat"
-msgstr "Freshmeat"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:6
-msgid "http://freshmeat.net/search/?q=\\{@}"
-msgstr "http://freshmeat.net/search/?q=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:3
-msgid "Froogle"
-msgstr "Froogle"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
-msgid "http://froogle.google.com/froogle?q=\\{@}"
-msgstr "http://froogle.google.com/froogle?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:3
@@ -721,6 +804,56 @@ msgstr "FSF/UNESCO უფასო პროგრამული უზრუ�
 #: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:6
 msgid "http://directory.fsf.org/search/?query=\\{@}"
 msgstr "http://directory.fsf.org/search/?query=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/gentoopkg.desktop:3
+#, fuzzy
+#| msgid "Debian Package Search"
+msgid "Gentoo Package Search"
+msgstr "Debian-ის პაკეტების ძებნა"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/gentoopkg.desktop:4
+#, fuzzy
+#| msgid "http://www.backports.org/package.php?search=\\{@}"
+msgid "https://packages.gentoo.org/packages/search?q=\\{@}"
+msgstr "http://www.backports.org/package.php?search=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/gentoowiki.desktop:3
+msgid "Gentoo Wiki"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/gentoowiki.desktop:6
+#, fuzzy, c-format
+#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "https://wiki.gentoo.org/index.php?title=Special%3ASearch&search=\\{@}"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/github.desktop:3
+msgid "Github"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/github.desktop:6
+#, fuzzy
+#| msgid "http://info.alexa.com/search?q=\\{@}"
+msgid "https://github.com/search?q=\\{@}&type=repositories"
+msgstr "http://info.alexa.com/search?q=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/gnudb.desktop:3
+msgid "GnuDB"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/gnudb.desktop:6
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://gnudb.org/search/\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
@@ -746,21 +879,11 @@ msgid ""
 "\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
 "&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
 msgstr ""
-"http://www.google.com/search?as_q=\\{all,@}&num=\\{num,\"10\""
-"}&btnG=Google+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\"
-"{without,\"\"}&lr=\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\""
-"\"}&as_qdr=\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\""
-"}&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
-msgid "Google Groups"
-msgstr "Google ჯგუფები"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:6
-msgid "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
-msgstr "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
+"http://www.google.com/search?as_q=\\{all,@}&num=\\{num,\"10\"}&btnG=Google"
+"+Search&as_epq=\\{exact,\"\"}&as_oq=\\{any,\"\"}&as_eq=\\{without,\"\"}&lr="
+"\\{lang,\"\"}&as_ft=\\{ft,\"i\"}&as_filetype=\\{filetype,\"\"}&as_qdr="
+"\\{date,\"all\"}&as_occt=\\{occ,\"any\"}&as_dt=\\{siteop,\"i\"}"
+"&as_sitesearch=\\{site}&safe=\\{safe,\"active\"}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:3
@@ -784,8 +907,22 @@ msgid ""
 "http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling"
 "+Lucky&ie=UTF-8&oe=UTF-8"
 msgstr ""
-"http://www.google.com/search?q=\\"
-"{@}&btnI=I%27m+Feeling+Lucky&ie=UTF-8&oe=UTF-8"
+"http://www.google.com/search?q=\\{@}&btnI=I%27m+Feeling"
+"+Lucky&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_maps.desktop:3
+#, fuzzy
+#| msgid "Google Movies"
+msgid "Google Maps"
+msgstr "Google ფილმები"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_maps.desktop:6
+#, fuzzy
+#| msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgid "https://www.google.com/maps/search/\\{@}"
+msgstr "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
@@ -808,34 +945,33 @@ msgid "http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
 msgstr "http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:3
-msgid "Gracenote"
-msgstr "Gracenote"
+#: ebrowsing/plugins/ikws/searchproviders/google_scholar.desktop:3
+#, fuzzy
+#| msgid "Google Image Search"
+msgid "Google Scholar"
+msgstr "Google სურათების ძებნა"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:6
-msgid "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
-msgstr "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/google_scholar.desktop:6
+#, fuzzy
+#| msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgid "http://scholar.google.com/scholar?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:5
-msgid "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:3
+#, fuzzy
+#| msgid ""
+#| "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
+msgid "Great Dictionary of the Catalan Language (Gran Enciclopèdia Catalana)"
 msgstr "კატალანური ენი დიდი ლექსიკონი (GRan Enciclopèdia  Catalana)"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:6
-msgid "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
-msgstr "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:3
-msgid "Hotbot"
-msgstr "Hotbot"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:6
-msgid "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
-msgstr "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:4
+msgid ""
+"https://www.enciclopedia.cat/cerca/gec?search_api_fulltext=\\{@}"
+"&field_faceta_cerca_1=All"
+msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
@@ -844,82 +980,82 @@ msgstr "HyperDictionary.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
-msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
+#, fuzzy
+#| msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
+msgid "https://hyperdictionary.com/dictionary/\\{@}"
 msgstr "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:3
-msgid "HyperDictionary.com Thesaurus"
-msgstr "თეზაურუსი HyperDictionary.com"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:6
-msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
-msgstr "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
-
-#. Name
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
-msgid "Internet Movie Database"
+#, fuzzy
+#| msgid "Internet Movie Database"
+msgid "Internet Movie Database (IMDb)"
 msgstr "ინტერნეტის ფილმების ბაზა"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:6
-msgid "http://imdb.com/Find?\\{@}"
+#, fuzzy
+#| msgid "http://imdb.com/Find?\\{@}"
+msgid "https://www.imdb.com/find/?q=\\{@}"
 msgstr "http://imdb.com/Find?\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:3
 msgid "WordReference.com Translation: Italian to English"
 msgstr "WordReference.com თარგმანი: იტალიურიდან ინგლისურზე"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:4
 msgid "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
 msgstr "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:3
-msgid "Ask Jeeves"
-msgstr "ჰკითხეთ Jeeves-ს"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:6
-msgid ""
-"http://www.ask.com/main/askJeeves.asp?"
-"origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/jstor.desktop:3
+msgid "JSTOR"
 msgstr ""
-"http://www.ask.com/main/askJeeves."
-"asp?origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:3
-msgid "KataTudo"
-msgstr "KataTudo"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:6
-msgid "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
-msgstr "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
+#: ebrowsing/plugins/ikws/searchproviders/jstor.desktop:6
+#, fuzzy
+#| msgid "http://directory.fsf.org/search/?query=\\{@}"
+msgid "https://www.jstor.org/action/doBasicSearch?Query=\\{@}&so=rel"
+msgstr "http://directory.fsf.org/search/?query=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:5
-msgid "KDE API Documentation"
-msgstr "KDE API-ის დოკუმენტაცია"
+#: ebrowsing/plugins/ikws/searchproviders/kagi.desktop:3
+msgid "Kagi (paid)"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:6
-msgid "http://api.kde.org/classmapper.php?class=\\{@}"
-msgstr "http://api.kde.org/classmapper.php?class=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/kagi.desktop:6
+#, fuzzy
+#| msgid "http://info.alexa.com/search?q=\\{@}"
+msgid "https://kagi.com/search?q=\\{@}"
+msgstr "http://info.alexa.com/search?q=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:3
-msgid "KDE WebSVN"
-msgstr "KDE WebSVN"
+#: ebrowsing/plugins/ikws/searchproviders/kagiassistant.desktop:3
+msgid "Kagi Assistant (paid)"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:6
-msgid "http://websvn.kde.org/\\{@}"
-msgstr "http://websvn.kde.org/\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/kagiassistant.desktop:6
+#, fuzzy
+#| msgid "http://imdb.com/Find?\\{@}"
+msgid "https://kagi.com/assistant/?q=\\{@}"
+msgstr "http://imdb.com/Find?\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/kde_store.desktop:3
+msgid "KDE Store"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/kde_store.desktop:6
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://store.kde.org/find?search=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
@@ -932,24 +1068,41 @@ msgid "http://dict.leo.org/?search=\\{@}"
 msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
+#: ebrowsing/plugins/ikws/searchproviders/linuxquestions.desktop:3
+msgid "LinuxQuestions.org"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/linuxquestions.desktop:6
+#, fuzzy
+#| msgid "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
+msgid ""
+"https://www.linuxquestions.org/questions/search.php?query=\\{@}&do=process"
+msgstr "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
+
+#. Name
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:3
 msgid "Lycos"
 msgstr "Lycos"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:6
-msgid "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
-msgstr "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
+#, fuzzy
+#| msgid "http://search.excite.com/search.gw?search=\\{@}"
+msgid "https://search.lycos.com/web/?q=\\{@}"
+msgstr "http://search.excite.com/search.gw?search=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:3
-msgid "Mamma - Mother of all Search Engines"
-msgstr "Mamma - ყველა საძიებო სისტემის მშობელი"
+#: ebrowsing/plugins/ikws/searchproviders/mdn.desktop:3
+msgid "MDN Web Docs"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:6
-msgid "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
-msgstr "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/mdn.desktop:6
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://developer.mozilla.org/search?q=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
@@ -958,69 +1111,70 @@ msgstr "MetaCrawler"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:6
-msgid ""
-"http://search.metacrawler.com/crawler?general=\\{@}"
-"&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
-"search&refer=mc-search"
-msgstr ""
-"http://search.metacrawler.com/crawler?general=\\{@}&method=0&cat=Web&target=m"
-"etaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&t"
-"heme=classic&refer=mc-search&refer=mc-search"
+#, fuzzy
+#| msgid "http://search.excite.com/search.gw?search=\\{@}"
+msgid "https://search.metacrawler.com/serp?q=\\{@}"
+msgstr "http://search.excite.com/search.gw?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
-msgid "Microsoft Developer Network Search"
-msgstr "ძებნა Microsoft Developer Network-ში"
+msgid "Microsoft Learn (MSDN)"
+msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:6
-msgid ""
-"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff.asp?"
-"handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
-"asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
+#, fuzzy
+#| msgid "http://search.excite.com/search.gw?search=\\{@}"
+msgid "https://learn.microsoft.com/search/?terms=\\{@}"
+msgstr "http://search.excite.com/search.gw?search=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/mw.desktop:3
+msgid "Merriam-Webster Dictionary"
+msgstr "Merriam-Webster-ის ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/mw.desktop:6
+#, fuzzy
+#| msgid "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
+msgid "https://www.merriam-webster.com/dictionary/\\{@}"
+msgstr "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/mw_thesaurus.desktop:3
+msgid "Merriam-Webster Thesaurus"
+msgstr "თეზაურუსი Merriam-Webster"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/mw_thesaurus.desktop:6
+#, fuzzy
+#| msgid "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
+msgid "https://www.merriam-webster.com/thesaurus/\\{@}"
+msgstr "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/openstreetmap.desktop:3
+msgid "OpenStreetMap"
 msgstr ""
-"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff."
-"asp?handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
-"asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:3
-msgid "Netcraft"
-msgstr "Netcraft"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:6
-msgid "http://uptime.netcraft.com/up/graph?site=\\{@}"
-msgstr "http://uptime.netcraft.com/up/graph?site=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/openstreetmap.desktop:6
+#, fuzzy
+#| msgid "http://directory.fsf.org/search/?query=\\{@}"
+msgid "https://www.openstreetmap.org/search?query=\\{@}"
+msgstr "http://directory.fsf.org/search/?query=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:2
-msgid "Telephonebook Search Provider"
-msgstr "საძიებო სისტემა Telephonebook"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:6
-msgid ""
-"http://www.detelefoongids.nl/tginl.dll?"
-"action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2="
-"\\{1}&name=&initials=&city=\\{2}"
-"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
-"\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
+#: ebrowsing/plugins/ikws/searchproviders/pexels.desktop:3
+msgid "Pexels"
 msgstr ""
-"http://www.detelefoongids.nl/tginl.dll?action=white&type=search&resultsperpag"
-"e=25&pagestart=1&source=searchcategory&name2=\\{1}&name=&initials=&city=\\{2}"
-"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription="
-"&country=&catcode=&dcity=\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:2
-msgid "Teletekst Search Provider"
-msgstr "საძიებო სისტემა Teletekst"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:6
-msgid "http://teletekst.nos.nl/gif/\\{@}-01.html"
-msgstr "http://teletekst.nos.nl/gif/\\{@}-01.html"
+#: ebrowsing/plugins/ikws/searchproviders/pexels.desktop:6
+#, fuzzy
+#| msgid "http://info.alexa.com/search?q=\\{@}"
+msgid "https://www.pexels.com/search/\\{@}/"
+msgstr "http://info.alexa.com/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
@@ -1029,8 +1183,10 @@ msgstr "OpenPGP გასაღების ძებნა"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
-msgid "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
-msgstr "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://keys.openpgp.org/search?q=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
@@ -1039,57 +1195,190 @@ msgstr "PHP ძებნა"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
-msgid "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
-msgstr "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
+#, fuzzy
+#| msgid "http://freshmeat.net/search/?q=\\{@}"
+msgid "https://www.php.net/search.php?q=\\{@}"
+msgstr "http://freshmeat.net/search/?q=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/python.desktop:5
-msgid "Python Reference Manual"
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_images.desktop:3
+msgid "Pixabay Images"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_images.desktop:6
+#, fuzzy
+#| msgid "http://info.alexa.com/search?q=\\{@}"
+msgid "https://pixabay.com/images/search/\\{@}/"
+msgstr "http://info.alexa.com/search?q=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_music.desktop:3
+msgid "Pixabay Music"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_music.desktop:6
+#, fuzzy
+#| msgid "http://info.alexa.com/search?q=\\{@}"
+msgid "https://pixabay.com/music/search/\\{@}/"
+msgstr "http://info.alexa.com/search?q=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_sfx.desktop:3
+msgid "Pixabay Sound Effects"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_sfx.desktop:6
+#, fuzzy
+#| msgid "http://info.alexa.com/search?q=\\{@}"
+msgid "https://pixabay.com/sound-effects/search/\\{@}/"
+msgstr "http://info.alexa.com/search?q=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_videos.desktop:3
+msgid "Pixabay Videos"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_videos.desktop:6
+#, fuzzy
+#| msgid "http://info.alexa.com/search?q=\\{@}"
+msgid "https://pixabay.com/videos/search/\\{@}/"
+msgstr "http://info.alexa.com/search?q=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pkgs-org.desktop:3
+msgid "pkgs.org"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pkgs-org.desktop:6
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://pkgs.org/search/?q=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pling.desktop:3
+msgid "Pling"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pling.desktop:6
+#, fuzzy
+#| msgid "http://www.dict.cc/?s=\\{@}"
+msgid "https://www.pling.com/find?search=\\{@}"
+msgstr "http://www.dict.cc/?s=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/python2.desktop:3
+#, fuzzy
+#| msgid "Python Reference Manual"
+msgid "Python 2 Reference Manual"
 msgstr "Python-ის სახელმძღვანელო"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/python.desktop:6
-#, c-format
-msgid ""
-"http://www.google.com/search?sourceid=python-search&q=\\{@}"
-"&submit=Search&q=site%3Apython.org"
-msgstr ""
-"http://www.google.com/search?sourceid=python-search&q=\\"
-"{@}&submit=Search&q=site%3Apython.org"
+#: ebrowsing/plugins/ikws/searchproviders/python2.desktop:4
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://docs.python.org/2/search.html?q=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:5
-msgid "Latest Qt Online Documentation"
-msgstr "Qt-ის ონლაინ დოკუმენტაცია"
+#: ebrowsing/plugins/ikws/searchproviders/python3.desktop:3
+#, fuzzy
+#| msgid "Python Reference Manual"
+msgid "Python 3 Reference Manual"
+msgstr "Python-ის სახელმძღვანელო"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:6
-msgid "http://doc.trolltech.com/latest/\\{@}.html"
-msgstr "http://doc.trolltech.com/latest/\\{@}.html"
+#: ebrowsing/plugins/ikws/searchproviders/python3.desktop:4
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://docs.python.org/3/search.html?q=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:5
-msgid "Qt3 Online Documentation"
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:3
+#, fuzzy
+#| msgid "Qt3 Online Documentation"
+msgid "Qt 3.3 Online Documentation"
 msgstr "Qt3 ინტერნეტ დოკუმენტაცია"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:6
-msgid "http://doc.trolltech.com/3.3/\\{@}.html"
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:4
+#, fuzzy
+#| msgid "http://doc.trolltech.com/3.3/\\{@}.html"
+msgid "https://doc.qt.io/archives/3.3/\\{@}.html"
 msgstr "http://doc.trolltech.com/3.3/\\{@}.html"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/qt4.desktop:3
+#, fuzzy
+#| msgid "Qt3 Online Documentation"
+msgid "Qt 4.8 Online Documentation"
+msgstr "Qt3 ინტერნეტ დოკუმენტაცია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt4.desktop:4
+#, fuzzy
+#| msgid "http://doc.trolltech.com/latest/\\{@}.html"
+msgid "https://doc.qt.io/archives/qt-4.8/\\{@}.html"
+msgstr "http://doc.trolltech.com/latest/\\{@}.html"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt5.desktop:3
+#, fuzzy
+#| msgid "Qt3 Online Documentation"
+msgid "Qt 5.15 LTS Online Documentation"
+msgstr "Qt3 ინტერნეტ დოკუმენტაცია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt5.desktop:4
+#, fuzzy
+#| msgid "http://doc.trolltech.com/latest/\\{@}.html"
+msgid "https://doc.qt.io/archives/qt-5.15/\\{@}.html"
+msgstr "http://doc.trolltech.com/latest/\\{@}.html"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt6.desktop:3
+#, fuzzy
+#| msgid "Qt3 Online Documentation"
+msgid "Qt 6 Online Documentation"
+msgstr "Qt3 ინტერნეტ დოკუმენტაცია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt6.desktop:4
+#, fuzzy
+#| msgid "http://doc.trolltech.com/3.3/\\{@}.html"
+msgid "https://doc.qt.io/qt-6/\\{@}.html"
+msgstr "http://doc.trolltech.com/3.3/\\{@}.html"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qwant.desktop:3
+msgid "Qwant"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qwant.desktop:6
+#, fuzzy
+#| msgid "http://www.dict.cc/?s=\\{@}"
+msgid "https://www.qwant.com/?q=\\{@}&t=web"
+msgstr "http://www.dict.cc/?s=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:3
 msgid "Dictionary of the Spanish Academy (RAE)"
 msgstr "ესპანეთის მეცნიერებათა აკადემიის(RAE) ლექსიკონი"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:6
-msgid ""
-"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
-"&FORMATO=ampliado"
-msgstr ""
-"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\"
-"{@}&FORMATO=ampliado"
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:4
+#, fuzzy
+#| msgid "http://dx.doi.org/\\{@}"
+msgid "https://dle.rae.es/\\{@}"
+msgstr "http://dx.doi.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
@@ -1112,28 +1401,18 @@ msgid "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
 msgstr "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:3
-msgid "Ruby Application Archive"
-msgstr "Ruby-ის აპლიკაციების არქივი"
+#: ebrowsing/plugins/ikws/searchproviders/slackpkg.desktop:3
+#, fuzzy
+#| msgid "Debian Package Search"
+msgid "Slackware Package Search"
+msgstr "Debian-ის პაკეტების ძებნა"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:6
-msgid "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
-msgstr "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:3
-msgid "GO.com"
-msgstr "GO.com"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:6
-msgid ""
-"http://www.go.com/Titles?col=WW&qt=\\{@}"
-"&svx=home_searchbox&sv=IS&lk=noframeso"
-msgstr ""
-"http://www.go.com/Titles?col=WW&qt=\\"
-"{@}&svx=home_searchbox&sv=IS&lk=noframeso"
+#: ebrowsing/plugins/ikws/searchproviders/slackpkg.desktop:4
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://packages.slackware.com/?search=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
@@ -1142,147 +1421,480 @@ msgstr "SourceForge"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:4
-msgid ""
-"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
-"\\{exact,\"0\"}&words=\\{@}"
+#, fuzzy
+#| msgid "http://freshmeat.net/search/?q=\\{@}"
+msgid "https://sourceforge.net/directory/?q=\\{@}"
+msgstr "http://freshmeat.net/search/?q=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/srht.desktop:3
+#, fuzzy
+#| msgid "SourceForge"
+msgid "Sourcehut"
+msgstr "SourceForge"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/srht.desktop:6
+msgid "https://sr.ht/projects?search=\\{@}&sort=recently-updated"
 msgstr ""
-"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact=\\"
-"{exact,\"0\"}&words=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
-msgid "Technorati"
-msgstr "სტატიები Technorati-ზე"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:6
-msgid "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
-msgstr "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:3
-msgid "Technorati Tags"
-msgstr "Technorati-ის ჭდეები"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:6
-msgid "http://technorati.com/tag/\\{@}?sourceid=kde-search"
-msgstr "http://technorati.com/tag/\\{@}?sourceid=kde-search"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:3
-msgid "Merriam-Webster Thesaurus"
-msgstr "თეზაურუსი Merriam-Webster"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:6
-msgid "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
-msgstr "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:4
-msgid "TV Tome"
-msgstr "TV Tome"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:6
-msgid "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
-msgstr "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:5
-msgid "U.S. Patent Database"
-msgstr "აშშ პატენტების ბაზა"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:6
-msgid ""
-"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
-"&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
+#: ebrowsing/plugins/ikws/searchproviders/startpage.desktop:3
+msgid "StartPage"
 msgstr ""
-"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\"
-"{@}&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
-msgid "Vivisimo"
-msgstr "Vivisimo"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/startpage.desktop:6
+#, fuzzy
+#| msgid ""
+#| "http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}"
+#| "&cat=web"
+msgid "https://www.startpage.com/sp/search?query=\\{@}&cat=web"
+msgstr ""
+"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/tdeapidocs.desktop:3
+msgid "TDE API docs"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/tdeapidocs.desktop:6
 #, c-format
 msgid ""
-"http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
-"%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
+"https://duckduckgo.com/?sites=https%3A%2F%2Fwww.trinitydesktop.org%2Fdocs"
+"%2Ftrinity&q=\\{@}&ia=web"
 msgstr ""
-"http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
-"%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:3
-msgid "Voila"
-msgstr "Voila"
+#: ebrowsing/plugins/ikws/searchproviders/tdegw.desktop:3
+msgid "Trinity Gitea Workspace"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/tdegw.desktop:6
+#, fuzzy
+#| msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
+msgid "https://mirror.git.trinitydesktop.org/gitea/explore/repos?q=\\{@}"
+msgstr "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/tdewiki.desktop:3
+msgid "TDE Wiki"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/tdewiki.desktop:6
+#, fuzzy, c-format
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid ""
-"http://search.ke.voila.fr/S/voila?"
-"lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
+"https://wiki.trinitydesktop.org/index.php?title=Special%3ASearch&search=\\{@}"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/tmdb.desktop:3
+#, fuzzy
+#| msgid "Internet Movie Database"
+msgid "The Movie Database (TMDB)"
+msgstr "ინტერნეტის ფილმების ბაზა"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/tmdb.desktop:6
+#, fuzzy
+#| msgid "http://directory.fsf.org/search/?query=\\{@}"
+msgid "https://www.themoviedb.org/search?query=\\{@}"
+msgstr "http://directory.fsf.org/search/?query=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/tqt.desktop:3
+#, fuzzy
+#| msgid "Qt3 Online Documentation"
+msgid "TQt Online Documentation"
+msgstr "Qt3 ინტერნეტ დოკუმენტაცია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/tqt.desktop:4
+#, fuzzy
+#| msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
+msgid "https://trinitydesktop.org/docs/qt3/\\{@}.html"
+msgstr "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/trinity_look.desktop:3
+msgid "Trinity Look"
 msgstr ""
-"http://search.ke.voila.fr/S/"
-"voila?lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:3
-msgid "Merriam-Webster Dictionary"
-msgstr "Merriam-Webster-ის ლექსიკონი"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:6
-msgid "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
-msgstr "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/trinity_look.desktop:6
+#, fuzzy
+#| msgid "http://dict.leo.org/?search=\\{@}"
+msgid "https://www.trinity-look.org/find?search=\\{@}"
+msgstr "http://dict.leo.org/?search=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:3
-msgid "Whatis Query"
-msgstr "Whatis მოთხოვნა"
+#: ebrowsing/plugins/ikws/searchproviders/urbandic.desktop:3
+#, fuzzy
+#| msgid "HyperDictionary.com"
+msgid "Urban Dictionary"
+msgstr "HyperDictionary.com"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/urbandic.desktop:6
+#, fuzzy
+#| msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
+msgid "https://www.urbandictionary.com/define.php?term=\\{@}"
+msgstr "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiby.desktop:3
+msgid "Wiby"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiby.desktop:6
+#, fuzzy
+#| msgid "http://imdb.com/Find?\\{@}"
+msgid "https://wiby.me/?q=\\{@}"
+msgstr "http://imdb.com/Find?\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikimedia_commons.desktop:3
+msgid "Wikimedia Commons"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikimedia_commons.desktop:6
+#, c-format
 msgid ""
-"http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
+"https://commons.wikimedia.org/w/index.php?search=\\{@}&title=Special"
+"%3AMediaSearch&type=image"
 msgstr ""
-"http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:3
-msgid "Wikipedia - The Free Encyclopedia"
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_de.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (German) - The Free Encyclopedia"
 msgstr "Wikipedia - უფასო ენციკლოპედია"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_de.desktop:6
+#, fuzzy
+#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://de.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_el.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Greek) - The Free Encyclopedia"
+msgstr "Wikipedia - უფასო ენციკლოპედია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_el.desktop:6
+#, fuzzy
+#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://el.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_en.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (English) - The Free Encyclopedia"
+msgstr "Wikipedia - უფასო ენციკლოპედია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_en.desktop:6
 msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:3
-msgid "Wiktionary - The Free Dictionary"
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_es.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Spanish) - The Free Encyclopedia"
+msgstr "Wikipedia - უფასო ენციკლოპედია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_es.desktop:6
+#, fuzzy
+#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://es.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_fr.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (French) - The Free Encyclopedia"
+msgstr "Wikipedia - უფასო ენციკლოპედია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_fr.desktop:6
+#, fuzzy
+#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://fr.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_it.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Italian) - The Free Encyclopedia"
+msgstr "Wikipedia - უფასო ენციკლოპედია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_it.desktop:6
+#, fuzzy
+#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_ja.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Japanese) - The Free Encyclopedia"
+msgstr "Wikipedia - უფასო ენციკლოპედია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_ja.desktop:6
+#, fuzzy
+#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://ja.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_pl.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Polish) - The Free Encyclopedia"
+msgstr "Wikipedia - უფასო ენციკლოპედია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_pl.desktop:6
+#, fuzzy
+#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_ru.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Russian) - The Free Encyclopedia"
+msgstr "Wikipedia - უფასო ენციკლოპედია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_ru.desktop:6
+#, fuzzy
+#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://ru.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_zh.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Chinese) - The Free Encyclopedia"
+msgstr "Wikipedia - უფასო ენციკლოპედია"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_zh.desktop:6
+#, fuzzy
+#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://zh.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_de.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (German) - The Free Dictionary"
 msgstr "Wiktionary - უფასო ლექსიკონი"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_de.desktop:6
+#, fuzzy
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://de.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_el.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Greek) - The Free Dictionary"
+msgstr "Wiktionary - უფასო ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_el.desktop:6
+#, fuzzy
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://el.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_en.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (English) - The Free Dictionary"
+msgstr "Wiktionary - უფასო ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_en.desktop:6
 msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_es.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Spanish) - The Free Dictionary"
+msgstr "Wiktionary - უფასო ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_es.desktop:6
+#, fuzzy
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://es.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_fr.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (French) - The Free Dictionary"
+msgstr "Wiktionary - უფასო ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_fr.desktop:6
+#, fuzzy
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://fr.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_it.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Italian) - The Free Dictionary"
+msgstr "Wiktionary - უფასო ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_it.desktop:6
+#, fuzzy
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://it.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_ja.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Japanese) - The Free Dictionary"
+msgstr "Wiktionary - უფასო ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_ja.desktop:6
+#, fuzzy
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://ja.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_pl.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Polish) - The Free Dictionary"
+msgstr "Wiktionary - უფასო ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_pl.desktop:6
+#, fuzzy
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_ru.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Russian) - The Free Dictionary"
+msgstr "Wiktionary - უფასო ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_ru.desktop:6
+#, fuzzy
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://ru.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_zh.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Chinese) - The Free Dictionary"
+msgstr "Wiktionary - უფასო ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_zh.desktop:6
+#, fuzzy
+#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgid "http://zh.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:3
 msgid "WordReference.com English Dictionary"
 msgstr "WordReference.com ინგლისური ლექსიკონი"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:6
-msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:4
+#, fuzzy
+#| msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+msgid "https://www.wordreference.com/definition/\\{@}"
 msgstr "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wordref_synonyms.desktop:3
+#, fuzzy
+#| msgid "WordReference.com English Dictionary"
+msgid "WordReference.com English Synonyms"
+msgstr "WordReference.com ინგლისური ლექსიკონი"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wordref_synonyms.desktop:4
+#, fuzzy
+#| msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+msgid "https://www.wordreference.com/synonyms/\\{@}"
+msgstr "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/yahoo.desktop:3
+msgid "Yahoo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/yahoo.desktop:6
+#, fuzzy
+#| msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgid "https://search.yahoo.com/search?p=\\{@}&ei=UTF-8"
+msgstr "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/yandex.desktop:3
+msgid "Yandex"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/yandex.desktop:6
+#, fuzzy
+#| msgid "http://info.alexa.com/search?q=\\{@}"
+msgid "https://yandex.com/search/?text=\\{@}"
+msgstr "http://info.alexa.com/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/localdomain/localdomainurifilter.desktop:3
@@ -1425,8 +2037,8 @@ msgstr "CD/DVD ამძრავის შესაძლებლობებ�
 #: info/cdinfo.desktop:16
 msgid "CD-ROM Information;CD-ROM;CD;CD Drive;Writer Capabilities;"
 msgstr ""
-"CD-ROM Information;CD-ROM;CD;CD Drive;Writer "
-"Capabilities;შესაძლებლობა;ჩამწერი;"
+"CD-ROM Information;CD-ROM;CD;CD Drive;Writer Capabilities;შესაძლებლობა;"
+"ჩამწერი;"
 
 #. Name
 #: info/devices.desktop:13
@@ -1442,8 +2054,8 @@ msgstr "ინფორმაცია მიერთებულ მოწყ�
 #: info/devices.desktop:17
 msgid "dev;Devices;System Information;Information;"
 msgstr ""
-"dev;Devices;System Information;Information;ინფორმაცია სისტემის "
-"შესახებ;ინფორმაცია;"
+"dev;Devices;System Information;Information;ინფორმაცია სისტემის შესახებ;"
+"ინფორმაცია;"
 
 #. Name
 #: info/dma.desktop:13
@@ -1489,8 +2101,8 @@ msgstr "ინფორმაცია IO–პორტების შეს�
 #: info/ioports.desktop:17
 msgid "IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System Information;"
 msgstr ""
-"IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System "
-"Information;IO-შუალედი;IO პორტები;ინფორმაცია სისტემის შესახებ;"
+"IO;I/O;IO-Ports;I/O-Ports;Ports;IO-Range;I/O-Range;System Information;IO-"
+"შუალედი;IO პორტები;ინფორმაცია სისტემის შესახებ;"
 
 #. Name
 #: info/memory.desktop:12
@@ -1641,10 +2253,10 @@ msgid ""
 "DoubleClick;mapping;right handed;left handed;"
 msgstr ""
 "Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
-"Shape;Input Devices;Button "
-"Mapping;Click;icons;feedback;Pointers;Drag;DoubleClick;mapping;right handed;"
-"left handed;ცაცია;თაგუნა;თაგუნას აჩქარება;თაგუნას პარამეტრები;მონიშვნა;"
-"კურსორის ფორმა;ღილაკების მინიჭება;დაწკაპუნება;უკუკავშირი;კურსორი;"
+"Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
+"DoubleClick;mapping;right handed;left handed;ცაცია;თაგუნა;თაგუნას აჩქარება;"
+"თაგუნას პარამეტრები;მონიშვნა;კურსორის ფორმა;ღილაკების მინიჭება;დაწკაპუნება;"
+"უკუკავშირი;კურსორი;"
 
 #. Name
 #: input/touchpad.desktop:13
@@ -1662,9 +2274,9 @@ msgid ""
 "Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
 "Click;mapping;right handed;left handed;"
 msgstr ""
-"Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button "
-"Mapping;Tap;Click;mapping;right handed;left handed;ცაცია;თაჩპედი;შეყვანის "
-"მოწყობილობები;თაგუნა;მარცხენა წკაპი;"
+"Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
+"Click;mapping;right handed;left handed;ცაცია;თაჩპედი;შეყვანის მოწყობილობები;"
+"თაგუნა;მარცხენა წკაპი;"
 
 #. Name
 #: joystick/joystick.desktop:12
@@ -1742,11 +2354,11 @@ msgid ""
 "bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;"
 "applets;startup;highlight;handles;zooming icons;"
 msgstr ""
-"kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto "
-"hide;hide;buttons;animation;background;themes;menu cache;cache;hidden;TDE "
-"Menu;bookmarks;recent documents;quickbrowser;browser "
-"menu;menu;icons;tiles;applets;startup;highlight;handles;zooming icons;ხატულებ"
-"ი;პანელი;ანიმაცია;ფონი;მენიუ;სანიშნეები;ბრაუზერი;ავტოდამალვა;მდებარეობა;"
+"kicker;panel;kpanel;taskbar;startbar;launchbar;location;size;auto hide;hide;"
+"buttons;animation;background;themes;menu cache;cache;hidden;TDE Menu;"
+"bookmarks;recent documents;quickbrowser;browser menu;menu;icons;tiles;"
+"applets;startup;highlight;handles;zooming icons;ხატულები;პანელი;ანიმაცია;"
+"ფონი;მენიუ;სანიშნეები;ბრაუზერი;ავტოდამალვა;მდებარეობა;"
 
 #. Name
 #: kicker/kicker_config_appearance.desktop:11 konq/fileappearance.desktop:11
@@ -1839,9 +2451,9 @@ msgid ""
 "konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
 "behavior;behaviour;memory usage;Home URL;"
 msgstr ""
-"konqueror;filemanager;kfm;tips;file tips;separate window;spawn "
-"windows;behavior;behaviour;memory usage;Home URL;საწყისი ბმული;ქცევა;"
-"მეხსიერების გამოყენება;ფაილების მართვა;"
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;საწყისი ბმული;ქცევა;მეხსიერების "
+"გამოყენება;ფაილების მართვა;"
 
 #. Name
 #: konq/desktoppath.desktop:11
@@ -1857,8 +2469,8 @@ msgstr "მნიშვნელოვანი ფაილების მდ�
 #: konq/desktoppath.desktop:15
 msgid "konqueror;filemanager;paths;desktop;directories;autostart;"
 msgstr ""
-"konqueror;filemanager;paths;desktop;directories;autostart;ფაილების "
-"მმართველი;ბილიკები;საქაღალდეები;ავტოგაშვება;"
+"konqueror;filemanager;paths;desktop;directories;autostart;ფაილების მმართველი;"
+"ბილიკები;საქაღალდეები;ავტოგაშვება;"
 
 #. Comment
 #: konq/fileappearance.desktop:13
@@ -1871,9 +2483,8 @@ msgid ""
 "konqueror;filemanager;word wrap;wrap;underline;display;filesize;bytes;font;"
 "color;colour;"
 msgstr ""
-"konqueror;filemanager;word "
-"wrap;wrap;underline;display;filesize;bytes;font;color;colour;ფერები;ეკრანი;"
-"ფაილის ზომა;ხაზგასმა;ხაზის გადატანა;"
+"konqueror;filemanager;word wrap;wrap;underline;display;filesize;bytes;font;"
+"color;colour;ფერები;ეკრანი;ფაილის ზომა;ხაზგასმა;ხაზის გადატანა;"
 
 #. Comment
 #: konq/filebehavior.desktop:13
@@ -1887,10 +2498,10 @@ msgid ""
 "behavior;behaviour;memory usage;Home URL;network operations;progress dialog;"
 "trash can;delete;confirmation;"
 msgstr ""
-"konqueror;filemanager;kfm;tips;file tips;separate window;spawn "
-"windows;behavior;behaviour;memory usage;Home URL;network operations;progress "
-"dialog;trash can;delete;confirmation;დადასტურება;წაშლა;ქცევა;მეხსიერება;"
-"ფაილების მართვა;"
+"konqueror;filemanager;kfm;tips;file tips;separate window;spawn windows;"
+"behavior;behaviour;memory usage;Home URL;network operations;progress dialog;"
+"trash can;delete;confirmation;დადასტურება;წაშლა;ქცევა;მეხსიერება;ფაილების "
+"მართვა;"
 
 #. Comment
 #: konq/filebrowser.desktop:14
@@ -1911,8 +2522,8 @@ msgstr "მოირგეთ, როგორ მუშაობს მინ�
 #: konq/filepreviews.desktop:15
 msgid "konqueror;filemanager;previews;file previews;maximum size;"
 msgstr ""
-"konqueror;filemanager;previews;file previews;maximum size;მაქსიმალური "
-"ზომა;მინიატურა;ფაილების მართვა;"
+"konqueror;filemanager;previews;file previews;maximum size;მაქსიმალური ზომა;"
+"მინიატურა;ფაილების მართვა;"
 
 #. Name
 #: konqhtml/tdehtml_behavior.desktop:11
@@ -1930,9 +2541,9 @@ msgid ""
 "konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;"
 "cursor;links;images;charsets;character sets;encoding;"
 msgstr ""
-"konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;curso"
-"r;links;images;charsets;character "
-"sets;encoding;კოდირება;სიმბოლოები;კურსორი;ფონტები;ვები;ბრაუზერი;ბმულები;"
+"konqueror;kfm;browser;html;web;www;fonts;colours;colors;java;javascript;"
+"cursor;links;images;charsets;character sets;encoding;კოდირება;სიმბოლოები;"
+"კურსორი;ფონტები;ვები;ბრაუზერი;ბმულები;"
 
 #. Name
 #: konqhtml/tdehtml_filter.desktop:10
@@ -1954,8 +2565,8 @@ msgstr "ვებგვერდების გამოყენებულ�
 msgid ""
 "konqueror;kfm;browser;html;web;www;fonts;charsets;character sets;encoding;"
 msgstr ""
-"konqueror;kfm;browser;html;web;www;fonts;charsets;character "
-"sets;encoding;კოდირება;ფონტები;ვები;"
+"konqueror;kfm;browser;html;web;www;fonts;charsets;character sets;encoding;"
+"კოდირება;ფონტები;ვები;"
 
 #. Name
 #: konqhtml/tdehtml_java_js.desktop:11
@@ -1986,8 +2597,8 @@ msgstr "მომხმარებლის ინტერფეისის �
 #: konqhtml/tdehtml_userinterface.desktop:15
 msgid "konqueror;kfm;user;interface;tabbed;browsing;"
 msgstr ""
-"konqueror;kfm;user;interface;tabbed;browsing;ბრაუზერი;მომხმარებელი;ინტერფეისი"
-";"
+"konqueror;kfm;user;interface;tabbed;browsing;ბრაუზერი;მომხმარებელი;"
+"ინტერფეისი;"
 
 #. Name
 #: konsole/kcmkonsole.desktop:10
@@ -2005,8 +2616,8 @@ msgid ""
 "konsole;schema;konsole background;colors;background;terminal application;"
 "terminal;"
 msgstr ""
-"konsole;schema;konsole background;colors;background;terminal "
-"application;terminal;ტერმინალი;ფერები;ფონი;ტერმინალის აპლიკაცია;"
+"konsole;schema;konsole background;colors;background;terminal application;"
+"terminal;ტერმინალი;ფერები;ფონი;ტერმინალის აპლიკაცია;"
 
 #. Name
 #: kthememanager/installktheme.desktop:2
@@ -2049,9 +2660,9 @@ msgid ""
 "application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
 "spinning;disk;startup;program;report;"
 msgstr ""
-"application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;spinning"
-";disk;startup;program;report;ანგარიში;შებრუნება;გაშვება;პროგრამა;დაკავებული;კ"
-"ურსორი;უკუკავშირი;თაგუნა;კურსორი;"
+"application;start;launch;busy;cursor;feedback;mouse;pointer;rotating;"
+"spinning;disk;startup;program;report;ანგარიში;შებრუნება;გაშვება;პროგრამა;"
+"დაკავებული;კურსორი;უკუკავშირი;თაგუნა;კურსორი;"
 
 #. Name
 #: locale/default/entry.desktop:2
@@ -2075,12 +2686,11 @@ msgid ""
 "charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
 "sign;positive;negative;fractional digits;week;week start;"
 msgstr ""
-"language;translation;number "
-"format;currency;time;date;formats;locale;Country;charsets;character sets;"
-"Decimal symbol;Thousands separator;symbol;separator;sign;positive;negative;"
-"fractional digits;week;week start;ენა;თარგმანი;რიცხვის "
-"ფორმატი;ვალუტა;დრო;თარიღი;ფორმატი;ქვეყანა;კოდირება;წილადის გამყოფი;ათასების "
-"გამყოფი;გამყოფი სიმბოლო;"
+"language;translation;number format;currency;time;date;formats;locale;Country;"
+"charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
+"sign;positive;negative;fractional digits;week;week start;ენა;თარგმანი;"
+"რიცხვის ფორმატი;ვალუტა;დრო;თარიღი;ფორმატი;ქვეყანა;კოდირება;წილადის გამყოფი;"
+"ათასების გამყოფი;გამყოფი სიმბოლო;"
 
 #. Name
 #: nics/nic.desktop:12
@@ -2148,8 +2758,8 @@ msgstr "ეკრანის ზომისა და ორიენტაც
 #: randr/randr.desktop:13
 msgid "resize;rotate;display;color;depth;size;horizontal;vertical;"
 msgstr ""
-"resize;rotate;display;color;depth;size;horizontal;vertical;ზომის "
-"შეცვლა;შებრუნება;ეკრანი;ფერი;ზომა;სიღრმე;ჰორიზონტალური;ვერტიკალური;"
+"resize;rotate;display;color;depth;size;horizontal;vertical;ზომის შეცვლა;"
+"შებრუნება;ეკრანი;ფერი;ზომა;სიღრმე;ჰორიზონტალური;ვერტიკალური;"
 
 #. Name
 #: randr/tderandrtray-autostart.desktop:2 randr/tderandrtray.desktop:2
@@ -2226,8 +2836,8 @@ msgstr "სესიების მმართველისა და გა
 #: smserver/kcmsmserver.desktop:16
 msgid "ksmserver;session;logout;confirmation;save;restore;"
 msgstr ""
-"ksmserver;session;logout;confirmation;save;restore;სესია;შენახვა;გასვლა;აღდგე"
-"ნა;"
+"ksmserver;session;logout;confirmation;save;restore;სესია;შენახვა;გასვლა;"
+"აღდგენა;"
 
 #. Name
 #: spellchecking/spellchecking.desktop:11
@@ -2260,8 +2870,8 @@ msgstr "საშუალებას გაძლევთ, შეცვალ
 msgid ""
 "style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE applications;"
 msgstr ""
-"style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE "
-"applications;სტილები;გარეგნობა;პანელები;გამოკვეთა;აპები;აპლიკაციები;"
+"style;styles;look;widget;icons;toolbars;text;highlight;apps;TDE applications;"
+"სტილები;გარეგნობა;პანელები;გამოკვეთა;აპები;აპლიკაციები;"
 
 #. Name
 #: taskbar/kcmtaskbar.desktop:11
@@ -2276,7 +2886,8 @@ msgstr "ამოცანების პანელის მორგებ�
 #. Keywords
 #: taskbar/kcmtaskbar.desktop:15
 msgid "kicker;panel;kpanel;taskbar;startbar;launchbar;windows;"
-msgstr "kicker;panel;kpanel;taskbar;startbar;launchbar;windows;პანელი;ფანჯრები;"
+msgstr ""
+"kicker;panel;kpanel;taskbar;startbar;launchbar;windows;პანელი;ფანჯრები;"
 
 #. Name
 #: tdefontinst/installfont.desktop:6
@@ -2429,8 +3040,8 @@ msgid ""
 "SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;"
 "Broadcast;WINS;Share;Login;Passwords;"
 msgstr ""
-"SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;Broadcas"
-"t;WINS;Share;Login;Passwords;შესვლა;პაროლი;სერვერი;მაუწყებლობა;ქსელი;"
+"SMB;SAMBA;SMB client;Windows network;LAN;Network;neighborhood;Server;"
+"Broadcast;WINS;Share;Login;Passwords;შესვლა;პაროლი;სერვერი;მაუწყებლობა;ქსელი;"
 
 #. Comment
 #: tdeio/uasprovider.desktop:4
@@ -2540,9 +3151,9 @@ msgid ""
 "tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;"
 "fonts;background;wallpapers;sessions;shutdown;restart;"
 msgstr ""
-"tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;fon"
-"ts;background;wallpapers;sessions;shutdown;restart;გადატვირთვა;გასვლა;გამორთვ"
-"ა;ენა;ქვეყანა;მისალმება;"
+"tdm;display manager;xdm;users;login;greeting;Logo;styles;language;country;"
+"fonts;background;wallpapers;sessions;shutdown;restart;გადატვირთვა;გასვლა;"
+"გამორთვა;ენა;ქვეყანა;მისალმება;"
 
 #. Name
 #: usbview/kcmusb.desktop:10
@@ -2588,3 +3199,330 @@ msgstr "TDE -ის მორგება რამდენიმე მონ�
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr "Xinerama;dual head;multihead;monitor;ორი ეკრანი;"
+
+#~ msgid "Acronym Database"
+#~ msgstr "აკრონიმების ბაზა"
+
+#~ msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
+#~ msgstr "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
+
+#~ msgid "Alexa"
+#~ msgstr "ალექსა"
+
+#~ msgid "Alexa URL"
+#~ msgstr "Alexa-ის ბმული"
+
+#~ msgid "http://info.alexa.com/data/details?url=\\{@}"
+#~ msgstr "http://info.alexa.com/data/details?url=\\{@}"
+
+#~ msgid "AllTheWeb fast"
+#~ msgstr "AllTheWeb სწრაფი"
+
+#~ msgid "AltaVista"
+#~ msgstr "AltaVista"
+
+#~ msgid ""
+#~ "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
+#~ msgstr ""
+#~ "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
+
+#~ msgid "KDE App Search"
+#~ msgstr "KDE-ის აპის ძებნა"
+
+#~ msgid "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
+#~ msgstr "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
+
+#~ msgid "AustroNaut"
+#~ msgstr "AustroNaut"
+
+#~ msgid "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
+#~ msgstr "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
+
+#~ msgid "Debian Backports Search"
+#~ msgstr "ძებნა Debian Backports-ში"
+
+#~ msgid "QRZ.com Callsign Database"
+#~ msgstr "QRZ.com-ის Callsign ბაზა"
+
+#~ msgid "http://www.qrz.com/database?callsign=\\{@}"
+#~ msgstr "http://www.qrz.com/database?callsign=\\{@}"
+
+#~ msgid "CIA World Factbook"
+#~ msgstr "CIA-ის მსოფლიო ფაქტები"
+
+#, c-format
+#~ msgid ""
+#~ "http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site"
+#~ "%3Awww.cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+#~ msgstr ""
+#~ "http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site"
+#~ "%3Awww.cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+
+#~ msgid ""
+#~ "http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
+#~ msgstr ""
+#~ "http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
+
+#~ msgid ""
+#~ "http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
+#~ "\\{ at }"
+#~ msgstr ""
+#~ "http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
+#~ "\\{ at }"
+
+#~ msgid "CTAN Catalog"
+#~ msgstr "CTAN კატალოგი"
+
+#~ msgid ""
+#~ "http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
+#~ msgstr ""
+#~ "http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
+
+#~ msgid "Open Directory"
+#~ msgstr "საქაღალდის გახსნა"
+
+#~ msgid "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
+#~ msgstr "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
+
+#~ msgid "Feedster"
+#~ msgstr "Feedster"
+
+#~ msgid "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
+#~ msgstr "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
+
+#~ msgid "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
+#~ msgstr "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
+
+#~ msgid "FreeDB"
+#~ msgstr "FreeDB"
+
+#~ msgid "http://www.freedb.org/freedb_search.php?words=\\{@}"
+#~ msgstr "http://www.freedb.org/freedb_search.php?words=\\{@}"
+
+#~ msgid "Freshmeat"
+#~ msgstr "Freshmeat"
+
+#~ msgid "Froogle"
+#~ msgstr "Froogle"
+
+#~ msgid "http://froogle.google.com/froogle?q=\\{@}"
+#~ msgstr "http://froogle.google.com/froogle?q=\\{@}"
+
+#~ msgid "Google Groups"
+#~ msgstr "Google ჯგუფები"
+
+#~ msgid "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
+#~ msgstr "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
+
+#~ msgid "Gracenote"
+#~ msgstr "Gracenote"
+
+#~ msgid "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
+#~ msgstr "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
+
+#~ msgid "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
+#~ msgstr "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
+
+#~ msgid "Hotbot"
+#~ msgstr "Hotbot"
+
+#~ msgid "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
+#~ msgstr "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
+
+#~ msgid "HyperDictionary.com Thesaurus"
+#~ msgstr "თეზაურუსი HyperDictionary.com"
+
+#~ msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
+#~ msgstr "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
+
+#~ msgid "Ask Jeeves"
+#~ msgstr "ჰკითხეთ Jeeves-ს"
+
+#~ msgid ""
+#~ "http://www.ask.com/main/askJeeves.asp?"
+#~ "origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
+#~ msgstr ""
+#~ "http://www.ask.com/main/askJeeves.asp?"
+#~ "origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
+
+#~ msgid "KataTudo"
+#~ msgstr "KataTudo"
+
+#~ msgid ""
+#~ "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
+#~ msgstr ""
+#~ "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
+
+#~ msgid "KDE API Documentation"
+#~ msgstr "KDE API-ის დოკუმენტაცია"
+
+#~ msgid "http://api.kde.org/classmapper.php?class=\\{@}"
+#~ msgstr "http://api.kde.org/classmapper.php?class=\\{@}"
+
+#~ msgid "KDE WebSVN"
+#~ msgstr "KDE WebSVN"
+
+#~ msgid "http://websvn.kde.org/\\{@}"
+#~ msgstr "http://websvn.kde.org/\\{@}"
+
+#~ msgid "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
+#~ msgstr "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
+
+#~ msgid "Mamma - Mother of all Search Engines"
+#~ msgstr "Mamma - ყველა საძიებო სისტემის მშობელი"
+
+#~ msgid "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
+#~ msgstr "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
+
+#~ msgid ""
+#~ "http://search.metacrawler.com/crawler?general=\\{@}"
+#~ "&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
+#~ "search&refer=mc-search"
+#~ msgstr ""
+#~ "http://search.metacrawler.com/crawler?general=\\{@}"
+#~ "&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
+#~ "search&refer=mc-search"
+
+#~ msgid "Microsoft Developer Network Search"
+#~ msgstr "ძებნა Microsoft Developer Network-ში"
+
+#~ msgid ""
+#~ "http://msdn.microsoft.com/library/shared/searchtab/searchHandoff.asp?"
+#~ "handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
+#~ "asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
+#~ msgstr ""
+#~ "http://msdn.microsoft.com/library/shared/searchtab/searchHandoff.asp?"
+#~ "handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
+#~ "asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
+
+#~ msgid "Netcraft"
+#~ msgstr "Netcraft"
+
+#~ msgid "http://uptime.netcraft.com/up/graph?site=\\{@}"
+#~ msgstr "http://uptime.netcraft.com/up/graph?site=\\{@}"
+
+#~ msgid "Telephonebook Search Provider"
+#~ msgstr "საძიებო სისტემა Telephonebook"
+
+#~ msgid ""
+#~ "http://www.detelefoongids.nl/tginl.dll?"
+#~ "action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2="
+#~ "\\{1}&name=&initials=&city=\\{2}"
+#~ "&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
+#~ "\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
+#~ msgstr ""
+#~ "http://www.detelefoongids.nl/tginl.dll?"
+#~ "action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2="
+#~ "\\{1}&name=&initials=&city=\\{2}"
+#~ "&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
+#~ "\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
+
+#~ msgid "Teletekst Search Provider"
+#~ msgstr "საძიებო სისტემა Teletekst"
+
+#~ msgid "http://teletekst.nos.nl/gif/\\{@}-01.html"
+#~ msgstr "http://teletekst.nos.nl/gif/\\{@}-01.html"
+
+#~ msgid "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
+#~ msgstr "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
+
+#~ msgid "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
+#~ msgstr ""
+#~ "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
+
+#, c-format
+#~ msgid ""
+#~ "http://www.google.com/search?sourceid=python-search&q=\\{@}"
+#~ "&submit=Search&q=site%3Apython.org"
+#~ msgstr ""
+#~ "http://www.google.com/search?sourceid=python-search&q=\\{@}"
+#~ "&submit=Search&q=site%3Apython.org"
+
+#~ msgid "Latest Qt Online Documentation"
+#~ msgstr "Qt-ის ონლაინ დოკუმენტაცია"
+
+#~ msgid ""
+#~ "http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
+#~ "&FORMATO=ampliado"
+#~ msgstr ""
+#~ "http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
+#~ "&FORMATO=ampliado"
+
+#~ msgid "Ruby Application Archive"
+#~ msgstr "Ruby-ის აპლიკაციების არქივი"
+
+#~ msgid "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
+#~ msgstr "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
+
+#~ msgid ""
+#~ "http://www.go.com/Titles?col=WW&qt=\\{@}"
+#~ "&svx=home_searchbox&sv=IS&lk=noframeso"
+#~ msgstr ""
+#~ "http://www.go.com/Titles?col=WW&qt=\\{@}"
+#~ "&svx=home_searchbox&sv=IS&lk=noframeso"
+
+#~ msgid ""
+#~ "http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
+#~ "\\{exact,\"0\"}&words=\\{@}"
+#~ msgstr ""
+#~ "http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
+#~ "\\{exact,\"0\"}&words=\\{@}"
+
+#~ msgid "Technorati"
+#~ msgstr "სტატიები Technorati-ზე"
+
+#~ msgid ""
+#~ "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
+#~ msgstr ""
+#~ "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
+
+#~ msgid "Technorati Tags"
+#~ msgstr "Technorati-ის ჭდეები"
+
+#~ msgid "http://technorati.com/tag/\\{@}?sourceid=kde-search"
+#~ msgstr "http://technorati.com/tag/\\{@}?sourceid=kde-search"
+
+#~ msgid "TV Tome"
+#~ msgstr "TV Tome"
+
+#~ msgid "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
+#~ msgstr "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
+
+#~ msgid "U.S. Patent Database"
+#~ msgstr "აშშ პატენტების ბაზა"
+
+#~ msgid ""
+#~ "http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
+#~ "&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
+#~ msgstr ""
+#~ "http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
+#~ "&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
+
+#~ msgid "Vivisimo"
+#~ msgstr "Vivisimo"
+
+#, c-format
+#~ msgid ""
+#~ "http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast"
+#~ "%2COD%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
+#~ msgstr ""
+#~ "http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast"
+#~ "%2COD%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
+
+#~ msgid "Voila"
+#~ msgstr "Voila"
+
+#~ msgid ""
+#~ "http://search.ke.voila.fr/S/voila?"
+#~ "lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
+#~ msgstr ""
+#~ "http://search.ke.voila.fr/S/voila?"
+#~ "lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
+
+#~ msgid "Whatis Query"
+#~ msgstr "Whatis მოთხოვნა"
+
+#~ msgid ""
+#~ "http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
+#~ msgstr ""
+#~ "http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"

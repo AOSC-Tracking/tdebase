@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-08 18:11+0000\n"
+"POT-Creation-Date: 2026-04-12 18:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -327,56 +327,27 @@ msgid "Search Engine"
 msgstr "搜索引擎"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:3
-msgid "Acronym Database"
-msgstr "Acronym 資料庫"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/acronym.desktop:6
-msgid "http://www.chemie.de/tools/acronym.php3?language=e&acronym=\\{@}"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:3
-msgid "Alexa"
-msgstr ""
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/alexa.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/academic_en.desktop:3
 #, fuzzy
-msgid "http://info.alexa.com/search?q=\\{@}"
-msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:3
-msgid "Alexa URL"
-msgstr ""
+#| msgid "WordReference.com English Dictionary"
+msgid "Academic English Dictionaries"
+msgstr "WordReference.com 英文字典"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/alexa_url.desktop:6
-#, fuzzy
-msgid "http://info.alexa.com/data/details?url=\\{@}"
-msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:3
-msgid "AllTheWeb fast"
-msgstr ""
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/alltheweb.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/academic_en.desktop:6
 msgid ""
-"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
+"https://en-academic.com/searchall.php?SWord=\\{@}&from=en&to=xx&did=&stype="
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:3
-msgid "AltaVista"
+#: ebrowsing/plugins/ikws/searchproviders/academic_ru.desktop:3
+msgid "Academic Russian Dictionaries"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/altavista.desktop:6
-msgid "http://www.altavista.com/cgi-bin/query?pg=q&kl=XX&stype=stext&q=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/academic_ru.desktop:6
+msgid ""
+"https://dic.academic.ru/searchall.php?SWord=\\{@}&from=ru&to=xx&did=&stype="
 msgstr ""
 
 #. Name
@@ -386,42 +357,105 @@ msgstr "所有音樂指南"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
-msgid "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
+#, fuzzy
+msgid "https://www.allmusic.com/search/all/\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/archpkg.desktop:3
+#, fuzzy
+#| msgid "Debian Package Search"
+msgid "Arch Package Search"
+msgstr "Debian 套件搜尋"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/archpkg.desktop:4
+#, fuzzy
+#| msgid "http://images.google.com/images?q=\\{@}"
+msgid "https://archlinux.org/packages/?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/archwiki.desktop:3
+msgid "Arch Wiki"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/archwiki.desktop:6
+#, c-format
+msgid ""
+"https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:3
-msgid "KDE App Search"
-msgstr "KDE 程式搜尋"
+#: ebrowsing/plugins/ikws/searchproviders/arxiv.desktop:3
+msgid "ArXiv"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/appsy.desktop:6
-msgid "http://www.kde-apps.org/content/search.php?search=Search&name=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/arxiv.desktop:4
+msgid "https://arxiv.org/search/?query=\\{terms,@}&searchtype=\\{type,\"all\"}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:3
-msgid "AustroNaut"
+#: ebrowsing/plugins/ikws/searchproviders/ask.desktop:3
+msgid "Ask.com"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/austronaut.desktop:6
-msgid "http://austronaut.at/page.php?begriff=\\{@}&wo=at"
+#: ebrowsing/plugins/ikws/searchproviders/ask.desktop:6
+#, fuzzy
+msgid "https://www.ask.com/web?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/aur.desktop:3
+msgid "Arch User Repository (AUR) Package Search"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/aur.desktop:4
+msgid "https://aur.archlinux.org/packages?K=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:3
-msgid "Debian Backports Search"
-msgstr "Debian Backports 搜尋"
+#: ebrowsing/plugins/ikws/searchproviders/baidu.desktop:3
+msgid "Baidu"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/backports.desktop:4
-msgid "http://www.backports.org/package.php?search=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/baidu.desktop:6
+#, fuzzy
+msgid "https://www.baidu.com/s?wd=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/bing.desktop:3
+msgid "Bing"
 msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/bing.desktop:6
+#, fuzzy
+msgid "https://www.bing.com/search?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/brave.desktop:3
+msgid "Brave"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/brave.desktop:6
+#, fuzzy
+msgid "https://search.brave.com/search?q=\\{@}&source=web"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
-msgid "KDE Bug Database Fulltext Search"
+#, fuzzy
+#| msgid "KDE Bug Database Fulltext Search"
+msgid "Old TDE Bugzilla Fulltext Search"
 msgstr "KDE 臭蟲資料庫全文檢索"
 
 #. Query
@@ -433,7 +467,9 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
-msgid "TDE Bug Database Bug Number Search"
+#, fuzzy
+#| msgid "TDE Bug Database Bug Number Search"
+msgid "Old TDE Bugzilla Bug Number Search"
 msgstr "TDE 臭蟲資料庫按錯誤編號搜索"
 
 #. Query
@@ -442,38 +478,33 @@ msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/call.desktop:5
-msgid "QRZ.com Callsign Database"
-msgstr "QRZ.com Callsign 資料庫"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/call.desktop:6
-msgid "http://www.qrz.com/database?callsign=\\{@}"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:4
-msgid "CIA World Factbook"
+#: ebrowsing/plugins/ikws/searchproviders/chatgpt.desktop:3
+msgid "ChatGPT"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/cia.desktop:5
-#, fuzzy, c-format
-msgid ""
-"http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site%3Awww."
-"cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+#: ebrowsing/plugins/ikws/searchproviders/chatgpt.desktop:6
+msgid "https://chat.openai.com/?prompt=\\{@}"
 msgstr ""
-"http://www.google.com.tw/search?q=\\{@}&btnI=I%27m+Feeling"
-"+Lucky&ie=UTF-8&oe=UTF-8&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:3
 msgid "CiteSeer: Scientific Literature Digital Library"
 msgstr "CiteSeer: 科學文獻數位圖書館"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:6
-msgid "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
+#: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:4
+msgid "https://citeseer.ist.psu.edu/search_result?query=\\{@}&pdf=true"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/codeberg.desktop:3
+msgid "Codeberg"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/codeberg.desktop:6
+msgid "https://codeberg.org/explore/repos?q=\\{@}&only_show_relevant=0"
 msgstr ""
 
 #. Name
@@ -483,8 +514,18 @@ msgstr "CPAN - 全面的 Perl 收集網路"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
-msgid ""
-"http://search.cpan.org/search?mode=\\{mode,2,\"dist\"}&query=\\{query,q,1}"
+#, fuzzy
+msgid "https://metacpan.org/search?size=20&q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/cppreference.desktop:3
+msgid "CPPReference"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/cppreference.desktop:6
+msgid "https://duckduckgo.com/?sites=cppreference.com&q=\\{@}&ia=web"
 msgstr ""
 
 #. Name
@@ -494,21 +535,34 @@ msgstr "CTAN - 全面的 Tex 收集網路"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:4
+#, fuzzy
+msgid "https://ctan.org/search?phrase=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ctan_file.desktop:3
+#, fuzzy
+#| msgid "CTAN - Comprehensive TeX Archive Network"
+msgid "CTAN File Name Search - Comprehensive TeX Archive Network"
+msgstr "CTAN - 全面的 Tex 收集網路"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ctan_file.desktop:4
 msgid ""
-"http://tug.ctan.org/cgi-bin/filenameSearch.py?action=/search/&filename="
-"\\{ at }"
+"https://ctan.org/search?phrase=\\{@}"
+"&ext=true&_PKG=&_AUTHORS=&_TOPICS=&_FILES=&FILES=on&_PORTAL=&max=16"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:3
-msgid "CTAN Catalog"
-msgstr "CTAN 目錄"
+#: ebrowsing/plugins/ikws/searchproviders/curlie.desktop:3
+msgid "Curlie"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/ctan_cat.desktop:4
-msgid ""
-"http://www.ctan.org/tools/cataloguesearch?action=/search/&catstring=\\{@}"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/curlie.desktop:6
+#, fuzzy
+msgid "https://curlie.org/search?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
@@ -527,7 +581,7 @@ msgstr "dict.cc 翻譯: 德文至英文"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/de2en.desktop:6
-#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:4
 msgid "http://www.dict.cc/?s=\\{@}"
 msgstr ""
 
@@ -553,77 +607,125 @@ msgid "http://packages.debian.org/\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:3
-msgid "Open Directory"
-msgstr "開啟目錄"
+#: ebrowsing/plugins/ikws/searchproviders/devuanpkg.desktop:3
+#, fuzzy
+#| msgid "Debian Package Search"
+msgid "Devuan Package Search"
+msgstr "Debian 套件搜尋"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/dmoz.desktop:6
-msgid "http://search.dmoz.org/cgi-bin/search?search=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/devuanpkg.desktop:4
+msgid "https://pkginfo.devuan.org/cgi-bin/policy-query.html?c=package&q=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:3
 msgid "DocBook - The Definitive Guide"
 msgstr "DocBook - 終極指南"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:6
-msgid "http://www.docbook.org/tdg/en/html/\\{1}.html"
+#: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:4
+msgid "http://tdg.docbook.org/tdg/4.5/\\{1}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:3
 msgid "Digital Object Identifier"
 msgstr "數位物件識別"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/doi.desktop:4
 msgid "http://dx.doi.org/\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo.desktop:3
+msgid "DuckDuckGo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo.desktop:6
+#, fuzzy
+msgid "https://duckduckgo.com/?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo_html.desktop:3
+msgid "DuckDuckGo HTML"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo_html.desktop:6
+#, fuzzy
+#| msgid "http://images.google.com/images?q=\\{@}"
+msgid "https://html.duckduckgo.com/html/?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo_lite.desktop:3
+msgid "DuckDuckGo Lite"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/duckduckgo_lite.desktop:6
+#, fuzzy
+#| msgid "http://images.google.com/images?q=\\{@}"
+msgid "https://lite.duckduckgo.com/lite/?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/ecosia.desktop:3
+msgid "Ecosia"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/ecosia.desktop:6
+#, fuzzy
+msgid "https://www.ecosia.org/search?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:3
 msgid "dict.cc Translation: English to German"
 msgstr "dict.cc 翻譯: 英文至德文"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:3
 msgid "WordReference.com Translation: English to Spanish"
 msgstr "WordReference.com 翻譯: 英文至西班牙文"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2es.desktop:4
 msgid "http://www.wordreference.com/es/translation.asp?tranword=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:3
 msgid "WordReference.com Translation: English to French"
 msgstr "WordReference.com 翻譯: 英文至法文"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2fr.desktop:4
 msgid "http://www.wordreference.com/fr/Translation.asp?enfr=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:3
 msgid "WordReference.com Translation: English to Italian"
 msgstr "WordReference.com 翻譯: 英文至義大利文"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/en2it.desktop:4
 msgid "http://www.wordreference.com/it/translation.asp?enit=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:3
 msgid "WordReference.com Translation: Spanish to English"
 msgstr "WordReference.com 翻譯: 西班牙文至英文"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/es2en.desktop:4
 msgid "http://www.wordreference.com/es/en/translation.asp?spen=\\{@}"
 msgstr ""
 
@@ -634,19 +736,9 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/excite.desktop:6
-msgid "http://search.excite.com/search.gw?search=\\{@}"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:3
-msgid "Feedster"
-msgstr ""
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/feedster.desktop:6
 #, fuzzy
-msgid "http://www.feedster.com/search.php?q=\\{@}&ie=UTF-8&oe=UTF-8"
-msgstr "http://www.google.com.tw/search?q=\\{@}&ie=UTF-8&oe=UTF-8&hl=zh-TW"
+msgid "https://search.excite.com/serp?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
@@ -655,8 +747,9 @@ msgstr "免費的線上電腦辭典"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
-msgid "http://foldoc.doc.ic.ac.uk/foldoc/foldoc.cgi?query=\\{@}"
-msgstr ""
+#, fuzzy
+msgid "https://foldoc.org/\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
@@ -664,45 +757,14 @@ msgid "LEO - Translate Between French and German"
 msgstr "LEO - 翻譯法語和德語"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:3
 msgid "WordReference.com Translation: French to English"
 msgstr "WordReference.com 翻譯: 法文至英文"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:4
 msgid "http://www.wordreference.com/fr/en/translation.asp?fren=\\{@}"
 msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:3
-msgid "FreeDB"
-msgstr ""
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/freedb.desktop:6
-msgid "http://www.freedb.org/freedb_search.php?words=\\{@}"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:3
-msgid "Freshmeat"
-msgstr ""
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/freshmeat.desktop:6
-msgid "http://freshmeat.net/search/?q=\\{@}"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:3
-msgid "Froogle"
-msgstr ""
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/froogle.desktop:6
-#, fuzzy
-msgid "http://froogle.google.com/froogle?q=\\{@}"
-msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:3
@@ -713,6 +775,53 @@ msgstr "FSF/UNESCO 自由軟體目錄"
 #: ebrowsing/plugins/ikws/searchproviders/fsd.desktop:6
 msgid "http://directory.fsf.org/search/?query=\\{@}"
 msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/gentoopkg.desktop:3
+#, fuzzy
+#| msgid "Debian Package Search"
+msgid "Gentoo Package Search"
+msgstr "Debian 套件搜尋"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/gentoopkg.desktop:4
+#, fuzzy
+#| msgid "http://images.google.com/images?q=\\{@}"
+msgid "https://packages.gentoo.org/packages/search?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/gentoowiki.desktop:3
+msgid "Gentoo Wiki"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/gentoowiki.desktop:6
+#, c-format
+msgid "https://wiki.gentoo.org/index.php?title=Special%3ASearch&search=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/github.desktop:3
+msgid "Github"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/github.desktop:6
+#, fuzzy
+msgid "https://github.com/search?q=\\{@}&type=repositories"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/gnudb.desktop:3
+msgid "GnuDB"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/gnudb.desktop:6
+#, fuzzy
+msgid "https://gnudb.org/search/\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
@@ -741,16 +850,6 @@ msgid ""
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:3
-msgid "Google Groups"
-msgstr "Google 群組"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/google_groups.desktop:6
-msgid "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
-msgstr "http://groups.google.com.tw/groups?oi=djq&as_q=\\{@}"
-
-#. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:3
 msgid "Google Image Search"
 msgstr "Google 圖片搜尋"
@@ -776,6 +875,20 @@ msgstr ""
 "+Lucky&ie=UTF-8&oe=UTF-8&hl=zh-TW"
 
 #. Name
+#: ebrowsing/plugins/ikws/searchproviders/google_maps.desktop:3
+#, fuzzy
+#| msgid "Google Movies"
+msgid "Google Maps"
+msgstr "Google 電影"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/google_maps.desktop:6
+#, fuzzy
+#| msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgid "https://www.google.com/maps/search/\\{@}"
+msgstr "http://www.google.com.tw/search?q=\\{@}&ie=UTF-8&oe=UTF-8&hl=zh-TW"
+
+#. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
 msgid "Google Movies"
 msgstr "Google 電影"
@@ -797,34 +910,32 @@ msgid "http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
 msgstr "http://news.google.com.tw/news?q=\\{@}&ie=UTF-8&oe=UTF-8&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:3
-msgid "Gracenote"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/google_scholar.desktop:3
+#, fuzzy
+#| msgid "Google Image Search"
+msgid "Google Scholar"
+msgstr "Google 圖片搜尋"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/gracenote.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/google_scholar.desktop:6
 #, fuzzy
-msgid "http://www.gracenote.com/music/search-adv.html?q=\\{@}"
+#| msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgid "http://scholar.google.com/scholar?q=\\{@}&ie=UTF-8&oe=UTF-8"
 msgstr "http://www.google.com.tw/search?q=\\{@}&ie=UTF-8&oe=UTF-8&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:5
-msgid "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:3
+#, fuzzy
+#| msgid ""
+#| "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
+msgid "Great Dictionary of the Catalan Language (Gran Enciclopèdia Catalana)"
 msgstr "很棒的加泰隆尼亞語文字典 (GRan Enciclopèdia  Catalana)"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:6
-msgid "http://www.grec.net/cgibin/lexicx.pgm?GECART=\\{@}"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:3
-msgid "Hotbot"
-msgstr ""
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/hotbot.desktop:6
-msgid "http://hotbot.lycos.com/?MT=\\{@}&SM=MC&DV=0&LG=any&DC=10&DE=2"
+#: ebrowsing/plugins/ikws/searchproviders/grec.desktop:4
+msgid ""
+"https://www.enciclopedia.cat/cerca/gec?search_api_fulltext=\\{@}"
+"&field_faceta_cerca_1=All"
 msgstr ""
 
 #. Name
@@ -835,81 +946,74 @@ msgstr "HyperDictionary.com 辭典"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
-msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:3
-msgid "HyperDictionary.com Thesaurus"
-msgstr "HyperDictionary.com 辭典"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/hyperdictionary_thesaurus.desktop:6
-msgid "http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}"
+msgid "https://hyperdictionary.com/dictionary/\\{@}"
 msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
-msgid "Internet Movie Database"
+#, fuzzy
+#| msgid "Internet Movie Database"
+msgid "Internet Movie Database (IMDb)"
 msgstr "Internet 電影資料庫"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:6
 #, fuzzy
-msgid "http://imdb.com/Find?\\{@}"
+msgid "https://www.imdb.com/find/?q=\\{@}"
 msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:3
 msgid "WordReference.com Translation: Italian to English"
 msgstr "WordReference.com 翻譯: 義大利文至英文"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:4
 msgid "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:3
-msgid "Ask Jeeves"
+#: ebrowsing/plugins/ikws/searchproviders/jstor.desktop:3
+msgid "JSTOR"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/jeeves.desktop:6
-msgid ""
-"http://www.ask.com/main/askJeeves.asp?"
-"origin=0&qSource=4&site_name=Jeeves&metasearch=yes&ask=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/jstor.desktop:6
+msgid "https://www.jstor.org/action/doBasicSearch?Query=\\{@}&so=rel"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:3
-msgid "KataTudo"
+#: ebrowsing/plugins/ikws/searchproviders/kagi.desktop:3
+msgid "Kagi (paid)"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/katatudo.desktop:6
-msgid "http://www.katatudo.com.br/busca/resultado.php?q=\\{@}&onde=&b=Buscar"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/kagi.desktop:6
+#, fuzzy
+msgid "https://kagi.com/search?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:5
-msgid "KDE API Documentation"
-msgstr "KDE API 文件"
+#: ebrowsing/plugins/ikws/searchproviders/kagiassistant.desktop:3
+msgid "Kagi Assistant (paid)"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/kde.desktop:6
-msgid "http://api.kde.org/classmapper.php?class=\\{@}"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/kagiassistant.desktop:6
+#, fuzzy
+msgid "https://kagi.com/assistant/?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:3
-msgid "KDE WebSVN"
+#: ebrowsing/plugins/ikws/searchproviders/kde_store.desktop:3
+msgid "KDE Store"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/kde_websvn.desktop:6
-msgid "http://websvn.kde.org/\\{@}"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/kde_store.desktop:6
+#, fuzzy
+msgid "https://store.kde.org/find?search=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
@@ -922,24 +1026,38 @@ msgid "http://dict.leo.org/?search=\\{@}"
 msgstr ""
 
 #. Name
+#: ebrowsing/plugins/ikws/searchproviders/linuxquestions.desktop:3
+msgid "LinuxQuestions.org"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/linuxquestions.desktop:6
+msgid ""
+"https://www.linuxquestions.org/questions/search.php?query=\\{@}&do=process"
+msgstr ""
+
+#. Name
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:3
 msgid "Lycos"
 msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:6
-msgid "http://www.lycos.com/cgi-bin/pursuit?cat=dir&query=\\{@}"
-msgstr ""
+#, fuzzy
+#| msgid "http://images.google.com/images?q=\\{@}"
+msgid "https://search.lycos.com/web/?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:3
-msgid "Mamma - Mother of all Search Engines"
-msgstr "Mamma - 搜尋引擎之母"
+#: ebrowsing/plugins/ikws/searchproviders/mdn.desktop:3
+msgid "MDN Web Docs"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/mamma.desktop:6
-msgid "http://www.mamma.com/Mamma?lang=1&timeout=4&qtype=0&query=\\{@}"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/mdn.desktop:6
+#, fuzzy
+msgid "https://developer.mozilla.org/search?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
@@ -948,59 +1066,64 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:6
-msgid ""
-"http://search.metacrawler.com/crawler?general=\\{@}"
-"&method=0&cat=Web&target=metaworld&redirect=web&rpp=20&hpe=10&region=0&timeout=0&sort=0&format=beta99&theme=classic&refer=mc-"
-"search&refer=mc-search"
-msgstr ""
+#, fuzzy
+msgid "https://search.metacrawler.com/serp?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
-msgid "Microsoft Developer Network Search"
-msgstr "微軟開發者網路搜尋"
+msgid "Microsoft Learn (MSDN)"
+msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:6
-msgid ""
-"http://msdn.microsoft.com/library/shared/searchtab/searchHandoff.asp?"
-"handoffurl=%2Fisapi%2Fgosearch.asp%3FTARGET%3D%2Fus%2Fdev%2Fdefault."
-"asp&stcfg=d%3A%2Fhttp%2Fcnfg.xml&qu=\\{@}&btnSearch=GO"
+#, fuzzy
+msgid "https://learn.microsoft.com/search/?terms=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/mw.desktop:3
+msgid "Merriam-Webster Dictionary"
+msgstr "韋氏詞典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/mw.desktop:6
+#, fuzzy
+#| msgid "Merriam-Webster Dictionary"
+msgid "https://www.merriam-webster.com/dictionary/\\{@}"
+msgstr "韋氏詞典"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/mw_thesaurus.desktop:3
+msgid "Merriam-Webster Thesaurus"
+msgstr "韋氏辭典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/mw_thesaurus.desktop:6
+msgid "https://www.merriam-webster.com/thesaurus/\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:3
-msgid "Netcraft"
+#: ebrowsing/plugins/ikws/searchproviders/openstreetmap.desktop:3
+msgid "OpenStreetMap"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/netcraft.desktop:6
-msgid "http://uptime.netcraft.com/up/graph?site=\\{@}"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/openstreetmap.desktop:6
+#, fuzzy
+msgid "https://www.openstreetmap.org/search?query=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:2
-msgid "Telephonebook Search Provider"
-msgstr "電話號碼簿搜尋提供者"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/nl-telephone.desktop:6
-msgid ""
-"http://www.detelefoongids.nl/tginl.dll?"
-"action=white&type=search&resultsperpage=25&pagestart=1&source=searchcategory&name2="
-"\\{1}&name=&initials=&city=\\{2}"
-"&citycode=&zipcode4=&street=&area=conditional&areacode=&region=&subscription=&country=&catcode=&dcity="
-"\\{2}&dname=\\{1}&dwhere=\\{2}&partnerid="
+#: ebrowsing/plugins/ikws/searchproviders/pexels.desktop:3
+msgid "Pexels"
 msgstr ""
 
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:2
-msgid "Teletekst Search Provider"
-msgstr "Teletekst 搜尋提供者"
-
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/nl-teletekst.desktop:6
-msgid "http://teletekst.nos.nl/gif/\\{@}-01.html"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/pexels.desktop:6
+#, fuzzy
+msgid "https://www.pexels.com/search/\\{@}/"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
@@ -1009,8 +1132,9 @@ msgstr "OpenPGP 金鑰搜尋"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
-msgid "http://pgp.dtype.org:11371/pks/lookup?search=\\{@}&op=vindex"
-msgstr ""
+#, fuzzy
+msgid "https://keys.openpgp.org/search?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
@@ -1019,52 +1143,169 @@ msgstr "PHP 搜尋"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
-msgid "http://www.php.net/search.php?show=\\{mode,\"manual\"}&pattern=\\{@}"
-msgstr ""
+#, fuzzy
+msgid "https://www.php.net/search.php?q=\\{@}"
+msgstr "http://www.google.com.tw/search?q=\\{@}&ie=UTF-8&oe=UTF-8&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/python.desktop:5
-msgid "Python Reference Manual"
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_images.desktop:3
+msgid "Pixabay Images"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_images.desktop:6
+#, fuzzy
+msgid "https://pixabay.com/images/search/\\{@}/"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_music.desktop:3
+msgid "Pixabay Music"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_music.desktop:6
+#, fuzzy
+msgid "https://pixabay.com/music/search/\\{@}/"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_sfx.desktop:3
+msgid "Pixabay Sound Effects"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_sfx.desktop:6
+#, fuzzy
+msgid "https://pixabay.com/sound-effects/search/\\{@}/"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_videos.desktop:3
+msgid "Pixabay Videos"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pixabay_videos.desktop:6
+#, fuzzy
+msgid "https://pixabay.com/videos/search/\\{@}/"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pkgs-org.desktop:3
+msgid "pkgs.org"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pkgs-org.desktop:6
+#, fuzzy
+msgid "https://pkgs.org/search/?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/pling.desktop:3
+msgid "Pling"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/pling.desktop:6
+#, fuzzy
+msgid "https://www.pling.com/find?search=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/python2.desktop:3
+#, fuzzy
+#| msgid "Python Reference Manual"
+msgid "Python 2 Reference Manual"
 msgstr "Python 參考手冊"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/python.desktop:6
-#, c-format
-msgid ""
-"http://www.google.com/search?sourceid=python-search&q=\\{@}"
-"&submit=Search&q=site%3Apython.org"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/python2.desktop:4
+#, fuzzy
+msgid "https://docs.python.org/2/search.html?q=\\{@}"
+msgstr "http://www.google.com.tw/search?q=\\{@}&ie=UTF-8&oe=UTF-8&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:5
-msgid "Latest Qt Online Documentation"
-msgstr "最新的 Qt 線上文件"
+#: ebrowsing/plugins/ikws/searchproviders/python3.desktop:3
+#, fuzzy
+#| msgid "Python Reference Manual"
+msgid "Python 3 Reference Manual"
+msgstr "Python 參考手冊"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/qt.desktop:6
-msgid "http://doc.trolltech.com/latest/\\{@}.html"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/python3.desktop:4
+#, fuzzy
+msgid "https://docs.python.org/3/search.html?q=\\{@}"
+msgstr "http://www.google.com.tw/search?q=\\{@}&ie=UTF-8&oe=UTF-8&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:5
-msgid "Qt3 Online Documentation"
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:3
+#, fuzzy
+#| msgid "Qt3 Online Documentation"
+msgid "Qt 3.3 Online Documentation"
 msgstr "Qt3 線上文件"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:6
-msgid "http://doc.trolltech.com/3.3/\\{@}.html"
+#: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:4
+msgid "https://doc.qt.io/archives/3.3/\\{@}.html"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/qt4.desktop:3
+#, fuzzy
+#| msgid "Qt3 Online Documentation"
+msgid "Qt 4.8 Online Documentation"
+msgstr "Qt3 線上文件"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt4.desktop:4
+msgid "https://doc.qt.io/archives/qt-4.8/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt5.desktop:3
+#, fuzzy
+#| msgid "Qt3 Online Documentation"
+msgid "Qt 5.15 LTS Online Documentation"
+msgstr "Qt3 線上文件"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt5.desktop:4
+msgid "https://doc.qt.io/archives/qt-5.15/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qt6.desktop:3
+#, fuzzy
+#| msgid "Qt3 Online Documentation"
+msgid "Qt 6 Online Documentation"
+msgstr "Qt3 線上文件"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qt6.desktop:4
+msgid "https://doc.qt.io/qt-6/\\{@}.html"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/qwant.desktop:3
+msgid "Qwant"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/qwant.desktop:6
+#, fuzzy
+msgid "https://www.qwant.com/?q=\\{@}&t=web"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:3
 msgid "Dictionary of the Spanish Academy (RAE)"
 msgstr "西班牙金像獎字典 (RAE)"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:6
-msgid ""
-"http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&LEMA=\\{@}"
-"&FORMATO=ampliado"
+#: ebrowsing/plugins/ikws/searchproviders/rae.desktop:4
+msgid "https://dle.rae.es/\\{@}"
 msgstr ""
 
 #. Name
@@ -1088,26 +1329,17 @@ msgid "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:3
-msgid "Ruby Application Archive"
-msgstr "Ruby 應用程式檔案庫"
+#: ebrowsing/plugins/ikws/searchproviders/slackpkg.desktop:3
+#, fuzzy
+#| msgid "Debian Package Search"
+msgid "Slackware Package Search"
+msgstr "Debian 套件搜尋"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/ruby_application_archive.desktop:6
-msgid "http://raa.ruby-lang.org/search.rhtml?search=\\{@}"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:3
-msgid "GO.com"
-msgstr ""
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/seek.desktop:6
-msgid ""
-"http://www.go.com/Titles?col=WW&qt=\\{@}"
-"&svx=home_searchbox&sv=IS&lk=noframeso"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/slackpkg.desktop:4
+#, fuzzy
+msgid "https://packages.slackware.com/?search=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
@@ -1116,138 +1348,421 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:4
-msgid ""
-"http://sourceforge.net/search/?type_of_search=\\{type,\"soft\"}&exact="
-"\\{exact,\"0\"}&words=\\{@}"
+msgid "https://sourceforge.net/directory/?q=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:3
-msgid "Technorati"
+#: ebrowsing/plugins/ikws/searchproviders/srht.desktop:3
+msgid "Sourcehut"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/technorati.desktop:6
-msgid "http://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/srht.desktop:6
+msgid "https://sr.ht/projects?search=\\{@}&sort=recently-updated"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:3
-msgid "Technorati Tags"
+#: ebrowsing/plugins/ikws/searchproviders/startpage.desktop:3
+msgid "StartPage"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/technoratitags.desktop:6
-msgid "http://technorati.com/tag/\\{@}?sourceid=kde-search"
-msgstr ""
+#: ebrowsing/plugins/ikws/searchproviders/startpage.desktop:6
+#, fuzzy
+#| msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgid "https://www.startpage.com/sp/search?query=\\{@}&cat=web"
+msgstr "http://www.google.com.tw/search?q=\\{@}&ie=UTF-8&oe=UTF-8&hl=zh-TW"
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:3
-msgid "Merriam-Webster Thesaurus"
-msgstr "韋氏辭典"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/thesaurus.desktop:6
-msgid "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:4
-msgid "TV Tome"
+#: ebrowsing/plugins/ikws/searchproviders/tdeapidocs.desktop:3
+msgid "TDE API docs"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/tvtome.desktop:6
-msgid "http://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:5
-msgid "U.S. Patent Database"
-msgstr "U.S. 專利權資料庫"
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/uspto.desktop:6
-msgid ""
-"http://patft.uspto.gov/netacgi/nph-Parser?TERM1=\\{@}"
-"&Sect1=PTO1&Sect2=HITOFF&d=PALL&p=1&u=/netahtml/srchnum.htm&r=0&f=S&l=50"
-msgstr ""
-
-#. Name
-#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:3
-msgid "Vivisimo"
-msgstr ""
-
-#. Query
-#: ebrowsing/plugins/ikws/searchproviders/vivisimo.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/tdeapidocs.desktop:6
 #, c-format
 msgid ""
-"http://vivisimo.com/search?query=\\{@}&se=Yahoo%2CAltaVista%2CMSN%2CFast%2COD"
-"%2CExcite%2CDirectHit%2CLooksmart%2CEuroseek&x=49&y=16"
+"https://duckduckgo.com/?sites=https%3A%2F%2Fwww.trinitydesktop.org%2Fdocs"
+"%2Ftrinity&q=\\{@}&ia=web"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:3
-msgid "Voila"
+#: ebrowsing/plugins/ikws/searchproviders/tdegw.desktop:3
+msgid "Trinity Gitea Workspace"
 msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/voila.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/tdegw.desktop:6
+msgid "https://mirror.git.trinitydesktop.org/gitea/explore/repos?q=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/tdewiki.desktop:3
+msgid "TDE Wiki"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/tdewiki.desktop:6
+#, c-format
 msgid ""
-"http://search.ke.voila.fr/S/voila?"
-"lg=fr&profil=geeks&rtype=kw&bhv=web_mondial&rdata=\\{@}"
+"https://wiki.trinitydesktop.org/index.php?title=Special%3ASearch&search=\\{@}"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:3
-msgid "Merriam-Webster Dictionary"
-msgstr "韋氏詞典"
+#: ebrowsing/plugins/ikws/searchproviders/tmdb.desktop:3
+#, fuzzy
+#| msgid "Internet Movie Database"
+msgid "The Movie Database (TMDB)"
+msgstr "Internet 電影資料庫"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/webster.desktop:6
-msgid "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/tmdb.desktop:6
+#, fuzzy
+msgid "https://www.themoviedb.org/search?query=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/tqt.desktop:3
+#, fuzzy
+#| msgid "Qt3 Online Documentation"
+msgid "TQt Online Documentation"
+msgstr "Qt3 線上文件"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/tqt.desktop:4
+msgid "https://trinitydesktop.org/docs/qt3/\\{@}.html"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:3
-msgid "Whatis Query"
-msgstr "Whatis 查詢"
+#: ebrowsing/plugins/ikws/searchproviders/trinity_look.desktop:3
+msgid "Trinity Look"
+msgstr ""
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/whatis.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/trinity_look.desktop:6
+#, fuzzy
+msgid "https://www.trinity-look.org/find?search=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/urbandic.desktop:3
+#, fuzzy
+msgid "Urban Dictionary"
+msgstr "HyperDictionary.com 辭典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/urbandic.desktop:6
+msgid "https://www.urbandictionary.com/define.php?term=\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiby.desktop:3
+msgid "Wiby"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiby.desktop:6
+#, fuzzy
+msgid "https://wiby.me/?q=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikimedia_commons.desktop:3
+msgid "Wikimedia Commons"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikimedia_commons.desktop:6
+#, c-format
 msgid ""
-"http://whatis.techtarget.com/wsearchResults/1,290214,,00.html?query=\\{@}"
+"https://commons.wikimedia.org/w/index.php?search=\\{@}&title=Special"
+"%3AMediaSearch&type=image"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:3
-msgid "Wikipedia - The Free Encyclopedia"
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_de.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (German) - The Free Encyclopedia"
 msgstr "Wikipedia - 免費的 Encyclopedia"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/wikipedia.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_de.desktop:6
+msgid "http://de.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_el.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Greek) - The Free Encyclopedia"
+msgstr "Wikipedia - 免費的 Encyclopedia"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_el.desktop:6
+msgid "http://el.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_en.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (English) - The Free Encyclopedia"
+msgstr "Wikipedia - 免費的 Encyclopedia"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_en.desktop:6
 msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:3
-msgid "Wiktionary - The Free Dictionary"
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_es.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Spanish) - The Free Encyclopedia"
+msgstr "Wikipedia - 免費的 Encyclopedia"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_es.desktop:6
+msgid "http://es.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_fr.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (French) - The Free Encyclopedia"
+msgstr "Wikipedia - 免費的 Encyclopedia"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_fr.desktop:6
+msgid "http://fr.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_it.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Italian) - The Free Encyclopedia"
+msgstr "Wikipedia - 免費的 Encyclopedia"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_it.desktop:6
+msgid "http://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_ja.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Japanese) - The Free Encyclopedia"
+msgstr "Wikipedia - 免費的 Encyclopedia"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_ja.desktop:6
+msgid "http://ja.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_pl.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Polish) - The Free Encyclopedia"
+msgstr "Wikipedia - 免費的 Encyclopedia"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_pl.desktop:6
+msgid "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_ru.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Russian) - The Free Encyclopedia"
+msgstr "Wikipedia - 免費的 Encyclopedia"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_ru.desktop:6
+msgid "http://ru.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_zh.desktop:3
+#, fuzzy
+#| msgid "Wikipedia - The Free Encyclopedia"
+msgid "Wikipedia (Chinese) - The Free Encyclopedia"
+msgstr "Wikipedia - 免費的 Encyclopedia"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wikipedia_zh.desktop:6
+msgid "http://zh.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_de.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (German) - The Free Dictionary"
 msgstr "Wiktionary - 免費的字典"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/wiktionary.desktop:6
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_de.desktop:6
+msgid "http://de.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_el.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Greek) - The Free Dictionary"
+msgstr "Wiktionary - 免費的字典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_el.desktop:6
+msgid "http://el.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_en.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (English) - The Free Dictionary"
+msgstr "Wiktionary - 免費的字典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_en.desktop:6
 msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgstr ""
 
 #. Name
-#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:5
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_es.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Spanish) - The Free Dictionary"
+msgstr "Wiktionary - 免費的字典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_es.desktop:6
+msgid "http://es.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_fr.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (French) - The Free Dictionary"
+msgstr "Wiktionary - 免費的字典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_fr.desktop:6
+msgid "http://fr.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_it.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Italian) - The Free Dictionary"
+msgstr "Wiktionary - 免費的字典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_it.desktop:6
+msgid "http://it.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_ja.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Japanese) - The Free Dictionary"
+msgstr "Wiktionary - 免費的字典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_ja.desktop:6
+msgid "http://ja.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_pl.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Polish) - The Free Dictionary"
+msgstr "Wiktionary - 免費的字典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_pl.desktop:6
+msgid "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_ru.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Russian) - The Free Dictionary"
+msgstr "Wiktionary - 免費的字典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_ru.desktop:6
+msgid "http://ru.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_zh.desktop:3
+#, fuzzy
+#| msgid "Wiktionary - The Free Dictionary"
+msgid "Wiktionary (Chinese) - The Free Dictionary"
+msgstr "Wiktionary - 免費的字典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wiktionary_zh.desktop:6
+msgid "http://zh.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:3
 msgid "WordReference.com English Dictionary"
 msgstr "WordReference.com 英文字典"
 
 #. Query
-#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:6
-msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+#: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:4
+msgid "https://www.wordreference.com/definition/\\{@}"
 msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/wordref_synonyms.desktop:3
+#, fuzzy
+#| msgid "WordReference.com English Dictionary"
+msgid "WordReference.com English Synonyms"
+msgstr "WordReference.com 英文字典"
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/wordref_synonyms.desktop:4
+msgid "https://www.wordreference.com/synonyms/\\{@}"
+msgstr ""
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/yahoo.desktop:3
+msgid "Yahoo"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/yahoo.desktop:6
+#, fuzzy
+#| msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgid "https://search.yahoo.com/search?p=\\{@}&ei=UTF-8"
+msgstr "http://www.google.com.tw/search?q=\\{@}&ie=UTF-8&oe=UTF-8&hl=zh-TW"
+
+#. Name
+#: ebrowsing/plugins/ikws/searchproviders/yandex.desktop:3
+msgid "Yandex"
+msgstr ""
+
+#. Query
+#: ebrowsing/plugins/ikws/searchproviders/yandex.desktop:6
+#, fuzzy
+msgid "https://yandex.com/search/?text=\\{@}"
+msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
 
 #. Name
 #: ebrowsing/plugins/localdomain/localdomainurifilter.desktop:3
@@ -2571,3 +3086,73 @@ msgstr "設定 TDE 支援多重顯示器"
 #: xinerama/xinerama.desktop:14
 msgid "Xinerama;dual head;multihead;monitor;"
 msgstr ""
+
+#~ msgid "Acronym Database"
+#~ msgstr "Acronym 資料庫"
+
+#, fuzzy
+#~ msgid "http://info.alexa.com/data/details?url=\\{@}"
+#~ msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#~ msgid "KDE App Search"
+#~ msgstr "KDE 程式搜尋"
+
+#~ msgid "Debian Backports Search"
+#~ msgstr "Debian Backports 搜尋"
+
+#~ msgid "QRZ.com Callsign Database"
+#~ msgstr "QRZ.com Callsign 資料庫"
+
+#, fuzzy, c-format
+#~ msgid ""
+#~ "http://www.google.com/search?q=allintitle%3A\\{@}+world+factbook+site"
+#~ "%3Awww.cia.gov&ie=UTF-8&btnI=I%27m+Feeling+Lucky"
+#~ msgstr ""
+#~ "http://www.google.com.tw/search?q=\\{@}&btnI=I%27m+Feeling"
+#~ "+Lucky&ie=UTF-8&oe=UTF-8&hl=zh-TW"
+
+#~ msgid "CTAN Catalog"
+#~ msgstr "CTAN 目錄"
+
+#~ msgid "Open Directory"
+#~ msgstr "開啟目錄"
+
+#, fuzzy
+#~ msgid "http://froogle.google.com/froogle?q=\\{@}"
+#~ msgstr "http://images.google.com.tw/images?q=\\{@}&hl=zh-TW"
+
+#~ msgid "Google Groups"
+#~ msgstr "Google 群組"
+
+#~ msgid "http://groups.google.com/groups?oi=djq&as_q=\\{@}"
+#~ msgstr "http://groups.google.com.tw/groups?oi=djq&as_q=\\{@}"
+
+#~ msgid "HyperDictionary.com Thesaurus"
+#~ msgstr "HyperDictionary.com 辭典"
+
+#~ msgid "KDE API Documentation"
+#~ msgstr "KDE API 文件"
+
+#~ msgid "Mamma - Mother of all Search Engines"
+#~ msgstr "Mamma - 搜尋引擎之母"
+
+#~ msgid "Microsoft Developer Network Search"
+#~ msgstr "微軟開發者網路搜尋"
+
+#~ msgid "Telephonebook Search Provider"
+#~ msgstr "電話號碼簿搜尋提供者"
+
+#~ msgid "Teletekst Search Provider"
+#~ msgstr "Teletekst 搜尋提供者"
+
+#~ msgid "Latest Qt Online Documentation"
+#~ msgstr "最新的 Qt 線上文件"
+
+#~ msgid "Ruby Application Archive"
+#~ msgstr "Ruby 應用程式檔案庫"
+
+#~ msgid "U.S. Patent Database"
+#~ msgstr "U.S. 專利權資料庫"
+
+#~ msgid "Whatis Query"
+#~ msgstr "Whatis 查詢"
