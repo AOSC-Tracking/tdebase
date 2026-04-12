@@ -176,7 +176,7 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
            this, TQ_SLOT( slotChanged() ) );
 
   // GROUP with the one below: "Meta-informations"
-  bgStartup = new TQButtonGroup( 2, TQt::Horizontal, i18n("Meta-Information"), frGeneral );
+  bgStartup = new TQButtonGroup( 1, TQt::Horizontal, i18n("Meta-Information"), frGeneral );
   lo->addWidget( bgStartup );
 
   // save meta infos
@@ -190,15 +190,20 @@ KateConfigDialog::KateConfigDialog ( KateMainWindow *parent, Kate::View *view )
   connect( cb_saveMetaInfos, TQ_SIGNAL( toggled( bool ) ), this, TQ_SLOT( slotChanged() ) );
 
   // meta infos days
-  TQHBox *hbDmf = new TQHBox( bgStartup );
-  hbDmf->setEnabled(KateDocManager::self()->getSaveMetaInfos());
-  TQLabel *lDmf = new TQLabel( i18n("&Delete unused meta-information after:"), hbDmf );
-  sb_daysMetaInfos = new TQSpinBox( 0, 180, 1, hbDmf );
+  TQWidget *wDmf = new TQWidget( bgStartup );
+  wDmf->setEnabled(KateDocManager::self()->getSaveMetaInfos());
+  TQLayout *layDmf = new TQHBoxLayout(wDmf);
+  TQLayout *layLabelDmf = new TQHBoxLayout(layDmf);
+  layLabelDmf->addItem(new TQSpacerItem(20,1, TQSizePolicy::Fixed));
+  TQLabel *lDmf = new TQLabel( i18n("&Delete unused meta-information after:"), wDmf);
+  layLabelDmf->add(lDmf);
+  sb_daysMetaInfos = new TQSpinBox( 0, 180, 1, wDmf );
   sb_daysMetaInfos->setSpecialValueText(i18n("(never)"));
   sb_daysMetaInfos->setSuffix(i18n(" day(s)"));
   sb_daysMetaInfos->setValue( KateDocManager::self()->getDaysMetaInfos() );
+  layDmf->add(sb_daysMetaInfos);
   lDmf->setBuddy( sb_daysMetaInfos );
-  connect( cb_saveMetaInfos, TQ_SIGNAL( toggled( bool ) ), hbDmf, TQ_SLOT( setEnabled( bool ) ) );
+  connect( cb_saveMetaInfos, TQ_SIGNAL( toggled( bool ) ), wDmf, TQ_SLOT( setEnabled( bool ) ) );
   connect( sb_daysMetaInfos, TQ_SIGNAL( valueChanged ( int ) ), this, TQ_SLOT( slotChanged() ) );
 
   lo->addStretch(1); // :-] works correct without autoadd
