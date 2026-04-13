@@ -43,7 +43,7 @@ SearchProviderDialog::SearchProviderDialog(SearchProvider *provider, const TQStr
 
     enableButtonSeparator(true);
 
-    m_dlg->leQuery->setMinimumWidth(kApp->fontMetrics().maxWidth() * 16);
+    m_dlg->leQuery->setMinimumWidth(kapp->fontMetrics().maxWidth() * 16);
     m_dlg->cbCategory->setDuplicatesEnabled(false);
     m_dlg->cbCategory->setEditable(true);
 
