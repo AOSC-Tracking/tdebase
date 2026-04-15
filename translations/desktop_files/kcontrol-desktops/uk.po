@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Roman Savochenko <roman@oscada.org>, 2020, 2024.
+# Roman Savochenko <roman@oscada.org>, 2020, 2024, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-12 18:16+0000\n"
-"PO-Revision-Date: 2024-10-02 18:11+0000\n"
+"PO-Revision-Date: 2026-04-16 07:55+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/uk/>\n"
@@ -14,9 +14,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -328,27 +328,27 @@ msgstr "Механізм пошуку"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/academic_en.desktop:3
-#, fuzzy
-#| msgid "WordReference.com English Dictionary"
 msgid "Academic English Dictionaries"
-msgstr "Англійський словник WordReference.com"
+msgstr "Академічні Англійські Словники"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/academic_en.desktop:6
 msgid ""
 "https://en-academic.com/searchall.php?SWord=\\{@}&from=en&to=xx&did=&stype="
 msgstr ""
+"https://en-academic.com/searchall.php?SWord=\\{@}&from=en&to=xx&did=&stype="
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/academic_ru.desktop:3
 msgid "Academic Russian Dictionaries"
-msgstr ""
+msgstr "Академічні Російські Словники"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/academic_ru.desktop:6
 msgid ""
 "https://dic.academic.ru/searchall.php?SWord=\\{@}&from=ru&to=xx&did=&stype="
 msgstr ""
+"https://dic.academic.ru/searchall.php?SWord=\\{@}&from=ru&to=xx&did=&stype="
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:4
@@ -357,116 +357,96 @@ msgstr "Посібник Всієї Музики"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/amg.desktop:5
-#, fuzzy
-#| msgid "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
 msgid "https://www.allmusic.com/search/all/\\{@}"
-msgstr "http://www.allmusic.com/cg/amg.dll?p=amg&opt1=1&sql=\\{@}"
+msgstr "https://www.allmusic.com/search/all/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/archpkg.desktop:3
-#, fuzzy
-#| msgid "Debian Package Search"
 msgid "Arch Package Search"
-msgstr "Пошук пакунків для Debian"
+msgstr "Пошук пакунків для Arch"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/archpkg.desktop:4
-#, fuzzy
-#| msgid "http://www.backports.org/package.php?search=\\{@}"
 msgid "https://archlinux.org/packages/?q=\\{@}"
-msgstr "http://www.backports.org/package.php?search=\\{@}"
+msgstr "https://archlinux.org/packages/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/archwiki.desktop:3
 msgid "Arch Wiki"
-msgstr ""
+msgstr "Arch Wiki"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/archwiki.desktop:6
-#, fuzzy, c-format
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+#, c-format
 msgid ""
 "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=\\{@}"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+"https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/arxiv.desktop:3
 msgid "ArXiv"
-msgstr ""
+msgstr "ArXiv"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/arxiv.desktop:4
 msgid "https://arxiv.org/search/?query=\\{terms,@}&searchtype=\\{type,\"all\"}"
-msgstr ""
+msgstr "https://arxiv.org/search/?query=\\{terms,@}&searchtype=\\{type,\"all\"}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ask.desktop:3
-#, fuzzy
-#| msgid "GO.com"
 msgid "Ask.com"
-msgstr "GO.com"
+msgstr "Ask.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ask.desktop:6
-#, fuzzy
-#| msgid "http://www.dict.cc/?s=\\{@}"
 msgid "https://www.ask.com/web?q=\\{@}"
-msgstr "http://www.dict.cc/?s=\\{@}"
+msgstr "https://www.ask.com/web?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/aur.desktop:3
 msgid "Arch User Repository (AUR) Package Search"
-msgstr ""
+msgstr "Пошук Пакетів за Користувацьким Репозиторієм Arch (AUR)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/aur.desktop:4
-#, fuzzy
-#| msgid "http://www.backports.org/package.php?search=\\{@}"
 msgid "https://aur.archlinux.org/packages?K=\\{@}"
-msgstr "http://www.backports.org/package.php?search=\\{@}"
+msgstr "https://aur.archlinux.org/packages?K=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/baidu.desktop:3
 msgid "Baidu"
-msgstr ""
+msgstr "Baidu"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/baidu.desktop:6
-#, fuzzy
-#| msgid "http://www.dict.cc/?s=\\{@}"
 msgid "https://www.baidu.com/s?wd=\\{@}"
-msgstr "http://www.dict.cc/?s=\\{@}"
+msgstr "https://www.baidu.com/s?wd=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bing.desktop:3
 msgid "Bing"
-msgstr ""
+msgstr "Bing"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bing.desktop:6
-#, fuzzy
-#| msgid "http://info.alexa.com/search?q=\\{@}"
 msgid "https://www.bing.com/search?q=\\{@}"
-msgstr "http://info.alexa.com/search?q=\\{@}"
+msgstr "https://www.bing.com/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/brave.desktop:3
 msgid "Brave"
-msgstr ""
+msgstr "Brave"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/brave.desktop:6
-#, fuzzy
-#| msgid "http://search.excite.com/search.gw?search=\\{@}"
 msgid "https://search.brave.com/search?q=\\{@}&source=web"
-msgstr "http://search.excite.com/search.gw?search=\\{@}"
+msgstr "https://search.brave.com/search?q=\\{@}&source=web"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
-#, fuzzy
-#| msgid "KDE Bug Database Fulltext Search"
 msgid "Old TDE Bugzilla Fulltext Search"
-msgstr "Повнотекстовий пошук у базі даних KDE"
+msgstr "Повнотекстовий Пошук за Старою TDE Bugzilla"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:4
@@ -479,10 +459,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
-#, fuzzy
-#| msgid "TDE Bug Database Bug Number Search"
 msgid "Old TDE Bugzilla Bug Number Search"
-msgstr "Пошук у базі даних помилок TDE по номеру"
+msgstr "Пошук Номеру за Старою TDE Bugzilla"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:4
@@ -492,14 +470,12 @@ msgstr "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/chatgpt.desktop:3
 msgid "ChatGPT"
-msgstr ""
+msgstr "ChatGPT"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/chatgpt.desktop:6
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://chat.openai.com/?prompt=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://chat.openai.com/?prompt=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:3
@@ -508,20 +484,18 @@ msgstr "CiteSeer: цифрова бібліотека наукової літе�
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/citeseer.desktop:4
-#, fuzzy
-#| msgid "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
 msgid "https://citeseer.ist.psu.edu/search_result?query=\\{@}&pdf=true"
-msgstr "http://citeseer.ist.psu.edu/cs?q=\\{@}&submit=Search+Documents&cs=1"
+msgstr "https://citeseer.ist.psu.edu/search_result?query=\\{@}&pdf=true"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/codeberg.desktop:3
 msgid "Codeberg"
-msgstr ""
+msgstr "Codeberg"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/codeberg.desktop:6
 msgid "https://codeberg.org/explore/repos?q=\\{@}&only_show_relevant=0"
-msgstr ""
+msgstr "https://codeberg.org/explore/repos?q=\\{@}&only_show_relevant=0"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:3
@@ -530,20 +504,18 @@ msgstr "CPAN - Всеосяжна мережа архівів Perl"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/cpan.desktop:4
-#, fuzzy
-#| msgid "http://info.alexa.com/search?q=\\{@}"
 msgid "https://metacpan.org/search?size=20&q=\\{@}"
-msgstr "http://info.alexa.com/search?q=\\{@}"
+msgstr "https://metacpan.org/search?size=20&q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/cppreference.desktop:3
 msgid "CPPReference"
-msgstr ""
+msgstr "ПосиланняCPP"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/cppreference.desktop:6
 msgid "https://duckduckgo.com/?sites=cppreference.com&q=\\{@}&ia=web"
-msgstr ""
+msgstr "https://duckduckgo.com/?sites=cppreference.com&q=\\{@}&ia=web"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:3
@@ -552,17 +524,13 @@ msgstr "CTAN - Всеосяжна мережа архівів TeX"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ctan.desktop:4
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://ctan.org/search?phrase=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://ctan.org/search?phrase=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan_file.desktop:3
-#, fuzzy
-#| msgid "CTAN - Comprehensive TeX Archive Network"
 msgid "CTAN File Name Search - Comprehensive TeX Archive Network"
-msgstr "CTAN - Всеосяжна мережа архівів TeX"
+msgstr "Пошук Ім'я Файлу CTAN - Охоплююча Архівна Мережа TeX"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ctan_file.desktop:4
@@ -570,18 +538,18 @@ msgid ""
 "https://ctan.org/search?phrase=\\{@}"
 "&ext=true&_PKG=&_AUTHORS=&_TOPICS=&_FILES=&FILES=on&_PORTAL=&max=16"
 msgstr ""
+"https://ctan.org/search?phrase=\\"
+"{@}&ext=true&_PKG=&_AUTHORS=&_TOPICS=&_FILES=&FILES=on&_PORTAL=&max=16"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/curlie.desktop:3
 msgid "Curlie"
-msgstr ""
+msgstr "Curlie"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/curlie.desktop:6
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://curlie.org/search?q=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://curlie.org/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
@@ -627,15 +595,13 @@ msgstr "http://packages.debian.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/devuanpkg.desktop:3
-#, fuzzy
-#| msgid "Debian Package Search"
 msgid "Devuan Package Search"
-msgstr "Пошук пакунків для Debian"
+msgstr "Пошук пакунків для Devuan"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/devuanpkg.desktop:4
 msgid "https://pkginfo.devuan.org/cgi-bin/policy-query.html?c=package&q=\\{@}"
-msgstr ""
+msgstr "https://pkginfo.devuan.org/cgi-bin/policy-query.html?c=package&q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:3
@@ -644,10 +610,8 @@ msgstr "Посібник визначень DocBook"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/docbook.desktop:4
-#, fuzzy
-#| msgid "http://www.docbook.org/tdg/en/html/\\{1}.html"
 msgid "http://tdg.docbook.org/tdg/4.5/\\{1}"
-msgstr "http://www.docbook.org/tdg/en/html/\\{1}.html"
+msgstr "http://tdg.docbook.org/tdg/4.5/\\{1}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/doi.desktop:3
@@ -662,50 +626,42 @@ msgstr "http://dx.doi.org/\\{@}"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/duckduckgo.desktop:3
 msgid "DuckDuckGo"
-msgstr ""
+msgstr "DuckDuckGo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/duckduckgo.desktop:6
-#, fuzzy
-#| msgid "http://imdb.com/Find?\\{@}"
 msgid "https://duckduckgo.com/?q=\\{@}"
-msgstr "http://imdb.com/Find?\\{@}"
+msgstr "https://duckduckgo.com/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/duckduckgo_html.desktop:3
 msgid "DuckDuckGo HTML"
-msgstr ""
+msgstr "DuckDuckGo HTML"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/duckduckgo_html.desktop:6
-#, fuzzy
-#| msgid "http://images.google.com/images?q=\\{@}"
 msgid "https://html.duckduckgo.com/html/?q=\\{@}"
-msgstr "http://images.google.com/images?q=\\{@}"
+msgstr "https://html.duckduckgo.com/html/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/duckduckgo_lite.desktop:3
 msgid "DuckDuckGo Lite"
-msgstr ""
+msgstr "Легкий DuckDuckGo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/duckduckgo_lite.desktop:6
-#, fuzzy
-#| msgid "http://images.google.com/images?q=\\{@}"
 msgid "https://lite.duckduckgo.com/lite/?q=\\{@}"
-msgstr "http://images.google.com/images?q=\\{@}"
+msgstr "https://lite.duckduckgo.com/lite/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ecosia.desktop:3
 msgid "Ecosia"
-msgstr ""
+msgstr "Ecosia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ecosia.desktop:6
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://www.ecosia.org/search?q=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://www.ecosia.org/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/en2de.desktop:3
@@ -759,10 +715,8 @@ msgstr "Excite"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/excite.desktop:6
-#, fuzzy
-#| msgid "http://search.excite.com/search.gw?search=\\{@}"
 msgid "https://search.excite.com/serp?q=\\{@}"
-msgstr "http://search.excite.com/search.gw?search=\\{@}"
+msgstr "https://search.excite.com/serp?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:3
@@ -771,10 +725,8 @@ msgstr "Вільний словник з інформатики в мережі"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/foldoc.desktop:6
-#, fuzzy
-#| msgid "http://dx.doi.org/\\{@}"
 msgid "https://foldoc.org/\\{@}"
-msgstr "http://dx.doi.org/\\{@}"
+msgstr "https://foldoc.org/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2de.desktop:3
@@ -803,53 +755,44 @@ msgstr "http://directory.fsf.org/search/?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/gentoopkg.desktop:3
-#, fuzzy
-#| msgid "Debian Package Search"
 msgid "Gentoo Package Search"
-msgstr "Пошук пакунків для Debian"
+msgstr "Пошук пакунків для Gentoo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/gentoopkg.desktop:4
-#, fuzzy
-#| msgid "http://www.backports.org/package.php?search=\\{@}"
 msgid "https://packages.gentoo.org/packages/search?q=\\{@}"
-msgstr "http://www.backports.org/package.php?search=\\{@}"
+msgstr "https://packages.gentoo.org/packages/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/gentoowiki.desktop:3
 msgid "Gentoo Wiki"
-msgstr ""
+msgstr "Gentoo Wiki"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/gentoowiki.desktop:6
-#, fuzzy, c-format
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+#, c-format
 msgid "https://wiki.gentoo.org/index.php?title=Special%3ASearch&search=\\{@}"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "https://wiki.gentoo.org/index.php?title=Special%3ASearch&search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/github.desktop:3
 msgid "Github"
-msgstr ""
+msgstr "Github"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/github.desktop:6
-#, fuzzy
-#| msgid "http://info.alexa.com/search?q=\\{@}"
 msgid "https://github.com/search?q=\\{@}&type=repositories"
-msgstr "http://info.alexa.com/search?q=\\{@}"
+msgstr "https://github.com/search?q=\\{@}&type=repositories"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/gnudb.desktop:3
 msgid "GnuDB"
-msgstr ""
+msgstr "GnuDB"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/gnudb.desktop:6
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://gnudb.org/search/\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://gnudb.org/search/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:3
@@ -908,17 +851,13 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_maps.desktop:3
-#, fuzzy
-#| msgid "Google Movies"
 msgid "Google Maps"
-msgstr "Фільми на Google"
+msgstr "Карти Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_maps.desktop:6
-#, fuzzy
-#| msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
 msgid "https://www.google.com/maps/search/\\{@}"
-msgstr "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "https://www.google.com/maps/search/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
@@ -942,25 +881,18 @@ msgstr "http://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_scholar.desktop:3
-#, fuzzy
-#| msgid "Google Image Search"
 msgid "Google Scholar"
-msgstr "Пошук зображень на Google"
+msgstr "Вчення Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_scholar.desktop:6
-#, fuzzy
-#| msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
 msgid "http://scholar.google.com/scholar?q=\\{@}&ie=UTF-8&oe=UTF-8"
-msgstr "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://scholar.google.com/scholar?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:3
-#, fuzzy
-#| msgid ""
-#| "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
 msgid "Great Dictionary of the Catalan Language (Gran Enciclopèdia Catalana)"
-msgstr "Великий словник каталонської мови (GRan Enciclopèdia Catalana)"
+msgstr "Великий Словник Каталонської Мови (Gran Enciclopèdia Catalana)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:4
@@ -968,6 +900,8 @@ msgid ""
 "https://www.enciclopedia.cat/cerca/gec?search_api_fulltext=\\{@}"
 "&field_faceta_cerca_1=All"
 msgstr ""
+"https://www.enciclopedia.cat/cerca/gec?search_api_fulltext=\\"
+"{@}&field_faceta_cerca_1=All"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:3
@@ -976,24 +910,18 @@ msgstr "HyperDictionary.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/hyperdictionary.desktop:6
-#, fuzzy
-#| msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
 msgid "https://hyperdictionary.com/dictionary/\\{@}"
-msgstr "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
+msgstr "https://hyperdictionary.com/dictionary/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
-#, fuzzy
-#| msgid "Internet Movie Database"
 msgid "Internet Movie Database (IMDb)"
-msgstr "База даних кінофільмів в Інтернет"
+msgstr "База Даних Кінофільмів в Інтернет (IMDb)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:6
-#, fuzzy
-#| msgid "http://imdb.com/Find?\\{@}"
 msgid "https://www.imdb.com/find/?q=\\{@}"
-msgstr "http://imdb.com/Find?\\{@}"
+msgstr "https://www.imdb.com/find/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/it2en.desktop:3
@@ -1008,50 +936,42 @@ msgstr "http://www.wordreference.com/it/en/translation.asp?iten=\\{@}"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/jstor.desktop:3
 msgid "JSTOR"
-msgstr ""
+msgstr "JSTOR"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/jstor.desktop:6
-#, fuzzy
-#| msgid "http://directory.fsf.org/search/?query=\\{@}"
 msgid "https://www.jstor.org/action/doBasicSearch?Query=\\{@}&so=rel"
-msgstr "http://directory.fsf.org/search/?query=\\{@}"
+msgstr "https://www.jstor.org/action/doBasicSearch?Query=\\{@}&so=rel"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kagi.desktop:3
 msgid "Kagi (paid)"
-msgstr ""
+msgstr "Kagi (оплачене)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kagi.desktop:6
-#, fuzzy
-#| msgid "http://info.alexa.com/search?q=\\{@}"
 msgid "https://kagi.com/search?q=\\{@}"
-msgstr "http://info.alexa.com/search?q=\\{@}"
+msgstr "https://kagi.com/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kagiassistant.desktop:3
 msgid "Kagi Assistant (paid)"
-msgstr ""
+msgstr "Асистент Kagi (оплачене)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kagiassistant.desktop:6
-#, fuzzy
-#| msgid "http://imdb.com/Find?\\{@}"
 msgid "https://kagi.com/assistant/?q=\\{@}"
-msgstr "http://imdb.com/Find?\\{@}"
+msgstr "https://kagi.com/assistant/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kde_store.desktop:3
 msgid "KDE Store"
-msgstr ""
+msgstr "Магазин KDE"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kde_store.desktop:6
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://store.kde.org/find?search=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://store.kde.org/find?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/leo.desktop:3
@@ -1066,15 +986,14 @@ msgstr "http://dict.leo.org/?search=\\{@}"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/linuxquestions.desktop:3
 msgid "LinuxQuestions.org"
-msgstr ""
+msgstr "LinuxQuestions.org"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/linuxquestions.desktop:6
-#, fuzzy
-#| msgid "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
 msgid ""
 "https://www.linuxquestions.org/questions/search.php?query=\\{@}&do=process"
-msgstr "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
+msgstr ""
+"https://www.linuxquestions.org/questions/search.php?query=\\{@}&do=process"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:3
@@ -1083,22 +1002,18 @@ msgstr "Lycos"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/lycos.desktop:6
-#, fuzzy
-#| msgid "http://search.excite.com/search.gw?search=\\{@}"
 msgid "https://search.lycos.com/web/?q=\\{@}"
-msgstr "http://search.excite.com/search.gw?search=\\{@}"
+msgstr "https://search.lycos.com/web/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/mdn.desktop:3
 msgid "MDN Web Docs"
-msgstr ""
+msgstr "Web Документація MDN"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/mdn.desktop:6
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://developer.mozilla.org/search?q=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://developer.mozilla.org/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:3
@@ -1107,22 +1022,18 @@ msgstr "MetaCrawler"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/metacrawler.desktop:6
-#, fuzzy
-#| msgid "http://search.excite.com/search.gw?search=\\{@}"
 msgid "https://search.metacrawler.com/serp?q=\\{@}"
-msgstr "http://search.excite.com/search.gw?search=\\{@}"
+msgstr "https://search.metacrawler.com/serp?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:3
 msgid "Microsoft Learn (MSDN)"
-msgstr ""
+msgstr "Навчання Microsoft (MSDN)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/msdn.desktop:6
-#, fuzzy
-#| msgid "http://search.excite.com/search.gw?search=\\{@}"
 msgid "https://learn.microsoft.com/search/?terms=\\{@}"
-msgstr "http://search.excite.com/search.gw?search=\\{@}"
+msgstr "https://learn.microsoft.com/search/?terms=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/mw.desktop:3
@@ -1131,10 +1042,8 @@ msgstr "Словник Merriam-Webster"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/mw.desktop:6
-#, fuzzy
-#| msgid "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
 msgid "https://www.merriam-webster.com/dictionary/\\{@}"
-msgstr "http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}"
+msgstr "https://www.merriam-webster.com/dictionary/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/mw_thesaurus.desktop:3
@@ -1143,34 +1052,28 @@ msgstr "Словник синонімів Merriam-Webster"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/mw_thesaurus.desktop:6
-#, fuzzy
-#| msgid "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
 msgid "https://www.merriam-webster.com/thesaurus/\\{@}"
-msgstr "http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}"
+msgstr "https://www.merriam-webster.com/thesaurus/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/openstreetmap.desktop:3
 msgid "OpenStreetMap"
-msgstr ""
+msgstr "МапаOpenStreet"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/openstreetmap.desktop:6
-#, fuzzy
-#| msgid "http://directory.fsf.org/search/?query=\\{@}"
 msgid "https://www.openstreetmap.org/search?query=\\{@}"
-msgstr "http://directory.fsf.org/search/?query=\\{@}"
+msgstr "https://www.openstreetmap.org/search?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pexels.desktop:3
 msgid "Pexels"
-msgstr ""
+msgstr "Pexels"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pexels.desktop:6
-#, fuzzy
-#| msgid "http://info.alexa.com/search?q=\\{@}"
 msgid "https://www.pexels.com/search/\\{@}/"
-msgstr "http://info.alexa.com/search?q=\\{@}"
+msgstr "https://www.pexels.com/search/\\{@}/"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
@@ -1179,10 +1082,8 @@ msgstr "Пошук ключів OpenPGP"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://keys.openpgp.org/search?q=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://keys.openpgp.org/search?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
@@ -1191,178 +1092,138 @@ msgstr "Пошук PHP"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
-#, fuzzy
-#| msgid "http://freshmeat.net/search/?q=\\{@}"
 msgid "https://www.php.net/search.php?q=\\{@}"
-msgstr "http://freshmeat.net/search/?q=\\{@}"
+msgstr "https://www.php.net/search.php?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pixabay_images.desktop:3
 msgid "Pixabay Images"
-msgstr ""
+msgstr "Зображення Pixabay"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pixabay_images.desktop:6
-#, fuzzy
-#| msgid "http://info.alexa.com/search?q=\\{@}"
 msgid "https://pixabay.com/images/search/\\{@}/"
-msgstr "http://info.alexa.com/search?q=\\{@}"
+msgstr "https://pixabay.com/images/search/\\{@}/"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pixabay_music.desktop:3
 msgid "Pixabay Music"
-msgstr ""
+msgstr "Музика Pixabay"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pixabay_music.desktop:6
-#, fuzzy
-#| msgid "http://info.alexa.com/search?q=\\{@}"
 msgid "https://pixabay.com/music/search/\\{@}/"
-msgstr "http://info.alexa.com/search?q=\\{@}"
+msgstr "https://pixabay.com/music/search/\\{@}/"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pixabay_sfx.desktop:3
 msgid "Pixabay Sound Effects"
-msgstr ""
+msgstr "Звукові Ефекти Pixabay"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pixabay_sfx.desktop:6
-#, fuzzy
-#| msgid "http://info.alexa.com/search?q=\\{@}"
 msgid "https://pixabay.com/sound-effects/search/\\{@}/"
-msgstr "http://info.alexa.com/search?q=\\{@}"
+msgstr "https://pixabay.com/sound-effects/search/\\{@}/"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pixabay_videos.desktop:3
 msgid "Pixabay Videos"
-msgstr ""
+msgstr "Відео Pixabay"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pixabay_videos.desktop:6
-#, fuzzy
-#| msgid "http://info.alexa.com/search?q=\\{@}"
 msgid "https://pixabay.com/videos/search/\\{@}/"
-msgstr "http://info.alexa.com/search?q=\\{@}"
+msgstr "https://pixabay.com/videos/search/\\{@}/"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pkgs-org.desktop:3
 msgid "pkgs.org"
-msgstr ""
+msgstr "pkgs.org"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pkgs-org.desktop:6
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://pkgs.org/search/?q=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://pkgs.org/search/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pling.desktop:3
 msgid "Pling"
-msgstr ""
+msgstr "Pling"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pling.desktop:6
-#, fuzzy
-#| msgid "http://www.dict.cc/?s=\\{@}"
 msgid "https://www.pling.com/find?search=\\{@}"
-msgstr "http://www.dict.cc/?s=\\{@}"
+msgstr "https://www.pling.com/find?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/python2.desktop:3
-#, fuzzy
-#| msgid "Python Reference Manual"
 msgid "Python 2 Reference Manual"
-msgstr "Довідник по Python"
+msgstr "Довідковий Посібник Python 2"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/python2.desktop:4
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://docs.python.org/2/search.html?q=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://docs.python.org/2/search.html?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/python3.desktop:3
-#, fuzzy
-#| msgid "Python Reference Manual"
 msgid "Python 3 Reference Manual"
-msgstr "Довідник по Python"
+msgstr "Довідковий Посібник Python 3"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/python3.desktop:4
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://docs.python.org/3/search.html?q=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://docs.python.org/3/search.html?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:3
-#, fuzzy
-#| msgid "Qt3 Online Documentation"
 msgid "Qt 3.3 Online Documentation"
-msgstr "Документація Qt3"
+msgstr "Мережева Документація Qt 3.3"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:4
-#, fuzzy
-#| msgid "http://doc.trolltech.com/3.3/\\{@}.html"
 msgid "https://doc.qt.io/archives/3.3/\\{@}.html"
-msgstr "http://doc.trolltech.com/3.3/\\{@}.html"
+msgstr "https://doc.qt.io/archives/3.3/\\{@}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt4.desktop:3
-#, fuzzy
-#| msgid "Qt3 Online Documentation"
 msgid "Qt 4.8 Online Documentation"
-msgstr "Документація Qt3"
+msgstr "Мережева Документація Qt 4.8"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt4.desktop:4
-#, fuzzy
-#| msgid "http://doc.trolltech.com/latest/\\{@}.html"
 msgid "https://doc.qt.io/archives/qt-4.8/\\{@}.html"
-msgstr "http://doc.trolltech.com/latest/\\{@}.html"
+msgstr "https://doc.qt.io/archives/qt-4.8/\\{@}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt5.desktop:3
-#, fuzzy
-#| msgid "Qt3 Online Documentation"
 msgid "Qt 5.15 LTS Online Documentation"
-msgstr "Документація Qt3"
+msgstr "Мережева Документація Qt 5.15 LTS"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt5.desktop:4
-#, fuzzy
-#| msgid "http://doc.trolltech.com/latest/\\{@}.html"
 msgid "https://doc.qt.io/archives/qt-5.15/\\{@}.html"
-msgstr "http://doc.trolltech.com/latest/\\{@}.html"
+msgstr "https://doc.qt.io/archives/qt-5.15/\\{@}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt6.desktop:3
-#, fuzzy
-#| msgid "Qt3 Online Documentation"
 msgid "Qt 6 Online Documentation"
-msgstr "Документація Qt3"
+msgstr "Мережева Документація Qt 6"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt6.desktop:4
-#, fuzzy
-#| msgid "http://doc.trolltech.com/3.3/\\{@}.html"
 msgid "https://doc.qt.io/qt-6/\\{@}.html"
-msgstr "http://doc.trolltech.com/3.3/\\{@}.html"
+msgstr "https://doc.qt.io/qt-6/\\{@}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qwant.desktop:3
 msgid "Qwant"
-msgstr ""
+msgstr "Qwant"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qwant.desktop:6
-#, fuzzy
-#| msgid "http://www.dict.cc/?s=\\{@}"
 msgid "https://www.qwant.com/?q=\\{@}&t=web"
-msgstr "http://www.dict.cc/?s=\\{@}"
+msgstr "https://www.qwant.com/?q=\\{@}&t=web"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rae.desktop:3
@@ -1371,10 +1232,8 @@ msgstr "Словник Іспанської академії (RAE)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/rae.desktop:4
-#, fuzzy
-#| msgid "http://dx.doi.org/\\{@}"
 msgid "https://dle.rae.es/\\{@}"
-msgstr "http://dx.doi.org/\\{@}"
+msgstr "https://dle.rae.es/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/rfc.desktop:3
@@ -1398,17 +1257,13 @@ msgstr "http://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/slackpkg.desktop:3
-#, fuzzy
-#| msgid "Debian Package Search"
 msgid "Slackware Package Search"
-msgstr "Пошук пакунків для Debian"
+msgstr "Пошук пакунків для Slackware"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/slackpkg.desktop:4
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://packages.slackware.com/?search=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://packages.slackware.com/?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:3
@@ -1417,42 +1272,33 @@ msgstr "SourceForge"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/sourceforge.desktop:4
-#, fuzzy
-#| msgid "http://freshmeat.net/search/?q=\\{@}"
 msgid "https://sourceforge.net/directory/?q=\\{@}"
-msgstr "http://freshmeat.net/search/?q=\\{@}"
+msgstr "https://sourceforge.net/directory/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/srht.desktop:3
-#, fuzzy
-#| msgid "SourceForge"
 msgid "Sourcehut"
-msgstr "SourceForge"
+msgstr "Sourcehut"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/srht.desktop:6
 msgid "https://sr.ht/projects?search=\\{@}&sort=recently-updated"
-msgstr ""
+msgstr "https://sr.ht/projects?search=\\{@}&sort=recently-updated"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/startpage.desktop:3
 msgid "StartPage"
-msgstr ""
+msgstr "ПочатковаСторінка"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/startpage.desktop:6
-#, fuzzy
-#| msgid ""
-#| "http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}"
-#| "&cat=web"
 msgid "https://www.startpage.com/sp/search?query=\\{@}&cat=web"
-msgstr ""
-"http://www.alltheweb.com/search?exec=FAST+Search&type=all&query=\\{@}&cat=web"
+msgstr "https://www.startpage.com/sp/search?query=\\{@}&cat=web"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tdeapidocs.desktop:3
 msgid "TDE API docs"
-msgstr ""
+msgstr "Документація TDE API"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tdeapidocs.desktop:6
@@ -1461,102 +1307,86 @@ msgid ""
 "https://duckduckgo.com/?sites=https%3A%2F%2Fwww.trinitydesktop.org%2Fdocs"
 "%2Ftrinity&q=\\{@}&ia=web"
 msgstr ""
+"https://duckduckgo.com/?sites=https%3A%2F%2Fwww.trinitydesktop."
+"org%2Fdocs%2Ftrinity&q=\\{@}&ia=web"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tdegw.desktop:3
 msgid "Trinity Gitea Workspace"
-msgstr ""
+msgstr "Робочий простір Trinity Gitea"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tdegw.desktop:6
-#, fuzzy
-#| msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
 msgid "https://mirror.git.trinitydesktop.org/gitea/explore/repos?q=\\{@}"
-msgstr "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
+msgstr "https://mirror.git.trinitydesktop.org/gitea/explore/repos?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tdewiki.desktop:3
 msgid "TDE Wiki"
-msgstr ""
+msgstr "TDE Wiki"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tdewiki.desktop:6
-#, fuzzy, c-format
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+#, c-format
 msgid ""
 "https://wiki.trinitydesktop.org/index.php?title=Special%3ASearch&search=\\{@}"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+"https://wiki.trinitydesktop.org/index.php?title=Special%3ASearch&search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tmdb.desktop:3
-#, fuzzy
-#| msgid "Internet Movie Database"
 msgid "The Movie Database (TMDB)"
-msgstr "База даних кінофільмів в Інтернет"
+msgstr "База Даних Кінофільмів в Інтернет (TMDB)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tmdb.desktop:6
-#, fuzzy
-#| msgid "http://directory.fsf.org/search/?query=\\{@}"
 msgid "https://www.themoviedb.org/search?query=\\{@}"
-msgstr "http://directory.fsf.org/search/?query=\\{@}"
+msgstr "https://www.themoviedb.org/search?query=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tqt.desktop:3
-#, fuzzy
-#| msgid "Qt3 Online Documentation"
 msgid "TQt Online Documentation"
-msgstr "Документація Qt3"
+msgstr "Мережева Документація TGt"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tqt.desktop:4
-#, fuzzy
-#| msgid "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
 msgid "https://trinitydesktop.org/docs/qt3/\\{@}.html"
-msgstr "http://bugs.trinitydesktop.org/show_bug.cgi?id=\\{@}"
+msgstr "https://trinitydesktop.org/docs/qt3/\\{@}.html"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/trinity_look.desktop:3
 msgid "Trinity Look"
-msgstr ""
+msgstr "Погляд Trinity"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/trinity_look.desktop:6
-#, fuzzy
-#| msgid "http://dict.leo.org/?search=\\{@}"
 msgid "https://www.trinity-look.org/find?search=\\{@}"
-msgstr "http://dict.leo.org/?search=\\{@}"
+msgstr "https://www.trinity-look.org/find?search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/urbandic.desktop:3
-#, fuzzy
-#| msgid "HyperDictionary.com"
 msgid "Urban Dictionary"
-msgstr "HyperDictionary.com"
+msgstr "Словник Міста"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/urbandic.desktop:6
-#, fuzzy
-#| msgid "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
 msgid "https://www.urbandictionary.com/define.php?term=\\{@}"
-msgstr "http://www.hyperdictionary.com/search.aspx?define=\\{@}"
+msgstr "https://www.urbandictionary.com/define.php?term=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiby.desktop:3
 msgid "Wiby"
-msgstr ""
+msgstr "Wiby"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiby.desktop:6
-#, fuzzy
-#| msgid "http://imdb.com/Find?\\{@}"
 msgid "https://wiby.me/?q=\\{@}"
-msgstr "http://imdb.com/Find?\\{@}"
+msgstr "https://wiby.me/?q=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikimedia_commons.desktop:3
 msgid "Wikimedia Commons"
-msgstr ""
+msgstr "Загальне Wikimedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikimedia_commons.desktop:6
@@ -1565,41 +1395,33 @@ msgid ""
 "https://commons.wikimedia.org/w/index.php?search=\\{@}&title=Special"
 "%3AMediaSearch&type=image"
 msgstr ""
+"https://commons.wikimedia.org/w/index.php?search=\\"
+"{@}&title=Special%3AMediaSearch&type=image"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_de.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (German) - The Free Encyclopedia"
-msgstr "Wikipedia - вільна енциклопедія"
+msgstr "Wikipedia (Німецька) - Вільна Енциклопедія"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_de.desktop:6
-#, fuzzy
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://de.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://de.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_el.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Greek) - The Free Encyclopedia"
-msgstr "Wikipedia - вільна енциклопедія"
+msgstr "Wikipedia (Грецька) - Вільна Енциклопедія"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_el.desktop:6
-#, fuzzy
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://el.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://el.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_en.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (English) - The Free Encyclopedia"
-msgstr "Wikipedia - вільна енциклопедія"
+msgstr "Wikipedia (Англійська) - Вільна Енциклопедія"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_en.desktop:6
@@ -1608,136 +1430,98 @@ msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_es.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Spanish) - The Free Encyclopedia"
-msgstr "Wikipedia - вільна енциклопедія"
+msgstr "Wikipedia (Іспанська) - Вільна Енциклопедія"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_es.desktop:6
-#, fuzzy
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://es.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://es.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_fr.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (French) - The Free Encyclopedia"
-msgstr "Wikipedia - вільна енциклопедія"
+msgstr "Wikipedia (Французська) - Вільна Енциклопедія"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_fr.desktop:6
-#, fuzzy
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://fr.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://fr.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_it.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Italian) - The Free Encyclopedia"
-msgstr "Wikipedia - вільна енциклопедія"
+msgstr "Wikipedia (Італійська) - Вільна Енциклопедія"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_it.desktop:6
-#, fuzzy
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_ja.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Japanese) - The Free Encyclopedia"
-msgstr "Wikipedia - вільна енциклопедія"
+msgstr "Wikipedia (Японська) - Вільна Енциклопедія"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_ja.desktop:6
-#, fuzzy
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://ja.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://ja.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_pl.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Polish) - The Free Encyclopedia"
-msgstr "Wikipedia - вільна енциклопедія"
+msgstr "Wikipedia (Польська) - Вільна Енциклопедія"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_pl.desktop:6
-#, fuzzy
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_ru.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Russian) - The Free Encyclopedia"
-msgstr "Wikipedia - вільна енциклопедія"
+msgstr "Wikipedia (Російська) - Вільна Енциклопедія"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_ru.desktop:6
-#, fuzzy
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://ru.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://ru.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_zh.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Chinese) - The Free Encyclopedia"
-msgstr "Wikipedia - вільна енциклопедія"
+msgstr "Wikipedia (Китайська) - Вільна Енциклопедія"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_zh.desktop:6
-#, fuzzy
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://zh.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://zh.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_de.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (German) - The Free Dictionary"
-msgstr "Wiktionary - вільний словник"
+msgstr "Wiktionary (Німецький) - Вільний Словник"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_de.desktop:6
-#, fuzzy
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://de.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://de.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_el.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Greek) - The Free Dictionary"
-msgstr "Wiktionary - вільний словник"
+msgstr "Wiktionary (Грецький) - Вільний Словник"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_el.desktop:6
-#, fuzzy
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://el.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://el.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_en.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (English) - The Free Dictionary"
-msgstr "Wiktionary - вільний словник"
+msgstr "Wiktionary (Англійський) - Вільний Словник"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_en.desktop:6
@@ -1746,101 +1530,73 @@ msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_es.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Spanish) - The Free Dictionary"
-msgstr "Wiktionary - вільний словник"
+msgstr "Wiktionary (Іспанський) - Вільний Словник"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_es.desktop:6
-#, fuzzy
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://es.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://es.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_fr.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (French) - The Free Dictionary"
-msgstr "Wiktionary - вільний словник"
+msgstr "Wiktionary (Французький) - Вільний Словник"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_fr.desktop:6
-#, fuzzy
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://fr.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://fr.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_it.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Italian) - The Free Dictionary"
-msgstr "Wiktionary - вільний словник"
+msgstr "Wiktionary (Італійський) - Вільний Словник"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_it.desktop:6
-#, fuzzy
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://it.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://it.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_ja.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Japanese) - The Free Dictionary"
-msgstr "Wiktionary - вільний словник"
+msgstr "Wiktionary (Японський) - Вільний Словник"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_ja.desktop:6
-#, fuzzy
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://ja.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://ja.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_pl.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Polish) - The Free Dictionary"
-msgstr "Wiktionary - вільний словник"
+msgstr "Wiktionary (Польський) - Вільний Словник"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_pl.desktop:6
-#, fuzzy
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_ru.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Russian) - The Free Dictionary"
-msgstr "Wiktionary - вільний словник"
+msgstr "Wiktionary (Російський) - Вільний Словник"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_ru.desktop:6
-#, fuzzy
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://ru.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://ru.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_zh.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Chinese) - The Free Dictionary"
-msgstr "Wiktionary - вільний словник"
+msgstr "Wiktionary (Китайський) - Вільний Словник"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_zh.desktop:6
-#, fuzzy
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 msgid "http://zh.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "http://zh.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:3
@@ -1849,48 +1605,38 @@ msgstr "Англійський словник WordReference.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wordref.desktop:4
-#, fuzzy
-#| msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
 msgid "https://www.wordreference.com/definition/\\{@}"
-msgstr "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+msgstr "https://www.wordreference.com/definition/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wordref_synonyms.desktop:3
-#, fuzzy
-#| msgid "WordReference.com English Dictionary"
 msgid "WordReference.com English Synonyms"
-msgstr "Англійський словник WordReference.com"
+msgstr "Словник Англійських Синонімів WordReference.com"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wordref_synonyms.desktop:4
-#, fuzzy
-#| msgid "http://www.wordreference.com/english/definition.asp?en=\\{@}"
 msgid "https://www.wordreference.com/synonyms/\\{@}"
-msgstr "http://www.wordreference.com/english/definition.asp?en=\\{@}"
+msgstr "https://www.wordreference.com/synonyms/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/yahoo.desktop:3
 msgid "Yahoo"
-msgstr ""
+msgstr "Yahoo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/yahoo.desktop:6
-#, fuzzy
-#| msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
 msgid "https://search.yahoo.com/search?p=\\{@}&ei=UTF-8"
-msgstr "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "https://search.yahoo.com/search?p=\\{@}&ei=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/yandex.desktop:3
 msgid "Yandex"
-msgstr ""
+msgstr "Yandex"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/yandex.desktop:6
-#, fuzzy
-#| msgid "http://info.alexa.com/search?q=\\{@}"
 msgid "https://yandex.com/search/?text=\\{@}"
-msgstr "http://info.alexa.com/search?q=\\{@}"
+msgstr "https://yandex.com/search/?text=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/localdomain/localdomainurifilter.desktop:3
