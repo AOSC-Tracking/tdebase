@@ -1,15 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
 # Jan Stolarek <jwstolarek@gmail.com>, 2020.
-# Marek W <coronzon88@gmail.com>, 2022.
+# Marek W <coronzon88@gmail.com>, 2022, 2026.
 # Jan Stolarek <jan.stolarek@mailbox.org>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-12 18:16+0000\n"
-"PO-Revision-Date: 2024-09-10 15:10+0000\n"
-"Last-Translator: Jan Stolarek <jan.stolarek@mailbox.org>\n"
+"PO-Revision-Date: 2026-04-18 19:17+0000\n"
+"Last-Translator: Marek W <coronzon88@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/pl/>\n"
 "Language: pl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -362,10 +362,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/archpkg.desktop:3
-#, fuzzy
-#| msgid "Debian Package Search"
 msgid "Arch Package Search"
-msgstr "Wyszukiwanie pakietów Debiana"
+msgstr "Wyszukiwanie pakietów Arch"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/archpkg.desktop:4
@@ -408,7 +406,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/aur.desktop:3
 msgid "Arch User Repository (AUR) Package Search"
-msgstr ""
+msgstr "Wyszukiwanie pakietów w repozytorium użytkowników Arch (AUR)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/aur.desktop:4
@@ -449,10 +447,8 @@ msgstr "http://www.google.pl/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:3
-#, fuzzy
-#| msgid "KDE Bug Database Fulltext Search"
 msgid "Old TDE Bugzilla Fulltext Search"
-msgstr "Baza błędów KDE - wyszukiwanie w opisach błędów"
+msgstr "Wyszukiwanie pełnotekstowe w starej Bugzilli TDE"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugft.desktop:4
@@ -463,10 +459,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:3
-#, fuzzy
-#| msgid "TDE Bug Database Bug Number Search"
 msgid "Old TDE Bugzilla Bug Number Search"
-msgstr "Baza błędów TDE - wyszukiwanie po numerze błędu"
+msgstr "Wyszukiwanie po numerze błędu w starej Bugzilli TDE"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/bugno.desktop:4
@@ -535,10 +529,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/ctan_file.desktop:3
-#, fuzzy
-#| msgid "CTAN - Comprehensive TeX Archive Network"
 msgid "CTAN File Name Search - Comprehensive TeX Archive Network"
-msgstr "CTAN - archiwum TeX-a"
+msgstr "Wyszukiwanie nazwy pliku w CTAN - archiwum TeX-a"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/ctan_file.desktop:4
@@ -601,10 +593,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/devuanpkg.desktop:3
-#, fuzzy
-#| msgid "Debian Package Search"
 msgid "Devuan Package Search"
-msgstr "Wyszukiwanie pakietów Debiana"
+msgstr "Wyszukiwanie pakietów Devuan"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/devuanpkg.desktop:4
@@ -764,10 +754,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/gentoopkg.desktop:3
-#, fuzzy
-#| msgid "Debian Package Search"
 msgid "Gentoo Package Search"
-msgstr "Wyszukiwanie pakietów Debiana"
+msgstr "Wyszukiwanie pakietów Gentoo"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/gentoopkg.desktop:4
@@ -781,10 +769,9 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/gentoowiki.desktop:6
-#, fuzzy, c-format
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+#, c-format
 msgid "https://wiki.gentoo.org/index.php?title=Special%3ASearch&search=\\{@}"
-msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "https://wiki.gentoo.org/index.php?title=Special%3ASearch&search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/github.desktop:3
@@ -795,7 +782,7 @@ msgstr ""
 #: ebrowsing/plugins/ikws/searchproviders/github.desktop:6
 #, fuzzy
 msgid "https://github.com/search?q=\\{@}&type=repositories"
-msgstr "http://www.google.pl/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "https://github.com/search?q=\\{@}&type=repositories"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/gnudb.desktop:3
@@ -816,7 +803,7 @@ msgstr "Google - wyszukiwarka stron WWW"
 #: ebrowsing/plugins/ikws/searchproviders/google.desktop:6
 #, fuzzy
 msgid "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
-msgstr "http://www.google.pl/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:3
@@ -860,16 +847,14 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_maps.desktop:3
-#, fuzzy
-#| msgid "Google Movies"
 msgid "Google Maps"
-msgstr "Google - filmy"
+msgstr "Google - mapy"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_maps.desktop:6
 #, fuzzy
 msgid "https://www.google.com/maps/search/\\{@}"
-msgstr "http://www.google.pl/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
+msgstr "https://www.google.com/maps/search/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_movie.desktop:3
@@ -894,10 +879,8 @@ msgstr "http://www.google.pl/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_scholar.desktop:3
-#, fuzzy
-#| msgid "Google Image Search"
 msgid "Google Scholar"
-msgstr "Google - wyszukiwanie zdjęć"
+msgstr "Google Scholar"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_scholar.desktop:6
@@ -907,11 +890,8 @@ msgstr "http://www.google.pl/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:3
-#, fuzzy
-#| msgid ""
-#| "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
 msgid "Great Dictionary of the Catalan Language (Gran Enciclopèdia Catalana)"
-msgstr "Wielki słownik języka katalońskiego (GRan Enciclopèdia Catalana)"
+msgstr "Wielki słownik języka katalońskiego (Gran Enciclopèdia Catalana)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:4
@@ -932,10 +912,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:3
-#, fuzzy
-#| msgid "Internet Movie Database"
 msgid "Internet Movie Database (IMDb)"
-msgstr "Internetowa baza filmów (IMDB)"
+msgstr "Internetowa baza filmów (IMDb)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/imdb.desktop:6
@@ -965,7 +943,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kagi.desktop:3
 msgid "Kagi (paid)"
-msgstr ""
+msgstr "Kagi (płatna)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kagi.desktop:6
@@ -976,7 +954,7 @@ msgstr "http://www.google.pl/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/kagiassistant.desktop:3
 msgid "Kagi Assistant (paid)"
-msgstr ""
+msgstr "Kagi Assistant (płatna)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/kagiassistant.desktop:6
@@ -1064,7 +1042,7 @@ msgstr "Merriam-Webster - słownik"
 #, fuzzy
 #| msgid "Merriam-Webster Dictionary"
 msgid "https://www.merriam-webster.com/dictionary/\\{@}"
-msgstr "Merriam-Webster - słownik"
+msgstr "https://www.merriam-webster.com/dictionary/\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/mw_thesaurus.desktop:3
@@ -1181,10 +1159,8 @@ msgstr "http://www.google.pl/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/python2.desktop:3
-#, fuzzy
-#| msgid "Python Reference Manual"
 msgid "Python 2 Reference Manual"
-msgstr "Python (język programowania)- podręcznik"
+msgstr "Python 2 (język programowania)- podręcznik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/python2.desktop:4
@@ -1193,10 +1169,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/python3.desktop:3
-#, fuzzy
-#| msgid "Python Reference Manual"
 msgid "Python 3 Reference Manual"
-msgstr "Python (język programowania)- podręcznik"
+msgstr "Python 3 (język programowania)- podręcznik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/python3.desktop:4
@@ -1205,10 +1179,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:3
-#, fuzzy
-#| msgid "Qt3 Online Documentation"
 msgid "Qt 3.3 Online Documentation"
-msgstr "Dokumentacja Qt3 w sieci"
+msgstr "Dokumentacja Qt 3.3 w sieci"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt3.desktop:4
@@ -1217,10 +1189,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt4.desktop:3
-#, fuzzy
-#| msgid "Qt3 Online Documentation"
 msgid "Qt 4.8 Online Documentation"
-msgstr "Dokumentacja Qt3 w sieci"
+msgstr "Dokumentacja Qt 4.8 w sieci"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt4.desktop:4
@@ -1229,10 +1199,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt5.desktop:3
-#, fuzzy
-#| msgid "Qt3 Online Documentation"
 msgid "Qt 5.15 LTS Online Documentation"
-msgstr "Dokumentacja Qt3 w sieci"
+msgstr "Dokumentacja Qt 5.15 LTS w sieci"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt5.desktop:4
@@ -1241,10 +1209,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/qt6.desktop:3
-#, fuzzy
-#| msgid "Qt3 Online Documentation"
 msgid "Qt 6 Online Documentation"
-msgstr "Dokumentacja Qt3 w sieci"
+msgstr "Dokumentacja Qt 6 w sieci"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/qt6.desktop:4
@@ -1293,10 +1259,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/slackpkg.desktop:3
-#, fuzzy
-#| msgid "Debian Package Search"
 msgid "Slackware Package Search"
-msgstr "Wyszukiwanie pakietów Debiana"
+msgstr "Wyszukiwanie pakietów Slackware"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/slackpkg.desktop:4
@@ -1315,10 +1279,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/srht.desktop:3
-#, fuzzy
-#| msgid "SourceForge"
 msgid "Sourcehut"
-msgstr "SourceForge - projekty"
+msgstr "Sourcehut"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/srht.desktop:6
@@ -1339,7 +1301,7 @@ msgstr "http://www.google.pl/search?q=movie:\\{@}&ie=UTF-8&oe=UTF-8"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tdeapidocs.desktop:3
 msgid "TDE API docs"
-msgstr ""
+msgstr "Dokumentacja API TDE"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tdeapidocs.desktop:6
@@ -1374,10 +1336,8 @@ msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tmdb.desktop:3
-#, fuzzy
-#| msgid "Internet Movie Database"
 msgid "The Movie Database (TMDB)"
-msgstr "Internetowa baza filmów (IMDB)"
+msgstr "Baza filmów (TMDB)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tmdb.desktop:6
@@ -1386,10 +1346,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tqt.desktop:3
-#, fuzzy
-#| msgid "Qt3 Online Documentation"
 msgid "TQt Online Documentation"
-msgstr "Dokumentacja Qt3 w sieci"
+msgstr "Dokumentacja TQt w sieci"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tqt.desktop:4
@@ -1443,10 +1401,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_de.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (German) - The Free Encyclopedia"
-msgstr "Wikipedia - otwarta encyklopedia"
+msgstr "Wikipedia (niemiecka) - otwarta encyklopedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_de.desktop:6
@@ -1457,10 +1413,8 @@ msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_el.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Greek) - The Free Encyclopedia"
-msgstr "Wikipedia - otwarta encyklopedia"
+msgstr "Wikipedia (grecka) - otwarta encyklopedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_el.desktop:6
@@ -1471,10 +1425,8 @@ msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_en.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (English) - The Free Encyclopedia"
-msgstr "Wikipedia - otwarta encyklopedia"
+msgstr "Wikipedia (angielska) - otwarta encyklopedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_en.desktop:6
@@ -1483,10 +1435,8 @@ msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_es.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Spanish) - The Free Encyclopedia"
-msgstr "Wikipedia - otwarta encyklopedia"
+msgstr "Wikipedia (hiszpańska) - otwarta encyklopedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_es.desktop:6
@@ -1497,10 +1447,8 @@ msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_fr.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (French) - The Free Encyclopedia"
-msgstr "Wikipedia - otwarta encyklopedia"
+msgstr "Wikipedia (francuska) - otwarta encyklopedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_fr.desktop:6
@@ -1511,10 +1459,8 @@ msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_it.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Italian) - The Free Encyclopedia"
-msgstr "Wikipedia - otwarta encyklopedia"
+msgstr "Wikipedia (włoska) - otwarta encyklopedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_it.desktop:6
@@ -1525,10 +1471,8 @@ msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_ja.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Japanese) - The Free Encyclopedia"
-msgstr "Wikipedia - otwarta encyklopedia"
+msgstr "Wikipedia (japońska) - otwarta encyklopedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_ja.desktop:6
@@ -1539,10 +1483,8 @@ msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_pl.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Polish) - The Free Encyclopedia"
-msgstr "Wikipedia - otwarta encyklopedia"
+msgstr "Wikipedia (polska) - otwarta encyklopedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_pl.desktop:6
@@ -1553,10 +1495,8 @@ msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_ru.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Russian) - The Free Encyclopedia"
-msgstr "Wikipedia - otwarta encyklopedia"
+msgstr "Wikipedia (rosyjska) - otwarta encyklopedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_ru.desktop:6
@@ -1567,10 +1507,8 @@ msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_zh.desktop:3
-#, fuzzy
-#| msgid "Wikipedia - The Free Encyclopedia"
 msgid "Wikipedia (Chinese) - The Free Encyclopedia"
-msgstr "Wikipedia - otwarta encyklopedia"
+msgstr "Wikipedia (chińska) - otwarta encyklopedia"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wikipedia_zh.desktop:6
@@ -1581,10 +1519,8 @@ msgstr "http://pl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_de.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (German) - The Free Dictionary"
-msgstr "Wiktionary - Otwarty słownik"
+msgstr "Wiktionary (niemiecki) - Otwarty słownik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_de.desktop:6
@@ -1595,10 +1531,8 @@ msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_el.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Greek) - The Free Dictionary"
-msgstr "Wiktionary - Otwarty słownik"
+msgstr "Wiktionary (grecki) - Otwarty słownik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_el.desktop:6
@@ -1609,10 +1543,8 @@ msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_en.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (English) - The Free Dictionary"
-msgstr "Wiktionary - Otwarty słownik"
+msgstr "Wiktionary (angielski) - Otwarty słownik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_en.desktop:6
@@ -1621,10 +1553,8 @@ msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_es.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Spanish) - The Free Dictionary"
-msgstr "Wiktionary - Otwarty słownik"
+msgstr "Wiktionary (hiszpański) - Otwarty słownik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_es.desktop:6
@@ -1635,10 +1565,8 @@ msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_fr.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (French) - The Free Dictionary"
-msgstr "Wiktionary - Otwarty słownik"
+msgstr "Wiktionary (francuski) - Otwarty słownik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_fr.desktop:6
@@ -1649,10 +1577,8 @@ msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_it.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Italian) - The Free Dictionary"
-msgstr "Wiktionary - Otwarty słownik"
+msgstr "Wiktionary (włoski) - Otwarty słownik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_it.desktop:6
@@ -1663,10 +1589,8 @@ msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_ja.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Japanese) - The Free Dictionary"
-msgstr "Wiktionary - Otwarty słownik"
+msgstr "Wiktionary (japoński) - Otwarty słownik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_ja.desktop:6
@@ -1677,10 +1601,8 @@ msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_pl.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Polish) - The Free Dictionary"
-msgstr "Wiktionary - Otwarty słownik"
+msgstr "Wiktionary (polski) - Otwarty słownik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_pl.desktop:6
@@ -1691,10 +1613,8 @@ msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_ru.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Russian) - The Free Dictionary"
-msgstr "Wiktionary - Otwarty słownik"
+msgstr "Wiktionary (rosyjski) - Otwarty słownik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_ru.desktop:6
@@ -1705,10 +1625,8 @@ msgstr "http://pl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_zh.desktop:3
-#, fuzzy
-#| msgid "Wiktionary - The Free Dictionary"
 msgid "Wiktionary (Chinese) - The Free Dictionary"
-msgstr "Wiktionary - Otwarty słownik"
+msgstr "Wiktionary (chiński) - Otwarty słownik"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wiktionary_zh.desktop:6
@@ -1729,10 +1647,8 @@ msgstr ""
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/wordref_synonyms.desktop:3
-#, fuzzy
-#| msgid "WordReference.com English Dictionary"
 msgid "WordReference.com English Synonyms"
-msgstr "WordReference.com: słownik angielski"
+msgstr "WordReference.com: słownik angielski synonimów"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/wordref_synonyms.desktop:4
@@ -2118,26 +2034,17 @@ msgstr ""
 
 #. Comment
 #: input/touchpad.desktop:14
-#, fuzzy
-#| msgid "Mouse settings"
 msgid "Touchpad settings"
-msgstr "Ustawienia myszy"
+msgstr "Ustawienia touchpada"
 
 #. Keywords
 #: input/touchpad.desktop:15
-#, fuzzy
-#| msgid ""
-#| "Mouse;Mouse acceleration;Mouse threshold;Mouse buttons;Selection;Cursor "
-#| "Shape;Input Devices;Button Mapping;Click;icons;feedback;Pointers;Drag;"
-#| "DoubleClick;mapping;right handed;left handed;"
 msgid ""
 "Touchpad;Tap to click;Mouse;Mouse buttons;Input Devices;Button Mapping;Tap;"
 "Click;mapping;right handed;left handed;"
 msgstr ""
-"Mysz;Akceleracja myszy;Próg myszy;Przyciski myszy;Zaznaczenie;Kształt "
-"kursora;Urządzenia wejściowe;mapowanie przycisków;kliknięcie;ikony;widoczne "
-"efekty;wskaźniki;przeciąganie;podwójne kliknięcie;mapowanie;praworęczny;"
-"leworęczny;"
+"Touchpad;Stuknij aby kliknąć;Mysz;Przyciski myszy;Urządzenia wejścia;"
+"Mapowanie przycisków;Stuknięcie;Kliknięcie;mapowanie;praworęczny;leworęczny;"
 
 #. Name
 #: joystick/joystick.desktop:12
