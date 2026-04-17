@@ -113,6 +113,7 @@ void Workspace::storeSession( TDEConfig* config, SMSavePhase phase )
             config->writeEntry( TQString("skipTaskbar")+n, c->skipTaskbar( true ) );
             config->writeEntry( TQString("skipPager")+n, c->skipPager() );
             config->writeEntry( TQString("userNoBorder")+n, c->isUserNoBorder() );
+            config->writeEntry( TQString("userNoBorderForced")+n, c->isUserNoBorderForced() );
             config->writeEntry( TQString("windowType")+n, windowTypeToTxt( c->windowType()));
             config->writeEntry( TQString("shortcut")+n, c->shortcut().toStringInternal());
             }
@@ -179,6 +180,7 @@ void Workspace::loadSessionInfo()
         info->skipTaskbar = config->readBoolEntry( TQString("skipTaskbar")+n, false  );
         info->skipPager = config->readBoolEntry( TQString("skipPager")+n, false  );
         info->userNoBorder = config->readBoolEntry( TQString("userNoBorder")+n, false  );
+        info->userNoBorderForced = config->readBoolEntry( TQString("userNoBorderForced")+n, false  );
         info->windowType = txtToWindowType( config->readEntry( TQString("windowType")+n ).latin1());
         info->shortcut = config->readEntry( TQString("shortcut")+n );
         info->active = ( active_client == i );

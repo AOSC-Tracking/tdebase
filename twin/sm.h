@@ -45,6 +45,7 @@ struct SessionInfo
     bool skipTaskbar;
     bool skipPager;
     bool userNoBorder;
+    bool userNoBorderForced;
     NET::WindowType windowType;
     TQString shortcut;
     bool active; // means 'was active in the saved session'

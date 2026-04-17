@@ -130,15 +130,17 @@ bool Client::manage( Window w, bool isMapped )
         {
         if ( session->minimized )
             init_minimize = true;
-        if( session->userNoBorder )
-            setUserNoBorder( true );
+        setUserNoBorder( session->userNoBorder , session->userNoBorderForced );
+        }
+    else
+        {
+        setUserNoBorder( false, false );
         }
 
     setShortcut( rules()->checkShortcut( session ? session->shortcut : TQString::null, true ));
 
     init_minimize = rules()->checkMinimize( init_minimize, !isMapped );
-    if( rules()->checkNoBorder( false, !isMapped ))
-        setUserNoBorder( true );
+
     
     checkAndSetInitialRuledOpacity();
 

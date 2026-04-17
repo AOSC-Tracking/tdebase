@@ -150,8 +150,10 @@ class Client : public TQObject, public KDecorationDefines
         int fullScreenMode() const { return fullscreen_mode; } // only for session saving
 
         bool isUserNoBorder() const;
-        void setUserNoBorder( bool set );
+        void setUserNoBorder( bool set ); // BCI: merge with bellow
+        void setUserNoBorder( bool set, bool force /* =true */ );
         bool userCanSetNoBorder() const;
+        bool isUserNoBorderForced() const;
         bool noBorder() const;
 
         bool skipTaskbar( bool from_outside = false ) const;
@@ -553,6 +555,7 @@ class Client : public TQObject, public KDecorationDefines
         uint urgency : 1; // XWMHints, UrgencyHint
         uint ignore_focus_stealing : 1; // don't apply focus stealing prevention to this client
         uint demands_attention : 1;
+        uint user_noborder_forced : 1; //< whether user_noborder should override motif_noborder
         WindowRules client_rules;
         void getWMHints();
         void readIcons();

@@ -167,6 +167,7 @@ Client::Client( Workspace *ws )
     modal = false;
     noborder = false;
     user_noborder = false;
+    user_noborder_forced = false;
     urgency = false;
     ignore_focus_stealing = false;
     demands_attention = false;
@@ -482,7 +483,7 @@ void Client::resizeDecoration( const TQSize& s )
 
 bool Client::noBorder() const
     {
-    return noborder || isFullScreen() || user_noborder || motif_noborder;
+    return noborder || isFullScreen() || user_noborder || ( !user_noborder_forced && motif_noborder );
     }
 
 bool Client::userCanSetNoBorder() const
@@ -497,14 +498,28 @@ bool Client::isUserNoBorder() const
 
 void Client::setUserNoBorder( bool set )
     {
+    setUserNoBorder(set, true);
+    }
+
+void Client::setUserNoBorder( bool set, bool forced )
+    {
     if( !userCanSetNoBorder())
         return;
-    set = rules()->checkNoBorder( set );
-    if( user_noborder == set )
+    auto noBorderApply = rules()->applyNoBorder( set );
+    set = noBorderApply.value;
+    forced |= noBorderApply.wasApplied;
+
+    if( user_noborder == set && user_noborder_forced == forced  )
         return;
     user_noborder = set;
+    user_noborder_forced = forced;
     updateDecoration( true, false );
     updateWindowRules();
+    }
+
+bool Client::isUserNoBorderForced() const
+    {
+    return user_noborder_forced;
     }
 
 bool Client::isModalSystemNotification() const

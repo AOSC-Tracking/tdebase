@@ -32,6 +32,17 @@ class Rules;
 
 #ifndef KCMRULES // only for twin core
 
+/**
+ * The result of the apply* functions (at the time of writing there is only one: applyNoBorder())
+ * which alongside the value derived from the rules application process return a boolean value
+ * indicating whether any rules were applied.
+ */
+template<typename T>
+struct RuleApplyResult {
+    bool wasApplied; //< true if some rule was applied; false otherwise
+    T value;         //< the actual value returned by the rule application process
+};
+
 class WindowRules
     : public KDecorationDefines
     {
@@ -71,6 +82,15 @@ class WindowRules
         TQString checkShortcut( TQString s, bool init = false ) const;
         bool checkDisableGlobalShortcuts( bool disable ) const;
         bool checkIgnorePosition( bool ignore ) const; // obsolete
+
+        /** @defgroup apply* functions
+         * Like check* functions they are returning result of application of rules but unlike them
+         * alongside the result they are returning a boolean indicating whether any rule was
+         * applied.
+         * @{
+         */
+        RuleApplyResult<bool> applyNoBorder( bool noborder, bool init = false ) const;
+        /** @} */
     private:
         MaximizeMode checkMaximizeVert( MaximizeMode mode, bool init ) const;
         MaximizeMode checkMaximizeHoriz( MaximizeMode mode, bool init ) const;

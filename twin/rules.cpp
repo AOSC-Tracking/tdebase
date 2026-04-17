@@ -802,6 +802,19 @@ CHECK_FORCE_RULE( StrictGeometry, bool )
 CHECK_RULE( Shortcut, TQString )
 CHECK_FORCE_RULE( DisableGlobalShortcuts, bool )
 
+RuleApplyResult<bool> WindowRules::applyNoBorder( bool arg, bool init ) const
+    { // NOTE: if you are adding more apply* functions like this turn this into a macro
+    RuleApplyResult<bool> ret{.wasApplied=false, .value = arg};
+    if( rules.count() == 0 )
+        return ret;
+    for(const auto &rule: rules)
+        {
+        if( (ret.wasApplied = rule->applyNoBorder( ret.value, init )) )
+            break;
+        }
+    return ret;
+    }
+
 #undef CHECK_RULE
 #undef CHECK_FORCE_RULE
 
@@ -843,7 +856,7 @@ void Client::applyWindowRules()
     setKeepAbove( keepAbove());
     setKeepBelow( keepBelow());
     setFullScreen( isFullScreen(), true );
-    setUserNoBorder( isUserNoBorder());
+    setUserNoBorder( isUserNoBorder(), isUserNoBorderForced() );
     // FSP
     // AcceptFocus :
     if( workspace()->mostRecentlyActivatedClient() == this
