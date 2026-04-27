@@ -10,6 +10,7 @@
   <!ENTITY r14.1.04 SYSTEM "r14.1.04.docbook">
   <!ENTITY r14.1.05 SYSTEM "r14.1.05.docbook">
   <!ENTITY r14.1.06 SYSTEM "r14.1.06.docbook">
+  <!ENTITY r14.1.07 SYSTEM "r14.1.07.docbook">
 ]>
 
 <article id="release-notes-14-1-x" lang="&language;">
@@ -46,6 +47,7 @@
 <para></para>
 </sect1>
 
+&r14.1.07;
 &r14.1.06;
 &r14.1.05;
 &r14.1.04;
