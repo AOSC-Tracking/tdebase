@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: 2026-03-14 16:55+0000\n"
+"PO-Revision-Date: 2026-04-30 12:55+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/tdm-sessions/ru/>\n"
@@ -51,7 +51,7 @@ msgstr "Администрирование"
 #. Comment
 #: admin.desktop:9
 msgid "Yast Admin Session"
-msgstr "Сессия администратора Yast"
+msgstr "Сеанс администратора Yast"
 
 #. Name
 #: aewm++.desktop:6
