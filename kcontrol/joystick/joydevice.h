@@ -24,9 +24,7 @@
 #include <tqstring.h>
 
 #include <sys/types.h>
-#undef __STRICT_ANSI__
 #include <linux/joystick.h>
-#define __STRICT_ANSI__
 
 // helper class which holds all current values, file descriptor, etc. for
 // one device
