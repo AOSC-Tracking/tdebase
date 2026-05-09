@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024.
+# Temuri Doghonadze <rkavt@smartprojects.ge>, 2024, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-12 18:16+0000\n"
-"PO-Revision-Date: 2024-12-13 07:11+0000\n"
+"PO-Revision-Date: 2026-05-09 09:44+0000\n"
 "Last-Translator: Temuri Doghonadze <rkavt@smartprojects.ge>\n"
 "Language-Team: Georgian <https://mirror.git.trinitydesktop.org/weblate/"
 "projects/tdebase/kcontrol-desktop-files/ka/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: access/kaccess.desktop:3
@@ -387,11 +387,11 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/archwiki.desktop:6
-#, fuzzy, c-format
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+#, c-format
 msgid ""
 "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=\\{@}"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+"https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/arxiv.desktop:3
@@ -826,10 +826,9 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/gentoowiki.desktop:6
-#, fuzzy, c-format
-#| msgid "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+#, c-format
 msgid "https://wiki.gentoo.org/index.php?title=Special%3ASearch&search=\\{@}"
-msgstr "http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr "https://wiki.gentoo.org/index.php?title=Special%3ASearch&search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/github.desktop:3
@@ -960,11 +959,8 @@ msgstr "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:3
-#, fuzzy
-#| msgid ""
-#| "Great Dictionary of the Catalan Language (GRan Enciclopèdia  Catalana)"
 msgid "Great Dictionary of the Catalan Language (Gran Enciclopèdia Catalana)"
-msgstr "კატალანური ენი დიდი ლექსიკონი (GRan Enciclopèdia  Catalana)"
+msgstr "კატალანური ენი დიდი ლექსიკონი (Gran Enciclopèdia Catalana)"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/grec.desktop:4
@@ -1485,11 +1481,11 @@ msgstr ""
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/tdewiki.desktop:6
-#, fuzzy, c-format
-#| msgid "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+#, c-format
 msgid ""
 "https://wiki.trinitydesktop.org/index.php?title=Special%3ASearch&search=\\{@}"
-msgstr "http://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go"
+msgstr ""
+"https://wiki.trinitydesktop.org/index.php?title=Special%3ASearch&search=\\{@}"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/tmdb.desktop:3
