@@ -1,827 +1,799 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
-	<class>MenuTabBase</class>
-	<widget class="TQWidget">
-	<property name="name">
-		<cstring>MenuTabBase</cstring>
-	</property>
-	<property name="geometry">
-		<rect>
-		<x>0</x>
-		<y>0</y>
-		<width>923</width>
-		<height>649</height>
-		</rect>
-	</property>
-	<vbox>
-		<property name="name">
-			<cstring>unnamed</cstring>
-		</property>
-		<property name="margin">
-			<number>0</number>
-		</property>
-		<widget class="TQLayoutWidget">
-		<property name="name">
-			<cstring>layout5</cstring>
-		</property>
-		<hbox>
-			<property name="name">
-			<cstring>unnamed</cstring>
-			</property>
-			<widget class="TQLabel">
-			<property name="name">
-				<cstring>textLabel1</cstring>
-			</property>
-			<property name="text">
-				<string>TDE menu style:</string>
-			</property>
-			<property name="buddy" stdset="0">
-				<cstring>comboMenuStyle</cstring>
-			</property>
-			</widget>
-			<widget class="TQComboBox">
-			<item>
-				<property name="text">
-				<string>Kickoff</string>
-				</property>
-			</item>
-			<item>
-				<property name="text">
-				<string>Trinity Classic</string>
-				</property>
-			</item>
-			<property name="name">
-				<cstring>m_comboMenuStyle</cstring>
-			</property>
-			</widget>
-			<spacer>
-			<property name="name">
-				<cstring>spacer4</cstring>
-			</property>
-			<property name="orientation">
-				<enum>Horizontal</enum>
-			</property>
-			<property name="sizeType">
-				<enum>Expanding</enum>
-			</property>
-			<property name="sizeHint">
-				<size>
-				<width>40</width>
-				<height>20</height>
-				</size>
-			</property>
-			</spacer>
-		</hbox>
-		</widget>
-		<widget class="TQGroupBox">
-		<property name="name">
-			<cstring>m_kmenuGroup</cstring>
-		</property>
-		<property name="title">
-			<string>TDE Menu</string>
-		</property>
-		<hbox>
-			<property name="name">
-			<cstring>unnamed</cstring>
-			</property>
-			<widget class="TQLayoutWidget">
-				<property name="name">
-					<cstring>layout7</cstring>
-				</property>
-				<vbox>
-					<property name="name">
-					<cstring>unnamed</cstring>
-					</property>
-					<widget class="TQButtonGroup">
-						<property name="name">
-							<cstring>kcfg_MenuEntryFormat</cstring>
-						</property>
-						<property name="lineWidth">
-							<number>0</number>
-						</property>
-						<property name="title">
-							<string>Menu item format:</string>
-						</property>
-						<property name="flat">
-							<bool>true</bool>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>Here you can choose how menu entries are shown.</string>
-						</property>
-						<grid>
-							<property name="name">
-							<cstring>unnamed</cstring>
-							</property>
-							<widget class="TQRadioButton" row="1" column="1">
-							<property name="name">
-								<cstring>m_formatSimple</cstring>
-							</property>
-							<property name="text">
-								<string>&amp;Name only</string>
-							</property>
-							<property name="whatsThis" stdset="0">
-								<string>When this option is selected, items in the TDE Menu will appear with the application's name next to the icon.</string>
-							</property>
-							</widget>
-							<widget class="TQRadioButton" row="2" column="1">
-							<property name="name">
-								<cstring>m_formatNameDesc</cstring>
-							</property>
-							<property name="text">
-								<string>Name - &amp;Description</string>
-							</property>
-							<property name="checked">
-								<bool>true</bool>
-							</property>
-							<property name="whatsThis" stdset="0">
-								<string>When this option is selected, items in the TDE Menu will appear with the application's name and a brief description next to the icon.</string>
-							</property>
-							</widget>
-							<widget class="TQRadioButton" row="3" column="1">
-							<property name="name">
-								<cstring>m_formatDescOnly</cstring>
-							</property>
-							<property name="text">
-								<string>D&amp;escription only</string>
-							</property>
-							<property name="whatsThis" stdset="0">
-								<string>When this option is selected, items in the TDE Menu will appear with the application's brief description next to the icon.</string>
-							</property>
-							</widget>
-							<widget class="TQRadioButton" row="4" column="1">
-							<property name="name">
-								<cstring>m_formDescName</cstring>
-							</property>
-							<property name="focusPolicy">
-								<enum>NoFocus</enum>
-							</property>
-							<property name="text">
-								<string>Des&amp;cription (Name)</string>
-							</property>
-							<property name="whatsThis" stdset="0">
-								<string>When this option is selected, items in the TDE Menu will appear with a brief description and the application's name in brackets next to the icon.</string>
-							</property>
-							</widget>
-						</grid>
-					</widget>
-					<widget class="TQPushButton">
-						<property name="name">
-							<cstring>m_editKMenuButton</cstring>
-						</property>
-						<property name="text">
-							<string>Edit &amp;TDE Menu</string>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>Start the editor for the TDE Menu. Here you can add, edit, remove and hide applications.</string>
-						</property>
-					</widget>
-          <widget class="KPushButton">
+<class>MenuTabBase</class>
+<widget class="TQWidget">
+    <property name="name">
+        <cstring>MenuTabBase</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>749</width>
+            <height>586</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>MenuTabBase</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>0</number>
+        </property>
+        <widget class="TQLayoutWidget" row="0" column="0" rowspan="1" colspan="2">
             <property name="name">
-              <cstring>btnCustomKMenuIcon</cstring>
+                <cstring>layout5</cstring>
             </property>
-            <property name="text">
-              <string>Change menu icon</string>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="TQLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>TDE menu style:</string>
+                    </property>
+                    <property name="buddy" stdset="0">
+                        <cstring>comboMenuStyle</cstring>
+                    </property>
+                </widget>
+                <widget class="TQComboBox">
+                    <item>
+                        <property name="text">
+                            <string>Kickoff</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Trinity Classic</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>m_comboMenuStyle</cstring>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer4</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>40</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </hbox>
+        </widget>
+        <widget class="TQGroupBox" row="1" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>m_kmenuGroup</cstring>
             </property>
-            <property name="whatsThis" stdset="0">
-              <string>Allows you to choose a different icon for the TDE menu.</string>
+            <property name="title">
+                <string>TDE Menu</string>
             </property>
-            <property name="acceptDrops">
-              <bool>false</bool>
-            </property>
-          </widget>
-          <spacer>
-						<property name="name">
-							<cstring>Spacer10</cstring>
-						</property>
-						<property name="orientation">
-							<enum>Vertical</enum>
-						</property>
-						<property name="sizeType">
-							<enum>Expanding</enum>
-						</property>
-						<property name="sizeHint">
-							<size>
-								<width>20</width>
-								<height>0</height>
-							</size>
-						</property>
-					</spacer>
-				</vbox>
-			</widget>
-			<widget class="TDEListView">
-				<column>
-					<property name="text">
-					<string>Optional Menus</string>
-					</property>
-					<property name="clickable">
-					<bool>true</bool>
-					</property>
-					<property name="resizable">
-					<bool>true</bool>
-					</property>
-				</column>
-				<property name="name">
-					<cstring>m_subMenus</cstring>
-				</property>
-				<property name="sizePolicy">
-					<sizepolicy>
-					<hsizetype>7</hsizetype>
-					<vsizetype>7</vsizetype>
-					<horstretch>0</horstretch>
-					<verstretch>1</verstretch>
-					</sizepolicy>
-				</property>
-				<property name="minimumSize">
-					<size>
-					<width>0</width>
-					<height>0</height>
-					</size>
-				</property>
-				<property name="fullWidth">
-					<bool>true</bool>
-				</property>
-				<property name="whatsThis" stdset="0">
-					<string>This is a list of the dynamic menus that can be displayed in the TDE menu in addition to the normal applications. Use the checkboxes to add or remove menus.</string>
-				</property>
-			</widget>
-			<widget class="TQLayoutWidget" row="2" column="0" colspan="2">
-				<property name="name">
-					<cstring>Layout5</cstring>
-				</property>
-				<vbox>
-					<widget class="TQCheckBox">
-						<property name="name">
-							<cstring>m_openOnHover</cstring>
-						</property>
-						<property name="text">
-							<string>Open menu on mouse hover</string>
-						</property>
-					</widget>
-					<widget class="TQCheckBox">
-						<property name="name">
-							<cstring>kcfg_UseTooltip</cstring>
-						</property>
-						<property name="text">
-							<string>Show T&amp;ooltip</string>
-						</property>
-						<property name="checked">
-							<bool>false</bool>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>&lt;qt&gt;When this option is selected, a tooltip appears when hovering the mouse pointer over Application Launcher Menu items. Enabling this option also requires that tooltips are enabled in the Panels->Appearance configuration dialog.</string>
-						</property>
-					</widget>
-					<widget class="TQCheckBox">
-						<property name="name">
-							<cstring>kcfg_UseSidePixmap</cstring>
-						</property>
-						<property name="text">
-							<string>Show side ima&amp;ge</string>
-						</property>
-						<property name="checked">
-							<bool>true</bool>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>&lt;qt&gt;When this option is selected an image will appear down the left-hand side of the TDE Menu. The image will be tinted according to your color settings.
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="TQLayoutWidget">
+                    <property name="name">
+                        <cstring>layout7</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="TQButtonGroup">
+                            <property name="name">
+                                <cstring>kcfg_MenuEntryFormat</cstring>
+                            </property>
+                            <property name="lineWidth">
+                                <number>0</number>
+                            </property>
+                            <property name="title">
+                                <string>Menu item format:</string>
+                            </property>
+                            <property name="flat">
+                                <bool>true</bool>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Here you can choose how menu entries are shown.</string>
+                            </property>
+                            <grid>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="TQRadioButton" row="1" column="1">
+                                    <property name="name">
+                                        <cstring>m_formatSimple</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>&amp;Name only</string>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>When this option is selected, items in the TDE Menu will appear with the application's name next to the icon.</string>
+                                    </property>
+                                </widget>
+                                <widget class="TQRadioButton" row="2" column="1">
+                                    <property name="name">
+                                        <cstring>m_formatNameDesc</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Name - &amp;Description</string>
+                                    </property>
+                                    <property name="checked">
+                                        <bool>true</bool>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>When this option is selected, items in the TDE Menu will appear with the application's name and a brief description next to the icon.</string>
+                                    </property>
+                                </widget>
+                                <widget class="TQRadioButton" row="3" column="1">
+                                    <property name="name">
+                                        <cstring>m_formatDescOnly</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>D&amp;escription only</string>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>When this option is selected, items in the TDE Menu will appear with the application's brief description next to the icon.</string>
+                                    </property>
+                                </widget>
+                                <widget class="TQRadioButton" row="4" column="1">
+                                    <property name="name">
+                                        <cstring>m_formDescName</cstring>
+                                    </property>
+                                    <property name="focusPolicy">
+                                        <enum>NoFocus</enum>
+                                    </property>
+                                    <property name="text">
+                                        <string>Des&amp;cription (Name)</string>
+                                    </property>
+                                    <property name="whatsThis" stdset="0">
+                                        <string>When this option is selected, items in the TDE Menu will appear with a brief description and the application's name in brackets next to the icon.</string>
+                                    </property>
+                                </widget>
+                            </grid>
+                        </widget>
+                        <widget class="TQPushButton">
+                            <property name="name">
+                                <cstring>m_editKMenuButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Edit &amp;TDE Menu</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Start the editor for the TDE Menu. Here you can add, edit, remove and hide applications.</string>
+                            </property>
+                        </widget>
+                        <widget class="KPushButton">
+                            <property name="name">
+                                <cstring>btnCustomKMenuIcon</cstring>
+                            </property>
+                            <property name="acceptDrops">
+                                <bool>false</bool>
+                            </property>
+                            <property name="text">
+                                <string>Change menu icon</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>Allows you to choose a different icon for the TDE menu.</string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>Spacer10</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>0</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </vbox>
+                </widget>
+                <widget class="TDEListView">
+                    <column>
+                        <property name="text">
+                            <string>Optional Menus</string>
+                        </property>
+                        <property name="clickable">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizable">
+                            <bool>true</bool>
+                        </property>
+                    </column>
+                    <property name="name">
+                        <cstring>m_subMenus</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>7</hsizetype>
+                            <vsizetype>7</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>1</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                        <size>
+                            <width>0</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                    <property name="fullWidth">
+                        <bool>true</bool>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>This is a list of the dynamic menus that can be displayed in the TDE menu in addition to the normal applications. Use the checkboxes to add or remove menus.</string>
+                    </property>
+                </widget>
+                <widget class="TQLayoutWidget">
+                    <property name="name">
+                        <cstring>layout9</cstring>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="TQCheckBox" row="1" column="0" rowspan="1" colspan="2">
+                            <property name="name">
+                                <cstring>kcfg_UseTooltip</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Show T&amp;ooltip</string>
+                            </property>
+                            <property name="checked">
+                                <bool>false</bool>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>&lt;qt&gt;When this option is selected, a tooltip appears when hovering the mouse pointer over Application Launcher Menu items. Enabling this option also requires that tooltips are enabled in the Panels-&gt;Appearance configuration dialog.</string>
+                            </property>
+                        </widget>
+                        <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="2">
+                            <property name="name">
+                                <cstring>kcfg_UseSidePixmap</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Show side ima&amp;ge</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>&lt;qt&gt;When this option is selected an image will appear down the left-hand side of the TDE Menu. The image will be tinted according to your color settings.
 								
 								&lt;p&gt;&lt;b&gt;Tip&lt;/b&gt;: You can customize the image that appears in the TDE Menu by putting an image file called kside.png and a tileable image file called kside_tile.png in $TDEHOME/share/apps/kicker/pics.&lt;/qt&gt;</string>
-						</property>
-					</widget>
-					<widget class="TQCheckBox">
-						<property name="name">
-							<cstring>kcfg_UseTopPixmap</cstring>
-						</property>
-						<property name="text">
-							<string>Show top ima&amp;ge</string>
-						</property>
-						<property name="checked">
-							<bool>true</bool>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>&lt;qt&gt;When this option is selected an image will appear on top of the TDE Menu. The image will be tinted according to your color settings.
+                            </property>
+                        </widget>
+                        <widget class="TQLineEdit" row="5" column="1">
+                            <property name="name">
+                                <cstring>kcfg_KMenuText</cstring>
+                            </property>
+                            <property name="maxLength">
+                                <number>35</number>
+                            </property>
+                        </widget>
+                        <widget class="TDEFontRequester" row="6" column="1">
+                            <property name="name">
+                                <cstring>kcfg_ButtonFont</cstring>
+                            </property>
+                        </widget>
+                        <widget class="TQLabel" row="6" column="0">
+                            <property name="name">
+                                <cstring>TextLabel1_3_3_2</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>4</hsizetype>
+                                    <vsizetype>1</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>Font:</string>
+                            </property>
+                        </widget>
+                        <widget class="TQLabel" row="5" column="0">
+                            <property name="name">
+                                <cstring>TextLabel1_3_3_1</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>4</hsizetype>
+                                    <vsizetype>1</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="text">
+                                <string>Text:</string>
+                            </property>
+                        </widget>
+                        <widget class="TQCheckBox" row="4" column="0" rowspan="1" colspan="2">
+                            <property name="name">
+                                <cstring>kcfg_ShowKMenuText</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Display text in menu button</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>&lt;qt&gt;When this option is selected the text below will be shown in the TDE Menu button.</string>
+                            </property>
+                        </widget>
+                        <widget class="TQCheckBox" row="3" column="0" rowspan="1" colspan="2">
+                            <property name="name">
+                                <cstring>kcfg_UseTopPixmap</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Show top ima&amp;ge</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>&lt;qt&gt;When this option is selected an image will appear on top of the TDE Menu. The image will be tinted according to your color settings.
 								
 								&lt;p&gt;&lt;b&gt;Tip&lt;/b&gt;: You can customize the image that appears in the TDE Menu by putting image files called kside_top_left.png and kside_top_right.png, and a tileable image file called kside_top_tile.png in $TDEHOME/share/apps/kicker/pics.&lt;/qt&gt;</string>
-						</property>
-					</widget>
-					<widget class="TQCheckBox">
-						<property name="name">
-							<cstring>kcfg_ShowKMenuText</cstring>
-						</property>
-						<property name="text">
-							<string>Display text in menu button</string>
-						</property>
-						<property name="checked">
-							<bool>true</bool>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>&lt;qt&gt;When this option is selected the text below will be shown in the TDE Menu button.</string>
-						</property>
-					</widget>
-					<grid>
-						<property name="name">
-							<cstring>unnamed</cstring>
-						</property>
-						<property name="margin">
-							<number>0</number>
-						</property>
-            <widget class="TQLabel" row="0" column="0">
-              <property name="name">
-                <cstring>TextLabel1_3_3_1</cstring>
-              </property>
-              <property name="sizePolicy">
-                <sizepolicy>
-                  <hsizetype>4</hsizetype>
-                  <vsizetype>1</vsizetype>
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                </sizepolicy>
-              </property>
-              <property name="text">
-                <string>Text:</string>
-              </property>
-            </widget>
-						<widget class="TQLineEdit" row="0" column="1" colspan="3">
-							<property name="name">
-								<cstring>kcfg_KMenuText</cstring>
-							</property>
-							<property name="maxLength">
-								<number>35</number>
-							</property>
-						</widget>
-						<widget class="TQLabel" row="1" column="0">
-							<property name="name">
-								<cstring>TextLabel1_3_3_2</cstring>
-							</property>
-							<property name="sizePolicy">
-								<sizepolicy>
-									<hsizetype>4</hsizetype>
-									<vsizetype>1</vsizetype>
-									<horstretch>0</horstretch>
-									<verstretch>0</verstretch>
-								</sizepolicy>
-							</property>
-							<property name="text">
-								<string>Font:</string>
-							</property>
-						</widget>
-						<widget class="TDEFontRequester" row="1" column="1" colspan="3">
-							<property name="name">
-								<cstring>kcfg_ButtonFont</cstring>
-							</property>
-						</widget>
-						<spacer row="2" column="3">
-							<property name="name">
-								<cstring>spacer6</cstring>
-							</property>
-							<property name="orientation">
-								<enum>Vertical</enum>
-							</property>
-							<property name="sizeType">
-								<enum>Expanding</enum>
-							</property>
-							<property name="sizeHint">
-								<size>
-									<width>20</width>
-									<height>20</height>
-								</size>
-							</property>
-						</spacer>
-					</grid>
-					<spacer>
-						<property name="name">
-							<cstring>spacer8</cstring>
-						</property>
-						<property name="orientation">
-							<enum>Vertical</enum>
-						</property>
-						<property name="sizeType">
-							<enum>MinimumExpanding</enum>
-						</property>
-						<property name="sizeHint">
-							<size>
-								<width>20</width>
-								<height>0</height>
-							</size>
-						</property>
-					</spacer>
-				</vbox>
-			</widget>
-		</hbox>
-		</widget>
-		<grid>
-			<property name="name">
-				<cstring>unnamed</cstring>
-			</property>
-			<property name="margin">
-				<number>0</number>
-			</property>
-			<widget class="TQGroupBox" row="0" column="0">
-				<property name="name">
-					<cstring>m_browserGroup</cstring>
-				</property>
-				<property name="title">
-					<string>QuickBrowser Menus</string>
-				</property>
-				<grid>
-					<property name="name">
-					<cstring>unnamed</cstring>
-					</property>
-					<widget class="TQLayoutWidget" row="2" column="0">
-					<property name="name">
-						<cstring>Layout3</cstring>
-					</property>
-					<hbox>
-						<property name="name">
-						<cstring>unnamed</cstring>
-						</property>
-						<widget class="TQLabel">
-						<property name="name">
-							<cstring>m_maxQuickBrowserItemsLabel</cstring>
-						</property>
-						<property name="text">
-							<string>Ma&amp;ximum number of entries:</string>
-						</property>
-						<property name="buddy" stdset="0">
-							<cstring>kcfg_MaxEntries2</cstring>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>When browsing directories that contain a lot of files, the QuickBrowser can sometimes hide your whole desktop. Here you can limit the number of entries shown at a time in the QuickBrowser. This is particularly useful for low screen resolutions.</string>
-						</property>
-						</widget>
-						<widget class="KIntNumInput">
-						<property name="name">
-							<cstring>kcfg_MaxEntries2</cstring>
-						</property>
-						<property name="value">
-							<number>30</number>
-						</property>
-						<property name="minValue">
-							<number>10</number>
-						</property>
-						<property name="maxValue">
-							<number>100</number>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>When browsing directories that contain a lot of files, the QuickBrowser can sometimes hide your whole desktop. Here you can limit the number of entries shown at a time in the QuickBrowser. This is particularly useful for low screen resolutions.</string>
-						</property>
-						</widget>
-					</hbox>
-					</widget>
-					<widget class="TQCheckBox" row="0" column="0">
-					<property name="name">
-						<cstring>kcfg_ShowHiddenFiles</cstring>
-					</property>
-					<property name="text">
-						<string>Show hidden fi&amp;les</string>
-					</property>
-					<property name="checked">
-						<bool>true</bool>
-					</property>
-					<property name="whatsThis" stdset="0">
-						<string>If this option is enabled, hidden files (i.e. files beginning with a dot) will be shown in the QuickBrowser menus.</string>
-					</property>
-					</widget>
-					<widget class="TQCheckBox" row="1" column="0">
-						<property name="name">
-							<cstring>kcfg_ShowOpenInTerminal</cstring>
-						</property>
-						<property name="text">
-							<string>Sho&amp;w open in terminal fi&amp;les</string>
-						</property>
-						<property name="checked">
-							<bool>true</bool>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>If this option is enabled, an Open in Terminal entry will be shown in the QuickBrowser menus.</string>
-						</property>
-					</widget>
-					<spacer row="0" column="1" rowspan="3" colspan="1">
-						<property name="name">
-							<cstring>Spacer7</cstring>
-						</property>
-						<property name="orientation">
-							<enum>Horizontal</enum>
-						</property>
-						<property name="sizeType">
-							<enum>Expanding</enum>
-						</property>
-						<property name="sizeHint">
-							<size>
-							<width>20</width>
-							<height>0</height>
-							</size>
-						</property>
-					</spacer>
-				</grid>
-			</widget>
-			<widget class="TQGroupBox" row="1" column="0">
-				<property name="name">
-					<cstring>m_recentGroup</cstring>
-				</property>
-				<property name="title">
-					<string>Recent Documents Menu</string>
-				</property>
-				<grid>
-					<property name="name">
-						<cstring>unnamed</cstring>
-					</property>
-					<widget class="TQLayoutWidget" row="1" column="0">
-						<property name="name">
-							<cstring>Layout3</cstring>
-						</property>
-						<hbox>
-							<property name="name">
-								<cstring>unnamed</cstring>
-							</property>
-							<widget class="TQLabel">
-								<property name="name">
-									<cstring>m_maxRecentDocumentsItemsLabel</cstring>
-								</property>
-								<property name="text">
-									<string>&amp;Maximum number of entries:</string>
-								</property>
-								<property name="buddy" stdset="0">
-									<cstring>maxrecentdocs</cstring>
-								</property>
-								<property name="whatsThis" stdset="0">
-									<string>This sets the maximum number of recently accessed documents stored for fast retrieval.</string>
-								</property>
-							</widget>
-							<widget class="KIntNumInput">
-								<property name="name">
-									<cstring>maxrecentdocs</cstring>
-								</property>
-								<property name="value">
-									<number>10</number>
-								</property>
-								<property name="minValue">
-									<number>0</number>
-								</property>
-								<property name="maxValue">
-									<number>100</number>
-								</property>
-								<property name="whatsThis" stdset="0">
-									<string>This sets the maximum number of recently accessed documents stored for fast retrieval.</string>
-								</property>
-							</widget>
-						</hbox>
-					</widget>
-					<spacer row="0" column="1" rowspan="2" colspan="1">
-						<property name="name">
-							<cstring>Spacer7</cstring>
-						</property>
-						<property name="orientation">
-							<enum>Horizontal</enum>
-						</property>
-						<property name="sizeType">
-							<enum>Expanding</enum>
-						</property>
-						<property name="sizeHint">
-							<size>
-								<width>20</width>
-								<height>0</height>
-							</size>
-						</property>
-					</spacer>
-				</grid>
-			</widget>
-			<widget class="TQButtonGroup" row="0" column="1" rowspan="1">
-			<property name="name">
-				<cstring>m_pRecentOrderGroup</cstring>
-			</property>
-			<property name="title">
-				<string>QuickStart Menu Items</string>
-			</property>
-				<grid>
-					<property name="name">
-					<cstring>unnamed</cstring>
-					</property>
-					<widget class="TQLayoutWidget" row="2" column="0">
-					<property name="name">
-						<cstring>Layout4</cstring>
-					</property>
-					<hbox>
-						<property name="name">
-						<cstring>unnamed</cstring>
-						</property>
-						<widget class="TQLabel">
-						<property name="name">
-							<cstring>TextLabel2</cstring>
-						</property>
-						<property name="text">
-							<string>Maxim&amp;um number of entries:</string>
-						</property>
-						<property name="buddy" stdset="0">
-							<cstring>kcfg_NumVisibleEntries</cstring>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>This option allows you to define the maximum number of applications that should be displayed in the QuickStart menu area.</string>
-						</property>
-						</widget>
-						<widget class="KIntNumInput">
-						<property name="name">
-							<cstring>kcfg_NumVisibleEntries</cstring>
-						</property>
-						<property name="value">
-							<number>5</number>
-						</property>
-						<property name="minValue">
-							<number>0</number>
-						</property>
-						<property name="maxValue">
-							<number>20</number>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>This option allows you to define how many applications should be displayed at most in the QuickStart menu area.</string>
-						</property>
-						</widget>
-					</hbox>
-					</widget>
-					<widget class="TQRadioButton" row="0" column="0">
-					<property name="name">
-						<cstring>kcfg_RecentVsOften</cstring>
-					</property>
-					<property name="text">
-						<string>Show the &amp;applications most recently used</string>
-					</property>
-					<property name="checked">
-						<bool>true</bool>
-					</property>
-					<property name="whatsThis" stdset="0">
-						<string>When this option is selected the QuickStart menu area will be filled with the applications you have used most recently.</string>
-					</property>
-					</widget>
-					<widget class="TQRadioButton" row="1" column="0">
-					<property name="name">
-						<cstring>m_showFrequent</cstring>
-					</property>
-					<property name="text">
-						<string>Show the applications most fre&amp;quently used</string>
-					</property>
-					<property name="whatsThis" stdset="0">
-						<string>When this option is selected the QuickStart menu area will be filled with the applications you use most frequently.</string>
-					</property>
-					</widget>
-					<spacer row="0" column="1" rowspan="3" colspan="1">
-					<property name="name">
-						<cstring>Spacer8</cstring>
-					</property>
-					<property name="orientation">
-						<enum>Horizontal</enum>
-					</property>
-					<property name="sizeType">
-						<enum>Expanding</enum>
-					</property>
-					<property name="sizeHint">
-						<size>
-						<width>20</width>
-						<height>0</height>
-						</size>
-					</property>
-					</spacer>
-				</grid>
-			</widget>
-			<widget class="TQButtonGroup" row="1" column="1" rowspan="1">
-				<property name="name">
-					<cstring>m_pSearchGroup</cstring>
-				</property>
-				<property name="title">
-					<string>TDE Menu Search</string>
-				</property>
-				<grid>
-					<property name="name">
-						<cstring>unnamed</cstring>
-					</property>
-					<widget class="TQCheckBox">
-						<property name="name">
-							<cstring>kcfg_UseSearchBar</cstring>
-						</property>
-						<property name="text">
-							<string>Show search field in TDE Menu</string>
-						</property>
-						<property name="checked">
-							<bool>true</bool>
-						</property>
-						<property name="whatsThis" stdset="0">
-							<string>&lt;qt&gt;When this option is selected a text-based search field will appear in the TDE Menu.&lt;/qt&gt;</string>
-						</property>
-					</widget>
-
-					<widget class="TQLayoutWidget" row="2" column="0">
-				        <property name="name">
-					<cstring>m_searchShortcutLayout</cstring>
-					</property>
-					<hbox>
-					        <property name="name">
-                 				        <cstring>unnamed</cstring>
-             					</property>
-
-						<widget class="TQLabel">
-                                                        <property name="name">
-                 					        <cstring>searchShortcutLabel</cstring>
-							</property>
-							<property name="text">
-                                                                <string>Search shortcut:</string>
-							</property>
-							<property name="whatsThis" stdset="0">
-							        <string>From here you can change the keyboard shortcut which triggers the search line in the TDE Menu.</string>
-							</property>
-						</widget>
-
-						<widget class="KKeyButton">
-                                                        <property name="name">
-                 					        <cstring>m_searchShortcut</cstring>
-							</property>
-							<property name="whatsThis" stdset="0">
-							        <string>From here you can change the keyboard shortcut which triggers the search line in the TDE Menu.</string>
-							</property>
-						</widget>
-					</hbox>
-					</widget>
-					    
-					<spacer row="0" column="1" rowspan="3" colspan="2">
-						<property name="name">
-							<cstring>Spacer8</cstring>
-						</property>
-						<property name="orientation">
-							<enum>Horizontal</enum>
-						</property>
-						<property name="sizeType">
-							<enum>Expanding</enum>
-						</property>
-						<property name="sizeHint">
-							<size>
-								<width>20</width>
-								<height>0</height>
-							</size>
-						</property>
-					</spacer>
-				</grid>
-			</widget>
-		</grid>
-	</vbox>
-	</widget>
-	<customwidgets>
-	</customwidgets>
-	<tabstops>
-		<tabstop>m_formatSimple</tabstop>
-		<tabstop>m_formatNameDesc</tabstop>
-		<tabstop>m_formDescName</tabstop>
-		<tabstop>kcfg_UseSidePixmap</tabstop>
-		<tabstop>m_editKMenuButton</tabstop>
-		<tabstop>m_subMenus</tabstop>
-		<tabstop>kcfg_ShowHiddenFiles</tabstop>
-		<tabstop>kcfg_ShowOpenInTerminal</tabstop>
-		<tabstop>kcfg_MaxEntries2</tabstop>
-		<tabstop>kcfg_RecentVsOften</tabstop>
-		<tabstop>m_showFrequent</tabstop>
-		<tabstop>kcfg_NumVisibleEntries</tabstop>
-	</tabstops>
-	<includes>
-		<include location="global" impldecl="in implementation">kdialog.h</include>
-		<include location="global" impldecl="in implementation">knuminput.h</include>
-		<include location="global" impldecl="in implementation">kpushbutton.h</include>
-		<include location="global" impldecl="in implementation">tdefontrequester.h</include>
-		<include location="global" impldecl="in implementation">tdelistview.h</include>
-		<include location="global" impldecl="in implementation">kkeybutton.h</include>
-	</includes>
-	<connections>
-		<connection>
-			<sender>kcfg_ShowKMenuText</sender>
-			<signal>toggled(bool)</signal>
-			<receiver>TextLabel1_3_3_1</receiver>
-			<slot>setEnabled(bool)</slot>
-		</connection>
-		<connection>
-			<sender>kcfg_ShowKMenuText</sender>
-			<signal>toggled(bool)</signal>
-			<receiver>kcfg_KMenuText</receiver>
-			<slot>setEnabled(bool)</slot>
-		</connection>
-		<connection>
-			<sender>kcfg_ShowKMenuText</sender>
-			<signal>toggled(bool)</signal>
-			<receiver>TextLabel1_3_3_2</receiver>
-			<slot>setEnabled(bool)</slot>
-		</connection>
-		<connection>
-			<sender>kcfg_ShowKMenuText</sender>
-			<signal>toggled(bool)</signal>
-			<receiver>kcfg_ButtonFont</receiver>
-			<slot>setEnabled(bool)</slot>
-		</connection>
-		<connection>
-			<sender>kcfg_UseSearchBar</sender>
-			<signal>toggled(bool)</signal>
-			<receiver>searchShortcutLabel</receiver>
-			<slot>setEnabled(bool)</slot>
-		</connection>
-                <connection>
-                        <sender>kcfg_UseSearchBar</sender>
-                        <signal>toggled(bool)</signal>
-                        <receiver>m_searchShortcut</receiver>
-                        <slot>setEnabled(bool)</slot>
-                </connection>
-	</connections>
-	<layoutdefaults spacing="6" margin="11"/>
-	<layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
+                            </property>
+                        </widget>
+                        <spacer row="7" column="1">
+                            <property name="name">
+                                <cstring>spacer6</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Expanding</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>80</height>
+                                </size>
+                            </property>
+                        </spacer>
+                        <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="2">
+                            <property name="name">
+                                <cstring>m_openOnHover</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Open menu on mouse hover</string>
+                            </property>
+                        </widget>
+                    </grid>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="TQGroupBox" row="2" column="0">
+            <property name="name">
+                <cstring>m_browserGroup</cstring>
+            </property>
+            <property name="title">
+                <string>QuickBrowser Menus</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="TQLayoutWidget" row="2" column="0">
+                    <property name="name">
+                        <cstring>Layout3</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="TQLabel">
+                            <property name="name">
+                                <cstring>m_maxQuickBrowserItemsLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Ma&amp;ximum number of entries:</string>
+                            </property>
+                            <property name="buddy" stdset="0">
+                                <cstring>kcfg_MaxEntries2</cstring>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>When browsing directories that contain a lot of files, the QuickBrowser can sometimes hide your whole desktop. Here you can limit the number of entries shown at a time in the QuickBrowser. This is particularly useful for low screen resolutions.</string>
+                            </property>
+                        </widget>
+                        <widget class="KIntNumInput">
+                            <property name="name">
+                                <cstring>kcfg_MaxEntries2</cstring>
+                            </property>
+                            <property name="value">
+                                <number>30</number>
+                            </property>
+                            <property name="minValue">
+                                <number>10</number>
+                            </property>
+                            <property name="maxValue">
+                                <number>100</number>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>When browsing directories that contain a lot of files, the QuickBrowser can sometimes hide your whole desktop. Here you can limit the number of entries shown at a time in the QuickBrowser. This is particularly useful for low screen resolutions.</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="TQCheckBox" row="0" column="0">
+                    <property name="name">
+                        <cstring>kcfg_ShowHiddenFiles</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Show hidden fi&amp;les</string>
+                    </property>
+                    <property name="checked">
+                        <bool>true</bool>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If this option is enabled, hidden files (i.e. files beginning with a dot) will be shown in the QuickBrowser menus.</string>
+                    </property>
+                </widget>
+                <widget class="TQCheckBox" row="1" column="0">
+                    <property name="name">
+                        <cstring>kcfg_ShowOpenInTerminal</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Sho&amp;w open in terminal fi&amp;les</string>
+                    </property>
+                    <property name="checked">
+                        <bool>true</bool>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>If this option is enabled, an Open in Terminal entry will be shown in the QuickBrowser menus.</string>
+                    </property>
+                </widget>
+                <spacer row="0" column="1" rowspan="3" colspan="1">
+                    <property name="name">
+                        <cstring>Spacer7</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                </spacer>
+            </grid>
+        </widget>
+        <widget class="TQButtonGroup" row="2" column="1">
+            <property name="name">
+                <cstring>m_pRecentOrderGroup</cstring>
+            </property>
+            <property name="title">
+                <string>QuickStart Menu Items</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="TQLayoutWidget" row="2" column="0">
+                    <property name="name">
+                        <cstring>Layout4</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="TQLabel">
+                            <property name="name">
+                                <cstring>TextLabel2</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Maxim&amp;um number of entries:</string>
+                            </property>
+                            <property name="buddy" stdset="0">
+                                <cstring>kcfg_NumVisibleEntries</cstring>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>This option allows you to define the maximum number of applications that should be displayed in the QuickStart menu area.</string>
+                            </property>
+                        </widget>
+                        <widget class="KIntNumInput">
+                            <property name="name">
+                                <cstring>kcfg_NumVisibleEntries</cstring>
+                            </property>
+                            <property name="value">
+                                <number>5</number>
+                            </property>
+                            <property name="minValue">
+                                <number>0</number>
+                            </property>
+                            <property name="maxValue">
+                                <number>20</number>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>This option allows you to define how many applications should be displayed at most in the QuickStart menu area.</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="TQRadioButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>kcfg_RecentVsOften</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Show the &amp;applications most recently used</string>
+                    </property>
+                    <property name="checked">
+                        <bool>true</bool>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>When this option is selected the QuickStart menu area will be filled with the applications you have used most recently.</string>
+                    </property>
+                </widget>
+                <widget class="TQRadioButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>m_showFrequent</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Show the applications most fre&amp;quently used</string>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>When this option is selected the QuickStart menu area will be filled with the applications you use most frequently.</string>
+                    </property>
+                </widget>
+                <spacer row="0" column="1" rowspan="3" colspan="1">
+                    <property name="name">
+                        <cstring>Spacer8</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                </spacer>
+            </grid>
+        </widget>
+        <widget class="TQButtonGroup" row="3" column="1">
+            <property name="name">
+                <cstring>m_pSearchGroup</cstring>
+            </property>
+            <property name="title">
+                <string>TDE Menu Search</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="TQCheckBox" row="0" column="0">
+                    <property name="name">
+                        <cstring>kcfg_UseSearchBar</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Show search field in TDE Menu</string>
+                    </property>
+                    <property name="checked">
+                        <bool>true</bool>
+                    </property>
+                    <property name="whatsThis" stdset="0">
+                        <string>&lt;qt&gt;When this option is selected a text-based search field will appear in the TDE Menu.&lt;/qt&gt;</string>
+                    </property>
+                </widget>
+                <widget class="TQLayoutWidget" row="2" column="0">
+                    <property name="name">
+                        <cstring>m_searchShortcutLayout</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="TQLabel">
+                            <property name="name">
+                                <cstring>searchShortcutLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Search shortcut:</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>From here you can change the keyboard shortcut which triggers the search line in the TDE Menu.</string>
+                            </property>
+                        </widget>
+                        <widget class="KKeyButton">
+                            <property name="name">
+                                <cstring>m_searchShortcut</cstring>
+                            </property>
+                            <property name="text">
+                                <string>None</string>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>From here you can change the keyboard shortcut which triggers the search line in the TDE Menu.</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <spacer row="0" column="1" rowspan="3" colspan="2">
+                    <property name="name">
+                        <cstring>Spacer8</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                </spacer>
+            </grid>
+        </widget>
+        <widget class="TQGroupBox" row="3" column="0">
+            <property name="name">
+                <cstring>m_recentGroup</cstring>
+            </property>
+            <property name="title">
+                <string>Recent Documents Menu</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="TQLayoutWidget" row="1" column="0">
+                    <property name="name">
+                        <cstring>Layout3</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="TQLabel">
+                            <property name="name">
+                                <cstring>m_maxRecentDocumentsItemsLabel</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Maximum number of entries:</string>
+                            </property>
+                            <property name="buddy" stdset="0">
+                                <cstring>maxrecentdocs</cstring>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>This sets the maximum number of recently accessed documents stored for fast retrieval.</string>
+                            </property>
+                        </widget>
+                        <widget class="KIntNumInput">
+                            <property name="name">
+                                <cstring>maxrecentdocs</cstring>
+                            </property>
+                            <property name="value">
+                                <number>10</number>
+                            </property>
+                            <property name="minValue">
+                                <number>0</number>
+                            </property>
+                            <property name="maxValue">
+                                <number>100</number>
+                            </property>
+                            <property name="whatsThis" stdset="0">
+                                <string>This sets the maximum number of recently accessed documents stored for fast retrieval.</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <spacer row="0" column="1" rowspan="2" colspan="1">
+                    <property name="name">
+                        <cstring>Spacer7</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>0</height>
+                        </size>
+                    </property>
+                </spacer>
+            </grid>
+        </widget>
+    </grid>
+</widget>
+<customwidgets>
+</customwidgets>
+<connections>
+    <connection>
+        <sender>kcfg_ShowKMenuText</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>TextLabel1_3_3_1</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_ShowKMenuText</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_KMenuText</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_ShowKMenuText</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>TextLabel1_3_3_2</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_ShowKMenuText</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_ButtonFont</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_UseSearchBar</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>searchShortcutLabel</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_UseSearchBar</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>m_searchShortcut</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>m_formatSimple</tabstop>
+    <tabstop>m_formatNameDesc</tabstop>
+    <tabstop>m_formDescName</tabstop>
+    <tabstop>kcfg_UseSidePixmap</tabstop>
+    <tabstop>m_editKMenuButton</tabstop>
+    <tabstop>m_subMenus</tabstop>
+    <tabstop>kcfg_ShowHiddenFiles</tabstop>
+    <tabstop>kcfg_ShowOpenInTerminal</tabstop>
+    <tabstop>kcfg_MaxEntries2</tabstop>
+    <tabstop>kcfg_RecentVsOften</tabstop>
+    <tabstop>m_showFrequent</tabstop>
+    <tabstop>kcfg_NumVisibleEntries</tabstop>
+</tabstops>
+<includes>
+    <include location="global" impldecl="in implementation">kdialog.h</include>
+    <include location="global" impldecl="in implementation">knuminput.h</include>
+    <include location="global" impldecl="in implementation">kpushbutton.h</include>
+    <include location="global" impldecl="in implementation">tdefontrequester.h</include>
+    <include location="global" impldecl="in implementation">tdelistview.h</include>
+    <include location="global" impldecl="in implementation">kkeybutton.h</include>
+</includes>
+<layoutdefaults spacing="6" margin="11"/>
+<layoutfunctions spacing="KDialog::spacingHint" margin="KDialog::marginHint"/>
 </UI>
