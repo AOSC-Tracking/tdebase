@@ -37,6 +37,7 @@
 #include <knuminput.h>
 #include <tdestandarddirs.h>
 #include <tdefontrequester.h>
+#include <kcolorbutton.h>
 #include <kkeybutton.h>
 #include <tdemessagebox.h>
 
@@ -255,7 +256,6 @@ void MenuTab::save()
     TQString oldmenutextsetting = c->readEntry("Text", "");
 
     c->setGroup("buttons");
-    TQFont oldmenufontsetting = c->readFontEntry("Font");
 
     if (kmenusetting != oldkmenusetting) {
         forceRestart = true;
@@ -266,7 +266,10 @@ void MenuTab::save()
     if (kcfg_KMenuText->text() != oldmenutextsetting) {
         forceRestart = true;
     }
-    if (kcfg_ButtonFont->font() != oldmenufontsetting) {
+    if (kcfg_ButtonFont->font() != c->readFontEntry("Font")) {
+        forceRestart = true;
+    }
+    if (kcfg_ButtonTextColor->color() != c->readColorEntry("TextColor")) {
         forceRestart = true;
     }
 
