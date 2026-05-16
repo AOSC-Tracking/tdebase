@@ -259,7 +259,7 @@
                                 <cstring>kcfg_UseTooltip</cstring>
                             </property>
                             <property name="text">
-                                <string>Show T&amp;ooltip</string>
+                                <string>Show t&amp;ooltip</string>
                             </property>
                             <property name="checked">
                                 <bool>false</bool>
