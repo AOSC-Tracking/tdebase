@@ -801,18 +801,27 @@
     </connection>
 </connections>
 <tabstops>
-    <tabstop>m_formatSimple</tabstop>
+    <tabstop>m_comboMenuStyle</tabstop>
     <tabstop>m_formatNameDesc</tabstop>
-    <tabstop>m_formDescName</tabstop>
-    <tabstop>kcfg_UseSidePixmap</tabstop>
     <tabstop>m_editKMenuButton</tabstop>
+    <tabstop>btnCustomKMenuIcon</tabstop>
     <tabstop>m_subMenus</tabstop>
+    <tabstop>m_openOnHover</tabstop>
+    <tabstop>kcfg_UseTooltip</tabstop>
+    <tabstop>kcfg_UseSidePixmap</tabstop>
+    <tabstop>kcfg_UseTopPixmap</tabstop>
+    <tabstop>kcfg_ShowKMenuText</tabstop>
+    <tabstop>kcfg_KMenuText</tabstop>
+    <tabstop>kcfg_ButtonFont</tabstop>
+    <tabstop>kcfg_ButtonTextColor</tabstop>
     <tabstop>kcfg_ShowHiddenFiles</tabstop>
     <tabstop>kcfg_ShowOpenInTerminal</tabstop>
     <tabstop>kcfg_MaxEntries2</tabstop>
     <tabstop>kcfg_RecentVsOften</tabstop>
-    <tabstop>m_showFrequent</tabstop>
     <tabstop>kcfg_NumVisibleEntries</tabstop>
+    <tabstop>maxrecentdocs</tabstop>
+    <tabstop>kcfg_UseSearchBar</tabstop>
+    <tabstop>m_searchShortcut</tabstop>
 </tabstops>
 <includes>
     <include location="global" impldecl="in implementation">kdialog.h</include>
