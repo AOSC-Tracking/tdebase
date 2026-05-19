@@ -41,6 +41,18 @@ static const unsigned char unsticky_bits[] = {
 static const unsigned char sticky_bits[] = {
    0x3c, 0x42, 0x81, 0x81, 0x81, 0x81, 0x42, 0x3c};
 
+static const unsigned char above_on_bits[] = {
+   0x18, 0x3c, 0x7e, 0xe7, 0xc3, 0x00, 0xff, 0xff};
+
+static const unsigned char above_off_bits[] = {
+   0x18, 0x3c, 0x7e, 0xe7, 0xc3, 0x00, 0x00, 0x00};
+
+static const unsigned char below_on_bits[] = {
+   0xff, 0xff, 0x00, 0xc3, 0xe7, 0x7e, 0x3c, 0x18};
+
+static const unsigned char below_off_bits[] = {
+   0x00, 0x00, 0x00, 0xc3, 0xe7, 0x7e, 0x3c, 0x18};
+
 static TQPixmap *titlePix;
 static KPixmap *aUpperGradient;
 static KPixmap *iUpperGradient;
@@ -275,6 +287,12 @@ void LaptopButton::reset(unsigned long changed)
             case OnAllDesktopsButton:
                 setBitmap( isOn() ? unsticky_bits : sticky_bits );
                 break;
+            case AboveButton:
+                setBitmap( isOn() ? above_on_bits : above_off_bits );
+                break;
+            case BelowButton:
+                setBitmap( isOn() ? below_on_bits : below_off_bits );
+                break;
             default:
                 setBitmap(0);
                 break;
@@ -404,7 +422,7 @@ int LaptopClient::layoutMetric(LayoutMetric lm, bool respectWindowState, const K
 
         case LM_ButtonWidth:
         {
-            if (btn && (btn->type()==HelpButton||btn->type()==OnAllDesktopsButton) ) {
+            if (btn && (btn->type()==HelpButton||btn->type()==OnAllDesktopsButton||btn->type()==AboveButton||btn->type()==BelowButton) ) {
                 return btnWidth1;
             } else {
                 return btnWidth2;
@@ -446,6 +464,12 @@ KCommonDecorationButton *LaptopClient::createButton(ButtonType type)
 
         case CloseButton:
             return new LaptopButton(CloseButton, this, "close");
+
+        case AboveButton:
+            return new LaptopButton(AboveButton, this, "above");
+
+        case BelowButton:
+            return new LaptopButton(BelowButton, this, "below");
 
         default:
             return 0;
@@ -717,6 +741,8 @@ bool LaptopClientFactory::supports( Ability ability )
         case AbilityButtonMinimize:
         case AbilityButtonMaximize:
         case AbilityButtonClose:
+        case AbilityButtonAboveOthers:
+        case AbilityButtonBelowOthers:
             return true;
         default:
             return false;
