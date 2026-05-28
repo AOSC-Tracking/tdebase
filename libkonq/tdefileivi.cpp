@@ -25,6 +25,7 @@
 #include "konq_settings.h"
 
 #include <tqpainter.h>
+#include <tqtextedit.h>
 
 #include <kurldrag.h>
 #include <kiconeffect.h>
@@ -57,7 +58,8 @@ struct KFileIVI::Private
 KFileIVI::KFileIVI( KonqIconViewWidget *iconview, KFileItem* fileitem, int size )
     : TDEIconViewItem( iconview, fileitem->text() ),
     m_size( size ), m_state( TDEIcon::DefaultState ),
-    m_bDisabled( false ), m_bThumbnail( false ), m_fileitem( fileitem )
+    m_bDisabled( false ), m_bThumbnail( false ), m_fileitem( fileitem ),
+    m_renameBox(nullptr)
 {
     d = new KFileIVI::Private;
 
@@ -85,6 +87,7 @@ KFileIVI::KFileIVI( KonqIconViewWidget *iconview, KFileItem* fileitem, int size 
 
 KFileIVI::~KFileIVI()
 {
+    removeRenameBox();
     delete d->m_directoryOverlay;
     delete d->m_freeSpaceOverlay;
     delete d;
@@ -233,7 +236,7 @@ void KFileIVI::setDisabled( bool disabled )
     {
         m_bDisabled = disabled;
         bool active = ( m_state == TDEIcon::ActiveState );
-        setEffect( m_bDisabled ? TDEIcon::DisabledState : 
+        setEffect( m_bDisabled ? TDEIcon::DisabledState :
                    ( active ? TDEIcon::ActiveState : TDEIcon::DefaultState ) );
     }
 }
@@ -478,9 +481,9 @@ void KFileIVI::paintOverlayProgressBar( TQPainter *p ) const
 //         int verticalOffset = 0;
 //         int usedBarWidth = ((d->m_progress*pixmapRect().width())/100);
 //         int endPosition = x() + rect.x() + usedBarWidth;
-// 
+//
 //         p->save();
-// 
+//
 //         p->setPen(TQPen::NoPen);
 //         p->setBrush(TQt::red);
 //         p->drawRect(TQRect(x() + rect.x(), y() + rect.y() + (pixmapRect().height() - verticalOffset), usedBarWidth, 1));
@@ -618,4 +621,173 @@ void KFileIVI::updatePixmapSize()
 void KFileIVI::mimeTypeAndIconDetermined()
 {
     updatePixmapSize();
+}
+
+// Reimplemented from tqiconview.cpp
+class KFileIVILineEdit : public TQTextEdit
+{
+    friend class KFileIVI;
+
+    public:
+        KFileIVILineEdit(const TQString &text, TQWidget *parent, KFileIVI *theItem, const char* name = 0);
+
+    protected:
+        void keyPressEvent(TQKeyEvent *e);
+        void focusOutEvent(TQFocusEvent *e);
+
+    protected:
+        KFileIVI *item;
+        TQString startText;
+
+    private:
+        KFileIVILineEdit(const KFileIVILineEdit &);
+        KFileIVILineEdit &operator=(const KFileIVILineEdit &);
+};
+
+KFileIVILineEdit::KFileIVILineEdit(const TQString &text, TQWidget *parent,
+                                   KFileIVI *theItem, const char *name)
+    : TQTextEdit(parent, name), item(theItem), startText(text)
+{
+    setFrameStyle(TQFrame::Plain | TQFrame::Box);
+    setLineWidth(1);
+
+    setHScrollBarMode(AlwaysOff);
+    setVScrollBarMode(AlwaysOff);
+
+    resize( 200, 200 ); // ### some size, there should be a forceReformat()
+    setTextFormat(PlainText);
+    setText(text);
+    setAlignment(TQt::AlignCenter);
+    setWordWrap(WidgetWidth);
+    setWrapPolicy(AtWordOrDocumentBoundary);
+    setWrapColumnOrWidth(item->iconView()->maxItemWidth() -
+            (item->iconView()->itemTextPos() == TQIconView::Bottom ?
+            0 : item->pixmapRect().width()));
+
+    resize(wrapColumnOrWidth() + 2, heightForWidth(wrapColumnOrWidth()) + 2);
+}
+
+void KFileIVILineEdit::keyPressEvent(TQKeyEvent *e)
+{
+    if (e->key() == Key_Escape)
+    {
+        item->TQIconViewItem::setText(startText);
+        item->cancelRenameItem();
+    }
+    else if (e->key() == Key_Enter || e->key() == Key_Return)
+    {
+        item->renameItem();
+    }
+    else if ((e->key() == Key_Tab || e->key() == Key_Backtab) &&
+            !(e->state() & ControlButton || e->state() & AltButton))
+    {
+        item->renameItem();
+        KFileIVI *it;
+        if (e->key() == Key_Tab && !(e->state() & ShiftButton))
+        {
+            it = static_cast<KFileIVI*>(item->nextItem());
+            if (!it) // wrap around to start
+            {
+                it = static_cast<KFileIVI*>(item->iconView()->firstItem());
+            }
+        }
+        else
+        {
+            it = static_cast<KFileIVI*>(item->prevItem());
+            if (!it) // wrap around to end
+            {
+                it = static_cast<KFileIVI*>(item->iconView()->lastItem());
+            }
+        }
+        if (it) it->rename();
+    }
+    else
+    {
+        TQTextEdit::keyPressEvent(e);
+        sync();
+        resize(width(), heightForWidth(width()) + 2);
+    }
+}
+
+void KFileIVILineEdit::focusOutEvent(TQFocusEvent *e)
+{
+    if ( e->reason() != TQFocusEvent::Popup )
+    item->cancelRenameItem();
+}
+
+void KFileIVI::rename()
+{
+    KonqIconViewWidget *view = static_cast<KonqIconViewWidget *>(iconView());
+    if (!view) return;
+
+    if (m_renameBox)
+    {
+        removeRenameBox();
+    }
+
+    oldRect = rect();
+    const TQString fileName = text();
+    m_renameBox = new KFileIVILineEdit(fileName, view->viewport(), this, "kfileivi_renamebox");
+    view->ensureItemVisible(this);
+    TQRect txtr(textRect(false));
+    view->addChild(m_renameBox, txtr.x() + (txtr.width() / 2 - m_renameBox->width() / 2),
+                                txtr.y() - 3);
+    int sel = fileName.find(".");
+    sel = sel > -1 ? sel : fileName.length();
+    m_renameBox->setSelection(0, 0, 0, sel);
+    view->viewport()->setFocusProxy(m_renameBox);
+    m_renameBox->setFocus();
+    m_renameBox->show();
+    Q_ASSERT(view->renamingItem() == nullptr);
+    view->setRenamingItem(this);
+}
+
+void KFileIVI::renameItem()
+{
+    KonqIconViewWidget *view = static_cast<KonqIconViewWidget *>(iconView());
+    if (!m_renameBox || !view) return;
+
+    if (!view->wordWrapIconText())
+    {
+        calcRect();
+    }
+    TQRect r = rect();
+    setText(m_renameBox->text());
+    view->repaintContents(oldRect.x() - 1, oldRect.y() - 1, oldRect.width() + 2, oldRect.height() + 2, false);
+    view->repaintContents(r.x() - 1, r.y() - 1, r.width() + 2, r.height() + 2, false);
+    removeRenameBox();
+    view->emitRenamed(this);
+}
+
+void KFileIVI::cancelRenameItem()
+{
+    KonqIconViewWidget *view = static_cast<KonqIconViewWidget *>(iconView());
+    if (!view) return;
+
+    TQRect r = rect();
+    calcRect();
+    view->repaintContents(oldRect.x() - 1, oldRect.y() - 1, oldRect.width() + 2, oldRect.height() + 2, false);
+    view->repaintContents(r.x() - 1, r.y() - 1, r.width() + 2, r.height() + 2, false);
+
+    if (!m_renameBox) return;
+
+    removeRenameBox();
+}
+
+void KFileIVI::removeRenameBox()
+{
+    KonqIconViewWidget *view = static_cast<KonqIconViewWidget *>(iconView());
+    if (!m_renameBox || !view) return;
+
+    bool resetFocus = view->viewport()->focusProxy() == m_renameBox;
+    m_renameBox->hide();
+    m_renameBox->deleteLater();
+    m_renameBox = nullptr;
+    if (resetFocus)
+    {
+        view->viewport()->setFocusProxy(view);
+        view->setFocus();
+    }
+    Q_ASSERT(view->renamingItem() == this);
+    view->setRenamingItem(nullptr);
 }

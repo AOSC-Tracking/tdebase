@@ -28,6 +28,7 @@ class KFileItem;
 class KonqIconViewWidget;
 class KIVDirectoryOverlay;
 class KIVFreeSpaceOverlay;
+class KFileIVILineEdit;
 
 /**
  * KFileIVI (short form of "Konq - File - IconViewItem")
@@ -38,6 +39,8 @@ class KIVFreeSpaceOverlay;
  */
 class LIBKONQ_EXPORT KFileIVI : public TDEIconViewItem
 {
+friend class KFileIVILineEdit;
+friend class KonqIconViewWidget;
 public:
     /**
      * Create an icon, within a qlistview, representing a file
@@ -210,6 +213,8 @@ public:
 
     void mimeTypeAndIconDetermined();
 
+    void rename();
+
 protected:
     virtual void dropped( TQDropEvent *e, const TQValueList<TQIconDragItem> &  );
 
@@ -233,6 +238,14 @@ protected:
      */
     void paintFontUpdate( TQPainter *p ) const;
 
+    /** Reimplementation of TQt inline rename */
+    void renameItem();
+    void cancelRenameItem();
+    void removeRenameBox();
+
+    KFileIVILineEdit *m_renameBox;
+
+
 private:
     /** You are not supposed to call this on a KFileIVI, from the outside,
      * it bypasses the icons cache */
@@ -248,6 +261,7 @@ private:
     bool m_bThumbnail;
     /** Pointer to the file item in KDirLister's list */
     KFileItem* m_fileitem;
+    TQRect oldRect;
 
     /**
      * Private data for KFileIVI

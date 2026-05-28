@@ -58,6 +58,7 @@ struct KonqIconViewWidgetPrivate
 {
     KonqIconViewWidgetPrivate() {
         pActiveItem = 0;
+        pRenamingItem = 0;
         bSoundPreviews = false;
         pSoundItem = 0;
         bSoundItemClicked = false;
@@ -85,6 +86,7 @@ struct KonqIconViewWidgetPrivate
         //delete pPreviewJob; done by stopImagePreview
     }
     KFileIVI *pActiveItem;
+    KFileIVI *pRenamingItem;
     // Sound preview
     KFileIVI *pSoundItem;
     KonqSoundPlayer *pSoundPlayer;
@@ -187,6 +189,21 @@ void KonqIconViewWidget::focusOutEvent( TQFocusEvent * ev )
     slotOnViewport();
 
     TDEIconView::focusOutEvent( ev );
+}
+
+bool KonqIconViewWidget::isRenaming() const
+{
+    return d->pRenamingItem && d->pRenamingItem->m_renameBox;
+}
+
+const KFileIVI* KonqIconViewWidget::renamingItem()
+{
+    return d->pRenamingItem;
+}
+
+void KonqIconViewWidget::setRenamingItem(KFileIVI *theItem)
+{
+    d->pRenamingItem = theItem;
 }
 
 void KonqIconViewWidget::slotItemRenamed(TQIconViewItem *item, const TQString &name)
@@ -1126,14 +1143,16 @@ void KonqIconViewWidget::slotSelectionChanged()
 
 void KonqIconViewWidget::renameCurrentItem()
 {
-    if ( currentItem() )
-        currentItem()->rename();
+    if (currentItem())
+    {
+        static_cast<KFileIVI *>(currentItem())->rename();
+    }
 }
 
 void KonqIconViewWidget::renameSelectedItem()
 {
     kdDebug(1203) << " -- KonqIconViewWidget::renameSelectedItem() -- " << endl;
-    TQIconViewItem * item = 0L;
+    TQIconViewItem *item = 0L;
     TQIconViewItem *it = firstItem();
     for (; it; it = it->nextItem() )
         if ( it->isVisible() && it->isSelected() && !item )
@@ -1146,7 +1165,7 @@ void KonqIconViewWidget::renameSelectedItem()
         Q_ASSERT(item);
         return;
     }
-    item->rename();
+    static_cast<KFileIVI *>(item)->rename();
 }
 
 void KonqIconViewWidget::cutSelection()

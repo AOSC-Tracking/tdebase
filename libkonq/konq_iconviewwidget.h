@@ -244,6 +244,8 @@ public:
     const TQStringList& previewSettings();
     void setNewURL( const TQString& url );
 
+    bool isRenaming() const; // reimplemented from TQIconView
+
 public slots:
     /**
      * Checks the new selection and emits enableAction() signals
@@ -334,6 +336,9 @@ protected:
     int largestPreviewIconSize( int size ) const;
     bool canPreview( KFileItem* item );
     void updatePreviewMimeTypes();
+
+    const KFileIVI* renamingItem();
+    void setRenamingItem(KFileIVI *theItem);
 
 private:
     KURL m_url;
