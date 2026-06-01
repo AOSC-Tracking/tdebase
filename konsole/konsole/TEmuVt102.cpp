@@ -176,7 +176,7 @@ void TEmuVt102::reset()
    in front. They provide the syntactical elements used to represent the
    terminals operations as byte sequences.
 
-   They are encodes here into a single machine word, so that we can later
+   They are encoded here into a single machine word, so that we can later
    switch over them easily. Depending on the token itself, additional
    argument variables are filled with parameter values.
 
@@ -193,7 +193,7 @@ void TEmuVt102::reset()
    - VT52       - VT52 escape codes
                   - <ESC><Chr>
                   - <ESC>'Y'{Pc}{Pc}
-   - XTE_HA     - Xterm hacks              <ESC>`]' {Pn} `;' {Text} <BEL>
+   - OSC        - Escape codes of the form <ESC>`]' {Pn} `;' {Text} <BEL>
                   note that this is handled differently
 
    The last two forms allow list of arguments. Since the elements of
@@ -301,8 +301,8 @@ void TEmuVt102::initTokenizer()
 #define epe( )     (p >=  3  && s[2] == '!'                              )
 #define egt(     ) (p >=  3  && s[2] == '>'                              )
 #define Xpe        (ppos>=2  && pbuf[1] == ']'                           )
-#define Xte        (Xpe                        &&     cc           ==  7 )
-#define ces(C)     (            cc < 256 &&    (tbl[  cc  ] & (C)) == (C) && !Xte)
+#define OSC        (Xpe                        &&     cc           ==  7 )
+#define ces(C)     (            cc < 256 &&    (tbl[  cc  ] & (C)) == (C) && !OSC)
 
 #define ESC 27
 #define CNTL(c) ((c)-'@')
@@ -332,13 +332,13 @@ void TEmuVt102::onRcvChar(int cc)
     if (lec(1,0,ESC)) {                                                       return; }
     if (lec(1,0,ESC+128)) { s[0] = ESC; onRcvChar('[');                       return; }
     if (les(2,1,GRP)) {                                                       return; }
-    if (Xte         ) { XtermHack();                            resetToken(); return; }
+    if (OSC         ) { OSC_sequence_handler();                 resetToken(); return; }
     if (Xpe         ) {                                                       return; }
     if (lec(3,2,'?')) {                                                       return; }
     if (lec(3,2,'>')) {                                                       return; }
     if (lec(3,2,'!')) {                                                       return; }
-    if (lun(       )) { tau( TY_CHR(), applyCharset(cc), 0); resetToken(); return; }
-    if (lec(2,0,ESC)) { tau( TY_ESC(s[1]),    0,   0);       resetToken(); return; }
+    if (lun(       )) { tau( TY_CHR(), applyCharset(cc), 0);    resetToken(); return; }
+    if (lec(2,0,ESC)) { tau( TY_ESC(s[1]),    0,   0);          resetToken(); return; }
     if (les(3,1,SCS)) { tau( TY_ESC_CS(s[1],s[2]),    0,   0);  resetToken(); return; }
     if (lec(3,1,'#')) { tau( TY_ESC_DE(s[2]),    0,   0);       resetToken(); return; }
     if (eps(    CPN)) { tau( TY_CSI_PN(cc), argv[0],argv[1]);   resetToken(); return; }
@@ -377,14 +377,17 @@ void TEmuVt102::onRcvChar(int cc)
   }
 }
 
-void TEmuVt102::XtermHack()
-{ int i,arg = 0;
-  for (i = 2; i < ppos && '0'<=pbuf[i] && pbuf[i]<'9' ; i++)
+void TEmuVt102::OSC_sequence_handler()
+{
+  int i,arg = 0;
+  for (i = 2; i < ppos && '0' <= pbuf[i] && pbuf[i] <= '9' ; i++)
+  {
     arg = 10*arg + (pbuf[i]-'0');
-  if (pbuf[i] != ';') { ReportErrorToken(); return; }
-  TQChar *str = new TQChar[ppos-i-2];
-  for (int j = 0; j < ppos-i-2; j++) str[j] = pbuf[i+1+j];
-  TQString unistr(str,ppos-i-2);
+  }
+  if (pbuf[i++] != ';') { ReportErrorToken(); return; }
+  TQChar *str = new TQChar[ppos-i-1];
+  for (int j = 0; j < ppos-i-1; j++) str[j] = pbuf[i+j];
+  TQString unistr(str, ppos-i-1);
   // arg == 1 doesn't change the title. In XTerm it only changes the icon name
   // (btw: arg=0 changes title and icon, arg=1 only icon, arg=2 only title
   emit changeTitle(arg,unistr);

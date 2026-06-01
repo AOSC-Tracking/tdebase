@@ -112,7 +112,7 @@ private:
   void ReportErrorToken();   //FIXME: rename
 
   void tau(int code, int p, int q);
-  void XtermHack();
+  void OSC_sequence_handler();
 
   //
 
