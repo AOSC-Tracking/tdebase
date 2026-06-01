@@ -81,9 +81,6 @@ Enable shortcuts that allow you to quickly search for information on the web. Fo
             <property name="text">
                 <string>Show grouped in &amp;categories</string>
             </property>
-            <property name="accel">
-                <string>Alt+C</string>
-            </property>
             <property name="checked">
                 <bool>true</bool>
             </property>
