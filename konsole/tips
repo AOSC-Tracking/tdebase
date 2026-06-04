@@ -178,23 +178,29 @@ text while pressing the Shift key?
 <tip category="Konsole">
 <html>
 <p>...that you can let Konsole set the current directory as the window title?
-For Bash, put 'export PS1=$PS1"\[\e[0m\H:\w\a\]"' in your ~/.bashrc .
+For Bash, put 'export PS1=$PS1"\[\e]0;\H:\w\a\]"' in your ~/.bashrc.
 </html>
 </tip>
 
 <tip category="Konsole">
 <html>
 <p>...that you can let Konsole set the current directory as the session name?
-For Bash, put 'export PS1=$PS1"\[\e[30m\H:\w\a\]"' in your ~/.bashrc .
+For Bash, put 'export PS1=$PS1"\[\e]30;\H:\w\a\]"' in your ~/.bashrc.
 </html>
 </tip>
 
 <tip category="Konsole">
 <html>
-<p>...that if you let your shell pass the current directory to Konsole within the prompt
-variable, e.g. for Bash with 'export PS1=$PS1"\[\e[31m\w\a\]"' in your ~/.bashrc, then
-Konsole can bookmark it, and session management will remember your current working directory
-on non-Linux systems too?
+<p>...that if you open a terminal in Konqueror and you let your shell pass the current
+directory to the prompt variable, e.g. for Bash with 'export PS1=$PS1"\[\e]31;\w\a\]"' then
+Konqueror will automatically sync its location every time you change folder in the terminal?
+</html>
+</tip>
+
+<tip category="Konsole">
+<html>
+<p>...that you can set Konsole session's icon from a script with: "echo -ne '\e]32;&lt;icon&gt;\a'",
+where &lt;icon&gt; is either an icon name or a full path?
 </html>
 </tip>
 

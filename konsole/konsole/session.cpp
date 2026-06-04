@@ -214,23 +214,24 @@ void TESession::changeTabTextColor( int color )
 void TESession::setUserTitle( int what, const TQString &caption )
 {
     // (btw: what=0 changes title and icon, what=1 only icon, what=2 only title
-    if ((what == 0) || (what == 2))
+    if (what == 0 || what == 2)
        userTitle = caption;
-    if ((what == 0) || (what == 1))
+    if (what == 0 || what == 1)
        iconText = caption;
     if (what == 11) {
       TQString colorString = caption.section(';',0,0);
       TQColor backColor = TQColor(colorString);
       if (backColor.isValid()){// change color via \033]11;Color\007
-	if (backColor != modifiedBackground) {
-	    modifiedBackground = backColor;
-	    te->setDefaultBackColor(backColor);
-	}
+        if (backColor != modifiedBackground) {
+          modifiedBackground = backColor;
+          te->setDefaultBackColor(backColor);
+        }
       }
     }
-    if (what == 30)
+    // 30/31/32 are OSC extensions that are not part of the official XTerm documentation
+    if (what == 30)   // rename session via \033]30;<new name>\007
        renameSession(caption);
-    if (what == 31) {
+    if (what == 31) { // open specific folder via \033]31;<folder name>\007
        cwd=caption;
        cwd=cwd.replace( TQRegExp("^~"), TQDir::homeDirPath() );
        emit openURLRequest(cwd);
