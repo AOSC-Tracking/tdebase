@@ -1451,8 +1451,6 @@ const TQPoint Client::calculateGravitation( bool invert, int gravity ) const
 
 void Client::configureRequest( int value_mask, int rx, int ry, int rw, int rh, int gravity, bool from_tool )
     {
-    moveResizeMode = true;
-    configureRequestTimer->start(100, true);
     if( gravity == 0 ) // default (nonsense) value for the argument
         gravity = xSizeHint.win_gravity;
     if( value_mask & ( CWX | CWY ))

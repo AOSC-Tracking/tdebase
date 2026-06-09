@@ -355,7 +355,6 @@ class Client : public TQObject, public KDecorationDefines
     private slots:
         void autoRaise();
         void shadeHover();
-        void configureRequestTimeout();
         void shortcutActivated();
 	void updateOpacityCache();
 
@@ -575,7 +574,7 @@ class Client : public TQObject, public KDecorationDefines
         WinInfo* info;
         TQTimer* autoRaiseTimer;
         TQTimer* shadeHoverTimer;
-        TQTimer* configureRequestTimer;
+        TQTimer* configureRequestTimer; //< BCI: remove me
         Colormap cmap;
         TQCString resource_name;
         TQCString resource_class;
