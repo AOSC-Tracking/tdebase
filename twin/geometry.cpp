@@ -1133,8 +1133,9 @@ TQSize Client::sizeForClientSize( const TQSize& wsize, Sizemode mode, bool nofra
     int h1 = h;
     int width_inc = xSizeHint.width_inc;
     int height_inc = xSizeHint.height_inc;
-    int basew_inc = xSizeHint.min_width; // see getWmNormalHints()
-    int baseh_inc = xSizeHint.min_height;
+    // Note: see also getWmNormalHints()
+    int basew_inc = (xSizeHint.flags & PBaseSize) ? xSizeHint.base_width  : xSizeHint.min_width;
+    int baseh_inc = (xSizeHint.flags & PBaseSize) ? xSizeHint.base_height : xSizeHint.min_height;
     w = int(( w - basew_inc ) / width_inc ) * width_inc + basew_inc;
     h = int(( h - baseh_inc ) / height_inc ) * height_inc + baseh_inc;
 // code for aspect ratios based on code from FVWM
