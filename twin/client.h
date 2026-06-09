@@ -495,7 +495,7 @@ class Client : public TQObject, public KDecorationDefines
         int desk;
         bool buttonDown;
         bool moveResizeMode;
-        bool inhibitConfigureRequests;
+        bool inhibitConfigureRequests; //< BCI: remove me
         bool move_faked_activity;
         Window move_resize_grab_window;
         bool unrestrictedMoveResize;
