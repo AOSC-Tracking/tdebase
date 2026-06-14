@@ -21,7 +21,7 @@
 #ifndef TESCREEN_H
 #define TESCREEN_H
 
-#include "TECommon.h"
+#include "Character.h"
 #include "TEHistory.h"
 
 #define MODE_Origin    0
@@ -147,7 +147,7 @@ public: // these are all `Screen' operations
     //
     void resizeImage(int new_lines, int new_columns);
     //
-    ca*  getCookedImage();
+    Character*  getCookedImage();
     TQBitArray getCookedLineWrapped();
 
     /*! return the number of lines. */
@@ -194,7 +194,7 @@ private: // helper
     void initTabStops();
 
     void effectiveRendition();
-    void reverseRendition(ca* p);
+    void reverseRendition(Character* p);
 
     /*
        The state of the screen is more complex as one would
@@ -210,7 +210,7 @@ private: // helper
 
     int lines;
     int columns;
-    ca *image; // [lines][columns]
+    Character *image; // [lines][columns]
     TQBitArray line_wrapped; // [lines]
 
     // history buffer ---------------
@@ -225,9 +225,9 @@ private: // helper
 
     // cursor color and rendition info
 
-    cacol cu_fg;      // foreground
-    cacol cu_bg;      // background
-    UINT8 cu_re;      // rendition
+    CharacterColor cu_fg;      // foreground
+    CharacterColor cu_bg;      // background
+    uint8_t cu_re;      // rendition
 
     // margins ----------------
 
@@ -252,9 +252,9 @@ private: // helper
 
     // effective colors and rendition ------------
 
-    cacol ef_fg;      // These are derived from
-    cacol ef_bg;      // the cu_* variables above
-    UINT8 ef_re;      // to speed up operation
+    CharacterColor ef_fg;      // These are derived from
+    CharacterColor ef_bg;      // the cu_* variables above
+    uint8_t ef_re;      // to speed up operation
 
     //
     // save cursor, rendition & states ------------
@@ -267,9 +267,9 @@ private: // helper
 
     // rendition info
 
-    UINT8 sa_cu_re;
-    cacol sa_cu_fg;
-    cacol sa_cu_bg;
+    uint8_t sa_cu_re;
+    CharacterColor sa_cu_fg;
+    CharacterColor sa_cu_bg;
     
     // last position where we added a character
     int lastPos;

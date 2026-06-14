@@ -537,7 +537,7 @@ void TEmulation::showBulk()
 
   if (connected)
   {
-    ca* image = scr->getCookedImage();    // get the image
+    Character* image = scr->getCookedImage();    // get the image
     gui->setImage(image,
                   scr->getLines(),
                   scr->getColumns());     // actual refresh

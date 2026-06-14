@@ -161,7 +161,7 @@ int HistoryScrollFile::getLines()
 
 int HistoryScrollFile::getLineLen(int lineno)
 {
-  return (startOfLine(lineno+1) - startOfLine(lineno)) / sizeof(ca);
+  return (startOfLine(lineno+1) - startOfLine(lineno)) / sizeof(Character);
 }
 
 bool HistoryScrollFile::isWrappedLine(int lineno)
@@ -185,14 +185,14 @@ int HistoryScrollFile::startOfLine(int lineno)
   return cells.len();
 }
 
-void HistoryScrollFile::getCells(int lineno, int colno, int count, ca res[])
+void HistoryScrollFile::getCells(int lineno, int colno, int count, Character res[])
 {
-  cells.get((unsigned char*)res,count*sizeof(ca),startOfLine(lineno)+colno*sizeof(ca));
+  cells.get((unsigned char*)res,count*sizeof(Character),startOfLine(lineno)+colno*sizeof(Character));
 }
 
-void HistoryScrollFile::addCells(ca text[], int count)
+void HistoryScrollFile::addCells(Character text[], int count)
 {
-  cells.add((unsigned char*)text,count*sizeof(ca));
+  cells.add((unsigned char*)text,count*sizeof(Character));
 }
 
 void HistoryScrollFile::addLine(bool previousWrapped)
@@ -222,7 +222,7 @@ HistoryScrollBuffer::~HistoryScrollBuffer()
   }
 }
 
-void HistoryScrollBuffer::addCells(ca a[], int count)
+void HistoryScrollBuffer::addCells(Character a[], int count)
 {
   histline* newLine = new histline;
 
@@ -269,7 +269,7 @@ bool HistoryScrollBuffer::isWrappedLine(int lineno)
   return m_wrappedLine[adjustLineNb(lineno)];
 }
 
-void HistoryScrollBuffer::getCells(int lineno, int colno, int count, ca res[])
+void HistoryScrollBuffer::getCells(int lineno, int colno, int count, Character res[])
 {
   if (!count) return;
 
@@ -280,13 +280,13 @@ void HistoryScrollBuffer::getCells(int lineno, int colno, int count, ca res[])
   histline *l = m_histBuffer[lineno];
 
   if (!l) {
-    memset(res, 0, count * sizeof(ca));
+    memset(res, 0, count * sizeof(Character));
     return;
   }
 
   assert(colno <= (int) l->size() - count);
 
-  memcpy(res, l->data() + colno, count * sizeof(ca));
+  memcpy(res, l->data() + colno, count * sizeof(Character));
 }
 
 void HistoryScrollBuffer::setMaxNbLines(unsigned int nbLines)
@@ -363,11 +363,11 @@ bool HistoryScrollNone::isWrappedLine(int /*lineno*/)
   return false;
 }
 
-void HistoryScrollNone::getCells(int, int, int, ca [])
+void HistoryScrollNone::getCells(int, int, int, Character [])
 {
 }
 
-void HistoryScrollNone::addCells(ca [], int)
+void HistoryScrollNone::addCells(Character [], int)
 {
 }
 
@@ -410,34 +410,34 @@ bool HistoryScrollBlockArray::isWrappedLine(int /*lineno*/)
 }
 
 void HistoryScrollBlockArray::getCells(int lineno, int colno,
-                                       int count, ca res[])
+                                       int count, Character res[])
 {
   if (!count) return;
 
   const Block *b = m_blockArray.at(lineno);
 
   if (!b) {
-    memset(res, 0, count * sizeof(ca)); // still better than random data
+    memset(res, 0, count * sizeof(Character)); // still better than random data
     return;
   }
 
-  assert(((colno + count) * sizeof(ca)) < ENTRIES);
-  memcpy(res, b->data + (colno * sizeof(ca)), count * sizeof(ca));
+  assert(((colno + count) * sizeof(Character)) < ENTRIES);
+  memcpy(res, b->data + (colno * sizeof(Character)), count * sizeof(Character));
 }
 
-void HistoryScrollBlockArray::addCells(ca a[], int count)
+void HistoryScrollBlockArray::addCells(Character a[], int count)
 {
   Block *b = m_blockArray.lastBlock();
 
   if (!b) return;
 
   // put cells in block's data
-  assert((count * sizeof(ca)) < ENTRIES);
+  assert((count * sizeof(Character)) < ENTRIES);
 
   memset(b->data, 0, ENTRIES);
 
-  memcpy(b->data, a, count * sizeof(ca));
-  b->size = count * sizeof(ca);
+  memcpy(b->data, a, count * sizeof(Character));
+  b->size = count * sizeof(Character);
 
   size_t res = m_blockArray.newBlock();
   assert (res > 0);
@@ -546,13 +546,13 @@ HistoryScroll* HistoryTypeBuffer::getScroll(HistoryScroll *old) const
     if (lines > (int) m_nbLines)
        startLine = lines - m_nbLines;
 
-    ca line[LINE_SIZE];
+    Character line[LINE_SIZE];
     for(int i = startLine; i < lines; i++)
     {
        int size = old->getLineLen(i);
        if (size > LINE_SIZE)
        {
-          ca *tmp_line = new ca[size];
+          Character *tmp_line = new Character[size];
           old->getCells(i, 0, size, tmp_line);
           newScroll->addCells(tmp_line, size);
           newScroll->addLine(old->isWrappedLine(i));
@@ -595,14 +595,14 @@ HistoryScroll* HistoryTypeFile::getScroll(HistoryScroll *old) const
 
   HistoryScroll *newScroll = new HistoryScrollFile(m_fileName);
 
-  ca line[LINE_SIZE];
+  Character line[LINE_SIZE];
   int lines = old->getLines();
   for(int i = 0; i < lines; i++)
   {
      int size = old->getLineLen(i);
      if (size > LINE_SIZE)
      {
-        ca *tmp_line = new ca[size];
+        Character *tmp_line = new Character[size];
         old->getCells(i, 0, size, tmp_line);
         newScroll->addCells(tmp_line, size);
         newScroll->addLine(old->isWrappedLine(i));

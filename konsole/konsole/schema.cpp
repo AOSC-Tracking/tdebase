@@ -197,9 +197,9 @@ void ColorSchema::clearSchema()
 
   for (i = 0; i < TABLE_COLORS; i++)
   {
-    m_table[i].color       = TQColor(0,0,0);
-    m_table[i].transparent = 0;
-    m_table[i].bold        = 0;
+    m_table[i].m_color       = TQColor(0,0,0);
+    m_table[i].m_transparent = 0;
+    m_table[i].m_bold        = 0;
   }
   m_title     = i18n("[no title]");
   m_imagePath = "";
@@ -246,9 +246,9 @@ void ColorSchema::writeConfigColor(TDEConfig& c,
 {
   TDEConfigGroupSaver(&c,name);
   c.setGroup(name);
-  c.writeEntry("Color",e.color);
-  c.writeEntry("Transparency",(bool) e.transparent);
-  c.writeEntry("Bold",(bool) e.bold);
+  c.writeEntry("Color",e.m_color);
+  c.writeEntry("Transparency",(bool) e.m_transparent);
+  c.writeEntry("Bold",(bool) e.m_bold);
 }
 
 void ColorSchema::readConfigColor(TDEConfig& c,
@@ -258,9 +258,9 @@ void ColorSchema::readConfigColor(TDEConfig& c,
   TDEConfigGroupSaver(&c,name);
   c.setGroup(name);
 
-  e.color = c.readColorEntry("Color");
-  e.transparent = c.readBoolEntry("Transparent",false);
-  e.bold = c.readBoolEntry("Bold",false);
+  e.m_color = c.readColorEntry("Color");
+  e.m_transparent = c.readBoolEntry("Transparent",false);
+  e.m_bold = c.readBoolEntry("Bold",false);
 }
 
 
@@ -362,10 +362,10 @@ bool ColorSchema::rereadSchemaFile()
         if (!(0 <= cv && cv <= 255         )) continue;
         if (!(0 <= tr && tr <= 1           )) continue;
         if (!(0 <= bo && bo <= 1           )) continue;
-        m_table[fi].color       = TQColor();
-        m_table[fi].color.setHsv(ch,cs,cv);
-        m_table[fi].transparent = tr;
-        m_table[fi].bold        = bo;
+        m_table[fi].m_color       = TQColor();
+        m_table[fi].m_color.setHsv(ch,cs,cv);
+        m_table[fi].m_transparent = tr;
+        m_table[fi].m_bold        = bo;
       }
       if (!strncmp(line,"color",5))
       { int fi,cr,cg,cb,tr,bo;
@@ -377,9 +377,9 @@ bool ColorSchema::rereadSchemaFile()
         if (!(0 <= cb && cb <= 255         )) continue;
         if (!(0 <= tr && tr <= 1           )) continue;
         if (!(0 <= bo && bo <= 1           )) continue;
-        m_table[fi].color       = TQColor(cr,cg,cb);
-        m_table[fi].transparent = tr;
-        m_table[fi].bold        = bo;
+        m_table[fi].m_color       = TQColor(cr,cg,cb);
+        m_table[fi].m_transparent = tr;
+        m_table[fi].m_bold        = bo;
       }
       if (!strncmp(line,"sysfg",5))
       { int fi,tr,bo;
@@ -388,9 +388,9 @@ bool ColorSchema::rereadSchemaFile()
         if (!(0 <= fi && fi <= TABLE_COLORS)) continue;
         if (!(0 <= tr && tr <= 1           )) continue;
         if (!(0 <= bo && bo <= 1           )) continue;
-        m_table[fi].color       = tdeApp->palette().active().text();
-        m_table[fi].transparent = tr;
-        m_table[fi].bold        = bo;
+        m_table[fi].m_color       = tdeApp->palette().active().text();
+        m_table[fi].m_transparent = tr;
+        m_table[fi].m_bold        = bo;
       }
       if (!strncmp(line,"sysbg",5))
       { int fi,tr,bo;
@@ -399,9 +399,9 @@ bool ColorSchema::rereadSchemaFile()
         if (!(0 <= fi && fi <= TABLE_COLORS)) continue;
         if (!(0 <= tr && tr <= 1           )) continue;
         if (!(0 <= bo && bo <= 1           )) continue;
-        m_table[fi].color       = tdeApp->palette().active().base();
-        m_table[fi].transparent = tr;
-        m_table[fi].bold        = bo;
+        m_table[fi].m_color       = tdeApp->palette().active().base();
+        m_table[fi].m_transparent = tr;
+        m_table[fi].m_bold        = bo;
       }
     }
   }

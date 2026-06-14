@@ -27,7 +27,7 @@
 
 #include <tdetempfile.h>
 
-#include "TECommon.h"
+#include "Character.h"
 
 #if 1
 /*
@@ -69,14 +69,14 @@ public:
   // access to history
   virtual int  getLines() = 0;
   virtual int  getLineLen(int lineno) = 0;
-  virtual void getCells(int lineno, int colno, int count, ca res[]) = 0;
+  virtual void getCells(int lineno, int colno, int count, Character res[]) = 0;
   virtual bool isWrappedLine(int lineno) = 0;
 
   // backward compatibility (obsolete)
-  ca   getCell(int lineno, int colno) { ca res; getCells(lineno,colno,1,&res); return res; }
+  Character   getCell(int lineno, int colno) { Character res; getCells(lineno,colno,1,&res); return res; }
 
   // adding lines.
-  virtual void addCells(ca a[], int count) = 0;
+  virtual void addCells(Character a[], int count) = 0;
   virtual void addLine(bool previousWrapped=false) = 0;
 
   const HistoryType& getType() { return *m_histType; }
@@ -100,10 +100,10 @@ public:
 
   virtual int  getLines();
   virtual int  getLineLen(int lineno);
-  virtual void getCells(int lineno, int colno, int count, ca res[]);
+  virtual void getCells(int lineno, int colno, int count, Character res[]);
   virtual bool isWrappedLine(int lineno);
 
-  virtual void addCells(ca a[], int count);
+  virtual void addCells(Character a[], int count);
   virtual void addLine(bool previousWrapped=false);
 
 private:
@@ -111,7 +111,7 @@ private:
 
   TQString m_logFileName;
   HistoryFile index; // lines Row(int)
-  HistoryFile cells; // text  Row(ca)
+  HistoryFile cells; // text  Row(Character)
   HistoryFile lineflags; // flags Row(unsigned char)
 };
 
@@ -122,17 +122,17 @@ private:
 class HistoryScrollBuffer : public HistoryScroll
 {
 public:
-  typedef TQMemArray<ca> histline;
+  typedef TQMemArray<Character> histline;
 
   HistoryScrollBuffer(unsigned int maxNbLines = 1000);
   virtual ~HistoryScrollBuffer();
 
   virtual int  getLines();
   virtual int  getLineLen(int lineno);
-  virtual void getCells(int lineno, int colno, int count, ca res[]);
+  virtual void getCells(int lineno, int colno, int count, Character res[]);
   virtual bool isWrappedLine(int lineno);
 
-  virtual void addCells(ca a[], int count);
+  virtual void addCells(Character a[], int count);
   virtual void addLine(bool previousWrapped=false);
 
   void setMaxNbLines(unsigned int nbLines);
@@ -165,10 +165,10 @@ public:
 
   virtual int  getLines();
   virtual int  getLineLen(int lineno);
-  virtual void getCells(int lineno, int colno, int count, ca res[]);
+  virtual void getCells(int lineno, int colno, int count, Character res[]);
   virtual bool isWrappedLine(int lineno);
 
-  virtual void addCells(ca a[], int count);
+  virtual void addCells(Character a[], int count);
   virtual void addLine(bool previousWrapped=false);
 };
 
@@ -185,10 +185,10 @@ public:
 
   virtual int  getLines();
   virtual int  getLineLen(int lineno);
-  virtual void getCells(int lineno, int colno, int count, ca res[]);
+  virtual void getCells(int lineno, int colno, int count, Character res[]);
   virtual bool isWrappedLine(int lineno);
 
-  virtual void addCells(ca a[], int count);
+  virtual void addCells(Character a[], int count);
   virtual void addLine(bool previousWrapped=false);
 
 protected:

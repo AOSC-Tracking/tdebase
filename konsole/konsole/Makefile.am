@@ -49,7 +49,7 @@ konsole_la_LIBADD = $(LIB_TDEUI) $(LIB_TDEIO) $(LIB_TDEPRINT) $(LIBUTIL) $(XTEST
 # kcmkonsole_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
 noinst_HEADERS = TEWidget.h TEPty.h TEmulation.h TEmuVt102.h \
-	TECommon.h TEScreen.h konsole.h schema.h session.h konsole_wcwidth.h \
+	Character.h CharacterColor.h TEScreen.h konsole.h schema.h session.h konsole_wcwidth.h \
 	kwrited.h TEHistory.h keytrans.h default.keytab.h BlockArray.h \
         konsolebookmarkhandler.h konsolebookmarkmenu.h zmodem_dialog.h \
         printsettings.h linefont.h

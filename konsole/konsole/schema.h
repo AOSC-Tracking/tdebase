@@ -44,7 +44,7 @@
 #include <tqstring.h>
 #include <tqptrlist.h>
 
-#include "TECommon.h"
+#include "CharacterColor.h"
 
 #ifndef KONSOLEDEBUG
 /*

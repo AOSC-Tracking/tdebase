@@ -31,7 +31,7 @@
 
 #include <tdepopupmenu.h>
 
-#include "TECommon.h"
+#include "Character.h"
 #include "TEScreen.h"
 
 
@@ -83,7 +83,7 @@ public:
     void emitSelection(bool useXselection,bool appendReturn);
     void emitText(TQString text);
 
-    void setImage(const ca* const newimg, int lines, int columns);
+    void setImage(const Character* const newimg, int lines, int columns);
     void setLineWrapped(TQBitArray line_wrapped) { m_line_wrapped=line_wrapped; }
 
     void setCursorPos(const int curx, const int cury);
@@ -185,10 +185,10 @@ protected:
     bool event( TQEvent * );
 
     void drawTextFixed(TQPainter &paint, int x, int y,
-                       TQString& str, const ca *attr);
+                       TQString& str, const Character *attr);
 
     void drawAttrStr(TQPainter &paint, TQRect rect,
-                     TQString& str, const ca *attr, bool pm, bool clear);
+                     TQString& str, const Character *attr, bool pm, bool clear);
     void paintEvent( TQPaintEvent * );
 
     void paintContents(TQPainter &paint, const TQRect &rect, bool pm=false);
@@ -220,7 +220,7 @@ protected:
       TQTextDrag       *dragObject;
     } dragInfo;
 
-    virtual int charClass(UINT16) const;
+    virtual int charClass(uint16_t) const;
 
     void clearImage();
 
@@ -256,7 +256,7 @@ private:
     int columns;
     int contentHeight;
     int contentWidth;
-    ca *image; // [lines][columns]
+    Character *image; // [lines][columns]
     int image_size;
     TQBitArray m_line_wrapped;
 

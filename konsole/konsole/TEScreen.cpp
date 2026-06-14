@@ -68,19 +68,19 @@
 TEScreen::TEScreen(int l, int c)
   : lines(l),
     columns(c),
-    image(new ca[(lines+1)*columns]),
+    image(new Character[(lines+1)*columns]),
     histCursor(0),
     hist(new HistoryScrollNone()),
     cuX(0), cuY(0),
-    cu_fg(cacol()), cu_bg(cacol()), cu_re(0),
+    cu_fg(CharacterColor()), cu_bg(CharacterColor()), cu_re(0),
     tmargin(0), bmargin(0),
     tabstops(0),
     sel_begin(0), sel_TL(0), sel_BR(0),
     sel_busy(false),
     columnmode(false),
-    ef_fg(cacol()), ef_bg(cacol()), ef_re(0),
+    ef_fg(CharacterColor()), ef_bg(CharacterColor()), ef_re(0),
     sa_cuX(0), sa_cuY(0),
-    sa_cu_re(0), sa_cu_fg(cacol()), sa_cu_bg(cacol()),
+    sa_cu_re(0), sa_cu_fg(CharacterColor()), sa_cu_bg(CharacterColor()),
     lastPos(-1),
     lastDrawnChar(0)
 {
@@ -91,7 +91,7 @@ TEScreen::TEScreen(int l, int c)
     // we add +1 here as under some weired circumstances konsole crashes
     // reading out of bound. As a crash is worse, we afford the minimum
     // of added memory
-    image      = (ca*) malloc((lines+1)*columns*sizeof(ca));
+    image      = (Character*) malloc((lines+1)*columns*sizeof(Character));
     tabstops   = NULL; initTabStops();
     cuX = cuY = sa_cu_re = cu_re = sa_cu_fg = cu_fg = sa_cu_bg = cu_bg = 0;
 
@@ -486,7 +486,7 @@ void TEScreen::resizeImage(int new_lines, int new_columns)
 
   // make new image
 
-  ca* newimg = new ca[(new_lines+1)*new_columns];
+  Character* newimg = new Character[(new_lines+1)*new_columns];
   TQBitArray newwrapped(new_lines+1);
   clearSelection();
 
@@ -494,10 +494,10 @@ void TEScreen::resizeImage(int new_lines, int new_columns)
   for (int y = 0; y < new_lines; y++) {
     for (int x = 0; x < new_columns; x++)
     {
-      newimg[y*new_columns+x].c = ' ';
-      newimg[y*new_columns+x].f = cacol(CO_DFT,DEFAULT_FORE_COLOR);
-      newimg[y*new_columns+x].b = cacol(CO_DFT,DEFAULT_BACK_COLOR);
-      newimg[y*new_columns+x].r = DEFAULT_RENDITION;
+      newimg[y*new_columns+x].m_character = ' ';
+      newimg[y*new_columns+x].m_fgColor = CharacterColor(COLOR_SPACE_DEFAULT,DEFAULT_FORE_COLOR);
+      newimg[y*new_columns+x].m_bgColor = CharacterColor(COLOR_SPACE_DEFAULT,DEFAULT_BACK_COLOR);
+      newimg[y*new_columns+x].m_rendition = DEFAULT_RENDITION;
     }
     newwrapped[y]=false;
   }
@@ -507,10 +507,10 @@ void TEScreen::resizeImage(int new_lines, int new_columns)
   for (int y = 0; y < cpy_lines; y++) {
     for (int x = 0; x < cpy_columns; x++)
     {
-      newimg[y*new_columns+x].c = image[loc(x,y)].c;
-      newimg[y*new_columns+x].f = image[loc(x,y)].f;
-      newimg[y*new_columns+x].b = image[loc(x,y)].b;
-      newimg[y*new_columns+x].r = image[loc(x,y)].r;
+      newimg[y*new_columns+x].m_character = image[loc(x,y)].m_character;
+      newimg[y*new_columns+x].m_fgColor = image[loc(x,y)].m_fgColor;
+      newimg[y*new_columns+x].m_bgColor = image[loc(x,y)].m_bgColor;
+      newimg[y*new_columns+x].m_rendition = image[loc(x,y)].m_rendition;
     }
     newwrapped[y]=line_wrapped[y];
   }
@@ -563,9 +563,9 @@ void TEScreen::resizeImage(int new_lines, int new_columns)
    into RE_BOLD and RE_INTENSIVE.
 */
 
-void TEScreen::reverseRendition(ca* p)
-{ cacol f = p->f; cacol b = p->b;
-  p->f = b; p->b = f; //p->r &= ~RE_TRANSPARENT;
+void TEScreen::reverseRendition(Character* p)
+{ CharacterColor f = p->m_fgColor; CharacterColor b = p->m_bgColor;
+  p->m_fgColor = b; p->m_bgColor = f; //p->r &= ~RE_TRANSPARENT;
 }
 
 void TEScreen::effectiveRendition()
@@ -583,7 +583,7 @@ void TEScreen::effectiveRendition()
     ef_bg = cu_bg;
   }
   if (cu_re & RE_BOLD)
-    ef_fg.toggleIntensive();
+    ef_fg.setIntensive();
 }
 
 /*!
@@ -596,7 +596,7 @@ void TEScreen::effectiveRendition()
 
 */
 
-ca* TEScreen::getCookedImage()
+Character* TEScreen::getCookedImage()
 {
 /*kdDebug() << "sel_begin=" << sel_begin << "(" << sel_begin/columns << "," << sel_begin%columns << ")"
   << "  sel_TL=" << sel_TL << "(" << sel_TL/columns << "," << sel_TL%columns << ")"
@@ -604,8 +604,8 @@ ca* TEScreen::getCookedImage()
   << "  histcursor=" << histCursor << endl;*/
 
   int x,y;
-  ca* merged = (ca*)malloc((lines*columns+1)*sizeof(ca));
-  ca dft(' ',cacol(CO_DFT,DEFAULT_FORE_COLOR),cacol(CO_DFT,DEFAULT_BACK_COLOR),DEFAULT_RENDITION);
+  Character* merged = (Character*)malloc((lines*columns+1)*sizeof(Character));
+  Character dft(' ',CharacterColor(COLOR_SPACE_DEFAULT,DEFAULT_FORE_COLOR),CharacterColor(COLOR_SPACE_DEFAULT,DEFAULT_BACK_COLOR),DEFAULT_RENDITION);
   merged[lines*columns] = dft;
 
 //  kdDebug(1211) << "InGetCookedImage" << endl;
@@ -660,7 +660,7 @@ ca* TEScreen::getCookedImage()
 
   int loc_ = loc(cuX, cuY+hist->getLines()-histCursor);
   if(getMode(MODE_Cursor) && loc_ < columns*lines)
-    merged[loc(cuX,cuY+(hist->getLines()-histCursor))].r|=RE_CURSOR;
+    merged[loc(cuX,cuY+(hist->getLines()-histCursor))].m_rendition|=RE_CURSOR;
   return merged;
 }
 
@@ -714,7 +714,7 @@ void TEScreen::clear()
 void TEScreen::BackSpace()
 {
   cuX = TQMAX(0,cuX-1);
-  if (BS_CLEARS) image[loc(cuX,cuY)].c = ' ';
+  if (BS_CLEARS) image[loc(cuX,cuY)].m_character = ' ';
 }
 
 /*!
@@ -820,10 +820,10 @@ void TEScreen::ShowCharacter(unsigned short c)
 
   checkSelection(i, i); // check if selection is still valid.
 
-  image[i].c = c;
-  image[i].f = ef_fg;
-  image[i].b = ef_bg;
-  image[i].r = ef_re;
+  image[i].m_character = c;
+  image[i].m_fgColor = ef_fg;
+  image[i].m_bgColor = ef_bg;
+  image[i].m_rendition = ef_re;
   
   lastPos = i;
 
@@ -834,10 +834,10 @@ void TEScreen::ShowCharacter(unsigned short c)
   while(w)
   {
      i++;
-     image[i].c = 0;
-     image[i].f = ef_fg;
-     image[i].b = ef_bg;
-     image[i].r = ef_re;
+     image[i].m_character = 0;
+     image[i].m_fgColor = ef_fg;
+     image[i].m_bgColor = ef_bg;
+     image[i].m_rendition = ef_re;
      w--;
   }
 }
@@ -847,10 +847,10 @@ void TEScreen::compose(TQString compose)
   if (lastPos == -1)
      return;
      
-  TQChar c(image[lastPos].c);
+  TQChar c(image[lastPos].m_character);
   compose.prepend(c);
   compose.compose();
-  image[lastPos].c = compose[0].unicode();
+  image[lastPos].m_character = compose[0].unicode();
 }
 
 // Region commands -------------------------------------------------------------
@@ -998,10 +998,10 @@ void TEScreen::clearImage(int loca, int loce, char c)
   {
     // Use the current colors but the default rendition
     // Check with: echo -e '\033[41;33;07m\033[2Khello world\033[00m'
-    image[i].c = c;
-    image[i].f = cu_fg;
-    image[i].b = cu_bg;
-    image[i].r = DEFAULT_RENDITION;
+    image[i].m_character = c;
+    image[i].m_fgColor = cu_fg;
+    image[i].m_bgColor = cu_bg;
+    image[i].m_rendition = DEFAULT_RENDITION;
   }
 
   for (i = loca/columns; i<=loce/columns; i++)
@@ -1023,7 +1023,7 @@ void TEScreen::moveImage(int dst, int loca, int loce)
     return;
   }
   //kdDebug(1211) << "Using memmove to scroll up" << endl;
-  memmove(&image[dst],&image[loca],(loce-loca+1)*sizeof(ca));
+  memmove(&image[dst],&image[loca],(loce-loca+1)*sizeof(Character));
   for (int i=0;i<=(loce-loca+1)/columns;i++)
     line_wrapped[(dst/columns)+i]=line_wrapped[(loca/columns)+i];
   if (lastPos != -1)
@@ -1155,8 +1155,8 @@ void TEScreen::resetRendition(int re)
 
 void TEScreen::setDefaultRendition()
 {
-  setForeColor(CO_DFT,DEFAULT_FORE_COLOR);
-  setBackColor(CO_DFT,DEFAULT_BACK_COLOR);
+  setForeColor(COLOR_SPACE_DEFAULT,DEFAULT_FORE_COLOR);
+  setBackColor(COLOR_SPACE_DEFAULT,DEFAULT_BACK_COLOR);
   cu_re   = DEFAULT_RENDITION;
   effectiveRendition();
 }
@@ -1165,7 +1165,7 @@ void TEScreen::setDefaultRendition()
 */
 void TEScreen::setForeColor(int space, int color)
 {
-  cu_fg = cacol(space, color);
+  cu_fg = CharacterColor(space, color);
   effectiveRendition();
 }
 
@@ -1173,7 +1173,7 @@ void TEScreen::setForeColor(int space, int color)
 */
 void TEScreen::setBackColor(int space, int color)
 {
-  cu_bg = cacol(space, color);
+  cu_bg = CharacterColor(space, color);
   effectiveRendition();
 }
 
@@ -1242,7 +1242,7 @@ bool TEScreen::testIsSelected(const int x,const int y)
   }
 }
 
-static bool isSpace(UINT16 c)
+static bool isSpace(uint16_t c)
 {
   if ((c > 32) && (c < 127))
      return false;
@@ -1354,7 +1354,7 @@ void TEScreen::getSelText(bool preserve_line_breaks, TQTextStream *stream)
 
 	  while (hX < eol && hX <= sel_Right % columns)
           {
-            TQ_UINT16 c = hist->getCell(hY, hX++).c;
+            TQ_UINT16 c = hist->getCell(hY, hX++).m_character;
             if (c)
               m[d++] = c;
             s++;
@@ -1366,7 +1366,7 @@ void TEScreen::getSelText(bool preserve_line_breaks, TQTextStream *stream)
       }
       else {				// or from screen image.
         if (testIsSelected((s - hist_BR) % columns, (s - hist_BR) / columns)) {
-          TQ_UINT16 c = image[s++ - hist_BR].c;
+          TQ_UINT16 c = image[s++ - hist_BR].m_character;
           if (c) {
             m[d++] = c;
             newlineneeded = true;
@@ -1407,7 +1407,7 @@ void TEScreen::getSelText(bool preserve_line_breaks, TQTextStream *stream)
 
           while (hX < eol)
           {
-              TQ_UINT16 c = hist->getCell(hY, hX++).c;
+              TQ_UINT16 c = hist->getCell(hY, hX++).m_character;
               if (c)
                  m[d++] = c;
               s++;
@@ -1456,7 +1456,7 @@ void TEScreen::getSelText(bool preserve_line_breaks, TQTextStream *stream)
         if (eol < sel_BR)
         {
             while ((eol > s) &&
-                   (!image[eol - hist_BR].c || isSpace(image[eol - hist_BR].c)) &&
+                   (!image[eol - hist_BR].m_character || isSpace(image[eol - hist_BR].m_character)) &&
                    !line_wrapped[(eol-hist_BR)/columns])
             {
                 eol--;
@@ -1474,7 +1474,7 @@ void TEScreen::getSelText(bool preserve_line_breaks, TQTextStream *stream)
 
         while (s <= eol)
         {
-            TQ_UINT16 c = image[s++ - hist_BR].c;
+            TQ_UINT16 c = image[s++ - hist_BR].m_character;
             if (c)
                  m[d++] = c;
         }
@@ -1544,7 +1544,7 @@ void TEScreen::addHistLine()
   // we have to take care about scrolling, too...
 
   if (hasScroll())
-  { ca dft;
+  { Character dft;
 
     int end = columns-1;
     while (end >= 0 && image[end] == dft && !line_wrapped[0])
