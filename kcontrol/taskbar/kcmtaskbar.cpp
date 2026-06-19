@@ -93,7 +93,7 @@ void TaskbarAppearance::alterSettings() const
 }
 
 // These are the strings that are actually stored in the config file.
-const TQStringList& TaskbarConfig::actionList()
+const TQStringList& TaskbarConfig::buttonActionList()
 {
     static TQStringList list(
             TQStringList() << I18N_NOOP("Show Task List") << I18N_NOOP("Show Operations Menu")
@@ -106,10 +106,32 @@ const TQStringList& TaskbarConfig::actionList()
 }
 
 // Get a translated version of the above string list.
-TQStringList TaskbarConfig::i18nActionList()
+TQStringList TaskbarConfig::i18nButtonActionList()
 {
    TQStringList i18nList;
-   for( TQStringList::ConstIterator it = actionList().begin(); it != actionList().end(); ++it ) {
+   for( TQStringList::ConstIterator it = buttonActionList().begin(); it != buttonActionList().end(); ++it ) {
+      i18nList << i18n((*it).latin1());
+   }
+   return i18nList;
+}
+
+// These are the strings that are actually stored in the config file.
+const TQStringList& TaskbarConfig::wheelActionList()
+{
+    static TQStringList list(
+            TQStringList() << I18N_NOOP("Disabled")
+            << I18N_NOOP("Enabled")
+            << I18N_NOOP("Enabled with Alt")
+            << I18N_NOOP("Enabled with Ctrl")
+            << I18N_NOOP("Enabled with Shift") );
+    return list;
+}
+
+// Get a translated version of the above string list.
+TQStringList TaskbarConfig::i18nWheelActionList()
+{
+   TQStringList i18nList;
+   for( TQStringList::ConstIterator it = wheelActionList().begin(); it != wheelActionList().end(); ++it ) {
       i18nList << i18n((*it).latin1());
    }
    return i18nList;
@@ -233,10 +255,13 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
                 " windows at once or only those on the current desktop."
                 " You can also configure whether or not the Window List button will be displayed."));
 
-    TQStringList list = i18nActionList();
-    m_widget->kcfg_LeftButtonAction->insertStringList(list);
-    m_widget->kcfg_MiddleButtonAction->insertStringList(list);
-    m_widget->kcfg_RightButtonAction->insertStringList(list);
+    TQStringList buttonActionList = i18nButtonActionList();
+    m_widget->kcfg_LeftButtonAction->insertStringList(buttonActionList);
+    m_widget->kcfg_MiddleButtonAction->insertStringList(buttonActionList);
+    m_widget->kcfg_RightButtonAction->insertStringList(buttonActionList);
+    TQStringList wheelActionList = i18nWheelActionList();
+    m_widget->kcfg_CycleWindowsWAction->insertStringList(wheelActionList);
+    m_widget->kcfg_ScrollTaskbarWAction->insertStringList(wheelActionList);
     m_widget->kcfg_DisplayIconsNText->insertStringList(i18ndisplayIconsNText());
     m_widget->kcfg_GroupTasks->insertStringList(i18nGroupModeList());
     m_widget->kcfg_ShowTaskStates->insertStringList(i18nShowTaskStatesList());
@@ -367,7 +392,7 @@ void TaskbarConfig::slotUpdateComboBox()
     }
     else
     {
-        TQString action = i18nActionList()[pos];
+        TQString action = i18n(buttonActionList()[pos].latin1());
         m_widget->kcfg_LeftButtonAction->changeItem(action,pos);
         m_widget->kcfg_MiddleButtonAction->changeItem(action,pos);
         m_widget->kcfg_RightButtonAction->changeItem(action,pos);

@@ -146,7 +146,8 @@ private:
 
     bool                blocklayout;
     bool                m_showAllWindows;
-    bool                m_cycleWheel;
+    int                 m_cycleWindowsAction;
+    int                 m_scrollTaskbarAction;
     int                 m_currentScreen;    // The screen to show, -1 for all screens
     bool                m_showOnlyCurrentScreen;
     bool                m_sortByDesktop;

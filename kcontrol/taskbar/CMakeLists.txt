@@ -23,6 +23,11 @@ link_directories(
   ${TQT_LIBRARY_DIRS}
 )
 
+##### tdeconf_update ############################
+
+add_subdirectory( tdeconf_update )
+
+
 ##### other data ################################
 
 tde_create_translated_desktop(

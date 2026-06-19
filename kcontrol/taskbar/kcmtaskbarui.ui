@@ -948,7 +948,7 @@
                     </property>
                     <widget class="TQGroupBox">
                         <property name="name">
-                            <cstring>actionsGroup</cstring>
+                            <cstring>buttonActionsGroup</cstring>
                         </property>
                         <property name="sizePolicy">
                             <sizepolicy>
@@ -959,7 +959,7 @@
                             </sizepolicy>
                         </property>
                         <property name="title">
-                            <string>Mouse Actions</string>
+                            <string>Mouse Buttons</string>
                         </property>
                         <grid>
                             <property name="name">
@@ -1013,6 +1013,17 @@
                                     </sizepolicy>
                                 </property>
                             </widget>
+                            <widget class="TQLabel" row="2" column="0">
+                                <property name="name">
+                                    <cstring>rightButtonLabel</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Right b&amp;utton:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_RightButtonAction</cstring>
+                                </property>
+                            </widget>
                             <widget class="TQComboBox" row="2" column="1">
                                 <property name="name">
                                     <cstring>kcfg_RightButtonAction</cstring>
@@ -1026,45 +1037,81 @@
                                     </sizepolicy>
                                 </property>
                             </widget>
-                            <widget class="TQLabel" row="2" column="0">
+                        </grid>
+                    </widget>
+                    <widget class="TQGroupBox">
+                        <property name="name">
+                            <cstring>wheelActionsGroup</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>1</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="title">
+                            <string>Mouse Wheel</string>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="TQLabel" row="0" column="0">
                                 <property name="name">
-                                    <cstring>rightButtonLabel</cstring>
+                                    <cstring>cycleWindowsLabel</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Right b&amp;utton:</string>
+                                    <string>&amp;Cycle windows:</string>
                                 </property>
                                 <property name="buddy" stdset="0">
-                                    <cstring>kcfg_RightButtonAction</cstring>
+                                    <cstring>kcfg_CycleWindowsWAction</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQCheckBox" row="4" column="0" colspan="2">
+                            <widget class="TQComboBox" row="0" column="1">
                                 <property name="name">
-                                    <cstring>kcfg_CycleWheel</cstring>
+                                    <cstring>kcfg_CycleWindowsWAction</cstring>
+                                </property>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                                <property name="whatsThis" stdset="0">
+                                  <string>If this option is enabled (with or without a keyboard modifier) you can cycle through the current list of windows by using the mouse wheel on the taskbar.</string>
+                                </property>
+                            </widget>
+                            <widget class="TQLabel" row="1" column="0">
+                                <property name="name">
+                                    <cstring>scrollTaskbarLabel</cstring>
                                 </property>
                                 <property name="text">
-                                    <string>Cycle through windows with mouse wheel</string>
+                                    <string>&amp;Scroll taskbar:</string>
                                 </property>
-                                <property name="checked">
-                                    <bool>true</bool>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_ScrollTaskbarWAction</cstring>
                                 </property>
                             </widget>
-                            <spacer row="3" column="0">
+                            <widget class="TQComboBox" row="1" column="1">
                                 <property name="name">
-                                    <cstring>spacer11</cstring>
+                                    <cstring>kcfg_ScrollTaskbarWAction</cstring>
                                 </property>
-                                <property name="orientation">
-                                    <enum>Vertical</enum>
+                                <property name="sizePolicy">
+                                    <sizepolicy>
+                                        <hsizetype>7</hsizetype>
+                                        <vsizetype>0</vsizetype>
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
                                 </property>
-                                <property name="sizeType">
-                                    <enum>Fixed</enum>
+                                <property name="whatsThis" stdset="0">
+                                  <string>If this option is enabled (with or without a keyboard modifier) and if the taskbar is holding more buttons than what could be displayed (the two arrows for scrolling are visible), you can scroll the taskbar by using the mouse wheel.</string>
                                 </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>20</width>
-                                        <height>21</height>
-                                    </size>
-                                </property>
-                            </spacer>
+                            </widget>
                         </grid>
                     </widget>
                     <spacer>

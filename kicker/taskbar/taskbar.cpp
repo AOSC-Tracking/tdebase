@@ -50,11 +50,13 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "taskbar.moc"
 
 #define READ_MERGED_TASKBAR_SETTING(x) ((m_settingsObject->useGlobalSettings())?m_globalSettingsObject->x():m_settingsObject->x())
+#define READ_MERGED_TASKBAR_WACTION(x) ((m_settingsObject->useGlobalSettings())?m_globalSettingsObject->wAction(x):m_settingsObject->wAction(x))
 
 TaskBar::TaskBar( TaskBarSettings* settingsObject, TaskBarSettings* globalSettingsObject, TQWidget *parent, const char *name )
     : Panner( parent, name ),
       m_showAllWindows(false),
-      m_cycleWheel(false),
+      m_cycleWindowsAction(0),
+      m_scrollTaskbarAction(0),
       m_currentScreen(-1),
       m_showOnlyCurrentScreen(false),
       m_sortByDesktop(false),
@@ -238,7 +240,8 @@ void TaskBar::configure()
 {
     bool wasShowWindows = m_showAllWindows;
     bool wasSortByDesktop = m_sortByDesktop;
-    bool wasCycleWheel = m_cycleWheel;
+    int  wasCycleWindowsAction = m_cycleWindowsAction;
+    int  wasScrollTaskbarAction = m_scrollTaskbarAction;
     bool wasDisplayIconsNText = m_displayIconsNText;
     bool wasShowOnlyIconified = m_showOnlyIconified;
     int  wasShowTaskStates = m_showTaskStates;
@@ -248,7 +251,8 @@ void TaskBar::configure()
     m_sortByDesktop = m_showAllWindows && READ_MERGED_TASKBAR_SETTING(sortByDesktop);
     m_displayIconsNText = READ_MERGED_TASKBAR_SETTING(displayIconsNText);
     m_showOnlyIconified = READ_MERGED_TASKBAR_SETTING(showOnlyIconified);
-    m_cycleWheel = READ_MERGED_TASKBAR_SETTING(cycleWheel);
+    m_cycleWindowsAction = READ_MERGED_TASKBAR_WACTION(TaskBarSettings::CycleWindows);
+    m_scrollTaskbarAction = READ_MERGED_TASKBAR_WACTION(TaskBarSettings::ScrollTaskbar);
     m_showTaskStates = READ_MERGED_TASKBAR_SETTING(showTaskStates);
     m_iconSize = READ_MERGED_TASKBAR_SETTING(iconSize);
 
@@ -273,7 +277,8 @@ void TaskBar::configure()
     if (wasShowWindows != m_showAllWindows ||
         wasSortByDesktop != m_sortByDesktop ||
         wasDisplayIconsNText != m_displayIconsNText ||
-        wasCycleWheel != m_cycleWheel ||
+        wasCycleWindowsAction != m_cycleWindowsAction ||
+        wasScrollTaskbarAction != m_scrollTaskbarAction ||
         wasShowOnlyIconified != m_showOnlyIconified ||
         wasShowTaskStates != m_showTaskStates ||
         wasIconSize != m_iconSize)
@@ -1173,18 +1178,41 @@ void TaskBar::activateNextTask(bool forward)
 
 void TaskBar::wheelEvent(TQWheelEvent* e)
 {
+    bool altPressed = (e->state() & TQt::AltButton);
+    bool ctrlPressed = (e->state() & TQt::ControlButton);
+    bool shiftPressed = (e->state() & TQt::ShiftButton);
+    bool noMod = !altPressed && !ctrlPressed && !shiftPressed;
 
-    if(READ_MERGED_TASKBAR_SETTING(cycleWheel)) {
+    int cycleAction = READ_MERGED_TASKBAR_WACTION(TaskBarSettings::CycleWindows);
+    int scrollAction = READ_MERGED_TASKBAR_WACTION(TaskBarSettings::ScrollTaskbar);
 
+    if ((cycleAction == m_settingsObject->ModNone && noMod) ||
+        (cycleAction == m_settingsObject->ModAlt && altPressed) ||
+        (cycleAction == m_settingsObject->ModCtrl && ctrlPressed) ||
+        (cycleAction == m_settingsObject->ModShift && shiftPressed))
+    {
         if (e->delta() > 0)
         {
-            // scroll away from user, previous task
             activateNextTask(false);
         }
         else
         {
-            // scroll towards user, next task
             activateNextTask(true);
+        }
+    }
+
+    if ((scrollAction == m_settingsObject->ModNone && noMod) ||
+        (scrollAction == m_settingsObject->ModAlt && altPressed) ||
+        (scrollAction == m_settingsObject->ModCtrl && ctrlPressed) ||
+        (scrollAction == m_settingsObject->ModShift && shiftPressed))
+    {
+        if (e->delta() > 0)
+        {
+            scrollLeftUp();
+        }
+        else
+        {
+            scrollRightDown();
         }
     }
 }

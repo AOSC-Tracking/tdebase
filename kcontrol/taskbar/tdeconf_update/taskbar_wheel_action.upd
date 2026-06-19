@@ -1,0 +1,2 @@
+Id=trinity.taskbarWheelActions
+Script=taskbar_wheel_action.sh,sh

@@ -81,8 +81,10 @@ private:
     void updateAppearanceCombo();
     void updateIconsTextCombo();
     void updateCustomAppearance();
-    static const TQStringList& actionList();
-    static TQStringList i18nActionList();
+    static const TQStringList& buttonActionList();
+    static TQStringList i18nButtonActionList();
+    static const TQStringList& wheelActionList();
+    static TQStringList i18nWheelActionList();
     static const TQStringList& groupModeList();
     static TQStringList i18nGroupModeList();
     static const TQStringList& showTaskStatesList();

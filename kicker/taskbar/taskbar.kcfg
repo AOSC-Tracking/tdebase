@@ -21,11 +21,6 @@
             <label>Show windows from all desktops</label>
             <whatsthis>Turning this option off will cause the taskbar to display <b>only</b> the windows on the current desktop. By default, this option is selected and all windows are shown.</whatsthis>
         </entry>
-        <entry key="CycleWheel" type="Bool" >
-            <default>true</default>
-            <label>Cycle through windows with mouse wheel</label>
-            <whatsthis>Enabling this option causes the taskbar to cycle through the current list of windows when using the mouse wheel</whatsthis>
-        </entry>
         <entry key="ShowOnlyIconified" type="Bool" >
             <default>false</default>
             <label>Show only minimized windows</label>
@@ -158,6 +153,27 @@
             <default param="MiddleButton">ActivateRaiseOrMinimize</default>
             <default param="RightButton">ShowOperationsMenu</default>
             <label>Mouse button actions</label>
+            <whatsthis></whatsthis>
+        </entry>
+        <!-- Suffixes can't be the same in parameterized forms, so use
+             "WAction" to distinguish it from the button's "Action" -->
+        <entry key="$(Wheel)WAction" name="$(Wheel)WAction" type="Enum" >
+            <parameter name="Wheel" type="Enum">
+                <values>
+                    <value>CycleWindows</value>
+                    <value>ScrollTaskbar</value>
+                </values>
+            </parameter>
+            <choices>
+                <choice name="ActionDisabled"/>
+                <choice name="ModNone"/>
+                <choice name="ModAlt"/>
+                <choice name="ModCtrl"/>
+                <choice name="ModShift"/>
+            </choices>
+            <default param="CycleWindows">ModNone</default>
+            <default param="ScrollTaskbar">ActionDisabled</default>
+            <label>Wheel actions</label>
             <whatsthis></whatsthis>
         </entry>
     </group>
