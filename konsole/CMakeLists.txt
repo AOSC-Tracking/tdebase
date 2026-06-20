@@ -11,11 +11,10 @@
 
 include( ConfigureChecks.cmake )
 
-add_subdirectory( src )
-add_subdirectory( other )
+add_subdirectory( data )
 # add_subdirectory( doc )
-add_subdirectory( fonts )
-add_subdirectory( terminalhere )
+add_subdirectory( icons )
+add_subdirectory( src )
 
 
 tde_create_translated_desktop(

@@ -2,7 +2,7 @@
 
 file( GLOB _konsole_schema_files
   RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-  ${CMAKE_CURRENT_SOURCE_DIR}/../other/*.[Ss]chema
+  ${CMAKE_SOURCE_DIR}/konsole/data/schemas/*.[Ss]chema
 )
 unset( _konsole_schemas )
 list( SORT _konsole_schema_files )
@@ -17,7 +17,7 @@ endforeach( )
 
 file( GLOB _konsole_keytab_files
   RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-  ${CMAKE_CURRENT_SOURCE_DIR}/../other/*.[Kk]eytab
+  ${CMAKE_SOURCE_DIR}/konsole/data/keytabs/*.[Kk]eytab
 )
 unset( _konsole_keytabs )
 list( SORT _konsole_keytab_files )

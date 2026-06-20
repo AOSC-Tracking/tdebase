@@ -1,0 +1,5 @@
+add_subdirectory( fonts )
+add_subdirectory( keytabs )
+add_subdirectory( schemas )
+add_subdirectory( sessions )
+add_subdirectory( wallpapers )
