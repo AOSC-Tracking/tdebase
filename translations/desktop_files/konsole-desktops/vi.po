@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2026-06-20 21:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,69 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: data/sessions/linux.desktop:3
+msgid "Linux Console"
+msgstr "Thiết bị cuối Linux"
+
+#. Comment
+#: data/sessions/linux.desktop:4
+msgid "New Linux Console"
+msgstr "Mở một Thiết bị cuối Linux mới"
+
+#. Name
+#: data/sessions/mc.desktop:3
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Mở một Midnight Commander mới"
+
+#. Comment
+#: data/sessions/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "Mở một Midnight Commander mới"
+
+#. Name
+#: data/sessions/screen.desktop:3
+msgid "Screen Session"
+msgstr "Phiên chạy Màn hình"
+
+#. Comment
+#: data/sessions/screen.desktop:4
+msgid "New Screen Session"
+msgstr "Mở một Phiên chạy Màn hình mới"
+
+#. Name
+#. Title0
+#: data/sessions/shell.desktop:3 data/sessions/2shells:6
+#: data/sessions/3shells:6 data/sessions/4shells:6 data/sessions/5shells:6
+msgid "Shell"
+msgstr "Trình giao diện"
+
+#. Comment
+#: data/sessions/shell.desktop:4
+msgid "New Shell"
+msgstr "Mở một Trình giao diện mới"
+
+#. Name
+#: data/sessions/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "Trình giao diện Gốc"
+
+#. Comment
+#: data/sessions/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "Mở một Trình giao diện Gốc mới"
+
+#. Name
+#: data/sessions/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "Midnight Commander Gốc"
+
+#. Comment
+#: data/sessions/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "Mở một Midnight Commander Gốc mới"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -42,11 +105,6 @@ msgstr "Thiết bị cuối"
 msgid "Terminal Program"
 msgstr "Trình đầu cuối"
 
-#. Comment
-#: konsole/x-konsole.desktop:7
-msgid "File to Open a Shell"
-msgstr "Tập tin để Mở một Trình giao diện"
-
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
@@ -69,68 +127,10 @@ msgstr ""
 "Theo dõi các thông báo từ người dùng trên máy được gửi bằng lệnh write(1) "
 "hay wall(1)"
 
-#. Name
-#: other/linux.desktop:3
-msgid "Linux Console"
-msgstr "Thiết bị cuối Linux"
-
 #. Comment
-#: other/linux.desktop:4
-msgid "New Linux Console"
-msgstr "Mở một Thiết bị cuối Linux mới"
-
-#. Name
-#: other/mc.desktop:3
-#, fuzzy
-msgid "Midnight Commander"
-msgstr "Mở một Midnight Commander mới"
-
-#. Comment
-#: other/mc.desktop:4
-msgid "New Midnight Commander"
-msgstr "Mở một Midnight Commander mới"
-
-#. Name
-#: other/screen.desktop:3
-msgid "Screen Session"
-msgstr "Phiên chạy Màn hình"
-
-#. Comment
-#: other/screen.desktop:4
-msgid "New Screen Session"
-msgstr "Mở một Phiên chạy Màn hình mới"
-
-#. Name
-#. Title0
-#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
-#: other/5shells:6
-msgid "Shell"
-msgstr "Trình giao diện"
-
-#. Comment
-#: other/shell.desktop:4
-msgid "New Shell"
-msgstr "Mở một Trình giao diện mới"
-
-#. Name
-#: other/su.desktop.cmake:3
-msgid "Root Shell"
-msgstr "Trình giao diện Gốc"
-
-#. Comment
-#: other/su.desktop.cmake:4
-msgid "New Root Shell"
-msgstr "Mở một Trình giao diện Gốc mới"
-
-#. Name
-#: other/sumc.desktop.cmake:3
-msgid "Root Midnight Commander"
-msgstr "Midnight Commander Gốc"
-
-#. Comment
-#: other/sumc.desktop.cmake:4
-msgid "New Root Midnight Commander"
-msgstr "Mở một Midnight Commander Gốc mới"
+#: src/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "Tập tin để Mở một Trình giao diện"
 
 #. Name
 #: terminalhere.desktop:6
@@ -144,48 +144,49 @@ msgid "Open Terminal Here"
 msgstr "Mở một Thiết bị cuối ở Đây"
 
 #. Name
-#: other/2shells:2
+#: data/sessions/2shells:2
 #, fuzzy
 msgid "Two consoles"
 msgstr "Thiết bị cuối"
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
+#: data/sessions/5shells:7
 #, fuzzy
 msgid "Shell No. 2"
 msgstr "Trình giao diện"
 
 #. Name
-#: other/3shells:2
+#: data/sessions/3shells:2
 msgid "Three consoles"
 msgstr ""
 
 #. Title2
-#: other/3shells:8 other/4shells:8 other/5shells:8
+#: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
 #, fuzzy
 msgid "Shell No. 3"
 msgstr "Trình giao diện"
 
 #. Name
-#: other/4shells:2
+#: data/sessions/4shells:2
 #, fuzzy
 msgid "Four consoles"
 msgstr "Thiết bị cuối Linux"
 
 #. Title3
-#: other/4shells:9 other/5shells:9
+#: data/sessions/4shells:9 data/sessions/5shells:9
 #, fuzzy
 msgid "Shell No. 4"
 msgstr "Trình giao diện"
 
 #. Name
-#: other/5shells:2
+#: data/sessions/5shells:2
 #, fuzzy
 msgid "Five consoles"
 msgstr "Thiết bị cuối Linux"
 
 #. Title4
-#: other/5shells:10
+#: data/sessions/5shells:10
 #, fuzzy
 msgid "Shell No. 5"
 msgstr "Trình giao diện"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2026-06-20 21:29+0900\n"
 "PO-Revision-Date: 2024-11-24 13:10+0000\n"
 "Last-Translator: Alejo Fernández <alejofernandez@hotmail.com.ar>\n"
 "Language-Team: Spanish (Argentina) <https://mirror.git.trinitydesktop.org/"
@@ -17,6 +17,76 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.17\n"
+
+#. Name
+#: data/sessions/linux.desktop:3
+#, fuzzy
+msgid "Linux Console"
+msgstr "Consola de Linux"
+
+#. Comment
+#: data/sessions/linux.desktop:4
+#, fuzzy
+msgid "New Linux Console"
+msgstr "Nueva consola de Linux"
+
+#. Name
+#: data/sessions/mc.desktop:3
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Midnight Commander"
+
+#. Comment
+#: data/sessions/mc.desktop:4
+#, fuzzy
+msgid "New Midnight Commander"
+msgstr "Nuevo Midnight Commander"
+
+#. Name
+#: data/sessions/screen.desktop:3
+#, fuzzy
+msgid "Screen Session"
+msgstr "Sesión de Screen"
+
+#. Comment
+#: data/sessions/screen.desktop:4
+#, fuzzy
+msgid "New Screen Session"
+msgstr "Nueva sesión de Screen"
+
+#. Name
+#. Title0
+#: data/sessions/shell.desktop:3 data/sessions/2shells:6
+#: data/sessions/3shells:6 data/sessions/4shells:6 data/sessions/5shells:6
+msgid "Shell"
+msgstr "Shell"
+
+#. Comment
+#: data/sessions/shell.desktop:4
+msgid "New Shell"
+msgstr "Nuevo Shell"
+
+#. Name
+#: data/sessions/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "Root de Shell"
+
+#. Comment
+#: data/sessions/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "Nuevo Root de Shell"
+
+#. Name
+#: data/sessions/sumc.desktop.cmake:3
+#, fuzzy
+msgid "Root Midnight Commander"
+msgstr "Midnight Commander para root"
+
+#. Comment
+#: data/sessions/sumc.desktop.cmake:4
+#, fuzzy
+msgid "New Root Midnight Commander"
+msgstr "Nuevo Midnight Commander de root"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -48,12 +118,6 @@ msgstr "Konsole"
 msgid "Terminal Program"
 msgstr "Programa de terminal"
 
-#. Comment
-#: konsole/x-konsole.desktop:7
-#, fuzzy
-msgid "File to Open a Shell"
-msgstr "Archivo para abrir un intérprete de órdenes"
-
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 #, fuzzy
@@ -78,75 +142,11 @@ msgstr "Demonio de escritura de TDE"
 msgid "Watch for messages from local users sent with write(1) or wall(1)"
 msgstr "Ver los mensajes de usuarios locales enviados con write(1) o wall(1)"
 
-#. Name
-#: other/linux.desktop:3
-#, fuzzy
-msgid "Linux Console"
-msgstr "Consola de Linux"
-
 #. Comment
-#: other/linux.desktop:4
+#: src/x-konsole.desktop:7
 #, fuzzy
-msgid "New Linux Console"
-msgstr "Nueva consola de Linux"
-
-#. Name
-#: other/mc.desktop:3
-#, fuzzy
-msgid "Midnight Commander"
-msgstr "Midnight Commander"
-
-#. Comment
-#: other/mc.desktop:4
-#, fuzzy
-msgid "New Midnight Commander"
-msgstr "Nuevo Midnight Commander"
-
-#. Name
-#: other/screen.desktop:3
-#, fuzzy
-msgid "Screen Session"
-msgstr "Sesión de Screen"
-
-#. Comment
-#: other/screen.desktop:4
-#, fuzzy
-msgid "New Screen Session"
-msgstr "Nueva sesión de Screen"
-
-#. Name
-#. Title0
-#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
-#: other/5shells:6
-msgid "Shell"
-msgstr "Shell"
-
-#. Comment
-#: other/shell.desktop:4
-msgid "New Shell"
-msgstr "Nuevo Shell"
-
-#. Name
-#: other/su.desktop.cmake:3
-msgid "Root Shell"
-msgstr "Root de Shell"
-
-#. Comment
-#: other/su.desktop.cmake:4
-msgid "New Root Shell"
-msgstr "Nuevo Root de Shell"
-
-#. Name
-#: other/sumc.desktop.cmake:3
-#, fuzzy
-msgid "Root Midnight Commander"
-msgstr "Midnight Commander para root"
-
-#. Comment
-#: other/sumc.desktop.cmake:4
-#, fuzzy
-msgid "New Root Midnight Commander"
-msgstr "Nuevo Midnight Commander de root"
+msgid "File to Open a Shell"
+msgstr "Archivo para abrir un intérprete de órdenes"
 
 #. Name
 #: terminalhere.desktop:6
@@ -161,45 +161,46 @@ msgid "Open Terminal Here"
 msgstr "Abrir terminal aquí"
 
 #. Name
-#: other/2shells:2
+#: data/sessions/2shells:2
 msgid "Two consoles"
 msgstr "Dos consolas"
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
+#: data/sessions/5shells:7
 #, fuzzy
 msgid "Shell No. 2"
 msgstr "Shell No. 2"
 
 #. Name
-#: other/3shells:2
+#: data/sessions/3shells:2
 msgid "Three consoles"
 msgstr "Tres consolas"
 
 #. Title2
-#: other/3shells:8 other/4shells:8 other/5shells:8
+#: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
 #, fuzzy
 msgid "Shell No. 3"
 msgstr "Shell No. 3"
 
 #. Name
-#: other/4shells:2
+#: data/sessions/4shells:2
 msgid "Four consoles"
 msgstr "Cuatro consolas"
 
 #. Title3
-#: other/4shells:9 other/5shells:9
+#: data/sessions/4shells:9 data/sessions/5shells:9
 #, fuzzy
 msgid "Shell No. 4"
 msgstr "Shell No. 4"
 
 #. Name
-#: other/5shells:2
+#: data/sessions/5shells:2
 msgid "Five consoles"
 msgstr "Cinco consolas"
 
 #. Title4
-#: other/5shells:10
+#: data/sessions/5shells:10
 #, fuzzy
 msgid "Shell No. 5"
 msgstr "Shell No. 5"

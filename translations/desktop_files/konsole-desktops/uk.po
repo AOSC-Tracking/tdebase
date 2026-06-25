@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2026-06-20 21:29+0900\n"
 "PO-Revision-Date: 2020-07-21 05:23+0000\n"
 "Last-Translator: Roman Savochenko <roman@oscada.org>\n"
 "Language-Team: Ukrainian <https://mirror.git.trinitydesktop.org/weblate/"
@@ -17,6 +17,68 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.1.1\n"
+
+#. Name
+#: data/sessions/linux.desktop:3
+msgid "Linux Console"
+msgstr "Консоль Linux"
+
+#. Comment
+#: data/sessions/linux.desktop:4
+msgid "New Linux Console"
+msgstr "Нова консоль Linux"
+
+#. Name
+#: data/sessions/mc.desktop:3
+msgid "Midnight Commander"
+msgstr "Midnight Commander"
+
+#. Comment
+#: data/sessions/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "Новий Midnight Commander"
+
+#. Name
+#: data/sessions/screen.desktop:3
+msgid "Screen Session"
+msgstr "Сеанс екрана"
+
+#. Comment
+#: data/sessions/screen.desktop:4
+msgid "New Screen Session"
+msgstr "Новий сеанс екрана"
+
+#. Name
+#. Title0
+#: data/sessions/shell.desktop:3 data/sessions/2shells:6
+#: data/sessions/3shells:6 data/sessions/4shells:6 data/sessions/5shells:6
+msgid "Shell"
+msgstr "Командний рядок"
+
+#. Comment
+#: data/sessions/shell.desktop:4
+msgid "New Shell"
+msgstr "Новий командний рядок"
+
+#. Name
+#: data/sessions/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "Командна оболонка з правами root"
+
+#. Comment
+#: data/sessions/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "Новий командна оболонка з правами root"
+
+#. Name
+#: data/sessions/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "Midnight Commander для адміністратора"
+
+#. Comment
+#: data/sessions/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "Новий Midnight Commander для адміністратора"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -43,11 +105,6 @@ msgstr "Konsole"
 msgid "Terminal Program"
 msgstr "Програма терміналу"
 
-#. Comment
-#: konsole/x-konsole.desktop:7
-msgid "File to Open a Shell"
-msgstr "Файл, який треба відкрити у оболонці"
-
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
@@ -71,67 +128,10 @@ msgstr ""
 " повідомленнями від локальних користувачів, відісланих через write(1) або "
 "wall(1)"
 
-#. Name
-#: other/linux.desktop:3
-msgid "Linux Console"
-msgstr "Консоль Linux"
-
 #. Comment
-#: other/linux.desktop:4
-msgid "New Linux Console"
-msgstr "Нова консоль Linux"
-
-#. Name
-#: other/mc.desktop:3
-msgid "Midnight Commander"
-msgstr "Midnight Commander"
-
-#. Comment
-#: other/mc.desktop:4
-msgid "New Midnight Commander"
-msgstr "Новий Midnight Commander"
-
-#. Name
-#: other/screen.desktop:3
-msgid "Screen Session"
-msgstr "Сеанс екрана"
-
-#. Comment
-#: other/screen.desktop:4
-msgid "New Screen Session"
-msgstr "Новий сеанс екрана"
-
-#. Name
-#. Title0
-#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
-#: other/5shells:6
-msgid "Shell"
-msgstr "Командний рядок"
-
-#. Comment
-#: other/shell.desktop:4
-msgid "New Shell"
-msgstr "Новий командний рядок"
-
-#. Name
-#: other/su.desktop.cmake:3
-msgid "Root Shell"
-msgstr "Командна оболонка з правами root"
-
-#. Comment
-#: other/su.desktop.cmake:4
-msgid "New Root Shell"
-msgstr "Новий командна оболонка з правами root"
-
-#. Name
-#: other/sumc.desktop.cmake:3
-msgid "Root Midnight Commander"
-msgstr "Midnight Commander для адміністратора"
-
-#. Comment
-#: other/sumc.desktop.cmake:4
-msgid "New Root Midnight Commander"
-msgstr "Новий Midnight Commander для адміністратора"
+#: src/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "Файл, який треба відкрити у оболонці"
 
 #. Name
 #: terminalhere.desktop:6
@@ -144,41 +144,42 @@ msgid "Open Terminal Here"
 msgstr "Відкрити термінал"
 
 #. Name
-#: other/2shells:2
+#: data/sessions/2shells:2
 msgid "Two consoles"
 msgstr "Дві консолі"
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
+#: data/sessions/5shells:7
 msgid "Shell No. 2"
 msgstr "Оболонка 2"
 
 #. Name
-#: other/3shells:2
+#: data/sessions/3shells:2
 msgid "Three consoles"
 msgstr "Три консолі"
 
 #. Title2
-#: other/3shells:8 other/4shells:8 other/5shells:8
+#: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
 msgid "Shell No. 3"
 msgstr "Оболонка 3"
 
 #. Name
-#: other/4shells:2
+#: data/sessions/4shells:2
 msgid "Four consoles"
 msgstr "Чотири консолі"
 
 #. Title3
-#: other/4shells:9 other/5shells:9
+#: data/sessions/4shells:9 data/sessions/5shells:9
 msgid "Shell No. 4"
 msgstr "Оболонка 4"
 
 #. Name
-#: other/5shells:2
+#: data/sessions/5shells:2
 msgid "Five consoles"
 msgstr "П'ять консолей"
 
 #. Title4
-#: other/5shells:10
+#: data/sessions/5shells:10
 msgid "Shell No. 5"
 msgstr "Оболонка 5"

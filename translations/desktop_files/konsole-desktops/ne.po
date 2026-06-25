@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2026-06-20 21:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,68 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: data/sessions/linux.desktop:3
+msgid "Linux Console"
+msgstr "लिनक्स कन्सोल"
+
+#. Comment
+#: data/sessions/linux.desktop:4
+msgid "New Linux Console"
+msgstr "नयाँ लिनक्स कन्सोल"
+
+#. Name
+#: data/sessions/mc.desktop:3
+msgid "Midnight Commander"
+msgstr "मिडनाइट आदेश"
+
+#. Comment
+#: data/sessions/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "नयाँ मिडनाइट आदेशकर्ता"
+
+#. Name
+#: data/sessions/screen.desktop:3
+msgid "Screen Session"
+msgstr "पर्दा सत्र"
+
+#. Comment
+#: data/sessions/screen.desktop:4
+msgid "New Screen Session"
+msgstr "नयाँ पर्दा सत्र"
+
+#. Name
+#. Title0
+#: data/sessions/shell.desktop:3 data/sessions/2shells:6
+#: data/sessions/3shells:6 data/sessions/4shells:6 data/sessions/5shells:6
+msgid "Shell"
+msgstr "शेल"
+
+#. Comment
+#: data/sessions/shell.desktop:4
+msgid "New Shell"
+msgstr "नयाँ शेल"
+
+#. Name
+#: data/sessions/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "रुट शेल"
+
+#. Comment
+#: data/sessions/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "नयाँ रुट शेल"
+
+#. Name
+#: data/sessions/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "रुट मिडनाइट आदेशकर्ता"
+
+#. Comment
+#: data/sessions/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "नयाँ रुट मिडनाइट आदेशकर्ता"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -41,11 +103,6 @@ msgstr "कन्सोल"
 msgid "Terminal Program"
 msgstr "टर्मिनल कार्यक्रम"
 
-#. Comment
-#: konsole/x-konsole.desktop:7
-msgid "File to Open a Shell"
-msgstr "शेल खोल्ने फाइल"
-
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
@@ -66,67 +123,10 @@ msgstr "TDE लेख्ने डेइमन"
 msgid "Watch for messages from local users sent with write(1) or wall(1)"
 msgstr "सन्देशका लागि स्थानीय प्रयोगकर्ताबाट पठाएका लेख(१) वा वाल(१) हेर्नुहोस्"
 
-#. Name
-#: other/linux.desktop:3
-msgid "Linux Console"
-msgstr "लिनक्स कन्सोल"
-
 #. Comment
-#: other/linux.desktop:4
-msgid "New Linux Console"
-msgstr "नयाँ लिनक्स कन्सोल"
-
-#. Name
-#: other/mc.desktop:3
-msgid "Midnight Commander"
-msgstr "मिडनाइट आदेश"
-
-#. Comment
-#: other/mc.desktop:4
-msgid "New Midnight Commander"
-msgstr "नयाँ मिडनाइट आदेशकर्ता"
-
-#. Name
-#: other/screen.desktop:3
-msgid "Screen Session"
-msgstr "पर्दा सत्र"
-
-#. Comment
-#: other/screen.desktop:4
-msgid "New Screen Session"
-msgstr "नयाँ पर्दा सत्र"
-
-#. Name
-#. Title0
-#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
-#: other/5shells:6
-msgid "Shell"
-msgstr "शेल"
-
-#. Comment
-#: other/shell.desktop:4
-msgid "New Shell"
-msgstr "नयाँ शेल"
-
-#. Name
-#: other/su.desktop.cmake:3
-msgid "Root Shell"
-msgstr "रुट शेल"
-
-#. Comment
-#: other/su.desktop.cmake:4
-msgid "New Root Shell"
-msgstr "नयाँ रुट शेल"
-
-#. Name
-#: other/sumc.desktop.cmake:3
-msgid "Root Midnight Commander"
-msgstr "रुट मिडनाइट आदेशकर्ता"
-
-#. Comment
-#: other/sumc.desktop.cmake:4
-msgid "New Root Midnight Commander"
-msgstr "नयाँ रुट मिडनाइट आदेशकर्ता"
+#: src/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "शेल खोल्ने फाइल"
 
 #. Name
 #: terminalhere.desktop:6
@@ -140,48 +140,49 @@ msgid "Open Terminal Here"
 msgstr "यहाँ टर्मिनल खोल्नुहोस्"
 
 #. Name
-#: other/2shells:2
+#: data/sessions/2shells:2
 #, fuzzy
 msgid "Two consoles"
 msgstr "कन्सोल"
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
+#: data/sessions/5shells:7
 #, fuzzy
 msgid "Shell No. 2"
 msgstr "शेल"
 
 #. Name
-#: other/3shells:2
+#: data/sessions/3shells:2
 msgid "Three consoles"
 msgstr ""
 
 #. Title2
-#: other/3shells:8 other/4shells:8 other/5shells:8
+#: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
 #, fuzzy
 msgid "Shell No. 3"
 msgstr "शेल"
 
 #. Name
-#: other/4shells:2
+#: data/sessions/4shells:2
 #, fuzzy
 msgid "Four consoles"
 msgstr "लिनक्स कन्सोल"
 
 #. Title3
-#: other/4shells:9 other/5shells:9
+#: data/sessions/4shells:9 data/sessions/5shells:9
 #, fuzzy
 msgid "Shell No. 4"
 msgstr "शेल"
 
 #. Name
-#: other/5shells:2
+#: data/sessions/5shells:2
 #, fuzzy
 msgid "Five consoles"
 msgstr "लिनक्स कन्सोल"
 
 #. Title4
-#: other/5shells:10
+#: data/sessions/5shells:10
 #, fuzzy
 msgid "Shell No. 5"
 msgstr "शेल"

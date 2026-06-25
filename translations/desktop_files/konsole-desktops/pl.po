@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2026-06-20 21:29+0900\n"
 "PO-Revision-Date: 2020-08-12 23:04+0000\n"
 "Last-Translator: Jan Stolarek <jwstolarek@gmail.com>\n"
 "Language-Team: Polish <https://mirror.git.trinitydesktop.org/weblate/"
@@ -17,6 +17,68 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.1.1\n"
+
+#. Name
+#: data/sessions/linux.desktop:3
+msgid "Linux Console"
+msgstr "Konsola linuksowa"
+
+#. Comment
+#: data/sessions/linux.desktop:4
+msgid "New Linux Console"
+msgstr "Konsola linuksowa (nowa)"
+
+#. Name
+#: data/sessions/mc.desktop:3
+msgid "Midnight Commander"
+msgstr "Midnight Commander"
+
+#. Comment
+#: data/sessions/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "Midnight Commander"
+
+#. Name
+#: data/sessions/screen.desktop:3
+msgid "Screen Session"
+msgstr "Sesja screena"
+
+#. Comment
+#: data/sessions/screen.desktop:4
+msgid "New Screen Session"
+msgstr "Nowa sesja programu \"screen\""
+
+#. Name
+#. Title0
+#: data/sessions/shell.desktop:3 data/sessions/2shells:6
+#: data/sessions/3shells:6 data/sessions/4shells:6 data/sessions/5shells:6
+msgid "Shell"
+msgstr "Powłoka"
+
+#. Comment
+#: data/sessions/shell.desktop:4
+msgid "New Shell"
+msgstr "Powłoka"
+
+#. Name
+#: data/sessions/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "Powłoka administratora"
+
+#. Comment
+#: data/sessions/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "Nowa powłoka administratora"
+
+#. Name
+#: data/sessions/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "Midnight Commander - tryb administratora"
+
+#. Comment
+#: data/sessions/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "Midnight Commander - tryb administratora"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -43,11 +105,6 @@ msgstr "Konsola"
 msgid "Terminal Program"
 msgstr "Program terminala"
 
-#. Comment
-#: konsole/x-konsole.desktop:7
-msgid "File to Open a Shell"
-msgstr "Plik do otwarcia powłoki"
-
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
@@ -70,67 +127,10 @@ msgstr ""
 "Śledzi wiadomości od użytkowników lokalnych wysyłane za pomocą write(1) lub "
 "wall(1)"
 
-#. Name
-#: other/linux.desktop:3
-msgid "Linux Console"
-msgstr "Konsola linuksowa"
-
 #. Comment
-#: other/linux.desktop:4
-msgid "New Linux Console"
-msgstr "Konsola linuksowa (nowa)"
-
-#. Name
-#: other/mc.desktop:3
-msgid "Midnight Commander"
-msgstr "Midnight Commander"
-
-#. Comment
-#: other/mc.desktop:4
-msgid "New Midnight Commander"
-msgstr "Midnight Commander"
-
-#. Name
-#: other/screen.desktop:3
-msgid "Screen Session"
-msgstr "Sesja screena"
-
-#. Comment
-#: other/screen.desktop:4
-msgid "New Screen Session"
-msgstr "Nowa sesja programu \"screen\""
-
-#. Name
-#. Title0
-#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
-#: other/5shells:6
-msgid "Shell"
-msgstr "Powłoka"
-
-#. Comment
-#: other/shell.desktop:4
-msgid "New Shell"
-msgstr "Powłoka"
-
-#. Name
-#: other/su.desktop.cmake:3
-msgid "Root Shell"
-msgstr "Powłoka administratora"
-
-#. Comment
-#: other/su.desktop.cmake:4
-msgid "New Root Shell"
-msgstr "Nowa powłoka administratora"
-
-#. Name
-#: other/sumc.desktop.cmake:3
-msgid "Root Midnight Commander"
-msgstr "Midnight Commander - tryb administratora"
-
-#. Comment
-#: other/sumc.desktop.cmake:4
-msgid "New Root Midnight Commander"
-msgstr "Midnight Commander - tryb administratora"
+#: src/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "Plik do otwarcia powłoki"
 
 #. Name
 #: terminalhere.desktop:6
@@ -143,41 +143,42 @@ msgid "Open Terminal Here"
 msgstr "Otwórz tutaj terminal"
 
 #. Name
-#: other/2shells:2
+#: data/sessions/2shells:2
 msgid "Two consoles"
 msgstr "Dwa terminale"
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
+#: data/sessions/5shells:7
 msgid "Shell No. 2"
 msgstr "Powłoka nr 2"
 
 #. Name
-#: other/3shells:2
+#: data/sessions/3shells:2
 msgid "Three consoles"
 msgstr "Trzy terminale"
 
 #. Title2
-#: other/3shells:8 other/4shells:8 other/5shells:8
+#: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
 msgid "Shell No. 3"
 msgstr "Powłoka nr 3"
 
 #. Name
-#: other/4shells:2
+#: data/sessions/4shells:2
 msgid "Four consoles"
 msgstr "Cztery terminale"
 
 #. Title3
-#: other/4shells:9 other/5shells:9
+#: data/sessions/4shells:9 data/sessions/5shells:9
 msgid "Shell No. 4"
 msgstr "Powłoka nr 4"
 
 #. Name
-#: other/5shells:2
+#: data/sessions/5shells:2
 msgid "Five consoles"
 msgstr "Pięć terminali"
 
 #. Title4
-#: other/5shells:10
+#: data/sessions/5shells:10
 msgid "Shell No. 5"
 msgstr "Powłoka nr 5"

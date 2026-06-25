@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2026-06-20 21:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,70 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: data/sessions/linux.desktop:3
+msgid "Linux Console"
+msgstr "Conzôle Linux"
+
+#. Comment
+#: data/sessions/linux.desktop:4
+msgid "New Linux Console"
+msgstr "Novele conzôle linux"
+
+#. Name
+#: data/sessions/mc.desktop:3
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Novea Midnight Commander"
+
+#. Comment
+#: data/sessions/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "Novea Midnight Commander"
+
+#. Name
+#: data/sessions/screen.desktop:3
+msgid "Screen Session"
+msgstr "Session «screen»"
+
+#. Comment
+#: data/sessions/screen.desktop:4
+msgid "New Screen Session"
+msgstr "Novele session «screen»"
+
+#. Name
+#. Title0
+#: data/sessions/shell.desktop:3 data/sessions/2shells:6
+#: data/sessions/3shells:6 data/sessions/4shells:6 data/sessions/5shells:6
+#, fuzzy
+msgid "Shell"
+msgstr "Novea shell"
+
+#. Comment
+#: data/sessions/shell.desktop:4
+msgid "New Shell"
+msgstr "Novea shell"
+
+#. Name
+#: data/sessions/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "Shell root"
+
+#. Comment
+#: data/sessions/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "Novea shell root"
+
+#. Name
+#: data/sessions/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "Midnight Commander e môde root"
+
+#. Comment
+#: data/sessions/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "Novea «Midnight Commander» e môde root"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -42,11 +106,6 @@ msgstr "Conzôle"
 msgid "Terminal Program"
 msgstr "Programe di terminå"
 
-#. Comment
-#: konsole/x-konsole.desktop:7
-msgid "File to Open a Shell"
-msgstr "Fitchî a drovi dins on shell"
-
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
@@ -69,69 +128,10 @@ msgstr ""
 "Riwaite après les messaedjes des locås uzeus evoyîs avou write (1) oudonbén "
 "wall(1)"
 
-#. Name
-#: other/linux.desktop:3
-msgid "Linux Console"
-msgstr "Conzôle Linux"
-
 #. Comment
-#: other/linux.desktop:4
-msgid "New Linux Console"
-msgstr "Novele conzôle linux"
-
-#. Name
-#: other/mc.desktop:3
-#, fuzzy
-msgid "Midnight Commander"
-msgstr "Novea Midnight Commander"
-
-#. Comment
-#: other/mc.desktop:4
-msgid "New Midnight Commander"
-msgstr "Novea Midnight Commander"
-
-#. Name
-#: other/screen.desktop:3
-msgid "Screen Session"
-msgstr "Session «screen»"
-
-#. Comment
-#: other/screen.desktop:4
-msgid "New Screen Session"
-msgstr "Novele session «screen»"
-
-#. Name
-#. Title0
-#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
-#: other/5shells:6
-#, fuzzy
-msgid "Shell"
-msgstr "Novea shell"
-
-#. Comment
-#: other/shell.desktop:4
-msgid "New Shell"
-msgstr "Novea shell"
-
-#. Name
-#: other/su.desktop.cmake:3
-msgid "Root Shell"
-msgstr "Shell root"
-
-#. Comment
-#: other/su.desktop.cmake:4
-msgid "New Root Shell"
-msgstr "Novea shell root"
-
-#. Name
-#: other/sumc.desktop.cmake:3
-msgid "Root Midnight Commander"
-msgstr "Midnight Commander e môde root"
-
-#. Comment
-#: other/sumc.desktop.cmake:4
-msgid "New Root Midnight Commander"
-msgstr "Novea «Midnight Commander» e môde root"
+#: src/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "Fitchî a drovi dins on shell"
 
 #. Name
 #: terminalhere.desktop:6
@@ -145,48 +145,49 @@ msgid "Open Terminal Here"
 msgstr "Drovi on terminå chal"
 
 #. Name
-#: other/2shells:2
+#: data/sessions/2shells:2
 #, fuzzy
 msgid "Two consoles"
 msgstr "Conzôle"
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
+#: data/sessions/5shells:7
 #, fuzzy
 msgid "Shell No. 2"
 msgstr "Novea shell"
 
 #. Name
-#: other/3shells:2
+#: data/sessions/3shells:2
 msgid "Three consoles"
 msgstr ""
 
 #. Title2
-#: other/3shells:8 other/4shells:8 other/5shells:8
+#: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
 #, fuzzy
 msgid "Shell No. 3"
 msgstr "Novea shell"
 
 #. Name
-#: other/4shells:2
+#: data/sessions/4shells:2
 #, fuzzy
 msgid "Four consoles"
 msgstr "Conzôle Linux"
 
 #. Title3
-#: other/4shells:9 other/5shells:9
+#: data/sessions/4shells:9 data/sessions/5shells:9
 #, fuzzy
 msgid "Shell No. 4"
 msgstr "Novea shell"
 
 #. Name
-#: other/5shells:2
+#: data/sessions/5shells:2
 #, fuzzy
 msgid "Five consoles"
 msgstr "Conzôle Linux"
 
 #. Title4
-#: other/5shells:10
+#: data/sessions/5shells:10
 #, fuzzy
 msgid "Shell No. 5"
 msgstr "Novea shell"

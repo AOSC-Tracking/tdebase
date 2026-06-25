@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2026-06-20 21:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,69 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: data/sessions/linux.desktop:3
+msgid "Linux Console"
+msgstr "Consolă Linux"
+
+#. Comment
+#: data/sessions/linux.desktop:4
+msgid "New Linux Console"
+msgstr "Consolă Linux nouă"
+
+#. Name
+#: data/sessions/mc.desktop:3
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "Midnight Commander nou"
+
+#. Comment
+#: data/sessions/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "Midnight Commander nou"
+
+#. Name
+#: data/sessions/screen.desktop:3
+msgid "Screen Session"
+msgstr "Sesiune \"screen\""
+
+#. Comment
+#: data/sessions/screen.desktop:4
+msgid "New Screen Session"
+msgstr "Sesiune \"screen\" nouă"
+
+#. Name
+#. Title0
+#: data/sessions/shell.desktop:3 data/sessions/2shells:6
+#: data/sessions/3shells:6 data/sessions/4shells:6 data/sessions/5shells:6
+msgid "Shell"
+msgstr "Interpretor"
+
+#. Comment
+#: data/sessions/shell.desktop:4
+msgid "New Shell"
+msgstr "Interpretor nou"
+
+#. Name
+#: data/sessions/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "Interpretor \"root\""
+
+#. Comment
+#: data/sessions/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "Interpretor \"roo\" nou"
+
+#. Name
+#: data/sessions/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "Midnight Commander \"root\""
+
+#. Comment
+#: data/sessions/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "Consolă Midnight Commander \"root\" nouă"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -41,11 +104,6 @@ msgstr "Consolă"
 msgid "Terminal Program"
 msgstr "Program terminal"
 
-#. Comment
-#: konsole/x-konsole.desktop:7
-msgid "File to Open a Shell"
-msgstr "Fișier pentru execuția unui interpretor"
-
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
@@ -66,68 +124,10 @@ msgstr "Demon \"write\" TDE"
 msgid "Watch for messages from local users sent with write(1) or wall(1)"
 msgstr "Așteaptă mesaje de la utilizatori, trimise cu write(1) sau wall(1)"
 
-#. Name
-#: other/linux.desktop:3
-msgid "Linux Console"
-msgstr "Consolă Linux"
-
 #. Comment
-#: other/linux.desktop:4
-msgid "New Linux Console"
-msgstr "Consolă Linux nouă"
-
-#. Name
-#: other/mc.desktop:3
-#, fuzzy
-msgid "Midnight Commander"
-msgstr "Midnight Commander nou"
-
-#. Comment
-#: other/mc.desktop:4
-msgid "New Midnight Commander"
-msgstr "Midnight Commander nou"
-
-#. Name
-#: other/screen.desktop:3
-msgid "Screen Session"
-msgstr "Sesiune \"screen\""
-
-#. Comment
-#: other/screen.desktop:4
-msgid "New Screen Session"
-msgstr "Sesiune \"screen\" nouă"
-
-#. Name
-#. Title0
-#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
-#: other/5shells:6
-msgid "Shell"
-msgstr "Interpretor"
-
-#. Comment
-#: other/shell.desktop:4
-msgid "New Shell"
-msgstr "Interpretor nou"
-
-#. Name
-#: other/su.desktop.cmake:3
-msgid "Root Shell"
-msgstr "Interpretor \"root\""
-
-#. Comment
-#: other/su.desktop.cmake:4
-msgid "New Root Shell"
-msgstr "Interpretor \"roo\" nou"
-
-#. Name
-#: other/sumc.desktop.cmake:3
-msgid "Root Midnight Commander"
-msgstr "Midnight Commander \"root\""
-
-#. Comment
-#: other/sumc.desktop.cmake:4
-msgid "New Root Midnight Commander"
-msgstr "Consolă Midnight Commander \"root\" nouă"
+#: src/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "Fișier pentru execuția unui interpretor"
 
 #. Name
 #: terminalhere.desktop:6
@@ -141,48 +141,49 @@ msgid "Open Terminal Here"
 msgstr "Deschide un terminal aici"
 
 #. Name
-#: other/2shells:2
+#: data/sessions/2shells:2
 #, fuzzy
 msgid "Two consoles"
 msgstr "Consolă"
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
+#: data/sessions/5shells:7
 #, fuzzy
 msgid "Shell No. 2"
 msgstr "Interpretor"
 
 #. Name
-#: other/3shells:2
+#: data/sessions/3shells:2
 msgid "Three consoles"
 msgstr ""
 
 #. Title2
-#: other/3shells:8 other/4shells:8 other/5shells:8
+#: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
 #, fuzzy
 msgid "Shell No. 3"
 msgstr "Interpretor"
 
 #. Name
-#: other/4shells:2
+#: data/sessions/4shells:2
 #, fuzzy
 msgid "Four consoles"
 msgstr "Consolă Linux"
 
 #. Title3
-#: other/4shells:9 other/5shells:9
+#: data/sessions/4shells:9 data/sessions/5shells:9
 #, fuzzy
 msgid "Shell No. 4"
 msgstr "Interpretor"
 
 #. Name
-#: other/5shells:2
+#: data/sessions/5shells:2
 #, fuzzy
 msgid "Five consoles"
 msgstr "Consolă Linux"
 
 #. Title4
-#: other/5shells:10
+#: data/sessions/5shells:10
 #, fuzzy
 msgid "Shell No. 5"
 msgstr "Interpretor"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2026-06-20 21:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,68 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: data/sessions/linux.desktop:3
+msgid "Linux Console"
+msgstr ""
+
+#. Comment
+#: data/sessions/linux.desktop:4
+msgid "New Linux Console"
+msgstr ""
+
+#. Name
+#: data/sessions/mc.desktop:3
+msgid "Midnight Commander"
+msgstr ""
+
+#. Comment
+#: data/sessions/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr ""
+
+#. Name
+#: data/sessions/screen.desktop:3
+msgid "Screen Session"
+msgstr ""
+
+#. Comment
+#: data/sessions/screen.desktop:4
+msgid "New Screen Session"
+msgstr ""
+
+#. Name
+#. Title0
+#: data/sessions/shell.desktop:3 data/sessions/2shells:6
+#: data/sessions/3shells:6 data/sessions/4shells:6 data/sessions/5shells:6
+msgid "Shell"
+msgstr ""
+
+#. Comment
+#: data/sessions/shell.desktop:4
+msgid "New Shell"
+msgstr ""
+
+#. Name
+#: data/sessions/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr ""
+
+#. Comment
+#: data/sessions/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr ""
+
+#. Name
+#: data/sessions/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr ""
+
+#. Comment
+#: data/sessions/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr ""
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -42,11 +104,6 @@ msgstr ""
 msgid "Terminal Program"
 msgstr "Útstøðshermari"
 
-#. Comment
-#: konsole/x-konsole.desktop:7
-msgid "File to Open a Shell"
-msgstr ""
-
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
@@ -67,66 +124,9 @@ msgstr ""
 msgid "Watch for messages from local users sent with write(1) or wall(1)"
 msgstr ""
 
-#. Name
-#: other/linux.desktop:3
-msgid "Linux Console"
-msgstr ""
-
 #. Comment
-#: other/linux.desktop:4
-msgid "New Linux Console"
-msgstr ""
-
-#. Name
-#: other/mc.desktop:3
-msgid "Midnight Commander"
-msgstr ""
-
-#. Comment
-#: other/mc.desktop:4
-msgid "New Midnight Commander"
-msgstr ""
-
-#. Name
-#: other/screen.desktop:3
-msgid "Screen Session"
-msgstr ""
-
-#. Comment
-#: other/screen.desktop:4
-msgid "New Screen Session"
-msgstr ""
-
-#. Name
-#. Title0
-#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
-#: other/5shells:6
-msgid "Shell"
-msgstr ""
-
-#. Comment
-#: other/shell.desktop:4
-msgid "New Shell"
-msgstr ""
-
-#. Name
-#: other/su.desktop.cmake:3
-msgid "Root Shell"
-msgstr ""
-
-#. Comment
-#: other/su.desktop.cmake:4
-msgid "New Root Shell"
-msgstr ""
-
-#. Name
-#: other/sumc.desktop.cmake:3
-msgid "Root Midnight Commander"
-msgstr ""
-
-#. Comment
-#: other/sumc.desktop.cmake:4
-msgid "New Root Midnight Commander"
+#: src/x-konsole.desktop:7
+msgid "File to Open a Shell"
 msgstr ""
 
 #. Name
@@ -141,41 +141,42 @@ msgid "Open Terminal Here"
 msgstr ""
 
 #. Name
-#: other/2shells:2
+#: data/sessions/2shells:2
 msgid "Two consoles"
 msgstr ""
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
+#: data/sessions/5shells:7
 msgid "Shell No. 2"
 msgstr ""
 
 #. Name
-#: other/3shells:2
+#: data/sessions/3shells:2
 msgid "Three consoles"
 msgstr ""
 
 #. Title2
-#: other/3shells:8 other/4shells:8 other/5shells:8
+#: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
 msgid "Shell No. 3"
 msgstr ""
 
 #. Name
-#: other/4shells:2
+#: data/sessions/4shells:2
 msgid "Four consoles"
 msgstr ""
 
 #. Title3
-#: other/4shells:9 other/5shells:9
+#: data/sessions/4shells:9 data/sessions/5shells:9
 msgid "Shell No. 4"
 msgstr ""
 
 #. Name
-#: other/5shells:2
+#: data/sessions/5shells:2
 msgid "Five consoles"
 msgstr ""
 
 #. Title4
-#: other/5shells:10
+#: data/sessions/5shells:10
 msgid "Shell No. 5"
 msgstr ""

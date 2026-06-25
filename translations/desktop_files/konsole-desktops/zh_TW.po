@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2026-06-20 21:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,72 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: data/sessions/linux.desktop:3
+msgid "Linux Console"
+msgstr "Linux 主控台"
+
+#. Comment
+#: data/sessions/linux.desktop:4
+msgid "New Linux Console"
+msgstr "新增 Linux 主控台"
+
+#. Name
+#: data/sessions/mc.desktop:3
+#, fuzzy
+msgid "Midnight Commander"
+msgstr "新增 Midnight Commander"
+
+#. Comment
+#: data/sessions/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "新增 Midnight Commander"
+
+#. Name
+#: data/sessions/screen.desktop:3
+msgid "Screen Session"
+msgstr "螢幕工作階段"
+
+#. Comment
+#: data/sessions/screen.desktop:4
+msgid "New Screen Session"
+msgstr "新增螢幕工作階段"
+
+#. Name
+#. Title0
+#: data/sessions/shell.desktop:3 data/sessions/2shells:6
+#: data/sessions/3shells:6 data/sessions/4shells:6 data/sessions/5shells:6
+#, fuzzy
+msgid "Shell"
+msgstr "新增 Shell"
+
+#. Comment
+#: data/sessions/shell.desktop:4
+msgid "New Shell"
+msgstr "新增 Shell"
+
+#. Name
+#: data/sessions/su.desktop.cmake:3
+#, fuzzy
+msgid "Root Shell"
+msgstr "新增 Root Shell"
+
+#. Comment
+#: data/sessions/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "新增 Root Shell"
+
+#. Name
+#: data/sessions/sumc.desktop.cmake:3
+#, fuzzy
+msgid "Root Midnight Commander"
+msgstr "新增 Root Midnight Commander"
+
+#. Comment
+#: data/sessions/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "新增 Root Midnight Commander"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -42,11 +108,6 @@ msgstr "主控台"
 msgid "Terminal Program"
 msgstr "終端機程式"
 
-#. Comment
-#: konsole/x-konsole.desktop:7
-msgid "File to Open a Shell"
-msgstr "要打開 shell 的檔案"
-
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
@@ -67,71 +128,10 @@ msgstr "TDE Write 伺服程式"
 msgid "Watch for messages from local users sent with write(1) or wall(1)"
 msgstr "監控本地使用者以 write(1) 或 wall(1) 傳送的郵件"
 
-#. Name
-#: other/linux.desktop:3
-msgid "Linux Console"
-msgstr "Linux 主控台"
-
 #. Comment
-#: other/linux.desktop:4
-msgid "New Linux Console"
-msgstr "新增 Linux 主控台"
-
-#. Name
-#: other/mc.desktop:3
-#, fuzzy
-msgid "Midnight Commander"
-msgstr "新增 Midnight Commander"
-
-#. Comment
-#: other/mc.desktop:4
-msgid "New Midnight Commander"
-msgstr "新增 Midnight Commander"
-
-#. Name
-#: other/screen.desktop:3
-msgid "Screen Session"
-msgstr "螢幕工作階段"
-
-#. Comment
-#: other/screen.desktop:4
-msgid "New Screen Session"
-msgstr "新增螢幕工作階段"
-
-#. Name
-#. Title0
-#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
-#: other/5shells:6
-#, fuzzy
-msgid "Shell"
-msgstr "新增 Shell"
-
-#. Comment
-#: other/shell.desktop:4
-msgid "New Shell"
-msgstr "新增 Shell"
-
-#. Name
-#: other/su.desktop.cmake:3
-#, fuzzy
-msgid "Root Shell"
-msgstr "新增 Root Shell"
-
-#. Comment
-#: other/su.desktop.cmake:4
-msgid "New Root Shell"
-msgstr "新增 Root Shell"
-
-#. Name
-#: other/sumc.desktop.cmake:3
-#, fuzzy
-msgid "Root Midnight Commander"
-msgstr "新增 Root Midnight Commander"
-
-#. Comment
-#: other/sumc.desktop.cmake:4
-msgid "New Root Midnight Commander"
-msgstr "新增 Root Midnight Commander"
+#: src/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "要打開 shell 的檔案"
 
 #. Name
 #: terminalhere.desktop:6
@@ -145,48 +145,49 @@ msgid "Open Terminal Here"
 msgstr "在這裡開啟終端機"
 
 #. Name
-#: other/2shells:2
+#: data/sessions/2shells:2
 #, fuzzy
 msgid "Two consoles"
 msgstr "主控台"
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
+#: data/sessions/5shells:7
 #, fuzzy
 msgid "Shell No. 2"
 msgstr "新增 Shell"
 
 #. Name
-#: other/3shells:2
+#: data/sessions/3shells:2
 msgid "Three consoles"
 msgstr ""
 
 #. Title2
-#: other/3shells:8 other/4shells:8 other/5shells:8
+#: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
 #, fuzzy
 msgid "Shell No. 3"
 msgstr "新增 Shell"
 
 #. Name
-#: other/4shells:2
+#: data/sessions/4shells:2
 #, fuzzy
 msgid "Four consoles"
 msgstr "Linux 主控台"
 
 #. Title3
-#: other/4shells:9 other/5shells:9
+#: data/sessions/4shells:9 data/sessions/5shells:9
 #, fuzzy
 msgid "Shell No. 4"
 msgstr "新增 Shell"
 
 #. Name
-#: other/5shells:2
+#: data/sessions/5shells:2
 #, fuzzy
 msgid "Five consoles"
 msgstr "Linux 主控台"
 
 #. Title4
-#: other/5shells:10
+#: data/sessions/5shells:10
 #, fuzzy
 msgid "Shell No. 5"
 msgstr "新增 Shell"

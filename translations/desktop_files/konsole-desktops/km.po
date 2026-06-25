@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-07 18:17+0000\n"
+"POT-Creation-Date: 2026-06-20 21:29+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,68 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: data/sessions/linux.desktop:3
+msgid "Linux Console"
+msgstr "កុងសូល Linux"
+
+#. Comment
+#: data/sessions/linux.desktop:4
+msgid "New Linux Console"
+msgstr "កុងសូល Linux ថ្មី"
+
+#. Name
+#: data/sessions/mc.desktop:3
+msgid "Midnight Commander"
+msgstr "ពាក្យ​បញ្ជា Midnight"
+
+#. Comment
+#: data/sessions/mc.desktop:4
+msgid "New Midnight Commander"
+msgstr "ពាក្យ​បញ្ជា Midnight ថ្មី"
+
+#. Name
+#: data/sessions/screen.desktop:3
+msgid "Screen Session"
+msgstr "សម័យ​អេក្រង់"
+
+#. Comment
+#: data/sessions/screen.desktop:4
+msgid "New Screen Session"
+msgstr "សម័យ​អេក្រង់​ថ្មី"
+
+#. Name
+#. Title0
+#: data/sessions/shell.desktop:3 data/sessions/2shells:6
+#: data/sessions/3shells:6 data/sessions/4shells:6 data/sessions/5shells:6
+msgid "Shell"
+msgstr "សែល"
+
+#. Comment
+#: data/sessions/shell.desktop:4
+msgid "New Shell"
+msgstr "សែល​ថ្មី"
+
+#. Name
+#: data/sessions/su.desktop.cmake:3
+msgid "Root Shell"
+msgstr "សែល Root"
+
+#. Comment
+#: data/sessions/su.desktop.cmake:4
+msgid "New Root Shell"
+msgstr "សែល Root ថ្មី"
+
+#. Name
+#: data/sessions/sumc.desktop.cmake:3
+msgid "Root Midnight Commander"
+msgstr "ពាក្យ​បញ្ជា Midnight Root"
+
+#. Comment
+#: data/sessions/sumc.desktop.cmake:4
+msgid "New Root Midnight Commander"
+msgstr "ពាក្យ​បញ្ជា Midnight Root ថ្មី"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -42,11 +104,6 @@ msgstr "កុងសូល"
 msgid "Terminal Program"
 msgstr "កម្មវិធី​ស្ថានីយ"
 
-#. Comment
-#: konsole/x-konsole.desktop:7
-msgid "File to Open a Shell"
-msgstr "ឯកសារ​ដើម្បី​បើក​សែល​មួយ"
-
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
@@ -67,67 +124,10 @@ msgstr ""
 msgid "Watch for messages from local users sent with write(1) or wall(1)"
 msgstr "ឃ្លាំមើល​សារ​ពី​អ្នក​ប្រើ​ក្នុង​បណ្ដាញ ដែល​បាន​ផ្ញើ​ដោយ​ប្រើ write(1) ឬ wall(1)"
 
-#. Name
-#: other/linux.desktop:3
-msgid "Linux Console"
-msgstr "កុងសូល Linux"
-
 #. Comment
-#: other/linux.desktop:4
-msgid "New Linux Console"
-msgstr "កុងសូល Linux ថ្មី"
-
-#. Name
-#: other/mc.desktop:3
-msgid "Midnight Commander"
-msgstr "ពាក្យ​បញ្ជា Midnight"
-
-#. Comment
-#: other/mc.desktop:4
-msgid "New Midnight Commander"
-msgstr "ពាក្យ​បញ្ជា Midnight ថ្មី"
-
-#. Name
-#: other/screen.desktop:3
-msgid "Screen Session"
-msgstr "សម័យ​អេក្រង់"
-
-#. Comment
-#: other/screen.desktop:4
-msgid "New Screen Session"
-msgstr "សម័យ​អេក្រង់​ថ្មី"
-
-#. Name
-#. Title0
-#: other/shell.desktop:3 other/2shells:6 other/3shells:6 other/4shells:6
-#: other/5shells:6
-msgid "Shell"
-msgstr "សែល"
-
-#. Comment
-#: other/shell.desktop:4
-msgid "New Shell"
-msgstr "សែល​ថ្មី"
-
-#. Name
-#: other/su.desktop.cmake:3
-msgid "Root Shell"
-msgstr "សែល Root"
-
-#. Comment
-#: other/su.desktop.cmake:4
-msgid "New Root Shell"
-msgstr "សែល Root ថ្មី"
-
-#. Name
-#: other/sumc.desktop.cmake:3
-msgid "Root Midnight Commander"
-msgstr "ពាក្យ​បញ្ជា Midnight Root"
-
-#. Comment
-#: other/sumc.desktop.cmake:4
-msgid "New Root Midnight Commander"
-msgstr "ពាក្យ​បញ្ជា Midnight Root ថ្មី"
+#: src/x-konsole.desktop:7
+msgid "File to Open a Shell"
+msgstr "ឯកសារ​ដើម្បី​បើក​សែល​មួយ"
 
 #. Name
 #: terminalhere.desktop:6
@@ -141,48 +141,49 @@ msgid "Open Terminal Here"
 msgstr "បើក​ស្ថានីយ​ទីនេះ"
 
 #. Name
-#: other/2shells:2
+#: data/sessions/2shells:2
 #, fuzzy
 msgid "Two consoles"
 msgstr "កុងសូល"
 
 #. Title1
-#: other/2shells:7 other/3shells:7 other/4shells:7 other/5shells:7
+#: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
+#: data/sessions/5shells:7
 #, fuzzy
 msgid "Shell No. 2"
 msgstr "សែល"
 
 #. Name
-#: other/3shells:2
+#: data/sessions/3shells:2
 msgid "Three consoles"
 msgstr ""
 
 #. Title2
-#: other/3shells:8 other/4shells:8 other/5shells:8
+#: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
 #, fuzzy
 msgid "Shell No. 3"
 msgstr "សែល"
 
 #. Name
-#: other/4shells:2
+#: data/sessions/4shells:2
 #, fuzzy
 msgid "Four consoles"
 msgstr "កុងសូល Linux"
 
 #. Title3
-#: other/4shells:9 other/5shells:9
+#: data/sessions/4shells:9 data/sessions/5shells:9
 #, fuzzy
 msgid "Shell No. 4"
 msgstr "សែល"
 
 #. Name
-#: other/5shells:2
+#: data/sessions/5shells:2
 #, fuzzy
 msgid "Five consoles"
 msgstr "កុងសូល Linux"
 
 #. Title4
-#: other/5shells:10
+#: data/sessions/5shells:10
 #, fuzzy
 msgid "Shell No. 5"
 msgstr "សែល"
