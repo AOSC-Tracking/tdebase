@@ -363,7 +363,7 @@ public slots:
      */
     void lower();
 
-   /**
+    /**
      * Activate the task's window.
      */
     void activate();

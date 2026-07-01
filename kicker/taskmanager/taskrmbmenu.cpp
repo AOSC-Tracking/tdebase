@@ -139,7 +139,7 @@ void TaskRMBMenu::fillMenu()
 
         id = insertItem( TQIconSet( t->pixmap() ),
                          t->visibleNameWithState(),
-		         new TaskRMBMenu(t, this) );
+		         new TaskRMBMenu(t, showAll, this) );
         setItemChecked( id, t->isActive() );
         connectItem( id, t, TQ_SLOT( activateRaiseOrIconify() ) );
     }
@@ -152,17 +152,19 @@ void TaskRMBMenu::fillMenu()
     {
         id = insertItem(i18n("All to &Desktop"), makeDesktopsMenu());
 
-        id = insertItem(i18n("All &to Current Desktop"), this, TQ_SLOT(slotAllToCurrentDesktop()));
-        Task::List::iterator itEnd = tasks.end();
-        for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
-        {
-            if (!(*it)->isOnCurrentDesktop())
+        if (showAll) {
+            id = insertItem(i18n("All &to Current Desktop"), this, TQ_SLOT(slotAllToCurrentDesktop()));
+            Task::List::iterator itEnd = tasks.end();
+            for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
             {
-                enable = true;
-                break;
+                if (!(*it)->isOnCurrentDesktop())
+                {
+                    enable = true;
+                    break;
+                }
             }
+            setItemEnabled(id, enable);
         }
-        setItemEnabled(id, enable);
     }
 
     enable = false;
