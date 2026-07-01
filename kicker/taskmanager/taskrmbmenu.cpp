@@ -23,10 +23,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ******************************************************************/
 
 #include <assert.h>
+#include <unordered_map>
 
 #include <tdeglobal.h>
 #include <kiconloader.h>
 #include <tdelocale.h>
+#include <netwm.h>
 
 #include "taskmanager.h"
 
@@ -206,6 +208,9 @@ void TaskRMBMenu::fillMenu()
     }
     setItemEnabled( id, enable );
 
+    id = insertItem( SmallIconSet("go-up"  ), i18n( "R&aise All" ), this, TQ_SLOT( slotRaiseAll() ) );
+    id = insertItem( SmallIconSet("go-down"), i18n( "&Lower All" ), this, TQ_SLOT( slotLowerAll() ) );
+
     insertSeparator();
 
     enable = false;
@@ -341,6 +346,65 @@ void TaskRMBMenu::slotRestoreAll()
     for (Task::List::iterator it = tasks.begin(); it != itEnd; ++it)
     {
         (*it)->restore();
+    }
+}
+
+/// Returns list of tasks reordered to the order they appear in the window
+/// stack; the topmost window will come first
+static TQValueVector<Task *> reorderedByStack(const Task::List &tasks)
+{
+    // Reorganize the list into a hash for faster lookups and keeping track if
+    // any windows are missing in the window stack
+    std::unordered_map<Window, Task*> winTaskMap( tasks.size()*2 );
+    for (const auto& task: tasks)
+    {
+        winTaskMap.insert( { task->window(), const_cast<Task *>(task.data()) } );
+    }
+
+    TQValueVector<Task *> rv;
+    rv.reserve(tasks.size());
+
+    // Get the window stack
+    NETRootInfo ri( tqt_xdisplay(),  NET::ClientListStacking );
+    const Window *windowStack = ri.clientListStacking();
+    int windowStackSz = ri.clientListStackingCount();
+
+    // Copy the tasks to the returned vector in the order they are in the window stack
+    for (int i = windowStackSz - 1; i >= 0; i--)
+    { // Note: reverse the order so the topmost window comes first
+        auto taskIt = winTaskMap.find(windowStack[i]);
+        if (taskIt != winTaskMap.end())
+        {
+            rv.append(taskIt->second);
+            winTaskMap.erase(taskIt);
+        }
+    }
+
+    // winTaskMap should be empty at that point, but in a very unlikely case
+    // some tasks were missing in the window stack copy them manually
+    for (const auto& [_ , task]: winTaskMap)
+    {
+        rv.append(task);
+    }
+
+    return rv;
+}
+
+void TaskRMBMenu::slotRaiseAll()
+{
+    auto stackedTasks = reorderedByStack(tasks);
+    // Iterate in reverse to keep the correct order
+    for (ssize_t i = stackedTasks.size()-1; i >= 0; i--)
+    {
+        stackedTasks[i]->raise();
+    }
+}
+
+void TaskRMBMenu::slotLowerAll()
+{
+    for (auto& task: reorderedByStack(tasks) )
+    {
+        task->lower();
     }
 }
 

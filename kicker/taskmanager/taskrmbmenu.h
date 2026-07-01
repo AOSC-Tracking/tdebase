@@ -47,6 +47,8 @@ private slots:
 	void slotMinimizeAll();
 	void slotMaximizeAll();
 	void slotRestoreAll();
+	void slotRaiseAll();
+	void slotLowerAll();
 	void slotShadeAll();
 	void slotCloseAll();
 	void slotAllToDesktop(int desktop);
