@@ -40,7 +40,8 @@ Panner::Panner( TQWidget* parent, const char* name )
       _luSB(0),
       _rdSB(0),
       _cwidth(0), _cheight(0),
-      _cx(0), _cy(0)
+      _cx(0), _cy(0),
+      _step(8)
 {
     TDEGlobal::locale()->insertCatalogue("libkicker");
     setBackgroundOrigin( AncestorOrigin );
@@ -58,6 +59,11 @@ Panner::Panner( TQWidget* parent, const char* name )
     _layout = new TQBoxLayout(this, TQBoxLayout::LeftToRight);
     _layout->addWidget(_clipper, 1);
     setOrientation(TQt::Horizontal);
+
+    // scrolling timer
+    _scrollDir = true;
+    _scrollTimer = new TQTimer(this);
+    connect(_scrollTimer, TQ_SIGNAL(timeout()), TQ_SLOT(timedScroll()));
 }
 
 Panner::~Panner() 
@@ -151,44 +157,44 @@ void Panner::scrollRightDown()
 {
     if(orientation() == TQt::Horizontal) // scroll right
         scrollBy( _step, 0 );
-    else // scroll down
+    else                                 // scroll down
         scrollBy( 0, _step );
-    if (_step < 64)
-    _step++;
 }
 
 void Panner::scrollLeftUp()
 {
     if(orientation() == TQt::Horizontal) // scroll left
         scrollBy( -_step, 0 );
-    else // scroll up
+    else                                 // scroll up
         scrollBy( 0, -_step );
+}
+
+void Panner::timedScroll()
+{
+    _scrollDir ? scrollLeftUp() : scrollRightDown();
     if (_step < 64)
         _step++;
 }
 
 void Panner::startScrollRightDown()
 {
-    _scrollTimer = new TQTimer(this);
-    connect(_scrollTimer, TQ_SIGNAL(timeout()), TQ_SLOT(scrollRightDown()));
+    _scrollDir = false;
     _scrollTimer->start(50);
     _step = 8;
-    scrollRightDown();
+    timedScroll();
 }
 
 void Panner::startScrollLeftUp()
 {
-    _scrollTimer = new TQTimer(this);
-    connect(_scrollTimer, TQ_SIGNAL(timeout()), TQ_SLOT(scrollLeftUp()));
+    _scrollDir = true;
     _scrollTimer->start(50);
     _step = 8;
-    scrollLeftUp();
+    timedScroll();
 }
 
 void Panner::stopScroll()
 {
-    delete _scrollTimer;
-    _scrollTimer = 0;
+    _scrollTimer->stop();
 }
 
 void Panner::reallyUpdateScrollButtons()

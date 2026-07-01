@@ -78,6 +78,7 @@ public slots:
     void stopScroll();
     void scrollRightDown();
     void scrollLeftUp();
+    void timedScroll();
     void reallyUpdateScrollButtons();
     void scrollBy(int dx, int dy);
 
@@ -104,6 +105,7 @@ private:
     SimpleArrowButton *_rdSB; // Right Scroll Button
     TQTimer *_updateScrollButtonsTimer;
     TQTimer *_scrollTimer;
+    bool _scrollDir;  // true = left/up, false = right/down
     
     TQWidget *_clipper;
     TQWidget *_viewport;
