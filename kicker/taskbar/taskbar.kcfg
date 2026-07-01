@@ -176,6 +176,13 @@
             <label>Wheel actions</label>
             <whatsthis></whatsthis>
         </entry>
+        <entry key="WheelScrollStep" type="Int">
+            <default>16</default>
+            <min>1</min>
+            <max>128</max>
+            <label>Scroll step size</label>
+            <whatsthis>Sets the number of pixels the taskbar scrolls with each step when using the mouse wheel.<br/>Scrolling with the buttons will used a fixed scrolling pattern, starting slow and accelerating over time.</whatsthis>
+        </entry>
     </group>
 
     <group name="Appearance">

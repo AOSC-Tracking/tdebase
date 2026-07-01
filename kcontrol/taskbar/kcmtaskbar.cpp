@@ -19,6 +19,7 @@
 #include <tqcheckbox.h>
 #include <tqcombobox.h>
 #include <tqlayout.h>
+#include <tqslider.h>
 #include <tqtimer.h>
 #include <tqvaluelist.h>
 #include <tqfile.h>
@@ -28,15 +29,16 @@
 
 #include <dcopclient.h>
 
+#include <kcolorbutton.h>
+#include <kdialog.h>
+#include <kgenericfactory.h>
+#include <kiconloader.h>
+#include <knuminput.h>
 #include <tdeaboutdata.h>
 #include <tdeapplication.h>
 #include <tdeconfig.h>
-#include <kdialog.h>
-#include <kgenericfactory.h>
-#include <twin.h>
-#include <kcolorbutton.h>
 #include <tdestandarddirs.h>
-#include <kiconloader.h>
+#include <twin.h>
 
 #define protected public
 #include "kcmtaskbarui.h"
@@ -244,10 +246,6 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     }
     m_widget->appearance->insertItem(i18n("Custom"));
 
-    connect(m_widget->appearance, TQ_SIGNAL(activated(int)),
-            this, TQ_SLOT(appearanceChanged(int)));
-    connect(m_widget->kcfg_DisplayIconsNText, TQ_SIGNAL(activated(int)),
-            this, TQ_SLOT(displayIconsNTextChanged(int)));
     addConfig(m_settingsObject, m_widget);
 
     setQuickHelp(i18n("<h1>Taskbar</h1> You can configure the taskbar here."
@@ -266,8 +264,14 @@ TaskbarConfig::TaskbarConfig(TQWidget *parent, const char* name, const TQStringL
     m_widget->kcfg_GroupTasks->insertStringList(i18nGroupModeList());
     m_widget->kcfg_ShowTaskStates->insertStringList(i18nShowTaskStatesList());
 
+    connect(m_widget->appearance, TQ_SIGNAL(activated(int)),
+            this, TQ_SLOT(appearanceChanged(int)));
+    connect(m_widget->kcfg_DisplayIconsNText, TQ_SIGNAL(activated(int)),
+            this, TQ_SLOT(displayIconsNTextChanged(int)));
     connect(m_widget->kcfg_GroupTasks, TQ_SIGNAL(activated(int)),
             this, TQ_SLOT(slotUpdateComboBox()));
+    connect(m_widget->kcfg_ScrollTaskbarWAction, TQ_SIGNAL(activated(int)),
+            this, TQ_SLOT(slotScrollTaskbarActionChanged(int)));
     connect(m_widget->kcfg_UseCustomColors, TQ_SIGNAL(stateChanged(int)), this, TQ_SLOT(slotUpdateCustomColors()));
 
     slotUpdateCustomColors();
@@ -379,6 +383,13 @@ void TaskbarConfig::slotUpdateCustomColors()
     m_widget->taskBackgroundColorLabel->setEnabled(m_widget->kcfg_UseCustomColors->isChecked());
 }
 
+void TaskbarConfig::slotScrollTaskbarActionChanged(int index)
+{
+    m_widget->wheelScrollSpeedLabel->setEnabled(index != 0);
+    m_widget->wheelScrollStepSlider->setEnabled(index != 0);
+    m_widget->kcfg_WheelScrollStep->setEnabled(index != 0);
+}
+
 void TaskbarConfig::slotUpdateComboBox()
 {
     int pos = TaskBarSettings::ActivateRaiseOrMinimize;
@@ -467,6 +478,7 @@ void TaskbarConfig::load()
     slotUpdateComboBox();
     updateAppearanceCombo();
     updateIconsTextCombo();
+    slotScrollTaskbarActionChanged(m_settingsObject->wAction(TaskBarSettings::ScrollTaskbar));
     m_widget->showAllScreens->setChecked(!m_settingsObject->showCurrentScreenOnly());
 
     int iconSize = m_settingsObject->iconSize();
@@ -508,6 +520,7 @@ void TaskbarConfig::defaults()
     slotUpdateComboBox();
     updateAppearanceCombo();
     updateIconsTextCombo();
+    slotScrollTaskbarActionChanged(m_settingsObject->wAction(TaskBarSettings::ScrollTaskbar));
 }
 
 void TaskbarConfig::notChanged()

@@ -155,6 +155,7 @@ private:
     bool                m_showOnlyIconified;
     int                 m_showTaskStates;
     int                 m_iconSize;
+    int                 m_wheelScrollStep;
     ArrowType           arrowType;
     TaskContainer::List containers;
     TaskContainer::List m_hiddenContainers;

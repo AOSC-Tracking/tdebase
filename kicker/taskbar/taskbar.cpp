@@ -255,6 +255,7 @@ void TaskBar::configure()
     m_scrollTaskbarAction = READ_MERGED_TASKBAR_WACTION(TaskBarSettings::ScrollTaskbar);
     m_showTaskStates = READ_MERGED_TASKBAR_SETTING(showTaskStates);
     m_iconSize = READ_MERGED_TASKBAR_SETTING(iconSize);
+    m_wheelScrollStep = READ_MERGED_TASKBAR_SETTING(wheelScrollStep);
 
     m_currentScreen = -1;    // Show all screens or re-get our screen
     m_showOnlyCurrentScreen = (READ_MERGED_TASKBAR_SETTING(showCurrentScreenOnly) &&
@@ -1206,13 +1207,17 @@ void TaskBar::wheelEvent(TQWheelEvent* e)
         (scrollAction == m_settingsObject->ModCtrl && ctrlPressed) ||
         (scrollAction == m_settingsObject->ModShift && shiftPressed))
     {
-        if (e->delta() > 0)
+        // the delta is defined as multiples of WHEEL_DELTA,
+        // which is set to 120. See TQETWidget::translateMouseEvent()
+        // in tqapplication_x11.cpp for more details.
+        int step = e->delta() * m_wheelScrollStep / 120;
+        if ( orientation() == TQt::Horizontal )
         {
-            scrollLeftUp();
+            scrollBy( -step, 0 );
         }
         else
         {
-            scrollRightDown();
+            scrollBy( 0, -step );
         }
     }
 }

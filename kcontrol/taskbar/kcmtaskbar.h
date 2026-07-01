@@ -68,6 +68,7 @@ protected slots:
     void slotUpdateComboBox();
     void appearanceChanged(int);
     void displayIconsNTextChanged(int);
+    void slotScrollTaskbarActionChanged(int);
     void notChanged();
     void slotUpdateCustomColors();
 
