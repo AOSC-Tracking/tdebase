@@ -1055,14 +1055,6 @@
                         <property name="name">
                             <cstring>wheelActionsGroup</cstring>
                         </property>
-                        <property name="sizePolicy">
-                            <sizepolicy>
-                                <hsizetype>5</hsizetype>
-                                <vsizetype>1</vsizetype>
-                                <horstretch>0</horstretch>
-                                <verstretch>0</verstretch>
-                            </sizepolicy>
-                        </property>
                         <property name="title">
                             <string>Mouse Wheel</string>
                         </property>
@@ -1081,7 +1073,7 @@
                                     <cstring>kcfg_CycleWindowsWAction</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQComboBox" row="0" column="1" rowspan="1" colspan="2">
+                            <widget class="TQComboBox" row="0" column="1">
                                 <property name="name">
                                     <cstring>kcfg_CycleWindowsWAction</cstring>
                                 </property>
@@ -1108,7 +1100,7 @@
                                     <cstring>kcfg_ScrollTaskbarWAction</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQComboBox" row="1" column="1" rowspan="1" colspan="2">
+                            <widget class="TQComboBox" row="1" column="1">
                                 <property name="name">
                                     <cstring>kcfg_ScrollTaskbarWAction</cstring>
                                 </property>
@@ -1124,26 +1116,12 @@
                                     <string>If this option is enabled (with or without a keyboard modifier) and if the taskbar is holding more buttons than what could be displayed (the two arrows for scrolling are visible), you can scroll the taskbar by using the mouse wheel.</string>
                                 </property>
                             </widget>
-                            <spacer row="2" column="0" rowspan="1" colspan="2">
+                            <widget class="TQLayoutWidget" row="2" column="1">
                                 <property name="name">
-                                    <cstring>scrollStepSpacer</cstring>
+                                    <cstring>layout4</cstring>
                                 </property>
-                                <property name="orientation">
-                                    <enum>Horizontal</enum>
-                                </property>
-                                <property name="sizeType">
-                                    <enum>Expanding</enum>
-                                </property>
-                                <property name="sizeHint">
-                                    <size>
-                                        <width>30</width>
-                                        <height>40</height>
-                                    </size>
-                                </property>
-                            </spacer>
-                            <widget class="TQLayoutWidget" row="2" column="2">
-                                <property name="name">
-                                    <cstring>scrollStepLayout</cstring>
+                                <property name="sizeType" stdset="0">
+                                    <string>Expanding</string>
                                 </property>
                                 <hbox>
                                     <property name="name">
@@ -1166,12 +1144,12 @@
                                             </size>
                                         </property>
                                     </spacer>
-                                    <widget class="TQLabel">
+                                    <widget class="TQCheckBox">
                                         <property name="name">
-                                            <cstring>wheelScrollSpeedLabel</cstring>
+                                            <cstring>kcfg_UseCustomWheelScrollStep</cstring>
                                         </property>
                                         <property name="text">
-                                            <string>Scrolling speed</string>
+                                            <string>Custom scrolling speed:</string>
                                         </property>
                                     </widget>
                                     <widget class="TQSlider">
@@ -1182,13 +1160,13 @@
                                             <number>1</number>
                                         </property>
                                         <property name="maxValue">
-                                            <number>128</number>
+                                            <number>200</number>
                                         </property>
                                         <property name="pageStep">
                                             <number>8</number>
                                         </property>
                                         <property name="value">
-                                            <number>16</number>
+                                            <number>72</number>
                                         </property>
                                         <property name="orientation">
                                             <enum>Horizontal</enum>
@@ -1202,14 +1180,14 @@
                                             <cstring>kcfg_WheelScrollStep</cstring>
                                         </property>
                                         <property name="value">
-                                            <number>16</number>
+                                            <number>72</number>
                                         </property>
                                         <property name="minValue">
                                             <number>1</number>
                                         </property>
                                         <property name="maxValue">
-                                            <number>128</number>
-                                        </property>
+                                            <number>200</number>
+                                            </property>
                                         <property name="suffix">
                                             <string> pixels</string>
                                         </property>
@@ -1308,6 +1286,18 @@
         <signal>valueChanged(int)</signal>
         <receiver>wheelScrollStepSlider</receiver>
         <slot>setValue(int)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_UseCustomWheelScrollStep</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_WheelScrollStep</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>kcfg_UseCustomWheelScrollStep</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>wheelScrollStepSlider</receiver>
+        <slot>setEnabled(bool)</slot>
     </connection>
 </connections>
 <includes>

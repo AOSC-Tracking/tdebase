@@ -35,6 +35,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 const int WINDOWLISTBUTTON_SIZE = 15;
 const int BUTTON_MAX_WIDTH      = 200;
 const int BUTTON_MIN_WIDTH      = 24;    // 24 = 4+2+16+2 -> Space for borders, application icon and gaps
+const int BUTTON_VERTICAL_GAP   = 4;
 
 class Startup;
 class Task;

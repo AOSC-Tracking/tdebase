@@ -176,10 +176,15 @@
             <label>Wheel actions</label>
             <whatsthis></whatsthis>
         </entry>
+        <entry key="UseCustomWheelScrollStep" type="Bool">
+            <default>false</default>
+            <label>Custom Wheel Scroll Step</label>
+            <whatsthis>Use a custom scroll step defined in pixels when scrolling with mouse wheel. If disabled use general TDE mouse settings (3 taskbar buttons by default).</whatsthis>
+        </entry>
         <entry key="WheelScrollStep" type="Int">
-            <default>16</default>
+            <default>72</default>
             <min>1</min>
-            <max>128</max>
+            <max>200</max>
             <label>Scroll step size</label>
             <whatsthis>Sets the number of pixels the taskbar scrolls with each step when using the mouse wheel.<br/>Scrolling with the buttons will used a fixed scrolling pattern, starting slow and accelerating over time.</whatsthis>
         </entry>

@@ -385,9 +385,10 @@ void TaskbarConfig::slotUpdateCustomColors()
 
 void TaskbarConfig::slotScrollTaskbarActionChanged(int index)
 {
-    m_widget->wheelScrollSpeedLabel->setEnabled(index != 0);
-    m_widget->wheelScrollStepSlider->setEnabled(index != 0);
-    m_widget->kcfg_WheelScrollStep->setEnabled(index != 0);
+    m_widget->kcfg_UseCustomWheelScrollStep->setEnabled(index != 0);
+    bool customChecked = m_widget->kcfg_UseCustomWheelScrollStep->isChecked();
+    m_widget->wheelScrollStepSlider->setEnabled(index != 0 && customChecked);
+    m_widget->kcfg_WheelScrollStep->setEnabled(index != 0 && customChecked);
 }
 
 void TaskbarConfig::slotUpdateComboBox()

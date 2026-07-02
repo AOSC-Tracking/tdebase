@@ -819,20 +819,20 @@ void TaskBar::reLayout()
             int y = (row * bheight) + topPadding;
 
             c->setArrowType(arrowType);
-            
+
             if (childX(c) != x || childY(c) != y)
                 moveChild(c, x, y);
-                
+
             if (c->width() != bwidth || c->height() != bheight)
                 c->resize( bwidth, bheight );
-                
+
             c->setBackground();
         }
     }
     else // vertical layout
     {
         // Adjust min button height to keep gaps into account
-        int minButtonHeightAdjusted=minButtonHeight+4;
+        int minButtonHeightAdjusted=minButtonHeight+BUTTON_VERTICAL_GAP;
         // adjust content size
         if (contentsRect().height() < (int)list.count() * minButtonHeightAdjusted)
         {
@@ -1207,10 +1207,22 @@ void TaskBar::wheelEvent(TQWheelEvent* e)
         (scrollAction == m_settingsObject->ModCtrl && ctrlPressed) ||
         (scrollAction == m_settingsObject->ModShift && shiftPressed))
     {
+        int wheelScrollStep;
+        if (READ_MERGED_TASKBAR_SETTING(useCustomWheelScrollStep)) {
+            wheelScrollStep = m_wheelScrollStep;
+        } else {
+            int btnSz = orientation() == TQt::Horizontal ?
+                buttonWidth() : (buttonHeight() + BUTTON_VERTICAL_GAP);
+            wheelScrollStep = btnSz * TQApplication::wheelScrollLines();
+        }
+        // Avoid scrolling more than there is avaliable space
+        wheelScrollStep = TQMIN(wheelScrollStep,
+                orientation() == TQt::Horizontal ? visibleWidth() : visibleHeight());
+
         // the delta is defined as multiples of WHEEL_DELTA,
         // which is set to 120. See TQETWidget::translateMouseEvent()
         // in tqapplication_x11.cpp for more details.
-        int step = e->delta() * m_wheelScrollStep / 120;
+        int step = e->delta() * wheelScrollStep / 120;
         if ( orientation() == TQt::Horizontal )
         {
             scrollBy( -step, 0 );
