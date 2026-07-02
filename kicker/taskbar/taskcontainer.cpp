@@ -810,8 +810,8 @@ void TaskContainer::drawButton(TQPainter *p)
                   textPen = TQPen(colors.buttonText()); // textPen = p->pen();
               }
           }
-
-          int availableWidth = width() - (br.x() * 2) - textPos - 2 - (READ_MERGED_TASKBAR_SETTING(drawButtons) && KickerSettings::showDeepButtons())?2:0;
+          bool deepButtons = READ_MERGED_TASKBAR_SETTING(drawButtons) && KickerSettings::showDeepButtons();
+          int availableWidth = width() - (br.x() * 2) - textPos - 2 - (deepButtons ? 2 : 0);
           if (m_filteredTasks.count() > 1)
           {
               availableWidth -= 8;
