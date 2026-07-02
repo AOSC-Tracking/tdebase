@@ -8,8 +8,8 @@
         <rect>
             <x>0</x>
             <y>0</y>
-            <width>817</width>
-            <height>828</height>
+            <width>773</width>
+            <height>613</height>
         </rect>
     </property>
     <property name="caption">
@@ -139,7 +139,7 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="TQCheckBox" row="0" column="0" colspan="4">
+                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>kcfg_ShowAllWindows</cstring>
                                 </property>
@@ -170,7 +170,7 @@
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="TQCheckBox" row="1" column="1" colspan="3">
+                            <widget class="TQCheckBox" row="1" column="1" rowspan="1" colspan="3">
                                 <property name="name">
                                     <cstring>kcfg_SortByDesktop</cstring>
                                 </property>
@@ -184,7 +184,7 @@
                                     <string>Selecting this option causes the taskbar to show windows in order of the desktop they appear on. By default this option is selected.</string>
                                 </property>
                             </widget>
-                            <widget class="TQCheckBox" row="2" column="0" colspan="4">
+                            <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>showAllScreens</cstring>
                                 </property>
@@ -198,7 +198,7 @@
                                     <string>Turning this option off will cause the taskbar to display &lt;b&gt;only&lt;/b&gt; windows which are on the same Xinerama screen as the taskbar. By default, this option is selected and all windows are shown.</string>
                                 </property>
                             </widget>
-                            <widget class="TQCheckBox" row="3" column="0" colspan="4">
+                            <widget class="TQCheckBox" row="3" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>kcfg_ShowOnlyIconified</cstring>
                                 </property>
@@ -209,7 +209,7 @@
                                     <string>Select this option if you want the taskbar to display &lt;b&gt;only&lt;/b&gt; minimized windows. By default, this option is not selected and the taskbar will show all windows.</string>
                                 </property>
                             </widget>
-                            <widget class="KSeparator" row="4" column="0" colspan="4">
+                            <widget class="KSeparator" row="4" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>kSeparator5</cstring>
                                 </property>
@@ -231,7 +231,7 @@
                                     <cstring>kcfg_ShowTaskStates</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQComboBox" row="5" column="2" rowspan="2">
+                            <widget class="TQComboBox" row="5" column="2" rowspan="2" colspan="1">
                                 <property name="name">
                                     <cstring>kcfg_ShowTaskStates</cstring>
                                 </property>
@@ -308,7 +308,7 @@
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="TQCheckBox" row="1" column="1" colspan="3">
+                            <widget class="TQCheckBox" row="1" column="1" rowspan="1" colspan="3">
                                 <property name="name">
                                     <cstring>kcfg_AllowDragAndDropReArrange</cstring>
                                 </property>
@@ -322,7 +322,7 @@
                                     <string>Turning this option on will allow tasks on the taskbar to be manually rearranged using drag and drop.</string>
                                 </property>
                             </widget>
-                            <widget class="TQCheckBox" row="0" column="0" colspan="4">
+                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>kcfg_SortByApp</cstring>
                                 </property>
@@ -333,12 +333,12 @@
                                     <bool>true</bool>
                                 </property>
                             </widget>
-                            <widget class="KSeparator" row="3" column="0" colspan="4">
+                            <widget class="KSeparator" row="3" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>kSeparator6</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQLabel" row="4" column="0" colspan="2">
+                            <widget class="TQLabel" row="4" column="0" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>groupTasksLabel</cstring>
                                 </property>
@@ -479,7 +479,7 @@
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="TQCheckBox" row="1" column="0" colspan="3">
+                            <widget class="TQCheckBox" row="1" column="0" rowspan="1" colspan="3">
                                 <property name="name">
                                     <cstring>kcfg_UseCustomColors</cstring>
                                 </property>
@@ -493,7 +493,7 @@
                                     <bool>true</bool>
                                 </property>
                             </widget>
-                            <widget class="TQLayoutWidget" row="2" column="1" colspan="2">
+                            <widget class="TQLayoutWidget" row="2" column="1" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>layout19</cstring>
                                 </property>
@@ -543,15 +543,24 @@
                                         <property name="name">
                                             <cstring>kcfg_InactiveTaskTextColor</cstring>
                                         </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
                                     </widget>
                                     <widget class="KColorButton" row="1" column="1">
                                         <property name="name">
                                             <cstring>kcfg_ActiveTaskTextColor</cstring>
                                         </property>
+                                        <property name="text">
+                                            <string></string>
+                                        </property>
                                     </widget>
                                     <widget class="KColorButton" row="2" column="1">
                                         <property name="name">
                                             <cstring>kcfg_TaskBackgroundColor</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string></string>
                                         </property>
                                     </widget>
                                     <widget class="TQLabel" row="0" column="0">
@@ -596,7 +605,7 @@
                             <property name="name">
                                 <cstring>unnamed</cstring>
                             </property>
-                            <widget class="TQCheckBox" row="0" column="0" colspan="2">
+                            <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>kcfg_ShowWindowListBtn</cstring>
                                 </property>
@@ -610,7 +619,7 @@
                                     <string>Selecting this option causes the taskbar to display a button that, when clicked, shows a list of all windows in a popup menu.</string>
                                 </property>
                             </widget>
-                            <widget class="KSeparator" row="1" column="0" colspan="2">
+                            <widget class="KSeparator" row="1" column="0" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>kSeparator7</cstring>
                                 </property>
@@ -668,17 +677,17 @@
                                 <property name="name">
                                     <cstring>displayIconsNTextLabel</cstring>
                                 </property>
-                                <property name="text">
-                                    <string>Dis&amp;play:</string>
-                                </property>
-                                <property name="buddy" stdset="0">
-                                    <cstring>kcfg_DisplayIconsNText</cstring>
-                                </property>
                                 <property name="minimumSize">
                                     <size>
                                         <width>130</width>
                                         <height>0</height>
                                     </size>
+                                </property>
+                                <property name="text">
+                                    <string>Dis&amp;play:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>kcfg_DisplayIconsNText</cstring>
                                 </property>
                             </widget>
                             <spacer row="0" column="1">
@@ -698,7 +707,7 @@
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="TQComboBox" row="0" column="2" colspan="2">
+                            <widget class="TQComboBox" row="0" column="2" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>kcfg_DisplayIconsNText</cstring>
                                 </property>
@@ -714,7 +723,7 @@
                                     <string>Choose taskbar display mode among &lt;strong&gt;Icons and text&lt;/strong&gt;, &lt;strong&gt;Text only&lt;/strong&gt; and &lt;strong&gt;Icons only&lt;/strong&gt;.</string>
                                 </property>
                             </widget>
-                            <widget class="TQFrame" row="1" column="0" colspan="4">
+                            <widget class="TQFrame" row="1" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>useIconsFrame</cstring>
                                 </property>
@@ -728,21 +737,24 @@
                                     <enum>Raised</enum>
                                 </property>
                                 <grid>
-                                    <widget class="TQCheckBox" row="0" column="0" colspan="3">
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="3">
                                         <property name="name">
                                             <cstring>smallIcons</cstring>
                                         </property>
                                         <property name="text">
                                             <string>Small icons</string>
                                         </property>
-                                        <property name="whatsThis" stdset="0">
-                                            <string>Selecting this option makes the taskbar use small icons.</string>
-                                        </property>
                                         <property name="checked">
                                             <bool>true</bool>
                                         </property>
+                                        <property name="whatsThis" stdset="0">
+                                            <string>Selecting this option makes the taskbar use small icons.</string>
+                                        </property>
                                     </widget>
-                                    <widget class="TQCheckBox" row="1" column="0" colspan="3">
+                                    <widget class="TQCheckBox" row="1" column="0" rowspan="1" colspan="3">
                                         <property name="name">
                                             <cstring>kcfg_ShowThumbnails</cstring>
                                         </property>
@@ -825,17 +837,17 @@
                                 <property name="name">
                                     <cstring>textLabel1</cstring>
                                 </property>
-                                <property name="text">
-                                    <string>Taskbar style:</string>
-                                </property>
-                                <property name="buddy" stdset="0">
-                                    <cstring>appearance</cstring>
-                                </property>
                                 <property name="minimumSize">
                                     <size>
                                         <width>130</width>
                                         <height>0</height>
                                     </size>
+                                </property>
+                                <property name="text">
+                                    <string>Taskbar style:</string>
+                                </property>
+                                <property name="buddy" stdset="0">
+                                    <cstring>appearance</cstring>
                                 </property>
                             </widget>
                             <spacer row="0" column="1">
@@ -855,7 +867,7 @@
                                     </size>
                                 </property>
                             </spacer>
-                            <widget class="TQComboBox" row="0" column="2" colspan="2">
+                            <widget class="TQComboBox" row="0" column="2" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>appearance</cstring>
                                 </property>
@@ -868,7 +880,7 @@
                                     </sizepolicy>
                                 </property>
                             </widget>
-                            <widget class="TQFrame" row="1" column="0" colspan="4">
+                            <widget class="TQFrame" row="1" column="0" rowspan="1" colspan="4">
                                 <property name="name">
                                     <cstring>customAppearance</cstring>
                                 </property>
@@ -885,7 +897,7 @@
                                     <property name="name">
                                         <cstring>unnamed</cstring>
                                     </property>
-                                    <widget class="TQCheckBox" row="0" column="0" colspan="3">
+                                    <widget class="TQCheckBox" row="0" column="0" rowspan="1" colspan="3">
                                         <property name="name">
                                             <cstring>kcfg_DrawButtons</cstring>
                                         </property>
@@ -910,7 +922,7 @@
                                             </size>
                                         </property>
                                     </spacer>
-                                    <widget class="TQCheckBox" row="1" column="1" colspan="2">
+                                    <widget class="TQCheckBox" row="1" column="1" rowspan="1" colspan="2">
                                         <property name="name">
                                             <cstring>kcfg_ShowButtonOnHover</cstring>
                                         </property>
@@ -918,7 +930,7 @@
                                             <string>Draw items as buttons on hover</string>
                                         </property>
                                     </widget>
-                                    <widget class="TQCheckBox" row="2" column="0" colspan="3">
+                                    <widget class="TQCheckBox" row="2" column="0" rowspan="1" colspan="3">
                                         <property name="name">
                                             <cstring>kcfg_HaloText</cstring>
                                         </property>
@@ -1069,7 +1081,7 @@
                                     <cstring>kcfg_CycleWindowsWAction</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQComboBox" row="0" column="1" colspan="2">
+                            <widget class="TQComboBox" row="0" column="1" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>kcfg_CycleWindowsWAction</cstring>
                                 </property>
@@ -1082,7 +1094,7 @@
                                     </sizepolicy>
                                 </property>
                                 <property name="whatsThis" stdset="0">
-                                  <string>If this option is enabled (with or without a keyboard modifier) you can cycle through the current list of windows by using the mouse wheel on the taskbar.</string>
+                                    <string>If this option is enabled (with or without a keyboard modifier) you can cycle through the current list of windows by using the mouse wheel on the taskbar.</string>
                                 </property>
                             </widget>
                             <widget class="TQLabel" row="1" column="0">
@@ -1096,7 +1108,7 @@
                                     <cstring>kcfg_ScrollTaskbarWAction</cstring>
                                 </property>
                             </widget>
-                            <widget class="TQComboBox" row="1" column="1" colspan="2">
+                            <widget class="TQComboBox" row="1" column="1" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>kcfg_ScrollTaskbarWAction</cstring>
                                 </property>
@@ -1109,15 +1121,18 @@
                                     </sizepolicy>
                                 </property>
                                 <property name="whatsThis" stdset="0">
-                                  <string>If this option is enabled (with or without a keyboard modifier) and if the taskbar is holding more buttons than what could be displayed (the two arrows for scrolling are visible), you can scroll the taskbar by using the mouse wheel.</string>
+                                    <string>If this option is enabled (with or without a keyboard modifier) and if the taskbar is holding more buttons than what could be displayed (the two arrows for scrolling are visible), you can scroll the taskbar by using the mouse wheel.</string>
                                 </property>
                             </widget>
-                            <spacer row="2" column="0" colspan="2">
+                            <spacer row="2" column="0" rowspan="1" colspan="2">
                                 <property name="name">
                                     <cstring>scrollStepSpacer</cstring>
                                 </property>
                                 <property name="orientation">
                                     <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
                                 </property>
                                 <property name="sizeHint">
                                     <size>
@@ -1147,6 +1162,7 @@
                                         <property name="sizeHint">
                                             <size>
                                                 <width>30</width>
+                                                <height>0</height>
                                             </size>
                                         </property>
                                     </spacer>
@@ -1270,10 +1286,10 @@
         <slot>setDisabled(bool)</slot>
     </connection>
     <connection>
-      <sender>kcfg_HaloText</sender>
-      <signal>toggled(bool)</signal>
-      <receiver>kcfg_ShowButtonOnHover</receiver>
-      <slot>setDisabled(bool)</slot>
+        <sender>kcfg_HaloText</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>kcfg_ShowButtonOnHover</receiver>
+        <slot>setDisabled(bool)</slot>
     </connection>
     <connection>
         <sender>kcfg_ShowAllWindows</sender>
