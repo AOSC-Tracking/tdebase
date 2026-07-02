@@ -54,7 +54,7 @@ Panner::Panner( TQWidget* parent, const char* name )
     _clipper->installEventFilter( this );
     _viewport = new TQWidget(_clipper);
     _viewport->setBackgroundOrigin(AncestorOrigin);
-    
+
     // layout
     _layout = new TQBoxLayout(this, TQBoxLayout::LeftToRight);
     _layout->addWidget(_clipper, 1);
@@ -66,7 +66,7 @@ Panner::Panner( TQWidget* parent, const char* name )
     connect(_scrollTimer, TQ_SIGNAL(timeout()), TQ_SLOT(timedScroll()));
 }
 
-Panner::~Panner() 
+Panner::~Panner()
 {
 }
 
@@ -200,7 +200,7 @@ void Panner::stopScroll()
 void Panner::reallyUpdateScrollButtons()
 {
     int delta = 0;
-    
+
     _updateScrollButtonsTimer->stop();
 
     if (orientation() == TQt::Horizontal)
@@ -239,15 +239,15 @@ void Panner::setContentsPos(int x, int y)
         x = 0;
     else if (x > (contentsWidth() - visibleWidth()))
         x = contentsWidth() - visibleWidth();
-    
+
     if (y < 0)
         y = 0;
     else if (y > (contentsHeight() - visibleHeight()))
         y = contentsHeight() - visibleHeight();
-        
+
     if (x == contentsX() && y == contentsY())
         return;
-        
+
     _viewport->move(-x, -y);
     emit contentsMoving(x, y);
 }
@@ -342,9 +342,9 @@ void Panner::ensureVisible( int x, int y, int xmargin, int ymargin )
 
 bool Panner::eventFilter( TQObject *obj, TQEvent *e )
 {
-    if ( obj == _viewport || obj == _clipper ) 
+    if ( obj == _viewport || obj == _clipper )
     {
-        switch ( e->type() ) 
+        switch ( e->type() )
         {
             case TQEvent::Resize:
                 viewportResizeEvent((TQResizeEvent *)e);
@@ -373,7 +373,7 @@ bool Panner::eventFilter( TQObject *obj, TQEvent *e )
                 break;
         }
     }
-    
+
     return TQWidget::eventFilter( obj, e );  // always continue with standard event processing
 }
 

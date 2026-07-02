@@ -85,12 +85,12 @@ ContainerArea::ContainerArea(TDEConfig* _c,
       _rootPixmap(0),
       _useBgTheme(false),
       _bgSet(false),
+      _autoScrollTimer(0, "ContainerArea::autoScrollTimer"),
       m_canAddContainers(true),
       m_immutable(_c->isImmutable()),
       m_updateBackgroundsCalled(false),
       m_layout(0),
-      m_addAppletDialog(0),
-      _autoScrollTimer(0, "ContainerArea::autoScrollTimer")
+      m_addAppletDialog(0)
 {
     setBackgroundOrigin( WidgetOrigin );
 

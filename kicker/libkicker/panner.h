@@ -43,25 +43,25 @@ public:
 
     TQt::Orientation orientation() const { return _orient; }
     virtual void setOrientation(TQt::Orientation orientation);
-    
+
     TQWidget *viewport() const { return _viewport; }
-    
+
     TQRect contentsRect() const { return TQRect(0, 0, width(), height()); }
-    
+
     int contentsX() const { return _viewport ? -_viewport->x() : 0; }
     int contentsY() const { return _viewport ? -_viewport->y() : 0; }
     int contentsWidth() const { return _viewport ? _viewport->width() : 0; }
     int contentsHeight() const { return _viewport ? _viewport->height() : 0; }
     void setContentsPos(int x, int y);
-    
+
     int visibleWidth() const { return _clipper->width(); }
     int visibleHeight() const { return _clipper->height(); }
-    
+
     void	contentsToViewport( int x, int y, int& vx, int& vy ) const;
     void	viewportToContents( int vx, int vy, int& x, int& y ) const;
     TQPoint	contentsToViewport( const TQPoint& ) const;
     TQPoint	viewportToContents( const TQPoint& ) const;
-    
+
     void addChild(TQWidget *child) { child->show(); }
     void removeChild(TQWidget *child) { child->hide(); }
     int childX(TQWidget *child) const { return child->x(); }
@@ -106,7 +106,7 @@ private:
     TQTimer *_updateScrollButtonsTimer;
     TQTimer *_scrollTimer;
     bool _scrollDir;  // true = left/up, false = right/down
-    
+
     TQWidget *_clipper;
     TQWidget *_viewport;
     int _cwidth, _cheight;

@@ -41,7 +41,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <tdelocale.h>
 #include <tdestandarddirs.h>
 
-#include "kickerSettings.h"
 #include "taskbarsettings.h"
 #include "taskcontainer.h"
 #include "taskmanager.h"
@@ -97,7 +96,7 @@ TaskBar::TaskBar( TaskBarSettings* settingsObject, TaskBarSettings* globalSettin
     connect(&m_relayoutTimer, TQ_SIGNAL(timeout()),
             this, TQ_SLOT(reLayout()));
 
-		connect(this, TQ_SIGNAL(contentsMoving(int, int)), TQ_SLOT(setBackground()));
+    connect(this, TQ_SIGNAL(contentsMoving(int, int)), TQ_SLOT(setBackground()));
 
     // connect manager
     connect(TaskManager::the(), TQ_SIGNAL(taskAdded(Task::Ptr)),
@@ -183,7 +182,7 @@ int TaskBar::buttonHeight() const
 
     if(showIcons())
     {
-        bh = TQMAX(bh, READ_MERGED_TASKBAR_SETTING(iconSize));
+        bh = TQMAX(bh, (int) READ_MERGED_TASKBAR_SETTING(iconSize));
     }
 
     return bh + 2;
@@ -848,25 +847,25 @@ void TaskBar::reLayout()
             TaskContainer* c = *it;
 
             c->setArrowType(arrowType);
-            
+
             if (c->width() != contentsRect().width() || c->height() != minButtonHeightAdjusted)
                 c->resize(contentsRect().width(), minButtonHeightAdjusted);
 
             if (childX(c) != 0 || childY(c) != (i * minButtonHeightAdjusted))
                 moveChild(c, 0, i * minButtonHeightAdjusted);
-            
+
             c->setBackground();
             i++;
         }
     }
-    
+
     TQTimer::singleShot(100, this, TQ_SLOT(publishIconGeometry()));
 }
 
 void TaskBar::setViewportBackground()
 {
     const TQPixmap *bg = parentWidget()->backgroundPixmap();
-    
+
     if (bg)
     {
         TQPixmap pm(parentWidget()->size());
@@ -881,9 +880,9 @@ void TaskBar::setViewportBackground()
 void TaskBar::setBackground()
 {
     setViewportBackground();
-    
+
     TaskContainer::List list = filteredContainers();
-    
+
     for (TaskContainer::Iterator it = list.begin();
             it != list.end();
             ++it)
@@ -1106,7 +1105,7 @@ TaskContainer::List TaskBar::filteredContainers()
             c->hide();
         }
     }
-        
+
     return list;
 }
 

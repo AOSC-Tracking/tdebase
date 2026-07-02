@@ -120,7 +120,7 @@ void ShowDesktop::showDesktop( bool b )
     {
         return;
     }
-    
+
     if( m_wmSupport )
     {
         NETRootInfo i( tqt_xdisplay(), 0 );

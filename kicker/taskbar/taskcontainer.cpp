@@ -76,56 +76,56 @@ static const int netAtomCount = 1;
 static void create_atoms(Display *d) {
     static const char * const names[netAtomCount] =
     {
-	"_NET_WM_PID"
-	    };
+        "_NET_WM_PID"
+    };
 
     Atom atoms[netAtomCount], *atomsp[netAtomCount] =
     {
-	&net_wm_pid
-	    };
+        &net_wm_pid
+    };
 
     assert( !netwm_atoms_created );
 
     int i = netAtomCount;
     while (i--)
-	atoms[i] = 0;
+        atoms[i] = 0;
 
     XInternAtoms(d, (char **) names, netAtomCount, False, atoms);
 
     i = netAtomCount;
     while (i--)
-	*atomsp[i] = atoms[i];
+        *atomsp[i] = atoms[i];
 
     netwm_atoms_created = True;
 }
 
 bool is_process_resumable(pid_t pid) {
 #ifdef Q_OS_SOLARIS
-	TQFile procStatFile(TQString("/proc/%1/lwp/1/lwpsinfo").arg(pid));
-	if (procStatFile.open(IO_ReadOnly)) {
-		TQByteArray statRaw = procStatFile.readAll();
-		lwpsinfo_t *inf = (lwpsinfo_t *)statRaw.data();
+    TQFile procStatFile(TQString("/proc/%1/lwp/1/lwpsinfo").arg(pid));
+    if (procStatFile.open(IO_ReadOnly)) {
+        TQByteArray statRaw = procStatFile.readAll();
+        lwpsinfo_t *inf = (lwpsinfo_t *)statRaw.data();
 
-		procStatFile.close();
-		if( inf->pr_sname == 'T' ) {
-			return true;
-		}
-	}
+        procStatFile.close();
+        if( inf->pr_sname == 'T' ) {
+            return true;
+        }
+    }
 #else /* default */
-	TQFile procStatFile(TQString("/proc/%1/stat").arg(pid));
-	if (procStatFile.open(IO_ReadOnly)) {
-		TQByteArray statRaw = procStatFile.readAll();
-		procStatFile.close();
-		TQString statString(statRaw);
-		TQStringList statFields = TQStringList::split(" ", statString, true);
-		TQString tcomm = statFields[1];
-		TQString state = statFields[2];
-		if( state == "T" ) {
-			return true;
-		}
-	}
+    TQFile procStatFile(TQString("/proc/%1/stat").arg(pid));
+    if (procStatFile.open(IO_ReadOnly)) {
+        TQByteArray statRaw = procStatFile.readAll();
+        procStatFile.close();
+        TQString statString(statRaw);
+        TQStringList statFields = TQStringList::split(" ", statString, true);
+        TQString tcomm = statFields[1];
+        TQString state = statFields[2];
+        if( state == "T" ) {
+            return true;
+        }
+    }
 #endif /* read process status */
-	return false;
+    return false;
 }
 
 TaskContainer::TaskContainer(Task::Ptr task, TaskBar* bar, TaskBarSettings* settingsObject, TaskBarSettings* globalSettingsObject, TQWidget *parent, const char *name)
@@ -299,7 +299,7 @@ void TaskContainer::iconChanged()
         }
         return;
     }
-    
+
     KickerTip::Client::updateKickerTip();
     TQToolButton::update();
 }
@@ -329,23 +329,23 @@ void TaskContainer::animationTimerFired()
       // draw pixmap
       if ( pm && !pm->isNull() )
       {
-	    // we only have to redraw the background for frames 0, 8 and 9
-	      if ( currentFrame == 0 || currentFrame > 7 )
+        // we only have to redraw the background for frames 0, 8 and 9
+        if ( currentFrame == 0 || currentFrame > 7 )
         {
           // double buffered painting
           TQPixmap composite( animBg );
           bitBlt( &composite, 0, 0, pm );
           bitBlt( this, iconRect.x(), iconRect.y(), &composite );
-    	  }
-	      else
-		      bitBlt( this, iconRect.x(), iconRect.y(), pm );
-	    }
+        }
+        else
+          bitBlt( this, iconRect.x(), iconRect.y(), pm );
+      }
 
       // increment frame counter
       if ( currentFrame >= 9)
-	      currentFrame = 0;
+        currentFrame = 0;
       else
-	      currentFrame++;
+        currentFrame++;
     }
 }
 
@@ -768,12 +768,12 @@ void TaskContainer::drawButton(TQPainter *p)
                 r = TQStyle::visualRect(TQRect(br.x() + textPos,(height() - iconSize) / 2, iconSize, iconSize), this);
                 textPos += iconSize + 2;
             }
-         }
-         else if (taskBar->showIcons()) // has only icon
-         {
-             r = TQRect(0, 0, iconSize / 2, iconSize / 2);
-             r.moveBottomRight(iconRect.bottomRight());
-         }
+        }
+        else if (taskBar->showIcons()) // has only icon
+        {
+            r = TQRect(0, 0, iconSize / 2, iconSize / 2);
+            r.moveBottomRight(iconRect.bottomRight());
+        }
 
          p->drawPixmap(r, modPixmap);
       }
@@ -910,7 +910,7 @@ void TaskContainer::drawButton(TQPainter *p)
 
         style().drawPrimitive(e, p, ar, colors, flags);
     }
-    
+
     // draw mouse over frame in transparent mode
     if (m_mouseOver && halo)
         KickerLib::drawBlendedRect(p, TQRect(0, 0, width(), height()), colorGroup().foreground());
@@ -1781,33 +1781,33 @@ void TaskContainer::updateKickerTip(KickerTip::Data& data)
         data.duration = 4000;
         data.subtext = i18n("Loading application ...");
         data.icon = TDEGlobal::iconLoader()->loadIcon(m_startup->icon(),
-                                                    TDEIcon::Small,
-						    iconSize,
-                                                    TDEIcon::DefaultState,
-                                                    0, true);
+                                                      TDEIcon::Small,
+                                                      iconSize,
+                                                      TDEIcon::DefaultState,
+                                                      0, true);
         return;
     }
 
     TQPixmap pixmap;
     TQString name;
     TQString details;
-    
+
     if (m_filteredTasks.count() > 0)
     {
         if (READ_MERGED_TASKBAR_SETTING(showThumbnails) &&
             m_filteredTasks.count() == 1)
         {
             Task::Ptr t = m_filteredTasks.first();
-    
+
             pixmap = t->thumbnail(READ_MERGED_TASKBAR_SETTING(thumbnailMaxDimension));
         }
-    
+
         if (pixmap.isNull() && tasks.count())
         {
             // try to load icon via net_wm
             pixmap = KWin::icon(tasks.last()->window(), iconSize, iconSize, true);
         }
-    
+
         // Collect all desktops the tasks are on. Sort naturally.
         TQMap<int, TQString> desktopMap;
         bool demandsAttention = false;
@@ -1821,12 +1821,12 @@ void TaskContainer::updateKickerTip(KickerTip::Data& data)
             {
                 demandsAttention = true;
             }
-    
+
             if (t->isModified())
             {
                 modified = true;
             }
-    
+
             if (t->isOnAllDesktops())
             {
                 allDesktops = true;
@@ -1838,7 +1838,7 @@ void TaskContainer::updateKickerTip(KickerTip::Data& data)
                                 TaskManager::the()->desktopName(t->desktop()));
             }
         }
-    
+
         if (READ_MERGED_TASKBAR_SETTING(showAllWindows) && KWin::numberOfDesktops() > 1)
         {
             if (desktopMap.isEmpty())
@@ -1851,20 +1851,20 @@ void TaskContainer::updateKickerTip(KickerTip::Data& data)
                 details.append(i18n("On %1").arg(TQStyleSheet::escape(desktopNames.join(", "))) + "<br>");
             }
         }
-    
+
         if (demandsAttention)
         {
             details.append(i18n("Requesting attention") + "<br>");
         }
-    
+
         name = this->name();
         if (modified)
         {
             details.append(i18n("Has unsaved changes"));
-    
+
             static TQString modStr = "[" + i18n( "modified" ) + "]";
             int modStrPos = name.find(modStr);
-    
+
             if (modStrPos >= 0)
             {
                 // +1 because we include a space after the closing brace.

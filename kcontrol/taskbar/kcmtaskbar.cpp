@@ -456,11 +456,11 @@ void TaskbarConfig::updateIconsTextCombo()
 
 void TaskbarConfig::appearanceChanged(int selected)
 {
-    if (selected < m_appearances.count())
+    if (selected < (int) m_appearances.count())
     {
         m_widget->customAppearance->setEnabled(false);
     }
-    else if(selected == m_appearances.count())
+    else if(selected == (int) m_appearances.count())
     {
         m_widget->customAppearance->setEnabled(true);
         updateCustomAppearance();
