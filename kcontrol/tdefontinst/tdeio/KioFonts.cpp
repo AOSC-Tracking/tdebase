@@ -65,6 +65,7 @@
 #include <ktar.h>
 #include <kxftconfig.h>
 #include <fontconfig/fontconfig.h>
+#include <fontconfig/fcfreetype.h>
 #include "KfiConstants.h"
 #include "FcEngine.h"
 #include "Misc.h"

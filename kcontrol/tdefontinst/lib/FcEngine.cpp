@@ -8,6 +8,8 @@
 #include <tdeglobalsettings.h>
 #include <tdeio/netaccess.h>
 #include <math.h>
+#include <fontconfig/fontconfig.h>
+#include <fontconfig/fcfreetype.h>
 #include "FcEngine.h"
 #include "KfiConstants.h"
 #ifdef HAVE_XFT
