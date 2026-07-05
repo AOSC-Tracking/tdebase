@@ -5509,8 +5509,8 @@ void KonqMainWindow::slotAddWebSideBar(const KURL& url, const TQString& name)
 
 void KonqMainWindow::bookmarksIntoCompletion( const KBookmarkGroup& group )
 {
-    static const TQString& http = TDEGlobal::staticQString( "http" );
-    static const TQString& ftp = TDEGlobal::staticQString( "ftp" );
+    static const TQString& http = TDEGlobal::staticTQString( "http" );
+    static const TQString& ftp = TDEGlobal::staticTQString( "ftp" );
 
     if ( group.isNull() )
         return;

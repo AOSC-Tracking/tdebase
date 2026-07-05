@@ -61,7 +61,7 @@ public:
     bool sortsByName() const { return m_sortsByName; }
 
     static TQString groupForURL( const KURL& url ) {
-	static const TQString& misc = TDEGlobal::staticQString(i18n("Miscellaneous"));
+	static const TQString& misc = TDEGlobal::staticTQString(i18n("Miscellaneous"));
 	return url.host().isEmpty() ? misc : url.host();
     }
 
