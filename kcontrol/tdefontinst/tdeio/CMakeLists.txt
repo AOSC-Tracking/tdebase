@@ -16,6 +16,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/kcontrol/fonts
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
+  ${FONTCONFIG_INCLUDE_DIRS}
 )
 
 link_directories(

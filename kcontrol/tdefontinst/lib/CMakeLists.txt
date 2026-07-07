@@ -14,6 +14,7 @@ include_directories(
   ${TDE_INCLUDE_DIR}
   ${TQT_INCLUDE_DIRS}
   ${FREETYPE_INCLUDE_DIRS}
+  ${FONTCONFIG_INCLUDE_DIRS}
 )
 
 link_directories(
