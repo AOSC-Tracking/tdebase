@@ -31,16 +31,30 @@ Try the tests/color-spaces.pl to visualize the assignment.
 
 A note on conformance
 
-These ESC codes break the "associativity" of SGR, but after some
-research the result is, that the standard itself is broken here.
+The ISO 8613-6 standard (referenced by ECMA-48) defines colon (':')
+as the sub-parameter separator for SGR 38 and 48. The format is:
 
-The perhaps best codes due to ECMA-48 would probably be e.g.
-38:2:<r>:<g>:<b>, i.e. consistently a colon instead of a semicolon.
-But apparently, this is defined different in ISO-8613 (which is
-included at this place in ECMA-48), actually breaking ECMA-48.
+  ESC[38:2:<i>:<r>:<g>:<b>m
+  ESC[48:2:<i>:<r>:<g>:<b>m
 
-We cannot help this and implemented the codes as above, which
-is a balanced decision.
+where '<i>' is ignored.
+Most modern terminal also support a variant where the
+'<i>' paremeter is not specified at all.
+
+  ESC[38:2:<r>:<g>:<b>m
+  ESC[48:2:<r>:<g>:<b>m
+
+In addition to that, a variant using semicolon (';') as
+sub-parameter separator is very popular and supported.
+
+  ESC[38;2;<r>;<g>;<b>m
+  ESC[48;2;<r>;<g>;<b>m
+
+Konsole accepts all three versions, as in the example below:
+
+  ESC[38:2:<i>:<r>:<g>:<b>m
+  ESC[38:2:<r>:<g>:<b>m
+  ESC[38;2;<r>;<g>;<b>m
 
 For 256 color mode, this is compatible with xterm and perhaps
 with other xterm compatible terminal emulations.

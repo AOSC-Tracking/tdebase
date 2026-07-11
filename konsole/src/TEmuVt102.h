@@ -103,18 +103,21 @@ private:
 #define MAXARGS 16
   void addDigit(int dig);
   void addArgument();
-  void addSub();
+  void addSubParam();
 
-  struct SubParam {
+  struct SubParam
+  {
     int value[MAXARGS];
     int count;
   };
 
-  struct {
+  struct Param
+  {
     int value[MAXARGS];
-    struct SubParam sub[MAXARGS];
     int count;
+    SubParam sub[MAXARGS];
   } params;
+
   void initTokenizer();
   int tbl[256];
 
