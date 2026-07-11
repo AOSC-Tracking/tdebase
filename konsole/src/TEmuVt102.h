@@ -100,11 +100,21 @@ private:
   void pushToToken(int cc);
   int pbuf[MAXPBUF]; //FIXME: overflow?
   int ppos;
-#define MAXARGS 15
+#define MAXARGS 16
   void addDigit(int dig);
   void addArgument();
-  int argv[MAXARGS];
-  int argc;
+  void addSub();
+
+  struct SubParam {
+    int value[MAXARGS];
+    int count;
+  };
+
+  struct {
+    int value[MAXARGS];
+    struct SubParam sub[MAXARGS];
+    int count;
+  } params;
   void initTokenizer();
   int tbl[256];
 

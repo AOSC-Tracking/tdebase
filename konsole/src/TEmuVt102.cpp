@@ -226,24 +226,40 @@ void TEmuVt102::reset()
 /* The tokenizers state
 
    The state is represented by the buffer (pbuf, ppos),
-   and accompanied by decoded arguments kept in (argv,argc).
+   and accompanied by decoded arguments kept in params.
    Note that they are kept internal in the tokenizer.
 */
 
 void TEmuVt102::resetToken()
 {
-  ppos = 0; argc = 0; argv[0] = 0; argv[1] = 0;
+  ppos = 0;
+  params.count = 0; params.value[0] = 0; params.value[1] = 0;
+  params.sub[0].value[0] = 0; params.sub[0].count = 0;
 }
 
 void TEmuVt102::addDigit(int dig)
 {
-  argv[argc] = 10*argv[argc] + dig;
+  if (params.sub[params.count].count == 0) {
+    params.value[params.count] = 10*params.value[params.count] + dig;
+  } else {
+    struct SubParam *sub = &params.sub[params.count];
+    sub->value[sub->count] = 10*sub->value[sub->count] + dig;
+  }
 }
 
 void TEmuVt102::addArgument()
 {
-  argc = TQMIN(argc+1,MAXARGS-1);
-  argv[argc] = 0;
+  params.count = TQMIN(params.count+1,MAXARGS-1);
+  params.value[params.count] = 0;
+  params.sub[params.count].value[0] = 0;
+  params.sub[params.count].count = 0;
+}
+
+void TEmuVt102::addSub()
+{
+  struct SubParam *sub = &params.sub[params.count];
+  sub->count = TQMIN(sub->count+1,MAXARGS-1);
+  sub->value[sub->count] = 0;
 }
 
 void TEmuVt102::pushToToken(int cc)
@@ -341,29 +357,42 @@ void TEmuVt102::onRcvChar(int cc)
     if (lec(2,0,ESC)) { tau( TY_ESC(s[1]),    0,   0);          resetToken(); return; }
     if (les(3,1,SCS)) { tau( TY_ESC_CS(s[1],s[2]),    0,   0);  resetToken(); return; }
     if (lec(3,1,'#')) { tau( TY_ESC_DE(s[2]),    0,   0);       resetToken(); return; }
-    if (eps(    CPN)) { tau( TY_CSI_PN(cc), argv[0],argv[1]);   resetToken(); return; }
+    if (eps(    CPN)) { tau( TY_CSI_PN(cc), params.value[0],params.value[1]);   resetToken(); return; }
 
 // resize = \e[8;<row>;<col>t
-    if (eps(    CPS)) { tau( TY_CSI_PS(cc, argv[0]), argv[1], argv[2]);   resetToken(); return; }
+    if (eps(    CPS)) { tau( TY_CSI_PS(cc, params.value[0]), params.value[1], params.value[2]);   resetToken(); return; }
 
     if (epe(       )) { tau( TY_CSI_PE(cc),      0,   0);       resetToken(); return; }
     if (ees(    DIG)) { addDigit(cc-'0');                                     return; }
-    if (eec(    ';')) { addArgument();                                        return; }
-    for (i=0;i<=argc;i++)
-    if ( epp(     ))  { tau( TY_CSI_PR(cc,argv[i]),    0,   0); }
+    if (eec(';'))     {                                addArgument(); return; }
+    if (eec(':'))     {                                addSub();     return; }
+    for (i=0;i<=params.count;i++)
+    if ( epp(     ))  { tau( TY_CSI_PR(cc,params.value[i]),    0,   0); }
     else if(egt(    ))   { tau( TY_CSI_PG(cc     ),    0,   0); } // spec. case for ESC]>0c or ESC]>c
-    else if (cc == 'm' && argc - i >= 4 && (argv[i] == 38 || argv[i] == 48) && argv[i+1] == 2)
+    else if (cc == 'm' && params.count - i >= 4 && (params.value[i] == 38 || params.value[i] == 48) && params.value[i+1] == 2)
     { // ESC[ ... 48;2;<red>;<green>;<blue> ... m -or- ESC[ ... 38;2;<red>;<green>;<blue> ... m
       i += 2;
-      tau( TY_CSI_PS(cc, argv[i-2]), COLOR_SPACE_RGB, (argv[i] << 16) | (argv[i+1] << 8) | argv[i+2]);
+      tau( TY_CSI_PS(cc, params.value[i-2]), COLOR_SPACE_RGB, (params.value[i] << 16) | (params.value[i+1] << 8) | params.value[i+2]);
       i += 2;
     }
-    else if (cc == 'm' && argc - i >= 2 && (argv[i] == 38 || argv[i] == 48) && argv[i+1] == 5)
+    else if (cc == 'm' && params.sub[i].count >= 5 && (params.value[i] == 38 || params.value[i] == 48) && params.sub[i].value[1] == 2)
+    { // ESC[ ... 48:2:<id>:<red>:<green>:<blue> ... m -or- ESC[ ... 38:2:<id>:<red>:<green>:<blue> ... m
+      tau( TY_CSI_PS(cc, params.value[i]), COLOR_SPACE_RGB, (params.sub[i].value[3] << 16) | (params.sub[i].value[4] << 8) | params.sub[i].value[5]);
+    }
+    else if (cc == 'm' && params.sub[i].count == 4 && (params.value[i] == 38 || params.value[i] == 48) && params.sub[i].value[1] == 2)
+    { // ESC[ ... 48:2:<red>:<green>:<blue> ... m -or- ESC[ ... 38:2:<red>:<green>:<blue> ... m
+      tau( TY_CSI_PS(cc, params.value[i]), COLOR_SPACE_RGB, (params.sub[i].value[2] << 16) | (params.sub[i].value[3] << 8) | params.sub[i].value[4]);
+    }
+    else if (cc == 'm' && params.count - i >= 2 && (params.value[i] == 38 || params.value[i] == 48) && params.value[i+1] == 5)
     { // ESC[ ... 48;5;<index> ... m -or- ESC[ ... 38;5;<index> ... m
       i += 2;
-      tau( TY_CSI_PS(cc, argv[i-2]), COLOR_SPACE_256, argv[i]);
+      tau( TY_CSI_PS(cc, params.value[i-2]), COLOR_SPACE_256, params.value[i]);
     }
-    else              { tau( TY_CSI_PS(cc,argv[i]),    0,   0); }
+    else if (cc == 'm' && params.sub[i].count >= 2 && (params.value[i] == 38 || params.value[i] == 48) && params.sub[i].value[1] == 5)
+    { // ESC[ ... 48:5:<index> ... m -or- ESC[ ... 38:5:<index> ... m
+      tau( TY_CSI_PS(cc, params.value[i]), COLOR_SPACE_256, params.sub[i].value[2]);
+    }
+    else              { tau( TY_CSI_PS(cc,params.value[i]),    0,   0); }
     resetToken();
   }
   else // mode VT52
