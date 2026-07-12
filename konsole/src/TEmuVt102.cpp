@@ -235,6 +235,7 @@ void TEmuVt102::resetToken()
   ppos = 0;
   params.count = 0;
   params.value[0] = 0;
+  params.value[1] = 0;
   params.sub[0].value[0] = 0;
   params.sub[0].count = 0;
 }
