@@ -102,6 +102,7 @@ class KateMainWindow : public KateMDI::MainWindow, virtual public KParts::PartBa
     void readProperties(TDEConfig *config);
     void saveProperties(TDEConfig *config);
 
+    bool queryCloseAllDocuments();
     bool queryClose_internal();
 
     void openURL (const TQString &name=0L);

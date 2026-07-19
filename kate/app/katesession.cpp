@@ -599,7 +599,7 @@ bool KateSessionManager::activateSession(int sessionId, bool saveCurr)
     if (KateApp::self()->activeMainWindow())
     {
       // First check if all documents can be closed safely
-      if (!KateApp::self()->activeMainWindow()->queryClose_internal())
+      if (!KateApp::self()->activeMainWindow()->queryCloseAllDocuments())
         return false;
     }
     if (saveCurr) 

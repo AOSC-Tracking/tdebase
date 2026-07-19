@@ -339,11 +339,12 @@ KateTabWidget *KateMainWindow::tabWidget ()
 }
 
 void KateMainWindow::slotDocumentCloseAll() {
-  if (queryClose_internal())
+  if (queryCloseAllDocuments())
     KateDocManager::self()->closeAllDocuments(false);
 }
 
-bool KateMainWindow::queryClose_internal() {
+// Check if all documents can be closed safely
+bool KateMainWindow::queryCloseAllDocuments() {
   uint documentCount=KateDocManager::self()->documents();
 
   if ( !showModOnDiskPrompt() )
@@ -352,24 +353,26 @@ bool KateMainWindow::queryClose_internal() {
   }
 
   TQPtrList<Kate::Document> modifiedDocuments=KateDocManager::self()->modifiedDocumentList();
-  bool shutdown = (modifiedDocuments.count() == 0);
+  bool closeOK = (modifiedDocuments.count() == 0);
 
-  if (!shutdown)
+  if (!closeOK)
   {
-    shutdown = KateSaveModifiedDialog::queryClose(this,modifiedDocuments);
+    closeOK = KateSaveModifiedDialog::queryClose(this,modifiedDocuments);
   }
 
   if ( KateDocManager::self()->documents() > documentCount ) {
     KMessageBox::information (this,
-                              i18n ("New file opened while trying to close Kate, closing aborted."),
+                              i18n ("New file opened while trying to close all other documents, closing aborted."),
                               i18n ("Closing Aborted"));
     return false;
   }
 
-  if (!shutdown)
-  {
+  return closeOK;
+}
+
+bool KateMainWindow::queryClose_internal() {
+  if (!queryCloseAllDocuments())
     return false;
-  }
 
   return KateApp::self()->query_session_close();
 }

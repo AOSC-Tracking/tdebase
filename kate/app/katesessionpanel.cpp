@@ -386,7 +386,7 @@ void KateSessionPanel::slotDeleteSession()
 			// First check if all documents can be closed safely
 			if (KateApp::self()->activeMainWindow())
 			{
-				if (!KateApp::self()->activeMainWindow()->queryClose_internal())
+				if (!KateApp::self()->activeMainWindow()->queryCloseAllDocuments())
 					return;
 			}
 		}
