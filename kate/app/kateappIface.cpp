@@ -83,6 +83,14 @@ bool KateAppDCOPIface::openURL (KURL url, TQString encoding, bool isTempFile)
 
 bool KateAppDCOPIface::setCursor (int line, int column)
 {
+  if (--line < 0)
+  {
+    line = 0;
+  }
+  if (--column < 0)
+  {
+    column = 0;
+  }
   return m_app->setCursor (line, column);
 }
 

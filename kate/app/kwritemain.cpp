@@ -616,13 +616,21 @@ extern "C" TDE_EXPORT int kdemain(int argc, char **argv)
 
     if (args->isSet ("line"))
     {
-      line = args->getOption ("line").toInt();
+      line = args->getOption ("line").toInt() - 1;
+      if (line < 0)
+      {
+        line = 0;
+      }
       nav = true;
     }
 
     if (args->isSet ("column"))
     {
-      column = args->getOption ("column").toInt();
+      column = args->getOption ("column").toInt() - 1;
+      if (column < 0)
+      {
+        column = 0;
+      }
       nav = true;
     }
 
