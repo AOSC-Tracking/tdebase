@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-05 18:15+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/khelpcenter-desktop-files/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: Help.desktop:10
@@ -104,7 +105,7 @@ msgstr "(8) Administração do Sistema"
 #. Name
 #: plugins/Manpages/man9.desktop:4
 msgid "(9) Kernel"
-msgstr ""
+msgstr "(9) Kernel"
 
 #. Name
 #: plugins/Manpages/mann.desktop:4
@@ -113,9 +114,8 @@ msgstr "(n) Novo"
 
 #. Name
 #: plugins/adminguide.desktop:6
-#, fuzzy
 msgid "TDE Admininstrator Guide"
-msgstr "Manual do Usuário do TDE"
+msgstr "Guia do Administrador TDE"
 
 #. Name
 #: plugins/applets.desktop:6
@@ -135,7 +135,7 @@ msgstr "O FAQ do TDE"
 #. Name
 #: plugins/hardwaremodules.desktop:6
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 #. Name
 #: plugins/info.desktop:7
@@ -165,7 +165,7 @@ msgstr "Guia Rápido"
 #. Name
 #: plugins/releasenotes.desktop:6
 msgid "TDE Release Notes"
-msgstr ""
+msgstr "Notas de lançamento do TDE"
 
 #. Name
 #: plugins/support.desktop:6
@@ -215,4 +215,4 @@ msgstr "Páginas de manual do UNIX"
 #. Name
 #: plugins/Scrollkeeper/.directory:5
 msgid "Scrollkeeper"
-msgstr ""
+msgstr "Scrollkeeper"
