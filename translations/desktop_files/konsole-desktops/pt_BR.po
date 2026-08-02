@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-20 21:29+0900\n"
-"PO-Revision-Date: 2026-08-02 16:35+0000\n"
+"PO-Revision-Date: 2026-08-02 21:55+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/konsole-desktop-files/pt_BR/>\n"
@@ -143,48 +143,41 @@ msgstr "Abrir Terminal Aqui"
 
 #. Name
 #: data/sessions/2shells:2
-#, fuzzy
 msgid "Two consoles"
-msgstr "Console do Linux"
+msgstr "Dois consoles"
 
 #. Title1
 #: data/sessions/2shells:7 data/sessions/3shells:7 data/sessions/4shells:7
 #: data/sessions/5shells:7
-#, fuzzy
 msgid "Shell No. 2"
-msgstr "Novo Shell"
+msgstr "Shell nro. 2"
 
 #. Name
 #: data/sessions/3shells:2
 msgid "Three consoles"
-msgstr ""
+msgstr "Três consoles"
 
 #. Title2
 #: data/sessions/3shells:8 data/sessions/4shells:8 data/sessions/5shells:8
-#, fuzzy
 msgid "Shell No. 3"
-msgstr "Novo Shell"
+msgstr "Shell nro. 3"
 
 #. Name
 #: data/sessions/4shells:2
-#, fuzzy
 msgid "Four consoles"
-msgstr "Console do Linux"
+msgstr "Quatro console"
 
 #. Title3
 #: data/sessions/4shells:9 data/sessions/5shells:9
-#, fuzzy
 msgid "Shell No. 4"
-msgstr "Novo Shell"
+msgstr "Shell nro. 4"
 
 #. Name
 #: data/sessions/5shells:2
-#, fuzzy
 msgid "Five consoles"
-msgstr "Console do Linux"
+msgstr "Cinco consoles"
 
 #. Title4
 #: data/sessions/5shells:10
-#, fuzzy
 msgid "Shell No. 5"
-msgstr "Novo Shell"
+msgstr "Shell nro. 5"
