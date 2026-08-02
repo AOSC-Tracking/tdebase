@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-02 22:22+0000\n"
+"PO-Revision-Date: 2026-08-03 09:23+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/konqueror-desktop-files/pt_BR/>\n"
@@ -270,7 +270,7 @@ msgstr "Aplicativos TDE"
 #. Name
 #: sidebar/trees/init/remote/web/dot_web.desktop:4
 msgid "TDE News"
-msgstr ""
+msgstr "Notícias TDE"
 
 #. Name
 #: sidebar/trees/init/remote/web/tde_web.desktop:4
@@ -330,15 +330,13 @@ msgstr "Esta pasta permite que você acesse lugares comuns em seu computador"
 
 #. Name
 #: sidebar/trees/init/trash.desktop:9
-#, fuzzy
 msgid "Trash Folder"
-msgstr "Pasta"
+msgstr "Lixeira"
 
 #. Comment
 #: sidebar/trees/init/trash.desktop:11
-#, fuzzy
 msgid "This folder displays the contents of your Trash Bin"
-msgstr "Esta pasta contém os seus arquivos pessoais"
+msgstr "Esta pasta exibe o conteúdo da sua Lixeira"
 
 #. Name
 #: sidebar/web_module/webmodule_add.desktop:5
