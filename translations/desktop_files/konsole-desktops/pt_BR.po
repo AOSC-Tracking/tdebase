@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-20 21:29+0900\n"
-"PO-Revision-Date: 2026-08-02 21:55+0000\n"
+"PO-Revision-Date: 2026-08-02 22:22+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/konsole-desktop-files/pt_BR/>\n"
@@ -132,7 +132,6 @@ msgstr "Arquivo para Abrir um Shell"
 
 #. Name
 #: terminalhere.desktop:6
-#, fuzzy
 msgid "Terminal"
 msgstr "Terminal"
 
