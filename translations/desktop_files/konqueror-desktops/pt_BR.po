@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-02 22:22+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/konqueror-desktop-files/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: Home.desktop:7
@@ -46,7 +47,7 @@ msgstr "Visão Multicolunas"
 #: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
 #: konquerorsu.desktop:8
 msgid "Konqueror"
-msgstr ""
+msgstr "Konqueror"
 
 #. GenericName
 #: konqbrowser.desktop:9
@@ -75,9 +76,8 @@ msgstr "Plug-in de Conversão de Fala"
 
 #. Comment
 #: kttsplugin/tdehtmlkttsd.desktop:14
-#, fuzzy
 msgid "A plugin which enables texts to be read aloud on the web with KTTS"
-msgstr "Plug-in de Comandos do Shell para o Konqueror"
+msgstr "Um plugin que permite a leitura em voz alta de textos na web com o KTTS"
 
 #. Name
 #: listview/konq_detailedlistview.desktop:3
@@ -131,9 +131,8 @@ msgstr "Desenvolvimento do TDE"
 
 #. Name
 #: profile_midnightcommander.desktop:9
-#, fuzzy
 msgid "Midnight Commander"
-msgstr "Plug-in do Shell"
+msgstr "Midnight Commander"
 
 #. Name
 #: profile_simplebrowser.desktop:2
