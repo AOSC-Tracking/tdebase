@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 16:16+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-02 22:22+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/kpager-kpagerdesktop/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: kpager.desktop:2
 msgid "KPager"
-msgstr ""
+msgstr "KPager"
 
 #. GenericName
 #: kpager.desktop:4
