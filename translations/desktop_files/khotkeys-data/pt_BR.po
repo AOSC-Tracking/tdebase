@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-02 22:22+0000\n"
+"PO-Revision-Date: 2026-08-03 09:23+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/khotkeys-data/pt_BR/>\n"
@@ -249,7 +249,7 @@ msgstr "Lança o KSnapShot quando PrintScrn é pressionada."
 #. Name
 #: printscreen.khotkeys:19
 msgid "PrintScreen"
-msgstr ""
+msgstr "Captura de tela"
 
 #. Comment
 #: printscreen.khotkeys:33 printscreen.khotkeys:57 trinity2b1.khotkeys:46
@@ -260,15 +260,14 @@ msgstr "Ação_simples"
 
 #. Comment
 #: printscreen.khotkeys:41
-#, fuzzy
 msgid ""
 "Launches KSnapShot in window capture mode when ALT+PrintScrn is pressed.\n"
-msgstr "Lança o KSnapShot quando PrintScrn é pressionada."
+msgstr "Lança o KSnapShot quando PrintScrn é pressionada.\n"
 
 #. Name
 #: printscreen.khotkeys:43
 msgid "PrintWindow"
-msgstr ""
+msgstr "Capturar janela"
 
 #. Comment
 #: trinity2b1.khotkeys:5
@@ -307,7 +306,7 @@ msgstr "Janela do KSIRC"
 #. Comment
 #: trinity2b1.khotkeys:34
 msgid "KSIRC"
-msgstr ""
+msgstr "KSIRC"
 
 #. Comment
 #: trinity2b1.khotkeys:54
@@ -401,7 +400,7 @@ msgstr "Remapear Ctrl+W para Ctrl+F4 no Qt Designer"
 #. Comment
 #: trinity2b1.khotkeys:123
 msgid "Qt Designer"
-msgstr ""
+msgstr "Qt Designer"
 
 #. Comment
 #: trinity2b1.khotkeys:144
