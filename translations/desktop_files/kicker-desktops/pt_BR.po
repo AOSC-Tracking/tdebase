@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 16:24+0200\n"
-"PO-Revision-Date: 2026-08-02 21:55+0000\n"
+"PO-Revision-Date: 2026-08-02 22:22+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kicker-desktop-files/pt_BR/>\n"
@@ -127,7 +127,7 @@ msgstr "Barra de tarefas"
 #. Comment
 #: applets/taskbar/taskbarapplet.desktop:5
 msgid "The default task bar for window management"
-msgstr "A barra de tarefas padrão para o gerenciamento de janelas."
+msgstr "A barra de tarefas padrão para o gerenciamento de janelas"
 
 #. Name
 #: applets/trash/trashapplet.desktop:3
@@ -254,7 +254,7 @@ msgstr "Extensão de painel-filho."
 #. Comment
 #: kicker/interfaces/kickoffsearchplugin.desktop:5
 msgid "A search plugin for Kickoff"
-msgstr ""
+msgstr "Um plugin de busca para o Kickoff"
 
 #. Name
 #: kicker/kcmkicker.desktop:10
@@ -371,7 +371,7 @@ msgstr "Menu para o sistema de impressão"
 #. Name
 #: menuext/tom/tom.desktop:2
 msgid "TOM"
-msgstr ""
+msgstr "TOM"
 
 #. Comment
 #: menuext/tom/tom.desktop:4
