@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:50+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/tdm-themes/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: circles/GdmGreeterTheme.desktop:7
@@ -29,19 +30,19 @@ msgstr "Tema com círculos azuis"
 #. Name
 #: minimalist/GdmGreeterTheme.desktop:8
 msgid "Minimalist"
-msgstr ""
+msgstr "Minimalist"
 
 #. Description
 #: minimalist/GdmGreeterTheme.desktop:10
 msgid "A minimalist TDM theme for TDE, inspired by LightDM"
-msgstr ""
+msgstr "Um tema minimalista para TDM no TDE, inspirado no LightDM"
 
 #. Name
 #: o2_enterprise/GdmGreeterTheme.desktop:8
 msgid "O2 Enterprise"
-msgstr ""
+msgstr "O2 Enterprise"
 
 #. Description
 #: o2_enterprise/GdmGreeterTheme.desktop:10
 msgid "A sleek and professional looking TDM theme for Trinity"
-msgstr ""
+msgstr "Um tema TDM elegante e com aparência profissional para Trinity"
