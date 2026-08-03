@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/kdesktop-icons/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: Home.desktop:2
@@ -28,19 +29,18 @@ msgstr "Arquivos Pessoais"
 
 #. Comment
 #: Home.desktop:6
-#, fuzzy
 msgid "Contains personal files"
-msgstr "Arquivos Pessoais"
+msgstr "Contém arquivos pessoais"
 
 #. Name
 #: My_Computer:5
 msgid "My Computer"
-msgstr ""
+msgstr "Meu computador"
 
 #. Comment
 #: My_Computer:7
 msgid "Access to storage media"
-msgstr ""
+msgstr "Acesso a mídias de armazenamento"
 
 #. Name
 #: My_Documents:5
@@ -50,7 +50,7 @@ msgstr "Pasta de Documentos"
 #. Comment
 #: My_Documents:7
 msgid "Contains personal documents"
-msgstr ""
+msgstr "Contém documentos pessoais"
 
 #. Name
 #: My_Network_Places:5
@@ -60,7 +60,7 @@ msgstr "Locais Remotos"
 #. Comment
 #: My_Network_Places:7
 msgid "Access to network places and remote hosts"
-msgstr ""
+msgstr "Acesso a locais de rede e hosts remotos"
 
 #. Name
 #: Printers:5
@@ -70,7 +70,7 @@ msgstr "Impressoras"
 #. Comment
 #: Printers:7
 msgid "Manage print jobs"
-msgstr ""
+msgstr "Gerenciar trabalhos de impressão"
 
 #. Name
 #: System.desktop:2
@@ -85,7 +85,7 @@ msgstr "Localizações no Sistema"
 #. Comment
 #: System.desktop:6
 msgid "Access to system places"
-msgstr ""
+msgstr "Acesso a locais do sistema"
 
 #. Name
 #: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
@@ -201,7 +201,7 @@ msgstr "Novo dispositivo MO"
 #. Name
 #: Templates/linkNFS.desktop:2
 msgid "NFS..."
-msgstr ""
+msgstr "NFS..."
 
 #. Comment
 #: Templates/linkNFS.desktop:3
@@ -246,7 +246,7 @@ msgstr "Lixo"
 #. Comment
 #: Trash:10
 msgid "Contains removed files"
-msgstr ""
+msgstr "Contém arquivos removidos"
 
 #. Name
 #. GenericName
@@ -257,7 +257,7 @@ msgstr "Navegador Web"
 #. Comment
 #: Web_Browser:10
 msgid "Browse the World Wide Web"
-msgstr ""
+msgstr "Navegue pela World Wide Web"
 
 #. Name
 #: directory.autostart:3
