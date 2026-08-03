@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 18:11+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/color-schemes/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: AtlasGreen.kcsrc:3
@@ -24,7 +25,7 @@ msgstr "Atlas"
 #. Name
 #: BeOS.kcsrc:3
 msgid "BeOS"
-msgstr ""
+msgstr "BeOS"
 
 #. Name
 #: BlackOnWhite.kcsrc:2
@@ -39,7 +40,7 @@ msgstr "Azul"
 #. Name
 #: CDE.kcsrc:3
 msgid "CDE"
-msgstr ""
+msgstr "CDE"
 
 #. Name
 #: DarkBlue.kcsrc:2
@@ -54,7 +55,7 @@ msgstr "Vermelho"
 #. Name
 #: Different.kcsrc:2
 msgid "Different"
-msgstr ""
+msgstr "Different"
 
 #. Name
 #: DigitalCDE.kcsrc:3
@@ -64,22 +65,22 @@ msgstr "CDE Digital"
 #. Name
 #: EveX.kcsrc:2
 msgid "EveX"
-msgstr ""
+msgstr "EveX"
 
 #. Name
 #: Human.kcsrc:2
 msgid "Human"
-msgstr ""
+msgstr "Human"
 
 #. Name
 #: Jewels-Amethyst.kcsrc:2
 msgid "Jewels - Amethyst"
-msgstr ""
+msgstr "Jewels - Amethyst"
 
 #. Name
 #: Jewels-Aquamarine.kcsrc:2
 msgid "Jewels - Aquamarine"
-msgstr ""
+msgstr "Jewels - Aquamarine"
 
 #. Name
 #: Jewels-Carbon.kcsrc:2
