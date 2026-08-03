@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-16 18:21+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/l10n-desktop-files/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: caribbean.desktop:2
@@ -74,7 +75,7 @@ msgstr "Europa setentrional"
 #. Name
 #: oceania.desktop:2
 msgid "Oceania"
-msgstr ""
+msgstr "Oceania"
 
 #. Name
 #: southafrica.desktop:2
@@ -119,12 +120,12 @@ msgstr "Padrão"
 #. Name
 #: ad/entry.desktop:2
 msgid "Andorra"
-msgstr ""
+msgstr "Andorra"
 
 #. Name
 #: ae/entry.desktop:2
 msgid "United Arab Emirates"
-msgstr "Emirados  Árabes Unidos"
+msgstr "Emirados Árabes Unidos"
 
 #. Name
 #: af/entry.desktop:2
@@ -139,7 +140,7 @@ msgstr "Antigua e Barbuda"
 #. Name
 #: ai/entry.desktop:2
 msgid "Anguilla"
-msgstr ""
+msgstr "Anguilla"
 
 #. Name
 #: al/entry.desktop:2
@@ -158,14 +159,13 @@ msgstr "Antilhas Holandesas"
 
 #. Name
 #: ao/entry.desktop:2
-#, fuzzy
 msgid "Angola"
-msgstr "Mongólia"
+msgstr "Angola"
 
 #. Name
 #: ar/entry.desktop:2
 msgid "Argentina"
-msgstr ""
+msgstr "Argentina"
 
 #. Name
 #: as/entry.desktop:2
@@ -185,7 +185,7 @@ msgstr "Austrália"
 #. Name
 #: aw/entry.desktop:2
 msgid "Aruba"
-msgstr ""
+msgstr "Aruba"
 
 #. Name
 #: ax/entry.desktop:2
@@ -205,12 +205,12 @@ msgstr "Bósnia Herzegovina"
 #. Name
 #: bb/entry.desktop:2
 msgid "Barbados"
-msgstr ""
+msgstr "Barbados"
 
 #. Name
 #: bd/entry.desktop:2
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladesh"
 
 #. Name
 #: be/entry.desktop:2
@@ -220,7 +220,7 @@ msgstr "Bélgica"
 #. Name
 #: bf/entry.desktop:2
 msgid "Burkina Faso"
-msgstr ""
+msgstr "Burkina Faso"
 
 #. Name
 #: bg/entry.desktop:2
@@ -230,22 +230,22 @@ msgstr "Bulgária"
 #. Name
 #: bh/entry.desktop:2
 msgid "Bahrain"
-msgstr ""
+msgstr "Bahrain"
 
 #. Name
 #: bi/entry.desktop:2
 msgid "Burundi"
-msgstr ""
+msgstr "Burundi"
 
 #. Name
 #: bj/entry.desktop:2
 msgid "Benin"
-msgstr ""
+msgstr "Benin"
 
 #. Name
 #: bm/entry.desktop:2
 msgid "Bermuda"
-msgstr ""
+msgstr "Bermuda"
 
 #. Name
 #: bn/entry.desktop:3
@@ -265,7 +265,7 @@ msgstr "Brasil"
 #. Name
 #: braille/entry.desktop:2
 msgid "Braille"
-msgstr ""
+msgstr "Braille"
 
 #. Name
 #: bs/entry.desktop:2
