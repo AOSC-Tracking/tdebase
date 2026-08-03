@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/kappfinder-data/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: Development/Forte.desktop:2
 msgid "Forte"
-msgstr ""
+msgstr "Forte"
 
 #. GenericName
 #: Development/Forte.desktop:3
@@ -39,7 +40,7 @@ msgstr "Navegador de Documentos"
 #. Name
 #: Development/ddd.desktop:2
 msgid "DDD"
-msgstr ""
+msgstr "DDD"
 
 #. GenericName
 #: Development/ddd.desktop:3
@@ -48,9 +49,8 @@ msgstr "Depurador de Dados"
 
 #. Name
 #: Development/designer.desktop:2
-#, fuzzy
 msgid "Qt Designer"
-msgstr "Criador de Formulários"
+msgstr "Qt Designer"
 
 #. GenericName
 #: Development/designer.desktop:3
@@ -59,9 +59,8 @@ msgstr "Interface do Designer"
 
 #. Name
 #: Development/dlgedit.desktop:2
-#, fuzzy
 msgid "Qt DlgEdit"
-msgstr "Editor de diálogos"
+msgstr "Qt DlgEdit"
 
 #. GenericName
 #: Development/dlgedit.desktop:3
@@ -70,9 +69,8 @@ msgstr "Editor de diálogos"
 
 #. Name
 #: Development/eclipse.desktop:3
-#, fuzzy
 msgid "Eclipse"
-msgstr "IDE Eclipse"
+msgstr "Eclipse"
 
 #. GenericName
 #: Development/eclipse.desktop:4
@@ -87,17 +85,17 @@ msgstr "Criador de Formulários"
 #. Name
 #: Development/j2mewtk.desktop:2
 msgid "J2ME"
-msgstr ""
+msgstr "J2ME"
 
 #. GenericName
 #: Development/j2mewtk.desktop:3
 msgid "J2ME Toolkit"
-msgstr "Kit de ferramentas  J2ME"
+msgstr "J2ME Toolkit"
 
 #. Name
 #: Development/linguist.desktop:2
 msgid "Qt Linguist"
-msgstr ""
+msgstr "Qt Linguist"
 
 #. GenericName
 #: Development/linguist.desktop:3
@@ -107,7 +105,7 @@ msgstr "Ferramenta de Tradução"
 #. Name
 #: Development/pose.desktop:2
 msgid "Pose"
-msgstr ""
+msgstr "Pose"
 
 #. GenericName
 #: Development/pose.desktop:3
@@ -117,7 +115,7 @@ msgstr "Emulador de Palm/Wireless"
 #. Name
 #: Development/sced.desktop:2
 msgid "Sced"
-msgstr ""
+msgstr "Sced"
 
 #. GenericName
 #: Development/sced.desktop:3
@@ -310,7 +308,6 @@ msgstr "Jogo Klotski do GNOME"
 
 #. Name
 #: Games/Board/Gstones.desktop:2
-#, fuzzy
 msgid "GNOME Stones"
 msgstr "Jogo de Minas do GNOME"
 
@@ -762,7 +759,6 @@ msgstr "Alerta de Correio"
 
 #. Name
 #: Internet/Fetchmailconf.desktop:2
-#, fuzzy
 msgid "Fetchmailconf"
 msgstr "Configuração do Fetchmail"
 
@@ -798,7 +794,6 @@ msgstr "Navegador Web"
 
 #. Name
 #: Internet/GnomeICU.desktop:2
-#, fuzzy
 msgid "GNOMEICU"
 msgstr "Xadrez do GNOME"
 
@@ -809,7 +804,6 @@ msgstr "ICQ"
 
 #. Name
 #: Internet/Netscapemessenger.desktop:2
-#, fuzzy
 msgid "Netscape Messenger"
 msgstr "Mensageiro Instantâneo"
 
@@ -986,13 +980,11 @@ msgstr "Vídeo-Conferência"
 
 #. Name
 #: Internet/gnometalk.desktop:2
-#, fuzzy
 msgid "GNOME Talk"
 msgstr "Contador de Tempo do GNOME"
 
 #. Name
 #: Internet/gtelnet.desktop:2
-#, fuzzy
 msgid "GNOME Telnet"
 msgstr "Jogo de Minas do GNOME"
 
@@ -1053,7 +1045,6 @@ msgstr ""
 
 #. Name
 #: Internet/netscape.desktop:2
-#, fuzzy
 msgid "Netscape"
 msgstr "Netscape 6"
 
@@ -1079,7 +1070,6 @@ msgstr ""
 
 #. Name
 #: Internet/xchat.desktop:2
-#, fuzzy
 msgid "XChat"
 msgstr "Cliente IRC"
 
@@ -1213,7 +1203,6 @@ msgstr "Processador de Som"
 
 #. Name
 #: Multimedia/mplayer.desktop:2
-#, fuzzy
 msgid "MPlayer"
 msgstr "Reprodutor de MPEG"
 
@@ -1234,7 +1223,6 @@ msgstr "Reprodutor de DVD"
 
 #. Name
 #: Multimedia/oqtplayer.desktop:2
-#, fuzzy
 msgid "OQTPlayer"
 msgstr "Reprodutor de DVD"
 
@@ -1245,7 +1233,6 @@ msgstr "Reprodutor de vídeos MOV"
 
 #. Name
 #: Multimedia/realplayer.desktop:2
-#, fuzzy
 msgid "RealPlayer"
 msgstr "Reprodutor de vídeos"
 
@@ -1336,7 +1323,6 @@ msgstr "Programa para Diagramas"
 
 #. Name
 #: Office/Gnome-Cal.desktop:2
-#, fuzzy
 msgid "GNOME-Cal"
 msgstr "Xadrez do GNOME"
 
@@ -1473,7 +1459,6 @@ msgstr "Gerenciador de Calendários"
 
 #. Name
 #: Office/pybliographic.desktop:2
-#, fuzzy
 msgid "Pybliographic"
 msgstr "Banco de dados bibliográficos"
 
@@ -1499,7 +1484,6 @@ msgstr ""
 
 #. Name
 #: System/Terminal/aterm.desktop:2
-#, fuzzy
 msgid "Terminal"
 msgstr "Terminal X"
 
@@ -1599,7 +1583,6 @@ msgstr "Editor de Texto"
 
 #. Name
 #: Utilities/Editors/gedit.desktop:2
-#, fuzzy
 msgid "gEdit"
 msgstr "Editor X"
 
@@ -1650,7 +1633,6 @@ msgstr "Monitores Krell GNU"
 
 #. Name
 #: Utilities/GnomeWho.desktop:2
-#, fuzzy
 msgid "GNOME Who"
 msgstr "Xadrez do GNOME"
 
@@ -1681,7 +1663,6 @@ msgstr "Ferramenta de Finalização de Janelas"
 
 #. Name
 #: Utilities/XUtilities/Xrefresh.desktop:2
-#, fuzzy
 msgid "X Refresh"
 msgstr "Atualização de Tela"
 
@@ -1712,7 +1693,6 @@ msgstr "Calculadora"
 
 #. Name
 #: Utilities/XUtilities/xclipboard.desktop:2
-#, fuzzy
 msgid "X Clipboard"
 msgstr "Visualizador da Área de Transferência"
 
@@ -1723,7 +1703,6 @@ msgstr "Visualizador da Área de Transferência"
 
 #. Name
 #: Utilities/XUtilities/xclock.desktop:2
-#, fuzzy
 msgid "X Clock"
 msgstr "Relógio"
 
@@ -1754,7 +1733,6 @@ msgstr "Monitora a Carga do Sistema"
 
 #. Name
 #: Utilities/XUtilities/xmag.desktop:2
-#, fuzzy
 msgid "X Magnifier"
 msgstr "Ampliador de Área de Trabalho"
 
@@ -1770,7 +1748,6 @@ msgstr "Terminal X"
 
 #. Name
 #: Utilities/calctool.desktop:2
-#, fuzzy
 msgid "Calctool"
 msgstr "Calculadora"
 
@@ -1786,7 +1763,6 @@ msgstr "Notas Pessoais"
 
 #. Name
 #: Utilities/oclock.desktop:2
-#, fuzzy
 msgid "OClock"
 msgstr "Relógio"
 
