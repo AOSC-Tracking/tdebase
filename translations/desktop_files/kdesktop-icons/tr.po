@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# qudur <sezery0101@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-04 07:07+0000\n"
+"Last-Translator: qudur <sezery0101@gmail.com>\n"
+"Language-Team: Turkish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kdesktop-icons/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: Home.desktop:2
@@ -28,19 +29,18 @@ msgstr "Kişisel Dosyalar"
 
 #. Comment
 #: Home.desktop:6
-#, fuzzy
 msgid "Contains personal files"
-msgstr "Kişisel Dosyalar"
+msgstr "Kişisel dosyaları içerir"
 
 #. Name
 #: My_Computer:5
 msgid "My Computer"
-msgstr ""
+msgstr "Bilgisayarım"
 
 #. Comment
 #: My_Computer:7
 msgid "Access to storage media"
-msgstr ""
+msgstr "Depolama ortamına erişim"
 
 #. Name
 #: My_Documents:5
@@ -50,7 +50,7 @@ msgstr "Belgeler Dizini"
 #. Comment
 #: My_Documents:7
 msgid "Contains personal documents"
-msgstr ""
+msgstr "Kişisel belgeleri içerir"
 
 #. Name
 #: My_Network_Places:5
@@ -60,7 +60,7 @@ msgstr "Uzak Yerler"
 #. Comment
 #: My_Network_Places:7
 msgid "Access to network places and remote hosts"
-msgstr ""
+msgstr "Ağ konumlarına ve uzak sunuculara erişim"
 
 #. Name
 #: Printers:5
@@ -70,7 +70,7 @@ msgstr "Yazıcılar"
 #. Comment
 #: Printers:7
 msgid "Manage print jobs"
-msgstr ""
+msgstr "Yazdırma işlerini yönet"
 
 #. Name
 #: System.desktop:2
@@ -85,7 +85,7 @@ msgstr "Sistem Konumları"
 #. Comment
 #: System.desktop:6
 msgid "Access to system places"
-msgstr ""
+msgstr "Sistem konumlarına erişim"
 
 #. Name
 #: Templates/CDROM-Device.desktop:12 Templates/CDWRITER-Device.desktop:12
@@ -201,7 +201,7 @@ msgstr "Yeni MO Aygıtı"
 #. Name
 #: Templates/linkNFS.desktop:2
 msgid "NFS..."
-msgstr ""
+msgstr "NFS..."
 
 #. Comment
 #: Templates/linkNFS.desktop:3
@@ -246,18 +246,18 @@ msgstr "Çöp"
 #. Comment
 #: Trash:10
 msgid "Contains removed files"
-msgstr ""
+msgstr "Silinen dosyaları içerir"
 
 #. Name
 #. GenericName
 #: Web_Browser:6 Web_Browser:8
 msgid "Web Browser"
-msgstr ""
+msgstr "Web Tarayıcı"
 
 #. Comment
 #: Web_Browser:10
 msgid "Browse the World Wide Web"
-msgstr ""
+msgstr "İnternette Gezin"
 
 #. Name
 #: directory.autostart:3
