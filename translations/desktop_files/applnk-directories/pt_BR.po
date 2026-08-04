@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-04 02:22+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/applnk-directories/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: .directory:2
@@ -24,7 +25,7 @@ msgstr "Padrão"
 #. Name
 #: hidden.directory:4
 msgid "Internal Services"
-msgstr "Serviços Internos"
+msgstr "Serviços internos"
 
 #. Name
 #: kde-development-webdevelopment.directory:4
@@ -38,7 +39,7 @@ msgstr "Desenvolvimento Web"
 #: kde-science.directory:5 kde-settingsmenu.directory:4 kde-system.directory:4
 #: kde-utilities.directory:4
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #. Name
 #: kde-editors.directory:4 tde-editors.directory:4
@@ -48,17 +49,17 @@ msgstr "Editores"
 #. Name
 #: kde-edu-languages.directory:4
 msgid "Languages"
-msgstr ""
+msgstr "Linguagens"
 
 #. Name
 #: kde-edu-mathematics.directory:4
 msgid "Mathematics"
-msgstr ""
+msgstr "Matemática"
 
 #. Name
 #: kde-edu-miscellaneous.directory:4
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Variados"
 
 #. Name
 #: kde-edu-science.directory:4 tde-science.directory:5
@@ -68,27 +69,27 @@ msgstr "Ciências"
 #. Name
 #: kde-games-arcade.directory:4 tde-games-arcade.directory:4
 msgid "Arcade"
-msgstr ""
+msgstr "Arcade"
 
 #. Name
 #: kde-games-board.directory:4 tde-games-board.directory:4
 msgid "Board Games"
-msgstr "Jogos de Tabuleiro"
+msgstr "Jogos de tabuleiro"
 
 #. Name
 #: kde-games-card.directory:4 tde-games-card.directory:4
 msgid "Card Games"
-msgstr "Jogos de Cartas "
+msgstr "Jogos de cartas"
 
 #. Name
 #: kde-games-kids.directory:4 tde-games-kids.directory:4
 msgid "Games for Kids"
-msgstr "Jogos para Crianças"
+msgstr "Jogos para crianças"
 
 #. Name
 #: kde-games-strategy.directory:4 tde-games-strategy.directory:4
 msgid "Tactics & Strategy"
-msgstr "Táticas & Estratégias"
+msgstr "Táticas e estratégia"
 
 #. Name
 #: kde-toys.directory:4 tde-toys.directory:4
@@ -108,14 +109,14 @@ msgstr "Acessibilidade"
 #: kde-utilities-desktop.directory:4 tde-settings-desktop.directory:4
 #: tde-utilities-desktop.directory:4 tde-utilities-desktop.directory:6
 msgid "Desktop"
-msgstr "Área de Trabalho"
+msgstr "Área de trabalho"
 
 #. Name
 #. Comment
 #: kde-utilities-pim.directory:4 tde-utilities-pim.directory:4
 #: tde-utilities-pim.directory:6
 msgid "PIM"
-msgstr ""
+msgstr "PIM"
 
 #. Name
 #: tde-development-translation.directory:4
@@ -134,14 +135,13 @@ msgstr "Educativo"
 
 #. Name
 #: tde-games-logic.directory:4
-#, fuzzy
 msgid "Logic Games"
-msgstr "Jogos parecidos com Rogue"
+msgstr "Jogos de lógica"
 
 #. Name
 #: tde-games-roguelikes.directory:4
 msgid "Rogue-like Games"
-msgstr "Jogos parecidos com Rogue"
+msgstr "Jogos do gênero Rogue"
 
 #. Name
 #: tde-games.directory:4
@@ -160,9 +160,8 @@ msgstr "Aplicativos de terminal"
 
 #. Name
 #: tde-internet.directory:4
-#, fuzzy
 msgid "Internet"
-msgstr "Internet & Rede"
+msgstr "Internet"
 
 #. Name
 #: tde-main.directory:5
@@ -172,7 +171,7 @@ msgstr "Menu do TDE"
 #. Name
 #: tde-more.directory:5
 msgid "More Applications"
-msgstr "Mais Aplicativos"
+msgstr "Mais aplicativos"
 
 #. Name
 #: tde-multimedia.directory:4
@@ -183,7 +182,7 @@ msgstr "Multimídia"
 #. Comment
 #: tde-office-pim.directory:4 tde-office-pim.directory:6
 msgid "Personal Information Management"
-msgstr ""
+msgstr "Gerenciamento de informações pessoais"
 
 #. Name
 #: tde-office.directory:4
@@ -193,7 +192,7 @@ msgstr "Escritório"
 #. Name
 #: tde-settings-accessibility.directory:4
 msgid "Regional & Accessibility"
-msgstr "Regional & Acessibilidade"
+msgstr "Regional e acessibilidade"
 
 #. Name
 #: tde-settings-components.directory:4
@@ -203,22 +202,22 @@ msgstr "Componentes do TDE"
 #. Name
 #: tde-settings-hardware.directory:4
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 #. Name
 #: tde-settings-information.directory:4
 msgid "Device Informations"
-msgstr ""
+msgstr "Informações do dispositivo"
 
 #. Name
 #: tde-settings-looknfeel.directory:4
 msgid "Appearance & Themes"
-msgstr "Aparência & Temas"
+msgstr "Aparência e temas"
 
 #. Name
 #: tde-settings-network.directory:4
 msgid "Internet & Network"
-msgstr "Internet & Rede"
+msgstr "Internet e rede"
 
 #. Name
 #. Comment
@@ -230,22 +229,22 @@ msgstr "Periféricos"
 #. Name
 #: tde-settings-power.directory:4
 msgid "Power Control"
-msgstr "Controle de Energia"
+msgstr "Controle de energia"
 
 #. Name
 #: tde-settings-security.directory:4
 msgid "Security & Privacy"
-msgstr "Segurança & Privacidade"
+msgstr "Segurança e privacidade"
 
 #. Name
 #: tde-settings-sound.directory:4
 msgid "Sound & Multimedia"
-msgstr "Som & Multimídia"
+msgstr "Som e multimídia"
 
 #. Name
 #: tde-settings-system.directory:4
 msgid "System Administration"
-msgstr "Administração do Sistema"
+msgstr "Administração do sistema"
 
 #. Name
 #: tde-settings-webbrowsing.directory:4
@@ -275,7 +274,7 @@ msgstr "Amostras de protetores de tela"
 #. Name
 #: tde-system-su.directory:5
 msgid "SuperUser"
-msgstr ""
+msgstr "Superusuário"
 
 #. Name
 #: tde-system.directory:4
@@ -285,7 +284,7 @@ msgstr "Sistema"
 #. Name
 #: tde-unknown.directory:4
 msgid "Lost & Found"
-msgstr "Achados & Perdidos"
+msgstr "Achados e perdidos"
 
 #. Name
 #. Comment
