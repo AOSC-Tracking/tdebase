@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# qudur <sezery0101@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-18 03:57+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-04 07:07+0000\n"
+"Last-Translator: qudur <sezery0101@gmail.com>\n"
+"Language-Team: Turkish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kcontrol-events/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Comment
 #: access/eventsrc:3
@@ -24,29 +25,33 @@ msgstr "Erişilebilirlik Aracı"
 #. Name
 #: access/eventsrc:6
 msgid "A modifier key has become active"
-msgstr ""
+msgstr "Bir değiştirici tuş etkinleşti"
 
 #. Comment
 #: access/eventsrc:7
 msgid ""
 "A modifier key (e.g. Shift or Ctrl) has changed its state and is now active"
 msgstr ""
+"Bir değiştirici tuş (ör. Shift veya Ctrl) durumunu değiştirdi ve şu anda "
+"etkin"
 
 #. Name
 #: access/eventsrc:13
 msgid "A modifier key has become inactive"
-msgstr ""
+msgstr "Bir değiştirici tuş etkinliğini yitirdi"
 
 #. Comment
 #: access/eventsrc:14
 msgid ""
 "A modifier key (e.g. Shift or Ctrl) has changed its state and is now inactive"
 msgstr ""
+"Bir değiştirici tuş (ör. Shift veya Ctrl) durumunu değiştirdi ve şu anda "
+"etkin değil"
 
 #. Name
 #: access/eventsrc:20
 msgid "A modifier key has been locked"
-msgstr ""
+msgstr "Bir değiştirici tuş kilitlendi"
 
 #. Comment
 #: access/eventsrc:21
@@ -54,11 +59,13 @@ msgid ""
 "A modifier key (e.g. Shift or Ctrl) has been locked and is now active for "
 "all of the following keypresses"
 msgstr ""
+"Bir değiştirici tuş (ör. Shift veya Ctrl) kilitlendi ve sonraki tüm tuş "
+"basımları için geçerli"
 
 #. Name
 #: access/eventsrc:27
 msgid "A lock key has been activated"
-msgstr ""
+msgstr "Bir kilit tuşu etkinleştirildi"
 
 #. Comment
 #: access/eventsrc:28
@@ -66,11 +73,13 @@ msgid ""
 "A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
 "active"
 msgstr ""
+"Bir kilit tuşu (ör. Caps Lock veya Num Lock) durumunu değiştirdi ve şu anda "
+"etkin"
 
 #. Name
 #: access/eventsrc:34
 msgid "A lock key has been deactivated"
-msgstr ""
+msgstr "Bir kilit tuşu devre dışı bırakıldı"
 
 #. Comment
 #: access/eventsrc:35
@@ -78,27 +87,29 @@ msgid ""
 "A lock key (e.g. Caps Lock or Num Lock) has changed its state and is now "
 "inactive"
 msgstr ""
+"Bir kilit tuşu (ör. Caps Lock veya Num Lock) durumunu değiştirdi ve şu anda "
+"etkin değil"
 
 #. Name
 #. Comment
 #: access/eventsrc:41 access/eventsrc:42
 msgid "Sticky keys has been enabled or disabled"
-msgstr ""
+msgstr "Yapışkan tuşlar etkinleştirildi veya devre dışı bırakıldı"
 
 #. Name
 #. Comment
 #: access/eventsrc:48 access/eventsrc:49
 msgid "Slow keys has been enabled or disabled"
-msgstr ""
+msgstr "Yavaş tuşlar etkinleştirildi veya devre dışı bırakıldı"
 
 #. Name
 #. Comment
 #: access/eventsrc:55 access/eventsrc:56
 msgid "Bounce keys has been enabled or disabled"
-msgstr ""
+msgstr "Sıçrama tuşları etkinleştirildi veya devre dışı bırakıldı"
 
 #. Name
 #. Comment
 #: access/eventsrc:62 access/eventsrc:63
 msgid "Mouse keys has been enabled or disabled"
-msgstr ""
+msgstr "Fare tuşları etkinleştirildi veya devre dışı bırakıldı"
