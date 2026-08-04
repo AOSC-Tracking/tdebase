@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# qudur <sezery0101@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-17 18:15+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-04 07:07+0000\n"
+"Last-Translator: qudur <sezery0101@gmail.com>\n"
+"Language-Team: Turkish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/kdesktop-desktop-files/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: kdesktop.desktop.cmake:10
@@ -38,39 +39,33 @@ msgstr "Sırala"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:17
-#, fuzzy
-#| msgid "Centered"
 msgid "Center Tiled"
-msgstr "Uzat"
+msgstr "Ortalanmış ve Döşenmiş"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:22
-#, fuzzy
-#| msgid "Centered"
 msgid "Centered Maxpect"
-msgstr "Uzat"
+msgstr "Ortalanmış Orantılı Sığdır"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:27
 msgid "Tiled Maxpect"
-msgstr ""
+msgstr "Döşenmiş Orantılı Sığdır"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:32
 msgid "Scaled"
-msgstr ""
+msgstr "Ölçeklenmiş"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:37
-#, fuzzy
-#| msgid "Centered"
 msgid "Centered Auto Fit"
-msgstr "Uzat"
+msgstr "Ortalanmış Otomatik Sığdır"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:42
 msgid "Scale & Crop"
-msgstr ""
+msgstr "Ölçekle ve Kırp"
 
 #. Comment
 #: kwebdesktop/kwebdesktop.desktop:2
@@ -100,7 +95,7 @@ msgstr "Kaldırım"
 #. Comment
 #: patterns/rattan.desktop:2
 msgid "Rattan"
-msgstr ""
+msgstr "Hasırotu"
 
 #. Comment
 #: patterns/stonewall2.desktop:2
