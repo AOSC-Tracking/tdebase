@@ -1,25 +1,26 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:36+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-04 02:22+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/tdescreensaver-desktop-files/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: KBlankscreen.desktop:8
 msgid "Blank Screen"
-msgstr "Limpar Tela"
+msgstr "Tela em branco"
 
 #. Name
 #: KBlankscreen.desktop:12 KRandom.desktop:12
@@ -29,12 +30,12 @@ msgstr "Configurar..."
 #. Name
 #: KBlankscreen.desktop:17 KRandom.desktop:17
 msgid "Display in Specified Window"
-msgstr "Mostrar em janela especificada"
+msgstr "Exibir em janela especificada"
 
 #. Name
 #: KBlankscreen.desktop:22 KRandom.desktop:22
 msgid "Display in Root Window"
-msgstr "Mostrar na janela-raiz"
+msgstr "Exibir na janela-raiz"
 
 #. Name
 #: KRandom.desktop:8
