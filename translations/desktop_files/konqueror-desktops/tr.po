@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# qudur <sezery0101@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-04 07:07+0000\n"
+"Last-Translator: qudur <sezery0101@gmail.com>\n"
+"Language-Team: Turkish <https://mirror.git.trinitydesktop.org/weblate/"
+"projects/tdebase/konqueror-desktop-files/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: Home.desktop:7
@@ -46,7 +47,7 @@ msgstr "Çoklu Sütun Görünümü"
 #: kfmclient_war.desktop:9 konqbrowser.desktop:7 konqueror.desktop:6
 #: konquerorsu.desktop:8
 msgid "Konqueror"
-msgstr ""
+msgstr "Konqueror"
 
 #. GenericName
 #: konqbrowser.desktop:9
@@ -75,9 +76,8 @@ msgstr "Metinden-Sese Eklentisi"
 
 #. Comment
 #: kttsplugin/tdehtmlkttsd.desktop:14
-#, fuzzy
 msgid "A plugin which enables texts to be read aloud on the web with KTTS"
-msgstr "Konqueror için uçbirim komut eklentisi"
+msgstr "KTTS ile webdeki metinlerin sesli okunmasını sağlayan bir eklenti"
 
 #. Name
 #: listview/konq_detailedlistview.desktop:3
@@ -131,9 +131,8 @@ msgstr "TDE Geliştirme"
 
 #. Name
 #: profile_midnightcommander.desktop:9
-#, fuzzy
 msgid "Midnight Commander"
-msgstr "Üçbirim Komut Eklentisi"
+msgstr "Midnight Commander"
 
 #. Name
 #: profile_simplebrowser.desktop:2
@@ -192,7 +191,7 @@ msgstr "Dolaşma Paneli"
 #. Name
 #: sidebar/test/test.desktop:5
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #. Name
 #: sidebar/trees/history_module/kcmhistory.desktop:10
@@ -331,15 +330,13 @@ msgstr "Bu klasör bilgisayarınızdaki belirli yerlere erişmenizi sağlar"
 
 #. Name
 #: sidebar/trees/init/trash.desktop:9
-#, fuzzy
 msgid "Trash Folder"
-msgstr "Dizin"
+msgstr "Çöp Klasörü"
 
 #. Comment
 #: sidebar/trees/init/trash.desktop:11
-#, fuzzy
 msgid "This folder displays the contents of your Trash Bin"
-msgstr "Bu dizin kişisel dosyalarınızı içerir"
+msgstr "Bu klasör Çöp Kutunuzun içeriğini görüntüler"
 
 #. Name
 #: sidebar/web_module/webmodule_add.desktop:5
