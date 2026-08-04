@@ -1,60 +1,61 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-22 19:13+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-04 02:22+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/wallpapers-desktop-files/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: All-Good-People-1.jpg.desktop:3
 msgid "All Good People"
-msgstr "Todas as Pessoas Boas"
+msgstr "Todas as pessoas boas"
 
 #. Name
 #: Chicken-Songs-2.jpg.desktop:3
 msgid "Chicken Songs"
-msgstr "Canções de Galinha"
+msgstr "Canções de galinha"
 
 #. Name
 #: No-Ones-Laughing-3.jpg.desktop:3
 msgid "No One's Laughing"
-msgstr "Ninguém Rindo"
+msgstr "Ninguém rindo"
 
 #. Name
 #: Time-For-Lunch-2.jpg.desktop:3
 msgid "Time For Lunch"
-msgstr "Hora do Almoço"
+msgstr "Hora do almoço"
 
 #. Name
 #: Totally-New-Product-1.jpg.desktop:3
 msgid "Totally New Product"
-msgstr "Produto Totalmente Novo"
+msgstr "Produto totalmente novo"
 
 #. Name
 #: Trinity-lineart.svg.desktop:3
 msgid "Trinity Default"
-msgstr "Trinity Padrão"
+msgstr "Padrão Trinity"
 
 #. Name
 #: Trinity4.png.desktop:3
 msgid "Trinity Default (old)"
-msgstr "Trinity Padrão (old)"
+msgstr "Padrão Trinity (antigo)"
 
 #. Name
 #: Won-Ton-Soup-3.jpg.desktop:3
 msgid "Won Ton Soup"
-msgstr ""
+msgstr "Sopa de Wonton"
 
 #. Name
 #: aghi.jpg.desktop:3
@@ -64,32 +65,32 @@ msgstr "Aghi"
 #. Name
 #: airplane.jpg.desktop:3
 msgid "Airplane"
-msgstr "Airplane"
+msgstr "Avião"
 
 #. Name
 #: alta-badia.jpg.desktop:3
 msgid "Alta Badia"
-msgstr ""
+msgstr "Alta Badia"
 
 #. Name
 #: andes-venezolanos.svgz.desktop:3
 msgid "Andes Venezolanos"
-msgstr "Andes Venezuelanos"
+msgstr "Andes venezuelanos"
 
 #. Name
 #: another-view.jpg.desktop:3
 msgid "Another View"
-msgstr "Another View"
+msgstr "Outra perspectiva"
 
 #. Name
 #: aurora.svgz.desktop:3
 msgid "Aurora"
-msgstr ""
+msgstr "Aurora"
 
 #. Name
 #: blue-bend.jpg.desktop:3
 msgid "Blue Blend"
-msgstr "Azul Misturado"
+msgstr "Azul misturado"
 
 #. Name
 #: celtic.svgz.desktop:3
@@ -99,52 +100,52 @@ msgstr "Celta"
 #. Name
 #: default_blue.jpg.desktop:3
 msgid "Default Blue"
-msgstr "Azul Padrão"
+msgstr "Azul padrão"
 
 #. Name
 #: default_gears.jpg.desktop:3
 msgid "Default Gears"
-msgstr "Gears Padrão"
+msgstr "Engrenagens padrão"
 
 #. Name
 #: floating-leaves.jpg.desktop:3
 msgid "Floating Leaves"
-msgstr "Folhagens Flutuantes"
+msgstr "Folhagens flutuantes"
 
 #. Name
 #: globe.svgz.desktop:3
 msgid "Geared Globe"
-msgstr "Globo"
+msgstr "Globo com engrenagens"
 
 #. Name
 #: green_curtain.jpg.desktop:3
 msgid "Green Curtain"
-msgstr ""
+msgstr "Cortina verde"
 
 #. Name
 #: here-gear.svgz.desktop:3
 msgid "We Are Gear"
-msgstr "Engrenagem"
+msgstr "Nós somos engrenagens"
 
 #. Name
 #: horse-head-nebula.png.desktop:3
 msgid "Horse Head Nebula"
-msgstr ""
+msgstr "Nebulosa cabeça de cavalo"
 
 #. Name
 #: isadora.png.desktop:3
 msgid "Isadora"
-msgstr ""
+msgstr "Isadora"
 
 #. Name
 #: konqui.svgz.desktop:3
 msgid "Konqui"
-msgstr ""
+msgstr "Konqui"
 
 #. Name
 #: lineart.svgz.desktop:3
 msgid "Lineart Logo"
-msgstr ""
+msgstr "Logo em arte linear"
 
 #. Name
 #: moon.svgz.desktop:3
@@ -154,7 +155,7 @@ msgstr "Lua"
 #. Name
 #: mountain-lake.jpg.desktop:3
 msgid "Mountain Lake"
-msgstr "Mountain Lake"
+msgstr "Lago de montanha"
 
 #. Name
 #: seaofconero.jpg.desktop:3
@@ -164,29 +165,29 @@ msgstr "Mar de Conero"
 #. Name
 #: soft-green.jpg.desktop:3
 msgid "Soft Green"
-msgstr "Verde Claro"
+msgstr "Verde claro"
 
 #. Name
 #: stelvio.jpg.desktop:3
 msgid "Stelvio"
-msgstr ""
+msgstr "Stelvio"
 
 #. Name
 #: stripes.jpg.desktop:3
 msgid "Stripes"
-msgstr ""
+msgstr "Listras"
 
 #. Name
 #: sunshine-after-the-rain.jpg.desktop:3
 msgid "Sunshine After The Rain"
-msgstr "Sol após a chuva"
+msgstr "Sol depois da chuva"
 
 #. Name
 #: triplegears.jpg.desktop:3
 msgid "Triple Gears"
-msgstr "Gears Triplo"
+msgstr "Engrenagens triplas"
 
 #. Name
 #: world-desktop.jpg.desktop:3
 msgid "World Desktop"
-msgstr ""
+msgstr "Área de trabalho mundial"
