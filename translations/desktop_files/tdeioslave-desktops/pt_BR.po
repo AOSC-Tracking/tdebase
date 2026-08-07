@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-07 06:36+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/tdeioslave-desktop-files/pt_BR/>\n"
@@ -25,62 +25,65 @@ msgstr "Scripts CGI"
 #. Comment
 #: cgi/kcmcgi/kcmcgi.desktop:11
 msgid "Configure the CGI TDEIO slave"
-msgstr "Configurar o TDEIO (escravo) do CGI"
+msgstr "Configure o componente secundário CGI TDEIO"
 
 #. Keywords
 #: cgi/kcmcgi/kcmcgi.desktop:13
 msgid "CGI;TDEIO;Slave;Paths;"
-msgstr "CGI;TDEIO;Escravo;Caminhos;"
+msgstr "CGI;TDEIO;Secundário;Caminhos;"
 
 #. Name
 #: home/kdedmodule/homedirnotify.desktop:4
 msgid "KDED Home Base URL Notifier"
-msgstr "Serviço de Notificação da URL do KDED"
+msgstr "Serviço de notificação da URL do KDED"
 
 #. Comment
 #: home/kdedmodule/homedirnotify.desktop:6
 msgid "Provides change notification for user's home folder ($HOME)"
-msgstr "Fornece notificações de alterações para pastas do usuário ($HOME)"
+msgstr ""
+"Fornece notificação de alteração para a pasta pessoal do usuário ($HOME)"
 
 #. Name
 #: man/kmanpart.desktop:4
 msgid "KManPart"
-msgstr "Componente KMan"
+msgstr "KManPart"
 
 #. Comment
 #: man/kmanpart.desktop:6
 msgid "Embeddable Troff Viewer"
-msgstr "Visualizar Troff integrado"
+msgstr "Visualizador Troff incorporável"
 
 #. Name
 #: media/mediamanager/mediamanager.desktop:4
 msgid "KDED Media Manager"
-msgstr "Gerenciador de Mídia"
+msgstr "KDED Media Manager"
 
 #. Comment
 #: media/mediamanager/mediamanager.desktop:6
 msgid "Keep track of media activities and allow to (un)mount (media:/)"
-msgstr "Monitora as atividades de mídias e permite a (des)montagem (media:/)"
+msgstr ""
+"Acompanha as atividades de mídias e permite montá-las ou desmontá-las "
+"(media:/)"
 
 #. Name
 #: media/medianotifier/medianotifier.desktop:4
 msgid "Media Notifier Daemon"
-msgstr "Daemon de Notificação de Mídia"
+msgstr "Daemon de notificação de mídia"
 
 #. Comment
 #: media/medianotifier/medianotifier.desktop:6
 msgid "A media plugged notifier"
-msgstr "um notificador para mídia que é espetada (plug)"
+msgstr "Um notificador de mídias conectadas"
 
 #. Comment
 #: media/mimetypes/audiocd.desktop:6
 msgid "Audio CD"
-msgstr "CD de Áudio"
+msgstr "CD de áudio"
 
 #. Comment
 #: media/mimetypes/blankbluray.desktop:6
 msgid "Blank BLURAY"
-msgstr "BLURAY virgem"
+msgstr "Blu-ray virgem"
 
 #. Comment
 #: media/mimetypes/blankcd.desktop:6
@@ -95,27 +98,27 @@ msgstr "DVD virgem"
 #. Comment
 #: media/mimetypes/bluray_encrypted_locked.desktop:7
 msgid "Encrypted Locked BLURAY"
-msgstr ""
+msgstr "Blu-ray criptografado e bloqueado"
 
 #. Comment
 #: media/mimetypes/bluray_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked BLURAY"
-msgstr ""
+msgstr "Blu-ray criptografado e desbloqueado"
 
 #. Comment
 #: media/mimetypes/bluray_mounted.desktop:6
 msgid "Mounted BLURAY"
-msgstr "BLURAY Montado"
+msgstr "Blu-ray montado"
 
 #. Comment
 #: media/mimetypes/bluray_unmounted.desktop:6
 msgid "Unmounted BLURAY"
-msgstr "BLURAY Desmontado"
+msgstr "Blu-ray desmontado"
 
 #. Comment
 #: media/mimetypes/blurayvideo.desktop:6
 msgid "BLURAY Video Disk"
-msgstr "BLURAY de vídeo"
+msgstr "Blu-ray de vídeo"
 
 #. Comment
 #: media/mimetypes/camera_mounted.desktop:6
@@ -130,37 +133,37 @@ msgstr "Câmera desmontada"
 #. Comment
 #: media/mimetypes/cd-r_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-R"
-msgstr ""
+msgstr "CD-R criptografado e bloqueado"
 
 #. Comment
 #: media/mimetypes/cd-r_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-R"
-msgstr ""
+msgstr "CD-R criptografado e desbloqueado"
 
 #. Comment
 #: media/mimetypes/cd-r_mounted.desktop:6
 msgid "Mounted CD-R"
-msgstr "Gravador de CD Montado"
+msgstr "CD-R montado"
 
 #. Comment
 #: media/mimetypes/cd-r_unmounted.desktop:6
 msgid "Unmounted CD-R"
-msgstr "Gravador de CD Desmontado"
+msgstr "CD-R desmontado"
 
 #. Comment
 #: media/mimetypes/cd-rw_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-RW"
-msgstr ""
+msgstr "CD-RW criptografado e bloqueado"
 
 #. Comment
 #: media/mimetypes/cd-rw_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-RW"
-msgstr ""
+msgstr "CD-RW criptografado e desbloqueado"
 
 #. Comment
 #: media/mimetypes/cd-rw_mounted.desktop:6
 msgid "Mounted CD-RW"
-msgstr "Gravador de CD Montado"
+msgstr "CD-RW montado"
 
 #. Comment
 #: media/mimetypes/cd-rw_unmounted.desktop:6
@@ -170,42 +173,42 @@ msgstr "Gravador de CD Desmontado"
 #. Comment
 #: media/mimetypes/cdrom_encrypted_locked.desktop:7
 msgid "Encrypted Locked CD-ROM"
-msgstr ""
+msgstr "CD-RW desmontado"
 
 #. Comment
 #: media/mimetypes/cdrom_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked CD-ROM"
-msgstr ""
+msgstr "CD-ROM criptografado e desbloqueado"
 
 #. Comment
 #: media/mimetypes/cdrom_mounted.desktop:6
 msgid "Mounted CD-ROM"
-msgstr "CD-ROM Montado"
+msgstr "CD-ROM montado"
 
 #. Comment
 #: media/mimetypes/cdrom_unmounted.desktop:6
 msgid "Unmounted CD-ROM"
-msgstr "CD-ROM Desmontado"
+msgstr "CD-ROM desmontado"
 
 #. Comment
 #: media/mimetypes/dvd_encrypted_locked.desktop:7
 msgid "Encrypted Locked DVD"
-msgstr ""
+msgstr "DVD criptografado e bloqueado"
 
 #. Comment
 #: media/mimetypes/dvd_encrypted_unlocked.desktop:7
 msgid "Encrypted Unlocked DVD"
-msgstr ""
+msgstr "DVD criptografado e desbloqueado"
 
 #. Comment
 #: media/mimetypes/dvd_mounted.desktop:6
 msgid "Mounted DVD"
-msgstr "DVD Montado"
+msgstr "DVD montado"
 
 #. Comment
 #: media/mimetypes/dvd_unmounted.desktop:6
 msgid "Unmounted DVD"
-msgstr "DVD Desmontado"
+msgstr "DVD desmontado"
 
 #. Comment
 #: media/mimetypes/dvdvideo.desktop:6
@@ -215,22 +218,22 @@ msgstr "DVD de vídeo"
 #. Comment
 #: media/mimetypes/floppy5_mounted.desktop:6
 msgid "Mounted 5¼\" Floppy"
-msgstr "Disquete  5¼\" Montado"
+msgstr "Disquete 5¼\" montado"
 
 #. Comment
 #: media/mimetypes/floppy5_unmounted.desktop:6
 msgid "Unmounted 5¼\" Floppy"
-msgstr "Disquete 5¼\" Desmontado"
+msgstr "Disquete 5¼\" desmontado"
 
 #. Comment
 #: media/mimetypes/floppy_mounted.desktop:6
 msgid "Mounted Floppy"
-msgstr "Disquete Montado"
+msgstr "Disquete montado"
 
 #. Comment
 #: media/mimetypes/floppy_unmounted.desktop:6
 msgid "Unmounted Floppy"
-msgstr "Disquete Desmontado"
+msgstr "Disquete desmontado"
 
 #. Comment
 #: media/mimetypes/gphoto2camera.desktop:6
@@ -239,89 +242,83 @@ msgstr "Câmera"
 
 #. Comment
 #: media/mimetypes/hdd_encrypted_locked.desktop:7
-#, fuzzy
 msgid "Encrypted Locked Hard Disk Volume"
-msgstr "Volume do HD Montado"
+msgstr "Volume de disco rígido criptografado e bloqueado"
 
 #. Comment
 #: media/mimetypes/hdd_encrypted_unlocked.desktop:7
-#, fuzzy
 msgid "Encrypted Unlocked Hard Disk Volume"
-msgstr "Volume do HD Desmontado"
+msgstr "Volume de disco rígido criptografado e desbloqueado"
 
 #. Comment
 #: media/mimetypes/hdd_mounted.desktop:6
 msgid "Mounted Hard Disk Volume"
-msgstr "Volume do HD Montado"
+msgstr "Volume de disco rígido montado"
 
 #. Comment
 #: media/mimetypes/hdd_unmounted.desktop:6
 msgid "Unmounted Hard Disk Volume"
-msgstr "Volume do HD Desmontado"
+msgstr "Volume de disco rígido desmontado"
 
 #. Comment
 #: media/mimetypes/mycomputer.desktop:6
 msgid "My Computer"
-msgstr ""
+msgstr "Meu computador"
 
 #. Comment
 #: media/mimetypes/mydocuments.desktop:6
-#, fuzzy
 msgid "My Documents"
-msgstr "Pasta de Documentos"
+msgstr "Pasta de documentos"
 
 #. Comment
 #: media/mimetypes/mynetworkplaces.desktop:6
-#, fuzzy
 msgid "My Network Places"
-msgstr "Locais Remotos"
+msgstr "Meus locais de rede"
 
 #. Comment
 #: media/mimetypes/nfs_mounted.desktop:6
 msgid "Mounted NFS Share"
-msgstr "Volume NFS Montado"
+msgstr "Volume NFS montado"
 
 #. Comment
 #: media/mimetypes/nfs_unmounted.desktop:6
 msgid "Unmounted NFS Share"
-msgstr "Volume NFS Desmontado"
+msgstr "Volume NFS desmontado"
 
 #. Comment
 #: media/mimetypes/printers.desktop:6
 msgid "Printers"
-msgstr ""
+msgstr "Impressoras"
 
 #. Comment
 #: media/mimetypes/removable_encrypted_locked.desktop:7
-#, fuzzy
 msgid "Encrypted Locked Removable Medium"
-msgstr "Mídia Removível Montada"
+msgstr "Mídia removível criptografada e bloqueada"
 
 #. Comment
 #: media/mimetypes/removable_encrypted_unlocked.desktop:7
-#, fuzzy
 msgid "Encrypted Unlocked Removable Medium"
-msgstr "Mídia Removível Desmontada"
+msgstr "Mídia removível criptografada e desbloqueada"
 
 #. Comment
 #: media/mimetypes/removable_mounted.desktop:6
 msgid "Mounted Removable Medium"
-msgstr "Mídia Removível Montada"
+msgstr "Mídia removível montada"
 
 #. Comment
 #: media/mimetypes/removable_unmounted.desktop:6
 msgid "Unmounted Removable Medium"
-msgstr "Mídia Removível Desmontada"
+msgstr "Mídia removível desmontada"
 
 #. Comment
 #: media/mimetypes/smb_mounted.desktop:6
 msgid "Mounted Samba (Microsoft Network) Share"
-msgstr "Compartilhamento do Samba (Rede Microsoft) montado"
+msgstr "Compartilhamento Samba (Rede Microsoft) montado"
 
 #. Comment
 #: media/mimetypes/smb_unmounted.desktop:6
 msgid "Unmounted Samba (Microsoft Network) Share"
-msgstr "Compartilhamento do Samba (Rede Microsoft) desmontado"
+msgstr "Compartilhamento Samba (Rede Microsoft) desmontado"
 
 #. Comment
 #: media/mimetypes/svcd.desktop:6
@@ -333,7 +330,7 @@ msgstr "Super vídeo CD (SVCD)"
 #: media/mimetypes/trash.desktop:7 system/entries/trash.desktop:7
 #: trash/kcmtrash.desktop:11
 msgid "Trash"
-msgstr "Lixo"
+msgstr "Lixeira"
 
 #. Comment
 #: media/mimetypes/vcd.desktop:6
@@ -343,29 +340,29 @@ msgstr "Vídeo CD (VCD)"
 #. Comment
 #: media/mimetypes/webbrowser.desktop:6
 msgid "Web Browser"
-msgstr ""
+msgstr "Navegador de internet"
 
 #. Comment
 #: media/mimetypes/zip_mounted.desktop:6
 msgid "Mounted Zip Disk"
-msgstr "Disco Zip Montado"
+msgstr "Disco Zip montado"
 
 #. Comment
 #: media/mimetypes/zip_unmounted.desktop:6
 msgid "Unmounted Zip Disk"
-msgstr "Disco Zip Desmontado"
+msgstr "Disco Zip desmontado"
 
 #. Name
 #: media/propsdlgplugin/media_propsdlgplugin.desktop:6
 msgid "Media Properties Page"
-msgstr "Página de Propriedades da Mídia"
+msgstr "Página de propriedades da mídia"
 
 #. Comment
 #: media/propsdlgplugin/media_propsdlgplugin.desktop:8
 msgid "Konqueror properties dialog plugin to configure mount behaviour"
 msgstr ""
-"Plug-in do diálogo de propriedades do Konqueror para configurar o "
-"comportamento da montagem"
+"Plugin da janela de propriedades do Konqueror para configurar o "
+"comportamento de montagem"
 
 #. Name
 #: media/services/media_eject.desktop:10
@@ -375,7 +372,7 @@ msgstr "Ejetar"
 #. Name
 #: media/services/media_lock.desktop:10
 msgid "Lock"
-msgstr ""
+msgstr "Bloquear"
 
 #. Name
 #: media/services/media_mount.desktop:10
@@ -385,17 +382,17 @@ msgstr "Montar"
 #. Name
 #: media/services/media_realfolder.desktop:10
 msgid "Open Medium System Folder"
-msgstr "Abrir a Pasta de Mídias do Sistema"
+msgstr "Abrir a pasta de mídias do sistema"
 
 #. Name
 #: media/services/media_safelyremove.desktop:10
 msgid "Safely Remove"
-msgstr "Remover de Modo Seguro"
+msgstr "Remover de modo seguro"
 
 #. Name
 #: media/services/media_unlock.desktop:10
 msgid "Unlock"
-msgstr ""
+msgstr "Desbloquear"
 
 #. Name
 #: media/services/media_unmount.desktop:10
@@ -405,7 +402,7 @@ msgstr "Desmontar"
 #. Name
 #: media/tdecmodule/media.desktop:10 system/entries/media.desktop:6
 msgid "Storage Media"
-msgstr "Mídia de Armazenamento"
+msgstr "Mídia de armazenamento"
 
 #. Comment
 #: media/tdecmodule/media.desktop:12
@@ -415,17 +412,17 @@ msgstr "Configura as mídias de armazenamento"
 #. Keywords
 #: media/tdecmodule/media.desktop:14
 msgid "storage;media;usb;cdrom;device;"
-msgstr "armazenamento;mídia;usb;cd-rom;device;dispositivo;"
+msgstr "armazenamento;mídia;usb;cd-rom;dispositivo;"
 
 #. Name
 #: media/tdefile-plugin/tdefile_media.desktop:6
 msgid "Medium Information"
-msgstr "Informações sobre a Mídia"
+msgstr "Informações da mídia"
 
 #. Name
 #: remote/kdedmodule/remotedirnotify.desktop:4
 msgid "KDED Remote Base URL Notifier"
-msgstr "Serviço de Notificação da URL Remota"
+msgstr "KDED Remote Base URL Notifier"
 
 #. Comment
 #: remote/kdedmodule/remotedirnotify.desktop:6
@@ -450,45 +447,46 @@ msgstr "Grupo de trabalho do Windows"
 #. Name
 #: system/entries/documents.desktop:6
 msgid "Documents Folder"
-msgstr "Pasta de Documentos"
+msgstr "Pasta de documentos"
 
 #. Name
 #: system/entries/home.desktop:6
 msgid "Home Folder"
-msgstr "Pasta do Usuário"
+msgstr "Pasta do usuário"
 
 #. Name
 #: system/entries/remote.desktop:6
 msgid "Remote Places"
-msgstr "Locais Remotos"
+msgstr "Locais remotos"
 
 #. Name
 #: system/entries/users.desktop:6
 msgid "Users Folders"
-msgstr "Pastas do Usuários"
+msgstr "Pastas do usuários"
 
 #. Name
 #: system/kdedmodule/systemdirnotify.desktop:4
 msgid "KDED System Base URL Notifier"
-msgstr "Serviço de Notificação da URL da Base do Sistema"
+msgstr "KDED System Base URL Notifier"
 
 #. Comment
 #: system/kdedmodule/systemdirnotify.desktop:6
-#, fuzzy
 msgid ""
 "Provides change notification for folders monitored by the system:/ tdeio "
 "plugin"
-msgstr "Fornece notificações de alterações para pastas de rede"
+msgstr ""
+"Fornece notificação de alteração para pastas monitoradas pelo plugin system:/"
+" tdeio"
 
 #. Comment
 #: system/mimetypes/system_directory.desktop:6
 msgid "System Folder"
-msgstr "Pasta do Sistema"
+msgstr "Pasta do sistema"
 
 #. Name
 #: thumbnail/cursorthumbnail.desktop:4
 msgid "Cursor Files"
-msgstr "Arquivos de Cursor"
+msgstr "Arquivos de cursor"
 
 #. Name
 #: thumbnail/djvuthumbnail.desktop:4
@@ -513,52 +511,51 @@ msgstr "Imagens"
 #. Name
 #: thumbnail/textthumbnail.desktop:4
 msgid "Text Files"
-msgstr "Arquivos Texto"
+msgstr "Arquivos texto"
 
 #. Comment
 #: thumbnail/thumbcreator.desktop:5
 msgid "Thumbnail Handler"
-msgstr "Manipulador de Miniaturas"
+msgstr "Manipulador de miniaturas"
 
 #. Comment
 #. Name
 #: trash/kcmtrash.desktop:13 trash/ktrashpropsdlgplugin.desktop:7
-#, fuzzy
 msgid "Trash Properties"
-msgstr "Página de Propriedades da Mídia"
+msgstr "Propriedades da lixeira"
 
 #. Keywords
 #: trash/kcmtrash.desktop:15
 msgid "trash;properties;size;limits;delete"
-msgstr ""
+msgstr "lixeira;propriedades;tamanho;limites;apagar"
 
 #. Name
 #: trash/tdefile-plugin/tdefile_trash.desktop:4
 #: trash/tdefile-plugin/tdefile_trash_system.desktop:4
 msgid "Trash File Info"
-msgstr "Informações sobre o Arquivo de Lixo"
+msgstr "Informações do arquivo da lixeira"
 
 #. Description
 #: fish/fish.protocol:14
 msgid "A tdeioslave for the FISH protocol"
-msgstr "Uma implementação para o protocolo FISH"
+msgstr "Um tdeioslave para o protocolo FISH"
 
 #. Description
 #: fish/nxfish.protocol:14
 msgid "A tdeioslave for the NXFISH protocol"
-msgstr "Uma implementação para o protocolo NXFISH"
+msgstr "Um tdeioslave para o protocolo NXFISH"
 
 #. Description
 #: mac/mac.protocol:9
 msgid "A tdeioslave for MacOS HFS+ partitions"
-msgstr "Um protocolo para as partições HFS+ do MacOS "
+msgstr "Um tdeioslave para as partições HFS+ do MacOS"
 
 #. Description
 #: sftp/sftp.protocol:15
 msgid "A tdeioslave for sftp"
-msgstr "Uma implementação para o sftp"
+msgstr "Um tdeioslave para o sftp"
 
 #. ExtraNames
 #: trash/trash.protocol:25
 msgid "Original Path,Deletion Date"
-msgstr "Caminho Original,Data da Remoção"
+msgstr "Caminho original,Data da remoção"
