@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-16 18:21+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-07 17:51+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/l10n-desktop-files/pt_BR/>\n"
@@ -270,7 +270,7 @@ msgstr "Braille"
 #. Name
 #: bs/entry.desktop:2
 msgid "Bahamas"
-msgstr ""
+msgstr "Bahamas"
 
 #. Name
 #: bt/entry.desktop:3
@@ -280,17 +280,17 @@ msgstr "Butão"
 #. Name
 #: bw/entry.desktop:2
 msgid "Botswana"
-msgstr ""
+msgstr "Botsuana"
 
 #. Name
 #: by/entry.desktop:3
 msgid "Belarus"
-msgstr ""
+msgstr "Bielorrússia"
 
 #. Name
 #: bz/entry.desktop:2
 msgid "Belize"
-msgstr ""
+msgstr "Belize"
 
 #. Name
 #: ca/entry.desktop:5
@@ -314,9 +314,8 @@ msgstr "República da África Central"
 
 #. Name
 #: cg/entry.desktop:2
-#, fuzzy
 msgid "Congo"
-msgstr "Mongólia"
+msgstr "Congo"
 
 #. Name
 #: ch/entry.desktop:2
@@ -326,7 +325,7 @@ msgstr "Suíça"
 #. Name
 #: ci/entry.desktop:2
 msgid "Cote d'ivoire"
-msgstr ""
+msgstr "Costa do Marfim"
 
 #. Name
 #: ck/entry.desktop:2
@@ -336,7 +335,7 @@ msgstr "Ilhas Cook"
 #. Name
 #: cl/entry.desktop:2
 msgid "Chile"
-msgstr ""
+msgstr "Chile"
 
 #. Name
 #: cm/entry.desktop:2
@@ -346,7 +345,7 @@ msgstr "Camarões"
 #. Name
 #: cn/entry.desktop:3
 msgid "China"
-msgstr ""
+msgstr "China"
 
 #. Name
 #: co/entry.desktop:2
@@ -356,12 +355,12 @@ msgstr "Colômbia"
 #. Name
 #: cr/entry.desktop:2
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 #. Name
 #: cu/entry.desktop:2
 msgid "Cuba"
-msgstr ""
+msgstr "Cuba"
 
 #. Name
 #: cv/entry.desktop:2
@@ -416,7 +415,7 @@ msgstr "Argélia"
 #. Name
 #: ec/entry.desktop:2
 msgid "Ecuador"
-msgstr ""
+msgstr "Equador"
 
 #. Name
 #: ee/entry.desktop:2
@@ -436,7 +435,7 @@ msgstr "Sahara Ocidental"
 #. Name
 #: eo/entry.desktop:2
 msgid "Esperanto"
-msgstr ""
+msgstr "Esperanto"
 
 #. Name
 #: er/entry.desktop:2
@@ -511,13 +510,12 @@ msgstr "Gana"
 #. Name
 #: gi/entry.desktop:2
 msgid "Gibraltar"
-msgstr ""
+msgstr "Gibraltar"
 
 #. Name
 #: gl/entry.desktop:2
-#, fuzzy
 msgid "Greenland"
-msgstr "Irlanda"
+msgstr "Groenlândia"
 
 #. Name
 #: gm/entry.desktop:2
@@ -547,12 +545,12 @@ msgstr "Grécia"
 #. Name
 #: gt/entry.desktop:2
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 #. Name
 #: gu/entry.desktop:2
 msgid "Guam"
-msgstr ""
+msgstr "Guam"
 
 #. Name
 #: gw/entry.desktop:2
@@ -572,7 +570,7 @@ msgstr "Hong Kong SAR (China)"
 #. Name
 #: hn/entry.desktop:2
 msgid "Honduras"
-msgstr ""
+msgstr "Honduras"
 
 #. Name
 #: hr/entry.desktop:2
@@ -582,7 +580,7 @@ msgstr "Croácia"
 #. Name
 #: ht/entry.desktop:2
 msgid "Haiti"
-msgstr ""
+msgstr "Haiti"
 
 #. Name
 #: hu/entry.desktop:2
@@ -602,7 +600,7 @@ msgstr "Irlanda"
 #. Name
 #: il/entry.desktop:3
 msgid "Israel"
-msgstr ""
+msgstr "Israel"
 
 #. Name
 #: in/entry.desktop:2
@@ -632,7 +630,7 @@ msgstr "Itália"
 #. Name
 #: jm/entry.desktop:2
 msgid "Jamaica"
-msgstr ""
+msgstr "Jamaica"
 
 #. Name
 #: jo/entry.desktop:2
@@ -646,10 +644,8 @@ msgstr "Japão"
 
 #. Name
 #: jv/entry.desktop:2
-#, fuzzy
-#| msgid "Indonesia"
 msgid "Indonesia (Java)"
-msgstr "Indonésia"
+msgstr "Indonésia (Java)"
 
 #. Name
 #: ke/entry.desktop:2
@@ -669,12 +665,12 @@ msgstr "Cambodja"
 #. Name
 #: ki/entry.desktop:2
 msgid "Kiribati"
-msgstr ""
+msgstr "Quiribáti"
 
 #. Name
 #: km/entry.desktop:2
 msgid "Comoros"
-msgstr ""
+msgstr "Comores"
 
 #. Name
 #: kn/entry.desktop:2
@@ -694,7 +690,7 @@ msgstr "Coréia do Sul"
 #. Name
 #: kw/entry.desktop:2
 msgid "Kuwait"
-msgstr ""
+msgstr "Kuwait"
 
 #. Name
 #: ky/entry.desktop:2
@@ -709,7 +705,7 @@ msgstr "Cazaquistão"
 #. Name
 #: la/entry.desktop:2
 msgid "Laos"
-msgstr ""
+msgstr "Laos"
 
 #. Name
 #: lb/entry.desktop:2
@@ -724,12 +720,12 @@ msgstr "Santa Lúcia"
 #. Name
 #: li/entry.desktop:2
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Liechtenstein"
 
 #. Name
 #: lk/entry.desktop:2
 msgid "Sri Lanka"
-msgstr ""
+msgstr "Sri Lanka"
 
 #. Name
 #: lr/entry.desktop:2
@@ -739,7 +735,7 @@ msgstr "Libéria"
 #. Name
 #: ls/entry.desktop:2
 msgid "Lesotho"
-msgstr ""
+msgstr "Lesoto"
 
 #. Name
 #: lt/entry.desktop:2
@@ -754,7 +750,7 @@ msgstr "Luxemburgo"
 #. Name
 #: lv/entry.desktop:2
 msgid "Latvia"
-msgstr ""
+msgstr "Letônia"
 
 #. Name
 #: ly/entry.desktop:2
@@ -774,17 +770,17 @@ msgstr "Mônaco"
 #. Name
 #: md/entry.desktop:2
 msgid "Moldova"
-msgstr ""
+msgstr "Moldávia"
 
 #. Name
 #: me/entry.desktop:3
 msgid "Montenegro"
-msgstr ""
+msgstr "Montenegro"
 
 #. Name
 #: mg/entry.desktop:2
 msgid "Madagascar"
-msgstr ""
+msgstr "Madagáscar"
 
 #. Name
 #: mh/entry.desktop:2
@@ -804,12 +800,12 @@ msgstr "Macedônia"
 #. Name
 #: ml/entry.desktop:2
 msgid "Mali"
-msgstr ""
+msgstr "Mali"
 
 #. Name
 #: mm/entry.desktop:2
 msgid "Myanmar"
-msgstr ""
+msgstr "Mianmar"
 
 #. Name
 #: mn/entry.desktop:2
@@ -834,12 +830,12 @@ msgstr "Mauritânia"
 #. Name
 #: ms/entry.desktop:2
 msgid "Montserrat"
-msgstr ""
+msgstr "Montserrate"
 
 #. Name
 #: mt/entry.desktop:3
 msgid "Malta"
-msgstr ""
+msgstr "Malta"
 
 #. Name
 #: mu/entry.desktop:2
@@ -853,9 +849,8 @@ msgstr "Maldivas"
 
 #. Name
 #: mw/entry.desktop:2
-#, fuzzy
 msgid "Malawi"
-msgstr "Malásia"
+msgstr "Malaui"
 
 #. Name
 #: mx/entry.desktop:2
@@ -915,17 +910,17 @@ msgstr "Noruega"
 #. Name
 #: np/entry.desktop:2
 msgid "Nepal"
-msgstr ""
+msgstr "Nepal"
 
 #. Name
 #: nr/entry.desktop:2
 msgid "Nauru"
-msgstr ""
+msgstr "Nauru"
 
 #. Name
 #: nu/entry.desktop:2
 msgid "Niue"
-msgstr ""
+msgstr "Niue"
 
 #. Name
 #: om/entry.desktop:2
@@ -940,7 +935,7 @@ msgstr "Panamá"
 #. Name
 #: pe/entry.desktop:2
 msgid "Peru"
-msgstr ""
+msgstr "Peru"
 
 #. Name
 #: pf/entry.desktop:2
@@ -975,7 +970,7 @@ msgstr "Saint Pierre e Miquelon"
 #. Name
 #: pn/entry.desktop:2
 msgid "Pitcairn"
-msgstr ""
+msgstr "Pitcairn"
 
 #. Name
 #: pr/entry.desktop:2
@@ -990,12 +985,12 @@ msgstr "Território Palestino"
 #. Name
 #: pt/entry.desktop:3
 msgid "Portugal"
-msgstr ""
+msgstr "Portugal"
 
 #. Name
 #: pw/entry.desktop:2
 msgid "Palau"
-msgstr ""
+msgstr "Palau"
 
 #. Name
 #: py/entry.desktop:2
@@ -1005,7 +1000,7 @@ msgstr "Paraguai"
 #. Name
 #: qa/entry.desktop:2
 msgid "Qatar"
-msgstr ""
+msgstr "Catar"
 
 #. Name
 #: ro/entry.desktop:2
@@ -1040,7 +1035,7 @@ msgstr "Ilhas Salomão"
 #. Name
 #: sc/entry.desktop:2
 msgid "Seychelles"
-msgstr ""
+msgstr "Seicheles"
 
 #. Name
 #: sd/entry.desktop:2
@@ -1075,12 +1070,12 @@ msgstr "Eslováquia"
 #. Name
 #: sm/entry.desktop:2
 msgid "San Marino"
-msgstr ""
+msgstr "São Marino"
 
 #. Name
 #: sn/entry.desktop:2
 msgid "Senegal"
-msgstr ""
+msgstr "Senegal"
 
 #. Name
 #: so/entry.desktop:2
@@ -1090,7 +1085,7 @@ msgstr "Somália"
 #. Name
 #: sr/entry.desktop:2
 msgid "Suriname"
-msgstr ""
+msgstr "Suriname"
 
 #. Name
 #: st/entry.desktop:2
@@ -1100,7 +1095,7 @@ msgstr "São Tome e Príncipe"
 #. Name
 #: sv/entry.desktop:2
 msgid "El Salvador"
-msgstr ""
+msgstr "El Salvador"
 
 #. Name
 #: sy/entry.desktop:2
@@ -1125,7 +1120,7 @@ msgstr "Chade"
 #. Name
 #: tg/entry.desktop:2
 msgid "Togo"
-msgstr ""
+msgstr "Togo"
 
 #. Name
 #: th/entry.desktop:2
@@ -1140,7 +1135,7 @@ msgstr "Tajiquistão"
 #. Name
 #: tk/entry.desktop:2
 msgid "Tokelau"
-msgstr ""
+msgstr "Toquelau"
 
 #. Name
 #: tm/entry.desktop:2
@@ -1155,7 +1150,7 @@ msgstr "Tunísia"
 #. Name
 #: to/entry.desktop:2
 msgid "Tonga"
-msgstr ""
+msgstr "Tonga"
 
 #. Name
 #: tp/entry.desktop:2
@@ -1175,12 +1170,12 @@ msgstr "Trinidad e Tobago"
 #. Name
 #: tv/entry.desktop:2
 msgid "Tuvalu"
-msgstr ""
+msgstr "Tuvalu"
 
 #. Name
 #: tw/entry.desktop:3
 msgid "Taiwan"
-msgstr ""
+msgstr "Taiwan"
 
 #. Name
 #: tz/entry.desktop:2
@@ -1194,9 +1189,8 @@ msgstr "Ucrânia"
 
 #. Name
 #: ug/entry.desktop:2
-#, fuzzy
 msgid "Uganda"
-msgstr "Ruanda"
+msgstr "Uganda"
 
 #. Name
 #: us/entry.desktop:2
@@ -1226,7 +1220,7 @@ msgstr "São Vicente e Grenadines"
 #. Name
 #: ve/entry.desktop:2
 msgid "Venezuela"
-msgstr ""
+msgstr "Venezuela"
 
 #. Name
 #: vg/entry.desktop:2
@@ -1246,7 +1240,7 @@ msgstr "Vietnã"
 #. Name
 #: vu/entry.desktop:2
 msgid "Vanuatu"
-msgstr ""
+msgstr "Vanuatu"
 
 #. Name
 #: wf/entry.desktop:2
@@ -1256,12 +1250,12 @@ msgstr "Wallis e Futuna"
 #. Name
 #: ws/entry.desktop:3
 msgid "Samoa"
-msgstr ""
+msgstr "Samoa"
 
 #. Name
 #: ye/entry.desktop:2
 msgid "Yemen"
-msgstr ""
+msgstr "Iémen"
 
 #. Name
 #: za/entry.desktop:3
@@ -1276,4 +1270,4 @@ msgstr "Zâmbia"
 #. Name
 #: zw/entry.desktop:2
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Zimbábue"
