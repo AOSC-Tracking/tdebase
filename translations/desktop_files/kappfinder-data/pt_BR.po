@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-07 17:51+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kappfinder-data/pt_BR/>\n"
@@ -125,7 +125,7 @@ msgstr "Modelador de Cenas"
 #. Name
 #: Games/Arcade/ClanBomber.desktop:2
 msgid "ClanBomber"
-msgstr ""
+msgstr "ClanBomber"
 
 #. GenericName
 #: Games/Arcade/ClanBomber.desktop:3 Games/Arcade/GnobotsII.desktop:3
@@ -141,7 +141,7 @@ msgstr "Jogo tipo Arcade"
 #. Name
 #: Games/Arcade/FrozenBubble.desktop:2
 msgid "Frozen Bubble"
-msgstr ""
+msgstr "Frozen Bubble"
 
 #. GenericName
 #: Games/Arcade/FrozenBubble.desktop:3
@@ -151,7 +151,7 @@ msgstr "Jogo parecido com oTetris"
 #. Name
 #: Games/Arcade/Gnibbles.desktop:2
 msgid "Gnibbles"
-msgstr ""
+msgstr "Gnibbles"
 
 #. GenericName
 #: Games/Arcade/Gnibbles.desktop:3
@@ -161,27 +161,27 @@ msgstr "Jogo Asteróides do GNOME"
 #. Name
 #: Games/Arcade/GnobotsII.desktop:2
 msgid "Gnobots II"
-msgstr ""
+msgstr "Gnobots II"
 
 #. Name
 #: Games/Arcade/Mures.desktop:2
 msgid "Mures"
-msgstr ""
+msgstr "Mures"
 
 #. Name
 #: Games/Arcade/SuperMethaneBrothers.desktop:2
 msgid "Super Methane Brothers"
-msgstr ""
+msgstr "Super Methane Brothers"
 
 #. Name
 #: Games/Arcade/Trophy.desktop:2
 msgid "Trophy"
-msgstr ""
+msgstr "Trophy"
 
 #. Name
 #: Games/Arcade/TuxRacer.desktop:2
 msgid "TuxRacer"
-msgstr ""
+msgstr "TuxRacer"
 
 #. GenericName
 #: Games/Arcade/TuxRacer.desktop:3
@@ -191,17 +191,17 @@ msgstr "Corrida"
 #. Name
 #: Games/Arcade/XKobo.desktop:2
 msgid "XKobo"
-msgstr ""
+msgstr "XKobo"
 
 #. Name
 #: Games/Arcade/XSoldier.desktop:2
 msgid "XSoldier"
-msgstr ""
+msgstr "XSoldier"
 
 #. Name
 #: Games/Arcade/alephone-nogl.desktop:2
 msgid "Alephone"
-msgstr ""
+msgstr "Alephone"
 
 #. Comment
 #: Games/Arcade/alephone-nogl.desktop:3
@@ -224,12 +224,12 @@ msgstr ""
 #. Name
 #: Games/Arcade/battalion.desktop:2
 msgid "Batallion"
-msgstr ""
+msgstr "Batallion"
 
 #. Name
 #: Games/Arcade/battleball.desktop:2
 msgid "Battleball"
-msgstr ""
+msgstr "Battleball"
 
 #. GenericName
 #: Games/Arcade/battleball.desktop:3
@@ -239,7 +239,7 @@ msgstr "Esferas"
 #. Name
 #: Games/Arcade/cxhextris.desktop:2
 msgid "cxhextris"
-msgstr ""
+msgstr "cxhextris"
 
 #. Name
 #: Games/Arcade/rocksndiamonds.desktop:2
@@ -254,12 +254,12 @@ msgstr "Tático"
 #. Name
 #: Games/Arcade/scavenger.desktop:2
 msgid "Scavenger"
-msgstr ""
+msgstr "Scavenger"
 
 #. Name
 #: Games/Board/Gataxx.desktop:2
 msgid "Gataxx"
-msgstr ""
+msgstr "Gataxx"
 
 #. Name
 #: Games/Board/Gchess.desktop:2
@@ -269,7 +269,7 @@ msgstr "Xadrez do GNOME"
 #. Name
 #: Games/Board/Glines.desktop:2
 msgid "Glines"
-msgstr ""
+msgstr "Glines"
 
 #. Name
 #: Games/Board/Gmahjongg.desktop:2
@@ -294,12 +294,12 @@ msgstr "Lógico"
 #. Name
 #: Games/Board/Gnotravex.desktop:2
 msgid "Gnotravex"
-msgstr ""
+msgstr "Gnotravex"
 
 #. Name
 #: Games/Board/Gnotski.desktop:2
 msgid "Gnotski"
-msgstr ""
+msgstr "Gnotski"
 
 #. GenericName
 #: Games/Board/Gnotski.desktop:3
@@ -314,7 +314,7 @@ msgstr "Jogo de Minas do GNOME"
 #. Name
 #: Games/Board/Iagno.desktop:2
 msgid "Iagno"
-msgstr ""
+msgstr "Iagno"
 
 #. GenericName
 #: Games/Board/Iagno.desktop:3 Games/Board/SameGnome.desktop:3
@@ -325,17 +325,17 @@ msgstr "Tabuleiro"
 #. Name
 #: Games/Board/SameGnome.desktop:2
 msgid "Same GNOME"
-msgstr ""
+msgstr "Same GNOME"
 
 #. Name
 #: Games/Board/Xgammon.desktop:2
 msgid "Xgammon"
-msgstr ""
+msgstr "Xgammon"
 
 #. Name
 #: Games/Board/xboard.desktop:2
 msgid "Xboard"
-msgstr ""
+msgstr "Xboard"
 
 #. GenericName
 #: Games/Board/xboard.desktop:3
@@ -345,7 +345,7 @@ msgstr "Xadrez"
 #. Name
 #: Games/Card/AisleRiot.desktop:2
 msgid "AisleRiot"
-msgstr ""
+msgstr "AisleRiot"
 
 #. GenericName
 #: Games/Card/AisleRiot.desktop:3 Games/Card/FreeCell.desktop:3
@@ -356,22 +356,22 @@ msgstr "Cartas"
 #. Name
 #: Games/Card/FreeCell.desktop:2
 msgid "FreeCell"
-msgstr ""
+msgstr "FreeCell"
 
 #. Name
 #: Games/Card/PySol.desktop:2
 msgid "PySol"
-msgstr ""
+msgstr "PySol"
 
 #. Name
 #: Games/Card/XPat2.desktop:2
 msgid "XPat 2"
-msgstr ""
+msgstr "XPat 2"
 
 #. Name
 #: Games/Clanbomber.desktop:2
 msgid "Clanbomber"
-msgstr ""
+msgstr "Clanbomber"
 
 #. Name
 #: Games/Emulators/cmail.desktop:2
@@ -386,7 +386,7 @@ msgstr "Mensagem de e-mail para o Xadrez"
 #. Name
 #: Games/Emulators/qmamecat.desktop:2
 msgid "Qmamecat"
-msgstr ""
+msgstr "Qmamecat"
 
 #. GenericName
 #: Games/Emulators/qmamecat.desktop:3
@@ -396,7 +396,7 @@ msgstr "Emulador para o Arcade"
 #. Name
 #: Games/GTali.desktop:2
 msgid "GTali"
-msgstr ""
+msgstr "GTali"
 
 #. GenericName
 #: Games/GTali.desktop:3
@@ -406,7 +406,7 @@ msgstr "Dados"
 #. Name
 #: Games/Roguelikes/angband.desktop:2
 msgid "Angband"
-msgstr ""
+msgstr "Angband"
 
 #. Comment
 #: Games/Roguelikes/angband.desktop:3
@@ -416,7 +416,7 @@ msgstr "Salte para dentro do Angband e derrote Morgoth"
 #. Name
 #: Games/Roguelikes/moria.desktop:2
 msgid "Moria"
-msgstr ""
+msgstr "Moria"
 
 #. Comment
 #: Games/Roguelikes/moria.desktop:3
@@ -426,7 +426,7 @@ msgstr "Salte dentro de Moria e derrote Balrog"
 #. Name
 #: Games/Roguelikes/nethack.desktop:2
 msgid "NetHack"
-msgstr ""
+msgstr "NetHack"
 
 #. GenericName
 #: Games/Roguelikes/nethack.desktop:3 Games/Roguelikes/tome.desktop:3
@@ -436,7 +436,7 @@ msgstr "Busca"
 #. Name
 #: Games/Roguelikes/rogue.desktop:2
 msgid "Rogue"
-msgstr ""
+msgstr "Rogue"
 
 #. GenericName
 #: Games/Roguelikes/rogue.desktop:3
@@ -446,12 +446,12 @@ msgstr "O Original"
 #. Name
 #: Games/Roguelikes/tome.desktop:2
 msgid "ToME"
-msgstr ""
+msgstr "ToME"
 
 #. Name
 #: Games/Roguelikes/zangband.desktop:2
 msgid "ZAngband"
-msgstr ""
+msgstr "ZAngband"
 
 #. GenericName
 #: Games/Roguelikes/zangband.desktop:3
@@ -461,7 +461,7 @@ msgstr "Derrote a Serpente"
 #. Name
 #: Games/TacticStrategy/freeciv.desktop:3
 msgid "Freeciv"
-msgstr ""
+msgstr "Freeciv"
 
 #. GenericName
 #: Games/TacticStrategy/freeciv.desktop:4 Games/xshipwars.desktop:4
@@ -481,7 +481,7 @@ msgstr "Um servidor para o FreeCiv"
 #. Name
 #: Games/TacticStrategy/xscorch.desktop:3
 msgid "XScorch"
-msgstr ""
+msgstr "XScorch"
 
 #. Comment
 #: Games/TacticStrategy/xscorch.desktop:4
@@ -491,12 +491,12 @@ msgstr "Um clone do Scorched Earth para Unix e X"
 #. Name
 #: Games/Toys/xeyes.desktop:2
 msgid "X Eyes"
-msgstr ""
+msgstr "X Eyes"
 
 #. Name
 #: Games/Toys/xpinguin.desktop:2
 msgid "Tux"
-msgstr ""
+msgstr "Tux"
 
 #. GenericName
 #: Games/Toys/xpinguin.desktop:3
@@ -506,7 +506,7 @@ msgstr "Mascote do Linux"
 #. Name
 #: Games/defendguin.desktop:3
 msgid "Defendguin"
-msgstr ""
+msgstr "Defendguin"
 
 #. GenericName
 #: Games/defendguin.desktop:4
@@ -516,17 +516,17 @@ msgstr "Jogo"
 #. Name
 #: Games/penguin-command.desktop:3
 msgid "Penguin Command"
-msgstr ""
+msgstr "Penguin Command"
 
 #. Name
 #: Games/xshipwars.desktop:3
 msgid "XShipWars"
-msgstr ""
+msgstr "XShipWars"
 
 #. Name
 #: Graphics/ElectricEyes.desktop:2
 msgid "Electric Eyes"
-msgstr ""
+msgstr "Electric Eyes"
 
 #. GenericName
 #: Graphics/ElectricEyes.desktop:3
@@ -536,7 +536,7 @@ msgstr "Visualizador de Imagens"
 #. Name
 #: Graphics/GPhoto.desktop:2
 msgid "GPhoto"
-msgstr ""
+msgstr "GPhoto"
 
 #. GenericName
 #: Graphics/GPhoto.desktop:3
@@ -556,7 +556,7 @@ msgstr "Editor de Ícones do GNOME"
 #. Name
 #: Graphics/Gqview.desktop:2
 msgid "Gqview"
-msgstr ""
+msgstr "Gqview"
 
 #. GenericName
 #: Graphics/Gqview.desktop:3
@@ -566,7 +566,7 @@ msgstr "Navegador de Imagens"
 #. Name
 #: Graphics/Sketch.desktop:2
 msgid "Sketch"
-msgstr ""
+msgstr "Sketch"
 
 #. GenericName
 #: Graphics/Sketch.desktop:3
@@ -576,7 +576,7 @@ msgstr "Programa de Desenho Vetorial"
 #. Name
 #: Graphics/Xpcd.desktop:2
 msgid "Xpcd"
-msgstr ""
+msgstr "Xpcd"
 
 #. GenericName
 #: Graphics/Xpcd.desktop:3
@@ -586,7 +586,7 @@ msgstr "Ferramentas para PhotoCD"
 #. Name
 #: Graphics/Xwpick.desktop:2
 msgid "Xwpick"
-msgstr ""
+msgstr "Xwpick"
 
 #. GenericName
 #: Graphics/Xwpick.desktop:3
@@ -596,7 +596,7 @@ msgstr "Programa de Captura de tela"
 #. Name
 #: Graphics/bitmap.desktop:2
 msgid "X Bitmap"
-msgstr ""
+msgstr "X Bitmap"
 
 #. GenericName
 #: Graphics/bitmap.desktop:3
@@ -606,7 +606,7 @@ msgstr "Criador de Bitmaps"
 #. Name
 #: Graphics/blender.desktop:2
 msgid "Blender"
-msgstr ""
+msgstr "Blender"
 
 #. GenericName
 #: Graphics/blender.desktop:3
@@ -616,7 +616,7 @@ msgstr "Modelador/Renderizador 3D"
 #. Name
 #: Graphics/ghostview.desktop:2
 msgid "GhostView"
-msgstr ""
+msgstr "GhostView"
 
 #. GenericName
 #: Graphics/ghostview.desktop:3
@@ -626,7 +626,7 @@ msgstr "Visualizador de arquivos PostScript "
 #. Name
 #: Graphics/gimp.desktop:2
 msgid "Gimp"
-msgstr ""
+msgstr "Gimp"
 
 #. GenericName
 #: Graphics/gimp.desktop:3
@@ -636,7 +636,7 @@ msgstr "Programa de Manipulação de imagens"
 #. Name
 #: Graphics/gv.desktop:2
 msgid "GV"
-msgstr ""
+msgstr "GV"
 
 #. GenericName
 #: Graphics/gv.desktop:3
@@ -646,7 +646,7 @@ msgstr "Visualizador de arquivos PostScript"
 #. Name
 #: Graphics/inkscape.desktop:2
 msgid "Inkscape"
-msgstr ""
+msgstr "Inkscape"
 
 #. GenericName
 #: Graphics/inkscape.desktop:3 Graphics/sodipodi.desktop:3
@@ -656,12 +656,12 @@ msgstr "Desenho Vetorial"
 #. Name
 #: Graphics/sodipodi.desktop:2
 msgid "Sodipodi"
-msgstr ""
+msgstr "Sodipodi"
 
 #. Name
 #: Graphics/tgif.desktop:2
 msgid "TGif"
-msgstr ""
+msgstr "TGif"
 
 #. GenericName
 #: Graphics/tgif.desktop:3 Graphics/xfig.desktop:3
@@ -671,7 +671,7 @@ msgstr "Programa de Desenho"
 #. Name
 #: Graphics/xdvi.desktop:2
 msgid "X DVI"
-msgstr ""
+msgstr "X DVI"
 
 #. GenericName
 #: Graphics/xdvi.desktop:3
@@ -681,12 +681,12 @@ msgstr "Visualizador de arquivos DVI"
 #. Name
 #: Graphics/xfig.desktop:2
 msgid "Xfig"
-msgstr ""
+msgstr "Xfig"
 
 #. Name
 #: Graphics/xpaint.desktop:2
 msgid "X Paint"
-msgstr ""
+msgstr "X Paint"
 
 #. GenericName
 #: Graphics/xpaint.desktop:3
@@ -696,7 +696,7 @@ msgstr "Programa de pintura"
 #. Name
 #: Graphics/xv.desktop:2
 msgid "XV"
-msgstr ""
+msgstr "XV"
 
 #. GenericName
 #: Graphics/xv.desktop:3
@@ -706,7 +706,7 @@ msgstr "Visualizador de Imagens"
 #. Name
 #: Internet/BlueFish.desktop:2
 msgid "BlueFish"
-msgstr ""
+msgstr "BlueFish"
 
 #. GenericName
 #: Internet/BlueFish.desktop:3
@@ -716,7 +716,7 @@ msgstr "Editor HTML"
 #. Name
 #: Internet/Dpsftp.desktop:2
 msgid "Dpsftp"
-msgstr ""
+msgstr "Dpsftp"
 
 #. GenericName
 #: Internet/Dpsftp.desktop:3 Internet/gFTP.desktop:3 Internet/xftp.desktop:3
@@ -726,7 +726,7 @@ msgstr "Navegador FTP"
 #. Name
 #: Internet/DrakSync.desktop:2
 msgid "DrakSync"
-msgstr ""
+msgstr "DrakSync"
 
 #. GenericName
 #: Internet/DrakSync.desktop:3
@@ -736,7 +736,7 @@ msgstr "Sincronização de Pastas"
 #. Name
 #: Internet/Evolution.desktop:2
 msgid "Evolution"
-msgstr ""
+msgstr "Evolution"
 
 #. GenericName
 #: Internet/Evolution.desktop:3 Internet/Netscapemessenger.desktop:3
@@ -749,7 +749,7 @@ msgstr "Cliente de E-mail"
 #. Name
 #: Internet/Faces.desktop:2
 msgid "Faces"
-msgstr ""
+msgstr "Faces"
 
 #. GenericName
 #: Internet/Faces.desktop:3 Internet/coolmail.desktop:3
@@ -770,7 +770,7 @@ msgstr "Configuração do Fetchmail"
 #. Name
 #: Internet/Gabber.desktop:2
 msgid "Gabber"
-msgstr ""
+msgstr "Gabber"
 
 #. GenericName
 #: Internet/Gabber.desktop:3 Internet/gaim.desktop:3
@@ -780,7 +780,7 @@ msgstr "Mensageiro Instantâneo"
 #. Name
 #: Internet/Galeon.desktop:2
 msgid "Galeon"
-msgstr ""
+msgstr "Galeon"
 
 #. GenericName
 #: Internet/Galeon.desktop:3 Internet/Terminal/Links.desktop:3
@@ -810,7 +810,7 @@ msgstr "Mensageiro Instantâneo"
 #. Name
 #: Internet/Nmapfe.desktop:2
 msgid "Nmapfe"
-msgstr ""
+msgstr "Nmapfe"
 
 #. GenericName
 #: Internet/Nmapfe.desktop:3
@@ -820,7 +820,7 @@ msgstr "Scanner de Portas"
 #. Name
 #: Internet/Pan.desktop:2
 msgid "Pan"
-msgstr ""
+msgstr "Pan"
 
 #. GenericName
 #: Internet/Pan.desktop:3 Internet/knews.desktop:3
@@ -830,17 +830,17 @@ msgstr "Leitor de Notícias Usenet"
 #. Name
 #: Internet/Sylpheed.desktop:2
 msgid "Sylpheed"
-msgstr ""
+msgstr "Sylpheed"
 
 #. Name
 #: Internet/Terminal/Links.desktop:2
 msgid "Links"
-msgstr ""
+msgstr "Links"
 
 #. Name
 #: Internet/Terminal/Lynx.desktop:2
 msgid "Lynx"
-msgstr ""
+msgstr "Lynx"
 
 #. Name
 #: Internet/Terminal/btdownloadcurses.desktop:2
@@ -856,7 +856,7 @@ msgstr "Interface do BitTorrent"
 #. Name
 #: Internet/Terminal/lftp.desktop:2
 msgid "Lftp"
-msgstr ""
+msgstr "Lftp"
 
 #. GenericName
 #: Internet/Terminal/lftp.desktop:3 Internet/Terminal/ncftp.desktop:3
@@ -866,22 +866,22 @@ msgstr "Cliente FTP"
 #. Name
 #: Internet/Terminal/mutt.desktop:2
 msgid "Mutt"
-msgstr ""
+msgstr "Mutt"
 
 #. Name
 #: Internet/Terminal/ncftp.desktop:2
 msgid "NcFTP"
-msgstr ""
+msgstr "NcFTP"
 
 #. Name
 #: Internet/Terminal/pine.desktop:2
 msgid "Pine"
-msgstr ""
+msgstr "Pine"
 
 #. Name
 #: Internet/Terminal/silc.desktop:2
 msgid "Silc"
-msgstr ""
+msgstr "Silc"
 
 #. GenericName
 #: Internet/Terminal/silc.desktop:3
@@ -891,7 +891,7 @@ msgstr "Cliente SILC"
 #. Name
 #: Internet/Terminal/slrn.desktop:2
 msgid "Slrn"
-msgstr ""
+msgstr "Slrn"
 
 #. GenericName
 #: Internet/Terminal/slrn.desktop:3
@@ -901,17 +901,17 @@ msgstr "Leitor de Notícias"
 #. Name
 #: Internet/Terminal/w3m.desktop:2
 msgid "w3m"
-msgstr ""
+msgstr "w3m"
 
 #. Name
 #: Internet/arena.desktop:2
 msgid "Arena"
-msgstr ""
+msgstr "Arena"
 
 #. Name
 #: Internet/balsa.desktop:2
 msgid "Balsa"
-msgstr ""
+msgstr "Balsa"
 
 #. Name
 #: Internet/btdownloadgui.desktop:2
@@ -921,7 +921,7 @@ msgstr "Interface em  wxGTK Python para o BitTorrent"
 #. Name
 #: Internet/coolmail.desktop:2
 msgid "Coolmail"
-msgstr ""
+msgstr "Coolmail"
 
 #. Name
 #: Internet/dc_gui.desktop:2
@@ -946,12 +946,12 @@ msgstr "Interface do eDonkey2000"
 #. Name
 #: Internet/epiphany.desktop:2
 msgid "Epiphany"
-msgstr ""
+msgstr "Epiphany"
 
 #. Name
 #: Internet/ethereal.desktop:2
 msgid "Ethereal"
-msgstr ""
+msgstr "Ethereal"
 
 #. GenericName
 #: Internet/ethereal.desktop:3 Internet/wireshark.desktop:3
@@ -961,17 +961,17 @@ msgstr "Analisador de rede"
 #. Name
 #: Internet/gFTP.desktop:2
 msgid "gFTP"
-msgstr ""
+msgstr "gFTP"
 
 #. Name
 #: Internet/gaim.desktop:2
 msgid "Gaim"
-msgstr ""
+msgstr "Gaim"
 
 #. Name
 #: Internet/gnomemeeting.desktop:2
 msgid "GnomeMeeting"
-msgstr ""
+msgstr "GnomeMeeting"
 
 #. GenericName
 #: Internet/gnomemeeting.desktop:3
@@ -996,7 +996,7 @@ msgstr "Acesso Remoto"
 #. Name
 #: Internet/ickle.desktop:2
 msgid "ickle"
-msgstr ""
+msgstr "ickle"
 
 #. GenericName
 #: Internet/ickle.desktop:3
@@ -1006,17 +1006,17 @@ msgstr "ICQ2000"
 #. Name
 #: Internet/javaws.desktop:2
 msgid "Java Web Start"
-msgstr ""
+msgstr "Java Web Start"
 
 #. Name
 #: Internet/knews.desktop:2
 msgid "KNews"
-msgstr ""
+msgstr "KNews"
 
 #. Name
 #: Internet/licq.desktop:2
 msgid "Licq"
-msgstr ""
+msgstr "Licq"
 
 #. Name
 #: Internet/mldonkey_gui.desktop:2
@@ -1031,17 +1031,17 @@ msgstr "Interface do MLDonkey"
 #. Name
 #: Internet/mozilla-firefox.desktop:2
 msgid "Firefox"
-msgstr ""
+msgstr "Firefox"
 
 #. Name
 #: Internet/mozilla-thunderbird.desktop:2
 msgid "Thunderbird"
-msgstr ""
+msgstr "Thunderbird"
 
 #. Name
 #: Internet/mozilla.desktop:2
 msgid "Mozilla"
-msgstr ""
+msgstr "Mozilla"
 
 #. Name
 #: Internet/netscape.desktop:2
@@ -1056,17 +1056,17 @@ msgstr "Netscape 6"
 #. Name
 #: Internet/opera.desktop:2
 msgid "Opera"
-msgstr ""
+msgstr "Opera"
 
 #. Name
 #: Internet/wireshark.desktop:2
 msgid "Wireshark"
-msgstr ""
+msgstr "Wireshark"
 
 #. Name
 #: Internet/xbiff.desktop:2
 msgid "X Biff"
-msgstr ""
+msgstr "X Biff"
 
 #. Name
 #: Internet/xchat.desktop:2
@@ -1081,17 +1081,17 @@ msgstr "Cliente IRC"
 #. Name
 #: Internet/xfmail.desktop:2
 msgid "XFMail"
-msgstr ""
+msgstr "XFMail"
 
 #. Name
 #: Internet/xftp.desktop:2
 msgid "X FTP"
-msgstr ""
+msgstr "X FTP"
 
 #. Name
 #: Multimedia/Aumix.desktop:2
 msgid "Aumix"
-msgstr ""
+msgstr "Aumix"
 
 #. GenericName
 #: Multimedia/Aumix.desktop:3
@@ -1101,7 +1101,7 @@ msgstr "Mixer de Áudio"
 #. Name
 #: Multimedia/Grip.desktop:2
 msgid "Grip"
-msgstr ""
+msgstr "Grip"
 
 #. GenericName
 #: Multimedia/Grip.desktop:3
@@ -1116,7 +1116,7 @@ msgstr "Informações do MP3"
 #. Name
 #: Multimedia/XMovie.desktop:2
 msgid "XMovie"
-msgstr ""
+msgstr "XMovie"
 
 #. GenericName
 #: Multimedia/XMovie.desktop:3 Multimedia/mplayer.desktop:3
@@ -1128,7 +1128,7 @@ msgstr "Reprodutor de vídeos"
 #. Name
 #: Multimedia/alevt.desktop:2
 msgid "AleVT"
-msgstr ""
+msgstr "AleVT"
 
 #. GenericName
 #: Multimedia/alevt.desktop:3
@@ -1148,7 +1148,7 @@ msgstr "Interface do Alsa Mixer"
 #. Name
 #: Multimedia/audacity.desktop:2
 msgid "Audacity"
-msgstr ""
+msgstr "Audacity"
 
 #. GenericName
 #: Multimedia/audacity.desktop:3 Multimedia/rezound.desktop:3
@@ -1159,7 +1159,7 @@ msgstr "Editor de Som"
 #. Name
 #: Multimedia/aviplay.desktop:2
 msgid "Aviplay"
-msgstr ""
+msgstr "Aviplay"
 
 #. GenericName
 #: Multimedia/aviplay.desktop:3
@@ -1169,7 +1169,7 @@ msgstr "Reprodutor de vídeos AVI"
 #. Name
 #: Multimedia/bcast2000.desktop:2
 msgid "Broadcast 2000"
-msgstr ""
+msgstr "Broadcast 2000"
 
 #. GenericName
 #: Multimedia/bcast2000.desktop:3
@@ -1179,7 +1179,7 @@ msgstr "IDE para Áudio e Vídeo"
 #. Name
 #: Multimedia/enjoympeg.desktop:2
 msgid "EnjoyMPEG"
-msgstr ""
+msgstr "EnjoyMPEG"
 
 #. GenericName
 #: Multimedia/enjoympeg.desktop:3 Multimedia/gtv.desktop:3
@@ -1189,12 +1189,12 @@ msgstr "Reprodutor de MPEG"
 #. Name
 #: Multimedia/gtv.desktop:2
 msgid "GTV"
-msgstr ""
+msgstr "GTV"
 
 #. Name
 #: Multimedia/jazz.desktop:2
 msgid "Jazz"
-msgstr ""
+msgstr "Jazz"
 
 #. GenericName
 #: Multimedia/jazz.desktop:3
@@ -1209,12 +1209,12 @@ msgstr "Reprodutor de MPEG"
 #. Name
 #: Multimedia/mtv.desktop:2
 msgid "MpegTV"
-msgstr ""
+msgstr "MpegTV"
 
 #. Name
 #: Multimedia/ogle.desktop:2
 msgid "Ogle"
-msgstr ""
+msgstr "Ogle"
 
 #. GenericName
 #: Multimedia/ogle.desktop:3
@@ -1239,12 +1239,12 @@ msgstr "Reprodutor de vídeos"
 #. Name
 #: Multimedia/rezound.desktop:2
 msgid "reZound"
-msgstr ""
+msgstr "reZound"
 
 #. Name
 #: Multimedia/slab.desktop:2
 msgid "Slab"
-msgstr ""
+msgstr "Slab"
 
 #. GenericName
 #: Multimedia/slab.desktop:3
@@ -1254,12 +1254,12 @@ msgstr "Gravador de Áudio"
 #. Name
 #: Multimedia/sweep.desktop:2
 msgid "Sweep"
-msgstr ""
+msgstr "Sweep"
 
 #. Name
 #: Multimedia/xawtv.desktop:2
 msgid "XawTV"
-msgstr ""
+msgstr "XawTV"
 
 #. GenericName
 #: Multimedia/xawtv.desktop:3
@@ -1269,7 +1269,7 @@ msgstr "Assista TV!"
 #. Name
 #: Multimedia/xcam.desktop:2
 msgid "XCam"
-msgstr ""
+msgstr "XCam"
 
 #. GenericName
 #: Multimedia/xcam.desktop:3
@@ -1279,7 +1279,7 @@ msgstr "Programa para Câmera"
 #. Name
 #: Multimedia/xine.desktop:2
 msgid "Xine"
-msgstr ""
+msgstr "Xine"
 
 #. Name
 #: Multimedia/xmms-enqueue.desktop:2
@@ -1294,7 +1294,7 @@ msgstr "Lista de reprodução"
 #. Name
 #: Multimedia/xmms.desktop:2
 msgid "XMMS"
-msgstr ""
+msgstr "XMMS"
 
 #. GenericName
 #: Multimedia/xmms.desktop:3
@@ -1304,7 +1304,7 @@ msgstr "Reprodutor multimídia"
 #. Name
 #: Office/Applix.desktop:2
 msgid "Applix"
-msgstr ""
+msgstr "Applix"
 
 #. GenericName
 #: Office/Applix.desktop:3
@@ -1314,7 +1314,7 @@ msgstr "Suíte Office"
 #. Name
 #: Office/Dia.desktop:2
 msgid "Dia"
-msgstr ""
+msgstr "Dia"
 
 #. GenericName
 #: Office/Dia.desktop:3 Office/Guppi.desktop:3
@@ -1334,7 +1334,7 @@ msgstr "Calendário Pessoal"
 #. Name
 #: Office/Gnome-Card.desktop:2
 msgid "GNOME-Card"
-msgstr ""
+msgstr "GNOME-Card"
 
 #. GenericName
 #: Office/Gnome-Card.desktop:3
@@ -1349,7 +1349,7 @@ msgstr "Contador de Tempo do GNOME"
 #. Name
 #: Office/Gnumeric.desktop:2
 msgid "Gnumeric"
-msgstr ""
+msgstr "Gnumeric"
 
 #. GenericName
 #: Office/Gnumeric.desktop:3 Office/XsLite.desktop:3
@@ -1359,12 +1359,12 @@ msgstr "Planilha de cálculo"
 #. Name
 #: Office/Guppi.desktop:2
 msgid "Guppi"
-msgstr ""
+msgstr "Guppi"
 
 #. Name
 #: Office/Ical.desktop:2
 msgid "Ical"
-msgstr ""
+msgstr "Ical"
 
 #. GenericName
 #: Office/Ical.desktop:3
@@ -1374,7 +1374,7 @@ msgstr "Calendário"
 #. Name
 #: Office/WordPerfect.desktop:2
 msgid "WordPerfect"
-msgstr ""
+msgstr "WordPerfect"
 
 #. GenericName
 #: Office/WordPerfect.desktop:3 Office/WordPerfect2000.desktop:3
@@ -1385,12 +1385,12 @@ msgstr "Processador de Texto"
 #. Name
 #: Office/WordPerfect2000.desktop:2
 msgid "WordPerfect 2000"
-msgstr ""
+msgstr "WordPerfect 2000"
 
 #. Name
 #: Office/XAcc.desktop:2
 msgid "xacc"
-msgstr ""
+msgstr "xacc"
 
 #. GenericName
 #: Office/XAcc.desktop:3
@@ -1400,17 +1400,17 @@ msgstr "Ferramenta de Contabilidade Pessoal"
 #. Name
 #: Office/XsLite.desktop:2
 msgid "XsLite"
-msgstr ""
+msgstr "XsLite"
 
 #. Name
 #: Office/abiword.desktop:2
 msgid "AbiWord"
-msgstr ""
+msgstr "AbiWord"
 
 #. Name
 #: Office/acroread.desktop:2
 msgid "Acrobat Reader"
-msgstr ""
+msgstr "Acrobat Reader"
 
 #. GenericName
 #: Office/acroread.desktop:3 Office/xpdf.desktop:3
@@ -1420,7 +1420,7 @@ msgstr "Visualizador de arquivos PDF"
 #. Name
 #: Office/gnucash.desktop:2
 msgid "GnuCash"
-msgstr ""
+msgstr "GnuCash"
 
 #. GenericName
 #: Office/gnucash.desktop:3
@@ -1430,12 +1430,12 @@ msgstr "Gerenciador de Finanças"
 #. Name
 #: Office/lyx.desktop:2
 msgid "LyX"
-msgstr ""
+msgstr "LyX"
 
 #. Name
 #: Office/mrproject.desktop:2
 msgid "MrProject"
-msgstr ""
+msgstr "MrProject"
 
 #. GenericName
 #: Office/mrproject.desktop:3
@@ -1450,7 +1450,7 @@ msgstr "Livro de endereços do Netscape"
 #. Name
 #: Office/plan.desktop:2
 msgid "Plan"
-msgstr ""
+msgstr "Plan"
 
 #. GenericName
 #: Office/plan.desktop:3
@@ -1470,7 +1470,7 @@ msgstr "Banco de dados bibliográficos"
 #. Name
 #: Office/scribus.desktop:2
 msgid "Scribus"
-msgstr ""
+msgstr "Scribus"
 
 #. GenericName
 #: Office/scribus.desktop:3
@@ -1480,7 +1480,7 @@ msgstr "Publicidade"
 #. Name
 #: Office/xpdf.desktop:2
 msgid "X PDF"
-msgstr ""
+msgstr "X PDF"
 
 #. Name
 #: System/Terminal/aterm.desktop:2
@@ -1495,7 +1495,7 @@ msgstr "Terminal"
 #. Name
 #: System/Terminal/procinfo.desktop:2
 msgid "Procinfo"
-msgstr ""
+msgstr "Procinfo"
 
 #. GenericName
 #: System/Terminal/procinfo.desktop:3
@@ -1505,7 +1505,7 @@ msgstr "Informações sobre processos do sistema"
 #. Name
 #: System/Terminal/rxvt.desktop:2
 msgid "RXVT"
-msgstr ""
+msgstr "RXVT"
 
 #. GenericName
 #: System/Terminal/rxvt.desktop:3
@@ -1515,7 +1515,7 @@ msgstr "Terminal Virtual Estendido"
 #. Name
 #: System/Terminal/vmstat.desktop:2
 msgid "Vmstat"
-msgstr ""
+msgstr "Vmstat"
 
 #. GenericName
 #: System/Terminal/vmstat.desktop:3
@@ -1535,7 +1535,7 @@ msgstr "Cliente WTS"
 #. Name
 #: System/editres.desktop:2
 msgid "EditXRes"
-msgstr ""
+msgstr "EditXRes"
 
 #. GenericName
 #: System/editres.desktop:3
@@ -1550,7 +1550,7 @@ msgstr "SAM Administração do Sistema"
 #. Name
 #: System/wine.desktop:2
 msgid "Wine"
-msgstr ""
+msgstr "Wine"
 
 #. GenericName
 #: System/wine.desktop:3
@@ -1560,7 +1560,7 @@ msgstr "Executar Programas do Windows"
 #. Name
 #: System/xosview.desktop:2
 msgid "X osview"
-msgstr ""
+msgstr "X osview"
 
 #. GenericName
 #: System/xosview.desktop:3
@@ -1570,7 +1570,7 @@ msgstr "Monitor do sistema"
 #. Name
 #: Utilities/Editors/emacs.desktop:2
 msgid "Emacs"
-msgstr ""
+msgstr "Emacs"
 
 #. GenericName
 #: Utilities/Editors/emacs.desktop:3 Utilities/Editors/gedit.desktop:3
@@ -1594,22 +1594,22 @@ msgstr "Vi melhorado"
 #. Name
 #: Utilities/Editors/lemacs.desktop:2
 msgid "Lucid Emacs"
-msgstr ""
+msgstr "Lucid Emacs"
 
 #. Name
 #: Utilities/Editors/nano.desktop:2
 msgid "Nano"
-msgstr ""
+msgstr "Nano"
 
 #. Name
 #: Utilities/Editors/nedit.desktop:2
 msgid "Nedit"
-msgstr ""
+msgstr "Nedit"
 
 #. Name
 #: Utilities/Editors/pico.desktop:2
 msgid "Pico"
-msgstr ""
+msgstr "Pico"
 
 #. Name
 #: Utilities/Editors/xedit.desktop:2
@@ -1619,12 +1619,12 @@ msgstr "Editor X"
 #. Name
 #: Utilities/Editors/xemacs.desktop:2
 msgid "X Emacs"
-msgstr ""
+msgstr "X Emacs"
 
 #. Name
 #: Utilities/GKrellM.desktop:2
 msgid "GKrellM"
-msgstr ""
+msgstr "GKrellM"
 
 #. GenericName
 #: Utilities/GKrellM.desktop:3
@@ -1654,7 +1654,7 @@ msgstr "Visualizador de Logs do Sistema"
 #. Name
 #: Utilities/XUtilities/Xkill.desktop:2
 msgid "X Kill"
-msgstr ""
+msgstr "X Kill"
 
 #. GenericName
 #: Utilities/XUtilities/Xkill.desktop:3
@@ -1674,7 +1674,7 @@ msgstr "Atualização de Tela"
 #. Name
 #: Utilities/XUtilities/Xtraceroute.desktop:2
 msgid "X Traceroute"
-msgstr ""
+msgstr "X Traceroute"
 
 #. GenericName
 #: Utilities/XUtilities/Xtraceroute.desktop:3
@@ -1684,7 +1684,7 @@ msgstr "Ferramenta de rede"
 #. Name
 #: Utilities/XUtilities/xcalc.desktop:2
 msgid "X Calc"
-msgstr ""
+msgstr "X Calc"
 
 #. GenericName
 #: Utilities/XUtilities/xcalc.desktop:3 Utilities/calctool.desktop:3
@@ -1714,7 +1714,7 @@ msgstr "Relógio"
 #. Name
 #: Utilities/XUtilities/xconsole.desktop:2
 msgid "X Console"
-msgstr ""
+msgstr "X Console"
 
 #. GenericName
 #: Utilities/XUtilities/xconsole.desktop:3
@@ -1724,7 +1724,7 @@ msgstr "Visualizador de Mensagens do Console"
 #. Name
 #: Utilities/XUtilities/xload.desktop:2
 msgid "X Load"
-msgstr ""
+msgstr "X Load"
 
 #. GenericName
 #: Utilities/XUtilities/xload.desktop:3
@@ -1754,7 +1754,7 @@ msgstr "Calculadora"
 #. Name
 #: Utilities/e-notes.desktop:2
 msgid "E-Notes"
-msgstr ""
+msgstr "E-Notes"
 
 #. GenericName
 #: Utilities/e-notes.desktop:3
@@ -1769,7 +1769,7 @@ msgstr "Relógio"
 #. Name
 #: Utilities/xgnokii.desktop:2
 msgid "X-Gnokii"
-msgstr ""
+msgstr "X-Gnokii"
 
 #. GenericName
 #: Utilities/xgnokii.desktop:3
