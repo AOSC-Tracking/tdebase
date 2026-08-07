@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-07 17:51+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/tdm-sessions/pt_BR/>\n"
@@ -144,7 +144,7 @@ msgstr ""
 #. Name
 #: ctwm.desktop:6
 msgid "CTWM"
-msgstr ""
+msgstr "CTWM"
 
 #. Comment
 #: ctwm.desktop:8
@@ -156,7 +156,7 @@ msgstr ""
 #. Name
 #: cwwm.desktop:6
 msgid "CWWM"
-msgstr ""
+msgstr "CWWM"
 
 #. Comment
 #: cwwm.desktop:8
@@ -168,7 +168,7 @@ msgstr ""
 #. Name
 #: enlightenment.desktop:6
 msgid "Enlightenment"
-msgstr ""
+msgstr "Enlightenment"
 
 #. Comment
 #: enlightenment.desktop:8
@@ -180,7 +180,7 @@ msgstr ""
 #. Name
 #: evilwm.desktop:6
 msgid "EvilWM"
-msgstr ""
+msgstr "EvilWM"
 
 #. Comment
 #: evilwm.desktop:8
@@ -190,7 +190,7 @@ msgstr "Um gerenciador de janelas minimalista baseado no AEWM"
 #. Name
 #: fluxbox.desktop:6
 msgid "Fluxbox"
-msgstr ""
+msgstr "Fluxbox"
 
 #. Comment
 #: fluxbox.desktop:8
@@ -202,7 +202,7 @@ msgstr ""
 #. Name
 #: flwm.desktop:6
 msgid "FLWM"
-msgstr ""
+msgstr "FLWM"
 
 #. Comment
 #: flwm.desktop:8
@@ -214,7 +214,7 @@ msgstr ""
 #. Name
 #: fvwm.desktop:6
 msgid "FVWM"
-msgstr ""
+msgstr "FVWM"
 
 #. Comment
 #: fvwm.desktop:8 fvwm2.desktop:8
@@ -226,12 +226,12 @@ msgstr ""
 #. Name
 #: fvwm2.desktop:6
 msgid "FVWM2"
-msgstr ""
+msgstr "FVWM2"
 
 #. Name
 #: fvwm95.desktop:6
 msgid "FVWM95"
-msgstr ""
+msgstr "FVWM95"
 
 #. Comment
 #: fvwm95.desktop:8
@@ -241,7 +241,7 @@ msgstr "Um derivado do FVWM com a aparência do Windows 95"
 #. Name
 #: gnome.desktop:6
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #. Comment
 #: gnome.desktop:8
@@ -255,7 +255,7 @@ msgstr ""
 #. Name
 #: golem.desktop:6
 msgid "Golem"
-msgstr ""
+msgstr "Golem"
 
 #. Comment
 #: golem.desktop:8
@@ -265,7 +265,7 @@ msgstr "Um gerenciador de janelas leve"
 #. Name
 #: icewm.desktop:6
 msgid "IceWM"
-msgstr ""
+msgstr "IceWM"
 
 #. Comment
 #: icewm.desktop:8
@@ -275,7 +275,7 @@ msgstr "Um gerenciador de janelas parecido com Windows 95-OS/2-Motif"
 #. Name
 #: ion.desktop:6
 msgid "Ion"
-msgstr ""
+msgstr "Ion"
 
 #. Comment
 #: ion.desktop:8
@@ -307,7 +307,7 @@ msgstr "O ambiente de trabalho feito pelo KDE"
 #. Name
 #: larswm.desktop:6
 msgid "LarsWM"
-msgstr ""
+msgstr "LarsWM"
 
 #. Comment
 #: larswm.desktop:8
@@ -319,7 +319,7 @@ msgstr ""
 #. Name
 #: lwm.desktop:6
 msgid "LWM"
-msgstr ""
+msgstr "LWM"
 
 #. Comment
 #: lwm.desktop:8
@@ -329,7 +329,7 @@ msgstr "Um gerenciador de janelas leve, sendo básico e não muito configurável
 #. Name
 #: matchbox.desktop:6
 msgid "Matchbox"
-msgstr ""
+msgstr "Matchbox"
 
 #. Comment
 #: matchbox.desktop:8
@@ -339,7 +339,7 @@ msgstr "Um gerenciador de janelas para dispositivos handheld"
 #. Name
 #: metacity.desktop:6
 msgid "Metacity"
-msgstr ""
+msgstr "Metacity"
 
 #. Comment
 #: metacity.desktop:8
@@ -349,7 +349,7 @@ msgstr "Um gerenciador de Janelas leve baseado em GTK2"
 #. Name
 #: mwm.desktop:6
 msgid "MWM"
-msgstr ""
+msgstr "MWM"
 
 #. Comment
 #: mwm.desktop:8
@@ -359,7 +359,7 @@ msgstr "O gerenciador de janelas Motif"
 #. Name
 #: olvwm.desktop:6
 msgid "OLVWM"
-msgstr ""
+msgstr "OLVWM"
 
 #. Comment
 #: olvwm.desktop:8
@@ -373,7 +373,7 @@ msgstr ""
 #. Name
 #: olwm.desktop:6
 msgid "OLWM"
-msgstr ""
+msgstr "OLWM"
 
 #. Comment
 #: olwm.desktop:8
@@ -383,7 +383,7 @@ msgstr "O tradicional Open Look Window Manager"
 #. Name
 #: openbox.desktop:6
 msgid "Openbox"
-msgstr ""
+msgstr "Openbox"
 
 #. Comment
 #: openbox.desktop:8
@@ -393,7 +393,7 @@ msgstr "Um gerenciador de janelas leve, baseado no Blackbox"
 #. Name
 #: oroborus.desktop:6
 msgid "Oroborus"
-msgstr ""
+msgstr "Oroborus"
 
 #. Comment
 #: oroborus.desktop:8
@@ -403,7 +403,7 @@ msgstr "Um gerenciador de Janelas leve com vários temas"
 #. Name
 #: phluid.desktop:6
 msgid "Phluid"
-msgstr ""
+msgstr "Phluid"
 
 #. Comment
 #: phluid.desktop:8
@@ -413,7 +413,7 @@ msgstr "Um gerenciador de janelas baseado na lmlib2"
 #. Name
 #: pwm.desktop:6
 msgid "PWM"
-msgstr ""
+msgstr "PWM"
 
 #. Comment
 #: pwm.desktop:8
@@ -426,7 +426,7 @@ msgstr ""
 #. Name
 #: qvwm.desktop:6
 msgid "QVWM"
-msgstr ""
+msgstr "QVWM"
 
 #. Comment
 #: qvwm.desktop:8
@@ -436,7 +436,7 @@ msgstr "Um gerenciador de janelas parecido com o Windows 95"
 #. Name
 #: ratpoison.desktop:6
 msgid "Ratpoison"
-msgstr ""
+msgstr "Ratpoison"
 
 #. Comment
 #: ratpoison.desktop:8
@@ -448,7 +448,7 @@ msgstr ""
 #. Name
 #: sapphire.desktop:6
 msgid "Sapphire"
-msgstr ""
+msgstr "Sapphire"
 
 #. Comment
 #: sapphire.desktop:8
@@ -458,7 +458,7 @@ msgstr "Um gerenciador de janelas mínimo, mas configurável"
 #. Name
 #: sawfish.desktop:6
 msgid "Sawfish"
-msgstr ""
+msgstr "Sawfish"
 
 #. Comment
 #: sawfish.desktop:8
@@ -471,7 +471,7 @@ msgstr ""
 #. Name
 #: twm.desktop:6
 msgid "TWM"
-msgstr ""
+msgstr "TWM"
 
 #. Comment
 #: twm.desktop:8
@@ -481,7 +481,7 @@ msgstr "O Gerenciador de Janelas de Abas"
 #. Name
 #: ude.desktop:6
 msgid "UDE"
-msgstr ""
+msgstr "UDE"
 
 #. Comment
 #: ude.desktop:8
@@ -491,7 +491,7 @@ msgstr "Ambiente de Trabalho do UNIX"
 #. Name
 #: vtwm.desktop:6
 msgid "VTWM"
-msgstr ""
+msgstr "VTWM"
 
 #. Comment
 #: vtwm.desktop:8
@@ -503,7 +503,7 @@ msgstr ""
 #. Name
 #: w9wm.desktop:6
 msgid "W9WM"
-msgstr ""
+msgstr "W9WM"
 
 #. Comment
 #: w9wm.desktop:8
@@ -517,7 +517,7 @@ msgstr ""
 #. Name
 #: waimea.desktop:6
 msgid "Waimea"
-msgstr ""
+msgstr "Waimea"
 
 #. Comment
 #: waimea.desktop:8
@@ -528,7 +528,7 @@ msgstr ""
 #. Name
 #: wm2.desktop:6
 msgid "WM2"
-msgstr ""
+msgstr "WM2"
 
 #. Comment
 #: wm2.desktop:8
@@ -537,7 +537,6 @@ msgstr "Um pequeno e não-configurável gerenciador de janelas"
 
 #. Name
 #: wmaker.desktop:6
-#, fuzzy
 msgid "WindowMaker"
 msgstr "O Gerenciador de Janelas de Abas"
 
@@ -549,7 +548,7 @@ msgstr "Um gerenciador de janelas simples, que lembra a aparência do NeXTStep"
 #. Name
 #: xfce.desktop:6
 msgid "XFce"
-msgstr ""
+msgstr "Xfce"
 
 #. Comment
 #: xfce.desktop:8
@@ -563,7 +562,7 @@ msgstr ""
 #. Name
 #: xfce4.desktop:6
 msgid "XFce 4"
-msgstr ""
+msgstr "Xfce 4"
 
 #. Comment
 #: xfce4.desktop:8
