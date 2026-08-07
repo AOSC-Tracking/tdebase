@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 18:11+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-07 17:51+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/color-schemes/pt_BR/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. Name
 #: AtlasGreen.kcsrc:3
 msgid "Atlas Green"
-msgstr "Atlas"
+msgstr "Atlas verde claro"
 
 #. Name
 #: BeOS.kcsrc:3
@@ -30,7 +30,7 @@ msgstr "BeOS"
 #. Name
 #: BlackOnWhite.kcsrc:2
 msgid "High Contrast Black Text"
-msgstr "Alto Contraste do Texto Preto"
+msgstr "Alto Contraste do texto preto"
 
 #. Name
 #: BlueSlate.kcsrc:3
@@ -50,17 +50,17 @@ msgstr "Azul escuro"
 #. Name
 #: DesertRed.kcsrc:3
 msgid "Desert Red"
-msgstr "Vermelho"
+msgstr "Vermelho Deserto"
 
 #. Name
 #: Different.kcsrc:2
 msgid "Different"
-msgstr "Different"
+msgstr "Diferente"
 
 #. Name
 #: DigitalCDE.kcsrc:3
 msgid "Digital CDE"
-msgstr "CDE Digital"
+msgstr "CDE digital"
 
 #. Name
 #: EveX.kcsrc:2
@@ -75,58 +75,57 @@ msgstr "Human"
 #. Name
 #: Jewels-Amethyst.kcsrc:2
 msgid "Jewels - Amethyst"
-msgstr "Jewels - Amethyst"
+msgstr "Jewels - Ametista"
 
 #. Name
 #: Jewels-Aquamarine.kcsrc:2
 msgid "Jewels - Aquamarine"
-msgstr "Jewels - Aquamarine"
+msgstr "Jewels - Água-marinha"
 
 #. Name
 #: Jewels-Carbon.kcsrc:2
 msgid "Jewels - Carbon"
-msgstr ""
+msgstr "Jewels - Carbono"
 
 #. Name
 #: Jewels-Citrin.kcsrc:2
 msgid "Jewels - Citrin"
-msgstr ""
+msgstr "Jewels - Citrino"
 
 #. Name
 #: Jewels-Emerald.kcsrc:2
 msgid "Jewels - Emerald"
-msgstr ""
+msgstr "Jewels - Esmeralda"
 
 #. Name
 #: Jewels-Ruby.kcsrc:2
 msgid "Jewels - Ruby"
-msgstr ""
+msgstr "Jewels - Rubi"
 
 #. Name
 #: Jewels-Sapphire.kcsrc:2
 msgid "Jewels - Sapphire"
-msgstr ""
+msgstr "Jewels - Safira"
 
 #. Name
 #: Jewels-Topaz.kcsrc:2
 msgid "Jewels - Topaz"
-msgstr ""
+msgstr "Jewels - Topázio"
 
 #. Name
 #: KDEOne.kcsrc:2
 msgid "KDE 1"
-msgstr ""
+msgstr "KDE 1"
 
 #. Name
 #: KDETwo.kcsrc:2
 msgid "KDE 2"
-msgstr ""
+msgstr "KDE 2"
 
 #. Name
 #: Keramik.kcsrc:2
-#, fuzzy
 msgid "Keramik"
-msgstr "Keramik Branco"
+msgstr "Keramik"
 
 #. Name
 #: KeramikEmerald.kcsrc:2
@@ -136,32 +135,32 @@ msgstr "Keramik Esmeralda"
 #. Name
 #: KeramikWhite.kcsrc:2
 msgid "Keramik White"
-msgstr "Keramik Branco"
+msgstr "Keramik branco"
 
 #. Name
 #: Last.fm.kcsrc:2
 msgid "Last.fm"
-msgstr ""
+msgstr "Last.fm"
 
 #. Name
 #: Lila.kcsrc:2
 msgid "Lila"
-msgstr ""
+msgstr "Lila"
 
 #. Name
 #: Lizard.kcsrc:2
 msgid "Lizard"
-msgstr ""
+msgstr "Lizard"
 
 #. Name
 #: MediaPeach.kcsrc:2
 msgid "Media Peach"
-msgstr "Pêssego"
+msgstr "Pêssego da mídia"
 
 #. Name
 #: Next.kcsrc:2
 msgid "Next"
-msgstr ""
+msgstr "Next"
 
 #. Name
 #: PaleGray.kcsrc:3
@@ -171,17 +170,17 @@ msgstr "Cinza"
 #. Name
 #: Pinkie.kcsrc:2
 msgid "Pinkie"
-msgstr ""
+msgstr "Pinkie"
 
 #. Name
 #: Plastik.kcsrc:2
 msgid "Plastik"
-msgstr ""
+msgstr "Plastik"
 
 #. Name
 #: Platinum.kcsrc:2
 msgid "Platinum"
-msgstr ""
+msgstr "Platinum"
 
 #. Name
 #: PointReyesGreen.kcsrc:2
@@ -196,32 +195,32 @@ msgstr "Abóbora"
 #. Name
 #: Seasons-Autumn.kcsrc:2
 msgid "Seasons - Autumn"
-msgstr ""
+msgstr "Estações - Outono"
 
 #. Name
 #: Seasons-Spring.kcsrc:2
 msgid "Seasons - Spring"
-msgstr ""
+msgstr "Estações – Primavera"
 
 #. Name
 #: Seasons-Summer.kcsrc:2
 msgid "Seasons - Summer"
-msgstr ""
+msgstr "Estações – Verão"
 
 #. Name
 #: Seasons-Winter.kcsrc:2
 msgid "Seasons - Winter"
-msgstr ""
+msgstr "Estações – Inverno"
 
 #. Name
 #: Sienna.kcsrc:2
 msgid "Sienna"
-msgstr ""
+msgstr "Sienna"
 
 #. Name
 #: SolarisCDE.kcsrc:2
 msgid "Solaris"
-msgstr ""
+msgstr "Solaris"
 
 #. Name
 #: Storm.kcsrc:3
@@ -236,7 +235,7 @@ msgstr "Sistema"
 #. Name
 #: WedgieWeb.kcsrc:2
 msgid "WedgieWeb"
-msgstr ""
+msgstr "WedgieWeb"
 
 #. Name
 #: WhiteOnBlack.kcsrc:2
@@ -246,17 +245,17 @@ msgstr "Alto Contraste do Texto Branco"
 #. Name
 #: Windows2000.kcsrc:2
 msgid "Redmond 2000"
-msgstr ""
+msgstr "Redmond 2000"
 
 #. Name
 #: Windows95.kcsrc:3
 msgid "Redmond 95"
-msgstr ""
+msgstr "Redmond 95"
 
 #. Name
 #: WindowsXP.kcsrc:2
 msgid "Redmond XP"
-msgstr ""
+msgstr "Redmond XP"
 
 #. Name
 #: YellowOnBlue.kcsrc:2
