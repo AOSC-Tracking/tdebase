@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-17 18:15+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-07 06:36+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kdesktop-desktop-files/pt_BR/>\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. Name
 #: kdesktop.desktop.cmake:10
 msgid "TDE Desktop"
-msgstr "Área de Trabalho TDE"
+msgstr "Área de trabalho TDE"
 
 #. X-TDE-Submenu
 #: kdesktopSetAsBackground.desktop:4
 msgid "Set as Background"
-msgstr "Configurar como Plano de fundo"
+msgstr "Configurar como plano de fundo"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:7
@@ -40,46 +40,42 @@ msgstr "Ladrilhado"
 #. Name
 #: kdesktopSetAsBackground.desktop:17
 msgid "Center Tiled"
-msgstr "Centralizado"
+msgstr "Centralizado com repetição em mosaico"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:22
-#, fuzzy
-#| msgid "Centered"
 msgid "Centered Maxpect"
 msgstr "Centralizado"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:27
 msgid "Tiled Maxpect"
-msgstr ""
+msgstr "Mosaico"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:32
 msgid "Scaled"
-msgstr ""
+msgstr "Dimensionado"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:37
-#, fuzzy
-#| msgid "Centered"
 msgid "Centered Auto Fit"
-msgstr "Centralizado"
+msgstr "Centralizar e ajustar automaticamente"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:42
 msgid "Scale & Crop"
-msgstr ""
+msgstr "Escalar e cortar"
 
 #. Comment
 #: kwebdesktop/kwebdesktop.desktop:2
 msgid "TDE Web Desktop"
-msgstr "Área de Trabalho Web do TDE"
+msgstr "Área de trabalho web do TDE"
 
 #. Comment
 #: patterns/fish.desktop:2
 msgid "Fish Net"
-msgstr ""
+msgstr "Rede de pesca"
 
 #. Comment
 #: patterns/flowers.desktop:2
@@ -89,7 +85,7 @@ msgstr "Flores"
 #. Comment
 #: patterns/night-rock.desktop:2
 msgid "Night Rock by Tigert"
-msgstr "Night Rock por Tigert"
+msgstr "Rocha noturna por Tigert"
 
 #. Comment
 #: patterns/pavement.desktop:2
@@ -99,12 +95,12 @@ msgstr "Pavimento"
 #. Comment
 #: patterns/rattan.desktop:2
 msgid "Rattan"
-msgstr ""
+msgstr "Rotim"
 
 #. Comment
 #: patterns/stonewall2.desktop:2
 msgid "Stonewall 2 by Tigert"
-msgstr "Stonewall 2 por Tigert"
+msgstr "Parede de pedra 2 por Tigert"
 
 #. Comment
 #: patterns/triangles.desktop:2
