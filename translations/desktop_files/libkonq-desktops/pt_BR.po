@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-22 18:52+0200\n"
-"PO-Revision-Date: 2026-08-02 22:22+0000\n"
+"PO-Revision-Date: 2026-08-12 20:57+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/libkonq-desktop-files/pt_BR/>\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. Name
 #: directory_bookmarkbar.desktop:3
 msgid "Bookmark Toolbar"
-msgstr "Barra de Ferramenta de Favoritos"
+msgstr "Barra de ferramenta de favoritos"
 
 #. Name
 #: favicons/favicons.desktop:3
 msgid "KDED Favicon Module"
-msgstr "Módulo Favicon do KDED"
+msgstr "Módulo favicon do KDED"
 
 #. Comment
 #: favicons/favicons.desktop:4
@@ -35,7 +35,7 @@ msgstr "Suporte ao ícone de atalho"
 #. Comment
 #: konqpopupmenuplugin.desktop:4
 msgid "Plugin for the Konqueror Popup Menu"
-msgstr "Plug-in do Konqueror para Menus Flutuantes"
+msgstr "Plug-in do Konqueror para menus flutuantes"
 
 #. Name
 #: servicemenus/edit-as-root.desktop:6
