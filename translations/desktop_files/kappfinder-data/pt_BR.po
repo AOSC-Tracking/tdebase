@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2026-08-07 17:51+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kappfinder-data/pt_BR/>\n"
@@ -35,7 +35,7 @@ msgstr "Assistente Qt"
 #. GenericName
 #: Development/assistant.desktop:3
 msgid "Document Browser"
-msgstr "Navegador de Documentos"
+msgstr "Navegador de documentos"
 
 #. Name
 #: Development/ddd.desktop:2
@@ -45,7 +45,7 @@ msgstr "DDD"
 #. GenericName
 #: Development/ddd.desktop:3
 msgid "Data Display Debugger"
-msgstr "Depurador de Dados"
+msgstr "Depurador de dados"
 
 #. Name
 #: Development/designer.desktop:2
@@ -80,7 +80,7 @@ msgstr "IDE Eclipse"
 #. Name
 #: Development/fdesign.desktop:2
 msgid "FormDesigner"
-msgstr "Criador de Formulários"
+msgstr "Criador de formulários"
 
 #. Name
 #: Development/j2mewtk.desktop:2
@@ -90,7 +90,7 @@ msgstr "J2ME"
 #. GenericName
 #: Development/j2mewtk.desktop:3
 msgid "J2ME Toolkit"
-msgstr "J2ME Toolkit"
+msgstr "Kit de ferramentas J2ME"
 
 #. Name
 #: Development/linguist.desktop:2
@@ -100,7 +100,7 @@ msgstr "Qt Linguist"
 #. GenericName
 #: Development/linguist.desktop:3
 msgid "Translation Tool"
-msgstr "Ferramenta de Tradução"
+msgstr "Ferramenta de tradução"
 
 #. Name
 #: Development/pose.desktop:2
@@ -211,7 +211,7 @@ msgstr "Uma versão de código aberto de Marathon Infinity para SDL"
 #. Name
 #: Games/Arcade/alephone.desktop:2
 msgid "Alephone - No OpenGL"
-msgstr "Alephone - Sem OpenGL"
+msgstr "Alephone - sem OpenGL"
 
 #. Comment
 #: Games/Arcade/alephone.desktop:3
@@ -279,7 +279,7 @@ msgstr "Mahjongg do GNOME"
 #. GenericName
 #: Games/Board/Gmahjongg.desktop:3
 msgid "Tile Game"
-msgstr "Jogo de Ladrilhos"
+msgstr "Jogo de ladrilhos"
 
 #. Name
 #: Games/Board/Gmines.desktop:2
@@ -376,7 +376,7 @@ msgstr "Clanbomber"
 #. Name
 #: Games/Emulators/cmail.desktop:2
 msgid "ChessMail"
-msgstr "Xadrez por E-mail"
+msgstr "Xadrez por e-mail"
 
 #. GenericName
 #: Games/Emulators/cmail.desktop:3
@@ -441,7 +441,7 @@ msgstr "Rogue"
 #. GenericName
 #: Games/Roguelikes/rogue.desktop:3
 msgid "The Original"
-msgstr "O Original"
+msgstr "O original"
 
 #. Name
 #: Games/Roguelikes/tome.desktop:2
@@ -531,7 +531,7 @@ msgstr "Electric Eyes"
 #. GenericName
 #: Graphics/ElectricEyes.desktop:3
 msgid "Image Viewer"
-msgstr "Visualizador de Imagens"
+msgstr "Visualizador de imagens"
 
 #. Name
 #: Graphics/GPhoto.desktop:2
@@ -541,17 +541,17 @@ msgstr "GPhoto"
 #. GenericName
 #: Graphics/GPhoto.desktop:3
 msgid "Digital Camera Program"
-msgstr "Programa de Câmera Digital"
+msgstr "Programa de câmera digital"
 
 #. Name
 #: Graphics/GnomeColorSelector.desktop:2
 msgid "GNOME Color Selector"
-msgstr "Seletor de Cores do GNOME"
+msgstr "Seletor de cores do GNOME"
 
 #. Name
 #: Graphics/GnomeIconEditor.desktop:2
 msgid "GNOME Icon Editor"
-msgstr "Editor de Ícones do GNOME"
+msgstr "Editor de ícones do GNOME"
 
 #. Name
 #: Graphics/Gqview.desktop:2
@@ -561,7 +561,7 @@ msgstr "Gqview"
 #. GenericName
 #: Graphics/Gqview.desktop:3
 msgid "Image Browser"
-msgstr "Navegador de Imagens"
+msgstr "Navegador de imagens"
 
 #. Name
 #: Graphics/Sketch.desktop:2
@@ -571,7 +571,7 @@ msgstr "Sketch"
 #. GenericName
 #: Graphics/Sketch.desktop:3
 msgid "Vector-based Drawing Program"
-msgstr "Programa de Desenho Vetorial"
+msgstr "Programa de desenho Vetorial"
 
 #. Name
 #: Graphics/Xpcd.desktop:2
@@ -591,7 +591,7 @@ msgstr "Xwpick"
 #. GenericName
 #: Graphics/Xwpick.desktop:3
 msgid "Screen Capture Program"
-msgstr "Programa de Captura de tela"
+msgstr "Programa de captura de tela"
 
 #. Name
 #: Graphics/bitmap.desktop:2
@@ -611,7 +611,7 @@ msgstr "Blender"
 #. GenericName
 #: Graphics/blender.desktop:3
 msgid "3D Modeler/Renderer"
-msgstr "Modelador/Renderizador 3D"
+msgstr "Modelador/renderizador 3D"
 
 #. Name
 #: Graphics/ghostview.desktop:2
@@ -621,7 +621,7 @@ msgstr "GhostView"
 #. GenericName
 #: Graphics/ghostview.desktop:3
 msgid "PostScript Viewer"
-msgstr "Visualizador de arquivos PostScript "
+msgstr "Visualizador de arquivos PostScript"
 
 #. Name
 #: Graphics/gimp.desktop:2
@@ -631,7 +631,7 @@ msgstr "Gimp"
 #. GenericName
 #: Graphics/gimp.desktop:3
 msgid "Image Manipulation Program"
-msgstr "Programa de Manipulação de imagens"
+msgstr "Programa de manipulação de imagens"
 
 #. Name
 #: Graphics/gv.desktop:2
@@ -666,7 +666,7 @@ msgstr "TGif"
 #. GenericName
 #: Graphics/tgif.desktop:3 Graphics/xfig.desktop:3
 msgid "Drawing Program"
-msgstr "Programa de Desenho"
+msgstr "Programa de desenho"
 
 #. Name
 #: Graphics/xdvi.desktop:2
@@ -701,7 +701,7 @@ msgstr "XV"
 #. GenericName
 #: Graphics/xv.desktop:3
 msgid "Picture Viewer"
-msgstr "Visualizador de Imagens"
+msgstr "Visualizador de imagens"
 
 #. Name
 #: Internet/BlueFish.desktop:2
@@ -731,7 +731,7 @@ msgstr "DrakSync"
 #. GenericName
 #: Internet/DrakSync.desktop:3
 msgid "Folder Synchronization"
-msgstr "Sincronização de Pastas"
+msgstr "Sincronização de pastas"
 
 #. Name
 #: Internet/Evolution.desktop:2
@@ -744,7 +744,7 @@ msgstr "Evolution"
 #: Internet/Terminal/pine.desktop:3 Internet/balsa.desktop:3
 #: Internet/mozilla-thunderbird.desktop:3 Internet/xfmail.desktop:3
 msgid "Mail Client"
-msgstr "Cliente de E-mail"
+msgstr "Cliente de e-mail"
 
 #. Name
 #: Internet/Faces.desktop:2
@@ -755,12 +755,12 @@ msgstr "Faces"
 #: Internet/Faces.desktop:3 Internet/coolmail.desktop:3
 #: Internet/xbiff.desktop:3
 msgid "Mail Alert"
-msgstr "Alerta de Correio"
+msgstr "Alerta de correio"
 
 #. Name
 #: Internet/Fetchmailconf.desktop:2
 msgid "Fetchmailconf"
-msgstr "Configuração do Fetchmail"
+msgstr "Fetchmailconf"
 
 #. GenericName
 #: Internet/Fetchmailconf.desktop:3
@@ -775,7 +775,7 @@ msgstr "Gabber"
 #. GenericName
 #: Internet/Gabber.desktop:3 Internet/gaim.desktop:3
 msgid "Instant Messenger"
-msgstr "Mensageiro Instantâneo"
+msgstr "Mensageiro instantâneo"
 
 #. Name
 #: Internet/Galeon.desktop:2
@@ -790,7 +790,7 @@ msgstr "Galeon"
 #: Internet/netscape.desktop:3 Internet/netscape6.desktop:3
 #: Internet/opera.desktop:3
 msgid "Web Browser"
-msgstr "Navegador Web"
+msgstr "Navegador web"
 
 #. Name
 #: Internet/GnomeICU.desktop:2
@@ -805,7 +805,7 @@ msgstr "ICQ"
 #. Name
 #: Internet/Netscapemessenger.desktop:2
 msgid "Netscape Messenger"
-msgstr "Mensageiro Instantâneo"
+msgstr "Mensageiro instantâneo"
 
 #. Name
 #: Internet/Nmapfe.desktop:2
@@ -815,7 +815,7 @@ msgstr "Nmapfe"
 #. GenericName
 #: Internet/Nmapfe.desktop:3
 msgid "Port Scanner"
-msgstr "Scanner de Portas"
+msgstr "Scanner de portas"
 
 #. Name
 #: Internet/Pan.desktop:2
@@ -825,7 +825,7 @@ msgstr "Pan"
 #. GenericName
 #: Internet/Pan.desktop:3 Internet/knews.desktop:3
 msgid "Usenet News Reader"
-msgstr "Leitor de Notícias Usenet"
+msgstr "Leitor de notícias Usenet"
 
 #. Name
 #: Internet/Sylpheed.desktop:2
@@ -896,7 +896,7 @@ msgstr "Slrn"
 #. GenericName
 #: Internet/Terminal/slrn.desktop:3
 msgid "News Reader"
-msgstr "Leitor de Notícias"
+msgstr "Leitor de notícias"
 
 #. Name
 #: Internet/Terminal/w3m.desktop:2
@@ -936,7 +936,7 @@ msgstr "Clone do Direct Connect"
 #. Name
 #: Internet/ed2k_gui.desktop:2
 msgid "eDonkey2000 GTK+ Core Controller"
-msgstr "Controlador Principal do eDonkey2000 GTK+"
+msgstr "Controlador principal do eDonkey2000 GTK+"
 
 #. GenericName
 #: Internet/ed2k_gui.desktop:3
@@ -981,7 +981,7 @@ msgstr "Vídeo-Conferência"
 #. Name
 #: Internet/gnometalk.desktop:2
 msgid "GNOME Talk"
-msgstr "Contador de Tempo do GNOME"
+msgstr "Contador de tempo do GNOME"
 
 #. Name
 #: Internet/gtelnet.desktop:2
@@ -991,7 +991,7 @@ msgstr "Jogo de Minas do GNOME"
 #. GenericName
 #: Internet/gtelnet.desktop:3
 msgid "Remote Access"
-msgstr "Acesso Remoto"
+msgstr "Acesso remoto"
 
 #. Name
 #: Internet/ickle.desktop:2
@@ -1021,7 +1021,7 @@ msgstr "Licq"
 #. Name
 #: Internet/mldonkey_gui.desktop:2
 msgid "MLDonkey GTK+ Core Controller"
-msgstr "Controlador Principal do MLDonkey GTK+"
+msgstr "Controlador principal do MLDonkey GTK+"
 
 #. GenericName
 #: Internet/mldonkey_gui.desktop:3
@@ -1046,7 +1046,7 @@ msgstr "Mozilla"
 #. Name
 #: Internet/netscape.desktop:2
 msgid "Netscape"
-msgstr "Netscape 6"
+msgstr "Netscape"
 
 #. Name
 #: Internet/netscape6.desktop:2
@@ -1071,12 +1071,12 @@ msgstr "X Biff"
 #. Name
 #: Internet/xchat.desktop:2
 msgid "XChat"
-msgstr "Cliente IRC"
+msgstr "XChat"
 
 #. GenericName
 #: Internet/xchat.desktop:3
 msgid "IRC Chat"
-msgstr "Cliente IRC"
+msgstr "Bate-papo IRC"
 
 #. Name
 #: Internet/xfmail.desktop:2
@@ -1096,7 +1096,7 @@ msgstr "Aumix"
 #. GenericName
 #: Multimedia/Aumix.desktop:3
 msgid "Audio Mixer"
-msgstr "Mixer de Áudio"
+msgstr "Mixer de áudio"
 
 #. Name
 #: Multimedia/Grip.desktop:2
@@ -1138,12 +1138,12 @@ msgstr "Visualizador de vídeo-texto"
 #. Name
 #: Multimedia/alsamixergui.desktop:2
 msgid "AlsaMixerGui"
-msgstr "Alsa Mixer"
+msgstr "Alsa mixer"
 
 #. GenericName
 #: Multimedia/alsamixergui.desktop:3
 msgid "Alsa Mixer Frontend"
-msgstr "Interface do Alsa Mixer"
+msgstr "Interface do Alsa mixer"
 
 #. Name
 #: Multimedia/audacity.desktop:2
@@ -1154,7 +1154,7 @@ msgstr "Audacity"
 #: Multimedia/audacity.desktop:3 Multimedia/rezound.desktop:3
 #: Multimedia/sweep.desktop:3
 msgid "Audio Editor"
-msgstr "Editor de Som"
+msgstr "Editor de som"
 
 #. Name
 #: Multimedia/aviplay.desktop:2
@@ -1174,7 +1174,7 @@ msgstr "Broadcast 2000"
 #. GenericName
 #: Multimedia/bcast2000.desktop:3
 msgid "Audio and Video IDE"
-msgstr "IDE para Áudio e Vídeo"
+msgstr "IDE para áudio e vídeo"
 
 #. Name
 #: Multimedia/enjoympeg.desktop:2
@@ -1199,7 +1199,7 @@ msgstr "Jazz"
 #. GenericName
 #: Multimedia/jazz.desktop:3
 msgid "Sound Processor"
-msgstr "Processador de Som"
+msgstr "Processador de som"
 
 #. Name
 #: Multimedia/mplayer.desktop:2
@@ -1224,7 +1224,7 @@ msgstr "Reprodutor de DVD"
 #. Name
 #: Multimedia/oqtplayer.desktop:2
 msgid "OQTPlayer"
-msgstr "Reprodutor de DVD"
+msgstr "OQTPlayer"
 
 #. GenericName
 #: Multimedia/oqtplayer.desktop:3
@@ -1234,7 +1234,7 @@ msgstr "Reprodutor de vídeos MOV"
 #. Name
 #: Multimedia/realplayer.desktop:2
 msgid "RealPlayer"
-msgstr "Reprodutor de vídeos"
+msgstr "RealPlayer"
 
 #. Name
 #: Multimedia/rezound.desktop:2
@@ -1249,7 +1249,7 @@ msgstr "Slab"
 #. GenericName
 #: Multimedia/slab.desktop:3
 msgid "Audio Recorder"
-msgstr "Gravador de Áudio"
+msgstr "Gravador de áudio"
 
 #. Name
 #: Multimedia/sweep.desktop:2
@@ -1274,7 +1274,7 @@ msgstr "XCam"
 #. GenericName
 #: Multimedia/xcam.desktop:3
 msgid "Camera Program"
-msgstr "Programa para Câmera"
+msgstr "Programa para câmera"
 
 #. Name
 #: Multimedia/xine.desktop:2
@@ -1329,7 +1329,7 @@ msgstr "Xadrez do GNOME"
 #. GenericName
 #: Office/Gnome-Cal.desktop:3
 msgid "Personal Calendar"
-msgstr "Calendário Pessoal"
+msgstr "Calendário pessoal"
 
 #. Name
 #: Office/Gnome-Card.desktop:2
@@ -1339,12 +1339,12 @@ msgstr "GNOME-Card"
 #. GenericName
 #: Office/Gnome-Card.desktop:3
 msgid "Contact Manager"
-msgstr "Gerenciador de Contatos"
+msgstr "Gerenciador de contatos"
 
 #. Name
 #: Office/GnomeTimeTracker.desktop:2
 msgid "GNOME Time Tracker"
-msgstr "Contador de Tempo do GNOME"
+msgstr "Contador de tempo do GNOME"
 
 #. Name
 #: Office/Gnumeric.desktop:2
@@ -1380,7 +1380,7 @@ msgstr "WordPerfect"
 #: Office/WordPerfect.desktop:3 Office/WordPerfect2000.desktop:3
 #: Office/abiword.desktop:3 Office/lyx.desktop:3
 msgid "Word Processor"
-msgstr "Processador de Texto"
+msgstr "Processador de texto"
 
 #. Name
 #: Office/WordPerfect2000.desktop:2
@@ -1395,7 +1395,7 @@ msgstr "xacc"
 #. GenericName
 #: Office/XAcc.desktop:3
 msgid "Personal Accounting Tool"
-msgstr "Ferramenta de Contabilidade Pessoal"
+msgstr "Ferramenta de Contabilidade pessoal"
 
 #. Name
 #: Office/XsLite.desktop:2
@@ -1460,7 +1460,7 @@ msgstr "Gerenciador de Calendários"
 #. Name
 #: Office/pybliographic.desktop:2
 msgid "Pybliographic"
-msgstr "Banco de dados bibliográficos"
+msgstr "Pybliographic"
 
 #. GenericName
 #: Office/pybliographic.desktop:3
@@ -1510,7 +1510,7 @@ msgstr "RXVT"
 #. GenericName
 #: System/Terminal/rxvt.desktop:3
 msgid "ouR eXtended Virtual Terminal"
-msgstr "Terminal Virtual Estendido"
+msgstr "Terminal virtual estendido"
 
 #. Name
 #: System/Terminal/vmstat.desktop:2
@@ -1520,7 +1520,7 @@ msgstr "Vmstat"
 #. GenericName
 #: System/Terminal/vmstat.desktop:3
 msgid "Virtual Memory Statistics"
-msgstr "Estatísticas sobre a Memória Virtual"
+msgstr "Estatísticas sobre a memória virtual"
 
 #. Name
 #: System/citrix_ica.desktop:2
@@ -1545,7 +1545,7 @@ msgstr "Editor de recursos do X"
 #. Name
 #: System/sam.desktop:2
 msgid "SAM System-Administration"
-msgstr "SAM Administração do Sistema"
+msgstr "SAM Administração do sistema"
 
 #. Name
 #: System/wine.desktop:2
@@ -1555,7 +1555,7 @@ msgstr "Wine"
 #. GenericName
 #: System/wine.desktop:3
 msgid "Run Windows Programs"
-msgstr "Executar Programas do Windows"
+msgstr "Executar programas do Windows"
 
 #. Name
 #: System/xosview.desktop:2
@@ -1579,7 +1579,7 @@ msgstr "Emacs"
 #: Utilities/Editors/pico.desktop:3 Utilities/Editors/xedit.desktop:3
 #: Utilities/Editors/xemacs.desktop:3
 msgid "Text Editor"
-msgstr "Editor de Texto"
+msgstr "Editor de texto"
 
 #. Name
 #: Utilities/Editors/gedit.desktop:2
@@ -1639,17 +1639,17 @@ msgstr "Xadrez do GNOME"
 #. GenericName
 #: Utilities/GnomeWho.desktop:3
 msgid "System Info Tool"
-msgstr "Ferramenta de Informação do sistema"
+msgstr "Ferramenta de informação do sistema"
 
 #. Name
 #: Utilities/SystemInfo.desktop:2
 msgid "System Info"
-msgstr "Informações do Sistema"
+msgstr "Informações do sistema"
 
 #. Name
 #: Utilities/SystemLogViewer.desktop:2
 msgid "System Log Viewer"
-msgstr "Visualizador de Logs do Sistema"
+msgstr "Visualizador de Logs do sistema"
 
 #. Name
 #: Utilities/XUtilities/Xkill.desktop:2
@@ -1659,17 +1659,17 @@ msgstr "X Kill"
 #. GenericName
 #: Utilities/XUtilities/Xkill.desktop:3
 msgid "Window Termination Tool"
-msgstr "Ferramenta de Finalização de Janelas"
+msgstr "Ferramenta de Finalização de janelas"
 
 #. Name
 #: Utilities/XUtilities/Xrefresh.desktop:2
 msgid "X Refresh"
-msgstr "Atualização de Tela"
+msgstr "X Refresh"
 
 #. GenericName
 #: Utilities/XUtilities/Xrefresh.desktop:3
 msgid "Refresh Screen"
-msgstr "Atualização de Tela"
+msgstr "Atualizar tela"
 
 #. Name
 #: Utilities/XUtilities/Xtraceroute.desktop:2
@@ -1694,12 +1694,12 @@ msgstr "Calculadora"
 #. Name
 #: Utilities/XUtilities/xclipboard.desktop:2
 msgid "X Clipboard"
-msgstr "Visualizador da Área de Transferência"
+msgstr "X Clipboard"
 
 #. GenericName
 #: Utilities/XUtilities/xclipboard.desktop:3
 msgid "Clipboard Viewer"
-msgstr "Visualizador da Área de Transferência"
+msgstr "Visualizador da área de transferência"
 
 #. Name
 #: Utilities/XUtilities/xclock.desktop:2
@@ -1719,7 +1719,7 @@ msgstr "X Console"
 #. GenericName
 #: Utilities/XUtilities/xconsole.desktop:3
 msgid "Console Message Viewer"
-msgstr "Visualizador de Mensagens do Console"
+msgstr "Visualizador de mensagens do console"
 
 #. Name
 #: Utilities/XUtilities/xload.desktop:2
@@ -1729,17 +1729,17 @@ msgstr "X Load"
 #. GenericName
 #: Utilities/XUtilities/xload.desktop:3
 msgid "Monitors System Load"
-msgstr "Monitora a Carga do Sistema"
+msgstr "Monitora a carga do sistema"
 
 #. Name
 #: Utilities/XUtilities/xmag.desktop:2
 msgid "X Magnifier"
-msgstr "Ampliador de Área de Trabalho"
+msgstr "X Magnifier"
 
 #. GenericName
 #: Utilities/XUtilities/xmag.desktop:3
 msgid "Desktop Magnifier"
-msgstr "Ampliador de Área de Trabalho"
+msgstr "Ampliador da área de trabalho"
 
 #. Name
 #: Utilities/XUtilities/xterm.desktop:2
@@ -1749,7 +1749,7 @@ msgstr "Terminal X"
 #. Name
 #: Utilities/calctool.desktop:2
 msgid "Calctool"
-msgstr "Calculadora"
+msgstr "Calctool"
 
 #. Name
 #: Utilities/e-notes.desktop:2
@@ -1759,7 +1759,7 @@ msgstr "E-Notes"
 #. GenericName
 #: Utilities/e-notes.desktop:3
 msgid "Personal Notes"
-msgstr "Notas Pessoais"
+msgstr "Notas pessoais"
 
 #. Name
 #: Utilities/oclock.desktop:2
@@ -1774,4 +1774,4 @@ msgstr "X-Gnokii"
 #. GenericName
 #: Utilities/xgnokii.desktop:3
 msgid "Mobile Phone Management Tool"
-msgstr "Ferramenta de Gerenciamento de Telefonia Móvel"
+msgstr "Ferramenta de gerenciamento de telefonia Móvel"
