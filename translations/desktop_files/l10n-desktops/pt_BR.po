@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-16 18:21+0000\n"
-"PO-Revision-Date: 2026-08-07 17:51+0000\n"
+"PO-Revision-Date: 2026-08-12 20:57+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/l10n-desktop-files/pt_BR/>\n"
@@ -25,22 +25,22 @@ msgstr "Caribenho"
 #. Name
 #: centralafrica.desktop:2
 msgid "Africa, Central"
-msgstr "África Central"
+msgstr "África central"
 
 #. Name
 #: centralamerica.desktop:2
 msgid "America, Central"
-msgstr "América Central"
+msgstr "América central"
 
 #. Name
 #: centralasia.desktop:2
 msgid "Asia, Central"
-msgstr "Ásia Central"
+msgstr "Ásia central"
 
 #. Name
 #: centraleurope.desktop:2
 msgid "Europe, Central"
-msgstr "Europa Central"
+msgstr "Europa central"
 
 #. Name
 #: eastasia.desktop:2
@@ -310,7 +310,7 @@ msgstr "República Democrática do Congo"
 #. Name
 #: cf/entry.desktop:2
 msgid "Central African Republic"
-msgstr "República da África Central"
+msgstr "República da África central"
 
 #. Name
 #: cg/entry.desktop:2
@@ -365,7 +365,7 @@ msgstr "Cuba"
 #. Name
 #: cv/entry.desktop:2
 msgid "Cape Verde"
-msgstr "Cabo Verde"
+msgstr "Cabo verde"
 
 #. Name
 #: cx/entry.desktop:2
@@ -945,7 +945,7 @@ msgstr "Polinésia Francesa"
 #. Name
 #: pg/entry.desktop:2
 msgid "Papua New Guinea"
-msgstr "Papua Nova Guiné"
+msgstr "Papua nova Guiné"
 
 #. Name
 #: ph/entry.desktop:2
@@ -975,7 +975,7 @@ msgstr "Pitcairn"
 #. Name
 #: pr/entry.desktop:2
 msgid "Puerto Rico"
-msgstr "Porto Rico"
+msgstr "Porto rico"
 
 #. Name
 #: ps/entry.desktop:2
@@ -1090,7 +1090,7 @@ msgstr "Suriname"
 #. Name
 #: st/entry.desktop:2
 msgid "Sao Tome and Principe"
-msgstr "São Tome e Príncipe"
+msgstr "São tome e Príncipe"
 
 #. Name
 #: sv/entry.desktop:2
