@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 20:10+0200\n"
-"PO-Revision-Date: 2026-08-02 22:22+0000\n"
+"PO-Revision-Date: 2026-08-12 20:57+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/ksysguard-desktop-files/pt_BR/>\n"
@@ -25,12 +25,12 @@ msgstr "KSysGuard"
 #. GenericName
 #: gui/ksysguard.desktop:4
 msgid "Performance Monitor"
-msgstr "Monitor de Performance"
+msgstr "Monitor de performance"
 
 #. Name
 #: gui/ksysguardapplet.desktop:4
 msgid "System Guard"
-msgstr "Guarda do Sistema"
+msgstr "Guarda do sistema"
 
 #. Comment
 #: gui/ksysguardapplet.desktop:6
@@ -42,4 +42,4 @@ msgstr ""
 #. Comment
 #: gui/x-ksysguard.desktop:5
 msgid "TDE System Guard"
-msgstr "Sistema de Guarda do TDE"
+msgstr "Sistema de guarda do TDE"
