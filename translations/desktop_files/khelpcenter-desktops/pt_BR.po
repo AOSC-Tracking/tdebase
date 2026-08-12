@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-05 18:15+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/khelpcenter-desktop-files/pt_BR/>\n"
@@ -35,12 +35,12 @@ msgstr "Geração de índice"
 #. Keywords
 #: htmlsearch/htmlsearch.desktop:16
 msgid "Help;HTML;Search;Index;htdig;htsearch;htmerge;Scope;Language;"
-msgstr "Ajuda;HTML;Procurar;Índice;htdig;htsearch;htmerge;escopo;idioma;"
+msgstr "Ajuda;HTML;procurar;índice;htdig;htsearch;htmerge;escopo;idioma;"
 
 #. Name
 #: kcmhelpcenter.desktop:13
 msgid "Help Index"
-msgstr "Índice de Ajuda"
+msgstr "Índice de ajuda"
 
 #. Comment
 #: kcmhelpcenter.desktop:15
@@ -55,22 +55,22 @@ msgstr "centro de ajuda;ajuda;índice;busca;"
 #. Name
 #: khelpcenter.desktop:11
 msgid "KHelpCenter"
-msgstr "Centro de Ajuda"
+msgstr "Centro de ajuda"
 
 #. Comment
 #: khelpcenter.desktop:13
 msgid "The Trinity Help Center"
-msgstr "Centro de Ajuda do Trinity"
+msgstr "Centro de ajuda do Trinity"
 
 #. Name
 #: plugins/Manpages/man1.desktop:4
 msgid "(1) User Commands"
-msgstr "(1) Comandos do Usuário"
+msgstr "(1) Comandos do usuário"
 
 #. Name
 #: plugins/Manpages/man2.desktop:4
 msgid "(2) System Calls"
-msgstr "(2) Chamadas de Sistema "
+msgstr "(2) Chamadas de sistema"
 
 #. Name
 #: plugins/Manpages/man3.desktop:4
@@ -85,7 +85,7 @@ msgstr "(4) Dispositivos"
 #. Name
 #: plugins/Manpages/man5.desktop:4
 msgid "(5) File Formats"
-msgstr "(5) Formatos de Arquivo"
+msgstr "(5) Formatos de arquivo"
 
 #. Name
 #: plugins/Manpages/man6.desktop:4
@@ -100,7 +100,7 @@ msgstr "(7) Outros"
 #. Name
 #: plugins/Manpages/man8.desktop:4
 msgid "(8) Sys. Administration"
-msgstr "(8) Administração do Sistema"
+msgstr "(8) Administração do sistema"
 
 #. Name
 #: plugins/Manpages/man9.desktop:4
@@ -110,22 +110,22 @@ msgstr "(9) Kernel"
 #. Name
 #: plugins/Manpages/mann.desktop:4
 msgid "(n) New"
-msgstr "(n) Novo"
+msgstr "(n) novo"
 
 #. Name
 #: plugins/adminguide.desktop:6
 msgid "TDE Admininstrator Guide"
-msgstr "Guia do Administrador TDE"
+msgstr "Guia do administrador TDE"
 
 #. Name
 #: plugins/applets.desktop:6
 msgid "Applet Manuals"
-msgstr "Manuais de Mini-aplicativos"
+msgstr "Manuais de miniaplicativos"
 
 #. Name
 #: plugins/contact.desktop:6
 msgid "Contact Information"
-msgstr "Informações de Contato"
+msgstr "Informações de contato"
 
 #. Name
 #: plugins/faq.desktop:6
@@ -140,12 +140,12 @@ msgstr "Hardware"
 #. Name
 #: plugins/info.desktop:7
 msgid "Browse Info Pages"
-msgstr "Navegar nas Páginas Info"
+msgstr "Navegar nas páginas info"
 
 #. Name
 #: plugins/kcontrolmodules.desktop:6
 msgid "Control Center Modules"
-msgstr "Módulos do Centro de Controle"
+msgstr "Módulos do centro de controle"
 
 #. Name
 #: plugins/konqplugins.desktop:6
@@ -155,12 +155,12 @@ msgstr "Plug-Ins do Konqueror"
 #. Name
 #: plugins/links.desktop:6
 msgid "TDE on the Web"
-msgstr "TDE na Web"
+msgstr "TDE na web"
 
 #. Name
 #: plugins/quickstart.desktop:6
 msgid "Quickstart Guide"
-msgstr "Guia Rápido"
+msgstr "Guia rápido"
 
 #. Name
 #: plugins/releasenotes.desktop:6
@@ -185,17 +185,17 @@ msgstr "Informações sobre os protocolos disponíveis"
 #. Keywords
 #: plugins/tdeioslaves.desktop:10
 msgid "Protocol;IO slaves;Slaves;Network;Information;Timeout;"
-msgstr "Protocolos;escravos de ES;Escravos;Rede;Informações;Timeout;"
+msgstr "Protocolos;escravos de ES;escravos;rede;informações;timeout;"
 
 #. Name
 #: plugins/userguide.desktop:6
 msgid "TDE User Guide"
-msgstr "Manual do Usuário do TDE"
+msgstr "Manual do usuário do TDE"
 
 #. Name
 #: plugins/visualdict.desktop:6
 msgid "A Visual Guide to TDE"
-msgstr "Guia Visual para o TDE"
+msgstr "Guia visual para o TDE"
 
 #. Name
 #: plugins/welcome.desktop:6
@@ -205,7 +205,7 @@ msgstr "Bem-vindo ao TDE"
 #. Name
 #: plugins/Applications/.directory:7
 msgid "Application Manuals"
-msgstr "Manuais de Aplicativos"
+msgstr "Manuais de aplicativos"
 
 #. Name
 #: plugins/Manpages/.directory:8
