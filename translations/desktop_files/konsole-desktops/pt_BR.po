@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-20 21:29+0900\n"
-"PO-Revision-Date: 2026-08-02 22:22+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/konsole-desktop-files/pt_BR/>\n"
@@ -25,7 +25,7 @@ msgstr "Console do Linux"
 #. Comment
 #: data/sessions/linux.desktop:4
 msgid "New Linux Console"
-msgstr "Novo Console do Linux"
+msgstr "Novo console do Linux"
 
 #. Name
 #: data/sessions/mc.desktop:3
@@ -45,7 +45,7 @@ msgstr "Sessão do Screen"
 #. Comment
 #: data/sessions/screen.desktop:4
 msgid "New Screen Session"
-msgstr "Nova Sessão do Screen"
+msgstr "Nova sessão do Screen"
 
 #. Name
 #. Title0
@@ -57,27 +57,27 @@ msgstr "Shell"
 #. Comment
 #: data/sessions/shell.desktop:4
 msgid "New Shell"
-msgstr "Novo Shell"
+msgstr "Novo shell"
 
 #. Name
 #: data/sessions/su.desktop.cmake:3
 msgid "Root Shell"
-msgstr "Shell como Root"
+msgstr "Shell como root"
 
 #. Comment
 #: data/sessions/su.desktop.cmake:4
 msgid "New Root Shell"
-msgstr "Novo Shell como Root"
+msgstr "Novo shell como root"
 
 #. Name
 #: data/sessions/sumc.desktop.cmake:3
 msgid "Root Midnight Commander"
-msgstr "Midnight Commander como Root"
+msgstr "Midnight Commander como root"
 
 #. Comment
 #: data/sessions/sumc.desktop.cmake:4
 msgid "New Root Midnight Commander"
-msgstr "Nova Janela do Midnight Commander como Root"
+msgstr "Nova janela do Midnight Commander como root"
 
 #. Name
 #: kcmkonsole.desktop:9
@@ -107,12 +107,12 @@ msgstr "Terminal"
 #. Name
 #: konsolepart.desktop:14 terminalemulator.desktop:5
 msgid "Terminal Emulator"
-msgstr "Emulador de Terminal"
+msgstr "Emulador de terminal"
 
 #. GenericName
 #: konsolesu.desktop:12
 msgid "Terminal Program - Super User Mode"
-msgstr "Terminal - Modo Super-Usuário"
+msgstr "Terminal - modo Super-Usuário"
 
 #. Name
 #: kwrited.desktop:2
@@ -128,7 +128,7 @@ msgstr ""
 #. Comment
 #: src/x-konsole.desktop:7
 msgid "File to Open a Shell"
-msgstr "Arquivo para Abrir um Shell"
+msgstr "Arquivo para abrir um shell"
 
 #. Name
 #: terminalhere.desktop:6
@@ -138,7 +138,7 @@ msgstr "Terminal"
 #. Name
 #: terminalhere.desktop:11
 msgid "Open Terminal Here"
-msgstr "Abrir Terminal Aqui"
+msgstr "Abrir terminal aqui"
 
 #. Name
 #: data/sessions/2shells:2
