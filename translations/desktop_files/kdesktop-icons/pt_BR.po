@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kdesktop-icons/pt_BR/>\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. Name
 #: Home.desktop:2
 msgid "Home"
-msgstr "Pasta do Usuário"
+msgstr "Pasta do usuário"
 
 #. GenericName
 #: Home.desktop:4
 msgid "Personal Files"
-msgstr "Arquivos Pessoais"
+msgstr "Arquivos pessoais"
 
 #. Comment
 #: Home.desktop:6
@@ -45,7 +45,7 @@ msgstr "Acesso a mídias de armazenamento"
 #. Name
 #: My_Documents:5
 msgid "My Documents"
-msgstr "Pasta de Documentos"
+msgstr "Pasta de documentos"
 
 #. Comment
 #: My_Documents:7
@@ -55,7 +55,7 @@ msgstr "Contém documentos pessoais"
 #. Name
 #: My_Network_Places:5
 msgid "My Network Places"
-msgstr "Locais Remotos"
+msgstr "Locais remotos"
 
 #. Comment
 #: My_Network_Places:7
@@ -80,7 +80,7 @@ msgstr "Sistema"
 #. GenericName
 #: System.desktop:4
 msgid "System Locations"
-msgstr "Localizações no Sistema"
+msgstr "Localizações no sistema"
 
 #. Comment
 #: System.desktop:6
@@ -121,7 +121,7 @@ msgstr "Insira nome do arquivo HTML:"
 #. Name
 #: Templates/TextFile.desktop:2
 msgid "Text File..."
-msgstr "Arquivo Texto..."
+msgstr "Arquivo texto..."
 
 #. Comment
 #: Templates/TextFile.desktop:3
@@ -131,7 +131,7 @@ msgstr "Insira nome do arquivo de texto:"
 #. Name
 #: Templates/linkCAMERA.desktop:2
 msgid "Camera Device..."
-msgstr "Dispositivo de Câmera..."
+msgstr "Dispositivo de câmera..."
 
 #. Comment
 #: Templates/linkCAMERA.desktop:3
@@ -151,12 +151,12 @@ msgstr "Novo dispositivo de CD-ROM"
 #. Name
 #: Templates/linkCDWRITER.desktop:2
 msgid "CDWRITER Device..."
-msgstr "Dispositivo de Gravação de CD..."
+msgstr "Dispositivo de gravação de CD..."
 
 #. Comment
 #: Templates/linkCDWRITER.desktop:3
 msgid "New CDWRITER Device"
-msgstr "Novo dispositivo de Gravação de CD"
+msgstr "Novo dispositivo de gravação de CD"
 
 #. Name
 #: Templates/linkDVDROM.desktop:2
@@ -206,22 +206,22 @@ msgstr "NFS..."
 #. Comment
 #: Templates/linkNFS.desktop:3
 msgid "New NFS Link"
-msgstr "Novo Link NFS"
+msgstr "Novo link NFS"
 
 #. Name
 #: Templates/linkProgram.desktop:2
 msgid "Link to Application..."
-msgstr "Link para Aplicativo..."
+msgstr "Link para aplicativo..."
 
 #. Comment
 #: Templates/linkProgram.desktop:3
 msgid "New Link to Application"
-msgstr "Novo link para Aplicativo"
+msgstr "Novo link para aplicativo"
 
 #. Name
 #: Templates/linkURL.desktop:2
 msgid "Link to Location (URL)..."
-msgstr "Link para Localização (URL)..."
+msgstr "Link para localização (URL)..."
 
 #. Comment
 #: Templates/linkURL.desktop:3
@@ -236,7 +236,7 @@ msgstr "Dispositivo ZIP..."
 #. Comment
 #: Templates/linkZIP.desktop:3
 msgid "New ZIP Device"
-msgstr "Novo Dispositivo ZIP"
+msgstr "Novo dispositivo ZIP"
 
 #. Name
 #: Trash:8
@@ -252,22 +252,22 @@ msgstr "Contém arquivos removidos"
 #. GenericName
 #: Web_Browser:6 Web_Browser:8
 msgid "Web Browser"
-msgstr "Navegador Web"
+msgstr "Navegador web"
 
 #. Comment
 #: Web_Browser:10
 msgid "Browse the World Wide Web"
-msgstr "Navegue pela World Wide Web"
+msgstr "Navegue pela World Wide web"
 
 #. Name
 #: directory.autostart:3
 msgid "Autostart"
-msgstr "Inicialização Automática"
+msgstr "Inicialização automática"
 
 #. Name
 #: directory.desktop:5
 msgid "Desktop"
-msgstr "Área de Trabalho"
+msgstr "Área de trabalho"
 
 #. Name
 #: directory.templates:3
