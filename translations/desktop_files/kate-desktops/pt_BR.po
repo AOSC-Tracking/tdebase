@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-18 03:49+0200\n"
-"PO-Revision-Date: 2026-08-02 16:35+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kate-desktop-files/pt_BR/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. GenericName
 #: data/kate.desktop:2
 msgid "Advanced Text Editor"
-msgstr "Editor de Texto Avançado"
+msgstr "Editor de texto avançado"
 
 #. Name
 #: data/kate.desktop:3
@@ -35,7 +35,7 @@ msgstr "Plug-in do Kate"
 #. GenericName
 #: data/kwrite.desktop:2
 msgid "Text Editor"
-msgstr "Editor de Texto"
+msgstr "Editor de texto"
 
 #. Name
 #: data/kwrite.desktop:3
