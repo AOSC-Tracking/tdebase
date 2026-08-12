@@ -1,30 +1,31 @@
 # SOME DESCRIPTIVE TITLE.
 # This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 21:20+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2026-08-12 20:57+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/twin-events/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Comment
 #: eventsrc:3
 msgid "The Window Manager"
-msgstr "Gerenciador de Janelas do"
+msgstr "Gerenciador de janelas do"
 
 #. Name
 #: eventsrc:6
 msgid "Change to Desktop 1"
-msgstr "Mudar para a Área de Trabalho 1"
+msgstr "Mudar para a área de trabalho 1"
 
 #. Comment
 #: eventsrc:7
@@ -34,7 +35,7 @@ msgstr "Área de trabalho virtual 1 está selecionada"
 #. Name
 #: eventsrc:12
 msgid "Change to Desktop 2"
-msgstr "Mudar para a Área de Trabalho 2"
+msgstr "Mudar para a área de trabalho 2"
 
 #. Comment
 #: eventsrc:13
@@ -44,7 +45,7 @@ msgstr "Área de trabalho virtual 2 está selecionada"
 #. Name
 #: eventsrc:18
 msgid "Change to Desktop 3"
-msgstr "Mudar para o Área de Trabalho 3"
+msgstr "Mudar para o área de trabalho 3"
 
 #. Comment
 #: eventsrc:19
@@ -54,7 +55,7 @@ msgstr "Área de trabalho virtual 3 está selecionada"
 #. Name
 #: eventsrc:24
 msgid "Change to Desktop 4"
-msgstr "Mudar para o Área de Trabalho 4"
+msgstr "Mudar para o área de trabalho 4"
 
 #. Comment
 #: eventsrc:25
@@ -64,7 +65,7 @@ msgstr "Área de trabalho virtual 4 está selecionada"
 #. Name
 #: eventsrc:30
 msgid "Change to Desktop 5"
-msgstr "Mudar para o Área de Trabalho 5"
+msgstr "Mudar para o área de trabalho 5"
 
 #. Comment
 #: eventsrc:31
@@ -74,7 +75,7 @@ msgstr "Área de trabalho virtual 5 está selecionada"
 #. Name
 #: eventsrc:36
 msgid "Change to Desktop 6"
-msgstr "Mudar para o Área de Trabalho 6"
+msgstr "Mudar para o área de trabalho 6"
 
 #. Comment
 #: eventsrc:37
@@ -84,7 +85,7 @@ msgstr "Área de trabalho virtual 6 está selecionada"
 #. Name
 #: eventsrc:42
 msgid "Change to Desktop 7"
-msgstr "Mudar para o Área de Trabalho 7"
+msgstr "Mudar para o área de trabalho 7"
 
 #. Comment
 #: eventsrc:43
@@ -94,7 +95,7 @@ msgstr "Área de trabalho virtual 7 está selecionada"
 #. Name
 #: eventsrc:48
 msgid "Change to Desktop 8"
-msgstr "Mudar para o Área de Trabalho 8"
+msgstr "Mudar para o área de trabalho 8"
 
 #. Comment
 #: eventsrc:49
@@ -104,7 +105,7 @@ msgstr "Área de trabalho virtual 8 está selecionada"
 #. Name
 #: eventsrc:54
 msgid "Change to Desktop 9"
-msgstr "Mudar para a Área de Trabalho 9"
+msgstr "Mudar para a área de trabalho 9"
 
 #. Comment
 #: eventsrc:55
@@ -114,7 +115,7 @@ msgstr "Área de trabalho virtual 9 está selecionada"
 #. Name
 #: eventsrc:59
 msgid "Change to Desktop 10"
-msgstr "Mudar para a Área de Trabalho 10"
+msgstr "Mudar para a área de trabalho 10"
 
 #. Comment
 #: eventsrc:60
@@ -124,7 +125,7 @@ msgstr "Área de trabalho virtual 10 está selecionada"
 #. Name
 #: eventsrc:64
 msgid "Change to Desktop 11"
-msgstr "Mudar para a Área de Trabalho 11"
+msgstr "Mudar para a área de trabalho 11"
 
 #. Comment
 #: eventsrc:65
@@ -134,7 +135,7 @@ msgstr "Área de trabalho virtual 11 está selecionada"
 #. Name
 #: eventsrc:69
 msgid "Change to Desktop 12"
-msgstr "Mudar para a Área de Trabalho 12"
+msgstr "Mudar para a área de trabalho 12"
 
 #. Comment
 #: eventsrc:70
@@ -144,7 +145,7 @@ msgstr "Área de trabalho virtual 12 está selecionada"
 #. Name
 #: eventsrc:74
 msgid "Change to Desktop 13"
-msgstr "Mudar para o Área de Trabalho 13"
+msgstr "Mudar para o área de trabalho 13"
 
 #. Comment
 #: eventsrc:75
@@ -154,7 +155,7 @@ msgstr "Área de trabalho virtual 13 está selecionada"
 #. Name
 #: eventsrc:79
 msgid "Change to Desktop 14"
-msgstr "Mudar para o Área de Trabalho 14"
+msgstr "Mudar para o área de trabalho 14"
 
 #. Comment
 #: eventsrc:80
@@ -164,7 +165,7 @@ msgstr "Área de trabalho virtual 14 está selecionada"
 #. Name
 #: eventsrc:84
 msgid "Change to Desktop 15"
-msgstr "Mudar para o Área de Trabalho 15"
+msgstr "Mudar para o área de trabalho 15"
 
 #. Comment
 #: eventsrc:85
@@ -174,7 +175,7 @@ msgstr "Área de trabalho virtual 15 está selecionada"
 #. Name
 #: eventsrc:89
 msgid "Change to Desktop 16"
-msgstr "Mudar para o Área de Trabalho 16"
+msgstr "Mudar para o área de trabalho 16"
 
 #. Comment
 #: eventsrc:90
@@ -184,7 +185,7 @@ msgstr "Área de trabalho virtual 16 está selecionada"
 #. Name
 #: eventsrc:94
 msgid "Change to Desktop 17"
-msgstr "Mudar para o Área de Trabalho 17"
+msgstr "Mudar para o área de trabalho 17"
 
 #. Comment
 #: eventsrc:95
@@ -194,7 +195,7 @@ msgstr "Área de trabalho virtual 17 está selecionada"
 #. Name
 #: eventsrc:99
 msgid "Change to Desktop 18"
-msgstr "Mudar para o Área de Trabalho 18"
+msgstr "Mudar para o área de trabalho 18"
 
 #. Comment
 #: eventsrc:100
@@ -204,7 +205,7 @@ msgstr "Área de trabalho virtual 18 está selecionada"
 #. Name
 #: eventsrc:104
 msgid "Change to Desktop 19"
-msgstr "Mudar para a Área de Trabalho 19"
+msgstr "Mudar para a área de trabalho 19"
 
 #. Comment
 #: eventsrc:105
@@ -214,7 +215,7 @@ msgstr "Área de trabalho virtual 19 está selecionada"
 #. Name
 #: eventsrc:109
 msgid "Change to Desktop 20"
-msgstr "Mudar para a Área de Trabalho 20"
+msgstr "Mudar para a área de trabalho 20"
 
 #. Comment
 #: eventsrc:110
@@ -224,7 +225,7 @@ msgstr "Área de trabalho virtual 20 está selecionada"
 #. Name
 #: eventsrc:114
 msgid "Activate Window"
-msgstr "Ativar Janela"
+msgstr "Ativar janela"
 
 #. Comment
 #: eventsrc:115
@@ -234,7 +235,7 @@ msgstr "Outra janela está ativa"
 #. Name
 #: eventsrc:119
 msgid "New Window"
-msgstr "Nova Janela"
+msgstr "Nova janela"
 
 #. Comment
 #: eventsrc:120
@@ -244,17 +245,17 @@ msgstr "Nova janela"
 #. Name
 #: eventsrc:125
 msgid "Delete Window"
-msgstr "Remover Janela"
+msgstr "Remover janela"
 
 #. Comment
 #: eventsrc:126
 msgid "Delete window"
-msgstr "Remover Janela"
+msgstr "Remover janela"
 
 #. Name
 #: eventsrc:129
 msgid "Window Close"
-msgstr "Fechar Janela"
+msgstr "Fechar janela"
 
 #. Comment
 #: eventsrc:130
@@ -264,7 +265,7 @@ msgstr "Uma janela fecha"
 #. Name
 #: eventsrc:135
 msgid "Window Shade Up"
-msgstr "Enrolar Janela"
+msgstr "Enrolar janela"
 
 #. Comment
 #: eventsrc:136
@@ -274,7 +275,7 @@ msgstr "Uma janela é enrolada (para cima)"
 #. Name
 #: eventsrc:141
 msgid "Window Shade Down"
-msgstr "Desenrolar Janela"
+msgstr "Desenrolar janela"
 
 #. Comment
 #: eventsrc:142
@@ -284,7 +285,7 @@ msgstr "Uma janela é desenrolada"
 #. Name
 #: eventsrc:147
 msgid "Window Minimize"
-msgstr "Minimizar Janela"
+msgstr "Minimizar janela"
 
 #. Comment
 #: eventsrc:148
@@ -294,17 +295,17 @@ msgstr "Uma janela é minimizada"
 #. Name
 #: eventsrc:153
 msgid "Window Unminimize"
-msgstr "Desminimizar Janela"
+msgstr "Desminimizar janela"
 
 #. Comment
 #: eventsrc:154
 msgid "A Window is restored"
-msgstr "Uma Janela é restaurada"
+msgstr "Uma janela é restaurada"
 
 #. Name
 #: eventsrc:159
 msgid "Window Maximize"
-msgstr "Maximizar Janela"
+msgstr "Maximizar janela"
 
 #. Comment
 #: eventsrc:160
@@ -314,7 +315,7 @@ msgstr "Uma janela é maximizada"
 #. Name
 #: eventsrc:165
 msgid "Window Unmaximize"
-msgstr "Desmaximizar Janela"
+msgstr "Desmaximizar janela"
 
 #. Comment
 #: eventsrc:166
@@ -324,7 +325,7 @@ msgstr "Uma janela perde a maximização"
 #. Name
 #: eventsrc:171
 msgid "Window On All Desktops"
-msgstr "Janela em Todas as Áreas de Trabalho"
+msgstr "Janela em todas as áreas de trabalho"
 
 #. Comment
 #: eventsrc:172
@@ -334,17 +335,17 @@ msgstr "Uma janela ficou visível em todas as áreas de trabalho"
 #. Name
 #: eventsrc:177
 msgid "Window Not On All Desktops"
-msgstr "Janela Não Em Todas Áreas de Trabalho"
+msgstr "Janela não em todas áreas de trabalho"
 
 #. Comment
 #: eventsrc:178
 msgid "A Window is no longer visible on all desktops"
-msgstr "Uma Janela não está mais visível em todas as áreas de trabalho"
+msgstr "Uma janela não está mais visível em todas as áreas de trabalho"
 
 #. Name
 #: eventsrc:183
 msgid "New Dialog"
-msgstr "Novo Diálogo"
+msgstr "Novo diálogo"
 
 #. Comment
 #: eventsrc:184
@@ -354,7 +355,7 @@ msgstr "Aparece uma janela transiente (um diálogo)"
 #. Name
 #: eventsrc:189
 msgid "Delete Dialog"
-msgstr "Remover Diálogo"
+msgstr "Remover diálogo"
 
 #. Comment
 #: eventsrc:190
@@ -404,7 +405,7 @@ msgstr "Uma janela foi redimensionada"
 #. Name
 #: eventsrc:215
 msgid "Window On Current Desktop Demands Attention"
-msgstr "Janela na Área de Trabalho Atual Demanda Atenção"
+msgstr "Janela na área de trabalho atual demanda atenção"
 
 #. Comment
 #: eventsrc:216
@@ -414,7 +415,7 @@ msgstr "Uma janela na área de trabalho virtual atual demanda atenção"
 #. Name
 #: eventsrc:220
 msgid "Window On Other Desktop Demands Attention"
-msgstr "Janela em Outra Área de Trabalho Demanda Atenção"
+msgstr "Janela em outra área de trabalho demanda atenção"
 
 #. Comment
 #: eventsrc:221
