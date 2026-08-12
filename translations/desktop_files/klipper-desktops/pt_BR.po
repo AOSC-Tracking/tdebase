@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-21 18:11+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/klipper-desktop-files/pt_BR/>\n"
@@ -30,7 +30,7 @@ msgstr "Klipper"
 #. GenericName
 #: klipper.desktop:4
 msgid "Clipboard Tool"
-msgstr "Ferramenta de Área de Transferência"
+msgstr "Ferramenta de área de transferência"
 
 #. Comment
 #: klipper.desktop:6
@@ -76,7 +76,7 @@ msgstr "Abrir com o &Firefox"
 #. Description
 #: klipperrc.desktop:46
 msgid "Send &Page"
-msgstr "Enviar &Página"
+msgstr "Enviar &página"
 
 #. Description
 #: klipperrc.desktop:51
@@ -86,7 +86,7 @@ msgstr "Enviar a URL por e-mail"
 #. Description
 #: klipperrc.desktop:56
 msgid "Launch &Kmail"
-msgstr "Abrir &Kmail"
+msgstr "Abrir &kmail"
 
 #. Description
 #: klipperrc.desktop:61
@@ -96,7 +96,7 @@ msgstr "Abrir &mutt"
 #. Description
 #: klipperrc.desktop:66
 msgid "Text File"
-msgstr "Arquivo Texto"
+msgstr "Arquivo texto"
 
 #. Description
 #: klipperrc.desktop:71
@@ -116,7 +116,7 @@ msgstr "URL de arquivo local"
 #. Description
 #: klipperrc.desktop:91 klipperrc.desktop:106 klipperrc.desktop:136
 msgid "Send &File"
-msgstr "Enviar &Arquivo"
+msgstr "Enviar &arquivo"
 
 #. Description
 #: klipperrc.desktop:96
