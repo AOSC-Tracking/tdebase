@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-26 18:11+0000\n"
-"PO-Revision-Date: 2026-08-07 17:51+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/color-schemes/pt_BR/>\n"
@@ -30,7 +30,7 @@ msgstr "BeOS"
 #. Name
 #: BlackOnWhite.kcsrc:2
 msgid "High Contrast Black Text"
-msgstr "Alto Contraste do texto preto"
+msgstr "Alto contraste do texto preto"
 
 #. Name
 #: BlueSlate.kcsrc:3
@@ -240,7 +240,7 @@ msgstr "WedgieWeb"
 #. Name
 #: WhiteOnBlack.kcsrc:2
 msgid "High Contrast White Text"
-msgstr "Alto Contraste do Texto Branco"
+msgstr "Alto contraste do texto branco"
 
 #. Name
 #: Windows2000.kcsrc:2
@@ -260,4 +260,4 @@ msgstr "Redmond XP"
 #. Name
 #: YellowOnBlue.kcsrc:2
 msgid "High Contrast Yellow on Blue"
-msgstr "Alto Contraste do Texto Amarelo ou Azul"
+msgstr "Alto contraste do texto amarelo ou azul"
