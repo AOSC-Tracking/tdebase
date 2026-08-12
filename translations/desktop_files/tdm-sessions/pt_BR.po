@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: 2026-08-07 17:51+0000\n"
+"PO-Revision-Date: 2026-08-12 20:57+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/tdm-sessions/pt_BR/>\n"
@@ -28,7 +28,7 @@ msgid ""
 "The Trinity Desktop Environment. A powerful Open Source graphical desktop "
 "environment"
 msgstr ""
-"Acrônimo para Trinity Desktop Environment (ou Ambiente de Trabalho Trinity). "
+"Acrônimo para Trinity Desktop Environment (ou ambiente de trabalho Trinity). "
 "Um poderoso ambiente de trabalho gráfico de código aberto"
 
 #. Name
@@ -138,7 +138,7 @@ msgid ""
 "The Common Desktop Environment, a proprietary industry standard desktop "
 "environment"
 msgstr ""
-"O Ambiente de Trabalho Comum (CDE), um ambiente de trabalho proprietário "
+"O ambiente de trabalho comum (CDE), um ambiente de trabalho proprietário "
 "padrão da indústria"
 
 #. Name
@@ -208,7 +208,7 @@ msgstr "FLWM"
 #: flwm.desktop:8
 msgid "The Fast Light Window Manager, based primarily on WM2"
 msgstr ""
-"Acrônimo para Fast Light Window Manager (gerenciador rápido e leve), baseado "
+"Acrônimo para Fast Light Window manager (gerenciador rápido e leve), baseado "
 "primeiramente no WM2"
 
 #. Name
@@ -249,8 +249,8 @@ msgid ""
 "The GNU Network Object Model Environment. A complete, free and easy-to-use "
 "desktop environment"
 msgstr ""
-"Acrônimo para GNU Network Object Model Environment ou Ambiente de Modelo de "
-"Objetos de Rede GNU; um ambiente de trabalho completo, livre e fácil de usar"
+"Acrônimo para GNU Network Object Model Environment ou ambiente de modelo de "
+"objetos de rede GNU; um ambiente de trabalho completo, livre e fácil de usar"
 
 #. Name
 #: golem.desktop:6
@@ -344,7 +344,7 @@ msgstr "Metacity"
 #. Comment
 #: metacity.desktop:8
 msgid "A lightweight GTK2 based window manager"
-msgstr "Um gerenciador de Janelas leve baseado em GTK2"
+msgstr "Um gerenciador de janelas leve baseado em GTK2"
 
 #. Name
 #: mwm.desktop:6
@@ -367,7 +367,7 @@ msgid ""
 "The OpenLook Virtual Window Manager. OLWM enhanced for handling of virtual "
 "desktops"
 msgstr ""
-"Acrônimo para OpenLook Virtual Window Manager, o OLWM melhorado para a "
+"Acrônimo para OpenLook virtual Window manager, o OLWM melhorado para a "
 "manipulação de áreas de trabalho virtuais"
 
 #. Name
@@ -378,7 +378,7 @@ msgstr "OLWM"
 #. Comment
 #: olwm.desktop:8
 msgid "The traditional Open Look Window Manager"
-msgstr "O tradicional Open Look Window Manager"
+msgstr "O tradicional Open Look Window manager"
 
 #. Name
 #: openbox.desktop:6
@@ -398,7 +398,7 @@ msgstr "Oroborus"
 #. Comment
 #: oroborus.desktop:8
 msgid "A lightweight themeable window manager"
-msgstr "Um gerenciador de Janelas leve com vários temas"
+msgstr "Um gerenciador de janelas leve com vários temas"
 
 #. Name
 #: phluid.desktop:6
@@ -466,7 +466,7 @@ msgid ""
 "An extensible window manager scriptable with an Emacs Lisp-like language"
 msgstr ""
 "um gerenciador de janelas extensível, baseado em scripts, com uma linguagem "
-"parecida com o Lisp do Emacs"
+"parecida com o Lisp do emacs"
 
 #. Name
 #: twm.desktop:6
@@ -476,7 +476,7 @@ msgstr "TWM"
 #. Comment
 #: twm.desktop:8
 msgid "The Tab Window Manager"
-msgstr "O Gerenciador de Janelas de Abas"
+msgstr "O gerenciador de janelas de abas"
 
 #. Name
 #: ude.desktop:6
@@ -486,7 +486,7 @@ msgstr "UDE"
 #. Comment
 #: ude.desktop:8
 msgid "The UNIX Desktop Environment"
-msgstr "Ambiente de Trabalho do UNIX"
+msgstr "Ambiente de trabalho do UNIX"
 
 #. Name
 #: vtwm.desktop:6
@@ -511,7 +511,7 @@ msgid ""
 "A window manager based on 9WM, enhanced by virtual screens and keyboard "
 "bindings"
 msgstr ""
-"Um gerenciador de janelas baseado no 9Wm, melhorado pelas telas virtuais e "
+"Um gerenciador de janelas baseado no 9wm, melhorado pelas telas virtuais e "
 "atalhos de teclado"
 
 #. Name
@@ -538,7 +538,7 @@ msgstr "Um pequeno e não-configurável gerenciador de janelas"
 #. Name
 #: wmaker.desktop:6
 msgid "WindowMaker"
-msgstr "O Gerenciador de Janelas de Abas"
+msgstr "O gerenciador de janelas de abas"
 
 #. Comment
 #: wmaker.desktop:8
@@ -556,8 +556,8 @@ msgid ""
 "The Cholesterol Free Desktop Environment. A desktop environment reminiscent "
 "of CDE"
 msgstr ""
-"Acrônimo para Cholesterol Free Desktop Environment (ou ambiente livre de "
-"colesterol), um ambiente de trabalho remanescente do CDE "
+"Cholesterol Free Desktop Environment (ambiente de trabalho livre de "
+"colesterol). Um ambiente de trabalho reminiscente do CDE"
 
 #. Name
 #: xfce4.desktop:6
@@ -570,5 +570,5 @@ msgid ""
 "The Cholesterol Free Desktop Environment, version 4. A desktop environment "
 "reminiscent of CDE"
 msgstr ""
-"Acrônimo para Cholesterol Free Desktop Environment (ou ambiente livre de "
-"colesterol), versão 4; um ambiente de trabalho remanescente do CDE "
+"Cholesterol Free Desktop Environment, versão 4 (ambiente de trabalho livre "
+"de colesterol). Um ambiente de trabalho reminiscente do CDE"
