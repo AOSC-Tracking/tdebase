@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2026-08-04 02:22+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/applnk-directories/pt_BR/>\n"
@@ -31,7 +31,7 @@ msgstr "Serviços internos"
 #: kde-development-webdevelopment.directory:4
 #: tde-development-webdevelopment.directory:4
 msgid "Web Development"
-msgstr "Desenvolvimento Web"
+msgstr "Desenvolvimento web"
 
 #. Name
 #: kde-development.directory:4 kde-games.directory:4 kde-graphics.directory:4
@@ -249,12 +249,12 @@ msgstr "Administração do sistema"
 #. Name
 #: tde-settings-webbrowsing.directory:4
 msgid "Web Browser"
-msgstr "Navegador Web"
+msgstr "Navegador web"
 
 #. Name
 #: tde-settings.directory:4
 msgid "Settings-Modules"
-msgstr "Módulos de Configuração"
+msgstr "Módulos de configuração"
 
 #. Name
 #: tde-settingsmenu.directory:4
