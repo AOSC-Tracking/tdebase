@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-21 20:20+0200\n"
-"PO-Revision-Date: 2026-08-04 02:22+0000\n"
+"PO-Revision-Date: 2026-08-12 20:57+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kxkb-desktop-files/pt_BR/>\n"
@@ -43,7 +43,7 @@ msgstr "Layout do teclado"
 #. Keywords
 #: keyboard_layout.desktop:16
 msgid "Keyboard;Layout;International;"
-msgstr "Teclado;Layout de teclado;internacional;"
+msgstr "Teclado;layout de teclado;internacional;"
 
 #. Name
 #: kxkb.desktop:4
