@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 16:24+0200\n"
-"PO-Revision-Date: 2026-08-02 22:22+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kicker-desktop-files/pt_BR/>\n"
@@ -40,7 +40,7 @@ msgstr "Acesso direito à seus aplicativos mais freqüentemente usados"
 #. Name
 #: applets/lockout/lockout.desktop:3
 msgid "Lock/Logout Buttons"
-msgstr "Botões de Travar/Sair"
+msgstr "Botões de travar/sair"
 
 #. Comment
 #: applets/lockout/lockout.desktop:5
@@ -50,7 +50,7 @@ msgstr "Adiciona os botões para bloquear a tela e finalizar a sessão"
 #. Name
 #: applets/media/mediaapplet.desktop:3
 msgid "Storage Media"
-msgstr "Mídia de Armazenamento"
+msgstr "Mídia de armazenamento"
 
 #. Comment
 #: applets/media/mediaapplet.desktop:5
@@ -65,12 +65,12 @@ msgstr "Menu"
 #. Comment
 #: applets/menu/menuapplet.desktop:6
 msgid "Applet embedding standalone menubars"
-msgstr "Mini-aplicativo para embutir barras de menu ao painel"
+msgstr "Miniaplicativo para embutir barras de menu ao painel"
 
 #. Name
 #: applets/minipager/minipagerapplet.desktop:4
 msgid "Desktop Preview & Pager"
-msgstr "Pager & Pré-visualizador de Área de Trabalho"
+msgstr "Pager & Pré-visualizador de área de trabalho"
 
 #. Comment
 #: applets/minipager/minipagerapplet.desktop:6
@@ -92,7 +92,7 @@ msgstr "Detecta e finaliza processos quebrados que consomem muito tempo de CPU"
 #. Name
 #: applets/run/runapplet.desktop:3
 msgid "Run Command"
-msgstr "Executar Comando"
+msgstr "Executar comando"
 
 #. Comment
 #: applets/run/runapplet.desktop:5
@@ -102,12 +102,12 @@ msgstr "Abre comandos digitados sem a necessidade de uma janela de terminal"
 #. Name
 #: applets/swallow/swallowapplet.desktop:3
 msgid "Swallow Applet"
-msgstr "Mini-aplicativo de integração"
+msgstr "Miniaplicativo de integração"
 
 #. Comment
 #: applets/swallow/swallowapplet.desktop:5
 msgid "The swallow panel applet"
-msgstr "Mini-aplicativo de integração para o painel"
+msgstr "Miniaplicativo de integração para o painel"
 
 #. Name
 #: applets/systemtray/systemtrayapplet.desktop:3
@@ -117,7 +117,7 @@ msgstr "Ícones do sistema"
 #. Comment
 #: applets/systemtray/systemtrayapplet.desktop:5
 msgid "The system tray panel applet"
-msgstr "Mini-aplicativo de ícones do sistema"
+msgstr "Miniaplicativo de ícones do sistema"
 
 #. Name
 #: applets/taskbar/taskbarapplet.desktop:3
@@ -157,12 +157,12 @@ msgstr "KasBar"
 #. Comment
 #: extensions/kasbar/kasbarextension.desktop:4
 msgid "An alternative taskbar panel applet."
-msgstr "Um mini-aplicativo de painel alternativo para a barra de tarefas."
+msgstr "Um miniaplicativo de painel alternativo para a barra de tarefas."
 
 #. Name
 #: extensions/sidebar/sidebarextension.desktop:2
 msgid "Universal Sidebar"
-msgstr "Barra Lateral Universal"
+msgstr "Barra lateral universal"
 
 #. Comment
 #: extensions/sidebar/sidebarextension.desktop:4
@@ -172,7 +172,7 @@ msgstr "Wrapper para o painel de navegação do Konqueror"
 #. Name
 #: extensions/taskbar/taskbarextension.desktop:2
 msgid "External Taskbar"
-msgstr "Barra de Tarefas Externa"
+msgstr "Barra de tarefas externa"
 
 #. Comment
 #: extensions/taskbar/taskbarextension.desktop:4
@@ -192,7 +192,7 @@ msgstr "Seus favoritos do Konqueror"
 #. Name
 #: kicker/buttons/browser.desktop:2
 msgid "Quick File Browser"
-msgstr "Navegador de Arquivos Rápido"
+msgstr "Navegador de arquivos rápido"
 
 #. Comment
 #: kicker/buttons/browser.desktop:4
@@ -202,7 +202,7 @@ msgstr "Um menu que lista arquivos em uma determinada pasta"
 #. Name
 #: kicker/buttons/desktop.desktop:2
 msgid "Show Desktop"
-msgstr "Mostrar Área de Trabalho"
+msgstr "Mostrar área de trabalho"
 
 #. Comment
 #: kicker/buttons/desktop.desktop:4
@@ -219,7 +219,7 @@ msgstr "Lançador de aplicativos que não são do TDE"
 #. Comment
 #: kicker/buttons/exec.desktop:4
 msgid "A launcher for programs not in the TDE Menu"
-msgstr "Um lançador para programas que não estão no Menu TDE"
+msgstr "Um lançador para programas que não estão no menu TDE"
 
 #. Name
 #: kicker/buttons/kmenu.desktop:2
@@ -234,7 +234,7 @@ msgstr "Aplicativos e ações comuns"
 #. Name
 #: kicker/buttons/windowlist.desktop:2
 msgid "Window List Menu"
-msgstr "Menu de Lista de Janelas"
+msgstr "Menu de lista de janelas"
 
 #. Comment
 #: kicker/buttons/windowlist.desktop:4
@@ -259,7 +259,7 @@ msgstr "Um plugin de busca para o Kickoff"
 #. Name
 #: kicker/kcmkicker.desktop:10
 msgid "Configure the Panel"
-msgstr "Configurar o Painel"
+msgstr "Configurar o painel"
 
 #. Name
 #: kicker/panel.desktop:10
@@ -284,12 +284,12 @@ msgstr "Procurar arquivos"
 #. Name
 #: menuext/find/websearch.desktop:8
 msgid "Web Search"
-msgstr "Busca na Web"
+msgstr "Busca na web"
 
 #. Name
 #: menuext/kate/katesessionmenu.desktop:2
 msgid "Kate Session Menu"
-msgstr "Menu de Sessões do Kate"
+msgstr "Menu de sessões do Kate"
 
 #. Comment
 #: menuext/kate/katesessionmenu.desktop:4
@@ -310,7 +310,7 @@ msgstr "Acesso fácil aos perfis do Konqueror"
 #. Name
 #: menuext/konsole/konsolemenu.desktop:2
 msgid "Terminal Sessions"
-msgstr "Sessões de Terminal"
+msgstr "Sessões de terminal"
 
 #. Comment
 #: menuext/konsole/konsolemenu.desktop:4
@@ -321,17 +321,17 @@ msgstr ""
 #. Name
 #: menuext/prefmenu/prefmenu.desktop:2
 msgid "Trinity Control Center"
-msgstr "Centro de Controle"
+msgstr "Centro de controle"
 
 #. Comment
 #: menuext/prefmenu/prefmenu.desktop:4
 msgid "Trinity Control Center modules menu"
-msgstr "Menu dos módulos do Centro de Controle"
+msgstr "Menu dos módulos do centro de controle"
 
 #. Name
 #: menuext/recentdocs/recentdocs.desktop:2
 msgid "Recent Documents"
-msgstr "Documentos Recentes"
+msgstr "Documentos recentes"
 
 #. Comment
 #: menuext/recentdocs/recentdocs.desktop:4
@@ -341,7 +341,7 @@ msgstr "Menu de documentos que você usou recentemente"
 #. Name
 #: menuext/remote/remotemenu.desktop:2
 msgid "Network Folders"
-msgstr "Pastas de Rede"
+msgstr "Pastas de rede"
 
 #. Comment
 #: menuext/remote/remotemenu.desktop:4
@@ -351,7 +351,7 @@ msgstr "Acesso fácil às pastas de rede"
 #. Name
 #: menuext/system/systemmenu.desktop:2
 msgid "System Menu"
-msgstr "Menu Sistema"
+msgstr "Menu sistema"
 
 #. Comment
 #: menuext/system/systemmenu.desktop:4
@@ -361,7 +361,7 @@ msgstr "Acesso fácil a locais importantes do sistema"
 #. Name
 #: menuext/tdeprint/printmenu.desktop:2
 msgid "Print System"
-msgstr "Sistema de Impressão"
+msgstr "Sistema de impressão"
 
 #. Comment
 #: menuext/tdeprint/printmenu.desktop:4
