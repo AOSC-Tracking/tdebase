@@ -1,0 +1,25 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 01:46+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: kdcop.desktop:11
+msgid "KDCOP"
+msgstr ""
+
+#. GenericName
+#: kdcop.desktop:13
+msgid "DCOP browser"
+msgstr ""
