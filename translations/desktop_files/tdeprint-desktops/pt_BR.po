@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-12 20:57+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/tdeprint-desktop-files/pt_BR/>\n"
@@ -20,14 +20,14 @@ msgstr ""
 #. Name
 #: kjobviewer/kjobviewer-autostart.desktop:7 kjobviewer/kjobviewer.desktop:8
 msgid "KJobViewer"
-msgstr "Trabalhos de Impressão"
+msgstr "Trabalhos de impressão"
 
 #. GenericName
 #. Comment
 #: kjobviewer/kjobviewer-autostart.desktop:9 kjobviewer/kjobviewer.desktop:10
 #: slave/mimetypes/jobs.desktop:2
 msgid "Print Jobs"
-msgstr "Tarefas de Impressão"
+msgstr "Tarefas de impressão"
 
 #. Name
 #: kprinter/kprinter.desktop:9
@@ -37,7 +37,7 @@ msgstr "KPrinter"
 #. GenericName
 #: kprinter/kprinter.desktop:11
 msgid "Printing Tool"
-msgstr "Ferramenta de Impressão"
+msgstr "Ferramenta de impressão"
 
 #. Name
 #: printmgr/printers.desktop:12
@@ -58,23 +58,23 @@ msgstr "imprimir;impressora;gerenciamento de impressão;"
 #. Comment
 #: slave/mimetypes/class.desktop:2
 msgid "Class of Printers"
-msgstr "Classes de Impressoras"
+msgstr "Classes de impressoras"
 
 #. Comment
 #: slave/mimetypes/driver.desktop:2
 msgid "Printer Driver"
-msgstr "Driver da Impressora"
+msgstr "Driver da impressora"
 
 #. Comment
 #: slave/mimetypes/folder.desktop:2
 msgid "Print Folder"
-msgstr "Pasta de Impressão"
+msgstr "Pasta de impressão"
 
 #. Comment
 #. Name
 #: slave/mimetypes/manager.desktop:2 tdeprint_part/tdeprint_part.desktop:4
 msgid "Print Management Tool"
-msgstr "Ferramenta de Gerenciamento de Impressão"
+msgstr "Ferramenta de gerenciamento de impressão"
 
 #. Comment
 #: slave/mimetypes/printer.desktop:2
@@ -84,7 +84,7 @@ msgstr "Impressora"
 #. Comment
 #: slave/mimetypes/printermodel.desktop:2
 msgid "Printer Model"
-msgstr "Modelo de Impressora"
+msgstr "Modelo de impressora"
 
 #. Name
 #: tdeprintfax/tdeprintfax.desktop:2
@@ -94,4 +94,4 @@ msgstr "TDEPrintFax"
 #. GenericName
 #: tdeprintfax/tdeprintfax.desktop:4
 msgid "Fax Utility"
-msgstr "Utilitário de Fax"
+msgstr "Utilitário de fax"
