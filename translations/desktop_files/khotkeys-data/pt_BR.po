@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/khotkeys-data/pt_BR/>\n"
@@ -55,13 +55,13 @@ msgid ""
 "Opera-style: Press, move up, release.\n"
 "NOTE: Conflicts with 'New Tab', and as such is disabled by default."
 msgstr ""
-"Estilo Opera: Pressionar, mover para cima, largar.\n"
-"NOTA: Conflita com 'Nova Aba', por isso está desativado por padrão."
+"Estilo Opera: pressionar, mover para cima, largar.\n"
+"NOTA: Conflita com 'Nova aba', por isso está desativado por padrão."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:43
 msgid "Stop Loading"
-msgstr "Parar o Carregamento"
+msgstr "Parar o carregamento"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:58
@@ -89,7 +89,7 @@ msgid ""
 "Mozilla-style: Press, move up, move left, move up, release."
 msgstr ""
 "Subindo na estrutura de URL/diretório.\n"
-"Estilo Mozilla: Pressionar, mover para cima, mover para a esquerda, mover "
+"Estilo Mozilla: pressionar, mover para cima, mover para a esquerda, mover "
 "para cima, largar."
 
 #. Name
@@ -106,9 +106,9 @@ msgid ""
 "default."
 msgstr ""
 "Subindo na estrutura de URL/diretório.\n"
-"Estilo Opera: Pressionar, mover para cima, mover para a esquerda, mover para "
+"Estilo Opera: pressionar, mover para cima, mover para a esquerda, mover para "
 "cima, largar.\n"
-"NOTA: Conflita com \"Ativar Aba Anterior\", por isso está desativado por "
+"NOTA: Conflita com \"Ativar aba anterior\", por isso está desativado por "
 "padrão."
 
 #. Name
@@ -124,7 +124,7 @@ msgstr "Pressionar, mover para cima, mover para a direita, largar."
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:118
 msgid "Activate Next Tab"
-msgstr "Ativar Próxima Aba"
+msgstr "Ativar próxima aba"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:141
@@ -134,7 +134,7 @@ msgstr "Pressionar, mover para cima, mover para a esquerda, largar."
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:143
 msgid "Activate Previous Tab"
-msgstr "Ativar Aba Anterior"
+msgstr "Ativar aba anterior"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:185
@@ -145,7 +145,7 @@ msgstr ""
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:187
 msgid "Duplicate Tab"
-msgstr "Duplicar a Aba"
+msgstr "Duplicar a aba"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:210
@@ -155,7 +155,7 @@ msgstr "Pressionar, mover para baixo, mover para cima, largar."
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:212
 msgid "Duplicate Window"
-msgstr "Duplicar a Janela"
+msgstr "Duplicar a janela"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:235
@@ -180,7 +180,7 @@ msgstr ""
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:262
 msgid "Home"
-msgstr "Pasta do Usuário"
+msgstr "Pasta do usuário"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:289
@@ -190,12 +190,12 @@ msgid ""
 msgstr ""
 "Pressionar, mover para a direita, mover para baixo, mover para a direita, "
 "largar.\n"
-"Estilo Mozilla: Pressionar, mover para baixo, mover para a direita, largar."
+"Estilo Mozilla: pressionar, mover para baixo, mover para a direita, largar."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:291
 msgid "Close Tab"
-msgstr "Fechar a Aba"
+msgstr "Fechar a aba"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:318
@@ -204,12 +204,12 @@ msgid ""
 "Conflicts with Opera-style 'Up #2', which is disabled by default."
 msgstr ""
 "Pressionar, mover para cima, largar.\n"
-"Conflita com o Estilo Opera 'Up #2', por isso está desativado por padrão."
+"Conflita com o estilo Opera 'Up #2', por isso está desativado por padrão."
 
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:320
 msgid "New Tab"
-msgstr "Nova Aba"
+msgstr "Nova aba"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:343
@@ -219,7 +219,7 @@ msgstr "Pressionar, mover para baixo, largar."
 #. Name
 #: konqueror_gestures_trinity21.khotkeys:345
 msgid "New Window"
-msgstr "Nova Janela"
+msgstr "Nova janela"
 
 #. Comment
 #: konqueror_gestures_trinity21.khotkeys:368
@@ -239,7 +239,7 @@ msgstr "Este grupo contém ações que, por padrão, estão configuradas."
 #. Name
 #: printscreen.khotkeys:8
 msgid "Preset Actions"
-msgstr "Ações Predefinidas"
+msgstr "Ações predefinidas"
 
 #. Comment
 #: printscreen.khotkeys:17
@@ -296,7 +296,7 @@ msgstr ""
 #. Name
 #: trinity2b1.khotkeys:18
 msgid "Activate KSIRC Window"
-msgstr "Ativar a Janela do KSIRC"
+msgstr "Ativar a janela do KSIRC"
 
 #. Comment
 #: trinity2b1.khotkeys:28
@@ -332,11 +332,11 @@ msgstr ""
 "teclado. Na tabela abaixo, a coluna da esquerda mostra a entrada e a coluna "
 "da direita mostra o que digitar.\n"
 "\n"
-"\"enter\" (i.e. nova linha)                Enter ou Return\n"
+"\"enter\" (i.e. nova linha)                enter ou Return\n"
 "a (i.e. a mínusculo)                          A\n"
 "A (i.e. a maiúsculo)                       Shift+A\n"
 ": (dois-pontos)                                  Shift+;\n"
-"' '  (espaço)                              Espaço"
+"' '  (espaço)                              espaço"
 
 #. Name
 #: trinity2b1.khotkeys:56
@@ -386,7 +386,7 @@ msgstr ""
 "Ctrl+W é pressionado, Ctrl+F4 será enviado para o Qt Designer. Em outros "
 "aplicativos, Ctrl+W continua funcionando da maneira usual é claro.\n"
 "\n"
-"Agora precisamos especificar três coisas: Um novo atalho para o 'Ctrl+W', "
+"Agora precisamos especificar três coisas: um novo atalho para o 'Ctrl+W', "
 "uma nova ação de entrada do teclado que envia o Ctrl+F4, e uma nova condição "
 "de que a janela ativa é o Qt Designer.\n"
 "O Qt Designer parece sempre ter o título 'Qt Designer by Trolltech', "
@@ -410,7 +410,7 @@ msgid ""
 "'dcop' tool."
 msgstr ""
 "Ao pressionar Alt+Ctrl+W uma chamada DCOP será executada que irá mostrar o "
-"diálogo 'Executar Comando...'. Você pode usar qualquer chamada do DCOP, como "
+"diálogo 'Executar comando...'. Você pode usar qualquer chamada do DCOP, como "
 "quando usa a ferramenta 'dcop' na linha de comando."
 
 #. Name
@@ -459,7 +459,7 @@ msgstr "Janela do XMMS"
 #. Comment
 #: trinity2b1.khotkeys:191
 msgid "XMMS Player window"
-msgstr "Janela do Reprodutor XMMS"
+msgstr "Janela do reprodutor XMMS"
 
 #. Comment
 #: trinity2b1.khotkeys:211
@@ -506,11 +506,11 @@ msgstr ""
 "globais).\n"
 "\n"
 "Até o momento, existem estes gestos disponíveis:\n"
-"mover para a direita e voltar para a esquerda - Avançar (Alt+Seta Direita)\n"
+"mover para a direita e voltar para a esquerda - Avançar (Alt+Seta direita)\n"
 "mover para a esquerda e voltar para a direita - Retroceder (Alt+Seta "
-"Esquerda)\n"
+"esquerda)\n"
 "mover para cima e voltar para baixo - Subir (Alt+Seta para cima)\n"
-"girar no sentido anti-horário - Recarregar (F5)\n"
+"girar no sentido anti-horário - recarregar (F5)\n"
 "(Assim que eu descobrir como funciona no Opera ou Mozilla, vou adicionar "
 "mais e confirmar que são os mesmos. Ou se você mesmo fizer isso, sinta-se a "
 "vontade para me ajudar e enviar seu khotkeysrc.)\n"
@@ -544,7 +544,7 @@ msgid ""
 msgstr ""
 "Após pressionar Win+E (Tux+E), o navegador WWW será iniciado e irá abrir "
 "http://www.trinitydesktop.org . Você pode executar todos os tipos de "
-"comandos que pode executar no diálogo 'Executar Comando...' (Alt+F2)."
+"comandos que pode executar no diálogo 'Executar comando...' (Alt+F2)."
 
 #. Name
 #: trinity2b1.khotkeys:371
