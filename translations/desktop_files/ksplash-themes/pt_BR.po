@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-24 18:26+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Name
+#: pics/themes/TDE-Classic/Theme.rc:4
+#: pics/themes/TDE-Classic/locolor/Theme.rc:4
+msgid "TDE 3.5 Splash Screen"
+msgstr ""
+
+#. Description
+#: pics/themes/TDE-Classic/Theme.rc:5
+#: pics/themes/TDE-Classic/locolor/Theme.rc:5
+msgid "Waves of change"
+msgstr ""
+
+#. Name
+#: pics/themes/blue-bend/Theme.rc:6
+msgid "Blue-Bend KDE Splash Theme"
+msgstr ""
+
+#. Description
+#: pics/themes/blue-bend/Theme.rc:7
+msgid "Load Blue-Bend KDE KSplash theme."
+msgstr ""
+
+#. Name
+#: pics/themes/default/Theme.rc:6
+msgid "Refresh TDE Splash Theme"
+msgstr ""
+
+#. Description
+#: pics/themes/default/Theme.rc:7
+msgid "Load Refresh TDE KSplash theme."
+msgstr ""
+
+#. Name
+#: pics/themes/none/Theme.rc:4
+msgid "No Splash Screen"
+msgstr ""
+
+#. Description
+#: pics/themes/none/Theme.rc:5
+msgid "Splash Screen Turned Off"
+msgstr ""
+
+#. Name
+#: pics/themes/simple/Theme.rc:4
+msgid "Simple Splash Screen"
+msgstr ""
+
+#. Description
+#: pics/themes/simple/Theme.rc:5
+msgid "Very Simple Optimized Splash Screen"
+msgstr ""
+
+#. Name
+#: pics/themes/unified/Theme.rc:4
+msgid "Trinity Unified Splash Screen"
+msgstr ""
+
+#. Description
+#: pics/themes/unified/Theme.rc:5
+msgid "Unified system startup screen"
+msgstr ""
+
+#. Name
+#: themeengine/redmond/Theme.rc:2
+msgid "Redmond Splash Screen"
+msgstr ""
+
+#. Description
+#: themeengine/redmond/Theme.rc:3
+msgid "KSplash theme inspired by the Microsoft Windows startup screen."
+msgstr ""
+
+#. Name
+#: themeengine/standard/Theme.rc:2
+msgid "Standard Splash Screen"
+msgstr ""
+
+#. Description
+#: themeengine/standard/Theme.rc:3
+msgid "Standard TDE KSplash theme."
+msgstr ""
