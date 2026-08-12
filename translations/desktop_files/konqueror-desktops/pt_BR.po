@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/konqueror-desktop-files/pt_BR/>\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. Name
 #: Home.desktop:7
 msgid "Home"
-msgstr "Pasta do Usuário"
+msgstr "Pasta do usuário"
 
 #. GenericName
 #: Home.desktop:9
 msgid "Personal Files"
-msgstr "Arquivos Pessoais"
+msgstr "Arquivos pessoais"
 
 #. Name
 #: about/konq_aboutpage.desktop:3
@@ -35,7 +35,7 @@ msgstr "Página \"Sobre\" do Konqueror"
 #. Name
 #: iconview/konq_iconview.desktop:3
 msgid "Icon View"
-msgstr "Visão em Ícones"
+msgstr "Visão em ícones"
 
 #. Name
 #: iconview/konq_multicolumnview.desktop:3
@@ -52,27 +52,27 @@ msgstr "Konqueror"
 #. GenericName
 #: konqbrowser.desktop:9
 msgid "Web Browser"
-msgstr "Navegador Web"
+msgstr "Navegador web"
 
 #. Name
 #: konqfilemgr.desktop:7
 msgid "File Manager"
-msgstr "Gerenciador de Arquivos"
+msgstr "Gerenciador de arquivos"
 
 #. Comment
 #: konqueror.desktop:8
 msgid "TDE File Manager & Web Browser"
-msgstr "Gerenciador de Arquivos & Navegador Web do TDE"
+msgstr "Gerenciador de arquivos & navegador web do TDE"
 
 #. GenericName
 #: konquerorsu.desktop:10
 msgid "File Manager - Super User Mode"
-msgstr "Gerenciador de Arquivos (Modo Super-Usuário)"
+msgstr "Gerenciador de arquivos (modo Super-Usuário)"
 
 #. Name
 #: kttsplugin/tdehtmlkttsd.desktop:12
 msgid "Text-to-Speech"
-msgstr "Plug-in de Conversão de Fala"
+msgstr "Plug-in de Conversão de fala"
 
 #. Comment
 #: kttsplugin/tdehtmlkttsd.desktop:14
@@ -82,22 +82,22 @@ msgstr "Um plugin que permite a leitura em voz alta de textos na web com o KTTS"
 #. Name
 #: listview/konq_detailedlistview.desktop:3
 msgid "Detailed List View"
-msgstr "Visão de Lista Detalhada"
+msgstr "Visão de lista detalhada"
 
 #. Name
 #: listview/konq_infolistview.desktop:3
 msgid "Info List View"
-msgstr "Visão de Lista de Informações"
+msgstr "Visão de lista de informações"
 
 #. Name
 #: listview/konq_textview.desktop:3
 msgid "Text View"
-msgstr "Visão Texto"
+msgstr "Visão texto"
 
 #. Name
 #: listview/konq_treeview.desktop:3
 msgid "Tree View"
-msgstr "Visão em Árvore"
+msgstr "Visão em árvore"
 
 #. Name
 #: preloader/konqy_preload.desktop:4
@@ -107,7 +107,7 @@ msgstr "Pré-carregamento do Konqueror no início do TDE"
 #. Name
 #: preloader/konqy_preloader.desktop:4
 msgid "KDED Konqueror Preloader Module"
-msgstr "Módulo de Pré-carregamento do Konqueror"
+msgstr "Módulo de pré-carregamento do Konqueror"
 
 #. Comment
 #: preloader/konqy_preloader.desktop:6
@@ -137,17 +137,17 @@ msgstr "Midnight Commander"
 #. Name
 #: profile_simplebrowser.desktop:2
 msgid "Simple Browser"
-msgstr "Navegador Web Simples"
+msgstr "Navegador web simples"
 
 #. Name
 #: profile_tabbedbrowsing.desktop:3
 msgid "Tabbed Browsing"
-msgstr "Navegação em Abas"
+msgstr "Navegação em abas"
 
 #. Name
 #: profile_webbrowsing.desktop:2
 msgid "Web Browsing"
-msgstr "Navegação Web"
+msgstr "Navegação web"
 
 #. Name
 #: quickprint/text-ada-print.desktop:6 quickprint/text-c++-print.desktop:6
@@ -166,27 +166,27 @@ msgstr "Imprimir..."
 #. Name
 #: remoteencodingplugin/kremoteencodingplugin.desktop:13
 msgid "Remote Encoding"
-msgstr "Plug-in de Codificação Remota"
+msgstr "Plug-in de codificação remota"
 
 #. Comment
 #: remoteencodingplugin/kremoteencodingplugin.desktop:15
 msgid "A Plugin for setting the encoding of remote hosts (FTP, SSH, etc.)"
-msgstr "Plug-in de Codificação Remota para o Konqueror"
+msgstr "Plug-in de codificação remota para o Konqueror"
 
 #. Name
 #: shellcmdplugin/kshellcmdplugin.desktop:15
 msgid "Run Command"
-msgstr "Plug-in do Shell"
+msgstr "Plug-in do shell"
 
 #. Comment
 #: shellcmdplugin/kshellcmdplugin.desktop:17
 msgid "A plugin which enables commands to be executed within folders"
-msgstr "Plug-in de Comandos do Shell para o Konqueror"
+msgstr "Plug-in de comandos do shell para o Konqueror"
 
 #. Name
 #: sidebar/konq_sidebartng.desktop:4
 msgid "Navigation Panel"
-msgstr "Painel de Navegação"
+msgstr "Painel de navegação"
 
 #. Name
 #: sidebar/test/test.desktop:5
@@ -196,12 +196,12 @@ msgstr "Testar"
 #. Name
 #: sidebar/trees/history_module/kcmhistory.desktop:10
 msgid "History Sidebar"
-msgstr "Barra Lateral de Histórico"
+msgstr "Barra lateral de histórico"
 
 #. Comment
 #: sidebar/trees/history_module/kcmhistory.desktop:12
 msgid "Configure the history sidebar"
-msgstr "Configura a barra lateral de Histórico"
+msgstr "Configura a barra lateral de histórico"
 
 #. Keywords
 #: sidebar/trees/history_module/kcmhistory.desktop:14
@@ -245,7 +245,7 @@ msgstr ""
 #. Name
 #: sidebar/trees/init/home.desktop:6
 msgid "Home Folder"
-msgstr "Pasta do Usuário"
+msgstr "Pasta do usuário"
 
 #. Comment
 #: sidebar/trees/init/home.desktop:8
@@ -280,7 +280,7 @@ msgstr "Página principal do TDE"
 #. Name
 #: sidebar/trees/init/root.desktop:6
 msgid "Root Folder"
-msgstr "Pasta Raiz"
+msgstr "Pasta raiz"
 
 #. Comment
 #: sidebar/trees/init/root.desktop:8
@@ -301,17 +301,17 @@ msgstr "Aplicativos"
 #. Name
 #: sidebar/trees/init/services/audiocd.desktop:6
 msgid "Audio CD Browser"
-msgstr "Navegador de CDs de Áudio"
+msgstr "Navegador de CDs de áudio"
 
 #. Name
 #: sidebar/trees/init/services/media.desktop:5
 msgid "Storage Media"
-msgstr "Mídia de Armazenamento"
+msgstr "Mídia de armazenamento"
 
 #. Name
 #: sidebar/trees/init/services/printsystem.desktop:6
 msgid "Print System Browser"
-msgstr "Sistema de Impressão"
+msgstr "Sistema de impressão"
 
 #. Name
 #: sidebar/trees/init/services/settings.desktop:5
@@ -336,13 +336,13 @@ msgstr "Lixeira"
 #. Comment
 #: sidebar/trees/init/trash.desktop:11
 msgid "This folder displays the contents of your Trash Bin"
-msgstr "Esta pasta exibe o conteúdo da sua Lixeira"
+msgstr "Esta pasta exibe o conteúdo da sua lixeira"
 
 #. Name
 #: sidebar/web_module/webmodule_add.desktop:5
 #: sidebar/web_module/websidebar.desktop:5
 msgid "Web SideBar Module"
-msgstr "Módulo da Barra Lateral Web"
+msgstr "Módulo da barra lateral web"
 
 #. Name
 #: sidebar/trees/init/remote/ftp/.directory:2
@@ -352,4 +352,4 @@ msgstr "Arquivos de FTP"
 #. Name
 #: sidebar/trees/init/remote/web/.directory:2
 msgid "Web Sites"
-msgstr "Páginas Web"
+msgstr "Páginas web"
