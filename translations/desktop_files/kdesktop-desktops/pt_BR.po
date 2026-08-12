@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-17 18:15+0000\n"
-"PO-Revision-Date: 2026-08-07 06:36+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kdesktop-desktop-files/pt_BR/>\n"
@@ -45,12 +45,12 @@ msgstr "Centralizado com repetição em mosaico"
 #. Name
 #: kdesktopSetAsBackground.desktop:22
 msgid "Centered Maxpect"
-msgstr "Centralizado"
+msgstr "Centralizado com proporção máxima"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:27
 msgid "Tiled Maxpect"
-msgstr "Mosaico"
+msgstr "Ladrilhado com proporção máxima"
 
 #. Name
 #: kdesktopSetAsBackground.desktop:32
