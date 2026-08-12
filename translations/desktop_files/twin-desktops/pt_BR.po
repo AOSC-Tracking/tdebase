@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-04 18:14+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-12 20:57+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/twin-desktop-files/pt_BR/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. Name
 #: kcmtwin/showdesktop.desktop:4
 msgid "Show Desktop"
-msgstr "Mostrar Área de Trabalho"
+msgstr "Mostrar área de trabalho"
 
 #. Comment
 #: kcmtwin/showdesktop.desktop:6
@@ -32,7 +32,7 @@ msgstr ""
 #. Name
 #: kcmtwin/twindecoration/twindecoration.desktop:11
 msgid "Window Decorations"
-msgstr "Decorações da Janela"
+msgstr "Decorações da janela"
 
 #. Comment
 #: kcmtwin/twindecoration/twindecoration.desktop:13
@@ -83,8 +83,8 @@ msgid ""
 "window behavior;windows;frame;titlebar;borders;corners;active borders;"
 "aerosnap;"
 msgstr ""
-"window behavior;windows;frame;titlebar;borders;corners;active "
-"borders;aerosnap;"
+"comportamento de janelas;janelas;moldura;barra de título;bordas;cantos;"
+"bordas ativas;aerosnap;"
 
 #. Name
 #: kcmtwin/twinoptions/twinadvanced.desktop:11
@@ -138,7 +138,7 @@ msgstr "movendo;pequeno;cascata;maximizar;zona rápida;zona de encaixe;borda;"
 #. Name
 #: kcmtwin/twinoptions/twinoptions.desktop:11
 msgid "Window Behavior"
-msgstr "Comportamento da Janela"
+msgstr "Comportamento da janela"
 
 #. Comment
 #: kcmtwin/twinoptions/twinoptions.desktop:13
@@ -172,7 +172,7 @@ msgstr "translúcido;transparência;sombras;"
 #. Name
 #: kcmtwin/twinrules/twinrules.desktop:11
 msgid "Window-Specific Settings"
-msgstr "Configurações Específicas da Janela"
+msgstr "Configurações específicas da janela"
 
 #. Comment
 #: kcmtwin/twinrules/twinrules.desktop:13
@@ -196,20 +196,20 @@ msgstr "(Padrão) Desativa prevenção de roubo de foco para o XV"
 #. Description
 #: data/fsp_workarounds_1.twinrules:10
 msgid "(Default) Allow focus stealing by the screen locker"
-msgstr "(Padrão) Permitir que o bloqueador de tela roube o foco"
+msgstr "(Padrão) permitir que o bloqueador de tela roube o foco"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:21
 msgid "(Default) Allow focus stealing by the kdesktop run dialog"
-msgstr "(Padrão) Permitir que o diálogo de execução do kdesktop roube o foco"
+msgstr "(Padrão) permitir que o diálogo de execução do kdesktop roube o foco"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:32
 msgid "(Default) Allow focus stealing by the settings test dialog"
-msgstr "(Padrão) Permitir que o diálogo de teste de configurações roube o foco"
+msgstr "(Padrão) permitir que o diálogo de teste de configurações roube o foco"
 
 #. Description
 #: data/fsp_workarounds_1.twinrules:45
 msgid "(Default) Hide system modal dialog class from taskbar"
 msgstr ""
-"(Padrão) Ocultar a classe de diálogo modal do sistema da barra de tarefas"
+"(Padrão) ocultar a classe de diálogo modal do sistema da barra de tarefas"
