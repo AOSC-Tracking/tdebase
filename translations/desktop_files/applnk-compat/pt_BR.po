@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2026-08-03 09:23+0000\n"
+"PO-Revision-Date: 2026-08-12 20:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/applnk-compat/pt_BR/>\n"
@@ -41,16 +41,16 @@ msgid ""
 "Current Profile;Profile;Organization;Incoming Host;Outgoing Host;Email "
 "Client;"
 msgstr ""
-"E-mail;Correio;Mensagem;endereço de e-mail;endereço;servidor de e-mail;IMAP;"
-"POP3;Caixa de correio local;caixa de correio;informações do usuário;endereço "
-"de resposta;informações de servidor;nome do usuário;senhas;máquina;perfil "
-"atual;perfil;organização;máquina de entrada;máquina de saída;cliente de e-"
-"mail;"
+"E-mail;correio;mensagem;endereço de e-mail;endereço;servidor de "
+"e-mail;IMAP;POP3;caixa de correio local;caixa de correio;informações do "
+"usuário;endereço de resposta;informações de servidor;nome do "
+"usuário;senhas;máquina;perfil atual;perfil;organização;máquina de entrada;"
+"máquina de saída;cliente de e-mail;"
 
 #. Name
 #: kcmkonq.desktop:2
 msgid "File Manager"
-msgstr "Gerenciador de Arquivos"
+msgstr "Gerenciador de arquivos"
 
 #. Name
 #: kcmkxmlrpcd.desktop:2
@@ -85,7 +85,7 @@ msgstr "Socks"
 #. Name
 #: userinfo.desktop:13
 msgid "User Account"
-msgstr "Conta do Usuário"
+msgstr "Conta do usuário"
 
 #. Comment
 #: userinfo.desktop:14
@@ -101,4 +101,4 @@ msgstr "senhas;senhas;mudar senha;ícone;cara;tdm;nome do usuário; nome;conta;"
 #. Name
 #: virtualdesktops.desktop:2
 msgid "Virtual Desktops"
-msgstr "Áreas de Trabalho Virtuais"
+msgstr "Áreas de trabalho virtuais"
