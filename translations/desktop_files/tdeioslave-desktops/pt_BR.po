@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-07 06:36+0000\n"
+"PO-Revision-Date: 2026-08-12 20:57+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/tdeioslave-desktop-files/pt_BR/>\n"
@@ -30,7 +30,7 @@ msgstr "Configure o componente secundário CGI TDEIO"
 #. Keywords
 #: cgi/kcmcgi/kcmcgi.desktop:13
 msgid "CGI;TDEIO;Slave;Paths;"
-msgstr "CGI;TDEIO;Secundário;Caminhos;"
+msgstr "CGI;TDEIO;secundário;caminhos;"
 
 #. Name
 #: home/kdedmodule/homedirnotify.desktop:4
@@ -168,7 +168,7 @@ msgstr "CD-RW montado"
 #. Comment
 #: media/mimetypes/cd-rw_unmounted.desktop:6
 msgid "Unmounted CD-RW"
-msgstr "Gravador de CD Desmontado"
+msgstr "Gravador de CD desmontado"
 
 #. Comment
 #: media/mimetypes/cdrom_encrypted_locked.desktop:7
@@ -313,12 +313,12 @@ msgstr "Mídia removível desmontada"
 #. Comment
 #: media/mimetypes/smb_mounted.desktop:6
 msgid "Mounted Samba (Microsoft Network) Share"
-msgstr "Compartilhamento Samba (Rede Microsoft) montado"
+msgstr "Compartilhamento Samba (rede Microsoft) montado"
 
 #. Comment
 #: media/mimetypes/smb_unmounted.desktop:6
 msgid "Unmounted Samba (Microsoft Network) Share"
-msgstr "Compartilhamento Samba (Rede Microsoft) desmontado"
+msgstr "Compartilhamento Samba (rede Microsoft) desmontado"
 
 #. Comment
 #: media/mimetypes/svcd.desktop:6
@@ -558,4 +558,4 @@ msgstr "Um tdeioslave para o sftp"
 #. ExtraNames
 #: trash/trash.protocol:25
 msgid "Original Path,Deletion Date"
-msgstr "Caminho original,Data da remoção"
+msgstr "Caminho original,data da remoção"
