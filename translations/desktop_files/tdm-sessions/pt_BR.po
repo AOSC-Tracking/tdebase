@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: 2026-08-12 20:57+0000\n"
+"PO-Revision-Date: 2026-08-14 00:32+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/tdm-sessions/pt_BR/>\n"
@@ -497,7 +497,7 @@ msgstr "VTWM"
 #: vtwm.desktop:8
 msgid "The Virtual Tab Window Manager. TWM enhanced by virtual screens, etc."
 msgstr ""
-"O gerenciador de janelas de abas virtuais.  TWM melhorado pelas telas "
+"O gerenciador de janelas de abas virtuais. TWM melhorado pelas telas "
 "virtuais."
 
 #. Name
