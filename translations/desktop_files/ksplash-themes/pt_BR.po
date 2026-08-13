@@ -6,92 +6,96 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-24 18:26+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-08-13 02:50+0000\n"
+"Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
+"weblate/projects/tdebase/ksplash-themes/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18.2\n"
 
 #. Name
 #: pics/themes/TDE-Classic/Theme.rc:4
 #: pics/themes/TDE-Classic/locolor/Theme.rc:4
 msgid "TDE 3.5 Splash Screen"
-msgstr ""
+msgstr "Tela de apresentação do TDE 3.5"
 
 #. Description
 #: pics/themes/TDE-Classic/Theme.rc:5
 #: pics/themes/TDE-Classic/locolor/Theme.rc:5
 msgid "Waves of change"
-msgstr ""
+msgstr "Ondas de mudança"
 
 #. Name
 #: pics/themes/blue-bend/Theme.rc:6
 msgid "Blue-Bend KDE Splash Theme"
-msgstr ""
+msgstr "Tema de apresentação KDE Blue-Bend"
 
 #. Description
 #: pics/themes/blue-bend/Theme.rc:7
 msgid "Load Blue-Bend KDE KSplash theme."
-msgstr ""
+msgstr "Carregar o tema Blue-Bend KDE para o KSplash."
 
 #. Name
 #: pics/themes/default/Theme.rc:6
 msgid "Refresh TDE Splash Theme"
-msgstr ""
+msgstr "Tema de apresentação Refresh do TDE"
 
 #. Description
 #: pics/themes/default/Theme.rc:7
 msgid "Load Refresh TDE KSplash theme."
-msgstr ""
+msgstr "Carregar o tema Refresh do TDE para o KSplash."
 
 #. Name
 #: pics/themes/none/Theme.rc:4
 msgid "No Splash Screen"
-msgstr ""
+msgstr "Sem tela de apresentação"
 
 #. Description
 #: pics/themes/none/Theme.rc:5
 msgid "Splash Screen Turned Off"
-msgstr ""
+msgstr "Tela de apresentação desativada"
 
 #. Name
 #: pics/themes/simple/Theme.rc:4
 msgid "Simple Splash Screen"
-msgstr ""
+msgstr "Tela de apresentação simples"
 
 #. Description
 #: pics/themes/simple/Theme.rc:5
 msgid "Very Simple Optimized Splash Screen"
-msgstr ""
+msgstr "Tela de apresentação otimizada e muito simples"
 
 #. Name
 #: pics/themes/unified/Theme.rc:4
 msgid "Trinity Unified Splash Screen"
-msgstr ""
+msgstr "Tela de apresentação unificada do Trinity"
 
 #. Description
 #: pics/themes/unified/Theme.rc:5
 msgid "Unified system startup screen"
-msgstr ""
+msgstr "Tela unificada de inicialização do sistema"
 
 #. Name
 #: themeengine/redmond/Theme.rc:2
 msgid "Redmond Splash Screen"
-msgstr ""
+msgstr "Tela de apresentação Redmond"
 
 #. Description
 #: themeengine/redmond/Theme.rc:3
 msgid "KSplash theme inspired by the Microsoft Windows startup screen."
 msgstr ""
+"Tema do KSplash inspirado na tela de inicialização do Microsoft Windows."
 
 #. Name
 #: themeengine/standard/Theme.rc:2
 msgid "Standard Splash Screen"
-msgstr ""
+msgstr "Tela de apresentação padrão"
 
 #. Description
 #: themeengine/standard/Theme.rc:3
 msgid "Standard TDE KSplash theme."
-msgstr ""
+msgstr "Tema padrão do TDE para o KSplash."
