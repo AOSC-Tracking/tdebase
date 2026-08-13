@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-12 18:16+0000\n"
-"PO-Revision-Date: 2026-08-12 20:57+0000\n"
+"PO-Revision-Date: 2026-08-14 00:32+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kcontrol-desktop-files/pt_BR/>\n"
@@ -739,7 +739,7 @@ msgstr "LEO - tradução entre francês e alemão"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:3
 msgid "WordReference.com Translation: French to English"
-msgstr "WordReference.com  - tradução: francês para inglês"
+msgstr "WordReference.com - tradução: francês para inglês"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/fr2en.desktop:4
@@ -1912,8 +1912,7 @@ msgstr "Informações PCI"
 #. Keywords
 #: info/pci.desktop:16
 msgid "PCI;PCI-Devices;PCI-Bus;System Information;"
-msgstr ""
-"PCI;dispositivos PCI;barramento PCI;barramento PCI;informações de sistema;"
+msgstr "PCI;dispositivos PCI;barramento PCI;informações de sistema;"
 
 #. Name
 #: info/processor.desktop:12
@@ -2428,7 +2427,7 @@ msgid ""
 "charsets;character sets;Decimal symbol;Thousands separator;symbol;separator;"
 "sign;positive;negative;fractional digits;week;week start;"
 msgstr ""
-"idioma;tradução;formato  numérico;moeda;data;hora;formatos;localização;país;"
+"idioma;tradução;formato numérico;moeda;data;hora;formatos;localização;país;"
 "conjuntos de caracteres;conjunto de caracteres;símbolo decimal;separador de "
 "milhares;separador;sinal;positivo;negativo;dígitos de fração;semana;início "
 "da semana;"
