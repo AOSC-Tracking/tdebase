@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-12 20:57+0000\n"
+"PO-Revision-Date: 2026-08-15 10:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/tdeioslave-desktop-files/pt_BR/>\n"
@@ -361,7 +361,7 @@ msgstr "Página de propriedades da mídia"
 #: media/propsdlgplugin/media_propsdlgplugin.desktop:8
 msgid "Konqueror properties dialog plugin to configure mount behaviour"
 msgstr ""
-"Plugin da janela de propriedades do Konqueror para configurar o "
+"Plug-in da janela de propriedades do Konqueror para configurar o "
 "comportamento de montagem"
 
 #. Name
@@ -452,7 +452,7 @@ msgstr "Pasta de documentos"
 #. Name
 #: system/entries/home.desktop:6
 msgid "Home Folder"
-msgstr "Pasta do usuário"
+msgstr "Pasta pessoal"
 
 #. Name
 #: system/entries/remote.desktop:6
@@ -475,8 +475,8 @@ msgid ""
 "Provides change notification for folders monitored by the system:/ tdeio "
 "plugin"
 msgstr ""
-"Fornece notificação de alteração para pastas monitoradas pelo plugin system:/"
-" tdeio"
+"Fornece notificação de alteração para pastas monitoradas pelo plug-in "
+"system:/ tdeio"
 
 #. Comment
 #: system/mimetypes/system_directory.desktop:6
