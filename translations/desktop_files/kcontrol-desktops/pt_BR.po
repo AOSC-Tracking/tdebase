@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-12 18:16+0000\n"
-"PO-Revision-Date: 2026-08-14 00:32+0000\n"
+"PO-Revision-Date: 2026-08-15 10:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kcontrol-desktop-files/pt_BR/>\n"
@@ -125,7 +125,7 @@ msgstr "Configurações de cor"
 #. Keywords
 #: colors/colors.desktop:16
 msgid "colors;colours;scheme;contrast;Widget colors;Color Scheme;"
-msgstr "cores;esquema;contraste;cores de controles;esquema de cor;"
+msgstr "cores;esquema;contraste;cores de controles;esquema de cores;"
 
 #. Name
 #: componentchooser/EXAMPLE.desktop:1
@@ -2243,7 +2243,7 @@ msgid ""
 msgstr ""
 "konqueror;gerenciador de arquivos;kfm;dicas;arquivos de dicas;janelas "
 "separadas;janelas unidas;comportamento;uso de memória;pasta do usuário; "
-"operações de rede; diálogo de progresso; lata de lixo; remoção; confirmação;"
+"operações de rede; diálogo de progresso; lixeira; remoção; confirmação;"
 
 #. Comment
 #: konq/filebrowser.desktop:14
