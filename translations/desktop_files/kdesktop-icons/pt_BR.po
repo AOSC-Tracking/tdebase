@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-12 20:56+0000\n"
+"PO-Revision-Date: 2026-08-15 10:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kdesktop-icons/pt_BR/>\n"
@@ -241,7 +241,7 @@ msgstr "Novo dispositivo ZIP"
 #. Name
 #: Trash:8
 msgid "Trash"
-msgstr "Lixo"
+msgstr "Lixeira"
 
 #. Comment
 #: Trash:10
