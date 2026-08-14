@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-12 20:56+0000\n"
+"PO-Revision-Date: 2026-08-15 10:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/konqueror-desktop-files/pt_BR/>\n"
@@ -77,7 +77,8 @@ msgstr "Plug-in de Conversão de fala"
 #. Comment
 #: kttsplugin/tdehtmlkttsd.desktop:14
 msgid "A plugin which enables texts to be read aloud on the web with KTTS"
-msgstr "Um plugin que permite a leitura em voz alta de textos na web com o KTTS"
+msgstr ""
+"Um plug-in que permite a leitura em voz alta de textos na web com o KTTS"
 
 #. Name
 #: listview/konq_detailedlistview.desktop:3
@@ -245,7 +246,7 @@ msgstr ""
 #. Name
 #: sidebar/trees/init/home.desktop:6
 msgid "Home Folder"
-msgstr "Pasta do usuário"
+msgstr "Pasta pessoal"
 
 #. Comment
 #: sidebar/trees/init/home.desktop:8
