@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 16:24+0200\n"
-"PO-Revision-Date: 2026-08-12 20:56+0000\n"
+"PO-Revision-Date: 2026-08-15 10:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kicker-desktop-files/pt_BR/>\n"
@@ -112,12 +112,12 @@ msgstr "Miniaplicativo de integração para o painel"
 #. Name
 #: applets/systemtray/systemtrayapplet.desktop:3
 msgid "System Tray"
-msgstr "Ícones do sistema"
+msgstr "Bandeja do sistema"
 
 #. Comment
 #: applets/systemtray/systemtrayapplet.desktop:5
 msgid "The system tray panel applet"
-msgstr "Miniaplicativo de ícones do sistema"
+msgstr "O miniaplicativo da bandeja do sistema"
 
 #. Name
 #: applets/taskbar/taskbarapplet.desktop:3
@@ -132,7 +132,7 @@ msgstr "A barra de tarefas padrão para o gerenciamento de janelas"
 #. Name
 #: applets/trash/trashapplet.desktop:3
 msgid "Trash"
-msgstr "Lixo"
+msgstr "Lixeira"
 
 #. Comment
 #: applets/trash/trashapplet.desktop:5
@@ -254,7 +254,7 @@ msgstr "Extensão de painel-filho."
 #. Comment
 #: kicker/interfaces/kickoffsearchplugin.desktop:5
 msgid "A search plugin for Kickoff"
-msgstr "Um plugin de busca para o Kickoff"
+msgstr "Um plug-in de busca para o Kickoff"
 
 #. Name
 #: kicker/kcmkicker.desktop:10
@@ -269,7 +269,7 @@ msgstr "Painel do Trinity"
 #. Name
 #: menuext/find/find.desktop:2
 msgid "Find"
-msgstr "Procurar"
+msgstr "Localizar"
 
 #. Comment
 #: menuext/find/find.desktop:4
