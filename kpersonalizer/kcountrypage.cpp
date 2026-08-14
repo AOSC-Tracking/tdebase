@@ -199,10 +199,42 @@ void KCountryPage::setLangForCountry(const TQString &country) {
 }
 
 void KCountryPage::setLanguageChanged() {
-	// is the selcted language the same like the one in kdeglobals from before the start?
-	b_savedLanguageChanged = (flang->getOldLang() != cb_language->current().lower());
-	// is the selected language the same like the one we started kp with from main.cpp?
-	b_startedLanguageChanged = (s_oldlocale != cb_language->current());
+	TQString selectedCountry = cb_country->current();
+	TQString selectedLanguage = cb_language->current();
+
+	// is the selected language the same like the one in kdeglobals from before the start?
+	b_savedLanguageChanged = (flang->getOldLang() != selectedLanguage.lower());
+	// is the selected language the same like the one we started KPersonalizer with from main.cpp?
+	b_startedLanguageChanged = (s_oldlocale != selectedLanguage);
+
+	// Make newly evaluated i18n() calls use the language selected in the
+	// combo box. Do not write kdeglobals here: KPersonalizer::next() keeps
+	// responsibility for saving the choice and restarting the wizard.
+	TQStringList languageList;
+	languageList << selectedLanguage;
+
+	if (TDEGlobal::locale()->setLanguage(languageList)) {
+		// KCountryPageDlg is generated from kcountrypagedlg.ui. Most static
+		// labels are refreshed by KCountryPageDlg::languageChange().
+		KCountryPageDlg::languageChange();
+
+		// languageChange() restores the %VERSION% placeholder from the UI file,
+		// so replace it again with the actual TDE version.
+		txt_welcome->setText(i18n("<h3>Welcome to Trinity %1</h3>").arg(KDE::versionString()));
+
+		// Country and language names are populated when the page is created,
+		// so rebuild both menus under the newly selected locale while keeping
+		// the current selections.
+		loadCountryList(cb_country);
+		cb_country->setCurrentItem(selectedCountry);
+
+		delete flang;
+		flang = new KFindLanguage();
+		fillLanguageMenu(cb_language);
+		cb_language->setCurrentItem(selectedLanguage);
+
+		emit countryLanguageChanged();
+	}
 }
 
 

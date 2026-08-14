@@ -86,9 +86,11 @@ private:
 protected slots: // Public slots
 	/** restart kpersonalizer to run it in new language */
 	void slotRestart();
+	/** refresh the visible first page after its language selection changes */
+	void slotCountryPageLanguageChanged();
 
 protected: // Protected methods
-	// the close button on the titlebar sets e->accept() which we don�t want.
+	// the close button on the titlebar sets e->accept() which we do not want.
 	virtual void closeEvent(TQCloseEvent*);
 	bool askClose();
 };

@@ -65,6 +65,8 @@ KPersonalizer::KPersonalizer(TQWidget *parent, const char *name)
 
 	countrypage= new KCountryPage(this);
 	addPage( countrypage, i18n( "Step 1: Introduction" ) );
+	connect(countrypage, TQ_SIGNAL(countryLanguageChanged()),
+	        TQ_SLOT(slotCountryPageLanguageChanged()));
 	setHelpEnabled(TQWizard::page(0), false);
 
 	ospage= new KOSPage(this);
@@ -199,6 +201,17 @@ void KPersonalizer::setDefaults(){
 		stylepage->save(false);
 }
 
+
+void KPersonalizer::slotCountryPageLanguageChanged()
+{
+	// Only the first page is visible at this point. The existing restart in
+	// next() will rebuild and translate the remaining pages after the choice
+	// is saved.
+	setTitle(countrypage, i18n("Step 1: Introduction"));
+	backButton()->setText(i18n("&Back"));
+	nextButton()->setText(i18n("Opposite to Back", "&Next"));
+	cancelButton()->setText(i18n("S&kip Wizard"));
+}
 
 /** restart kpersonalizer */
 void KPersonalizer::slotRestart() {

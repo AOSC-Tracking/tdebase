@@ -43,6 +43,9 @@ public:
 	bool b_savedLanguageChanged;
 	bool b_startedLanguageChanged;
 
+signals:
+	void countryLanguageChanged();
+
 private:
 	TQStringList langs;
 	TQString s_oldlocale;
