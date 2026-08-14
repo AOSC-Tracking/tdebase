@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-25 20:47+0200\n"
-"PO-Revision-Date: 2026-08-14 00:32+0000\n"
+"PO-Revision-Date: 2026-08-15 10:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/tdm-sessions/pt_BR/>\n"
@@ -538,7 +538,7 @@ msgstr "Um pequeno e não-configurável gerenciador de janelas"
 #. Name
 #: wmaker.desktop:6
 msgid "WindowMaker"
-msgstr "O gerenciador de janelas de abas"
+msgstr "WindowMaker"
 
 #. Comment
 #: wmaker.desktop:8
