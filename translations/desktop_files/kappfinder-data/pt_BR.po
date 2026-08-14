@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2026-08-14 00:32+0000\n"
+"PO-Revision-Date: 2026-08-15 10:56+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kappfinder-data/pt_BR/>\n"
@@ -309,7 +309,7 @@ msgstr "Jogo Klotski do GNOME"
 #. Name
 #: Games/Board/Gstones.desktop:2
 msgid "GNOME Stones"
-msgstr "Jogo de Minas do GNOME"
+msgstr "GNOME Stones"
 
 #. Name
 #: Games/Board/Iagno.desktop:2
@@ -795,7 +795,7 @@ msgstr "Navegador web"
 #. Name
 #: Internet/GnomeICU.desktop:2
 msgid "GNOMEICU"
-msgstr "Xadrez do GNOME"
+msgstr "GNOMEICU"
 
 #. GenericName
 #: Internet/GnomeICU.desktop:3 Internet/licq.desktop:3
@@ -981,12 +981,12 @@ msgstr "Vídeo-Conferência"
 #. Name
 #: Internet/gnometalk.desktop:2
 msgid "GNOME Talk"
-msgstr "Contador de tempo do GNOME"
+msgstr "GNOME Talk"
 
 #. Name
 #: Internet/gtelnet.desktop:2
 msgid "GNOME Telnet"
-msgstr "Jogo de Minas do GNOME"
+msgstr "GNOME Telnet"
 
 #. GenericName
 #: Internet/gtelnet.desktop:3
@@ -1204,7 +1204,7 @@ msgstr "Processador de som"
 #. Name
 #: Multimedia/mplayer.desktop:2
 msgid "MPlayer"
-msgstr "Reprodutor de MPEG"
+msgstr "MPlayer"
 
 #. Name
 #: Multimedia/mtv.desktop:2
@@ -1324,7 +1324,7 @@ msgstr "Programa para Diagramas"
 #. Name
 #: Office/Gnome-Cal.desktop:2
 msgid "GNOME-Cal"
-msgstr "Xadrez do GNOME"
+msgstr "GNOME-Cal"
 
 #. GenericName
 #: Office/Gnome-Cal.desktop:3
@@ -1634,7 +1634,7 @@ msgstr "Monitores Krell GNU"
 #. Name
 #: Utilities/GnomeWho.desktop:2
 msgid "GNOME Who"
-msgstr "Xadrez do GNOME"
+msgstr "GNOME Who"
 
 #. GenericName
 #: Utilities/GnomeWho.desktop:3
