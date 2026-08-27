@@ -15,13 +15,13 @@
 #include "konsolebookmarkmenu.h"
 #include "konsolebookmarkhandler.h"
 
-KonsoleBookmarkHandler::KonsoleBookmarkHandler( KonsoleMenu *konsole, bool )
-    : TQObject( konsole, "KonsoleBookmarkHandler" ),
+KonsoleBookmarkHandler::KonsoleBookmarkHandler( KonsoleMenu *konsoleMenu, bool )
+    : TQObject( konsoleMenu, "KonsoleBookmarkHandler" ),
       KBookmarkOwner(),
-      m_konsole( konsole ),
+      m_konsoleMenu( konsoleMenu ),
       m_importStream( 0L )
 {
-    m_menu = new TDEPopupMenu( konsole, "bookmark menu" );
+    m_menu = new TDEPopupMenu( konsoleMenu, "bookmark menu" );
 
     TQString file = locate( "data", "konsole/bookmarks.xml" );
     if ( file.isEmpty() )
@@ -47,7 +47,7 @@ KonsoleBookmarkHandler::KonsoleBookmarkHandler( KonsoleMenu *konsole, bool )
 
 TQString KonsoleBookmarkHandler::currentURL() const
 {
-    return m_konsole->baseURL().url();
+    return m_konsoleMenu->baseURL().url();
 }
 
 void KonsoleBookmarkHandler::importOldBookmarks( const TQString& path,

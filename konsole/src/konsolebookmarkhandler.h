@@ -24,16 +24,17 @@
 #include <kbookmarkmanager.h>
 #include "konsolebookmarkmenu.h"
 
-class TDEPopupMenu;
-class KonsoleBookmarkMenu;
 class KBookmarkManager;
+class KonsoleApp;
+class KonsoleBookmarkMenu;
+class TDEPopupMenu;
 
 class KonsoleBookmarkHandler : public TQObject, public KBookmarkOwner
 {
     TQ_OBJECT
 
 public:
-    KonsoleBookmarkHandler( Konsole *konsole, bool toplevel );
+    KonsoleBookmarkHandler( KonsoleApp *konsole, bool toplevel );
     ~KonsoleBookmarkHandler();
 
     TQPopupMenu * popupMenu();
@@ -53,7 +54,7 @@ signals:
     void openURL( const TQString& url, const TQString& title );
 
 private:
-    Konsole *m_konsole;
+    KonsoleApp *m_konsoleApp;
     TDEPopupMenu *m_menu;
     KonsoleBookmarkMenu *m_bookmarkMenu;
     TQString m_file;

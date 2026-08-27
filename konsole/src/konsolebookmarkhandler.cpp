@@ -26,14 +26,14 @@
 #include <kdebug.h>
 #include <tqfile.h>
 
-#include "konsole.h"
+#include "KonsoleApp.h"
 #include "konsolebookmarkmenu.h"
 #include "konsolebookmarkhandler.h"
 
-KonsoleBookmarkHandler::KonsoleBookmarkHandler( Konsole *konsole, bool toplevel )
+KonsoleBookmarkHandler::KonsoleBookmarkHandler( KonsoleApp *konsole, bool toplevel )
     : TQObject( konsole, "KonsoleBookmarkHandler" ),
       KBookmarkOwner(),
-      m_konsole( konsole )
+      m_konsoleApp( konsole )
 {
     m_menu = new TDEPopupMenu( konsole, "bookmark menu" );
 
@@ -79,12 +79,12 @@ KonsoleBookmarkHandler::~KonsoleBookmarkHandler()
 
 TQString KonsoleBookmarkHandler::currentURL() const
 {
-    return m_konsole->baseURL().prettyURL();
+    return m_konsoleApp->baseURL().prettyURL();
 }
 
 TQString KonsoleBookmarkHandler::currentTitle() const
 {
-    const KURL &u = m_konsole->baseURL();
+    const KURL &u = m_konsoleApp->baseURL();
     if (u.isLocalFile())
     {
        TQString path = u.path();

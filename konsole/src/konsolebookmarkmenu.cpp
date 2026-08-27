@@ -20,7 +20,6 @@
 #include <tdestandarddirs.h>
 #include <tdeaction.h>
 
-#include "konsole.h"
 #include "konsolebookmarkmenu.h"
 #include "konsolebookmarkhandler.h"
 

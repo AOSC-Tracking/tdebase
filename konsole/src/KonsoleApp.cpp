@@ -22,11 +22,11 @@
 /* kvt, which is copyright (c) 1996 by Matthias Ettrich <ettrich@kde.org> */
 /*                                                                        */
 
-/*! \class Konsole
+/*! \class KonsoleApp
 
     \brief Konsole's main class and program
 
-    The class Konsole handles the application level. Mainly, it is responsible
+    The class KonsoleApp handles the application level. Mainly, it is responsible
     for the configuration, taken from several files, from the command line
     and from the user. It hardly does anything interesting.
     Everything is created as late as possible to make it startup fast.
@@ -140,7 +140,7 @@ Time to start a requirement list.
 #include <kcolordialog.h>
 #include <tdeio/netaccess.h>
 
-#include "konsole.h"
+#include "KonsoleApp.h"
 #include <netwm.h>
 #include "printsettings.h"
 
@@ -189,7 +189,7 @@ template class TQPtrDict<TDERadioAction>;
 
 #define DEFAULT_HISTORY_SIZE 1000
 
-Konsole::Konsole(const char* name, int histon, bool menubaron, bool tabbaron, bool frameon, bool scrollbaron,
+KonsoleApp::KonsoleApp(const char* name, int histon, bool menubaron, bool tabbaron, bool frameon, bool scrollbaron,
                  TQCString type, bool b_inRestore, const int wanted_tabbar, const TQString &workdir )
 :DCOPObject( "konsole" )
 ,TDEMainWindow(0, name)
@@ -365,7 +365,7 @@ Konsole::Konsole(const char* name, int histon, bool menubaron, bool tabbaron, bo
 }
 
 
-Konsole::~Konsole()
+KonsoleApp::~KonsoleApp()
 {
     delete m_filterData;
 
@@ -393,18 +393,18 @@ Konsole::~Konsole()
     tWinModule = 0;
 }
 
-void Konsole::setAutoClose(bool on)
+void KonsoleApp::setAutoClose(bool on)
 {
     if (sessions.first())
        sessions.first()->setAutoClose(on);
 }
 
-void Konsole::showTip()
+void KonsoleApp::showTip()
 {
    KTipDialog::showTip(this,TQString::null,true);
 }
 
-void Konsole::showTipOnStart()
+void KonsoleApp::showTipOnStart()
 {
    if (b_showstartuptip)
       KTipDialog::showTip(this);
@@ -414,7 +414,7 @@ void Konsole::showTipOnStart()
 /*  Make menu                                                                */
 /* ------------------------------------------------------------------------- */
 
-void Konsole::updateRMBMenu()
+void KonsoleApp::updateRMBMenu()
 {
    if (!m_rightButton) return;
    int index = 0;
@@ -471,7 +471,7 @@ void Konsole::updateRMBMenu()
 // function when starting konsole
 // Be careful not to access stuff which is created in this function before this
 // function was called ! you can check this using m_menuCreated, aleXXX
-void Konsole::makeGUI()
+void KonsoleApp::makeGUI()
 {
    if (m_menuCreated) return;
 
@@ -903,7 +903,7 @@ void Konsole::makeGUI()
 }
 
 // Called via menu
-void Konsole::slotSetEncoding()
+void KonsoleApp::slotSetEncoding()
 {
   if (!se) return;
 
@@ -937,7 +937,7 @@ void Konsole::slotSetEncoding()
   se->getEmulation()->setCodec(qtc);
 }
 
-void Konsole::makeTabWidget()
+void KonsoleApp::makeTabWidget()
 {
   tabwidget = new KTabWidget(this);
   tabwidget->setTabReorderingEnabled(true);
@@ -983,7 +983,7 @@ void Konsole::makeTabWidget()
   }
 }
 
-bool Konsole::eventFilter( TQObject *o, TQEvent *ev )
+bool KonsoleApp::eventFilter( TQObject *o, TQEvent *ev )
 {
   if (o == m_newSessionButton)
   {
@@ -1014,7 +1014,7 @@ bool Konsole::eventFilter( TQObject *o, TQEvent *ev )
   return TDEMainWindow::eventFilter(o, ev);
 }
 
-void Konsole::makeBasicGUI()
+void KonsoleApp::makeBasicGUI()
 {
   if (tdeApp->authorize("shell_access")) {
     m_tabbarSessionsCommands = new TDEPopupMenu( this );
@@ -1223,7 +1223,7 @@ void Konsole::makeBasicGUI()
 /**
    Make menubar available via escape sequence (Default: Ctrl+Alt+m)
  */
-void Konsole::activateMenu()
+void KonsoleApp::activateMenu()
 {
   menubar->activateItemAt(0);
   if ( !showMenubar->isChecked() ) {
@@ -1237,7 +1237,7 @@ void Konsole::activateMenu()
    Asks for confirmation if there are still open shells when the 'Warn on
    Quit' option is set.
  */
-bool Konsole::queryClose()
+bool KonsoleApp::queryClose()
 {
    if(tdeApp->sessionSaving())
      // saving session - do not even think about doing any kind of cleanup here
@@ -1285,7 +1285,7 @@ bool Konsole::queryClose()
     return false;
 }
 
-void Konsole::slotCouldNotClose()
+void KonsoleApp::slotCouldNotClose()
 {
     int result = KMessageBox::warningContinueCancel(this,
              i18n("The application running in Konsole does not respond to the close request. "
@@ -1306,7 +1306,7 @@ void Konsole::slotCouldNotClose()
     guest widget. Call with (0,0) for setting default size.
 */
 
-void Konsole::setColLin(int columns, int lines)
+void KonsoleApp::setColLin(int columns, int lines)
 {
   if ((columns==0) || (lines==0))
   {
@@ -1340,7 +1340,7 @@ void Konsole::setColLin(int columns, int lines)
 /*                                                                           */
 /* ------------------------------------------------------------------------- */
 
-void Konsole::configureRequest(TEWidget* _te, int state, int x, int y)
+void KonsoleApp::configureRequest(TEWidget* _te, int state, int x, int y)
 {
    if (!m_menuCreated)
       makeGUI();
@@ -1349,7 +1349,7 @@ void Konsole::configureRequest(TEWidget* _te, int state, int x, int y)
      menu->popup(_te->mapToGlobal(TQPoint(x,y)));
 }
 
-void Konsole::slotTabContextMenu(TQWidget* _te, const TQPoint & pos)
+void KonsoleApp::slotTabContextMenu(TQWidget* _te, const TQPoint & pos)
 {
   if (!m_menuCreated)
       makeGUI();
@@ -1369,15 +1369,15 @@ void Konsole::slotTabContextMenu(TQWidget* _te, const TQPoint & pos)
   m_tabPopupMenu->popup( pos );
 }
 
-void Konsole::slotTabDetachSession() {
+void KonsoleApp::slotTabDetachSession() {
   detachSession( m_contextMenuSession );
 }
 
-void Konsole::slotTabRenameSession() {
+void KonsoleApp::slotTabRenameSession() {
   renameSession(m_contextMenuSession);
 }
 
-void Konsole::slotTabSelectColor()
+void KonsoleApp::slotTabSelectColor()
 {
   TQColor color = tabwidget->tabColor( m_contextMenuSession->widget() );
   int result = KColorDialog::getColor( color, tabwidget->colorGroup().foreground() );
@@ -1387,12 +1387,12 @@ void Konsole::slotTabSelectColor()
   }
 }
 
-void Konsole::slotTabResetColor()
+void KonsoleApp::slotTabResetColor()
 {
   tabwidget->resetTabColor(m_contextMenuSession->widget());
 }
 
-void Konsole::slotTabToggleMonitor()
+void KonsoleApp::slotTabToggleMonitor()
 {
   m_contextMenuSession->setMonitorActivity( m_tabMonitorActivity->isChecked() );
   m_contextMenuSession->setMonitorSilence( m_tabMonitorSilence->isChecked() );
@@ -1403,17 +1403,17 @@ void Konsole::slotTabToggleMonitor()
   }
 }
 
-void Konsole::slotTabToggleMasterMode()
+void KonsoleApp::slotTabToggleMasterMode()
 {
   setMasterMode( m_tabMasterMode->isChecked(), m_contextMenuSession );
 }
 
-void Konsole::slotTabCloseSession()
+void KonsoleApp::slotTabCloseSession()
 {
   confirmCloseCurrentSession(m_contextMenuSession);
 }
 
-void Konsole::slotTabbarContextMenu(const TQPoint & pos)
+void KonsoleApp::slotTabbarContextMenu(const TQPoint & pos)
 {
    if (!m_menuCreated)
       makeGUI();
@@ -1421,7 +1421,7 @@ void Konsole::slotTabbarContextMenu(const TQPoint & pos)
   if ( m_tabbarPopupMenu ) m_tabbarPopupMenu->popup( pos );
 }
 
-void Konsole::slotTabSetViewOptions(int mode)
+void KonsoleApp::slotTabSetViewOptions(int mode)
 {
   m_tabViewMode = TabViewModes(mode);
 
@@ -1450,14 +1450,14 @@ void Konsole::slotTabSetViewOptions(int mode)
   }
 }
 
-void Konsole::slotToggleAutoResizeTabs()
+void KonsoleApp::slotToggleAutoResizeTabs()
 {
   b_autoResizeTabs = !b_autoResizeTabs;
 
   tabwidget->setAutomaticResizeTabs( b_autoResizeTabs );
 }
 
-void Konsole::slotTabbarToggleDynamicHide()
+void KonsoleApp::slotTabbarToggleDynamicHide()
 {
   b_dynamicTabHide=!b_dynamicTabHide;
   if (b_dynamicTabHide && tabwidget->count()==1)
@@ -1472,7 +1472,7 @@ void Konsole::slotTabbarToggleDynamicHide()
 /*                                                                           */
 /* ------------------------------------------------------------------------- */
 
-void Konsole::slotSaveSessionsProfile()
+void KonsoleApp::slotSaveSessionsProfile()
 {
   bool ok;
 
@@ -1493,7 +1493,7 @@ void Konsole::slotSaveSessionsProfile()
   }
 }
 
-void Konsole::saveProperties(TDEConfig* config) {
+void KonsoleApp::saveProperties(TDEConfig* config) {
   uint counter=0;
   uint active=0;
   TQString key;
@@ -1598,7 +1598,7 @@ void Konsole::saveProperties(TDEConfig* config) {
 // Called by constructor (with config = TDEGlobal::config())
 // and by session-management (with config = sessionconfig).
 // So it has to apply the settings when reading them.
-void Konsole::readProperties(TDEConfig* config)
+void KonsoleApp::readProperties(TDEConfig* config)
 {
     readProperties(config, TQString::null, false);
 }
@@ -1608,7 +1608,7 @@ void Konsole::readProperties(TDEConfig* config)
 //
 // When globalConfigOnly is true only the options that are shared among all
 // konsoles are being read.
-void Konsole::readProperties(TDEConfig* config, const TQString &schema, bool globalConfigOnly)
+void KonsoleApp::readProperties(TDEConfig* config, const TQString &schema, bool globalConfigOnly)
 {
    if (config==TDEGlobal::config())
    {
@@ -1745,7 +1745,7 @@ void Konsole::readProperties(TDEConfig* config, const TQString &schema, bool glo
    };
 }
 
-void Konsole::applySettingsToGUI()
+void KonsoleApp::applySettingsToGUI()
 {
    if (!m_menuCreated) return;
    if (m_options)
@@ -1769,7 +1769,7 @@ void Konsole::applySettingsToGUI()
 /*                                                                           */
 /* ------------------------------------------------------------------------- */
 
-void Konsole::bookmarks_menu_check()
+void KonsoleApp::bookmarks_menu_check()
 {
   bool state = false;
   if ( se )
@@ -1783,7 +1783,7 @@ void Konsole::bookmarks_menu_check()
   addBookmark->setEnabled( state );
 }
 
-void Konsole::pixmap_menu_activated(int item, TEWidget* tewidget)
+void KonsoleApp::pixmap_menu_activated(int item, TEWidget* tewidget)
 {
   if (!tewidget)
     tewidget=te;
@@ -1829,12 +1829,12 @@ void Konsole::pixmap_menu_activated(int item, TEWidget* tewidget)
   }
 }
 
-void Konsole::slotSelectBell() {
+void KonsoleApp::slotSelectBell() {
   n_bell = selectBell->currentItem();
   te->setBellMode(n_bell);
 }
 
-void Konsole::slotSelectScrollbar() {
+void KonsoleApp::slotSelectScrollbar() {
    if (m_menuCreated)
       n_scroll = selectScrollbar->currentItem();
 
@@ -1844,7 +1844,7 @@ void Konsole::slotSelectScrollbar() {
    activateSession(); // maybe helps in bg
 }
 
-void Konsole::checkBitmapFonts()
+void KonsoleApp::checkBitmapFonts()
 {
     {
         TQFont f;
@@ -1865,7 +1865,7 @@ void Konsole::checkBitmapFonts()
 // In KDE 3.5, Konsole only allows the user to pick a font via
 // TDEFontDialog.  This causes problems with the bdf/pcf files
 // distributed with Konsole (console8x16 and 9x15).
-void Konsole::slotInstallBitmapFonts()
+void KonsoleApp::slotInstallBitmapFonts()
 {
     if ( !b_installBitmapFonts )
         return;
@@ -1913,7 +1913,7 @@ void Konsole::slotInstallBitmapFonts()
 
 }
 
-void Konsole::slotSelectFont() {
+void KonsoleApp::slotSelectFont() {
    if ( !se ) return;
 
    TQFont font = se->widget()->getVTFont();
@@ -1924,14 +1924,14 @@ void Konsole::slotSelectFont() {
 //  activateSession(); // activates the current
 }
 
-void Konsole::schema_menu_activated(int item)
+void KonsoleApp::schema_menu_activated(int item)
 {
   if (!se) return;
   setSchema(item);
   activateSession(); // activates the current
 }
 
-/* slot */ void Konsole::schema_menu_check()
+void KonsoleApp::schema_menu_check()
 {
         if (colors->checkSchemas())
         {
@@ -1940,7 +1940,7 @@ void Konsole::schema_menu_activated(int item)
         }
 }
 
-void Konsole::updateSchemaMenu()
+void KonsoleApp::updateSchemaMenu()
 {
   m_schema->clear();
   for (int i = 0; i < (int) colors->count(); i++)
@@ -1958,7 +1958,7 @@ void Konsole::updateSchemaMenu()
 
 }
 
-void Konsole::updateKeytabMenu()
+void KonsoleApp::updateKeytabMenu()
 {
   if (m_menuCreated)
   {
@@ -1968,7 +1968,7 @@ void Konsole::updateKeytabMenu()
   n_keytab = se->keymapNo();
 }
 
-void Konsole::keytab_menu_activated(int item)
+void KonsoleApp::keytab_menu_activated(int item)
 {
   se->setKeymapNo(item);
   n_defaultKeytab = item;
@@ -1978,7 +1978,7 @@ void Konsole::keytab_menu_activated(int item)
 /**
      Toggle the Menubar visibility
  */
-void Konsole::slotToggleMenubar() {
+void KonsoleApp::slotToggleMenubar() {
   if ( showMenubar->isChecked() )
      menubar->show();
   else
@@ -1995,7 +1995,7 @@ void Konsole::slotToggleMenubar() {
   updateRMBMenu();
 }
 
-void Konsole::initTEWidget(TEWidget* new_te, TEWidget* default_te)
+void KonsoleApp::initTEWidget(TEWidget* new_te, TEWidget* default_te)
 {
   new_te->setWordCharacters(default_te->wordCharacters());
   new_te->setTerminalSizeHint(default_te->isTerminalSizeHint());
@@ -2014,7 +2014,7 @@ void Konsole::initTEWidget(TEWidget* new_te, TEWidget* default_te)
   new_te->setMinimumSize(150,70);
 }
 
-void Konsole::createSessionTab(TEWidget *widget, const TQIconSet &iconSet,
+void KonsoleApp::createSessionTab(TEWidget *widget, const TQIconSet &iconSet,
                                const TQString &text, int index)
 {
   switch(m_tabViewMode) {
@@ -2030,7 +2030,7 @@ void Konsole::createSessionTab(TEWidget *widget, const TQIconSet &iconSet,
   }
 }
 
-TQIconSet Konsole::iconSetForSession(TESession *session) const
+TQIconSet KonsoleApp::iconSetForSession(TESession *session) const
 {
   if (m_tabViewMode == ShowTextOnly)
     return TQIconSet();
@@ -2041,7 +2041,7 @@ TQIconSet Konsole::iconSetForSession(TESession *session) const
 /**
     Toggle the Tabbar visibility
  */
-void Konsole::slotSelectTabbar() {
+void KonsoleApp::slotSelectTabbar() {
    if (m_menuCreated)
       n_tabbar = selectTabbar->currentItem();
 
@@ -2068,7 +2068,7 @@ void Konsole::slotSelectTabbar() {
   }
 }
 
-void Konsole::slotSaveSettings()
+void KonsoleApp::slotSaveSettings()
 {
   TDEConfig *config = TDEGlobal::config();
   config->setDesktopGroup();
@@ -2077,12 +2077,12 @@ void Konsole::slotSaveSettings()
   config->sync();
 }
 
-void Konsole::slotConfigureNotifications()
+void KonsoleApp::slotConfigureNotifications()
 {
    KNotifyDialog::configure(this, "Notification Configuration Dialog");
 }
 
-void Konsole::slotConfigureKeys()
+void KonsoleApp::slotConfigureKeys()
 {
   KKeyDialog::configure(m_shortcuts);
   m_shortcuts->writeShortcutSettings();
@@ -2126,14 +2126,14 @@ void Konsole::slotConfigureKeys()
   }
 }
 
-void Konsole::slotConfigure()
+void KonsoleApp::slotConfigure()
 {
   TQStringList args;
   args << "kcmkonsole";
   TDEApplication::tdeinitExec( "tdecmshell", args );
 }
 
-void Konsole::reparseConfiguration()
+void KonsoleApp::reparseConfiguration()
 {
   TDEGlobal::config()->reparseConfiguration();
   readProperties(TDEGlobal::config(), TQString::null, true);
@@ -2211,7 +2211,7 @@ void Konsole::reparseConfiguration()
 }
 
 // Called via emulation via session
-void Konsole::changeTabTextColor( TESession* ses, int rgb )
+void KonsoleApp::changeTabTextColor( TESession* ses, int rgb )
 {
     if ( !ses ) return;
     TQColor color;
@@ -2224,7 +2224,7 @@ void Konsole::changeTabTextColor( TESession* ses, int rgb )
 }
 
 // Called from emulation
-void Konsole::changeColLin(int columns, int lines)
+void KonsoleApp::changeColLin(int columns, int lines)
 {
   if (b_allowResize && !b_fixedSize) {
     setColLin(columns, lines);
@@ -2233,7 +2233,7 @@ void Konsole::changeColLin(int columns, int lines)
 }
 
 // Called from emulation
-void Konsole::changeColumns(int columns)
+void KonsoleApp::changeColumns(int columns)
 {
   if (b_allowResize) {
     setColLin(columns,te->Lines());
@@ -2241,7 +2241,7 @@ void Konsole::changeColumns(int columns)
   }
 }
 
-void Konsole::slotSelectSize() {
+void KonsoleApp::slotSelectSize() {
     int item = selectSize->currentItem();
     if (b_fullscreen)
        setFullScreen( false );
@@ -2259,7 +2259,7 @@ void Konsole::slotSelectSize() {
    }
 }
 
-void Konsole::notifySize(int columns, int lines)
+void KonsoleApp::notifySize(int columns, int lines)
 {
   if (selectSize)
   {
@@ -2283,7 +2283,7 @@ void Konsole::notifySize(int columns, int lines)
   if (n_render >= 3) pixmap_menu_activated(n_render);
 }
 
-void Konsole::updateTitle(TESession* _se)
+void KonsoleApp::updateTitle(TESession* _se)
 {
   if ( !_se )
     _se = se;
@@ -2304,16 +2304,16 @@ void Konsole::updateTitle(TESession* _se)
     tabwidget->setTabLabel( _se->widget(), _se->fullTitle().replace('&',"&&"));
 }
 
-void Konsole::initSessionFont(TQFont font) {
+void KonsoleApp::initSessionFont(TQFont font) {
   te->setVTFont( font );
 }
 
-void Konsole::initSessionKeyTab(const TQString &keyTab) {
+void KonsoleApp::initSessionKeyTab(const TQString &keyTab) {
   se->setKeymap(keyTab);
   updateKeytabMenu();
 }
 
-void Konsole::initFullScreen()
+void KonsoleApp::initFullScreen()
 {
   //This function is to be called from main.C to initialize the state of the Konsole (fullscreen or not).  It doesn't appear to work
   //from inside the Konsole constructor
@@ -2323,17 +2323,17 @@ void Konsole::initFullScreen()
   setFullScreen(b_fullscreen);
 }
 
-void Konsole::toggleFullScreen()
+void KonsoleApp::toggleFullScreen()
 {
   setFullScreen(!b_fullscreen);
 }
 
-bool Konsole::fullScreen()
+bool KonsoleApp::fullScreen()
 {
   return b_fullscreen;
 }
 
-void Konsole::setFullScreen(bool on)
+void KonsoleApp::setFullScreen(bool on)
 {
   if( on )
       showFullScreen();
@@ -2344,7 +2344,7 @@ void Konsole::setFullScreen(bool on)
 }
 
 // don't call this directly
-void Konsole::updateFullScreen( bool on )
+void KonsoleApp::updateFullScreen( bool on )
 {
   b_fullscreen = on;
   if( on )
@@ -2369,7 +2369,7 @@ void Konsole::updateFullScreen( bool on )
 //         make the drawEvent.
 //       - font, background image and color palette should be set in one go.
 
-void Konsole::disableMasterModeConnections()
+void KonsoleApp::disableMasterModeConnections()
 {
   TQPtrListIterator<TESession> from_it(sessions);
   for (; from_it.current(); ++from_it) {
@@ -2392,7 +2392,7 @@ void Konsole::disableMasterModeConnections()
   }
 }
 
-void Konsole::enableMasterModeConnections()
+void KonsoleApp::enableMasterModeConnections()
 {
   TQPtrListIterator<TESession> from_it(sessions);
   for (; from_it.current(); ++from_it) {
@@ -2416,7 +2416,7 @@ void Konsole::enableMasterModeConnections()
   }
 }
 
-void Konsole::feedAllSessions(const TQString &text)
+void KonsoleApp::feedAllSessions(const TQString &text)
 {
   if (!te) return;
   bool oldMasterMode = se->isMasterMode();
@@ -2426,21 +2426,21 @@ void Konsole::feedAllSessions(const TQString &text)
     setMasterMode(false);
 }
 
-void Konsole::sendAllSessions(const TQString &text)
+void KonsoleApp::sendAllSessions(const TQString &text)
 {
   TQString newtext=text;
   newtext.append("\r");
   feedAllSessions(newtext);
 }
 
-KURL Konsole::baseURL() const
+KURL KonsoleApp::baseURL() const
 {
    KURL url;
    url.setPath(se->getCwd()+"/");
    return url;
 }
 
-void Konsole::enterURL(const TQString& URL, const TQString&)
+void KonsoleApp::enterURL(const TQString& URL, const TQString&)
 {
   TQString path, login, host, newtext;
 
@@ -2474,7 +2474,7 @@ void Konsole::enterURL(const TQString& URL, const TQString&)
     te->emitText(URL);
 }
 
-void Konsole::slotClearTerminal()
+void KonsoleApp::slotClearTerminal()
 {
   if (se) {
     se->getEmulation()->clearEntireScreen();
@@ -2482,7 +2482,7 @@ void Konsole::slotClearTerminal()
   }
 }
 
-void Konsole::slotResetClearTerminal()
+void KonsoleApp::slotResetClearTerminal()
 {
   if (se) {
     se->getEmulation()->reset();
@@ -2490,12 +2490,12 @@ void Konsole::slotResetClearTerminal()
   }
 }
 
-void Konsole::sendSignal(int sn)
+void KonsoleApp::sendSignal(int sn)
 {
   if (se) se->sendSignal(sn);
 }
 
-void Konsole::runSession(TESession* s)
+void KonsoleApp::runSession(TESession* s)
 {
     TDERadioAction *ra = session2action.find(s);
     ra->setChecked(true);
@@ -2506,7 +2506,7 @@ void Konsole::runSession(TESession* s)
     TQTimer::singleShot(100,s,TQ_SLOT(run()));
 }
 
-void Konsole::addSession(TESession* s)
+void KonsoleApp::addSession(TESession* s)
 {
   TQString newTitle = s->Title();
 
@@ -2563,12 +2563,12 @@ void Konsole::addSession(TESession* s)
     m_removeSessionButton->setEnabled(tabwidget->count()>1);
 }
 
-TQString Konsole::currentSession()
+TQString KonsoleApp::currentSession()
 {
   return se->SessionId();
 }
 
-TQString Konsole::sessionId(const int position)
+TQString KonsoleApp::sessionId(const int position)
 {
   if (position<=0 || position>(int)sessions.count())
     return "";
@@ -2576,7 +2576,7 @@ TQString Konsole::sessionId(const int position)
   return sessions.at(position-1)->SessionId();
 }
 
-void Konsole::listSessions()
+void KonsoleApp::listSessions()
 {
   int counter=0;
   m_sessionList->clear();
@@ -2590,25 +2590,25 @@ void Konsole::listSessions()
   m_sessionList->popup(mapToGlobal(TQPoint((width()/2)-(m_sessionList->width()/2),(height()/2)-(m_sessionList->height()/2))));
 }
 
-void Konsole::switchToSession()
+void KonsoleApp::switchToSession()
 {
   activateSession( TQString( sender()->name() ).right( 2 ).toInt() -1 );
 }
 
-void Konsole::activateSession(int position)
+void KonsoleApp::activateSession(int position)
 {
   if (position<0 || position>=(int)sessions.count())
     return;
   activateSession( sessions.at(position) );
 }
 
-void Konsole::activateSession(TQWidget* w)
+void KonsoleApp::activateSession(TQWidget* w)
 {
   activateSession(tabwidget->indexOf(w));
   w->setFocus();
 }
 
-void Konsole::activateSession(const TQString &sessionId)
+void KonsoleApp::activateSession(const TQString &sessionId)
 {
   TESession* activate=NULL;
 
@@ -2627,7 +2627,7 @@ void Konsole::activateSession(const TQString &sessionId)
 /**
    Activates a session from the menu
  */
-void Konsole::activateSession()
+void KonsoleApp::activateSession()
 {
   TESession* s = NULL;
   // finds the session based on which button was activated
@@ -2641,7 +2641,7 @@ void Konsole::activateSession()
   if (s!=NULL) activateSession(s);
 }
 
-void Konsole::activateSession(TESession *s)
+void KonsoleApp::activateSession(TESession *s)
 {
   if (se)
   {
@@ -2710,13 +2710,13 @@ void Konsole::activateSession(TESession *s)
   if (m_moveSessionRight) m_moveSessionRight->setEnabled(position<sessions.count()-1);
 }
 
-void Konsole::slotUpdateSessionConfig(TESession *session)
+void KonsoleApp::slotUpdateSessionConfig(TESession *session)
 {
   if (session == se)
      activateSession(se);
 }
 
-void Konsole::slotResizeSession(TESession *session, TQSize size)
+void KonsoleApp::slotResizeSession(TESession *session, TQSize size)
 {
   TESession *oldSession = se;
   if (se != session)
@@ -2726,7 +2726,7 @@ void Konsole::slotResizeSession(TESession *session, TQSize size)
 }
 
 // Called by newSession and DCOP function below
-void Konsole::setSessionEncoding( const TQString &encoding, TESession *session )
+void KonsoleApp::setSessionEncoding( const TQString &encoding, TESession *session )
 {
     if ( encoding.isEmpty() )
         return;
@@ -2773,31 +2773,31 @@ void Konsole::setSessionEncoding( const TQString &encoding, TESession *session )
 }
 
 // Called via DCOP only
-void Konsole::slotSetSessionEncoding(TESession *session, const TQString &encoding)
+void KonsoleApp::slotSetSessionEncoding(TESession *session, const TQString &encoding)
 {
    setSessionEncoding( encoding, session );
 }
 
-void Konsole::slotGetSessionSchema(TESession *session, TQString &schema)
+void KonsoleApp::slotGetSessionSchema(TESession *session, TQString &schema)
 {
   int no = session->schemaNo();
   ColorSchema* s = colors->find( no );
   schema = s->relPath();
 }
 
-void Konsole::slotSetSessionSchema(TESession *session, const TQString &schema)
+void KonsoleApp::slotSetSessionSchema(TESession *session, const TQString &schema)
 {
   ColorSchema* s = colors->find( schema );
   setSchema(s, session->widget());
 }
 
-void Konsole::allowPrevNext()
+void KonsoleApp::allowPrevNext()
 {
   if (!se) return;
   notifySessionState(se,NOTIFYNORMAL);
 }
 
-TDESimpleConfig *Konsole::defaultSession()
+TDESimpleConfig *KonsoleApp::defaultSession()
 {
   if (!m_defaultSession) {
     TDEConfig * config = TDEGlobal::config();
@@ -2807,7 +2807,7 @@ TDESimpleConfig *Konsole::defaultSession()
   return m_defaultSession;
 }
 
-void Konsole::setDefaultSession(const TQString &filename)
+void KonsoleApp::setDefaultSession(const TQString &filename)
 {
   delete m_defaultSession;
   m_defaultSession = new TDESimpleConfig(locate("appdata", filename), true /* read only */);
@@ -2817,24 +2817,24 @@ void Konsole::setDefaultSession(const TQString &filename)
   m_defaultSessionFilename=filename;
 }
 
-void Konsole::newSession(const TQString &pgm, const TQStrList &args, const TQString &term, const TQString &icon, const TQString &title, const TQString &cwd)
+void KonsoleApp::newSession(const TQString &pgm, const TQStrList &args, const TQString &term, const TQString &icon, const TQString &title, const TQString &cwd)
 {
   TDESimpleConfig *co = defaultSession();
   newSession(co, pgm, args, term, icon, title, cwd);
 }
 
-TQString Konsole::newSession()
+TQString KonsoleApp::newSession()
 {
   TDESimpleConfig *co = defaultSession();
   return newSession(co, TQString::null, TQStrList());
 }
 
-void Konsole::newSession(int i)
+void KonsoleApp::newSession(int i)
 {
   if (i == SESSION_NEW_WINDOW_ID)
   {
     // TODO: "type" isn't passed properly
-    Konsole* konsole = new Konsole(name(), b_histEnabled, !menubar->isHidden(), n_tabbar != TabNone, b_framevis,
+    KonsoleApp* konsole = new KonsoleApp(name(), b_histEnabled, !menubar->isHidden(), n_tabbar != TabNone, b_framevis,
                                    n_scroll != TEWidget::SCRNONE, 0, false, 0);
     konsole->newSession();
     konsole->enableFullScripting(b_fullScripting);
@@ -2852,12 +2852,12 @@ void Konsole::newSession(int i)
   }
 }
 
-void Konsole::newSessionTabbar(int i)
+void KonsoleApp::newSessionTabbar(int i)
 {
   if (i == SESSION_NEW_WINDOW_ID)
   {
     // TODO: "type" isn't passed properly
-    Konsole* konsole = new Konsole(name(), b_histEnabled, !menubar->isHidden(), n_tabbar != TabNone, b_framevis,
+    KonsoleApp* konsole = new KonsoleApp(name(), b_histEnabled, !menubar->isHidden(), n_tabbar != TabNone, b_framevis,
                                    n_scroll != TEWidget::SCRNONE, 0, false, 0);
     konsole->newSession();
     konsole->enableFullScripting(b_fullScripting);
@@ -2875,7 +2875,7 @@ void Konsole::newSessionTabbar(int i)
   }
 }
 
-TQString Konsole::newSession(const TQString &type)
+TQString KonsoleApp::newSession(const TQString &type)
 {
   TDESimpleConfig *co;
   if (type.isEmpty())
@@ -2885,7 +2885,7 @@ TQString Konsole::newSession(const TQString &type)
   return newSession(co);
 }
 
-TQString Konsole::newSession(TDESimpleConfig *co, TQString program, const TQStrList &args,
+TQString KonsoleApp::newSession(TDESimpleConfig *co, TQString program, const TQStrList &args,
                             const TQString &_term,const TQString &_icon,
                             const TQString &_title, const TQString &_cwd)
 {
@@ -3041,7 +3041,7 @@ TQString Konsole::newSession(TDESimpleConfig *co, TQString program, const TQStrL
 /*
  * Starts a new session based on URL.
  */
-void Konsole::newSession(const TQString& sURL, const TQString& title)
+void KonsoleApp::newSession(const TQString& sURL, const TQString& title)
 {
    TQStrList args;
    TQString protocol, path, login, host;
@@ -3082,7 +3082,7 @@ void Konsole::newSession(const TQString& sURL, const TQString& title)
     */
 }
 
-void Konsole::confirmCloseCurrentSession( TESession* _se )
+void KonsoleApp::confirmCloseCurrentSession( TESession* _se )
 {
    if ( !_se )
       _se = se;
@@ -3093,7 +3093,7 @@ void Konsole::confirmCloseCurrentSession( TESession* _se )
        _se->closeSession();
 }
 
-void Konsole::closeCurrentSession()
+void KonsoleApp::closeCurrentSession()
 {
   se->closeSession();
 }
@@ -3102,7 +3102,7 @@ void Konsole::closeCurrentSession()
 //       this routine might be called before
 //       session swap is completed.
 
-void Konsole::doneSession(TESession* s)
+void KonsoleApp::doneSession(TESession* s)
 {
 
   if (s == se_previous)
@@ -3169,7 +3169,7 @@ void Konsole::doneSession(TESession* s)
 
 /*! Cycle to previous session (if any) */
 
-void Konsole::prevSession()
+void KonsoleApp::prevSession()
 {
   sessions.find(se); sessions.prev();
   if (!sessions.current()) sessions.last();
@@ -3179,7 +3179,7 @@ void Konsole::prevSession()
 
 /*! Cycle to next session (if any) */
 
-void Konsole::nextSession()
+void KonsoleApp::nextSession()
 {
   sessions.find(se); sessions.next();
   if (!sessions.current()) sessions.first();
@@ -3187,7 +3187,7 @@ void Konsole::nextSession()
     activateSession(sessions.current());
 }
 
-void Konsole::slotMovedTab(int from, int to)
+void KonsoleApp::slotMovedTab(int from, int to)
 {
 
   TESession* _se = sessions.take(from);
@@ -3207,7 +3207,7 @@ void Konsole::slotMovedTab(int from, int to)
 }
 
 /* Move session forward in session list if possible */
-void Konsole::moveSessionLeft()
+void KonsoleApp::moveSessionLeft()
 {
   sessions.find(se);
   uint position=sessions.at();
@@ -3239,7 +3239,7 @@ void Konsole::moveSessionLeft()
 }
 
 /* Move session back in session list if possible */
-void Konsole::moveSessionRight()
+void KonsoleApp::moveSessionRight()
 {
   sessions.find(se);
   uint position=sessions.at();
@@ -3271,38 +3271,38 @@ void Konsole::moveSessionRight()
   m_moveSessionRight->setEnabled(position+1<sessions.count()-1);
 }
 
-void Konsole::initMonitorActivity(bool state)
+void KonsoleApp::initMonitorActivity(bool state)
 {
   monitorActivity->setChecked(state);
   slotToggleMonitor();
 }
 
-void Konsole::initMonitorSilence(bool state)
+void KonsoleApp::initMonitorSilence(bool state)
 {
   monitorSilence->setChecked(state);
   slotToggleMonitor();
 }
 
-void Konsole::slotToggleMonitor()
+void KonsoleApp::slotToggleMonitor()
 {
   se->setMonitorActivity( monitorActivity->isChecked() );
   se->setMonitorSilence( monitorSilence->isChecked() );
   notifySessionState(se,NOTIFYNORMAL);
 }
 
-void Konsole::initMasterMode(bool state)
+void KonsoleApp::initMasterMode(bool state)
 {
   masterMode->setChecked(state);
   slotToggleMasterMode();
 }
 
-void Konsole::initTabColor(TQColor color)
+void KonsoleApp::initTabColor(TQColor color)
 {
   if ( color.isValid() )
     tabwidget->setTabColor( se->widget(), color );
 }
 
-void Konsole::initHistory(int lines, bool enable)
+void KonsoleApp::initHistory(int lines, bool enable)
 {
    // If no History#= is given in the profile, use the history
    // parameter saved in konsolerc.
@@ -3316,12 +3316,12 @@ void Konsole::initHistory(int lines, bool enable)
       se->setHistory( HistoryTypeNone() );
 }
 
-void Konsole::slotToggleMasterMode()
+void KonsoleApp::slotToggleMasterMode()
 {
   setMasterMode( masterMode->isChecked() );
 }
 
-void Konsole::setMasterMode(bool _state, TESession* _se)
+void KonsoleApp::setMasterMode(bool _state, TESession* _se)
 {
   if (!_se)
     _se = se;
@@ -3341,7 +3341,7 @@ void Konsole::setMasterMode(bool _state, TESession* _se)
   notifySessionState(_se,NOTIFYNORMAL);
 }
 
-void Konsole::notifySessionState(TESession* session, int state)
+void KonsoleApp::notifySessionState(TESession* session, int state)
 {
   TQString state_iconname;
   switch(state)
@@ -3383,7 +3383,7 @@ void Konsole::notifySessionState(TESession* session, int state)
 
 // --| Session support |-------------------------------------------------------
 
-void Konsole::buildSessionMenus()
+void KonsoleApp::buildSessionMenus()
 {
    m_session->clear();
    if (m_tabbarSessionsCommands)
@@ -3431,7 +3431,7 @@ static void insertItemSorted(TDEPopupMenu *menu, const TQIconSet &iconSet, const
   menu->insertItem(iconSet, txt, id, index);
 }
 
-void Konsole::addSessionCommand(const TQString &path)
+void KonsoleApp::addSessionCommand(const TQString &path)
 {
   TDESimpleConfig* co;
   if (path.isEmpty())
@@ -3487,7 +3487,7 @@ void Konsole::addSessionCommand(const TQString &path)
 
 }
 
-void Konsole::loadSessionCommands()
+void KonsoleApp::loadSessionCommands()
 {
   no2command.clear();
 
@@ -3508,7 +3508,7 @@ void Konsole::loadSessionCommands()
   b_sessionShortcutsMapped = true;
 }
 
-void Konsole::createSessionMenus()
+void KonsoleApp::createSessionMenus()
 {
   if (no2command.isEmpty()) { // All sessions have been deleted
     m_session->insertItem(SmallIconSet("window-new"),
@@ -3563,7 +3563,7 @@ void Konsole::createSessionMenus()
   }
 }
 
-void Konsole::addScreenSession(const TQString &path, const TQString &socket)
+void KonsoleApp::addScreenSession(const TQString &path, const TQString &socket)
 {
   KTempFile *tmpFile = new KTempFile();
   tmpFile->setAutoDelete(true);
@@ -3581,7 +3581,7 @@ void Konsole::addScreenSession(const TQString &path, const TQString &socket)
   no2command.insert(cmd_serial,co);
 }
 
-void Konsole::loadScreenSessions()
+void KonsoleApp::loadScreenSessions()
 {
   if (!tdeApp->authorize("shell_access"))
      return;
@@ -3620,7 +3620,7 @@ void Konsole::loadScreenSessions()
     addScreenSession(screenDir, *it);
 }
 
-void Konsole::resetScreenSessions()
+void KonsoleApp::resetScreenSessions()
 {
   if (cmd_first_screen == -1)
     cmd_first_screen = cmd_serial + 1;
@@ -3639,7 +3639,7 @@ void Konsole::resetScreenSessions()
 
 // --| Schema support |-------------------------------------------------------
 
-void Konsole::setSchema(int numb, TEWidget* tewidget)
+void KonsoleApp::setSchema(int numb, TEWidget* tewidget)
 {
   ColorSchema* s = colors->find(numb);
   if (!s)
@@ -3656,7 +3656,7 @@ void Konsole::setSchema(int numb, TEWidget* tewidget)
   if (s) setSchema(s, tewidget);
 }
 
-void Konsole::setSchema(const TQString & path)
+void KonsoleApp::setSchema(const TQString & path)
 {
   ColorSchema* s = colors->find(path);
   if (!s)
@@ -3673,7 +3673,7 @@ void Konsole::setSchema(const TQString & path)
 }
 
 // Called via main.cpp for session manager.
-void Konsole::setEncoding(int index)
+void KonsoleApp::setEncoding(int index)
 {
   if ( selectSetEncoding ) {
     selectSetEncoding->setCurrentItem(index);
@@ -3681,7 +3681,7 @@ void Konsole::setEncoding(int index)
   }
 }
 
-void Konsole::setSchema(ColorSchema* s, TEWidget* tewidget)
+void KonsoleApp::setSchema(ColorSchema* s, TEWidget* tewidget)
 {
   if (!s) return;
   if (!tewidget) tewidget=te;
@@ -3726,12 +3726,12 @@ void Konsole::setSchema(ColorSchema* s, TEWidget* tewidget)
     }
 }
 
-void Konsole::slotDetachSession()
+void KonsoleApp::slotDetachSession()
 {
   detachSession();
 }
 
-void Konsole::detachSession(TESession* _se) {
+void KonsoleApp::detachSession(TESession* _se) {
   if (!_se) _se=se;
 
   TDERadioAction *ra = session2action.find(_se);
@@ -3779,7 +3779,7 @@ void Konsole::detachSession(TESession* _se) {
   disconnect( _se,TQ_SIGNAL(renameSession(TESession*,const TQString&)), this,TQ_SLOT(slotRenameSession(TESession*,const TQString&)) );
 
   // TODO: "type" isn't passed properly
-  Konsole* konsole = new Konsole(name(), b_histEnabled, !menubar->isHidden(), n_tabbar != TabNone, b_framevis,
+  KonsoleApp* konsole = new KonsoleApp(name(), b_histEnabled, !menubar->isHidden(), n_tabbar != TabNone, b_framevis,
                                  n_scroll != TEWidget::SCRNONE, 0, false, 0);
   konsole->enableFullScripting(b_fullScripting);
   // TODO; Make this work: konsole->enableFixedSize(b_fixedSize);
@@ -3819,7 +3819,7 @@ void Konsole::detachSession(TESession* _se) {
     m_removeSessionButton->setEnabled(tabwidget->count()>1);
 }
 
-void Konsole::attachSession(TESession* session)
+void KonsoleApp::attachSession(TESession* session)
 {
   if (b_dynamicTabHide && sessions.count()==1 && n_tabbar!=TabNone)
     tabwidget->setTabBarHidden(false);
@@ -3877,7 +3877,7 @@ void Konsole::attachSession(TESession* session)
   activateSession(session);
 }
 
-void Konsole::setSessionTitle( TQString& title, TESession* ses )
+void KonsoleApp::setSessionTitle( TQString& title, TESession* ses )
 {
    if ( !ses )
       ses = se;
@@ -3885,7 +3885,7 @@ void Konsole::setSessionTitle( TQString& title, TESession* ses )
    slotRenameSession( ses, title );
 }
 
-void Konsole::renameSession(TESession* ses) {
+void KonsoleApp::renameSession(TESession* ses) {
   TQString title = ses->Title();
   bool ok;
 
@@ -3898,11 +3898,11 @@ void Konsole::renameSession(TESession* ses) {
   slotRenameSession(ses,title);
 }
 
-void Konsole::slotRenameSession() {
+void KonsoleApp::slotRenameSession() {
   renameSession(se);
 }
 
-void Konsole::slotRenameSession(TESession* ses, const TQString &name)
+void KonsoleApp::slotRenameSession(TESession* ses, const TQString &name)
 {
   TDERadioAction *ra = session2action.find(ses);
   TQString title=name;
@@ -3915,7 +3915,7 @@ void Konsole::slotRenameSession(TESession* ses, const TQString &name)
 }
 
 
-void Konsole::slotClearAllSessionHistories() {
+void KonsoleApp::slotClearAllSessionHistories() {
   for (TESession *_se = sessions.first(); _se; _se = sessions.next())
     _se->clearHistory();
 }
@@ -3995,7 +3995,7 @@ bool HistoryTypeDialog::isOn() const
   return m_btnEnable->isChecked();
 }
 
-void Konsole::slotHistoryType()
+void KonsoleApp::slotHistoryType()
 {
   if (!se) return;
 
@@ -4030,12 +4030,12 @@ void Konsole::slotHistoryType()
   }
 }
 
-void Konsole::slotClearHistory()
+void KonsoleApp::slotClearHistory()
 {
   se->clearHistory();
 }
 
-void Konsole::slotFindHistory()
+void KonsoleApp::slotFindHistory()
 {
   if( !m_finddialog ) {
     m_finddialog = new KonsoleFind( this, "konsolefind", false);
@@ -4054,7 +4054,7 @@ void Konsole::slotFindHistory()
   m_finddialog->result();
 }
 
-void Konsole::slotOpenSelection()
+void KonsoleApp::slotOpenSelection()
 {
   delete m_filterData;
 
@@ -4077,12 +4077,12 @@ void Konsole::slotOpenSelection()
   connect(m_openSelection, TQ_SIGNAL(activated(int)), TQ_SLOT(slotOpenURI(int)));
 }
 
-void Konsole::slotOpenURI(int)
+void KonsoleApp::slotOpenURI(int)
 {
   (void) new KRun( m_filterData->uri() );
 }
 
-void Konsole::slotFindNext()
+void KonsoleApp::slotFindNext()
 {
   if( !m_finddialog ) {
     slotFindHistory();
@@ -4096,7 +4096,7 @@ void Konsole::slotFindNext()
   slotFind();
 }
 
-void Konsole::slotFindPrevious()
+void KonsoleApp::slotFindPrevious()
 {
   if( !m_finddialog ) {
     slotFindHistory();
@@ -4112,7 +4112,7 @@ void Konsole::slotFindPrevious()
   m_finddialog->setDirection( !m_finddialog->get_direction() );
 }
 
-void Konsole::slotFind()
+void KonsoleApp::slotFind()
 {
   if (m_find_first) {
     se->getEmulation()->findTextBegin();
@@ -4150,7 +4150,7 @@ void Konsole::slotFind()
 	i18n( "Find" ) );
 }
 
-void Konsole::slotFindDone()
+void KonsoleApp::slotFindDone()
 {
   if (!m_finddialog)
     return;
@@ -4159,7 +4159,7 @@ void Konsole::slotFindDone()
   m_finddialog->hide();
 }
 
-void Konsole::slotSaveHistory()
+void KonsoleApp::slotSaveHistory()
 {
   // FIXME - mostLocalURL can't handle non-existing files yet, so this
   //         code doesn't work.
@@ -4200,7 +4200,7 @@ void Konsole::slotSaveHistory()
   }
 }
 
-void Konsole::slotZModemUpload()
+void KonsoleApp::slotZModemUpload()
 {
   if (se->zmodemIsBusy())
   {
@@ -4228,7 +4228,7 @@ void Konsole::slotZModemUpload()
   se->startZModem(zmodem, TQString::null, files);
 }
 
-void Konsole::slotZModemDetected(TESession *session)
+void KonsoleApp::slotZModemDetected(TESession *session)
 {
   if (!tdeApp->authorize("zmodem_download")) return;
 
@@ -4265,7 +4265,7 @@ void Konsole::slotZModemDetected(TESession *session)
   }
 }
 
-void Konsole::slotPrint()
+void KonsoleApp::slotPrint()
 {
   KPrinter printer;
   printer.addDialogPage(new PrintSettings());
@@ -4281,7 +4281,7 @@ void Konsole::slotPrint()
   }
 }
 
-void Konsole::toggleBidi()
+void KonsoleApp::toggleBidi()
 {
   b_bidiEnabled=!b_bidiEnabled;
   TQPtrList<TEWidget> tes = activeTEs();
@@ -4375,7 +4375,7 @@ bool KonsoleFind::reg_exp() const
 ///////////////////////////////////////////////////////////
 // This was to apply changes made to KControl fixed font to all TEs...
 //  kvh - 03/10/2005 - We don't do this anymore...
-void Konsole::slotFontChanged()
+void KonsoleApp::slotFontChanged()
 {
   TEWidget *oldTe = te;
   TQPtrList<TEWidget> tes = activeTEs();
@@ -4386,19 +4386,19 @@ void Konsole::slotFontChanged()
   te = oldTe;
 }
 
-void Konsole::biggerFont(void) {
+void KonsoleApp::biggerFont(void) {
     if ( !se ) return;
     te->biggerFont();
     activateSession();
 }
 
-void Konsole::smallerFont(void) {
+void KonsoleApp::smallerFont(void) {
     if ( !se ) return;
     te->smallerFont();
     activateSession();
 }
 
-bool Konsole::processDynamic(const TQCString &fun, const TQByteArray &data, TQCString& replyType, TQByteArray &replyData)
+bool KonsoleApp::processDynamic(const TQCString &fun, const TQByteArray &data, TQCString& replyType, TQByteArray &replyData)
 {
     if (b_fullScripting)
     {
@@ -4424,7 +4424,7 @@ bool Konsole::processDynamic(const TQCString &fun, const TQByteArray &data, TQCS
     return KonsoleIface::processDynamic(fun, data, replyType, replyData);
 }
 
-QCStringList Konsole::functionsDynamic()
+QCStringList KonsoleApp::functionsDynamic()
 {
     QCStringList funcs = KonsoleIface::functionsDynamic();
     if (b_fullScripting)
@@ -4435,14 +4435,14 @@ QCStringList Konsole::functionsDynamic()
     return funcs;
 }
 
-void Konsole::enableFullScripting(bool b)
+void KonsoleApp::enableFullScripting(bool b)
 {
     b_fullScripting = b;
     for (TESession *_se = sessions.first(); _se; _se = sessions.next())
        _se->enableFullScripting(b);
 }
 
-void Konsole::enableFixedSize(bool b)
+void KonsoleApp::enableFixedSize(bool b)
 {
     b_fixedSize = b;
     if (b_fixedSize)
@@ -4452,7 +4452,7 @@ void Konsole::enableFixedSize(bool b)
     }
 }
 
-TQPtrList<TEWidget> Konsole::activeTEs()
+TQPtrList<TEWidget> KonsoleApp::activeTEs()
 {
    TQPtrList<TEWidget> ret;
    if (sessions.count()>0)
@@ -4463,7 +4463,7 @@ TQPtrList<TEWidget> Konsole::activeTEs()
    return ret;
 }
 
-void Konsole::setMenuAcceleratos()
+void KonsoleApp::setMenuAcceleratos()
 {
   if (b_menuAccelerators)
   {
@@ -4491,4 +4491,4 @@ void Konsole::setMenuAcceleratos()
   }
 }
 
-#include "konsole.moc"
+#include "KonsoleApp.moc"

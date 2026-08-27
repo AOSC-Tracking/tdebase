@@ -22,8 +22,8 @@
 /* kvt, which is copyright (c) 1996 by Matthias Ettrich <ettrich@kde.org> */
 /*                                                                        */
 
-#ifndef KONSOLE_H
-#define KONSOLE_H
+#ifndef KONSOLEAPP_H
+#define KONSOLEAPP_H
 
 
 #include <tdemainwindow.h>
@@ -66,19 +66,19 @@ class KURIFilterData;
 // Defined in main.C
 const char *konsole_shell(TQStrList &args);
 
-class Konsole : public TDEMainWindow, virtual public KonsoleIface
+class KonsoleApp : public TDEMainWindow, virtual public KonsoleIface
 {
     TQ_OBJECT
 
     friend class KonsoleSessionManaged;
 public:
 
-  Konsole(const char * name, int histon, bool menubaron, bool tabbaron,
-    bool frameon, bool scrollbaron,
-    TQCString type = 0, bool b_inRestore = false, const int wanted_tabbar = 0,
-    const TQString &workdir=TQString::null);
+  KonsoleApp(const char * name, int histon, bool menubaron, bool tabbaron,
+      bool frameon, bool scrollbaron,
+      TQCString type = 0, bool b_inRestore = false, const int wanted_tabbar = 0,
+      const TQString &workdir=TQString::null);
 
-  ~Konsole();
+  ~KonsoleApp();
   void setColLin(int columns, int lines);
   void setAutoClose(bool on);
   void initFullScreen();

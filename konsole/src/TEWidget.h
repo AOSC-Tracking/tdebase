@@ -37,7 +37,7 @@
 
 extern unsigned short vt100_graphics[32];
 
-class Konsole;
+class KonsoleApp;
 class TQLabel;
 class TQTimer;
 
@@ -47,7 +47,7 @@ class TEWidget : public TQFrame
    TQ_OBJECT
    
 
-  friend class Konsole;
+  friend class KonsoleApp;
 public:
 
     TEWidget(TQWidget *parent=0, const char *name=0);

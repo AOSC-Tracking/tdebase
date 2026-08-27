@@ -44,7 +44,7 @@
 
 #include <config.h>
 
-#include "konsole.h"
+#include "KonsoleApp.h"
 
 #if defined(TQ_WS_X11) && defined(HAVE_XRENDER) && TQT_VERSION >= 0x030300
 #define COMPOSITE
@@ -463,8 +463,8 @@ extern "C" int TDE_EXPORT kdemain(int argc, char* argv[])
         sIcon = sessionconfig->readEntry("Icon0","konsole");
         sCwd = sessionconfig->readPathEntry("Cwd0");
         workDir = sessionconfig->readPathEntry("workdir");
-	n_tabbar = TQMIN(sessionconfig->readUnsignedNumEntry("tabbar",Konsole::TabBottom),2);
-        Konsole *m = new Konsole(wname,histon,menubaron,tabbaron,frameon,scrollbaron,0/*type*/,true,n_tabbar, workDir);
+        n_tabbar = TQMIN(sessionconfig->readUnsignedNumEntry("tabbar",KonsoleApp::TabBottom),2);
+        KonsoleApp *m = new KonsoleApp(wname,histon,menubaron,tabbaron,frameon,scrollbaron,0/*type*/,true,n_tabbar, workDir);
 
         m->newSession(sPgm, eargs, sTerm, sIcon, sTitle, sCwd);
 
@@ -561,7 +561,7 @@ extern "C" int TDE_EXPORT kdemain(int argc, char* argv[])
   }
   else
   {
-    Konsole*  m = new Konsole(wname,histon,menubaron,tabbaron,frameon,scrollbaron,type, false, 0, workDir);
+    KonsoleApp*  m = new KonsoleApp(wname,histon,menubaron,tabbaron,frameon,scrollbaron,type, false, 0, workDir);
     m->newSession((shell ? TQFile::decodeName(shell) : TQString()), eargs, term, TQString(), title, workDir);
     m->enableFullScripting(full_script);
     m->enableFixedSize(fixed_size);

@@ -70,7 +70,7 @@ tde_add_kpart( ${target} AUTOMOC
 set( target konsole )
 
 set( ${target}_SRCS
-  TEPty.cpp BlockArray.cpp main.cpp konsole.cpp
+  TEPty.cpp BlockArray.cpp main.cpp KonsoleApp.cpp
   schema.cpp session.cpp TEWidget.cpp TEmuVt102.cpp
   TEScreen.cpp TEmulation.cpp TEHistory.cpp keytrans.cpp
   konsoleiface.skel sessioniface.skel konsole_wcwidth.cpp

@@ -44,7 +44,7 @@ private slots:
 private:
     void importOldBookmarks( const TQString& path, const TQString& destinationPath );
 
-    KonsoleMenu *m_konsole;
+    KonsoleMenu *m_konsoleMenu;
     TDEPopupMenu *m_menu;
     KonsoleBookmarkMenu *m_bookmarkMenu;
     TQTextStream *m_importStream;
