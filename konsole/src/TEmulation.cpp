@@ -77,10 +77,11 @@
 #include <unistd.h>
 #include <tqregexp.h>
 #include <tqclipboard.h>
+#include <tqapplication.h>
 
 #include <assert.h>
 
-#include "TEmulation.moc"
+namespace Konsole {
 
 /* ------------------------------------------------------------------------- */
 /*                                                                           */
@@ -621,3 +622,7 @@ void TEmulation::setColumns(int columns)
   //       Can we put this straight or explain it at least?
   emit changeColumns(columns);
 }
+
+}
+
+#include "TEmulation.moc"

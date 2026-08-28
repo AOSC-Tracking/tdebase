@@ -21,15 +21,18 @@
 #ifndef TEHISTORY_H
 #define TEHISTORY_H
 
-#include <tqcstring.h>
-#include <tqptrvector.h>
 #include <tqbitarray.h>
+#include <tqcstring.h>
+#include <tqintdict.h>
+#include <tqptrvector.h>
 
 #include <tdetempfile.h>
 
+#include "BlockArray.h"
 #include "Character.h"
 
-#if 1
+namespace Konsole {
+
 /*
    An extendable tmpfile(1) based buffer.
 */
@@ -49,7 +52,6 @@ private:
   int  length;
   KTempFile tmpFile;
 };
-#endif
 
 //////////////////////////////////////////////////////////////////////
 
@@ -175,8 +177,6 @@ public:
 //////////////////////////////////////////////////////////////////////
 // BlockArray-based history
 //////////////////////////////////////////////////////////////////////
-#include "BlockArray.h"
-#include <tqintdict.h>
 class HistoryScrollBlockArray : public HistoryScroll
 {
 public:
@@ -237,7 +237,6 @@ protected:
   size_t m_size;
 };
 
-#if 1 // Disabled for now
 class HistoryTypeFile : public HistoryType
 {
 public:
@@ -268,6 +267,6 @@ protected:
   unsigned int m_nbLines;
 };
 
-#endif
+}
 
 #endif // TEHISTORY_H

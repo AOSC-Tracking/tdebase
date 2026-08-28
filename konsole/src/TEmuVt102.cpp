@@ -43,10 +43,14 @@
 #include <unistd.h>
 
 #include <assert.h>
-
-#include "TEmuVt102.moc"
-
 #include <kdebug.h>
+
+#if defined(HAVE_XKB)
+static void scrolllock_set_off();
+static void scrolllock_set_on();
+#endif
+
+namespace Konsole {
 
 /* VT102 Terminal Emulation
 
@@ -940,11 +944,6 @@ void TEmuVt102::onMouse( int cb, int cx, int cy )
 
 // Keyboard Handling ------------------------------------------------------- --
 
-#if defined(HAVE_XKB)
-static void scrolllock_set_off();
-static void scrolllock_set_on();
-#endif
-
 void TEmuVt102::scrollLock(const bool lock)
 {
   if (lock)
@@ -1334,6 +1333,8 @@ void TEmuVt102::ReportErrorToken()
 #endif
 }
 
+}
+
 /*
  Originally comes from NumLockX http://dforce.sh.cvut.cz/~seli/en/numlockx
 
@@ -1486,3 +1487,5 @@ static void scrolllock_set_off()
     xkb_set_off();
 }
 #endif // defined(HAVE_XKB)
+
+#include "TEmuVt102.moc"

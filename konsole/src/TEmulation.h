@@ -29,6 +29,8 @@
 #include <tqguardedptr.h>
 #include <keytrans.h>
 
+namespace Konsole {
+
 enum { NOTIFYNORMAL=0, NOTIFYBELL=1, NOTIFYACTIVITY=2, NOTIFYSILENCE=3 };
 
 class TEmulation : public TQObject
@@ -156,5 +158,7 @@ private:
   
   int    m_findPos;
 };
+
+}
 
 #endif // ifndef EMULATION_H

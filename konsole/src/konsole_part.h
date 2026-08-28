@@ -32,18 +32,23 @@
 #include "schema.h"
 #include "session.h"
 
-class TDEInstance;
-class konsoleBrowserExtension;
+
+class TQCheckBox;
 class TQPushButton;
 class TQSpinBox;
-class TDEPopupMenu;
-class TDEActionMenu;
-class TQCheckBox;
+
 class KRootPixmap;
-class TDEToggleAction;
+class TDEActionMenu;
+class TDEInstance;
+class TDEPopupMenu;
 class TDESelectAction;
+class TDEToggleAction;
 
 namespace KParts { class GUIActivateEvent; }
+
+namespace Konsole {
+
+class konsoleBrowserExtension;
 
 class konsoleFactory : public KParts::Factory
 {
@@ -249,5 +254,7 @@ class konsoleBrowserExtension : public KParts::BrowserExtension
 
     void emitOpenURLRequest(const KURL &url);
 };
+
+}
 
 #endif

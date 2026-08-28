@@ -25,6 +25,8 @@
 
 class TQCheckBox;
 
+namespace Konsole {
+
 class PrintSettings : public KPrintDialogPage
 {
 	TQ_OBJECT
@@ -40,5 +42,7 @@ private:
 	TQCheckBox	*m_printexact;
 	TQCheckBox	*m_printheader;
 };
+
+}
 
 #endif

@@ -33,6 +33,9 @@
 
 class TDEProcIO;
 class TDEProcess;
+
+namespace Konsole {
+
 class ZModemDialog;
 
 class TESession : public TQObject, virtual public SessionIface
@@ -230,5 +233,7 @@ private:
   TQColor         modifiedBackground; // as set by: echo -en '\033]11;Color\007
   int            encoding_no;
 };
+
+}
 
 #endif

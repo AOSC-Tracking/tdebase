@@ -60,6 +60,7 @@
 #include <tdeconfig.h>
 #include <kdebug.h>
 
+namespace Konsole {
 
 typedef TQPtrListIterator<ColorSchema> ColorSchemaListIterator;
 
@@ -631,4 +632,4 @@ int ColorSchemaList::compareItems(TQPtrCollection::Item item1, TQPtrCollection::
    return -1*TQString::compare(schema1->title(),schema2->title());
 }
 
-
+}

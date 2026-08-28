@@ -88,6 +88,8 @@
 #include "TEPty.h"
 
 
+namespace Konsole {
+
 void TEPty::donePty()
 {
   emit done(exitStatus());
@@ -257,6 +259,8 @@ int TEPty::commSetupDoneC ()
         emit forkedChild();
     }
     return ok;
+}
+
 }
 
 #include "TEPty.moc"

@@ -52,6 +52,8 @@
 // We can't use the ARGB32 visual when embedded in another application
 bool argb_visual = false;
 
+namespace Konsole {
+
 K_EXPORT_COMPONENT_FACTORY( libkonsolepart, konsoleFactory )
 
 /**
@@ -1232,6 +1234,8 @@ void konsolePart::slotSetSessionEncoding(TESession *session, const TQString &enc
 void konsolePart::slotUpdateSessionKeytab(TESession *, const TQString &)
 {
 	updateKeytabMenu();
+}
+
 }
 
 #include "konsole_part.moc"

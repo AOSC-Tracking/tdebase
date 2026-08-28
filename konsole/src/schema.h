@@ -58,6 +58,8 @@
 class TQDateTime;
 class TDEConfig;
 
+namespace Konsole {
+
 class ColorSchema
 {
 friend class ColorSchemaList; //only for resetting serial to one when deleting the list
@@ -239,5 +241,7 @@ private:
 	*/
 	ColorSchema *defaultSchema;
 } ;
+
+}
 
 #endif

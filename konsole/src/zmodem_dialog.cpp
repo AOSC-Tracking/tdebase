@@ -22,6 +22,8 @@
 
 #include <tdelocale.h>
 
+namespace Konsole {
+
 ZModemDialog::ZModemDialog(TQWidget *parent, bool modal, const TQString &caption)
  : KDialogBase(parent, "zmodem_progress", modal, caption,
    User1|Close, User1, true,
@@ -51,6 +53,8 @@ void ZModemDialog::slotClose()
 {
   KDialogBase::slotClose();
   delayedDestruct();
+}
+
 }
 
 #include "zmodem_dialog.moc"

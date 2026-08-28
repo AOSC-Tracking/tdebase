@@ -50,21 +50,26 @@
 
 #define KONSOLE_VERSION "1.6.6"
 
-class KRootPixmap;
-class TQLabel;
 class TQCheckBox;
-class KonsoleFind;
-class TDEPopupMenu;
-class TDEAction;
-class TDEToggleAction;
-class TDESelectAction;
-class TDERadioAction;
-class KTabWidget;
+class TQLabel;
+class TQSpinBox;
 class TQToolButton;
+
+class KRootPixmap;
+class KTabWidget;
 class KURIFilterData;
+class TDEAction;
+class TDEPopupMenu;
+class TDERadioAction;
+class TDESelectAction;
+class TDEToggleAction;
 
 // Defined in main.C
 const char *konsole_shell(TQStrList &args);
+
+namespace Konsole {
+
+class KonsoleFind;
 
 class KonsoleApp : public TDEMainWindow, virtual public KonsoleIface
 {
@@ -466,8 +471,6 @@ private:
   KURIFilterData* m_filterData;
 };
 
-class TQSpinBox;
-
 class HistoryTypeDialog : public KDialogBase
 {
     TQ_OBJECT
@@ -526,5 +529,7 @@ private:
   TQDialog*      m_editorDialog;
   TQPushButton*  m_editRegExp;
 };
+
+}
 
 #endif

@@ -36,6 +36,8 @@
 #include <stdio.h>
 #include <stddef.h>
 
+namespace Konsole {
+
 /* KeyEntry
 
    instances represent the individual assignments
@@ -756,3 +758,5 @@ void test()
   if (1) { KeyTrans kt; kt.scanTable(buf); }
 }
 */
+
+}

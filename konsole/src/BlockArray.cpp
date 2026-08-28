@@ -28,6 +28,8 @@
 
 static int blocksize = 0;
 
+namespace Konsole {
+
 BlockArray::BlockArray()
     : size(0),
       current(size_t(-1)),
@@ -325,3 +327,4 @@ void BlockArray::increaseBuffer()
 
 }
 
+}

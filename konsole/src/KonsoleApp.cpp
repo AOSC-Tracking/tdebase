@@ -155,7 +155,11 @@ Time to start a requirement list.
 #define SESSION_NEW_WINDOW_ID 1
 #define SESSION_NEW_SHELL_ID 100
 
+#define DEFAULT_HISTORY_SIZE 1000
+
 extern bool argb_visual; // declared in main.cpp and konsole_part.cpp
+
+namespace Konsole {
 
 // KonsoleFontSelectAction is now also used for selectSize!
 class KonsoleFontSelectAction : public TDESelectAction {
@@ -182,12 +186,6 @@ void KonsoleFontSelectAction::slotActivated(int index) {
         TDESelectAction::slotActivated(index);
     }
 }
-
-template class TQPtrDict<TESession>;
-template class TQIntDict<TDESimpleConfig>;
-template class TQPtrDict<TDERadioAction>;
-
-#define DEFAULT_HISTORY_SIZE 1000
 
 KonsoleApp::KonsoleApp(const char* name, int histon, bool menubaron, bool tabbaron, bool frameon, bool scrollbaron,
                  TQCString type, bool b_inRestore, const int wanted_tabbar, const TQString &workdir )
@@ -4489,6 +4487,8 @@ void KonsoleApp::setMenuAcceleratos()
     if (m_help)
       menubar->changeItem(m_help_id, TQString(m_help_string).replace(TQRegExp("&([^&])"), "\\1"));
   }
+}
+
 }
 
 #include "KonsoleApp.moc"

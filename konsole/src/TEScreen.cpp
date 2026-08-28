@@ -62,6 +62,8 @@
 
 //#define REVERSE_WRAPPED_LINES  // for wrapped line debug
 
+namespace Konsole {
+
 /*! creates a `TEScreen' of `lines' lines and `columns' columns.
 */
 
@@ -1640,4 +1642,6 @@ bool TEScreen::hasScroll()
 const HistoryType& TEScreen::getScroll()
 {
   return hist->getType();
+}
+
 }

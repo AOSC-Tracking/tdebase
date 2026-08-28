@@ -47,6 +47,8 @@
     of the abilities of the framework - multible sessions.
 */
 
+namespace Konsole {
+
 TESession::TESession(TEWidget* _te, const TQString &_term, ulong _winId, const TQString &_sessionId, const TQString &_initial_cwd)
    : DCOPObject( _sessionId.latin1() )
    , sh(0)
@@ -841,6 +843,8 @@ void TESession::setSize(TQSize size)
      return;
   
   emit resizeSession(this, size);
+}
+
 }
 
 #include "session.moc"

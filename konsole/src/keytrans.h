@@ -46,6 +46,8 @@
 
 #define BITS(x,v) ((((v)!=0)<<(x)))
 
+namespace Konsole {
+
 class KeytabReader;
 
 class KeyTrans
@@ -96,5 +98,7 @@ class KeyTrans
       bool m_fileRead;
       KeyTrans();
 };
+
+}
 
 #endif

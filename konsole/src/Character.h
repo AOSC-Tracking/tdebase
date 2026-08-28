@@ -33,6 +33,7 @@
 #define RE_INTENSIVE       (1 << 3)
 #define RE_CURSOR          (1 << 4)
 
+namespace Konsole {
 
 /*
    Character represents a single character in the terminal.
@@ -93,6 +94,8 @@ inline bool Character::isBold(const ColorEntry* base) const
 {
   return (m_fgColor.m_cs == COLOR_SPACE_DEFAULT && base[m_fgColor.m_u     + (m_fgColor.m_v ? BASE_COLORS : 0)].m_bold) ||
          (m_fgColor.m_cs == COLOR_SPACE_SYSTEM  && base[m_fgColor.m_u + 2 + (m_fgColor.m_v ? BASE_COLORS : 0)].m_bold);
+}
+
 }
 
 #endif

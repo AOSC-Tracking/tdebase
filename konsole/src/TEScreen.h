@@ -32,6 +32,8 @@
 #define MODE_NewLine   5
 #define MODES_SCREEN   6
 
+namespace Konsole {
+
 /*!
 */
 struct ScreenParm
@@ -281,5 +283,7 @@ private: // helper
 
     ScreenParm saveParm;
 };
+
+}
 
 #endif // TESCREEN_H

@@ -25,9 +25,12 @@
 #include "konsolebookmarkmenu.h"
 
 class KBookmarkManager;
+class TDEPopupMenu;
+
+namespace Konsole {
+
 class KonsoleApp;
 class KonsoleBookmarkMenu;
-class TDEPopupMenu;
 
 class KonsoleBookmarkHandler : public TQObject, public KBookmarkOwner
 {
@@ -59,5 +62,7 @@ private:
     KonsoleBookmarkMenu *m_bookmarkMenu;
     TQString m_file;
 };
+
+}
 
 #endif // KONSOLEBOOKMARKHANDLER_H

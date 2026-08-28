@@ -23,6 +23,8 @@
 
 #include <dcopobject.h>
 
+namespace Konsole {
+
 class SessionIface : virtual public DCOPObject
 {
     K_DCOP
@@ -47,5 +49,7 @@ class SessionIface : virtual public DCOPObject
     virtual TQString font() =0;
     virtual void setFont(const TQString &font) =0;
 };
+
+}
 
 #endif // SESSIONIFACE_H

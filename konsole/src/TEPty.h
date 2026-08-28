@@ -29,6 +29,8 @@
 #include <tqvaluelist.h>
 #include <tqmemarray.h>
 
+namespace Konsole {
+
 class TEPty: public TDEProcess
 {
 TQ_OBJECT
@@ -126,5 +128,7 @@ TQ_OBJECT
     TQValueList<SendJob> pendingSendJobs;
     bool m_bufferFull;
 };
+
+}
 
 #endif

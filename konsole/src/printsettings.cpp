@@ -24,6 +24,8 @@
 #include <tqcheckbox.h>
 #include <tqlayout.h>
 
+namespace Konsole {
+
 PrintSettings::PrintSettings(TQWidget *parent, const char *name)
 : KPrintDialogPage(parent, name)
 {
@@ -61,6 +63,8 @@ void PrintSettings::setOptions(const TQMap<TQString,TQString>& opts)
 	m_printfriendly->setChecked(opts["app-konsole-printfriendly"] != "false");
 	m_printexact->setChecked(opts["app-konsole-printexact"] == "true");
 	m_printheader->setChecked(opts["app-konsole-printheader"] != "false");
+}
+
 }
 
 #include "printsettings.moc"

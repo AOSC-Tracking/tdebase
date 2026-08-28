@@ -23,6 +23,8 @@
 
 #include <dcopobject.h>
 
+namespace Konsole {
+
 class KonsoleIface : virtual public DCOPObject
 {
     K_DCOP
@@ -45,5 +47,7 @@ class KonsoleIface : virtual public DCOPObject
     virtual void setFullScreen(bool on) = 0;
     virtual ASYNC reparseConfiguration() = 0;
 };
+
+}
 
 #endif // KONSOLEIFACE_H

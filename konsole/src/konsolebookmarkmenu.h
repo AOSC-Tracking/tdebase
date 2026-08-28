@@ -34,6 +34,9 @@ class TDEActionCollection;
 class KBookmarkOwner;
 class KBookmarkMenu;
 class TDEPopupMenu;
+
+namespace Konsole {
+
 class KonsoleBookmarkMenu;
 
 class KonsoleBookmarkMenu : public KBookmarkMenu
@@ -68,5 +71,7 @@ private:
     class KonsoleBookmarkMenuPrivate;
     KonsoleBookmarkMenuPrivate *d;
 };
+
+}
 
 #endif // KONSOLEBOOKMARKMENU_H

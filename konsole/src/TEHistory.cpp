@@ -73,6 +73,8 @@ FIXME: There is noticeable decrease in speed, also. Perhaps,
   A Row(X) data type which allows adding elements to the end.
 */
 
+namespace Konsole {
+
 HistoryFile::HistoryFile()
   : ion(-1),
     length(0)
@@ -623,4 +625,6 @@ HistoryScroll* HistoryTypeFile::getScroll(HistoryScroll *old) const
 unsigned int HistoryTypeFile::getSize() const
 {
   return 0;
+}
+
 }

@@ -34,12 +34,14 @@
 #include "Character.h"
 #include "TEScreen.h"
 
+class TQLabel;
+class TQTimer;
 
 extern unsigned short vt100_graphics[32];
 
+namespace Konsole {
+
 class KonsoleApp;
-class TQLabel;
-class TQTimer;
 
 class TEWidget : public TQFrame
 // a widget representing attributed text
@@ -346,5 +348,7 @@ private slots:
     void swapColorTable();
     void tripleClickTimeout();  // resets possibleTripleClick
 };
+
+}
 
 #endif // TE_WIDGET_H

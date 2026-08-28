@@ -23,6 +23,8 @@
 
 class TQTextEdit;
 
+namespace Konsole {
+
 class ZModemDialog : public KDialogBase
 {
   TQ_OBJECT
@@ -45,5 +47,7 @@ public slots:
 private:
   TQTextEdit *textEdit;
 };
+
+}
 
 #endif

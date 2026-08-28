@@ -25,6 +25,7 @@
 
 #include <tqcolor.h>
 
+namespace Konsole {
 
 // Represent colors in the default table and color schemas
 class ColorEntry
@@ -223,6 +224,8 @@ inline TQColor CharacterColor::color(const ColorEntry *base) const
       return TQColor();
   }
   return TQColor();
+}
+
 }
 
 #endif

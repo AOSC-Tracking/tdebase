@@ -30,6 +30,8 @@
 #include "konsolebookmarkmenu.h"
 #include "konsolebookmarkhandler.h"
 
+namespace Konsole {
+
 KonsoleBookmarkHandler::KonsoleBookmarkHandler( KonsoleApp *konsole, bool toplevel )
     : TQObject( konsole, "KonsoleBookmarkHandler" ),
       KBookmarkOwner(),
@@ -99,6 +101,8 @@ void KonsoleBookmarkHandler::slotBookmarksChanged( const TQString &,
 {
     // This is called when someone changes bookmarks in konsole....
     m_bookmarkMenu->slotBookmarksChanged("");
+}
+
 }
 
 #include "konsolebookmarkhandler.moc"

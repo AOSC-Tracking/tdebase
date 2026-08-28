@@ -23,6 +23,8 @@
 #include "konsolebookmarkmenu.h"
 #include "konsolebookmarkhandler.h"
 
+namespace Konsole {
+
 KonsoleBookmarkMenu::KonsoleBookmarkMenu( KBookmarkManager* mgr,
                      KonsoleBookmarkHandler * _owner, TDEPopupMenu * _parentMenu,
                      TDEActionCollection *collec, bool _isRoot, bool _add,
@@ -150,6 +152,8 @@ void KonsoleBookmarkMenu::slotBookmarkSelected()
     if ( !m_pOwner ) return; // this view doesn't handle bookmarks...
     m_kOwner->openBookmarkURL( TQString::fromUtf8(sender()->name()), /* URL */
                                ( (TDEAction *)sender() )->text() /* Title */ );
+}
+
 }
 
 #include "konsolebookmarkmenu.moc"
