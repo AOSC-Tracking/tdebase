@@ -46,8 +46,6 @@
 
 #include "KonsoleApp.h"
 
-using namespace Konsole;
-
 #if defined(TQ_WS_X11) && defined(HAVE_XRENDER) && TQT_VERSION >= 0x030300
 #define COMPOSITE
 #endif
@@ -104,7 +102,7 @@ static bool fixed_size = false;
 
 bool argb_visual = false;
 
-const char *konsole_shell(TQStrList &args)
+const char* konsole_shell(TQStrList &args)
 {
   const char* shell = getenv("SHELL");
   if (shell == NULL || *shell == '\0') shell = "/bin/sh";
@@ -125,6 +123,10 @@ const char *konsole_shell(TQStrList &args)
     args.append(shell);
   return shell;
 }
+
+
+// Must be after inclusion of X11 headers, to avoid conflict with 'Screen' class
+using namespace Konsole;
 
 /**
    The goal of this class is to add "--noxft" and "--ls" to the restoreCommand

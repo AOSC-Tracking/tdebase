@@ -21,7 +21,7 @@
 
 /*! \class TEmulation
 
-    \brief Mediator between TEWidget and TEScreen.
+    \brief Mediator between TEWidget and Screen.
 
    This class is responsible to scan the escapes sequences of the terminal
    emulation and to map it to their corresponding semantic complements.
@@ -30,7 +30,7 @@
 
    It is also responsible to refresh the TEWidget by certain rules.
 
-   \sa TEWidget \sa TEScreen
+   \sa TEWidget \sa Screen
 
    \par A note on refreshing
 
@@ -68,9 +68,6 @@
    - evtl. the bulk operations could be made more transparent.
 */
 
-#include "TEmulation.h"
-#include "TEWidget.h"
-#include "TEScreen.h"
 #include <kdebug.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -80,6 +77,11 @@
 #include <tqapplication.h>
 
 #include <assert.h>
+
+#include "TEmulation.h"
+#include "TEHistory.h"
+#include "Screen.h"
+#include "TEWidget.h"
 
 namespace Konsole
 {
@@ -108,8 +110,8 @@ TEmulation::TEmulation(TEWidget* w)
   m_findPos(-1)
 {
 
-  screen[0] = new TEScreen(gui->Lines(),gui->Columns());
-  screen[1] = new TEScreen(gui->Lines(),gui->Columns());
+  screen[0] = new Screen(gui->Lines(),gui->Columns());
+  screen[1] = new Screen(gui->Lines(),gui->Columns());
   scr = screen[0];
 
   TQObject::connect(&bulk_timer1, TQ_SIGNAL(timeout()), this, TQ_SLOT(showBulk()) );
@@ -197,7 +199,7 @@ TEmulation::~TEmulation()
 
 void TEmulation::setScreen(int n)
 {
-  TEScreen *old = scr;
+  Screen *old = scr;
   scr = screen[n&1];
   gui->setScreen(n&1, scr);
   if (scr != old)

@@ -18,7 +18,7 @@
     02110-1301  USA.
 */
 
-/*! \class TEScreen
+/*! \class Screen
 
     \brief The image manipulated by the emulation.
 
@@ -50,7 +50,8 @@
 #include <ctype.h>
 
 #include "konsole_wcwidth.h"
-#include "TEScreen.h"
+#include "TEHistory.h"
+#include "Screen.h"
 
 //FIXME: this is emulation specific. Use false for xterm, true for ANSI.
 //FIXME: see if we can get this from terminfo.
@@ -65,10 +66,10 @@
 namespace Konsole
 {
 
-/*! creates a `TEScreen' of `lines' lines and `columns' columns.
+/*! creates a `Screen' of `lines' lines and `columns' columns.
 */
 
-TEScreen::TEScreen(int l, int c)
+Screen::Screen(int l, int c)
   : lines(l),
     columns(c),
     image(new Character[(lines+1)*columns]),
@@ -109,7 +110,7 @@ TEScreen::TEScreen(int l, int c)
 /*! Destructor
 */
 
-TEScreen::~TEScreen()
+Screen::~Screen()
 {
   delete[] image;
   delete[] tabstops;
@@ -140,7 +141,7 @@ TEScreen::~TEScreen()
     The cursor will not be moved beyond the top margin.
 */
 
-void TEScreen::cursorUp(int n)
+void Screen::cursorUp(int n)
 //=CUU
 {
   if (n == 0) n = 1; // Default
@@ -155,7 +156,7 @@ void TEScreen::cursorUp(int n)
     The cursor will not be moved beyond the bottom margin.
 */
 
-void TEScreen::cursorDown(int n)
+void Screen::cursorDown(int n)
 //=CUD
 {
   if (n == 0) n = 1; // Default
@@ -170,7 +171,7 @@ void TEScreen::cursorDown(int n)
     The cursor will not move beyond the first column.
 */
 
-void TEScreen::cursorLeft(int n)
+void Screen::cursorLeft(int n)
 //=CUB
 {
   if (n == 0) n = 1; // Default
@@ -184,7 +185,7 @@ void TEScreen::cursorLeft(int n)
     The cursor will not move beyond the rightmost column.
 */
 
-void TEScreen::cursorRight(int n)
+void Screen::cursorRight(int n)
 //=CUF
 {
   if (n == 0) n = 1; // Default
@@ -195,7 +196,7 @@ void TEScreen::cursorRight(int n)
     Move the cursor at most n lines next
 */
 
-void TEScreen::cursorNextLine(int n)
+void Screen::cursorNextLine(int n)
 //=CNL
 {
 	if (n == 0)
@@ -217,7 +218,7 @@ void TEScreen::cursorNextLine(int n)
     Move the cursor at most n lines previous
 */
 
-void TEScreen::cursorPrevLine(int n)
+void Screen::cursorPrevLine(int n)
 //=CPL
 {
 	if (n == 0)
@@ -239,7 +240,7 @@ void TEScreen::cursorPrevLine(int n)
     Set top and bottom margin.
 */
 
-void TEScreen::setMargins(int top, int bot)
+void Screen::setMargins(int top, int bot)
 //=STBM
 {
   if (top == 0) top = 1;      // Default
@@ -263,7 +264,7 @@ void TEScreen::setMargins(int top, int bot)
     actual top and bottom margin is scrolled up instead.
 */
 
-void TEScreen::index()
+void Screen::index()
 //=IND
 {
   if (cuY == bmargin)
@@ -281,7 +282,7 @@ void TEScreen::index()
     actual top and bottom margin is scrolled down instead.
 */
 
-void TEScreen::reverseIndex()
+void Screen::reverseIndex()
 //=RI
 {
   if (cuY == tmargin)
@@ -297,7 +298,7 @@ void TEScreen::reverseIndex()
     actual top and bottom margin is scrolled up.
 */
 
-void TEScreen::NextLine()
+void Screen::NextLine()
 //=NEL
 {
   Return(); index();
@@ -313,7 +314,7 @@ void TEScreen::NextLine()
     The line is filled in from the right with spaces.
 */
 
-void TEScreen::eraseChars(int n)
+void Screen::eraseChars(int n)
 {
   if (n == 0) n = 1; // Default
   int p = TQMAX(0,TQMIN(cuX+n-1,columns-1));
@@ -325,7 +326,7 @@ void TEScreen::eraseChars(int n)
     The line is filled in from the right with spaces.
 */
 
-void TEScreen::deleteChars(int n)
+void Screen::deleteChars(int n)
 {
   if (n == 0) n = 1; // Default
   if (n > columns) n = columns - 1;
@@ -339,7 +340,7 @@ void TEScreen::deleteChars(int n)
     The cursor is not moved by the operation.
 */
 
-void TEScreen::insertChars(int n)
+void Screen::insertChars(int n)
 {
   if (n == 0) n = 1; // Default
   int p = TQMAX(0,TQMIN(columns-1-n,columns-1));
@@ -348,7 +349,7 @@ void TEScreen::insertChars(int n)
   clearImage(loc(cuX,cuY),loc(q-1,cuY),' ');
 }
 
-void TEScreen::repeatChars(int n)
+void Screen::repeatChars(int n)
 {
     if (n == 0)
     {
@@ -373,7 +374,7 @@ void TEScreen::repeatChars(int n)
     The cursor is not moved by the operation.
 */
 
-void TEScreen::deleteLines(int n)
+void Screen::deleteLines(int n)
 {
   if (n == 0) n = 1; // Default
   scrollUp(cuY,n);
@@ -384,7 +385,7 @@ void TEScreen::deleteLines(int n)
     The cursor is not moved by the operation.
 */
 
-void TEScreen::insertLines(int n)
+void Screen::insertLines(int n)
 {
   if (n == 0) n = 1; // Default
   scrollDown(cuY,n);
@@ -394,7 +395,7 @@ void TEScreen::insertLines(int n)
 
 /*! Set a specific mode. */
 
-void TEScreen::setMode(int m)
+void Screen::setMode(int m)
 {
   currParm.mode[m] = true;
   switch(m)
@@ -405,7 +406,7 @@ void TEScreen::setMode(int m)
 
 /*! Reset a specific mode. */
 
-void TEScreen::resetMode(int m)
+void Screen::resetMode(int m)
 {
   currParm.mode[m] = false;
   switch(m)
@@ -416,28 +417,28 @@ void TEScreen::resetMode(int m)
 
 /*! Save a specific mode. */
 
-void TEScreen::saveMode(int m)
+void Screen::saveMode(int m)
 {
   saveParm.mode[m] = currParm.mode[m];
 }
 
 /*! Restore a specific mode. */
 
-void TEScreen::restoreMode(int m)
+void Screen::restoreMode(int m)
 {
   currParm.mode[m] = saveParm.mode[m];
 }
 
 //NOTE: this is a helper function
 /*! Return the setting  a specific mode. */
-bool TEScreen::getMode(int m)
+bool Screen::getMode(int m)
 {
   return currParm.mode[m];
 }
 
 /*! Save the cursor position and the rendition attribute settings. */
 
-void TEScreen::saveCursor()
+void Screen::saveCursor()
 {
   sa_cuX     = cuX;
   sa_cuY     = cuY;
@@ -448,7 +449,7 @@ void TEScreen::saveCursor()
 
 /*! Restore the cursor position and the rendition attribute settings. */
 
-void TEScreen::restoreCursor()
+void Screen::restoreCursor()
 {
   cuX     = TQMIN(sa_cuX,columns-1);
   cuY     = TQMIN(sa_cuY,lines-1);
@@ -474,7 +475,7 @@ void TEScreen::restoreCursor()
     tab positions reinitialized.
 */
 
-void TEScreen::resizeImage(int new_lines, int new_columns)
+void Screen::resizeImage(int new_lines, int new_columns)
 {
   if ((new_lines==lines) && (new_columns==columns)) return;
 
@@ -566,12 +567,12 @@ void TEScreen::resizeImage(int new_lines, int new_columns)
    into RE_BOLD and RE_INTENSIVE.
 */
 
-void TEScreen::reverseRendition(Character* p)
+void Screen::reverseRendition(Character* p)
 { CharacterColor f = p->m_fgColor; CharacterColor b = p->m_bgColor;
   p->m_fgColor = b; p->m_bgColor = f; //p->r &= ~RE_TRANSPARENT;
 }
 
-void TEScreen::effectiveRendition()
+void Screen::effectiveRendition()
 // calculate rendition
 {
   ef_re = cu_re & (RE_UNDERLINE | RE_BLINK);
@@ -599,7 +600,7 @@ void TEScreen::effectiveRendition()
 
 */
 
-Character* TEScreen::getCookedImage()
+Character* Screen::getCookedImage()
 {
 /*kdDebug() << "sel_begin=" << sel_begin << "(" << sel_begin/columns << "," << sel_begin%columns << ")"
   << "  sel_TL=" << sel_TL << "(" << sel_TL/columns << "," << sel_TL%columns << ")"
@@ -667,7 +668,7 @@ Character* TEScreen::getCookedImage()
   return merged;
 }
 
-TQBitArray TEScreen::getCookedLineWrapped()
+TQBitArray Screen::getCookedLineWrapped()
 {
   TQBitArray result(lines);
 
@@ -684,7 +685,7 @@ TQBitArray TEScreen::getCookedLineWrapped()
 /*!
 */
 
-void TEScreen::reset()
+void Screen::reset()
 {
     setMode(MODE_Wrap  ); saveMode(MODE_Wrap  );  // wrap at end of margin
   resetMode(MODE_Origin); saveMode(MODE_Origin);  // position refere to [1,1]
@@ -705,7 +706,7 @@ void TEScreen::reset()
 /*! Clear the entire screen and home the cursor.
 */
 
-void TEScreen::clear()
+void Screen::clear()
 {
   clearEntireScreen();
   home();
@@ -714,7 +715,7 @@ void TEScreen::clear()
 /*! Moves the cursor left one column.
 */
 
-void TEScreen::BackSpace()
+void Screen::BackSpace()
 {
   cuX = TQMAX(0,cuX-1);
   if (BS_CLEARS) image[loc(cuX,cuY)].m_character = ' ';
@@ -723,7 +724,7 @@ void TEScreen::BackSpace()
 /*!
 */
 
-void TEScreen::Tabulate(int n)
+void Screen::Tabulate(int n)
 {
   // note that TAB is a format effector (does not write ' ');
   if (n == 0) n = 1;
@@ -734,7 +735,7 @@ void TEScreen::Tabulate(int n)
   }
 }
 
-void TEScreen::backTabulate(int n)
+void Screen::backTabulate(int n)
 {
   // note that TAB is a format effector (does not write ' ');
   if (n == 0) n = 1;
@@ -745,18 +746,18 @@ void TEScreen::backTabulate(int n)
   }
 }
 
-void TEScreen::clearTabStops()
+void Screen::clearTabStops()
 {
   for (int i = 0; i < columns; i++) tabstops[i] = false;
 }
 
-void TEScreen::changeTabStop(bool set)
+void Screen::changeTabStop(bool set)
 {
   if (cuX >= columns) return;
   tabstops[cuX] = set;
 }
 
-void TEScreen::initTabStops()
+void Screen::initTabStops()
 {
   delete[] tabstops;
   tabstops = new bool[columns];
@@ -773,7 +774,7 @@ void TEScreen::initTabStops()
    affects the key sequence returned for newline ([CR]LF).
 */
 
-void TEScreen::NewLine()
+void Screen::NewLine()
 {
   if (getMode(MODE_NewLine)) Return();
   index();
@@ -785,7 +786,7 @@ void TEScreen::NewLine()
     with the *first* character that would fall onto the next line (xenl).
 */
 
-void TEScreen::checkSelection(int from, int to)
+void Screen::checkSelection(int from, int to)
 {
   if (sel_begin == -1) return;
   int scr_TL = loc(0, hist->getLines());
@@ -796,7 +797,7 @@ void TEScreen::checkSelection(int from, int to)
   }
 }
 
-void TEScreen::ShowCharacter(unsigned short c)
+void Screen::ShowCharacter(unsigned short c)
 {
   // Note that VT100 does wrapping BEFORE putting the character.
   // This has impact on the assumption of valid cursor positions.
@@ -845,7 +846,7 @@ void TEScreen::ShowCharacter(unsigned short c)
   }
 }
 
-void TEScreen::compose(TQString compose)
+void Screen::compose(TQString compose)
 {
   if (lastPos == -1)
      return;
@@ -858,7 +859,7 @@ void TEScreen::compose(TQString compose)
 
 // Region commands -------------------------------------------------------------
 
-void TEScreen::scrollUp(int n)
+void Screen::scrollUp(int n)
 {
    if (n == 0) n = 1; // Default
    if (tmargin == 0) addHistLine(); // hist.history
@@ -870,7 +871,7 @@ void TEScreen::scrollUp(int n)
     \sa setRegion \sa scrollDown
 */
 
-void TEScreen::scrollUp(int from, int n)
+void Screen::scrollUp(int from, int n)
 {
 	if (n <= 0)
 	{
@@ -890,7 +891,7 @@ void TEScreen::scrollUp(int from, int n)
 	clearImage(loc(0, bmargin-n+1), loc(columns-1, bmargin), ' ');
 }
 
-void TEScreen::scrollDown(int n)
+void Screen::scrollDown(int n)
 {
    if (n == 0) n = 1; // Default
    scrollDown(tmargin, n);
@@ -901,7 +902,7 @@ void TEScreen::scrollDown(int n)
     \sa setRegion \sa scrollUp
 */
 
-void TEScreen::scrollDown(int from, int n)
+void Screen::scrollDown(int from, int n)
 {
 //FIXME: make sure `tmargin', `bmargin', `from', `n' is in bounds.
   if (n <= 0) return;
@@ -912,14 +913,14 @@ void TEScreen::scrollDown(int from, int n)
 }
 
 /*! position the cursor to a specific line and column. */
-void TEScreen::setCursorYX(int y, int x)
+void Screen::setCursorYX(int y, int x)
 {
   setCursorY(y); setCursorX(x);
 }
 
 /*! Set the cursor to x-th line. */
 
-void TEScreen::setCursorX(int x)
+void Screen::setCursorX(int x)
 {
   if (x == 0) x = 1; // Default
   x -= 1; // Adjust
@@ -928,7 +929,7 @@ void TEScreen::setCursorX(int x)
 
 /*! Set the cursor to y-th line. */
 
-void TEScreen::setCursorY(int y)
+void Screen::setCursorY(int y)
 {
   if (y == 0) y = 1; // Default
   y -= 1; // Adjust
@@ -938,7 +939,7 @@ void TEScreen::setCursorY(int y)
 /*! set cursor to the `left upper' corner of the screen (1,1).
 */
 
-void TEScreen::home()
+void Screen::home()
 {
   cuX = 0;
   cuY = 0;
@@ -947,7 +948,7 @@ void TEScreen::home()
 /*! set cursor to the begin of the current line.
 */
 
-void TEScreen::Return()
+void Screen::Return()
 {
   cuX = 0;
 }
@@ -955,7 +956,7 @@ void TEScreen::Return()
 /*! returns the current cursor columns.
 */
 
-int TEScreen::getCursorX()
+int Screen::getCursorX()
 {
   return cuX;
 }
@@ -963,7 +964,7 @@ int TEScreen::getCursorX()
 /*! returns the current cursor line.
 */
 
-int TEScreen::getCursorY()
+int Screen::getCursorY()
 {
   return cuY;
 }
@@ -986,7 +987,7 @@ int TEScreen::getCursorY()
     screen matrix is mapped to the image vector.
 */
 
-void TEScreen::clearImage(int loca, int loce, char c)
+void Screen::clearImage(int loca, int loce, char c)
 { int i;
   int scr_TL=loc(0,hist->getLines());
   //FIXME: check positions
@@ -1018,11 +1019,11 @@ void TEScreen::clearImage(int loca, int loce, char c)
     screen matrix is mapped to the image vector.
 */
 
-void TEScreen::moveImage(int dst, int loca, int loce)
+void Screen::moveImage(int dst, int loca, int loce)
 {
 //FIXME: check positions
   if (loce < loca) {
-    kdDebug(1211) << "WARNING!!! call to TEScreen:moveImage with loce < loca!" << endl;
+    kdDebug(1211) << "WARNING!!! call to Screen:moveImage with loce < loca!" << endl;
     return;
   }
   //kdDebug(1211) << "Using memmove to scroll up" << endl;
@@ -1077,7 +1078,7 @@ void TEScreen::moveImage(int dst, int loca, int loce)
 /*! clear from (including) current cursor position to end of screen.
 */
 
-void TEScreen::clearToEndOfScreen()
+void Screen::clearToEndOfScreen()
 {
   clearImage(loc(cuX,cuY),loc(columns-1,lines-1),' ');
 }
@@ -1085,7 +1086,7 @@ void TEScreen::clearToEndOfScreen()
 /*! clear from begin of screen to (including) current cursor position.
 */
 
-void TEScreen::clearToBeginOfScreen()
+void Screen::clearToBeginOfScreen()
 {
   clearImage(loc(0,0),loc(cuX,cuY),' ');
 }
@@ -1093,7 +1094,7 @@ void TEScreen::clearToBeginOfScreen()
 /*! clear the entire screen.
 */
 
-void TEScreen::clearEntireScreen()
+void Screen::clearEntireScreen()
 {
   clearImage(loc(0,0),loc(columns-1,lines-1),' ');
 }
@@ -1102,7 +1103,7 @@ void TEScreen::clearEntireScreen()
     This is to aid screen alignment
 */
 
-void TEScreen::helpAlign()
+void Screen::helpAlign()
 {
   clearImage(loc(0,0),loc(columns-1,lines-1),'E');
 }
@@ -1110,7 +1111,7 @@ void TEScreen::helpAlign()
 /*! clear from (including) current cursor position to end of current cursor line.
 */
 
-void TEScreen::clearToEndOfLine()
+void Screen::clearToEndOfLine()
 {
   clearImage(loc(cuX,cuY),loc(columns-1,cuY),' ');
 }
@@ -1118,7 +1119,7 @@ void TEScreen::clearToEndOfLine()
 /*! clear from begin of current cursor line to (including) current cursor position.
 */
 
-void TEScreen::clearToBeginOfLine()
+void Screen::clearToBeginOfLine()
 {
   clearImage(loc(0,cuY),loc(cuX,cuY),' ');
 }
@@ -1126,7 +1127,7 @@ void TEScreen::clearToBeginOfLine()
 /*! clears entire current cursor line
 */
 
-void TEScreen::clearEntireLine()
+void Screen::clearEntireLine()
 {
   clearImage(loc(0,cuY),loc(columns-1,cuY),' ');
 }
@@ -1137,7 +1138,7 @@ void TEScreen::clearEntireLine()
     set rendition mode
 */
 
-void TEScreen::setRendition(int re)
+void Screen::setRendition(int re)
 {
   cu_re |= re;
   effectiveRendition();
@@ -1147,7 +1148,7 @@ void TEScreen::setRendition(int re)
     reset rendition mode
 */
 
-void TEScreen::resetRendition(int re)
+void Screen::resetRendition(int re)
 {
   cu_re &= ~re;
   effectiveRendition();
@@ -1156,7 +1157,7 @@ void TEScreen::resetRendition(int re)
 /*!
 */
 
-void TEScreen::setDefaultRendition()
+void Screen::setDefaultRendition()
 {
   setForeColor(COLOR_SPACE_DEFAULT,DEFAULT_FORE_COLOR);
   setBackColor(COLOR_SPACE_DEFAULT,DEFAULT_BACK_COLOR);
@@ -1166,7 +1167,7 @@ void TEScreen::setDefaultRendition()
 
 /*!
 */
-void TEScreen::setForeColor(int space, int color)
+void Screen::setForeColor(int space, int color)
 {
   cu_fg = CharacterColor(space, color);
   effectiveRendition();
@@ -1174,7 +1175,7 @@ void TEScreen::setForeColor(int space, int color)
 
 /*!
 */
-void TEScreen::setBackColor(int space, int color)
+void Screen::setBackColor(int space, int color)
 {
   cu_bg = CharacterColor(space, color);
   effectiveRendition();
@@ -1186,14 +1187,14 @@ void TEScreen::setBackColor(int space, int color)
 /*                                                                           */
 /* ------------------------------------------------------------------------- */
 
-void TEScreen::clearSelection()
+void Screen::clearSelection()
 {
   sel_BR = -1;
   sel_TL = -1;
   sel_begin = -1;
 }
 
-void TEScreen::setSelBeginXY(const int x, const int y, const bool mode)
+void Screen::setSelBeginXY(const int x, const int y, const bool mode)
 {
 //  kdDebug(1211) << "setSelBeginXY(" << x << "," << y << ")" << endl;
   sel_begin = loc(x,y+histCursor) ;
@@ -1206,7 +1207,7 @@ void TEScreen::setSelBeginXY(const int x, const int y, const bool mode)
   columnmode = mode;
 }
 
-void TEScreen::setSelExtentXY(const int x, const int y)
+void Screen::setSelExtentXY(const int x, const int y)
 {
 //  kdDebug(1211) << "setSelExtentXY(" << x << "," << y << ")" << endl;
   if (sel_begin == -1) return;
@@ -1227,7 +1228,7 @@ void TEScreen::setSelExtentXY(const int x, const int y)
   }
 }
 
-bool TEScreen::testIsSelected(const int x,const int y)
+bool Screen::testIsSelected(const int x,const int y)
 {
   if (columnmode) {
     int sel_Left,sel_Right;
@@ -1255,7 +1256,7 @@ static bool isSpace(uint16_t c)
   return qc.isSpace();
 }
 
-TQString TEScreen::getSelText(bool preserve_line_breaks)
+TQString Screen::getSelText(bool preserve_line_breaks)
 {
   TQString result;
   TQTextOStream stream(&result);
@@ -1296,7 +1297,7 @@ static TQString makeString(int *m, int d, bool stripTrailingSpaces)
   return res;
 }
 
-void TEScreen::getSelText(bool preserve_line_breaks, TQTextStream *stream)
+void Screen::getSelText(bool preserve_line_breaks, TQTextStream *stream)
 {
   if (sel_begin == -1)
      return; // Selection got clear while selecting.
@@ -1522,7 +1523,7 @@ void TEScreen::getSelText(bool preserve_line_breaks, TQTextStream *stream)
   delete [] m;
 }
 
-void TEScreen::streamHistory(TQTextStream* stream) {
+void Screen::streamHistory(TQTextStream* stream) {
   sel_begin = 0;
   sel_BR = sel_begin;
   sel_TL = sel_begin;
@@ -1531,7 +1532,7 @@ void TEScreen::streamHistory(TQTextStream* stream) {
   clearSelection();
 }
 
-TQString TEScreen::getHistoryLine(int no)
+TQString Screen::getHistoryLine(int no)
 {
   sel_begin = loc(0,no);
   sel_TL = sel_begin;
@@ -1539,7 +1540,7 @@ TQString TEScreen::getHistoryLine(int no)
   return getSelText(false);
 }
 
-void TEScreen::addHistLine()
+void Screen::addHistLine()
 {
   assert(hasScroll() || histCursor == 0);
 
@@ -1613,34 +1614,34 @@ void TEScreen::addHistLine()
   if (!hasScroll()) histCursor = 0; //FIXME: a poor workaround
 }
 
-void TEScreen::setHistCursor(int cursor)
+void Screen::setHistCursor(int cursor)
 {
   histCursor = cursor; //FIXME:rangecheck
 }
 
-int TEScreen::getHistCursor()
+int Screen::getHistCursor()
 {
   return histCursor;
 }
 
-int TEScreen::getHistLines()
+int Screen::getHistLines()
 {
   return hist->getLines();
 }
 
-void TEScreen::setScroll(const HistoryType& t)
+void Screen::setScroll(const HistoryType& t)
 {
   clearSelection();
   hist = t.getScroll(hist);
   histCursor = hist->getLines();
 }
 
-bool TEScreen::hasScroll()
+bool Screen::hasScroll()
 {
   return hist->hasScroll();
 }
 
-const HistoryType& TEScreen::getScroll()
+const HistoryType& Screen::getScroll()
 {
   return hist->getType();
 }

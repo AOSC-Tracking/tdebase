@@ -18,9 +18,6 @@
     02110-1301  USA.
 */
       
-#include "session.h"
-#include "zmodem_dialog.h"
-
 #include <kdebug.h>
 #include <dcopclient.h>
 #include <tdemessagebox.h>
@@ -36,6 +33,10 @@
 #include <tqdir.h>
 #include <tqregexp.h>
 #include <tqtextedit.h>
+
+#include "session.h"
+#include "TEHistory.h"
+#include "zmodem_dialog.h"
 
 /*! \class TESession
 

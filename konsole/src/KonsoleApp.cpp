@@ -43,7 +43,7 @@
   konsole/twin session management, parts stuff, config, menues
   are all in bad need for a complete rewrite.
 
-  While the emulation core (TEmulation, TEVt102, TEScreen, TEWidget)
+  While the emulation core (TEmulation, TEVt102, Screen, TEWidget)
   are pretty stable, the upper level material has certainly drifted.
 
   Everything related to Sessions, Configuration has to be redesigned.
@@ -141,6 +141,7 @@ Time to start a requirement list.
 #include <tdeio/netaccess.h>
 
 #include "KonsoleApp.h"
+#include "TEHistory.h"
 #include <netwm.h>
 #include "printsettings.h"
 
@@ -157,7 +158,9 @@ Time to start a requirement list.
 
 #define DEFAULT_HISTORY_SIZE 1000
 
-extern bool argb_visual; // declared in main.cpp and konsole_part.cpp
+extern bool argb_visual;
+const char* konsole_shell(TQStrList &args);
+
 
 namespace Konsole
 {

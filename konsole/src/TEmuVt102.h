@@ -22,7 +22,7 @@
 #define VT102EMU_H
 
 #include "TEWidget.h"
-#include "TEScreen.h"
+#include "Screen.h"
 #include "TEmulation.h"
 #include <stdio.h>
 

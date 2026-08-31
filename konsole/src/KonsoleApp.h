@@ -64,9 +64,6 @@ class TDERadioAction;
 class TDESelectAction;
 class TDEToggleAction;
 
-// Defined in main.C
-const char *konsole_shell(TQStrList &args);
-
 namespace Konsole
 {
 

@@ -20,6 +20,7 @@
  */
 
 #include "konsole_part.h"
+#include "TEHistory.h"
 
 #include <assert.h>
 

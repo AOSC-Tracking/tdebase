@@ -22,7 +22,7 @@
 
    \brief Actual Emulation for Konsole
 
-   \sa TEWidget \sa TEScreen
+   \sa TEWidget \sa Screen
 */
 #include "config.h"
 
@@ -37,7 +37,7 @@
 
 #include "TEmuVt102.h"
 #include "TEWidget.h"
-#include "TEScreen.h"
+#include "Screen.h"
 
 #include <stdio.h>
 #include <unistd.h>
@@ -162,7 +162,7 @@ void TEmuVt102::reset()
    This section deals with decoding the incoming character stream.
    Decoding means here, that the stream is first seperated into `tokens'
    which are then mapped to a `meaning' provided as operations by the
-   `TEScreen' class or by the emulation class itself.
+   `Screen' class or by the emulation class itself.
 
    The pipeline proceeds as follows:
 

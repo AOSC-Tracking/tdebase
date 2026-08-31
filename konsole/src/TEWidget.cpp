@@ -36,7 +36,7 @@
         a paintEvent is expected to follow anyway.
    </ul>
 
-   \sa TEScreen \sa Emulation
+   \sa Screen \sa Emulation
 */
 
 /* FIXME:
@@ -52,6 +52,7 @@
 */
 
 #include "config.h"
+#include "Screen.h"
 #include "TEWidget.h"
 #include "konsole_wcwidth.h"
 

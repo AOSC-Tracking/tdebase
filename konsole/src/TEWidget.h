@@ -32,7 +32,6 @@
 #include <tdepopupmenu.h>
 
 #include "Character.h"
-#include "TEScreen.h"
 
 class TQLabel;
 class TQTimer;
@@ -43,6 +42,7 @@ namespace Konsole
 {
 
 class KonsoleApp;
+class Screen;
 
 class TEWidget : public TQFrame
 // a widget representing attributed text
@@ -150,7 +150,7 @@ public:
 
     void setRim(int rim) { rimX=rim; rimY=rim; }
 
-    void setScreen(int num, TEScreen *scr) { screen_num = num & 0x01; screen = scr; }
+    void setScreen(int num, Screen *scr) { screen_num = num & 0x01; screen = scr; }
 
 public slots:
 
@@ -253,7 +253,7 @@ private:
 
     // Required to handle mouse wheel events correctly in all cases
 		int screen_num;    // Screen number (0 or 1)
-		TEScreen *screen;  // Pointer to current screen. No ownership!!
+		Screen *screen;  // Pointer to current screen. No ownership!!
 
     int lines;
     int columns;

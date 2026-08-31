@@ -22,7 +22,6 @@
 #define EMULATION_H
 
 #include "TEWidget.h"
-#include "TEScreen.h"
 #include <tqtimer.h>
 #include <stdio.h>
 #include <tqtextcodec.h>
@@ -31,6 +30,9 @@
 
 namespace Konsole
 {
+
+class HistoryType;
+class Screen;
 
 enum { NOTIFYNORMAL=0, NOTIFYBELL=1, NOTIFYACTIVITY=2, NOTIFYSILENCE=3 };
 
@@ -124,8 +126,8 @@ public:
 protected:
 
   TQGuardedPtr<TEWidget> gui;
-  TEScreen* scr;         // referes to one `screen'
-  TEScreen* screen[2];   // 0 = primary, 1 = alternate
+  Screen* scr;         // referes to one `screen'
+  Screen* screen[2];   // 0 = primary, 1 = alternate
   void setScreen(int n); // set `scr' to `screen[n]'
 
   bool   connected;    // communicate with widget

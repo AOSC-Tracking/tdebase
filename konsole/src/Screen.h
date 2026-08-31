@@ -18,11 +18,12 @@
     02110-1301  USA.
 */
 
-#ifndef TESCREEN_H
-#define TESCREEN_H
+#ifndef SCREEN_H
+#define SCREEN_H
+
+#include <tqbitarray.h>
 
 #include "Character.h"
-#include "TEHistory.h"
 
 #define MODE_Origin    0
 #define MODE_Wrap      1
@@ -35,6 +36,9 @@
 namespace Konsole
 {
 
+class HistoryScroll;
+class HistoryType;
+
 /*!
 */
 struct ScreenParm
@@ -43,11 +47,11 @@ struct ScreenParm
 };
 
 
-class TEScreen
+class Screen
 {
 public:
-    TEScreen(int lines, int columns);
-    ~TEScreen();
+    Screen(int lines, int columns);
+    ~Screen();
 
 public: // these are all `Screen' operations
     //
@@ -287,4 +291,4 @@ private: // helper
 
 }
 
-#endif // TESCREEN_H
+#endif

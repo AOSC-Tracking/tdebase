@@ -37,6 +37,7 @@ class TDEProcess;
 namespace Konsole
 {
 
+class HistoryType;
 class ZModemDialog;
 
 class TESession : public TQObject, virtual public SessionIface
