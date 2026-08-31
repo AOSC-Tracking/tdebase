@@ -272,13 +272,13 @@ void TEmulation::onRcvChar(int c)
   c &= 0xff;
   switch (c)
   {
-    case '\b'      : scr->BackSpace();                 break;
-    case '\t'      : scr->Tabulate();                  break;
-    case '\n'      : scr->NewLine();                   break;
-    case '\r'      : scr->Return();                    break;
+    case '\b'      : scr->backSpace();                 break;
+    case '\t'      : scr->tab();                       break;
+    case '\n'      : scr->newLine();                   break;
+    case '\r'      : scr->toStartOfLine();             break;
     case 0x07      : emit notifySessionState(NOTIFYBELL);
                      break;
-    default        : scr->ShowCharacter(c);            break;
+    default        : scr->displayCharacter(c);         break;
   };
 }
 
@@ -427,19 +427,19 @@ void TEmulation::onRcvBlock(const char *s, int len)
 
 void TEmulation::onSelectionBegin(const int x, const int y, const bool columnmode) {
   if (!connected) return;
-  scr->setSelBeginXY(x,y,columnmode);
+  scr->setSelectionStart(x,y,columnmode);
   showBulk();
 }
 
 void TEmulation::onSelectionExtend(const int x, const int y) {
   if (!connected) return;
-  scr->setSelExtentXY(x,y);
+  scr->setSelectionEnd(x,y);
   showBulk();
 }
 
 void TEmulation::setSelection(const bool preserve_line_breaks) {
   if (!connected) return;
-  TQString t = scr->getSelText(preserve_line_breaks);
+  TQString t = scr->selectedText(preserve_line_breaks);
   if (!t.isNull()) gui->setSelection(t);
 }
 
@@ -452,7 +452,7 @@ void TEmulation::isBusySelecting(bool busy)
 void TEmulation::testIsSelected(const int x, const int y, bool &selected)
 {
   if (!connected) return;
-  selected=scr->testIsSelected(x,y);
+  selected=scr->isSelected(x,y);
 }
 
 void TEmulation::clearSelection() {
@@ -463,12 +463,12 @@ void TEmulation::clearSelection() {
 
 void TEmulation::copySelection() {
   if (!connected) return;
-  TQString t = scr->getSelText(true);
+  TQString t = scr->selectedText(true);
   TQApplication::clipboard()->setText(t);
 }
 
 TQString TEmulation::getSelection() {
-  if (connected) return scr->getSelText(true);
+  if (connected) return scr->selectedText(true);
   return TQString::null;
 }
 

@@ -72,8 +72,8 @@ public: // these are all `Screen' operations
     //
     // Cursor Movement with Scrolling
     //
-    void NewLine     ();
-    void NextLine    ();
+    void newLine     ();
+    void nextLine    ();
     void index       ();
     void reverseIndex();
     //
@@ -82,10 +82,10 @@ public: // these are all `Screen' operations
     void scrollUp(int n);
     void scrollDown(int n);
     //
-    void Return      ();
-    void BackSpace   ();
-    void Tabulate    (int n = 1);
-    void backTabulate(int n);
+    void toStartOfLine();
+    void backSpace    ();
+    void tab          (int n = 1);
+    void backTab      (int n);
     //
     // Editing
     //
@@ -146,7 +146,7 @@ public: // these are all `Screen' operations
     void home();
     void reset();
     // Show character
-    void ShowCharacter(unsigned short c);
+    void displayCharacter(unsigned short c);
     
     // Do composition with last shown character
     void compose(TQString compose);
@@ -158,9 +158,9 @@ public: // these are all `Screen' operations
     TQBitArray getCookedLineWrapped();
 
     /*! return the number of lines. */
-    int  getLines()   { return lines; }
+    int  getLines()   { return m_lines; }
     /*! return the number of columns. */
-    int  getColumns() { return columns; }
+    int  getColumns() { return m_columns; }
 
     /*! set the position of the history cursor. */
     void setHistCursor(int cursor);
@@ -175,14 +175,14 @@ public: // these are all `Screen' operations
     //
     // Selection
     //
-    void setSelBeginXY(const int x, const int y, const bool columnmode);
-    void setSelExtentXY(const int x, const int y);
+    void setSelectionStart(const int x, const int y, const bool columnmode);
+    void setSelectionEnd(const int x, const int y);
     void clearSelection();
-    void setBusySelecting(bool busy) { sel_busy = busy; }
-    bool testIsSelected(const int x,const int y);
+    void setBusySelecting(bool busy) { m_selBusy = busy; }
+    bool isSelected(const int x,const int y);
 
-    TQString getSelText(bool preserve_line_breaks);
-    void getSelText(bool preserve_line_breaks, TQTextStream* stream);
+    TQString selectedText(bool preserve_line_breaks);
+    void selectedText(bool preserve_line_breaks, TQTextStream* stream);
     void streamHistory(TQTextStream* stream);
     TQString getHistoryLine(int no);
 
@@ -200,7 +200,7 @@ private: // helper
 
     void initTabStops();
 
-    void effectiveRendition();
+    void updateEffectiveRendition();
     void reverseRendition(Character* p);
 
     /*
@@ -215,53 +215,53 @@ private: // helper
 
     // screen image ----------------
 
-    int lines;
-    int columns;
-    Character *image; // [lines][columns]
-    TQBitArray line_wrapped; // [lines]
+    int m_lines;
+    int m_columns;
+    Character *m_image; // [lines][columns]
+    TQBitArray m_line_wrapped; // [lines]
 
     // history buffer ---------------
 
-    int histCursor;   // display position relative to start of the history buffer
-    HistoryScroll *hist;
+    int m_histCursor;   // display position relative to start of the history buffer
+    HistoryScroll *m_hist;
     
     // cursor location
 
-    int cuX;
-    int cuY;
+    int m_cursorX;
+    int m_cursorY;
 
     // cursor color and rendition info
 
-    CharacterColor cu_fg;      // foreground
-    CharacterColor cu_bg;      // background
-    uint8_t cu_re;      // rendition
+    CharacterColor m_cursorFg;      // foreground
+    CharacterColor m_cursorBg;      // background
+    uint8_t        m_cursorRend;    // rendition
 
     // margins ----------------
 
-    int tmargin;      // top margin
-    int bmargin;      // bottom margin
+    int m_topMargin;      // top margin
+    int m_bottomMargin;   // bottom margin
 
     // states ----------------
 
-    ScreenParm currParm;
+    ScreenParm m_currParm;
 
     // ----------------------------
 
-    bool* tabstops;
+    bool *m_tabStops;
 
     // selection -------------------
 
-    int sel_begin; // The first location selected.
-    int sel_TL;    // TopLeft Location.
-    int sel_BR;    // Bottom Right Location.
-    bool sel_busy; // Busy making a selection.
-    bool columnmode;  // Column selection mode
+    int  m_selBegin;           // The first location selected.
+    int  m_selTopLeft;         // TopLeft Location.
+    int  m_selBottomRight;     // Bottom Right Location.
+    bool m_selBusy;            // Busy making a selection.
+    bool m_blockSelectionMode; // Column selection mode
 
     // effective colors and rendition ------------
 
-    CharacterColor ef_fg;      // These are derived from
-    CharacterColor ef_bg;      // the cu_* variables above
-    uint8_t ef_re;      // to speed up operation
+    CharacterColor m_effectiveFg;   // These are derived from
+    CharacterColor m_effectiveBg;   // the m_cursor* variables above
+    uint8_t        m_effectiveRend; // to speed up operation
 
     //
     // save cursor, rendition & states ------------
@@ -269,24 +269,23 @@ private: // helper
 
     // cursor location
 
-    int sa_cuX;
-    int sa_cuY;
+    int m_savedCursorX;
+    int m_savedCursorY;
 
     // rendition info
 
-    uint8_t sa_cu_re;
-    CharacterColor sa_cu_fg;
-    CharacterColor sa_cu_bg;
+    CharacterColor m_savedCursorFg;
+    CharacterColor m_savedCursorBg;
+    uint8_t        m_savedCursorRend;
     
     // last position where we added a character
-    int lastPos;
+    int m_lastPos;
 
     // used in REP (repeating char)
-    unsigned short lastDrawnChar;
+    unsigned short m_lastDrawnChar;
 
     // modes
-
-    ScreenParm saveParm;
+    ScreenParm m_saveParm;
 };
 
 }
