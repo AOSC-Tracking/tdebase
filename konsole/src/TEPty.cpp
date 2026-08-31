@@ -88,7 +88,8 @@
 #include "TEPty.h"
 
 
-namespace Konsole {
+namespace Konsole
+{
 
 void TEPty::donePty()
 {

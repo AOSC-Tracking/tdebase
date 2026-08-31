@@ -39,7 +39,8 @@ class TQTimer;
 
 extern unsigned short vt100_graphics[32];
 
-namespace Konsole {
+namespace Konsole
+{
 
 class KonsoleApp;
 

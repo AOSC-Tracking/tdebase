@@ -50,7 +50,8 @@ static void scrolllock_set_off();
 static void scrolllock_set_on();
 #endif
 
-namespace Konsole {
+namespace Konsole
+{
 
 /* VT102 Terminal Emulation
 

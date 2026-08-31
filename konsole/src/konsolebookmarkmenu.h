@@ -35,7 +35,8 @@ class KBookmarkOwner;
 class KBookmarkMenu;
 class TDEPopupMenu;
 
-namespace Konsole {
+namespace Konsole
+{
 
 class KonsoleBookmarkMenu;
 

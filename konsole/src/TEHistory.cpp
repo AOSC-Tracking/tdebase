@@ -73,7 +73,8 @@ FIXME: There is noticeable decrease in speed, also. Perhaps,
   A Row(X) data type which allows adding elements to the end.
 */
 
-namespace Konsole {
+namespace Konsole
+{
 
 HistoryFile::HistoryFile()
   : ion(-1),

@@ -52,7 +52,8 @@
 // We can't use the ARGB32 visual when embedded in another application
 bool argb_visual = false;
 
-namespace Konsole {
+namespace Konsole
+{
 
 K_EXPORT_COMPONENT_FACTORY( libkonsolepart, konsoleFactory )
 

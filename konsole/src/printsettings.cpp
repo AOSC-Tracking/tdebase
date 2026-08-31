@@ -24,7 +24,8 @@
 #include <tqcheckbox.h>
 #include <tqlayout.h>
 
-namespace Konsole {
+namespace Konsole
+{
 
 PrintSettings::PrintSettings(TQWidget *parent, const char *name)
 : KPrintDialogPage(parent, name)

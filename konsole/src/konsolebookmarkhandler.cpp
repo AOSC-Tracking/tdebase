@@ -30,7 +30,8 @@
 #include "konsolebookmarkmenu.h"
 #include "konsolebookmarkhandler.h"
 
-namespace Konsole {
+namespace Konsole
+{
 
 KonsoleBookmarkHandler::KonsoleBookmarkHandler( KonsoleApp *konsole, bool toplevel )
     : TQObject( konsole, "KonsoleBookmarkHandler" ),

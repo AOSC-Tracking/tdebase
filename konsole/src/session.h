@@ -34,7 +34,8 @@
 class TDEProcIO;
 class TDEProcess;
 
-namespace Konsole {
+namespace Konsole
+{
 
 class ZModemDialog;
 

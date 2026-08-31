@@ -60,7 +60,8 @@
 #include <tdeconfig.h>
 #include <kdebug.h>
 
-namespace Konsole {
+namespace Konsole
+{
 
 typedef TQPtrListIterator<ColorSchema> ColorSchemaListIterator;
 

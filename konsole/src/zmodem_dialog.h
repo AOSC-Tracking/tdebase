@@ -23,7 +23,8 @@
 
 class TQTextEdit;
 
-namespace Konsole {
+namespace Konsole
+{
 
 class ZModemDialog : public KDialogBase
 {

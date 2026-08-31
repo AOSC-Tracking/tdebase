@@ -25,7 +25,8 @@
 
 class TQCheckBox;
 
-namespace Konsole {
+namespace Konsole
+{
 
 class PrintSettings : public KPrintDialogPage
 {

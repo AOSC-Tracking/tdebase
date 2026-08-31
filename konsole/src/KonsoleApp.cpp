@@ -159,7 +159,8 @@ Time to start a requirement list.
 
 extern bool argb_visual; // declared in main.cpp and konsole_part.cpp
 
-namespace Konsole {
+namespace Konsole
+{
 
 // KonsoleFontSelectAction is now also used for selectSize!
 class KonsoleFontSelectAction : public TDESelectAction {

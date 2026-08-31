@@ -46,7 +46,8 @@ class TDEToggleAction;
 
 namespace KParts { class GUIActivateEvent; }
 
-namespace Konsole {
+namespace Konsole
+{
 
 class konsoleBrowserExtension;
 

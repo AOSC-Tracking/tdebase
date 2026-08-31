@@ -81,7 +81,8 @@
 
 #include <assert.h>
 
-namespace Konsole {
+namespace Konsole
+{
 
 /* ------------------------------------------------------------------------- */
 /*                                                                           */

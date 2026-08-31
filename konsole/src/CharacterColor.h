@@ -25,7 +25,8 @@
 
 #include <tqcolor.h>
 
-namespace Konsole {
+namespace Konsole
+{
 
 // Represent colors in the default table and color schemas
 class ColorEntry

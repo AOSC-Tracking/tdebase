@@ -46,7 +46,8 @@
 
 #define BITS(x,v) ((((v)!=0)<<(x)))
 
-namespace Konsole {
+namespace Konsole
+{
 
 class KeytabReader;
 

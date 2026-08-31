@@ -35,7 +35,8 @@
 #define MODE_Ansi      (MODES_SCREEN+4)
 #define MODE_total     (MODES_SCREEN+5)
 
-namespace Konsole {
+namespace Konsole
+{
 
 struct DECpar
 {

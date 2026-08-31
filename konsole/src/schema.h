@@ -58,7 +58,8 @@
 class TQDateTime;
 class TDEConfig;
 
-namespace Konsole {
+namespace Konsole
+{
 
 class ColorSchema
 {

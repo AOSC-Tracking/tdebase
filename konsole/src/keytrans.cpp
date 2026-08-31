@@ -36,7 +36,8 @@
 #include <stdio.h>
 #include <stddef.h>
 
-namespace Konsole {
+namespace Konsole
+{
 
 /* KeyEntry
 

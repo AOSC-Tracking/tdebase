@@ -23,7 +23,8 @@
 #include "konsolebookmarkmenu.h"
 #include "konsolebookmarkhandler.h"
 
-namespace Konsole {
+namespace Konsole
+{
 
 KonsoleBookmarkMenu::KonsoleBookmarkMenu( KBookmarkManager* mgr,
                      KonsoleBookmarkHandler * _owner, TDEPopupMenu * _parentMenu,

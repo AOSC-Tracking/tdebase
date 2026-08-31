@@ -127,7 +127,8 @@ unsigned short vt100_graphics[32] =
 
 extern bool argb_visual; // declared in main.cpp and konsole_part.cpp
 
-namespace Konsole {
+namespace Konsole
+{
 
 bool draw_translucent_background_colors = false;	// FIXME move to a GUI configuration setting
 

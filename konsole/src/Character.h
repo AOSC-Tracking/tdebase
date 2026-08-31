@@ -33,7 +33,8 @@
 #define RE_INTENSIVE       (1 << 3)
 #define RE_CURSOR          (1 << 4)
 
-namespace Konsole {
+namespace Konsole
+{
 
 /*
    Character represents a single character in the terminal.

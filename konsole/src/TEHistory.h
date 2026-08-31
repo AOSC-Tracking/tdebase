@@ -31,7 +31,8 @@
 #include "BlockArray.h"
 #include "Character.h"
 
-namespace Konsole {
+namespace Konsole
+{
 
 /*
    An extendable tmpfile(1) based buffer.

@@ -29,7 +29,8 @@
 #include <tqvaluelist.h>
 #include <tqmemarray.h>
 
-namespace Konsole {
+namespace Konsole
+{
 
 class TEPty: public TDEProcess
 {

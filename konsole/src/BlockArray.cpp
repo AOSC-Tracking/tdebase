@@ -28,7 +28,8 @@
 
 static int blocksize = 0;
 
-namespace Konsole {
+namespace Konsole
+{
 
 BlockArray::BlockArray()
     : size(0),

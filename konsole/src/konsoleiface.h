@@ -23,7 +23,8 @@
 
 #include <dcopobject.h>
 
-namespace Konsole {
+namespace Konsole
+{
 
 class KonsoleIface : virtual public DCOPObject
 {
