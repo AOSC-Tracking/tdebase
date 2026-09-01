@@ -22,6 +22,9 @@ endif
 if include_LZMA
 LZMAPROTOCOL=lzma.protocol
 endif
+if include_LZIP
+LZIPPROTOCOL=lzip.protocol
+endif
 
-protocol_DATA = gzip.protocol $(BZIP2FILES) $(XZPROTOCOL) $(LZMAPROTOCOL)
+protocol_DATA = gzip.protocol $(BZIP2FILES) $(XZPROTOCOL) $(LZMAPROTOCOL) $(LZIPPROTOCOL)
 

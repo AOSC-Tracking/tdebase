@@ -23,7 +23,7 @@ link_directories(
 ##### other data ################################
 
 tde_create_translated_desktop(
-  SOURCE gzip.protocol bzip.protocol bzip2.protocol xz.protocol lzma.protocol
+  SOURCE gzip.protocol bzip.protocol bzip2.protocol xz.protocol lzma.protocol lzip.protocol
   DESTINATION ${SERVICES_INSTALL_DIR}
   PO_DIR tdeioslave-desktops
 )

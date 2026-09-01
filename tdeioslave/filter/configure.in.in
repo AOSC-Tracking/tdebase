@@ -1,1 +1,9 @@
 AC_FIND_BZIP2
+
+AC_CHECK_HEADER(lzlib.h,
+  [AC_CHECK_LIB(lz, LZ_decompress_open,
+    [have_lzip=yes],
+    [have_lzip=no])],
+  [have_lzip=no])
+
+AM_CONDITIONAL(include_LZIP, test "$have_lzip" = "yes")

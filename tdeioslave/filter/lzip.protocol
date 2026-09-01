@@ -1,0 +1,10 @@
+[Protocol]
+exec=tdeio_filter
+protocol=lzip
+mimetype=application/x-lzip
+input=stream
+output=stream
+reading=true
+source=false
+X-DocPath=tdeioslave/lzip/index.html
+Icon=ark
