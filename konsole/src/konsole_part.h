@@ -109,6 +109,7 @@ signals:
 
     void sendSignal(int n);
     void closeCurrentSession();
+    void slotSelectAll();
 
     void notifySize(int /*columns*/, int /*lines*/);
 

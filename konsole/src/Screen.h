@@ -178,6 +178,7 @@ public: // these are all `Screen' operations
     void setSelectionStart(const int x, const int y, const bool columnmode);
     void setSelectionEnd(const int x, const int y);
     void clearSelection();
+    void selectAll();
     void setBusySelecting(bool busy) { m_selBusy = busy; }
     bool isSelected(const int x,const int y);
 

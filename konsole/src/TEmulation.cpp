@@ -461,6 +461,13 @@ void TEmulation::clearSelection() {
   showBulk();
 }
 
+void TEmulation::selectAll() {
+  if (!connected) return;
+  scr->selectAll();
+  showBulk();
+  setSelection(true);
+}
+
 void TEmulation::copySelection() {
   if (!connected) return;
   TQString t = scr->selectedText(true);

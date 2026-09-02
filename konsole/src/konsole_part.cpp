@@ -481,6 +481,10 @@ void konsolePart::makeGUI()
                                         te, TQ_SLOT(copyClipboard()), actions, "edit_copy");
   copyClipboard->plug(m_popupMenu);
 
+  TDEAction *selectAll = new TDEAction(i18n("Select &All"), TQt::CTRL+TQt::SHIFT+TQt::Key_A,
+                                      this, TQ_SLOT(slotSelectAll()), actions, "edit_select_all");
+  selectAll->plug(m_popupMenu);
+
   TDEAction *pasteClipboard = new TDEAction(i18n("&Paste"), "edit-paste", 0,
                                         te, TQ_SLOT(pasteClipboard()), actions, "edit_paste");
   pasteClipboard->plug(m_popupMenu);
@@ -682,6 +686,12 @@ void konsolePart::sendSignal(int sn)
 void konsolePart::closeCurrentSession()
 {
   if ( se ) se->closeSession();
+}
+
+void konsolePart::slotSelectAll()
+{
+  if (se)
+    se->getEmulation()->selectAll();
 }
 
 void konsolePart::slotToggleFrame()

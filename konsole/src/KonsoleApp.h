@@ -228,6 +228,7 @@ private slots:
 
   void slotSetSelectionEnd() { te->setSelectionEnd(); }
   void slotCopyClipboard() { te->copyClipboard(); }
+  void slotSelectAll() { if (se) se->getEmulation()->selectAll(); }
   void slotPasteClipboard() { te->pasteClipboard(); }
   void slotPasteSelection() { te->pasteSelection(); }
 
@@ -378,6 +379,7 @@ private:
   TDEAction       *m_moveSessionRight;
 
   TDEAction       *m_copyClipboard;
+  TDEAction       *m_selectAll;
   TDEAction       *m_pasteClipboard;
   TDEAction       *m_pasteSelection;
   TDEAction       *m_clearTerminal;

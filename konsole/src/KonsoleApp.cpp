@@ -526,6 +526,7 @@ void KonsoleApp::makeGUI()
    // Edit Menu ----------------------------------------------------------------
    m_copyClipboard->plug(m_edit);
    m_pasteClipboard->plug(m_edit);
+   m_selectAll->plug(m_edit);
 
    m_edit->setCheckable(true);
    if (m_signals)
@@ -743,6 +744,7 @@ void KonsoleApp::makeGUI()
 
       m_copyClipboard->plug(m_rightButton);
       m_pasteClipboard->plug(m_rightButton);
+      m_selectAll->plug(m_rightButton);
 
       m_openSelection = new TDEPopupMenu(this);
       m_rightButton->insertItem( i18n("&Open.."), m_openSelection );
@@ -1097,6 +1099,8 @@ void KonsoleApp::makeBasicGUI()
                                  TQ_SLOT(slotPasteClipboard()), m_shortcuts, "edit_paste");
   m_pasteSelection = new TDEAction(i18n("Paste Selection"), TQt::CTRL+TQt::SHIFT+TQt::Key_Insert, this,
                                  TQ_SLOT(slotPasteSelection()), m_shortcuts, "pasteselection");
+  m_selectAll = new TDEAction(i18n("Select &All"), TQt::CTRL+TQt::SHIFT+TQt::Key_A, this,
+                            TQ_SLOT(slotSelectAll()), m_shortcuts, "edit_select_all");
 
   m_clearTerminal = new TDEAction(i18n("C&lear Terminal"), 0, this,
                                 TQ_SLOT(slotClearTerminal()), m_shortcuts, "clear_terminal");

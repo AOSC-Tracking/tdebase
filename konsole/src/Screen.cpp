@@ -1175,6 +1175,14 @@ void Screen::clearSelection()
   m_selBegin = -1;
 }
 
+void Screen::selectAll()
+{
+  m_selBegin = 0;
+  m_selTopLeft = 0;
+  m_selBottomRight = loc(m_columns - 1, m_hist->getLines() + m_lines - 1);
+  m_blockSelectionMode = false;
+}
+
 void Screen::setSelectionStart(const int x, const int y, const bool mode)
 {
 //  kdDebug(1211) << "setSelectionStart(" << x << "," << y << ")" << endl;
