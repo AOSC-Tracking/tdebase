@@ -64,6 +64,7 @@ KCMKonsole::KCMKonsole(TQWidget * parent, const char *name, const TQStringList&)
     connect(dialog->warnCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
     connect(dialog->ctrldragCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
     connect(dialog->cutToBeginningOfLineCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
+    connect(dialog->selectAllHistoryCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
     connect(dialog->allowResizeCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
     connect(dialog->bidiCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
     connect(dialog->xonXoffCB,TQ_SIGNAL(toggled(bool)), TQ_SLOT( changed() ));
@@ -104,6 +105,7 @@ void KCMKonsole::load(bool useDefaults)
     dialog->warnCB->setChecked(config.readBoolEntry("WarnQuit",true));
     dialog->ctrldragCB->setChecked(config.readBoolEntry("CtrlDrag",true));
     dialog->cutToBeginningOfLineCB->setChecked(config.readBoolEntry("CutToBeginningOfLine",false));
+    dialog->selectAllHistoryCB->setChecked(config.readBoolEntry("SelectAllHistory",true));
     dialog->allowResizeCB->setChecked(config.readBoolEntry("AllowResize",false));
     xonXoffOrig = config.readBoolEntry("XonXoff",false);
     dialog->xonXoffCB->setChecked(xonXoffOrig);
@@ -147,6 +149,7 @@ void KCMKonsole::save()
     config.writeEntry("WarnQuit", dialog->warnCB->isChecked());
     config.writeEntry("CtrlDrag", dialog->ctrldragCB->isChecked());
     config.writeEntry("CutToBeginningOfLine", dialog->cutToBeginningOfLineCB->isChecked());
+    config.writeEntry("SelectAllHistory", dialog->selectAllHistoryCB->isChecked());
     config.writeEntry("AllowResize", dialog->allowResizeCB->isChecked());
     bool xonXoffNew = dialog->xonXoffCB->isChecked();
     config.writeEntry("XonXoff", xonXoffNew);

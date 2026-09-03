@@ -461,9 +461,9 @@ void TEmulation::clearSelection() {
   showBulk();
 }
 
-void TEmulation::selectAll() {
+void TEmulation::selectAll(bool wholeHistory) {
   if (!connected) return;
-  scr->selectAll();
+  scr->selectAll(wholeHistory);
   showBulk();
   setSelection(true);
 }

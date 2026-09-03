@@ -193,6 +193,7 @@ signals:
     bool        b_metaAsAlt:1;
     bool        b_histEnabled:1;
     bool        b_useKonsoleSettings:1;
+    bool        b_selectAllHistory:1;
     bool        b_autoDestroy:1;
     bool        b_autoStartShell:1;
 

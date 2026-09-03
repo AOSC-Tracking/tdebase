@@ -71,7 +71,7 @@ public slots: // signals incoming from TEWidget
   // HACK - end
  
   virtual void clearSelection();
-  virtual void selectAll();
+  virtual void selectAll(bool wholeHistory = true);
   virtual void copySelection();
   virtual TQString getSelection();
   virtual void onSelectionBegin(const int x, const int y, const bool columnmode);

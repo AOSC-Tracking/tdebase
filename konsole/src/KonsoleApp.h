@@ -228,7 +228,7 @@ private slots:
 
   void slotSetSelectionEnd() { te->setSelectionEnd(); }
   void slotCopyClipboard() { te->copyClipboard(); }
-  void slotSelectAll() { if (se) se->getEmulation()->selectAll(); }
+  void slotSelectAll() { if (se) se->getEmulation()->selectAll(b_selectAllHistory); }
   void slotPasteClipboard() { te->pasteClipboard(); }
   void slotPasteSelection() { te->pasteSelection(); }
 
@@ -452,6 +452,7 @@ private:
   bool        b_matchTabWinTitle:1;
   bool        b_mouseWheelScroll:1;
   bool        b_menuAccelerators:1;
+  bool        b_selectAllHistory:1;
 
   unsigned int m_histSize;
   int m_separator_id;

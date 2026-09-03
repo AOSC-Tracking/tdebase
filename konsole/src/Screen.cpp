@@ -1175,11 +1175,15 @@ void Screen::clearSelection()
   m_selBegin = -1;
 }
 
-void Screen::selectAll()
+void Screen::selectAll(bool wholeHistory)
 {
-  m_selBegin = 0;
-  m_selTopLeft = 0;
-  m_selBottomRight = loc(m_columns - 1, m_hist->getLines() + m_lines - 1);
+  int firstLine = wholeHistory ? 0 : m_histCursor;
+  int lastLine = wholeHistory ? m_hist->getLines() + m_lines - 1
+                              : m_histCursor + m_lines - 1;
+
+  m_selBegin = loc(0, firstLine);
+  m_selTopLeft = m_selBegin;
+  m_selBottomRight = loc(m_columns - 1, lastLine);
   m_blockSelectionMode = false;
 }
 

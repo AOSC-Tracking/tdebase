@@ -130,6 +130,7 @@ konsolePart::konsolePart(TQWidget *_parentWidget, const char *widgetName, TQObje
 ,m_popupMenu(0)
 ,s_title(title)
 ,b_useKonsoleSettings(false)
+,b_selectAllHistory(true)
 ,b_autoDestroy(true)
 ,b_autoStartShell(true)
 ,m_histSize(DEFAULT_HISTORY_SIZE)
@@ -646,6 +647,7 @@ void konsolePart::readProperties()
 
   config = new TDEConfig("konsolerc",true);
   config->setDesktopGroup();
+  b_selectAllHistory = config->readBoolEntry("SelectAllHistory",true);
   te->setTerminalSizeHint( config->readBoolEntry("TerminalSizeHint",true) );
   delete config;
 }
@@ -691,7 +693,7 @@ void konsolePart::closeCurrentSession()
 void konsolePart::slotSelectAll()
 {
   if (se)
-    se->getEmulation()->selectAll();
+    se->getEmulation()->selectAll(b_selectAllHistory);
 }
 
 void konsolePart::slotToggleFrame()

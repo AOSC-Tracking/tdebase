@@ -281,6 +281,7 @@ KonsoleApp::KonsoleApp(const char* name, int histon, bool menubaron, bool tabbar
 ,b_sessionShortcutsEnabled(false)
 ,b_sessionShortcutsMapped(false)
 ,b_matchTabWinTitle(false)
+,b_selectAllHistory(true)
 ,m_histSize(DEFAULT_HISTORY_SIZE)
 ,m_separator_id(-1)
 ,m_newSessionButton(0)
@@ -1663,6 +1664,7 @@ void KonsoleApp::readProperties(TDEConfig* config, const TQString &schema, bool 
      b_matchTabWinTitle = config->readBoolEntry("MatchTabWinTitle",false);
      b_mouseWheelScroll = config->readBoolEntry("TabsCycleWheel",true);
      b_menuAccelerators = config->readBoolEntry("MenuAccelerators",false);
+     b_selectAllHistory = config->readBoolEntry("SelectAllHistory",true);
      config->setGroup("UTMP");
      b_addToUtmp = config->readBoolEntry("AddToUtmp",true);
      config->setDesktopGroup();
