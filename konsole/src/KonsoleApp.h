@@ -363,7 +363,6 @@ private:
   TDEToggleAction *m_fullscreen;
 
   TDESelectAction *selectSize;
-  TDESelectAction *selectFont;
   TDESelectAction *selectScrollbar;
   TDESelectAction *selectTabbar;
   TDESelectAction *selectBell;

@@ -237,7 +237,6 @@ KonsoleApp::KonsoleApp(const char* name, int histon, bool menubaron, bool tabbar
 ,showMenubar(0)
 ,m_fullscreen(0)
 ,selectSize(0)
-,selectFont(0)
 ,selectScrollbar(0)
 ,selectTabbar(0)
 ,selectBell(0)
@@ -526,6 +525,7 @@ void KonsoleApp::makeGUI()
    // Edit Menu ----------------------------------------------------------------
    m_copyClipboard->plug(m_edit);
    m_pasteClipboard->plug(m_edit);
+   m_pasteSelection->plug(m_edit);
    m_selectAll->plug(m_edit);
 
    m_edit->setCheckable(true);
@@ -744,6 +744,7 @@ void KonsoleApp::makeGUI()
 
       m_copyClipboard->plug(m_rightButton);
       m_pasteClipboard->plug(m_rightButton);
+      m_pasteSelection->plug(m_rightButton);
       m_selectAll->plug(m_rightButton);
 
       m_openSelection = new TDEPopupMenu(this);
