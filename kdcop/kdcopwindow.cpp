@@ -27,6 +27,9 @@
 #include <tdelistviewsearchline.h>
 
 #include <tqtimer.h>
+#include <tqapplication.h>
+#include <tqtoolbutton.h>
+#include <tqtooltip.h>
 #include <tqwidgetstack.h>
 #include <tqlabel.h>
 #include <tqsplitter.h>
@@ -288,15 +291,17 @@ KDCOPWindow::KDCOPWindow(TQWidget *parent, const char * name)
   statusBar()->message(i18n("Welcome to the TDE DCOP browser"));
   setIcon(TDEGlobal::iconLoader()->loadIcon("enhanced_browsing", TDEIcon::NoGroup, TDEIcon::SizeSmall));
 
-	mainView = new kdcopview(this, "KDCOP");
-        mainView->kListViewSearchLine1->setListView( mainView->lv );
-	setCentralWidget(mainView);
-	mainView->lv->addColumn(i18n("Application"));
-	mainView->lv->header()->setStretchEnabled(true, 0);
-//	mainView->lv->addColumn(i18n("Interface"));
-//	mainView->lv->addColumn(i18n("Function"));
-	mainView->lv->setDragAutoScroll( false );
-	mainView->lv->setRootIsDecorated( true );
+  mainView = new kdcopview(this, "KDCOP");
+  mainView->kListViewSearchLine1->setListView( mainView->lv );
+  mainView->tbClearSearchLine->setIconSet( TDEGlobal::iconLoader()->loadIconSet(
+          TQApplication::reverseLayout() ? "clear_left" : "locationbar_erase",
+          TDEIcon::Toolbar, 22 ) );
+  TQToolTip::add( mainView->tbClearSearchLine, i18n("Clear search") );
+  setCentralWidget(mainView);
+  mainView->lv->addColumn(i18n("Application"));
+  mainView->lv->header()->setStretchEnabled(true, 0);
+  mainView->lv->setDragAutoScroll( false );
+  mainView->lv->setRootIsDecorated( true );
   connect(mainView->lv, TQ_SIGNAL(doubleClicked(TQListViewItem *)), TQ_SLOT(slotCallFunction(TQListViewItem *)));
   connect(mainView->lv, TQ_SIGNAL(currentChanged(TQListViewItem *)), TQ_SLOT(slotCurrentChanged(TQListViewItem *)));
   connect(mainView->lb_replyData, TQ_SIGNAL(contextMenuRequested(TQListBoxItem*, const TQPoint&)),
