@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-04 18:14+0000\n"
-"PO-Revision-Date: 2026-08-12 20:57+0000\n"
+"PO-Revision-Date: 2026-09-07 23:19+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/twin-desktop-files/pt_BR/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. Name
 #: kcmtwin/showdesktop.desktop:4
 msgid "Show Desktop"
-msgstr "Mostrar área de trabalho"
+msgstr "Exibir área de trabalho"
 
 #. Comment
 #: kcmtwin/showdesktop.desktop:6
