@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-16 18:21+0000\n"
-"PO-Revision-Date: 2026-08-12 20:57+0000\n"
+"PO-Revision-Date: 2026-09-07 23:17+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/l10n-desktop-files/pt_BR/>\n"
@@ -880,7 +880,7 @@ msgstr "Nova Caledônia"
 #. Name
 #: ne/entry.desktop:2
 msgid "Niger"
-msgstr "Nigéria"
+msgstr "Níger"
 
 #. Name
 #: nf/entry.desktop:2
