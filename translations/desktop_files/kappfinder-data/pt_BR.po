@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:16+0000\n"
-"PO-Revision-Date: 2026-08-15 10:56+0000\n"
+"PO-Revision-Date: 2026-09-07 23:06+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kappfinder-data/pt_BR/>\n"
@@ -219,7 +219,7 @@ msgid ""
 "An open source version of Marathon Infinity for SDL that has Open GL disabled"
 msgstr ""
 "Uma versão de código aberto de Marathon Infinity para SDL, que possui o "
-"OpenGL desabilitado"
+"OpenGL desativado"
 
 #. Name
 #: Games/Arcade/battalion.desktop:2
