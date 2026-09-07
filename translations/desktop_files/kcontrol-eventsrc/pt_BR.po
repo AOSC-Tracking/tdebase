@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-18 03:57+0200\n"
-"PO-Revision-Date: 2026-08-04 02:22+0000\n"
+"PO-Revision-Date: 2026-09-07 23:13+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kcontrol-events/pt_BR/>\n"
@@ -94,22 +94,22 @@ msgstr ""
 #. Comment
 #: access/eventsrc:41 access/eventsrc:42
 msgid "Sticky keys has been enabled or disabled"
-msgstr "Teclas de aderência foram habilitadas ou desabilitadas"
+msgstr "Teclas de aderência foram ativadas ou desativadas"
 
 #. Name
 #. Comment
 #: access/eventsrc:48 access/eventsrc:49
 msgid "Slow keys has been enabled or disabled"
-msgstr "Teclas lentas foram habilitadas ou desabilitadas"
+msgstr "Teclas lentas foram ativadas ou desativadas"
 
 #. Name
 #. Comment
 #: access/eventsrc:55 access/eventsrc:56
 msgid "Bounce keys has been enabled or disabled"
-msgstr "Teclas lentas foram habilitadas ou desabilitadas"
+msgstr "Teclas lentas foram ativadas ou desativadas"
 
 #. Name
 #. Comment
 #: access/eventsrc:62 access/eventsrc:63
 msgid "Mouse keys has been enabled or disabled"
-msgstr "Teclas do mouse foram habilitadas ou desabilitadas"
+msgstr "Teclas do mouse foram ativadas ou desativadas"
