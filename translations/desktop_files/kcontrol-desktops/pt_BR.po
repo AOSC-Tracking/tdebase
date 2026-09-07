@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-12 18:16+0000\n"
-"PO-Revision-Date: 2026-08-15 10:56+0000\n"
+"PO-Revision-Date: 2026-09-07 23:13+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kcontrol-desktop-files/pt_BR/>\n"
@@ -311,7 +311,7 @@ msgid ""
 "Network;Search Engines;Shortcuts;"
 msgstr ""
 "navegação melhorada;navegação;WWW;Internet;palavras-chave Internet; filtros "
-"Internet;rede;mecanismos de procura;atalhos;"
+"Internet;rede;mecanismos de pesquisa;atalhos;"
 
 #. Name
 #: ebrowsing/plugins/ikws/kuriikwsfilter.desktop:3
@@ -326,7 +326,7 @@ msgstr "Filtro de procura de Palavras-Chave"
 #. Comment
 #: ebrowsing/plugins/ikws/searchprovider.desktop:4
 msgid "Search Engine"
-msgstr "Mecanismo de procura"
+msgstr "Mecanismo de pesquisa"
 
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/academic_en.desktop:3
@@ -557,7 +557,7 @@ msgstr "https://curlie.org/search?q=\\{@}"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:3
 msgid "Debian BTS Bug Search"
-msgstr "Busca de bugs Debian"
+msgstr "Pesquisa de bugs Debian"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/dbug.desktop:4
@@ -589,7 +589,7 @@ msgstr "http://dict.leo.org/?lp=frde&search=\\{@}"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/deb.desktop:3
 msgid "Debian Package Search"
-msgstr "Busca de pacotes Debian"
+msgstr "Pesquisa de pacotes Debian"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/deb.desktop:4
@@ -810,7 +810,7 @@ msgstr "http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:3
 msgid "Google Advanced Search"
-msgstr "Procura avançada do Google"
+msgstr "Pesquisa avançada do Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_advanced.desktop:4
@@ -830,7 +830,7 @@ msgstr ""
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:3
 msgid "Google Image Search"
-msgstr "Busca de imagens do Google"
+msgstr "Pesquisa de imagens do Google"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/google_images.desktop:6
@@ -1081,7 +1081,7 @@ msgstr "https://www.pexels.com/search/\\{@}/"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:3
 msgid "OpenPGP Key Search"
-msgstr "Busca de chaves OpenPGP"
+msgstr "Pesquisa de chaves OpenPGP"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/pgpkeys.desktop:4
@@ -1091,7 +1091,7 @@ msgstr "https://keys.openpgp.org/search?q=\\{@}"
 #. Name
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:3
 msgid "PHP Search"
-msgstr "Busca PHP"
+msgstr "Pesquisa PHP"
 
 #. Query
 #: ebrowsing/plugins/ikws/searchproviders/php.desktop:4
@@ -2094,9 +2094,9 @@ msgid ""
 "applets;startup;highlight;handles;zooming icons;"
 msgstr ""
 "kicker;painel;kpanel;barra de tarefas;lançar aplicativos;localização;tamanho"
-";auto-ocultar;esconder;botões; animação;fundo;temas;cache de "
-"menu;cache;escondido;menu TDE;favoritos;documentos recentes;navegador rápido;"
-" menu do navegador;menu;ícones;títulos;miniaplicativos;iniciar;realçar; "
+";auto-ocultar;ocultar;botões; animação;fundo;temas;cache de "
+"menu;cache;oculto;menu TDE;favoritos;documentos recentes;navegador rápido; "
+"menu do navegador;menu;ícones;títulos;miniaplicativos;iniciar;realçar; "
 "manipuladores; ícones de ampliação;"
 
 #. Name
@@ -2267,8 +2267,8 @@ msgstr ""
 #: konq/filepreviews.desktop:15
 msgid "konqueror;filemanager;previews;file previews;maximum size;"
 msgstr ""
-"konqueror;gerenciador de arquivos;visualização;pré-visualizações de arquivos;"
-"tamanho máximo;previsões;"
+"konqueror;gerenciador de arquivos;pré-visualização;pré-visualizações de "
+"arquivos;tamanho máximo;previsões;"
 
 #. Name
 #: konqhtml/tdehtml_behavior.desktop:11
@@ -2902,7 +2902,7 @@ msgstr "Dispositivos USB"
 #. Comment
 #: usbview/kcmusb.desktop:12
 msgid "View the USB devices attached to this computer"
-msgstr "Ver os dispositivos USB conectados à este computador"
+msgstr "Exibir os dispositivos USB conectados à este computador"
 
 #. Keywords
 #: usbview/kcmusb.desktop:14
@@ -2917,7 +2917,7 @@ msgstr "Dispositivos IEEE 1394"
 #. Comment
 #: view1394/kcmview1394.desktop:12
 msgid "View the IEEE 1394 devices attached to this computer"
-msgstr "Ver os dispositivos IEEE 1394 conectados à este computador"
+msgstr "Exibir os dispositivos IEEE 1394 conectados à este computador"
 
 #. Keywords
 #: view1394/kcmview1394.desktop:14
