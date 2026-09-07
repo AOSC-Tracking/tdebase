@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-05 18:15+0000\n"
-"PO-Revision-Date: 2026-08-12 20:56+0000\n"
+"PO-Revision-Date: 2026-09-07 23:13+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/khelpcenter-desktop-files/pt_BR/>\n"
@@ -45,12 +45,12 @@ msgstr "Índice de ajuda"
 #. Comment
 #: kcmhelpcenter.desktop:15
 msgid "Help center search index configuration and generation"
-msgstr "Configuração e geração do índice de busca do centro de ajuda"
+msgstr "Configuração e geração do índice de pesquisa do centro de ajuda"
 
 #. Keywords
 #: kcmhelpcenter.desktop:17
 msgid "khelpcenter;help;index;search;"
-msgstr "centro de ajuda;ajuda;índice;busca;"
+msgstr "centro de ajuda;ajuda;índice;pesquisa;"
 
 #. Name
 #: khelpcenter.desktop:11
