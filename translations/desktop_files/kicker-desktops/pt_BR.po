@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 16:24+0200\n"
-"PO-Revision-Date: 2026-08-15 10:56+0000\n"
+"PO-Revision-Date: 2026-09-07 23:14+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kicker-desktop-files/pt_BR/>\n"
@@ -35,7 +35,7 @@ msgstr "Lançador rápido"
 #. Comment
 #: applets/launcher/quicklauncher.desktop:5
 msgid "Directly access your frequently used applications"
-msgstr "Acesso direito à seus aplicativos mais freqüentemente usados"
+msgstr "Acesso direito à seus aplicativos mais frequentemente usados"
 
 #. Name
 #: applets/lockout/lockout.desktop:3
@@ -137,7 +137,7 @@ msgstr "Lixeira"
 #. Comment
 #: applets/trash/trashapplet.desktop:5
 msgid "Displays the trashcan and allows files to be dropped onto it"
-msgstr "Mostra a lixeira e permite que arquivos sejam arrastados até ela"
+msgstr "Exibe a lixeira e permite que arquivos sejam arrastados até ela"
 
 #. Name
 #: extensions/dockbar/dockbarextension.desktop:2
@@ -202,7 +202,7 @@ msgstr "Um menu que lista arquivos em uma determinada pasta"
 #. Name
 #: kicker/buttons/desktop.desktop:2
 msgid "Show Desktop"
-msgstr "Mostrar área de trabalho"
+msgstr "Exibir área de trabalho"
 
 #. Comment
 #: kicker/buttons/desktop.desktop:4
@@ -254,7 +254,7 @@ msgstr "Extensão de painel-filho."
 #. Comment
 #: kicker/interfaces/kickoffsearchplugin.desktop:5
 msgid "A search plugin for Kickoff"
-msgstr "Um plug-in de busca para o Kickoff"
+msgstr "Um plug-in de pesquisa para o Kickoff"
 
 #. Name
 #: kicker/kcmkicker.desktop:10
@@ -274,17 +274,17 @@ msgstr "Localizar"
 #. Comment
 #: menuext/find/find.desktop:4
 msgid "Menu for starting a file or web search"
-msgstr "Menu para iniciar um arquivo ou uma busca web"
+msgstr "Menu para iniciar um arquivo ou uma pesquisa web"
 
 #. Name
 #: menuext/find/kfind.desktop:11
 msgid "Find Files"
-msgstr "Procurar arquivos"
+msgstr "Localizar arquivos"
 
 #. Name
 #: menuext/find/websearch.desktop:8
 msgid "Web Search"
-msgstr "Busca na web"
+msgstr "Pesquisa na web"
 
 #. Name
 #: menuext/kate/katesessionmenu.desktop:2
