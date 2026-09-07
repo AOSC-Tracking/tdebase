@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 05:04+0200\n"
-"PO-Revision-Date: 2026-08-04 02:22+0000\n"
+"PO-Revision-Date: 2026-09-07 23:13+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/kfindpart-desktop-files/pt_BR/>\n"
@@ -20,9 +20,9 @@ msgstr ""
 #. Name
 #: Kfind.desktop:8
 msgid "Find Files/Folders"
-msgstr "Procurar arquivos/pastas"
+msgstr "Localizar arquivos/pastas"
 
 #. Name
 #: findpart.desktop:7 kfindpart.desktop:5
 msgid "Find Part"
-msgstr "Componente de busca"
+msgstr "Componente de localização"
