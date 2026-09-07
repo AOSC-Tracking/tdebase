@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-07 18:17+0000\n"
-"PO-Revision-Date: 2026-08-15 10:56+0000\n"
+"PO-Revision-Date: 2026-09-07 23:15+0000\n"
 "Last-Translator: Sebastião Guerra <sebastiao.luiz.guerra@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://mirror.git.trinitydesktop.org/"
 "weblate/projects/tdebase/konqueror-desktop-files/pt_BR/>\n"
@@ -35,12 +35,12 @@ msgstr "Página \"Sobre\" do Konqueror"
 #. Name
 #: iconview/konq_iconview.desktop:3
 msgid "Icon View"
-msgstr "Visão em ícones"
+msgstr "Exibição em ícones"
 
 #. Name
 #: iconview/konq_multicolumnview.desktop:3
 msgid "MultiColumn View"
-msgstr "Visão Multicolunas"
+msgstr "Exibição em várias colunas"
 
 #. Name
 #: kfmclient.desktop:9 kfmclient_dir.desktop:9 kfmclient_html.desktop:9
@@ -83,22 +83,22 @@ msgstr ""
 #. Name
 #: listview/konq_detailedlistview.desktop:3
 msgid "Detailed List View"
-msgstr "Visão de lista detalhada"
+msgstr "Exibição em lista detalhada"
 
 #. Name
 #: listview/konq_infolistview.desktop:3
 msgid "Info List View"
-msgstr "Visão de lista de informações"
+msgstr "Exibição em lista de informações"
 
 #. Name
 #: listview/konq_textview.desktop:3
 msgid "Text View"
-msgstr "Visão texto"
+msgstr "Exibição em texto"
 
 #. Name
 #: listview/konq_treeview.desktop:3
 msgid "Tree View"
-msgstr "Visão em árvore"
+msgstr "Exibição em árvore"
 
 #. Name
 #: preloader/konqy_preload.desktop:4
