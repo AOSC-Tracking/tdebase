@@ -842,9 +842,15 @@ void Screen::compose(TQString compose)
 
 void Screen::scrollUp(int n)
 {
-   if (n == 0) n = 1; // Default
-   if (m_topMargin == 0) addHistLine(); // hist.history
-   scrollUp(m_topMargin, n);
+  if (n == 0) n = 1; // Default
+  for (int i = 0; i < n; i++)
+  {
+    if (m_topMargin == 0)
+    {
+      addHistLine();
+    }
+    scrollUp(m_topMargin, 1);
+  }
 }
 
 /*! scroll up `n' lines within current region.
