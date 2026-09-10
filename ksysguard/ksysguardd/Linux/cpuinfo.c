@@ -38,7 +38,8 @@ static float* Clocks = 0;
 static int CPUs = 0;
 
 #define CPUINFOBUFSIZE (32 * 1024)
-static char CpuInfoBuf[ CPUINFOBUFSIZE ];
+static char* CpuInfoBuf = 0;
+static size_t CpuInfoBufSize = 0;
 static int Dirty = 0;
 static struct SensorModul *CpuInfoSM;
 
@@ -112,6 +113,12 @@ void exitCpuInfo( void )
   CpuInfoOK = -1;
 
   free( Clocks );
+
+  if ( CpuInfoBuf ) {
+    free( CpuInfoBuf );
+    CpuInfoBuf = 0;
+    CpuInfoBufSize = 0;
+  }
 }
 
 int updateCpuInfo( void )
@@ -131,23 +138,48 @@ int updateCpuInfo( void )
     return -1;
   }
 
+  if ( !CpuInfoBuf ) {
+    CpuInfoBuf = malloc( CPUINFOBUFSIZE );
+    if ( !CpuInfoBuf ) {
+      log_error( "Cannot allocate memory to read \'/proc/cpuinfo\'" );
+      CpuInfoOK = 0;
+      close( fd );
+      return -1;
+    }
+    CpuInfoBufSize = CPUINFOBUFSIZE;
+  }
+
   n = 0;
   for(;;) {
-    ssize_t len = read( fd, CpuInfoBuf + n, CPUINFOBUFSIZE - 1 - n );
+    ssize_t len = read( fd, CpuInfoBuf + n, CpuInfoBufSize - 1 - n );
     if( len < 0 ) {
       print_error( "Failed to read file \'/proc/cpuinfo\'!\n" );
       CpuInfoOK = -1;
       close( fd );
       return -1;
     }
-    n += len;
+
     if( len == 0 ) /* reading finished */
       break;
-    if( n == CPUINFOBUFSIZE - 1 ) {
-      log_error( "Internal buffer too small to read \'/proc/cpuinfo\'" );
-      CpuInfoOK = 0;
-      close( fd );
-      return -1;
+
+    n += len;
+
+    if ( n >= CpuInfoBufSize - 1 ) {
+      size_t newSize = CpuInfoBufSize * 2;
+      char* newBuf = realloc( CpuInfoBuf, newSize );
+
+      if ( !newBuf ) {
+        log_error( "Cannot allocate memory to read \'/proc/cpuinfo\'" );
+        free( CpuInfoBuf );
+        CpuInfoBuf = 0;
+        CpuInfoBufSize = 0;
+        CpuInfoOK = 0;
+        close( fd );
+        return -1;
+      }
+
+      CpuInfoBuf = newBuf;
+      CpuInfoBufSize = newSize;
     }
   }
 
