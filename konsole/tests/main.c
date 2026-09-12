@@ -1607,9 +1607,9 @@ bug_a() {
 
   /* That should be enough to show the bug. But we'll try another way:	*/
   sm ("?4");				/* Set soft scroll		*/
-  nel ();				/* "NextLine", move down	*/
+  nel ();				/* "nextLine", move down	*/
   rm ("?4");				/* Reset soft scroll		*/
-  nel ();				/* "NextLine", move down	*/
+  nel ();				/* "nextLine", move down	*/
   for (i = 1; i <= 10; i++) {		/* Show the bug			*/
       printf ("Softscroll bug test, line %d.  ", i);
       holdit();

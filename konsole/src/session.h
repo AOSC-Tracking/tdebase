@@ -27,7 +27,7 @@
 
 #include "TEPty.h"
 #include "TEWidget.h"
-#include "TEmuVt102.h"
+#include "Vt102Emulation.h"
 
 #include "sessioniface.h"
 

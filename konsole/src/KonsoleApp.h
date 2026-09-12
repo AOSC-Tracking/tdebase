@@ -40,7 +40,7 @@
 
 #include "TEPty.h"
 #include "TEWidget.h"
-#include "TEmuVt102.h"
+#include "Vt102Emulation.h"
 #include "session.h"
 #include "schema.h"
 #include "konsolebookmarkmenu.h"

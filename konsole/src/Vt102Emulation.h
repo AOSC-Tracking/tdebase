@@ -18,8 +18,8 @@
     02110-1301  USA.
 */
 
-#ifndef VT102EMU_H
-#define VT102EMU_H
+#ifndef VT102EMULATION_H
+#define VT102EMULATION_H
 
 #include "TEWidget.h"
 #include "Screen.h"
@@ -54,14 +54,14 @@ struct CharCodes
   bool sa_pound;   // saved pound
 };
 
-class TEmuVt102 : public TEmulation
+class Vt102Emulation : public TEmulation
 { TQ_OBJECT
 
 public:
 
-  TEmuVt102(TEWidget* gui);
+  Vt102Emulation(TEWidget* gui);
   void changeGUI(TEWidget* newgui);
-  ~TEmuVt102();
+  ~Vt102Emulation();
 
   virtual void doKeyPress(TQKeyEvent*);
 
@@ -162,4 +162,4 @@ protected:
 
 }
 
-#endif // ifndef ANSIEMU_H
+#endif

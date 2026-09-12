@@ -16,7 +16,7 @@ libkonsolepart_la_SOURCES = TEPty.cpp BlockArray.cpp konsole_part.cpp \
 	session.cpp \
 	zmodem_dialog.cpp \
 	TEWidget.cpp \
-	TEmuVt102.cpp \
+	Vt102Emulation.cpp \
 	Screen.cpp konsole_wcwidth.cpp \
 	TEmulation.cpp \
 	TEHistory.cpp \
@@ -37,7 +37,7 @@ kded_kwrited_la_LIBADD  = $(LIB_TDECORE)
 kded_kwrited_la_LDFLAGS = $(all_libraries) -module -avoid-version
 
 # konsole tdeinit module
-konsole_la_SOURCES = TEPty.cpp BlockArray.cpp main.cpp konsole.cpp schema.cpp session.cpp TEWidget.cpp TEmuVt102.cpp \
+konsole_la_SOURCES = TEPty.cpp BlockArray.cpp main.cpp konsole.cpp schema.cpp session.cpp TEWidget.cpp Vt102Emulation.cpp \
      Screen.cpp TEmulation.cpp TEHistory.cpp keytrans.cpp konsoleiface.skel sessioniface.skel \
      konsole_wcwidth.cpp konsolebookmarkhandler.cpp konsolebookmarkmenu.cpp \
      zmodem_dialog.cpp printsettings.cpp
@@ -48,7 +48,7 @@ konsole_la_LIBADD = $(LIB_TDEUI) $(LIB_TDEIO) $(LIB_TDEPRINT) $(LIBUTIL) $(XTEST
 # kcmkonsole_LDADD   = $(LIB_TDEUI)
 # kcmkonsole_LDFLAGS = $(all_libraries) $(KDE_RPATH) $(LIB_TQT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
 
-noinst_HEADERS = TEWidget.h TEPty.h TEmulation.h TEmuVt102.h \
+noinst_HEADERS = TEWidget.h TEPty.h TEmulation.h Vt102Emulation.h \
 	Character.h CharacterColor.h Screen.h konsole.h schema.h session.h konsole_wcwidth.h \
 	kwrited.h TEHistory.h keytrans.h default.keytab.h BlockArray.h \
         konsolebookmarkhandler.h konsolebookmarkmenu.h zmodem_dialog.h \

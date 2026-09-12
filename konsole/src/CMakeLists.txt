@@ -38,7 +38,7 @@ set( target libkonsolepart )
 
 set( ${target}_SRCS
   TEPty.cpp BlockArray.cpp konsole_part.cpp schema.cpp
-  session.cpp zmodem_dialog.cpp TEWidget.cpp TEmuVt102.cpp
+  session.cpp zmodem_dialog.cpp TEWidget.cpp Vt102Emulation.cpp
   Screen.cpp konsole_wcwidth.cpp TEmulation.cpp
   TEHistory.cpp keytrans.cpp konsoleiface.skel sessioniface.skel
 )
@@ -71,7 +71,7 @@ set( target konsole )
 
 set( ${target}_SRCS
   TEPty.cpp BlockArray.cpp main.cpp KonsoleApp.cpp
-  schema.cpp session.cpp TEWidget.cpp TEmuVt102.cpp
+  schema.cpp session.cpp TEWidget.cpp Vt102Emulation.cpp
   Screen.cpp TEmulation.cpp TEHistory.cpp keytrans.cpp
   konsoleiface.skel sessioniface.skel konsole_wcwidth.cpp
   konsolebookmarkhandler.cpp konsolebookmarkmenu.cpp

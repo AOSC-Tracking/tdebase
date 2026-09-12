@@ -78,8 +78,8 @@ TESession::TESession(TEWidget* _te, const TQString &_term, ulong _winId, const T
 {
   //kdDebug(1211)<<"TESession ctor() new TEPty"<<endl;
   te = _te;
-  //kdDebug(1211)<<"TESession ctor() new TEmuVt102"<<endl;
-  em = new TEmuVt102(te);
+  //kdDebug(1211)<<"TESession ctor() new Vt102Emulation"<<endl;
+  em = new Vt102Emulation(te);
   font_h = te-> fontHeight();
   font_w = te-> fontWidth();
   TQObject::connect(te,TQ_SIGNAL(changedContentSizeSignal(int,int)),
