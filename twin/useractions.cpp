@@ -846,7 +846,7 @@ void Workspace::slotSwitchToNextScreen()
 void Workspace::slotWindowToScreen( int i )
     {
     Client* c = active_popup_client ? active_popup_client : active_client;
-    if( i >= 0 && i <= numScreens() && c
+    if( i >= 0 && i < numScreens() && c
         && !c->isDesktop()
         && !c->isDock()
         && !c->isTopMenu())
