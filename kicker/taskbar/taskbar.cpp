@@ -650,14 +650,22 @@ void TaskBar::windowChanged(Task::Ptr task)
         return;
     }
 
-    container->windowChanged(task);
+    bool wasShown = container->isVisibleTo(this);
+    container->windowChanged(task);   // updates the button's label/icon/active-state repaint
+    // New status, mirroring 'TaskBar::filteredContainers()' logic
+    bool isShown = (m_showAllWindows || container->onCurrentDesktop()) &&
+                   (!m_showOnlyIconified || container->isIconified()) &&
+                   ((showScreen() == -1) || container->isOnScreen()) &&
+                   (!container->isHidden());
 
-    if (!m_showAllWindows || m_showOnlyIconified)
+    // We only call 'reLayoutEventually()' if the number of visible buttons
+    // has changed. This avoids unnecessary redrawing and annoying flickering
+    // when the taskbar has been scrolled.
+    if (wasShown != isShown)
     {
         emit containerCountChanged();
+        reLayoutEventually();
     }
-
-    reLayoutEventually();
 }
 
 void TaskBar::windowChangedGeometry(Task::Ptr task)
@@ -719,6 +727,11 @@ void TaskBar::reLayout()
             delete *it;
         m_deletableContainers.clear();
     }
+
+    // Remember where the taskbar is scrolled to in order to restore the
+    // same position at the end of the relayouting operation.
+    int oldContentsX = contentsX();
+    int oldContentsY = contentsY();
 
     // filter task container list
     TaskContainer::List list = filteredContainers();
@@ -860,6 +873,9 @@ void TaskBar::reLayout()
     }
 
     TQTimer::singleShot(100, this, TQ_SLOT(publishIconGeometry()));
+
+    // Restore the taskbar scroll position as it was before the relayout.
+    setContentsPos(oldContentsX, oldContentsY);
 }
 
 void TaskBar::setViewportBackground()
