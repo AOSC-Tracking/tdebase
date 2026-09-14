@@ -200,7 +200,7 @@ void TESession::run()
     kdWarning()<<"Unable to open a pseudo teletype!"<<endl;
     TQTimer::singleShot(0, this, TQ_SLOT(ptyError()));
   }
-  sh->setErase(em->getErase());
+  sh->setErase(em->eraseChar());
 
   if (!initial_cwd.isEmpty())
      TQDir::setCurrent(cwd_save);

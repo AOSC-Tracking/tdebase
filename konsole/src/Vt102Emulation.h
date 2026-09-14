@@ -38,7 +38,7 @@
 namespace Konsole
 {
 
-struct DECpar
+struct TerminalState
 {
   bool mode[MODE_total];
 };
@@ -67,7 +67,7 @@ public:
 
 public slots: // signals incoming from TEWidget
 
-  void onMouse(int cb, int cx, int cy);
+  void sendMouseEvent(int cb, int cx, int cy);
 
 signals:
 
@@ -78,7 +78,7 @@ public:
   void clearEntireScreen();
   void reset();
 
-  void onRcvChar(int cc);
+  void receiveChars(int cc);
 public slots:
   void sendString(const char *);
 
@@ -94,15 +94,15 @@ public:
 
   void setConnect(bool r);
   
-  char getErase();
+  char eraseChar();
 
 private:
 
-  void resetToken();
+  void resetTokenizer();
 #define MAXPBUF 80
-  void pushToToken(int cc);
-  int pbuf[MAXPBUF]; //FIXME: overflow?
-  int ppos;
+  void addToCurrentToken(int cc);
+  int m_tokenBuffer[MAXPBUF]; //FIXME: overflow?
+  int m_tokenBufferPos;
 #define MAXARGS 16
   void addDigit(int dig);
   void addArgument();
@@ -122,12 +122,12 @@ private:
   } params;
 
   void initTokenizer();
-  int tbl[256];
+  int m_charClass[256];
 
   void scan_buffer_report(); //FIXME: rename
-  void ReportErrorToken();   //FIXME: rename
+  void reportDecodingError();   //FIXME: rename
 
-  void tau(int code, int p, int q);
+  void processToken(int code, int p, int q);
   void OSC_sequence_handler();
 
   //
@@ -153,11 +153,11 @@ protected:
   void resetCharset(int scrno);
   void setMargins(int t, int b);
 
-  CharCodes charset[2];
+  CharCodes m_charset[2];
 
-  DECpar currParm;
-  DECpar saveParm;
-  bool holdScreen;
+  TerminalState m_currentModes;
+  TerminalState m_savedModes;
+  bool m_holdScreen;
 };
 
 }

@@ -98,7 +98,7 @@ signals:
 
 public:
 
-  virtual void onRcvChar(int);
+  virtual void receiveChars(int);
 
   virtual void setMode  (int) = 0;
   virtual void resetMode(int) = 0;
@@ -111,7 +111,7 @@ public:
   
   bool utf8() { return m_codec->mibEnum() == 106; }
 
-  virtual char getErase();
+  virtual char eraseChar();
 
   virtual void setListenToKeyPress(bool l);
   void setColumns(int columns);

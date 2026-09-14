@@ -265,7 +265,7 @@ int TEmulation::keymapNo()
 /*!
 */
 
-void TEmulation::onRcvChar(int c)
+void TEmulation::receiveChars(int c)
 // process application unicode input to terminal
 // this is a trivial scanner
 {
@@ -396,7 +396,7 @@ void TEmulation::onRcvBlock(const char *s, int len)
              tmp = decoder->toUnicode(" ",1);
        }
 
-       onRcvChar((unsigned char) s[i]);
+       receiveChars((unsigned char) s[i]);
 
        if (s[i] == '\030' && (len-i-1 > 3) && (strncmp(s+i+1, "B00", 3) == 0))
          emit zmodemDetected();
@@ -417,7 +417,7 @@ void TEmulation::onRcvBlock(const char *s, int len)
       if (r[j].category() == TQChar::Mark_NonSpacing)
          scr->compose(r.mid(j,1));
       else
-         onRcvChar(r[j].unicode());
+         receiveChars(r[j].unicode());
     }
     i = l;
   }
@@ -579,7 +579,7 @@ void TEmulation::setConnect(bool c)
   }
 }
 
-char TEmulation::getErase()
+char TEmulation::eraseChar()
 {
   return '\b';
 }
