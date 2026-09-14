@@ -242,14 +242,6 @@ void PrefMenu::initialize()
     // you click to open the menu, and then press and drag an item.
     m_dragStartPos = TQPoint(-1,-1);
 
-    if (m_root.isEmpty())
-    {
-        insertItem(KickerLib::menuIconSet("kcontrol"),
-                   i18n("Trinity Control Center"),
-                   this, TQ_SLOT(launchControlCenter()));
-        insertSeparator();
-    }
-
     // We ask KSycoca to give us all services under Settings/
     KServiceGroup::Ptr root = KServiceGroup::group(m_root.isEmpty() ? "Settings/" : m_root);
 
