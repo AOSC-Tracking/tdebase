@@ -121,6 +121,7 @@ option( WITH_UPOWER "Enable UPOWER support" ${WITH_ALL_OPTIONS} )
 option( WITH_ELFICON "Enable ELF embedded metadata support" ${WITH_ALL_OPTIONS} )
 option( WITH_GCC_VISIBILITY "Enable fvisibility and fvisibility-inlines-hidden" ${WITH_ALL_OPTIONS} )
 option( WITH_XKB_TRANSLATIONS "Use translations for xkb messages provided by xkeyboard-config" ON )
+option( WITH_TDM_CRYPTOCARDWATCHER "Enable smart card support (TDM)" ${WITH_ALL_OPTIONS} )
 
 ##### options comments ##########################
 
@@ -148,7 +149,7 @@ option( WITH_XKB_TRANSLATIONS "Use translations for xkb messages provided by xke
 # WITH_ARTS         affects libkonq khotkeys
 # WITH_I8K          affects ksysguard
 # WITH_SENSORS      affects ksysguard
-# WITH_TDEHWLIB     affects tdeioslaves(media)
+# WITH_TDEHWLIB     affects tdeioslaves(media), tdm(cryptocardwatcher)
 # WITH_LIBRAW1394   affects kcontrol(view1394)
 # WITH_PAM          affects tdm kdesktop kcheckpass
 # WITH_SHADOW       affects tdm kcheckpass
@@ -158,6 +159,7 @@ option( WITH_XKB_TRANSLATIONS "Use translations for xkb messages provided by xke
 # WITH_SUDO_TDESU_BACKEND affects tdesu
 # WITH_SUDO_KONSOLE_SUPER_USER_COMMAND affects launching Konsole super user sessions
 # WITH_XKB_TRANSLATIONS affects kxkb
+# WITH_TDM_CRYPTOCARDWATCHER Enable smart card support (TDM)
 
 # NOTE: WITH_SHADOW and WITH_PAM shouldn't be set concurrently
 #       WITH_PAM will override WITH_SHADOW
